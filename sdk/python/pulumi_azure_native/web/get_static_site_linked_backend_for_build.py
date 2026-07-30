@@ -170,7 +170,6 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[_builtin
 
     Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str environment_name: The stage site identifier
     :param _builtins.str linked_backend_name: Name of the linked backend that should be retrieved
     :param _builtins.str name: Name of the static site
@@ -195,10 +194,10 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[_builtin
         region=pulumi.get(__ret__, 'region'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_site_linked_backend_for_build_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    linked_backend_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_site_linked_backend_for_build_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    linked_backend_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteLinkedBackendForBuildResult]:
     """
     Returns the details of a linked backend linked to a static site build by name
@@ -206,7 +205,6 @@ def get_static_site_linked_backend_for_build_output(environment_name: Optional[p
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str environment_name: The stage site identifier
     :param _builtins.str linked_backend_name: Name of the linked backend that should be retrieved

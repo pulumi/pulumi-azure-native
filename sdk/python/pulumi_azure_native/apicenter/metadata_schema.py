@@ -25,8 +25,8 @@ class MetadataSchemaArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]]] = None,
-                 metadata_schema_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 assigned_to: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]] = None,
+                 metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetadataSchema resource.
 
@@ -82,26 +82,26 @@ class MetadataSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedTo")
-    def assigned_to(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]:
+    def assigned_to(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]:
         """
         The assignees
         """
         return pulumi.get(self, "assigned_to")
 
     @assigned_to.setter
-    def assigned_to(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]):
+    def assigned_to(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]):
         pulumi.set(self, "assigned_to", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataSchemaName")
-    def metadata_schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metadata schema.
         """
         return pulumi.get(self, "metadata_schema_name")
 
     @metadata_schema_name.setter
-    def metadata_schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_schema_name", value)
 
 
@@ -111,11 +111,11 @@ class MetadataSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
-                 metadata_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assigned_to: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
+                 metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Metadata schema entity. Used to define metadata for the entities in API catalog.
@@ -123,7 +123,6 @@ class MetadataSchema(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class MetadataSchema(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MetadataSchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class MetadataSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
-                 metadata_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assigned_to: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
+                 metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

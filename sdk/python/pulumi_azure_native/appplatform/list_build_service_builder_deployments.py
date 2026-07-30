@@ -61,7 +61,6 @@ def list_build_service_builder_deployments(build_service_name: Optional[_builtin
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_service_name: The name of the build service resource.
     :param _builtins.str builder_name: The name of the builder resource.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -77,10 +76,10 @@ def list_build_service_builder_deployments(build_service_name: Optional[_builtin
 
     return AwaitableListBuildServiceBuilderDeploymentsResult(
         deployments=pulumi.get(__ret__, 'deployments'))
-def list_build_service_builder_deployments_output(build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_build_service_builder_deployments_output(build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
     """
     List deployments that are using the builder.
@@ -88,7 +87,6 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_service_name: The name of the build service resource.
     :param _builtins.str builder_name: The name of the builder resource.

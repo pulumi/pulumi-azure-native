@@ -231,7 +231,6 @@ def get_gallery_image_version(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The expand expression to apply on the operation.
     :param _builtins.str gallery_image_name: The name of the gallery image definition to be retrieved.
     :param _builtins.str gallery_image_version_name: The name of the gallery image version to be retrieved.
@@ -263,11 +262,11 @@ def get_gallery_image_version(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validations_profile=pulumi.get(__ret__, 'validations_profile'))
-def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     gallery_image_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gallery_image_version_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     gallery_image_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
     """
     Retrieves information about a gallery image version.
@@ -275,7 +274,6 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[_bui
     Uses Azure REST API version 2024-03-03.
 
     Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The expand expression to apply on the operation.
     :param _builtins.str gallery_image_name: The name of the gallery image definition to be retrieved.

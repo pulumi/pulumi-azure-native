@@ -134,7 +134,6 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[_builtins.str
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -156,10 +155,10 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[_builtins.str
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_authorization_rule_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
     """
     Returns the specified authorization rule.
@@ -167,7 +166,6 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str namespace_name: The namespace name

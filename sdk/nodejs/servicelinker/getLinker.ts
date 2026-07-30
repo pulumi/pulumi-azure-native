@@ -62,7 +62,7 @@ export interface GetLinkerResult {
      */
     readonly name: string;
     /**
-     * The provisioning state. 
+     * The provisioning state.
      */
     readonly provisioningState: string;
     /**

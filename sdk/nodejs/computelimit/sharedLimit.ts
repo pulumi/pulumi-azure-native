@@ -125,5 +125,5 @@ export interface SharedLimitArgs {
     /**
      * The name of the SharedLimit
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

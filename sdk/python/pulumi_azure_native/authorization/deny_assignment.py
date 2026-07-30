@@ -23,17 +23,17 @@ __all__ = ['DenyAssignmentArgs', 'DenyAssignment']
 class DenyAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_effect: Optional[pulumi.Input[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
-                 deny_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_not_apply_to_child_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]] = None,
-                 is_system_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_effect: pulumi.Input[Optional[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
+                 deny_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_not_apply_to_child_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]] = None,
+                 is_system_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]] = None):
         """
         The set of arguments for constructing a DenyAssignment resource.
 
@@ -88,134 +88,134 @@ class DenyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conditions on the deny assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the condition.
         """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="denyAssignmentEffect")
-    def deny_assignment_effect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DenyAssignmentEffect']]]:
+    def deny_assignment_effect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DenyAssignmentEffect']]]:
         """
         The effect of the deny assignment. 'enforced' blocks access, 'audit' logs without blocking.
         """
         return pulumi.get(self, "deny_assignment_effect")
 
     @deny_assignment_effect.setter
-    def deny_assignment_effect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DenyAssignmentEffect']]]):
+    def deny_assignment_effect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DenyAssignmentEffect']]]):
         pulumi.set(self, "deny_assignment_effect", value)
 
     @_builtins.property
     @pulumi.getter(name="denyAssignmentId")
-    def deny_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deny_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the deny assignment to get.
         """
         return pulumi.get(self, "deny_assignment_id")
 
     @deny_assignment_id.setter
-    def deny_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deny_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deny_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="denyAssignmentName")
-    def deny_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deny_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the deny assignment.
         """
         return pulumi.get(self, "deny_assignment_name")
 
     @deny_assignment_name.setter
-    def deny_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deny_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deny_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the deny assignment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="doNotApplyToChildScopes")
-    def do_not_apply_to_child_scopes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_apply_to_child_scopes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the deny assignment applies to child scopes. Default value is false.
         """
         return pulumi.get(self, "do_not_apply_to_child_scopes")
 
     @do_not_apply_to_child_scopes.setter
-    def do_not_apply_to_child_scopes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_apply_to_child_scopes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_apply_to_child_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="excludePrincipals")
-    def exclude_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]:
+    def exclude_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]:
         """
         Array of principals to which the deny assignment does not apply.
         """
         return pulumi.get(self, "exclude_principals")
 
     @exclude_principals.setter
-    def exclude_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]):
+    def exclude_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]):
         pulumi.set(self, "exclude_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="isSystemProtected")
-    def is_system_protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_system_protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this deny assignment was created by Azure and cannot be edited or deleted.
         """
         return pulumi.get(self, "is_system_protected")
 
     @is_system_protected.setter
-    def is_system_protected(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_system_protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_system_protected", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]]:
         """
         An array of permissions that are denied by the deny assignment.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]:
         """
         Array of principals to which the deny assignment applies.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentPrincipalArgs']]]]):
         pulumi.set(self, "principals", value)
 
 
@@ -225,24 +225,23 @@ class DenyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_effect: Optional[pulumi.Input[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
-                 deny_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_not_apply_to_child_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
-                 is_system_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPermissionArgs', 'DenyAssignmentPermissionArgsDict']]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_effect: pulumi.Input[Optional[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
+                 deny_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_not_apply_to_child_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
+                 is_system_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPermissionArgs', 'DenyAssignmentPermissionArgsDict']]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Deny Assignment
 
         Uses Azure REST API version 2024-07-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +269,6 @@ class DenyAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DenyAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,18 +284,18 @@ class DenyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_effect: Optional[pulumi.Input[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
-                 deny_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_not_apply_to_child_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
-                 is_system_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPermissionArgs', 'DenyAssignmentPermissionArgsDict']]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_effect: pulumi.Input[Optional[Union[_builtins.str, 'DenyAssignmentEffect']]] = None,
+                 deny_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_not_apply_to_child_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
+                 is_system_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPermissionArgs', 'DenyAssignmentPermissionArgsDict']]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DenyAssignmentPrincipalArgs', 'DenyAssignmentPrincipalArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

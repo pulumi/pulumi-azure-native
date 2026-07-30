@@ -25,7 +25,7 @@ class WebPubSubHubArgs:
                  properties: pulumi.Input['WebPubSubHubPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebPubSubHub resource.
 
@@ -78,14 +78,14 @@ class WebPubSubHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="hubName")
-    def hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hub name.
         """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
-    def hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_name", value)
 
 
@@ -95,10 +95,10 @@ class WebPubSubHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A hub setting
@@ -106,7 +106,6 @@ class WebPubSubHub(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class WebPubSubHub(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebPubSubHubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class WebPubSubHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

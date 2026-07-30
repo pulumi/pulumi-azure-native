@@ -24,20 +24,20 @@ class ScalingPlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]] = None,
-                 host_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
-                 identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
-                 sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_references: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]] = None,
+                 host_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
+                 identity: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
+                 sku: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
 
@@ -114,161 +114,161 @@ class ScalingPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of scaling plan.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionTag")
-    def exclusion_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusion_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Exclusion tag for scaling plan.
         """
         return pulumi.get(self, "exclusion_tag")
 
     @exclusion_tag.setter
-    def exclusion_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusion_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusion_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User friendly name of scaling plan.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolReferences")
-    def host_pool_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]:
+    def host_pool_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]:
         """
         List of ScalingHostPoolReference definitions.
         """
         return pulumi.get(self, "host_pool_references")
 
     @host_pool_references.setter
-    def host_pool_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]):
+    def host_pool_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]):
         pulumi.set(self, "host_pool_references", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolType")
-    def host_pool_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScalingHostPoolType']]]:
+    def host_pool_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScalingHostPoolType']]]:
         """
         HostPool type for desktop.
         """
         return pulumi.get(self, "host_pool_type")
 
     @host_pool_type.setter
-    def host_pool_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScalingHostPoolType']]]):
+    def host_pool_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScalingHostPoolType']]]):
         pulumi.set(self, "host_pool_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']]:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanName")
-    def scaling_plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the scaling plan.
         """
         return pulumi.get(self, "scaling_plan_name")
 
     @scaling_plan_name.setter
-    def scaling_plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_plan_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingScheduleArgs']]]]:
         """
         List of ScalingPlanPooledSchedule definitions.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']]:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -278,22 +278,22 @@ class ScalingPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingHostPoolReferenceArgs', 'ScalingHostPoolReferenceArgsDict']]]]] = None,
-                 host_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingHostPoolReferenceArgs', 'ScalingHostPoolReferenceArgsDict']]]]] = None,
+                 host_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a scaling plan definition.
@@ -301,7 +301,6 @@ class ScalingPlan(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,7 +331,6 @@ class ScalingPlan(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,22 +346,22 @@ class ScalingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingHostPoolReferenceArgs', 'ScalingHostPoolReferenceArgsDict']]]]] = None,
-                 host_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingHostPoolReferenceArgs', 'ScalingHostPoolReferenceArgsDict']]]]] = None,
+                 host_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'ScalingHostPoolType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,7 +465,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 

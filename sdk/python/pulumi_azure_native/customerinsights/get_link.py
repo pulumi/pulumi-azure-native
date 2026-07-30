@@ -251,7 +251,6 @@ def get_link(hub_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2017-04-26.
 
-
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str link_name: The name of the link.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -281,15 +280,14 @@ def get_link(hub_name: Optional[_builtins.str] = None,
         target_entity_type_name=pulumi.get(__ret__, 'target_entity_type_name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_link_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Gets a link in the hub.
 
     Uses Azure REST API version 2017-04-26.
-
 
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str link_name: The name of the link.

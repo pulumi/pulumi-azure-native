@@ -24,8 +24,8 @@ class SerialPortArgs:
                  parent_resource_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_provider_namespace: pulumi.Input[_builtins.str],
-                 serial_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SerialPortState']] = None):
+                 serial_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SerialPortState']] = None):
         """
         The set of arguments for constructing a SerialPort resource.
 
@@ -95,26 +95,26 @@ class SerialPortArgs:
 
     @_builtins.property
     @pulumi.getter(name="serialPort")
-    def serial_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the serial port to create.
         """
         return pulumi.get(self, "serial_port")
 
     @serial_port.setter
-    def serial_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['SerialPortState']]:
+    def state(self) -> pulumi.Input[Optional['SerialPortState']]:
         """
         Specifies whether the port is enabled for a serial console connection.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['SerialPortState']]):
+    def state(self, value: pulumi.Input[Optional['SerialPortState']]):
         pulumi.set(self, "state", value)
 
 
@@ -124,18 +124,17 @@ class SerialPort(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SerialPortState']] = None,
+                 parent_resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SerialPortState']] = None,
                  __props__=None):
         """
         Represents the serial port of the parent resource.
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class SerialPort(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param SerialPortArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class SerialPort(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SerialPortState']] = None,
+                 parent_resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SerialPortState']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

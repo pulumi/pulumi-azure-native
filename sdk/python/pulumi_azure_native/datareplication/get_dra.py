@@ -116,7 +116,6 @@ def get_dra(fabric_agent_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-02-16-preview.
 
-
     :param _builtins.str fabric_agent_name: The fabric agent (Dra) name.
     :param _builtins.str fabric_name: The fabric name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -135,15 +134,14 @@ def get_dra(fabric_agent_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dra_output(fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dra_output(fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraResult]:
     """
     Gets the details of the fabric agent.
 
     Uses Azure REST API version 2021-02-16-preview.
-
 
     :param _builtins.str fabric_agent_name: The fabric agent (Dra) name.
     :param _builtins.str fabric_name: The fabric name.

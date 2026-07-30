@@ -166,31 +166,31 @@ export interface ExportArgs {
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Export Name.
      */
-    exportName?: pulumi.Input<string>;
+    exportName?: pulumi.Input<string | undefined>;
     /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
-    format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.FormatType | undefined>;
     /**
      * The managed identity associated with Export
      */
-    identity?: pulumi.Input<inputs.costmanagement.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.costmanagement.SystemAssignedServiceIdentityArgs | undefined>;
     /**
      * The location of the Export's managed identity. Only required when utilizing managed identity.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
      */
-    partitionData?: pulumi.Input<boolean>;
+    partitionData?: pulumi.Input<boolean | undefined>;
     /**
      * Has schedule information for the export.
      */
-    schedule?: pulumi.Input<inputs.costmanagement.ExportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.ExportScheduleArgs | undefined>;
     /**
      * The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
      */

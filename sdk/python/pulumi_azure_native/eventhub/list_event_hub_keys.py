@@ -133,7 +133,6 @@ def list_event_hub_keys(authorization_rule_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str event_hub_name: The Event Hub name
     :param _builtins.str namespace_name: The Namespace name
@@ -155,10 +154,10 @@ def list_event_hub_keys(authorization_rule_name: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_event_hub_keys_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEventHubKeysResult]:
     """
     Gets the ACS and SAS connection strings for the Event Hub.
@@ -166,7 +165,6 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str event_hub_name: The Event Hub name

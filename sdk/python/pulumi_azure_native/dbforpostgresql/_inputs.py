@@ -60,10 +60,10 @@ __all__ = [
     'SingleServerSkuArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'StorageProfileArgs',
-    'StorageProfileArgsDict',
     'StorageArgs',
     'StorageArgsDict',
+    'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'UserAssignedIdentityArgs',
     'UserAssignedIdentityArgsDict',
     'UserIdentityArgs',
@@ -126,15 +126,15 @@ class AuthConfigArgsDict(TypedDict):
     """
     Authentication configuration properties of a server.
     """
-    active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]
+    active_directory_auth: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftEntraAuth']]]]
     """
     Indicates if the server supports Microsoft Entra authentication.
     """
-    password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]
+    password_auth: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PasswordBasedAuth']]]]
     """
     Indicates if the server supports password based authentication.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the tenant of the delegated resource.
     """
@@ -142,9 +142,9 @@ class AuthConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AuthConfigArgs:
     def __init__(__self__, *,
-                 active_directory_auth: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]] = None,
-                 password_auth: Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_auth: pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftEntraAuth']]] = None,
+                 password_auth: pulumi.Input[Optional[Union[_builtins.str, 'PasswordBasedAuth']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication configuration properties of a server.
 
@@ -165,38 +165,38 @@ class AuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryAuth")
-    def active_directory_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]:
+    def active_directory_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftEntraAuth']]]:
         """
         Indicates if the server supports Microsoft Entra authentication.
         """
         return pulumi.get(self, "active_directory_auth")
 
     @active_directory_auth.setter
-    def active_directory_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]):
+    def active_directory_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftEntraAuth']]]):
         pulumi.set(self, "active_directory_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAuth")
-    def password_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]:
+    def password_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PasswordBasedAuth']]]:
         """
         Indicates if the server supports password based authentication.
         """
         return pulumi.get(self, "password_auth")
 
     @password_auth.setter
-    def password_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]):
+    def password_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PasswordBasedAuth']]]):
         pulumi.set(self, "password_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the tenant of the delegated resource.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -204,11 +204,11 @@ class BackupArgsDict(TypedDict):
     """
     Backup properties of a server.
     """
-    backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    backup_retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Backup retention days for the server.
     """
-    geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]
+    geo_redundant_backup: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GeographicallyRedundantBackup']]]]
     """
     Indicates if the server is configured to create geographically redundant backups.
     """
@@ -216,8 +216,8 @@ class BackupArgsDict(TypedDict):
 @pulumi.input_type
 class BackupArgs:
     def __init__(__self__, *,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_redundant_backup: Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]] = None):
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 geo_redundant_backup: pulumi.Input[Optional[Union[_builtins.str, 'GeographicallyRedundantBackup']]] = None):
         """
         Backup properties of a server.
 
@@ -235,26 +235,26 @@ class BackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]:
+    def geo_redundant_backup(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GeographicallyRedundantBackup']]]:
         """
         Indicates if the server is configured to create geographically redundant backups.
         """
         return pulumi.get(self, "geo_redundant_backup")
 
     @geo_redundant_backup.setter
-    def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]):
+    def geo_redundant_backup(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GeographicallyRedundantBackup']]]):
         pulumi.set(self, "geo_redundant_backup", value)
 
 
@@ -262,11 +262,11 @@ class ClusterArgsDict(TypedDict):
     """
     Cluster properties of a server.
     """
-    cluster_size: NotRequired[pulumi.Input[_builtins.int]]
+    cluster_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of nodes assigned to the elastic cluster.
     """
-    default_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default database name for the elastic cluster.
     """
@@ -274,8 +274,8 @@ class ClusterArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Cluster properties of a server.
 
@@ -291,26 +291,26 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cluster_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes assigned to the elastic cluster.
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cluster_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cluster_size", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDatabaseName")
-    def default_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default database name for the elastic cluster.
         """
         return pulumi.get(self, "default_database_name")
 
     @default_database_name.setter
-    def default_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_database_name", value)
 
 
@@ -318,23 +318,23 @@ class DataEncryptionArgsDict(TypedDict):
     """
     Data encryption properties of a server.
     """
-    geo_backup_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
     """
-    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
     """
-    primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    primary_key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
     """
-    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]]
     """
     Data encryption type used by a server.
     """
@@ -342,11 +342,11 @@ class DataEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class DataEncryptionArgs:
     def __init__(__self__, *,
-                 geo_backup_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_backup_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]] = None):
+                 geo_backup_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_backup_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]] = None):
         """
         Data encryption properties of a server.
 
@@ -369,62 +369,62 @@ class DataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyURI")
-    def geo_backup_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_key_uri")
 
     @geo_backup_key_uri.setter
-    def geo_backup_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
-    def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
     @geo_backup_user_assigned_identity_id.setter
-    def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyURI")
-    def primary_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_key_uri")
 
     @primary_key_uri.setter
-    def primary_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]:
         """
         Data encryption type used by a server.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -432,11 +432,11 @@ class HighAvailabilityArgsDict(TypedDict):
     """
     High availability properties of a server.
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]]
     """
     High availability mode for a server.
     """
-    standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    standby_availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
     """
@@ -444,8 +444,8 @@ class HighAvailabilityArgsDict(TypedDict):
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]] = None,
-                 standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]] = None,
+                 standby_availability_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         High availability properties of a server.
 
@@ -463,26 +463,26 @@ class HighAvailabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]:
         """
         High availability mode for a server.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyAvailabilityZone")
-    def standby_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standby_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter
-    def standby_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standby_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standby_availability_zone", value)
 
 
@@ -490,8 +490,8 @@ class IdentityPropertiesArgsDict(TypedDict):
     """
     Describes the identity of the cluster.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -499,8 +499,8 @@ class IdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes the identity of the cluster.
 
@@ -513,23 +513,23 @@ class IdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -537,19 +537,19 @@ class MaintenanceWindowArgsDict(TypedDict):
     """
     Maintenance window properties of a server.
     """
-    custom_window: NotRequired[pulumi.Input[_builtins.str]]
+    custom_window: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether custom window is enabled or disabled.
     """
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Day of the week to be used for maintenance window.
     """
-    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Start hour to be used for maintenance window.
     """
-    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Start minute to be used for maintenance window.
     """
@@ -557,10 +557,10 @@ class MaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowArgs:
     def __init__(__self__, *,
-                 custom_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Maintenance window properties of a server.
 
@@ -588,50 +588,50 @@ class MaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="customWindow")
-    def custom_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether custom window is enabled or disabled.
         """
         return pulumi.get(self, "custom_window")
 
     @custom_window.setter
-    def custom_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_window", value)
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Day of the week to be used for maintenance window.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Start hour to be used for maintenance window.
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Start minute to be used for maintenance window.
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
 
 
@@ -643,11 +643,11 @@ class MigrationSecretParametersArgsDict(TypedDict):
     """
     Credentials of administrator users for source and target servers.
     """
-    source_server_username: NotRequired[pulumi.Input[_builtins.str]]
+    source_server_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the name of the user for the source server. This user doesn't need to be an administrator.
     """
-    target_server_username: NotRequired[pulumi.Input[_builtins.str]]
+    target_server_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the name of the user for the target server. This user doesn't need to be an administrator.
     """
@@ -656,8 +656,8 @@ class MigrationSecretParametersArgsDict(TypedDict):
 class MigrationSecretParametersArgs:
     def __init__(__self__, *,
                  admin_credentials: pulumi.Input['AdminCredentialsArgs'],
-                 source_server_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_server_username: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_server_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_server_username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Migration secret parameters.
 
@@ -685,26 +685,26 @@ class MigrationSecretParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceServerUsername")
-    def source_server_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the name of the user for the source server. This user doesn't need to be an administrator.
         """
         return pulumi.get(self, "source_server_username")
 
     @source_server_username.setter
-    def source_server_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_username", value)
 
     @_builtins.property
     @pulumi.getter(name="targetServerUsername")
-    def target_server_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_server_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the name of the user for the target server. This user doesn't need to be an administrator.
         """
         return pulumi.get(self, "target_server_username")
 
     @target_server_username.setter
-    def target_server_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_server_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_server_username", value)
 
 
@@ -712,15 +712,15 @@ class NetworkArgsDict(TypedDict):
     """
     Network properties of a server.
     """
-    delegated_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    delegated_subnet_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
     """
-    private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]]
     """
     Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
     """
@@ -728,9 +728,9 @@ class NetworkArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
-                 delegated_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_arm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]] = None):
+                 delegated_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_arm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'ServerPublicNetworkAccessState']]] = None):
         """
         Network properties of a server.
 
@@ -747,38 +747,38 @@ class NetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedSubnetResourceId")
-    def delegated_subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         """
         return pulumi.get(self, "delegated_subnet_resource_id")
 
     @delegated_subnet_resource_id.setter
-    def delegated_subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneArmResourceId")
-    def private_dns_zone_arm_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone_arm_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         """
         return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
     @private_dns_zone_arm_resource_id.setter
-    def private_dns_zone_arm_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone_arm_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]:
         """
         Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -786,15 +786,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -802,9 +802,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -821,38 +821,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -860,15 +860,15 @@ class ReplicaArgsDict(TypedDict):
     """
     Replica properties of a server.
     """
-    promote_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]
+    promote_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteMode']]]]
     """
     Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
     """
-    promote_option: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]
+    promote_option: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteOption']]]]
     """
     Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
     """
-    role: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]
+    role: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]]]
     """
     Role of the server in a replication set.
     """
@@ -876,9 +876,9 @@ class ReplicaArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicaArgs:
     def __init__(__self__, *,
-                 promote_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]] = None,
-                 promote_option: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]] = None):
+                 promote_mode: pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteMode']]] = None,
+                 promote_option: pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteOption']]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]] = None):
         """
         Replica properties of a server.
 
@@ -895,38 +895,38 @@ class ReplicaArgs:
 
     @_builtins.property
     @pulumi.getter(name="promoteMode")
-    def promote_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]:
+    def promote_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteMode']]]:
         """
         Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
         """
         return pulumi.get(self, "promote_mode")
 
     @promote_mode.setter
-    def promote_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]):
+    def promote_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteMode']]]):
         pulumi.set(self, "promote_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="promoteOption")
-    def promote_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]:
+    def promote_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteOption']]]:
         """
         Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
         """
         return pulumi.get(self, "promote_option")
 
     @promote_option.setter
-    def promote_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]):
+    def promote_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReadReplicaPromoteOption']]]):
         pulumi.set(self, "promote_option", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]:
+    def role(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]]:
         """
         Role of the server in a replication set.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]):
+    def role(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]]):
         pulumi.set(self, "role", value)
 
 
@@ -934,7 +934,7 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     Azure Active Directory identity configuration for a resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerIdentityProperties']]]]
     """
     The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     """
@@ -942,7 +942,7 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerIdentityProperties']]] = None):
         """
         Azure Active Directory identity configuration for a resource.
 
@@ -953,14 +953,14 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerIdentityProperties']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerIdentityProperties']]]):
         pulumi.set(self, "type", value)
 
 
@@ -968,14 +968,14 @@ class ServerGroupClusterAuthConfigArgsDict(TypedDict):
     """
     Authentication configuration of a cluster.
     """
-    active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]]
-    password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]]
+    active_directory_auth: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActiveDirectoryAuth']]]]
+    password_auth: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PasswordAuth']]]]
 
 @pulumi.input_type
 class ServerGroupClusterAuthConfigArgs:
     def __init__(__self__, *,
-                 active_directory_auth: Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]] = None,
-                 password_auth: Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]] = None):
+                 active_directory_auth: pulumi.Input[Optional[Union[_builtins.str, 'ActiveDirectoryAuth']]] = None,
+                 password_auth: pulumi.Input[Optional[Union[_builtins.str, 'PasswordAuth']]] = None):
         """
         Authentication configuration of a cluster.
         """
@@ -986,20 +986,20 @@ class ServerGroupClusterAuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryAuth")
-    def active_directory_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]]:
+    def active_directory_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActiveDirectoryAuth']]]:
         return pulumi.get(self, "active_directory_auth")
 
     @active_directory_auth.setter
-    def active_directory_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]]):
+    def active_directory_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActiveDirectoryAuth']]]):
         pulumi.set(self, "active_directory_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAuth")
-    def password_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]]:
+    def password_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PasswordAuth']]]:
         return pulumi.get(self, "password_auth")
 
     @password_auth.setter
-    def password_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]]):
+    def password_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PasswordAuth']]]):
         pulumi.set(self, "password_auth", value)
 
 
@@ -1007,22 +1007,22 @@ class ServerGroupClusterDataEncryptionArgsDict(TypedDict):
     """
     The data encryption properties of a cluster.
     """
-    primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    primary_key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI for the key in keyvault for data encryption of the primary server.
     """
-    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id for the User assigned identity to be used for data encryption of the primary server.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]]
 
 @pulumi.input_type
 class ServerGroupClusterDataEncryptionArgs:
     def __init__(__self__, *,
-                 primary_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]] = None):
+                 primary_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]] = None):
         """
         The data encryption properties of a cluster.
 
@@ -1038,35 +1038,35 @@ class ServerGroupClusterDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyUri")
-    def primary_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI for the key in keyvault for data encryption of the primary server.
         """
         return pulumi.get(self, "primary_key_uri")
 
     @primary_key_uri.setter
-    def primary_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id for the User assigned identity to be used for data encryption of the primary server.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataEncryptionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1074,19 +1074,19 @@ class ServerGroupClusterMaintenanceWindowArgsDict(TypedDict):
     """
     Schedule settings for regular cluster updates.
     """
-    custom_window: NotRequired[pulumi.Input[_builtins.str]]
+    custom_window: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether custom maintenance window is enabled or not.
     """
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Preferred day of the week for maintenance window.
     """
-    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Start hour within preferred day of the week for maintenance window.
     """
-    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Start minute within the start hour for maintenance window.
     """
@@ -1094,10 +1094,10 @@ class ServerGroupClusterMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class ServerGroupClusterMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 custom_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Schedule settings for regular cluster updates.
 
@@ -1117,50 +1117,50 @@ class ServerGroupClusterMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="customWindow")
-    def custom_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether custom maintenance window is enabled or not.
         """
         return pulumi.get(self, "custom_window")
 
     @custom_window.setter
-    def custom_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_window", value)
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Preferred day of the week for maintenance window.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Start hour within preferred day of the week for maintenance window.
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Start minute within the start hour for maintenance window.
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
 
 
@@ -1181,27 +1181,27 @@ class ServerPropertiesForDefaultCreateArgsDict(TypedDict):
     The mode to create a new server.
     Expected value is 'Default'.
     """
-    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    infrastructure_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]]
     """
     Status showing whether the server enabled infrastructure encryption.
     """
-    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    minimal_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]]
     """
     Enforce a minimal Tls version for the server.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]]
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
-    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    ssl_enforcement: NotRequired[pulumi.Input[Optional['SslEnforcementEnum']]]
     """
     Enable ssl enforcement or not when connect to server.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     Storage profile of a server.
     """
-    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]]
     """
     Server version.
     """
@@ -1212,12 +1212,12 @@ class ServerPropertiesForDefaultCreateArgs:
                  administrator_login: pulumi.Input[_builtins.str],
                  administrator_login_password: pulumi.Input[_builtins.str],
                  create_mode: pulumi.Input[_builtins.str],
-                 infrastructure_encryption: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
-                 ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]] = None):
+                 infrastructure_encryption: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
+                 ssl_enforcement: pulumi.Input[Optional['SslEnforcementEnum']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server.
 
@@ -1287,74 +1287,74 @@ class ServerPropertiesForDefaultCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]:
+    def infrastructure_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]:
         """
         Status showing whether the server enabled infrastructure encryption.
         """
         return pulumi.get(self, "infrastructure_encryption")
 
     @infrastructure_encryption.setter
-    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]):
+    def infrastructure_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]):
         pulumi.set(self, "infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
         """
         Enforce a minimal Tls version for the server.
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input['SslEnforcementEnum']]:
+    def ssl_enforcement(self) -> pulumi.Input[Optional['SslEnforcementEnum']]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
 
     @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input['SslEnforcementEnum']]):
+    def ssl_enforcement(self, value: pulumi.Input[Optional['SslEnforcementEnum']]):
         pulumi.set(self, "ssl_enforcement", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage profile of a server.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]:
+    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]):
+    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1371,27 +1371,27 @@ class ServerPropertiesForGeoRestoreArgsDict(TypedDict):
     """
     The source server id to restore from.
     """
-    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    infrastructure_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]]
     """
     Status showing whether the server enabled infrastructure encryption.
     """
-    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    minimal_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]]
     """
     Enforce a minimal Tls version for the server.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]]
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
-    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    ssl_enforcement: NotRequired[pulumi.Input[Optional['SslEnforcementEnum']]]
     """
     Enable ssl enforcement or not when connect to server.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     Storage profile of a server.
     """
-    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]]
     """
     Server version.
     """
@@ -1401,12 +1401,12 @@ class ServerPropertiesForGeoRestoreArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[_builtins.str],
                  source_server_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
-                 ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]] = None):
+                 infrastructure_encryption: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
+                 ssl_enforcement: pulumi.Input[Optional['SslEnforcementEnum']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server by restoring to a different region from a geo replicated backup.
 
@@ -1462,74 +1462,74 @@ class ServerPropertiesForGeoRestoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]:
+    def infrastructure_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]:
         """
         Status showing whether the server enabled infrastructure encryption.
         """
         return pulumi.get(self, "infrastructure_encryption")
 
     @infrastructure_encryption.setter
-    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]):
+    def infrastructure_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]):
         pulumi.set(self, "infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
         """
         Enforce a minimal Tls version for the server.
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input['SslEnforcementEnum']]:
+    def ssl_enforcement(self) -> pulumi.Input[Optional['SslEnforcementEnum']]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
 
     @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input['SslEnforcementEnum']]):
+    def ssl_enforcement(self, value: pulumi.Input[Optional['SslEnforcementEnum']]):
         pulumi.set(self, "ssl_enforcement", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage profile of a server.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]:
+    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]):
+    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1546,27 +1546,27 @@ class ServerPropertiesForReplicaArgsDict(TypedDict):
     """
     The master server id to create replica from.
     """
-    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    infrastructure_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]]
     """
     Status showing whether the server enabled infrastructure encryption.
     """
-    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    minimal_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]]
     """
     Enforce a minimal Tls version for the server.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]]
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
-    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    ssl_enforcement: NotRequired[pulumi.Input[Optional['SslEnforcementEnum']]]
     """
     Enable ssl enforcement or not when connect to server.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     Storage profile of a server.
     """
-    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]]
     """
     Server version.
     """
@@ -1576,12 +1576,12 @@ class ServerPropertiesForReplicaArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[_builtins.str],
                  source_server_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
-                 ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]] = None):
+                 infrastructure_encryption: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
+                 ssl_enforcement: pulumi.Input[Optional['SslEnforcementEnum']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]] = None):
         """
         The properties to create a new replica.
 
@@ -1637,74 +1637,74 @@ class ServerPropertiesForReplicaArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]:
+    def infrastructure_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]:
         """
         Status showing whether the server enabled infrastructure encryption.
         """
         return pulumi.get(self, "infrastructure_encryption")
 
     @infrastructure_encryption.setter
-    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]):
+    def infrastructure_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]):
         pulumi.set(self, "infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
         """
         Enforce a minimal Tls version for the server.
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input['SslEnforcementEnum']]:
+    def ssl_enforcement(self) -> pulumi.Input[Optional['SslEnforcementEnum']]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
 
     @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input['SslEnforcementEnum']]):
+    def ssl_enforcement(self, value: pulumi.Input[Optional['SslEnforcementEnum']]):
         pulumi.set(self, "ssl_enforcement", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage profile of a server.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]:
+    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]):
+    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1725,27 +1725,27 @@ class ServerPropertiesForRestoreArgsDict(TypedDict):
     """
     The source server id to restore from.
     """
-    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    infrastructure_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]]
     """
     Status showing whether the server enabled infrastructure encryption.
     """
-    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    minimal_tls_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]]
     """
     Enforce a minimal Tls version for the server.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]]
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
-    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    ssl_enforcement: NotRequired[pulumi.Input[Optional['SslEnforcementEnum']]]
     """
     Enable ssl enforcement or not when connect to server.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     Storage profile of a server.
     """
-    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]]
     """
     Server version.
     """
@@ -1756,12 +1756,12 @@ class ServerPropertiesForRestoreArgs:
                  create_mode: pulumi.Input[_builtins.str],
                  restore_point_in_time: pulumi.Input[_builtins.str],
                  source_server_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
-                 ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]] = None):
+                 infrastructure_encryption: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]] = None,
+                 ssl_enforcement: pulumi.Input[Optional['SslEnforcementEnum']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server by restoring from a backup.
 
@@ -1831,74 +1831,74 @@ class ServerPropertiesForRestoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]:
+    def infrastructure_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]:
         """
         Status showing whether the server enabled infrastructure encryption.
         """
         return pulumi.get(self, "infrastructure_encryption")
 
     @infrastructure_encryption.setter
-    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]):
+    def infrastructure_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]):
         pulumi.set(self, "infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]:
         """
         Enforce a minimal Tls version for the server.
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MinimalTlsVersionEnum']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessEnum']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input['SslEnforcementEnum']]:
+    def ssl_enforcement(self) -> pulumi.Input[Optional['SslEnforcementEnum']]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
 
     @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input['SslEnforcementEnum']]):
+    def ssl_enforcement(self, value: pulumi.Input[Optional['SslEnforcementEnum']]):
         pulumi.set(self, "ssl_enforcement", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage profile of a server.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]:
+    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]):
+    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1910,19 +1910,19 @@ class SingleServerSkuArgsDict(TypedDict):
     """
     The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The scale up/out capacity, representing server's compute units.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The family of hardware.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size code, to be interpreted by resource as appropriate.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleServerSkuTier']]]]
     """
     The tier of the particular SKU, e.g. Basic.
     """
@@ -1931,10 +1931,10 @@ class SingleServerSkuArgsDict(TypedDict):
 class SingleServerSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerSkuTier']]] = None):
         """
         Billing information related properties of a server.
 
@@ -1968,50 +1968,50 @@ class SingleServerSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The scale up/out capacity, representing server's compute units.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The family of hardware.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size code, to be interpreted by resource as appropriate.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleServerSkuTier']]]:
         """
         The tier of the particular SKU, e.g. Basic.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleServerSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -2067,125 +2067,31 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-class StorageProfileArgsDict(TypedDict):
-    """
-    Storage Profile properties of a server
-    """
-    backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Backup retention days for the server.
-    """
-    geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]]
-    """
-    Enable Geo-redundant or not for server backup.
-    """
-    storage_autogrow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]]
-    """
-    Enable Storage Auto Grow.
-    """
-    storage_mb: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Max storage allowed for a server.
-    """
-
-@pulumi.input_type
-class StorageProfileArgs:
-    def __init__(__self__, *,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_redundant_backup: Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]] = None,
-                 storage_autogrow: Optional[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]] = None,
-                 storage_mb: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Storage Profile properties of a server
-
-        :param pulumi.Input[_builtins.int] backup_retention_days: Backup retention days for the server.
-        :param pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']] geo_redundant_backup: Enable Geo-redundant or not for server backup.
-        :param pulumi.Input[Union[_builtins.str, 'StorageAutogrow']] storage_autogrow: Enable Storage Auto Grow.
-        :param pulumi.Input[_builtins.int] storage_mb: Max storage allowed for a server.
-        """
-        if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
-        if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
-        if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
-
-    @_builtins.property
-    @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Backup retention days for the server.
-        """
-        return pulumi.get(self, "backup_retention_days")
-
-    @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "backup_retention_days", value)
-
-    @_builtins.property
-    @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]]:
-        """
-        Enable Geo-redundant or not for server backup.
-        """
-        return pulumi.get(self, "geo_redundant_backup")
-
-    @geo_redundant_backup.setter
-    def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]]):
-        pulumi.set(self, "geo_redundant_backup", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAutogrow")
-    def storage_autogrow(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]]:
-        """
-        Enable Storage Auto Grow.
-        """
-        return pulumi.get(self, "storage_autogrow")
-
-    @storage_autogrow.setter
-    def storage_autogrow(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]]):
-        pulumi.set(self, "storage_autogrow", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Max storage allowed for a server.
-        """
-        return pulumi.get(self, "storage_mb")
-
-    @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "storage_mb", value)
-
-
 class StorageArgsDict(TypedDict):
     """
     Storage properties of a server.
     """
-    auto_grow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]
+    auto_grow: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageAutoGrow']]]]
     """
     Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
     """
-    iops: NotRequired[pulumi.Input[_builtins.int]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
     """
-    storage_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    storage_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of storage assigned to a server.
     """
-    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]]
     """
     Storage tier of a server.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]]
     """
     Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
     """
@@ -2193,12 +2099,12 @@ class StorageArgsDict(TypedDict):
 @pulumi.input_type
 class StorageArgs:
     def __init__(__self__, *,
-                 auto_grow: Optional[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
+                 auto_grow: pulumi.Input[Optional[Union[_builtins.str, 'StorageAutoGrow']]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None):
         """
         Storage properties of a server.
 
@@ -2224,75 +2130,169 @@ class StorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoGrow")
-    def auto_grow(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]:
+    def auto_grow(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageAutoGrow']]]:
         """
         Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         """
         return pulumi.get(self, "auto_grow")
 
     @auto_grow.setter
-    def auto_grow(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]):
+    def auto_grow(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageAutoGrow']]]):
         pulumi.set(self, "auto_grow", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSizeGB")
-    def storage_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of storage assigned to a server.
         """
         return pulumi.get(self, "storage_size_gb")
 
     @storage_size_gb.setter
-    def storage_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]:
         """
         Storage tier of a server.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]:
         """
         Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]):
         pulumi.set(self, "type", value)
+
+
+class StorageProfileArgsDict(TypedDict):
+    """
+    Storage Profile properties of a server
+    """
+    backup_retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Backup retention days for the server.
+    """
+    geo_redundant_backup: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GeoRedundantBackup']]]]
+    """
+    Enable Geo-redundant or not for server backup.
+    """
+    storage_autogrow: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageAutogrow']]]]
+    """
+    Enable Storage Auto Grow.
+    """
+    storage_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Max storage allowed for a server.
+    """
+
+@pulumi.input_type
+class StorageProfileArgs:
+    def __init__(__self__, *,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 geo_redundant_backup: pulumi.Input[Optional[Union[_builtins.str, 'GeoRedundantBackup']]] = None,
+                 storage_autogrow: pulumi.Input[Optional[Union[_builtins.str, 'StorageAutogrow']]] = None,
+                 storage_mb: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Storage Profile properties of a server
+
+        :param pulumi.Input[_builtins.int] backup_retention_days: Backup retention days for the server.
+        :param pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']] geo_redundant_backup: Enable Geo-redundant or not for server backup.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAutogrow']] storage_autogrow: Enable Storage Auto Grow.
+        :param pulumi.Input[_builtins.int] storage_mb: Max storage allowed for a server.
+        """
+        if backup_retention_days is not None:
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is not None:
+            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+        if storage_autogrow is not None:
+            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+        if storage_mb is not None:
+            pulumi.set(__self__, "storage_mb", storage_mb)
+
+    @_builtins.property
+    @pulumi.getter(name="backupRetentionDays")
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Backup retention days for the server.
+        """
+        return pulumi.get(self, "backup_retention_days")
+
+    @backup_retention_days.setter
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "backup_retention_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="geoRedundantBackup")
+    def geo_redundant_backup(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GeoRedundantBackup']]]:
+        """
+        Enable Geo-redundant or not for server backup.
+        """
+        return pulumi.get(self, "geo_redundant_backup")
+
+    @geo_redundant_backup.setter
+    def geo_redundant_backup(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GeoRedundantBackup']]]):
+        pulumi.set(self, "geo_redundant_backup", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAutogrow")
+    def storage_autogrow(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageAutogrow']]]:
+        """
+        Enable Storage Auto Grow.
+        """
+        return pulumi.get(self, "storage_autogrow")
+
+    @storage_autogrow.setter
+    def storage_autogrow(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageAutogrow']]]):
+        pulumi.set(self, "storage_autogrow", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageMB")
+    def storage_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Max storage allowed for a server.
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @storage_mb.setter
+    def storage_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_mb", value)
 
 
 class UserAssignedIdentityArgsDict(TypedDict):
@@ -2303,11 +2303,11 @@ class UserAssignedIdentityArgsDict(TypedDict):
     """
     Types of identities associated with a server.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the object of the service principal associated to the user assigned managed identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]]
     """
     Map of user assigned managed identities.
     """
@@ -2316,8 +2316,8 @@ class UserAssignedIdentityArgsDict(TypedDict):
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Identities associated with a server.
 
@@ -2345,26 +2345,26 @@ class UserAssignedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the object of the service principal associated to the user assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityArgs']]]]:
         """
         Map of user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2372,11 +2372,11 @@ class UserIdentityArgsDict(TypedDict):
     """
     User assigned managed identity associated with a server.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the client of the service principal associated to the user assigned managed identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the object of the service principal associated to the user assigned managed identity.
     """
@@ -2384,8 +2384,8 @@ class UserIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class UserIdentityArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User assigned managed identity associated with a server.
 
@@ -2399,26 +2399,26 @@ class UserIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the client of the service principal associated to the user assigned managed identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the object of the service principal associated to the user assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
 

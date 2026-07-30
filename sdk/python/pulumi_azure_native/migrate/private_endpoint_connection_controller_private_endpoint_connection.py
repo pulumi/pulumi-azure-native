@@ -24,9 +24,9 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  migrate_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ConnectionStateRequestBodyPropertiesArgs']] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ConnectionStateRequestBodyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionControllerPrivateEndpointConnection resource.
 
@@ -71,38 +71,38 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the tag for optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="peConnectionName")
-    def pe_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pe_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private endpoint connection name.
         """
         return pulumi.get(self, "pe_connection_name")
 
     @pe_connection_name.setter
-    def pe_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pe_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConnectionStateRequestBodyPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConnectionStateRequestBodyPropertiesArgs']]:
         """
         Properties of Connection state request.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConnectionStateRequestBodyPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConnectionStateRequestBodyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -112,11 +112,11 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConnectionStateRequestBodyPropertiesArgs', 'ConnectionStateRequestBodyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConnectionStateRequestBodyPropertiesArgs', 'ConnectionStateRequestBodyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
@@ -124,7 +124,6 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,6 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +161,11 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConnectionStateRequestBodyPropertiesArgs', 'ConnectionStateRequestBodyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConnectionStateRequestBodyPropertiesArgs', 'ConnectionStateRequestBodyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

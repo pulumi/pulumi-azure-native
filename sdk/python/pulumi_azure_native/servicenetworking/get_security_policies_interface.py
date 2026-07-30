@@ -169,7 +169,6 @@ def get_security_policies_interface(resource_group_name: Optional[_builtins.str]
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_policy_name: SecurityPolicy
     :param _builtins.str traffic_controller_name: traffic controller name for path
@@ -192,9 +191,9 @@ def get_security_policies_interface(resource_group_name: Optional[_builtins.str]
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         waf_policy=pulumi.get(__ret__, 'waf_policy'))
-def get_security_policies_interface_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_policies_interface_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
     """
     Get a SecurityPolicy
@@ -202,7 +201,6 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_policy_name: SecurityPolicy

@@ -169,7 +169,6 @@ def get_associations_interface(association_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str association_name: Name of Association
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str traffic_controller_name: traffic controller name for path
@@ -192,9 +191,9 @@ def get_associations_interface(association_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_associations_interface_output(association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_associations_interface_output(association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
     """
     Get a Association
@@ -202,7 +201,6 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str association_name: Name of Association
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

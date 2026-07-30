@@ -32,10 +32,10 @@ __all__ = [
     'NWRuleSetIpRulesArgsDict',
     'NWRuleSetVirtualNetworkRulesArgs',
     'NWRuleSetVirtualNetworkRulesArgsDict',
-    'PrivateEndpointConnectionArgs',
-    'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
+    'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'SBClientAffinePropertiesArgs',
     'SBClientAffinePropertiesArgsDict',
     'SBSkuArgs',
@@ -52,15 +52,15 @@ class ActionArgsDict(TypedDict):
     """
     Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
     """
-    compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
+    compatibility_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
     """
-    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    requires_preprocessing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Value that indicates whether the rule action requires preprocessing.
     """
-    sql_expression: NotRequired[pulumi.Input[_builtins.str]]
+    sql_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SQL expression. e.g. MyProperty='ABC'
     """
@@ -68,9 +68,9 @@ class ActionArgsDict(TypedDict):
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
-                 compatibility_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 requires_preprocessing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sql_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 compatibility_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 requires_preprocessing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sql_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 
@@ -89,38 +89,38 @@ class ActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresPreprocessing")
-    def requires_preprocessing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_preprocessing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the rule action requires preprocessing.
         """
         return pulumi.get(self, "requires_preprocessing")
 
     @requires_preprocessing.setter
-    def requires_preprocessing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_preprocessing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_preprocessing", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlExpression")
-    def sql_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL expression. e.g. MyProperty='ABC'
         """
         return pulumi.get(self, "sql_expression")
 
     @sql_expression.setter
-    def sql_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_expression", value)
 
 
@@ -128,11 +128,11 @@ class ConnectionStateArgsDict(TypedDict):
     """
     ConnectionState information.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the connection state.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]]
     """
     Status of the connection.
     """
@@ -140,8 +140,8 @@ class ConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionStateArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkConnectionStatus']]] = None):
         """
         ConnectionState information.
 
@@ -155,26 +155,26 @@ class ConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the connection state.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]:
         """
         Status of the connection.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -182,43 +182,43 @@ class CorrelationFilterArgsDict(TypedDict):
     """
     Represents the correlation filter expression.
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Content type of the message.
     """
-    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the correlation.
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application specific label.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the message.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     dictionary object for custom filters
     """
-    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address of the queue to reply to.
     """
-    reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to_session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier to reply to.
     """
-    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    requires_preprocessing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Value that indicates whether the rule action requires preprocessing.
     """
-    session_id: NotRequired[pulumi.Input[_builtins.str]]
+    session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier.
     """
-    to: NotRequired[pulumi.Input[_builtins.str]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address to send to.
     """
@@ -226,16 +226,16 @@ class CorrelationFilterArgsDict(TypedDict):
 @pulumi.input_type
 class CorrelationFilterArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 correlation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 reply_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 reply_to_session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_preprocessing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 to: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 correlation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 reply_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 reply_to_session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_preprocessing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents the correlation filter expression.
 
@@ -275,122 +275,122 @@ class CorrelationFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content type of the message.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationId")
-    def correlation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the correlation.
         """
         return pulumi.get(self, "correlation_id")
 
     @correlation_id.setter
-    def correlation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application specific label.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the message.
         """
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         dictionary object for custom filters
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replyTo")
-    def reply_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the queue to reply to.
         """
         return pulumi.get(self, "reply_to")
 
     @reply_to.setter
-    def reply_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to", value)
 
     @_builtins.property
     @pulumi.getter(name="replyToSessionId")
-    def reply_to_session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to_session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier to reply to.
         """
         return pulumi.get(self, "reply_to_session_id")
 
     @reply_to_session_id.setter
-    def reply_to_session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to_session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to_session_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresPreprocessing")
-    def requires_preprocessing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_preprocessing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the rule action requires preprocessing.
         """
         return pulumi.get(self, "requires_preprocessing")
 
     @requires_preprocessing.setter
-    def requires_preprocessing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_preprocessing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_preprocessing", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionId")
-    def session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier.
         """
         return pulumi.get(self, "session_id")
 
     @session_id.setter
-    def session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address to send to.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to", value)
 
 
@@ -398,15 +398,15 @@ class EncryptionArgsDict(TypedDict):
     """
     Properties to configure Encryption
     """
-    key_source: NotRequired[pulumi.Input['KeySource']]
+    key_source: NotRequired[pulumi.Input[Optional['KeySource']]]
     """
     Enumerates the possible value of keySource for Encryption
     """
-    key_vault_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgsDict']]]]
+    key_vault_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultPropertiesArgsDict']]]]]
     """
     Properties of KeyVault
     """
-    require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    require_infrastructure_encryption: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable Infrastructure Encryption (Double Encryption)
     """
@@ -414,9 +414,9 @@ class EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input['KeySource']] = None,
-                 key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None):
+                 key_source: pulumi.Input[Optional['KeySource']] = None,
+                 key_vault_properties: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
+                 require_infrastructure_encryption: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties to configure Encryption
 
@@ -435,38 +435,38 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input['KeySource']]:
+    def key_source(self) -> pulumi.Input[Optional['KeySource']]:
         """
         Enumerates the possible value of keySource for Encryption
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input['KeySource']]):
+    def key_source(self, value: pulumi.Input[Optional['KeySource']]):
         pulumi.set(self, "key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]:
+    def key_vault_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]:
         """
         Properties of KeyVault
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]):
+    def key_vault_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="requireInfrastructureEncryption")
-    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_infrastructure_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Infrastructure Encryption (Double Encryption)
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
     @require_infrastructure_encryption.setter
-    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_infrastructure_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_infrastructure_encryption", value)
 
 
@@ -474,11 +474,11 @@ class IdentityArgsDict(TypedDict):
     """
     Properties to configure User Assigned Identities for Bring your Own Keys
     """
-    type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ManagedServiceIdentityType']]]
     """
     Type of managed service identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Properties for User Assigned Identities
     """
@@ -486,8 +486,8 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ManagedServiceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties to configure User Assigned Identities for Bring your Own Keys
 
@@ -501,26 +501,26 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ManagedServiceIdentityType']]:
         """
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Properties for User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -528,16 +528,16 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     Properties to configure keyVault Properties
     """
-    identity: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    identity: NotRequired[pulumi.Input[Optional['UserAssignedIdentityPropertiesArgsDict']]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Key from KeyVault
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of KeyVault
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of KeyVault
     """
@@ -545,10 +545,10 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional['UserAssignedIdentityPropertiesArgs']] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties to configure keyVault Properties
 
@@ -567,47 +567,47 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['UserAssignedIdentityPropertiesArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['UserAssignedIdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Key from KeyVault
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of KeyVault
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of KeyVault
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -615,11 +615,11 @@ class NWRuleSetIpRulesArgsDict(TypedDict):
     """
     Description of NetWorkRuleSet - IpRules resource.
     """
-    action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]]
+    action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleIPAction']]]]
     """
     The IP Filter Action
     """
-    ip_mask: NotRequired[pulumi.Input[_builtins.str]]
+    ip_mask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Mask
     """
@@ -627,8 +627,8 @@ class NWRuleSetIpRulesArgsDict(TypedDict):
 @pulumi.input_type
 class NWRuleSetIpRulesArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]] = None,
-                 ip_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleIPAction']]] = None,
+                 ip_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Description of NetWorkRuleSet - IpRules resource.
 
@@ -644,26 +644,26 @@ class NWRuleSetIpRulesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleIPAction']]]:
         """
         The IP Filter Action
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleIPAction']]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Mask
         """
         return pulumi.get(self, "ip_mask")
 
     @ip_mask.setter
-    def ip_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_mask", value)
 
 
@@ -671,11 +671,11 @@ class NWRuleSetVirtualNetworkRulesArgsDict(TypedDict):
     """
     Description of VirtualNetworkRules - NetworkRules resource.
     """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Value that indicates whether to ignore missing VNet Service Endpoint
     """
-    subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['SubnetArgsDict']]]
     """
     Subnet properties
     """
@@ -683,8 +683,8 @@ class NWRuleSetVirtualNetworkRulesArgsDict(TypedDict):
 @pulumi.input_type
 class NWRuleSetVirtualNetworkRulesArgs:
     def __init__(__self__, *,
-                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet: Optional[pulumi.Input['SubnetArgs']] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet: pulumi.Input[Optional['SubnetArgs']] = None):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
 
@@ -698,42 +698,76 @@ class NWRuleSetVirtualNetworkRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether to ignore missing VNet Service Endpoint
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubnetArgs']]:
         """
         Subnet properties
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    PrivateEndpoint information.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARM identifier for Private Endpoint.
+    """
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        PrivateEndpoint information.
+
+        :param pulumi.Input[_builtins.str] id: The ARM identifier for Private Endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARM identifier for Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 class PrivateEndpointConnectionArgsDict(TypedDict):
     """
     Properties of the PrivateEndpointConnection.
     """
-    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    private_endpoint: NotRequired[pulumi.Input[Optional['PrivateEndpointArgsDict']]]
     """
     The Private Endpoint resource for this Connection.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['ConnectionStateArgsDict']]]
     """
     Details about the state of the connection.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndPointProvisioningState']]]]
     """
     Provisioning state of the Private Endpoint Connection.
     """
@@ -741,9 +775,9 @@ class PrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]] = None):
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['ConnectionStateArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'EndPointProvisioningState']]] = None):
         """
         Properties of the PrivateEndpointConnection.
 
@@ -760,88 +794,54 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointArgs']]:
         """
         The Private Endpoint resource for this Connection.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['ConnectionStateArgs']]:
         """
         Details about the state of the connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['ConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndPointProvisioningState']]]:
         """
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndPointProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-
-class PrivateEndpointArgsDict(TypedDict):
-    """
-    PrivateEndpoint information.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The ARM identifier for Private Endpoint.
-    """
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        PrivateEndpoint information.
-
-        :param pulumi.Input[_builtins.str] id: The ARM identifier for Private Endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARM identifier for Private Endpoint.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 
 class SBClientAffinePropertiesArgsDict(TypedDict):
     """
     Properties specific to client affine subscriptions.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the Client ID of the application that created the client-affine subscription.
     """
-    is_durable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_durable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     For client-affine subscriptions, this value indicates whether the subscription is durable or not.
     """
-    is_shared: NotRequired[pulumi.Input[_builtins.bool]]
+    is_shared: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     For client-affine subscriptions, this value indicates whether the subscription is shared or not.
     """
@@ -849,9 +849,9 @@ class SBClientAffinePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SBClientAffinePropertiesArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_durable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_shared: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_durable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_shared: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties specific to client affine subscriptions.
 
@@ -868,38 +868,38 @@ class SBClientAffinePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the Client ID of the application that created the client-affine subscription.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isDurable")
-    def is_durable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_durable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For client-affine subscriptions, this value indicates whether the subscription is durable or not.
         """
         return pulumi.get(self, "is_durable")
 
     @is_durable.setter
-    def is_durable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_durable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_durable", value)
 
     @_builtins.property
     @pulumi.getter(name="isShared")
-    def is_shared(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For client-affine subscriptions, this value indicates whether the subscription is shared or not.
         """
         return pulumi.get(self, "is_shared")
 
     @is_shared.setter
-    def is_shared(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_shared(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_shared", value)
 
 
@@ -911,11 +911,11 @@ class SBSkuArgsDict(TypedDict):
     """
     Name of this SKU.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     The billing tier of this particular SKU.
     """
@@ -924,8 +924,8 @@ class SBSkuArgsDict(TypedDict):
 class SBSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['SkuName'],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         SKU of the namespace.
 
@@ -953,26 +953,26 @@ class SBSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -980,15 +980,15 @@ class SqlFilterArgsDict(TypedDict):
     """
     Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
     """
-    compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
+    compatibility_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
     """
-    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    requires_preprocessing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Value that indicates whether the rule action requires preprocessing.
     """
-    sql_expression: NotRequired[pulumi.Input[_builtins.str]]
+    sql_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SQL expression. e.g. MyProperty='ABC'
     """
@@ -996,9 +996,9 @@ class SqlFilterArgsDict(TypedDict):
 @pulumi.input_type
 class SqlFilterArgs:
     def __init__(__self__, *,
-                 compatibility_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 requires_preprocessing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sql_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 compatibility_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 requires_preprocessing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sql_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 
@@ -1017,38 +1017,38 @@ class SqlFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresPreprocessing")
-    def requires_preprocessing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_preprocessing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the rule action requires preprocessing.
         """
         return pulumi.get(self, "requires_preprocessing")
 
     @requires_preprocessing.setter
-    def requires_preprocessing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_preprocessing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_preprocessing", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlExpression")
-    def sql_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL expression. e.g. MyProperty='ABC'
         """
         return pulumi.get(self, "sql_expression")
 
     @sql_expression.setter
-    def sql_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_expression", value)
 
 
@@ -1086,7 +1086,7 @@ class SubnetArgs:
 
 
 class UserAssignedIdentityPropertiesArgsDict(TypedDict):
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM ID of user Identity selected for encryption
     """
@@ -1094,7 +1094,7 @@ class UserAssignedIdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class UserAssignedIdentityPropertiesArgs:
     def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] user_assigned_identity: ARM ID of user Identity selected for encryption
         """
@@ -1103,14 +1103,14 @@ class UserAssignedIdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM ID of user Identity selected for encryption
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 

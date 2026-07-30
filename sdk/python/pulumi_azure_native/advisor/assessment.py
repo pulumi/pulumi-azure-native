@@ -20,10 +20,10 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -43,50 +43,50 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Advisor assessment name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Assessment Type Locale.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="typeId")
-    def type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Assessment Type Id.
         """
         return pulumi.get(self, "type_id")
 
     @type_id.setter
-    def type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadId")
-    def workload_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workload Id.
         """
         return pulumi.get(self, "workload_id")
 
     @workload_id.setter
-    def workload_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_id", value)
 
 
@@ -96,10 +96,10 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Advisor assessment result data structure.
@@ -107,7 +107,6 @@ class Assessment(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class Assessment(pulumi.CustomResource):
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

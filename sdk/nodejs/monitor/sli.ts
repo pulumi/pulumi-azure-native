@@ -108,11 +108,11 @@ export interface SliArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.monitor.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.monitor.ManagedServiceIdentityArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.SliResourceArgs>;
+    properties?: pulumi.Input<inputs.monitor.SliResourceArgs | undefined>;
     /**
      * The name of the service group.
      */
@@ -120,5 +120,5 @@ export interface SliArgs {
     /**
      * Name of the SLI that is given by the user.
      */
-    sliName?: pulumi.Input<string>;
+    sliName?: pulumi.Input<string | undefined>;
 }

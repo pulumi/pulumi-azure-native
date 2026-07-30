@@ -120,7 +120,7 @@ export interface EnterpriseMccCacheNodesOperationArgs {
     /**
      * Name of the ConnectedCache resource
      */
-    cacheNodeResourceName?: pulumi.Input<string>;
+    cacheNodeResourceName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Customer resource
      */
@@ -128,11 +128,11 @@ export interface EnterpriseMccCacheNodesOperationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.connectedcache.CacheNodePropertyArgs>;
+    properties?: pulumi.Input<inputs.connectedcache.CacheNodePropertyArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface EnterpriseMccCacheNodesOperationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

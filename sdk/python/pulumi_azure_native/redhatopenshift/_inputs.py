@@ -40,7 +40,7 @@ class APIServerProfileArgsDict(TypedDict):
     """
     APIServerProfile represents an API server profile.
     """
-    visibility: NotRequired[pulumi.Input[Union[_builtins.str, 'Visibility']]]
+    visibility: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]]
     """
     API server visibility.
     """
@@ -48,7 +48,7 @@ class APIServerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class APIServerProfileArgs:
     def __init__(__self__, *,
-                 visibility: Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]] = None):
+                 visibility: pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]] = None):
         """
         APIServerProfile represents an API server profile.
 
@@ -59,14 +59,14 @@ class APIServerProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]]:
+    def visibility(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]:
         """
         API server visibility.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]]):
+    def visibility(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -74,23 +74,23 @@ class ClusterProfileArgsDict(TypedDict):
     """
     ClusterProfile represents a cluster profile.
     """
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain for the cluster.
     """
-    fips_validated_modules: NotRequired[pulumi.Input[Union[_builtins.str, 'FipsValidatedModules']]]
+    fips_validated_modules: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FipsValidatedModules']]]]
     """
     If FIPS validated crypto modules are used
     """
-    pull_secret: NotRequired[pulumi.Input[_builtins.str]]
+    pull_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pull secret for the cluster.
     """
-    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the cluster resource group.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the cluster.
     """
@@ -98,11 +98,11 @@ class ClusterProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterProfileArgs:
     def __init__(__self__, *,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_validated_modules: Optional[pulumi.Input[Union[_builtins.str, 'FipsValidatedModules']]] = None,
-                 pull_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_validated_modules: pulumi.Input[Optional[Union[_builtins.str, 'FipsValidatedModules']]] = None,
+                 pull_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ClusterProfile represents a cluster profile.
 
@@ -125,62 +125,62 @@ class ClusterProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain for the cluster.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsValidatedModules")
-    def fips_validated_modules(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FipsValidatedModules']]]:
+    def fips_validated_modules(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FipsValidatedModules']]]:
         """
         If FIPS validated crypto modules are used
         """
         return pulumi.get(self, "fips_validated_modules")
 
     @fips_validated_modules.setter
-    def fips_validated_modules(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FipsValidatedModules']]]):
+    def fips_validated_modules(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FipsValidatedModules']]]):
         pulumi.set(self, "fips_validated_modules", value)
 
     @_builtins.property
     @pulumi.getter(name="pullSecret")
-    def pull_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pull secret for the cluster.
         """
         return pulumi.get(self, "pull_secret")
 
     @pull_secret.setter
-    def pull_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the cluster resource group.
         """
         return pulumi.get(self, "resource_group_id")
 
     @resource_group_id.setter
-    def resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the cluster.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -188,11 +188,11 @@ class IngressProfileArgsDict(TypedDict):
     """
     IngressProfile represents an ingress profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ingress profile name.
     """
-    visibility: NotRequired[pulumi.Input[Union[_builtins.str, 'Visibility']]]
+    visibility: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]]
     """
     Ingress visibility.
     """
@@ -200,8 +200,8 @@ class IngressProfileArgsDict(TypedDict):
 @pulumi.input_type
 class IngressProfileArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]] = None):
         """
         IngressProfile represents an ingress profile.
 
@@ -215,26 +215,26 @@ class IngressProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ingress profile name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]]:
+    def visibility(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]:
         """
         Ingress visibility.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Visibility']]]):
+    def visibility(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Visibility']]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -242,7 +242,7 @@ class LoadBalancerProfileArgsDict(TypedDict):
     """
     LoadBalancerProfile represents the profile of the cluster public load balancer.
     """
-    managed_outbound_ips: NotRequired[pulumi.Input['ManagedOutboundIPsArgsDict']]
+    managed_outbound_ips: NotRequired[pulumi.Input[Optional['ManagedOutboundIPsArgsDict']]]
     """
     The desired managed outbound IPs for the cluster public load balancer.
     """
@@ -250,7 +250,7 @@ class LoadBalancerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerProfileArgs:
     def __init__(__self__, *,
-                 managed_outbound_ips: Optional[pulumi.Input['ManagedOutboundIPsArgs']] = None):
+                 managed_outbound_ips: pulumi.Input[Optional['ManagedOutboundIPsArgs']] = None):
         """
         LoadBalancerProfile represents the profile of the cluster public load balancer.
 
@@ -261,14 +261,14 @@ class LoadBalancerProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedOutboundIps")
-    def managed_outbound_ips(self) -> Optional[pulumi.Input['ManagedOutboundIPsArgs']]:
+    def managed_outbound_ips(self) -> pulumi.Input[Optional['ManagedOutboundIPsArgs']]:
         """
         The desired managed outbound IPs for the cluster public load balancer.
         """
         return pulumi.get(self, "managed_outbound_ips")
 
     @managed_outbound_ips.setter
-    def managed_outbound_ips(self, value: Optional[pulumi.Input['ManagedOutboundIPsArgs']]):
+    def managed_outbound_ips(self, value: pulumi.Input[Optional['ManagedOutboundIPsArgs']]):
         pulumi.set(self, "managed_outbound_ips", value)
 
 
@@ -276,7 +276,7 @@ class ManagedOutboundIPsArgsDict(TypedDict):
     """
     ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
     """
@@ -284,7 +284,7 @@ class ManagedOutboundIPsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedOutboundIPsArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
 
@@ -295,14 +295,14 @@ class ManagedOutboundIPsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
 
@@ -310,19 +310,19 @@ class MasterProfileArgsDict(TypedDict):
     """
     MasterProfile represents a master profile.
     """
-    disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of an associated DiskEncryptionSet, if applicable.
     """
-    encryption_at_host: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]
+    encryption_at_host: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]]
     """
     Whether master virtual machines are encrypted at host.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource ID of the master subnet.
     """
-    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    vm_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the master VMs.
     """
@@ -330,10 +330,10 @@ class MasterProfileArgsDict(TypedDict):
 @pulumi.input_type
 class MasterProfileArgs:
     def __init__(__self__, *,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MasterProfile represents a master profile.
 
@@ -353,50 +353,50 @@ class MasterProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of an associated DiskEncryptionSet, if applicable.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHost")
-    def encryption_at_host(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]:
+    def encryption_at_host(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]:
         """
         Whether master virtual machines are encrypted at host.
         """
         return pulumi.get(self, "encryption_at_host")
 
     @encryption_at_host.setter
-    def encryption_at_host(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]):
+    def encryption_at_host(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]):
         pulumi.set(self, "encryption_at_host", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource ID of the master subnet.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the master VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
 
@@ -404,23 +404,23 @@ class NetworkProfileArgsDict(TypedDict):
     """
     NetworkProfile represents a network profile.
     """
-    load_balancer_profile: NotRequired[pulumi.Input['LoadBalancerProfileArgsDict']]
+    load_balancer_profile: NotRequired[pulumi.Input[Optional['LoadBalancerProfileArgsDict']]]
     """
     The cluster load balancer profile.
     """
-    outbound_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundType']]]
+    outbound_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]]
     """
     The OutboundType used for egress traffic.
     """
-    pod_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    pod_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR used for OpenShift/Kubernetes Pods.
     """
-    preconfigured_nsg: NotRequired[pulumi.Input[Union[_builtins.str, 'PreconfiguredNSG']]]
+    preconfigured_nsg: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PreconfiguredNSG']]]]
     """
     Specifies whether subnets are pre-attached with an NSG
     """
-    service_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    service_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR used for OpenShift/Kubernetes Services.
     """
@@ -428,11 +428,11 @@ class NetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 load_balancer_profile: Optional[pulumi.Input['LoadBalancerProfileArgs']] = None,
-                 outbound_type: Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]] = None,
-                 pod_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_nsg: Optional[pulumi.Input[Union[_builtins.str, 'PreconfiguredNSG']]] = None,
-                 service_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 load_balancer_profile: pulumi.Input[Optional['LoadBalancerProfileArgs']] = None,
+                 outbound_type: pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]] = None,
+                 pod_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_nsg: pulumi.Input[Optional[Union[_builtins.str, 'PreconfiguredNSG']]] = None,
+                 service_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         NetworkProfile represents a network profile.
 
@@ -455,62 +455,62 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerProfile")
-    def load_balancer_profile(self) -> Optional[pulumi.Input['LoadBalancerProfileArgs']]:
+    def load_balancer_profile(self) -> pulumi.Input[Optional['LoadBalancerProfileArgs']]:
         """
         The cluster load balancer profile.
         """
         return pulumi.get(self, "load_balancer_profile")
 
     @load_balancer_profile.setter
-    def load_balancer_profile(self, value: Optional[pulumi.Input['LoadBalancerProfileArgs']]):
+    def load_balancer_profile(self, value: pulumi.Input[Optional['LoadBalancerProfileArgs']]):
         pulumi.set(self, "load_balancer_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]]:
+    def outbound_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]:
         """
         The OutboundType used for egress traffic.
         """
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]]):
+    def outbound_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]):
         pulumi.set(self, "outbound_type", value)
 
     @_builtins.property
     @pulumi.getter(name="podCidr")
-    def pod_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR used for OpenShift/Kubernetes Pods.
         """
         return pulumi.get(self, "pod_cidr")
 
     @pod_cidr.setter
-    def pod_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredNSG")
-    def preconfigured_nsg(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PreconfiguredNSG']]]:
+    def preconfigured_nsg(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PreconfiguredNSG']]]:
         """
         Specifies whether subnets are pre-attached with an NSG
         """
         return pulumi.get(self, "preconfigured_nsg")
 
     @preconfigured_nsg.setter
-    def preconfigured_nsg(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PreconfiguredNSG']]]):
+    def preconfigured_nsg(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PreconfiguredNSG']]]):
         pulumi.set(self, "preconfigured_nsg", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCidr")
-    def service_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR used for OpenShift/Kubernetes Services.
         """
         return pulumi.get(self, "service_cidr")
 
     @service_cidr.setter
-    def service_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_cidr", value)
 
 
@@ -518,11 +518,11 @@ class ServicePrincipalProfileArgsDict(TypedDict):
     """
     ServicePrincipalProfile represents a service principal profile.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client ID used for the cluster.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client secret used for the cluster.
     """
@@ -530,8 +530,8 @@ class ServicePrincipalProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ServicePrincipalProfileArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ServicePrincipalProfile represents a service principal profile.
 
@@ -545,26 +545,26 @@ class ServicePrincipalProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID used for the cluster.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret used for the cluster.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
 
@@ -572,31 +572,31 @@ class WorkerProfileArgsDict(TypedDict):
     """
     WorkerProfile represents a worker profile.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of worker VMs.
     """
-    disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of an associated DiskEncryptionSet, if applicable.
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The disk size of the worker VMs.
     """
-    encryption_at_host: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]
+    encryption_at_host: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]]
     """
     Whether master virtual machines are encrypted at host.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The worker profile name.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource ID of the worker subnet.
     """
-    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    vm_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the worker VMs.
     """
@@ -604,13 +604,13 @@ class WorkerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class WorkerProfileArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_at_host: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_at_host: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         WorkerProfile represents a worker profile.
 
@@ -639,86 +639,86 @@ class WorkerProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of worker VMs.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of an associated DiskEncryptionSet, if applicable.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The disk size of the worker VMs.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHost")
-    def encryption_at_host(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]:
+    def encryption_at_host(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]:
         """
         Whether master virtual machines are encrypted at host.
         """
         return pulumi.get(self, "encryption_at_host")
 
     @encryption_at_host.setter
-    def encryption_at_host(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionAtHost']]]):
+    def encryption_at_host(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionAtHost']]]):
         pulumi.set(self, "encryption_at_host", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The worker profile name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource ID of the worker subnet.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the worker VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
 

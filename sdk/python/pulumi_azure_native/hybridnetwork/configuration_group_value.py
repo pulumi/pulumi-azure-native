@@ -22,10 +22,10 @@ __all__ = ['ConfigurationGroupValueArgs', 'ConfigurationGroupValue']
 class ConfigurationGroupValueArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration_group_value_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration_group_value_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationGroupValue resource.
 
@@ -59,50 +59,50 @@ class ConfigurationGroupValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationGroupValueName")
-    def configuration_group_value_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_group_value_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration group value.
         """
         return pulumi.get(self, "configuration_group_value_name")
 
     @configuration_group_value_name.setter
-    def configuration_group_value_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_group_value_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_group_value_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]]:
         """
         Hybrid configuration group value properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,11 +112,11 @@ class ConfigurationGroupValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_group_value_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithSecretsArgsDict'], Union['ConfigurationValueWithoutSecretsArgs', 'ConfigurationValueWithoutSecretsArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_group_value_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithSecretsArgsDict'], Union['ConfigurationValueWithoutSecretsArgs', 'ConfigurationValueWithoutSecretsArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Hybrid configuration group value resource.
@@ -124,7 +124,6 @@ class ConfigurationGroupValue(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,6 @@ class ConfigurationGroupValue(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConfigurationGroupValueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +161,11 @@ class ConfigurationGroupValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_group_value_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithSecretsArgsDict'], Union['ConfigurationValueWithoutSecretsArgs', 'ConfigurationValueWithoutSecretsArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_group_value_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithSecretsArgsDict'], Union['ConfigurationValueWithoutSecretsArgs', 'ConfigurationValueWithoutSecretsArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

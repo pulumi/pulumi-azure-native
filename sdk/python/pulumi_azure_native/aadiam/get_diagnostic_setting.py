@@ -165,7 +165,6 @@ def get_diagnostic_setting(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2017-04-01.
 
-
     :param _builtins.str name: The name of the diagnostic setting.
     """
     __args__ = dict()
@@ -184,13 +183,12 @@ def get_diagnostic_setting(name: Optional[_builtins.str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_diagnostic_setting_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_diagnostic_setting_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
     Gets the active diagnostic setting for AadIam.
 
     Uses Azure REST API version 2017-04-01.
-
 
     :param _builtins.str name: The name of the diagnostic setting.
     """

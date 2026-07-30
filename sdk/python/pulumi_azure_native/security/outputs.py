@@ -297,7 +297,7 @@ class ActionableRemediationResponse(dict):
     def inherit_from_parent_state(self) -> Optional[_builtins.str]:
         """
         Update Settings.
-        
+
         Enabled - Resource should inherit configurations from parent.
         Disabled - Resource should not inherit configurations from parent.
         """
@@ -873,7 +873,7 @@ class AuthorizationResponse(dict):
     def code(self) -> Optional[_builtins.str]:
         """
         Gets or sets one-time OAuth code to exchange for refresh and access tokens.
-        
+
         Only used during PUT/PATCH operations. The secret is cleared during GET.
         """
         return pulumi.get(self, "code")
@@ -1600,7 +1600,7 @@ class AzureDevOpsOrgPropertiesResponse(dict):
     def onboarding_state(self) -> Optional[_builtins.str]:
         """
         Details about resource onboarding status across all connectors.
-        
+
         OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
         Onboarded - this resource has already been onboarded by the specified connector.
         NotOnboarded - this resource has not been onboarded to any connector.
@@ -1613,7 +1613,7 @@ class AzureDevOpsOrgPropertiesResponse(dict):
     def provisioning_state(self) -> Optional[_builtins.str]:
         """
         The provisioning state of the resource.
-        
+
         Pending - Provisioning pending.
         Failed - Provisioning failed.
         Succeeded - Successful provisioning.
@@ -6142,7 +6142,7 @@ class DevOpsConfigurationPropertiesResponse(dict):
     def provisioning_state(self) -> Optional[_builtins.str]:
         """
         The provisioning state of the resource.
-        
+
         Pending - Provisioning pending.
         Failed - Provisioning failed.
         Succeeded - Successful provisioning.
@@ -6722,7 +6722,7 @@ class GitHubOwnerPropertiesResponse(dict):
     def onboarding_state(self) -> Optional[_builtins.str]:
         """
         Details about resource onboarding status across all connectors.
-        
+
         OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
         Onboarded - this resource has already been onboarded by the specified connector.
         NotOnboarded - this resource has not been onboarded to any connector.
@@ -6735,7 +6735,7 @@ class GitHubOwnerPropertiesResponse(dict):
     def provisioning_state(self) -> Optional[_builtins.str]:
         """
         The provisioning state of the resource.
-        
+
         Pending - Provisioning pending.
         Failed - Provisioning failed.
         Succeeded - Successful provisioning.
@@ -6871,7 +6871,7 @@ class GitLabGroupPropertiesResponse(dict):
     def fully_qualified_friendly_name(self) -> _builtins.str:
         """
         Gets or sets the human readable fully-qualified name of the Group object.
-        
+
         This contains the entire namespace hierarchy as seen on GitLab UI where namespaces are separated by the '/' character.
         """
         return pulumi.get(self, "fully_qualified_friendly_name")
@@ -6881,7 +6881,7 @@ class GitLabGroupPropertiesResponse(dict):
     def fully_qualified_name(self) -> _builtins.str:
         """
         Gets or sets the fully-qualified name of the Group object.
-        
+
         This contains the entire namespace hierarchy where namespaces are separated by the '$' character.
         """
         return pulumi.get(self, "fully_qualified_name")
@@ -6915,7 +6915,7 @@ class GitLabGroupPropertiesResponse(dict):
     def onboarding_state(self) -> Optional[_builtins.str]:
         """
         Details about resource onboarding status across all connectors.
-        
+
         OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
         Onboarded - this resource has already been onboarded by the specified connector.
         NotOnboarded - this resource has not been onboarded to any connector.
@@ -6928,7 +6928,7 @@ class GitLabGroupPropertiesResponse(dict):
     def provisioning_state(self) -> Optional[_builtins.str]:
         """
         The provisioning state of the resource.
-        
+
         Pending - Provisioning pending.
         Failed - Provisioning failed.
         Succeeded - Successful provisioning.
@@ -9739,7 +9739,7 @@ class TargetBranchConfigurationResponse(dict):
     def annotate_default_branch(self) -> Optional[_builtins.str]:
         """
         Configuration of PR Annotations on default branch.
-        
+
         Enabled - PR Annotations are enabled on the resource's default branch.
         Disabled - PR Annotations are disabled on the resource's default branch.
         """

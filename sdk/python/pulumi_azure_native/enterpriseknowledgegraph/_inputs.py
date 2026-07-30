@@ -26,7 +26,7 @@ class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
     """
     The parameters to provide for the EnterpriseKnowledgeGraph.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the EnterpriseKnowledgeGraph
     """
@@ -34,7 +34,7 @@ class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
     """
     Specifies the metadata  of the resource.
     """
-    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state of EnterpriseKnowledgeGraph provisioning
     """
@@ -42,9 +42,9 @@ class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EnterpriseKnowledgeGraphPropertiesArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None):
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters to provide for the EnterpriseKnowledgeGraph.
 
@@ -61,14 +61,14 @@ class EnterpriseKnowledgeGraphPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the EnterpriseKnowledgeGraph
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -85,14 +85,14 @@ class EnterpriseKnowledgeGraphPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of EnterpriseKnowledgeGraph provisioning
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_state", value)
 
 

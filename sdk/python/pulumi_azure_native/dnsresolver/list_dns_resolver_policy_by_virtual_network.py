@@ -72,7 +72,6 @@ def list_dns_resolver_policy_by_virtual_network(resource_group_name: Optional[_b
 
     Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_name: The name of the virtual network.
     """
@@ -85,8 +84,8 @@ def list_dns_resolver_policy_by_virtual_network(resource_group_name: Optional[_b
     return AwaitableListDnsResolverPolicyByVirtualNetworkResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverPolicyByVirtualNetworkResult]:
     """
     Lists DNS resolver policy resource IDs linked to a virtual network.
@@ -94,7 +93,6 @@ def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: Opti
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_name: The name of the virtual network.

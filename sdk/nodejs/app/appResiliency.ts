@@ -141,19 +141,19 @@ export interface AppResiliencyArgs {
     /**
      * Policy that defines circuit breaker conditions
      */
-    circuitBreakerPolicy?: pulumi.Input<inputs.app.CircuitBreakerPolicyArgs>;
+    circuitBreakerPolicy?: pulumi.Input<inputs.app.CircuitBreakerPolicyArgs | undefined>;
     /**
      * Defines parameters for http connection pooling
      */
-    httpConnectionPool?: pulumi.Input<inputs.app.HttpConnectionPoolArgs>;
+    httpConnectionPool?: pulumi.Input<inputs.app.HttpConnectionPoolArgs | undefined>;
     /**
      * Policy that defines http request retry conditions
      */
-    httpRetryPolicy?: pulumi.Input<inputs.app.HttpRetryPolicyArgs>;
+    httpRetryPolicy?: pulumi.Input<inputs.app.HttpRetryPolicyArgs | undefined>;
     /**
      * Name of the resiliency policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,13 +161,13 @@ export interface AppResiliencyArgs {
     /**
      * Defines parameters for tcp connection pooling
      */
-    tcpConnectionPool?: pulumi.Input<inputs.app.TcpConnectionPoolArgs>;
+    tcpConnectionPool?: pulumi.Input<inputs.app.TcpConnectionPoolArgs | undefined>;
     /**
      * Policy that defines tcp request retry conditions
      */
-    tcpRetryPolicy?: pulumi.Input<inputs.app.TcpRetryPolicyArgs>;
+    tcpRetryPolicy?: pulumi.Input<inputs.app.TcpRetryPolicyArgs | undefined>;
     /**
      * Policy to set request timeouts
      */
-    timeoutPolicy?: pulumi.Input<inputs.app.TimeoutPolicyArgs>;
+    timeoutPolicy?: pulumi.Input<inputs.app.TimeoutPolicyArgs | undefined>;
 }

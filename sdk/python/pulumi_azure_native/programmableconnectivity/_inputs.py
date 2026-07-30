@@ -26,31 +26,31 @@ class ApplicationPropertiesArgsDict(TypedDict):
     """
     Details about the Application that would use the Operator's Network APIs.
     """
-    application_description: NotRequired[pulumi.Input[_builtins.str]]
+    application_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the application.
     """
-    application_type: NotRequired[pulumi.Input[_builtins.str]]
+    application_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The category that describes the application.
     """
-    legal_name: NotRequired[pulumi.Input[_builtins.str]]
+    legal_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Legal name of the organization owning the application.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the application.
     """
-    organization_description: NotRequired[pulumi.Input[_builtins.str]]
+    organization_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the organization owning the application.
     """
-    privacy_contact_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    privacy_contact_email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email address of the Privacy contact or Data Protection officer of the organization.
     """
-    tax_number: NotRequired[pulumi.Input[_builtins.str]]
+    tax_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased.
     """
@@ -58,13 +58,13 @@ class ApplicationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPropertiesArgs:
     def __init__(__self__, *,
-                 application_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 legal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_contact_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tax_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 legal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_contact_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tax_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about the Application that would use the Operator's Network APIs.
 
@@ -93,86 +93,86 @@ class ApplicationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationDescription")
-    def application_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the application.
         """
         return pulumi.get(self, "application_description")
 
     @application_description.setter
-    def application_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_description", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category that describes the application.
         """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
-    def application_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_type", value)
 
     @_builtins.property
     @pulumi.getter(name="legalName")
-    def legal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def legal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Legal name of the organization owning the application.
         """
         return pulumi.get(self, "legal_name")
 
     @legal_name.setter
-    def legal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def legal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "legal_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationDescription")
-    def organization_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the organization owning the application.
         """
         return pulumi.get(self, "organization_description")
 
     @organization_description.setter
-    def organization_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_description", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyContactEmailAddress")
-    def privacy_contact_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_contact_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the Privacy contact or Data Protection officer of the organization.
         """
         return pulumi.get(self, "privacy_contact_email_address")
 
     @privacy_contact_email_address.setter
-    def privacy_contact_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_contact_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_contact_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="taxNumber")
-    def tax_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tax_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased.
         """
         return pulumi.get(self, "tax_number")
 
     @tax_number.setter
-    def tax_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tax_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tax_number", value)
 
 
@@ -180,11 +180,11 @@ class SaasPropertiesArgsDict(TypedDict):
     """
     Details about the SaaS offer purchased from the marketplace.
     """
-    saas_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    saas_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of the SaaS offer purchased from the marketplace.
     """
-    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    saas_subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription ID of the SaaS offer purchased from the marketplace.
     """
@@ -192,8 +192,8 @@ class SaasPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SaasPropertiesArgs:
     def __init__(__self__, *,
-                 saas_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 saas_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about the SaaS offer purchased from the marketplace.
 
@@ -207,26 +207,26 @@ class SaasPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="saasResourceId")
-    def saas_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the SaaS offer purchased from the marketplace.
         """
         return pulumi.get(self, "saas_resource_id")
 
     @saas_resource_id.setter
-    def saas_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="saasSubscriptionId")
-    def saas_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription ID of the SaaS offer purchased from the marketplace.
         """
         return pulumi.get(self, "saas_subscription_id")
 
     @saas_subscription_id.setter
-    def saas_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_subscription_id", value)
 
 

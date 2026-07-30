@@ -157,7 +157,6 @@ def get_administrators_microsoft_entra(object_id: Optional[_builtins.str] = None
 
     Other available API versions: 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str object_id: Object identifier of the Microsoft Entra principal.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.
@@ -179,9 +178,9 @@ def get_administrators_microsoft_entra(object_id: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_administrators_microsoft_entra_output(object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_administrators_microsoft_entra_output(object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdministratorsMicrosoftEntraResult]:
     """
     Gets information about a server administrator associated to a Microsoft Entra principal.
@@ -189,7 +188,6 @@ def get_administrators_microsoft_entra_output(object_id: Optional[pulumi.Input[_
     Uses Azure REST API version 2025-08-01.
 
     Other available API versions: 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str object_id: Object identifier of the Microsoft Entra principal.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

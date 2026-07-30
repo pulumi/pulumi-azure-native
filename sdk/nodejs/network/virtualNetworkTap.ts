@@ -104,8 +104,8 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? (args.destinationLoadBalancerFrontEndIPConfiguration ? pulumi.output(args.destinationLoadBalancerFrontEndIPConfiguration).apply(inputs.network.frontendIPConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? (args.destinationNetworkInterfaceIPConfiguration ? pulumi.output(args.destinationNetworkInterfaceIPConfiguration).apply(inputs.network.networkInterfaceIPConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? pulumi.output(args.destinationLoadBalancerFrontEndIPConfiguration).apply(v => v === undefined ? undefined : inputs.network.frontendIPConfigurationArgsProvideDefaults(v)) : undefined;
+            resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? pulumi.output(args.destinationNetworkInterfaceIPConfiguration).apply(v => v === undefined ? undefined : inputs.network.networkInterfaceIPConfigurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["destinationPort"] = args?.destinationPort;
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
@@ -147,23 +147,23 @@ export interface VirtualNetworkTapArgs {
     /**
      * The reference to the private IP address on the internal Load Balancer that will receive the tap.
      */
-    destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.FrontendIPConfigurationArgs>;
+    destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.FrontendIPConfigurationArgs | undefined>;
     /**
      * The reference to the private IP Address of the collector nic that will receive the tap.
      */
-    destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.NetworkInterfaceIPConfigurationArgs>;
+    destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.NetworkInterfaceIPConfigurationArgs | undefined>;
     /**
      * The VXLAN destination port that will receive the tapped traffic.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -171,9 +171,9 @@ export interface VirtualNetworkTapArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the virtual network tap.
      */
-    tapName?: pulumi.Input<string>;
+    tapName?: pulumi.Input<string | undefined>;
 }

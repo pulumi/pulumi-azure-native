@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'BudgetComparisonExpressionArgs',
     'BudgetComparisonExpressionArgsDict',
-    'BudgetFilterPropertiesArgs',
-    'BudgetFilterPropertiesArgsDict',
     'BudgetFilterArgs',
     'BudgetFilterArgsDict',
+    'BudgetFilterPropertiesArgs',
+    'BudgetFilterPropertiesArgsDict',
     'BudgetTimePeriodArgs',
     'BudgetTimePeriodArgsDict',
     'NotificationArgs',
@@ -99,73 +99,19 @@ class BudgetComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
-class BudgetFilterPropertiesArgsDict(TypedDict):
-    """
-    The Dimensions or Tags to filter a budget by.
-    """
-    dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
-    """
-    Has comparison expression for a dimension
-    """
-    tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
-    """
-    Has comparison expression for a tag
-    """
-
-@pulumi.input_type
-class BudgetFilterPropertiesArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
-        """
-        The Dimensions or Tags to filter a budget by.
-
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a dimension
-        """
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "dimensions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a tag
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "tags", value)
-
-
 class BudgetFilterArgsDict(TypedDict):
     """
     May be used to filter budgets by resource group, resource, or meter.
     """
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgsDict']]]]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgsDict']]]]]
     """
     The logical "AND" expression. Must have at least 2 items.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a dimension
     """
-    tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a tag
     """
@@ -173,9 +119,9 @@ class BudgetFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
-                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+                 dimensions: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
 
@@ -192,38 +138,92 @@ class BudgetFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
         """
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
         """
         Has comparison expression for a tag
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
+
+
+class BudgetFilterPropertiesArgsDict(TypedDict):
+    """
+    The Dimensions or Tags to filter a budget by.
+    """
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
+    """
+    Has comparison expression for a dimension
+    """
+    tags: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
+    """
+    Has comparison expression for a tag
+    """
+
+@pulumi.input_type
+class BudgetFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None):
+        """
+        The Dimensions or Tags to filter a budget by.
+
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a dimension
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -235,7 +235,7 @@ class BudgetTimePeriodArgsDict(TypedDict):
     """
     The start date for the budget.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date for the budget. If not provided, we default this to 10 years from the start date.
     """
@@ -244,7 +244,7 @@ class BudgetTimePeriodArgsDict(TypedDict):
 class BudgetTimePeriodArgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The start and end date for a budget.
 
@@ -269,14 +269,14 @@ class BudgetTimePeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date for the budget. If not provided, we default this to 10 years from the start date.
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
 
@@ -300,19 +300,19 @@ class NotificationArgsDict(TypedDict):
     """
     Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
     """
-    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
     """
-    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Contact roles to send the budget notification to when the threshold is exceeded.
     """
-    locale: NotRequired[pulumi.Input[Union[_builtins.str, 'CultureCode']]]
+    locale: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]]
     """
     Language in which the recipient will receive the notification
     """
-    threshold_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]
+    threshold_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]]
     """
     The type of threshold
     """
@@ -324,10 +324,10 @@ class NotificationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  operator: pulumi.Input[Union[_builtins.str, 'OperatorType']],
                  threshold: pulumi.Input[_builtins.float],
-                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 locale: Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]] = None,
-                 threshold_type: Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]] = None):
+                 contact_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 locale: pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]] = None,
+                 threshold_type: pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]] = None):
         """
         The notification associated with a budget.
 
@@ -405,50 +405,50 @@ class NotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         """
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]]:
+    def locale(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]:
         """
         Language in which the recipient will receive the notification
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]]):
+    def locale(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]:
+    def threshold_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]:
         """
         The type of threshold
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]):
+    def threshold_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]):
         pulumi.set(self, "threshold_type", value)
 
 

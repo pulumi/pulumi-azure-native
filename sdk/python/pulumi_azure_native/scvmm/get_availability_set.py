@@ -180,7 +180,6 @@ def get_availability_set(availability_set_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str availability_set_name: Name of the AvailabilitySet.
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -202,8 +201,8 @@ def get_availability_set(availability_set_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
-def get_availability_set_output(availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_availability_set_output(availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Implements AvailabilitySet GET method.
@@ -211,7 +210,6 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str availability_set_name: Name of the AvailabilitySet.
     :param _builtins.str resource_group_name: The name of the resource group.

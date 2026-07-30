@@ -28,14 +28,14 @@ class PoolArgs:
                  network_connection_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_status: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
-                 stop_on_disconnect: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_status: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
+                 stop_on_disconnect: pulumi.Input[Optional['StopOnDisconnectConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]] = None):
         """
         The set of arguments for constructing a Pool resource.
 
@@ -151,98 +151,98 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the pool.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedVirtualNetworkRegions")
-    def managed_virtual_network_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def managed_virtual_network_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The regions of the managed virtual network (required when managedNetworkType is Managed).
         """
         return pulumi.get(self, "managed_virtual_network_regions")
 
     @managed_virtual_network_regions.setter
-    def managed_virtual_network_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def managed_virtual_network_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_virtual_network_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the pool.
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnStatus")
-    def single_sign_on_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']]]:
+    def single_sign_on_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]]:
         """
         Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
         """
         return pulumi.get(self, "single_sign_on_status")
 
     @single_sign_on_status.setter
-    def single_sign_on_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']]]):
+    def single_sign_on_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]]):
         pulumi.set(self, "single_sign_on_status", value)
 
     @_builtins.property
     @pulumi.getter(name="stopOnDisconnect")
-    def stop_on_disconnect(self) -> Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']]:
+    def stop_on_disconnect(self) -> pulumi.Input[Optional['StopOnDisconnectConfigurationArgs']]:
         """
         Stop on disconnect configuration settings for Dev Boxes created in this pool.
         """
         return pulumi.get(self, "stop_on_disconnect")
 
     @stop_on_disconnect.setter
-    def stop_on_disconnect(self, value: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']]):
+    def stop_on_disconnect(self, value: pulumi.Input[Optional['StopOnDisconnectConfigurationArgs']]):
         pulumi.set(self, "stop_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]]:
+    def virtual_network_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]]:
         """
         Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
         """
         return pulumi.get(self, "virtual_network_type")
 
     @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]]):
+    def virtual_network_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]]):
         pulumi.set(self, "virtual_network_type", value)
 
 
@@ -252,20 +252,20 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 local_administrator: Optional[pulumi.Input[Union[_builtins.str, 'LocalAdminStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_status: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
-                 stop_on_disconnect: Optional[pulumi.Input[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]] = None,
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 local_administrator: pulumi.Input[Optional[Union[_builtins.str, 'LocalAdminStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_status: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
+                 stop_on_disconnect: pulumi.Input[Optional[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]] = None,
                  __props__=None):
         """
         A pool of Virtual Machines.
@@ -273,7 +273,6 @@ class Pool(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,7 +304,6 @@ class Pool(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,20 +319,20 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 local_administrator: Optional[pulumi.Input[Union[_builtins.str, 'LocalAdminStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_status: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
-                 stop_on_disconnect: Optional[pulumi.Input[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]] = None,
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 local_administrator: pulumi.Input[Optional[Union[_builtins.str, 'LocalAdminStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_status: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
+                 stop_on_disconnect: pulumi.Input[Optional[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -180,7 +180,7 @@ class BookshelfKeyVaultPropertiesArgsDict(TypedDict):
     """
     The Key Vault URI
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Key Version in Key Vault
     """
@@ -191,7 +191,7 @@ class BookshelfKeyVaultPropertiesArgs:
                  identity_client_id: pulumi.Input[_builtins.str],
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_uri: pulumi.Input[_builtins.str],
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Key Vault Properties with clientId selection
 
@@ -244,14 +244,14 @@ class BookshelfKeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Key Version in Key Vault
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -259,31 +259,31 @@ class BookshelfPropertiesArgsDict(TypedDict):
     """
     Bookshelf properties
     """
-    customer_managed_keys: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]
+    customer_managed_keys: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]]
     """
     Whether or not to use a customer managed key when encrypting data at rest
     """
-    key_vault_properties: NotRequired[pulumi.Input['BookshelfKeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['BookshelfKeyVaultPropertiesArgsDict']]]
     """
     The key to use for encrypting data at rest when customer managed keys are enabled. Required if Customer Managed Keys is enabled.
     """
-    log_analytics_cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    log_analytics_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
     """
-    private_endpoint_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Endpoint Subnet ID for private endpoint connections.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
     """
-    search_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    search_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Search Subnet ID for search resources.
     """
-    workload_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    workload_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
     """
@@ -291,13 +291,13 @@ class BookshelfPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BookshelfPropertiesArgs:
     def __init__(__self__, *,
-                 customer_managed_keys: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
-                 key_vault_properties: Optional[pulumi.Input['BookshelfKeyVaultPropertiesArgs']] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 search_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 customer_managed_keys: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
+                 key_vault_properties: pulumi.Input[Optional['BookshelfKeyVaultPropertiesArgs']] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 search_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Bookshelf properties
 
@@ -326,86 +326,86 @@ class BookshelfPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeys")
-    def customer_managed_keys(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]:
+    def customer_managed_keys(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]:
         """
         Whether or not to use a customer managed key when encrypting data at rest
         """
         return pulumi.get(self, "customer_managed_keys")
 
     @customer_managed_keys.setter
-    def customer_managed_keys(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]):
+    def customer_managed_keys(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]):
         pulumi.set(self, "customer_managed_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['BookshelfKeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['BookshelfKeyVaultPropertiesArgs']]:
         """
         The key to use for encrypting data at rest when customer managed keys are enabled. Required if Customer Managed Keys is enabled.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['BookshelfKeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['BookshelfKeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsClusterId")
-    def log_analytics_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
         """
         return pulumi.get(self, "log_analytics_cluster_id")
 
     @log_analytics_cluster_id.setter
-    def log_analytics_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointSubnetId")
-    def private_endpoint_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Endpoint Subnet ID for private endpoint connections.
         """
         return pulumi.get(self, "private_endpoint_subnet_id")
 
     @private_endpoint_subnet_id.setter
-    def private_endpoint_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="searchSubnetId")
-    def search_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Search Subnet ID for search resources.
         """
         return pulumi.get(self, "search_subnet_id")
 
     @search_subnet_id.setter
-    def search_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentities")
-    def workload_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def workload_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
         """
         return pulumi.get(self, "workload_identities")
 
     @workload_identities.setter
-    def workload_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def workload_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workload_identities", value)
 
 
@@ -506,7 +506,7 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     The Key Vault URI
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Key Version in Key Vault
     """
@@ -516,7 +516,7 @@ class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_uri: pulumi.Input[_builtins.str],
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         For Key Vault Key references
 
@@ -555,14 +555,14 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Key Version in Key Vault
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -582,11 +582,11 @@ class NodePoolPropertiesArgsDict(TypedDict):
     """
     The size of the underlying Azure VM.
     """
-    min_node_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_node_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of nodes.
     """
-    scale_set_priority: NotRequired[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]
+    scale_set_priority: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]]
     """
     The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
     """
@@ -597,8 +597,8 @@ class NodePoolPropertiesArgs:
                  max_node_count: pulumi.Input[_builtins.int],
                  subnet_id: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[Union[_builtins.str, 'VmSize']],
-                 min_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_set_priority: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]] = None):
+                 min_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_set_priority: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]] = None):
         """
         NodePool properties
 
@@ -658,26 +658,26 @@ class NodePoolPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of nodes.
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleSetPriority")
-    def scale_set_priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]:
+    def scale_set_priority(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]:
         """
         The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
 
     @scale_set_priority.setter
-    def scale_set_priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]):
+    def scale_set_priority(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]):
         pulumi.set(self, "scale_set_priority", value)
 
 
@@ -718,15 +718,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -734,9 +734,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -753,38 +753,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -792,11 +792,11 @@ class ProjectPropertiesArgsDict(TypedDict):
     """
     Project properties
     """
-    settings: NotRequired[pulumi.Input['ProjectSettingsArgsDict']]
+    settings: NotRequired[pulumi.Input[Optional['ProjectSettingsArgsDict']]]
     """
     Settings for the project.
     """
-    storage_container_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    storage_container_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed StorageContainers (Control plane resource references).
     """
@@ -804,8 +804,8 @@ class ProjectPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectPropertiesArgs:
     def __init__(__self__, *,
-                 settings: Optional[pulumi.Input['ProjectSettingsArgs']] = None,
-                 storage_container_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 settings: pulumi.Input[Optional['ProjectSettingsArgs']] = None,
+                 storage_container_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Project properties
 
@@ -819,26 +819,26 @@ class ProjectPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['ProjectSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['ProjectSettingsArgs']]:
         """
         Settings for the project.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['ProjectSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['ProjectSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerIds")
-    def storage_container_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_container_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed StorageContainers (Control plane resource references).
         """
         return pulumi.get(self, "storage_container_ids")
 
     @storage_container_ids.setter
-    def storage_container_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_container_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_container_ids", value)
 
 
@@ -846,7 +846,7 @@ class ProjectSettingsArgsDict(TypedDict):
     """
     Settings schema for the project
     """
-    behavior_preferences: NotRequired[pulumi.Input[_builtins.str]]
+    behavior_preferences: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default preferences to guide AI behaviors in this project.
     """
@@ -854,7 +854,7 @@ class ProjectSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectSettingsArgs:
     def __init__(__self__, *,
-                 behavior_preferences: Optional[pulumi.Input[_builtins.str]] = None):
+                 behavior_preferences: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings schema for the project
 
@@ -865,14 +865,14 @@ class ProjectSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="behaviorPreferences")
-    def behavior_preferences(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def behavior_preferences(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default preferences to guide AI behaviors in this project.
         """
         return pulumi.get(self, "behavior_preferences")
 
     @behavior_preferences.setter
-    def behavior_preferences(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def behavior_preferences(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "behavior_preferences", value)
 
 
@@ -884,7 +884,7 @@ class StorageAssetPropertiesArgsDict(TypedDict):
     """
     The description
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the data within its parent container. This should be relative to the root of the parent container.
     """
@@ -893,7 +893,7 @@ class StorageAssetPropertiesArgsDict(TypedDict):
 class StorageAssetPropertiesArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Storage Asset properties
 
@@ -918,14 +918,14 @@ class StorageAssetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the data within its parent container. This should be relative to the root of the parent container.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -976,7 +976,7 @@ class SupercomputerIdentitiesArgsDict(TypedDict):
           This identity is used by the supercomputer at node level to access Azure resources.
           This identity must have ManagedIdentityOperator role on the clusterIdentity.
     """
-    workload_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    workload_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
     """
@@ -986,7 +986,7 @@ class SupercomputerIdentitiesArgs:
     def __init__(__self__, *,
                  cluster_identity: pulumi.Input['IdentityArgs'],
                  kubelet_identity: pulumi.Input['IdentityArgs'],
-                 workload_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 workload_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Dictionary of identity properties for the Supercomputer.
 
@@ -1029,14 +1029,14 @@ class SupercomputerIdentitiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentities")
-    def workload_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def workload_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
         """
         return pulumi.get(self, "workload_identities")
 
     @workload_identities.setter
-    def workload_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def workload_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workload_identities", value)
 
 
@@ -1053,30 +1053,30 @@ class SupercomputerPropertiesArgsDict(TypedDict):
     System Subnet ID associated with managed NodePool for system resources.
         It should have connectivity to the child NodePool subnets.
     """
-    customer_managed_keys: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]
+    customer_managed_keys: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]]
     """
     Whether or not to use a customer managed key when encrypting data at rest
     """
-    disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Disk Encryption Set ID to use for Customer Managed Keys encryption. Required if Customer Managed Keys is enabled.
     """
-    log_analytics_cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    log_analytics_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
     """
-    management_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    management_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     System Subnet ID associated with AKS apiserver. Must be delegated to Microsoft.ContainerService/managedClusters.
         It should have connectivity to the system subnet and nodepool subnets.
     """
-    outbound_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkEgressType']]]
+    outbound_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkEgressType']]]]
     """
     Network egress type provisioned for the supercomputer workloads.
         Defaults to LoadBalancer if not specified.
         If None is specified, the customer is responsible for providing outbound connectivity for Supercomputer functionality.
     """
-    system_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'SystemSku']]]
+    system_sku: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SystemSku']]]]
     """
     The SKU to use for the system node pool.
     """
@@ -1086,12 +1086,12 @@ class SupercomputerPropertiesArgs:
     def __init__(__self__, *,
                  identities: pulumi.Input['SupercomputerIdentitiesArgs'],
                  subnet_id: pulumi.Input[_builtins.str],
-                 customer_managed_keys: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_type: Optional[pulumi.Input[Union[_builtins.str, 'NetworkEgressType']]] = None,
-                 system_sku: Optional[pulumi.Input[Union[_builtins.str, 'SystemSku']]] = None):
+                 customer_managed_keys: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkEgressType']]] = None,
+                 system_sku: pulumi.Input[Optional[Union[_builtins.str, 'SystemSku']]] = None):
         """
         Supercomputer properties
 
@@ -1152,43 +1152,43 @@ class SupercomputerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeys")
-    def customer_managed_keys(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]:
+    def customer_managed_keys(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]:
         """
         Whether or not to use a customer managed key when encrypting data at rest
         """
         return pulumi.get(self, "customer_managed_keys")
 
     @customer_managed_keys.setter
-    def customer_managed_keys(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]):
+    def customer_managed_keys(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]):
         pulumi.set(self, "customer_managed_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Disk Encryption Set ID to use for Customer Managed Keys encryption. Required if Customer Managed Keys is enabled.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsClusterId")
-    def log_analytics_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
         """
         return pulumi.get(self, "log_analytics_cluster_id")
 
     @log_analytics_cluster_id.setter
-    def log_analytics_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managementSubnetId")
-    def management_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         System Subnet ID associated with AKS apiserver. Must be delegated to Microsoft.ContainerService/managedClusters.
             It should have connectivity to the system subnet and nodepool subnets.
@@ -1196,12 +1196,12 @@ class SupercomputerPropertiesArgs:
         return pulumi.get(self, "management_subnet_id")
 
     @management_subnet_id.setter
-    def management_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkEgressType']]]:
+    def outbound_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkEgressType']]]:
         """
         Network egress type provisioned for the supercomputer workloads.
             Defaults to LoadBalancer if not specified.
@@ -1210,19 +1210,19 @@ class SupercomputerPropertiesArgs:
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkEgressType']]]):
+    def outbound_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkEgressType']]]):
         pulumi.set(self, "outbound_type", value)
 
     @_builtins.property
     @pulumi.getter(name="systemSku")
-    def system_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SystemSku']]]:
+    def system_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SystemSku']]]:
         """
         The SKU to use for the system node pool.
         """
         return pulumi.get(self, "system_sku")
 
     @system_sku.setter
-    def system_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SystemSku']]]):
+    def system_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SystemSku']]]):
         pulumi.set(self, "system_sku", value)
 
 
@@ -1238,7 +1238,7 @@ class ToolPropertiesArgsDict(TypedDict):
     """
     The version of a resource definition
     """
-    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Environment variables to make available
     """
@@ -1248,7 +1248,7 @@ class ToolPropertiesArgs:
     def __init__(__self__, *,
                  definition_content: Any,
                  version: pulumi.Input[_builtins.str],
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Discovery Tool list item properties
 
@@ -1287,14 +1287,14 @@ class ToolPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variables to make available
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
 
@@ -1306,35 +1306,35 @@ class WorkspacePropertiesArgsDict(TypedDict):
     """
     Identity IDs used for leveraging Workspace resources.
     """
-    agent_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    agent_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Agent Subnet ID for agent resources.
     """
-    customer_managed_keys: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]
+    customer_managed_keys: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]]
     """
     Whether or not to use a customer managed key when encrypting data at rest
     """
-    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     The key to use for encrypting data at rest when customer managed keys are enabled.
     """
-    log_analytics_cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    log_analytics_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
     """
-    private_endpoint_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Endpoint Subnet ID for private endpoint connections.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
     """
-    supercomputer_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supercomputer_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of linked SuperComputers.
     """
-    workspace_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Function Subnet ID for workspace resources.
     """
@@ -1343,14 +1343,14 @@ class WorkspacePropertiesArgsDict(TypedDict):
 class WorkspacePropertiesArgs:
     def __init__(__self__, *,
                  workspace_identity: pulumi.Input['IdentityArgs'],
-                 agent_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_keys: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 supercomputer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_keys: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]] = None,
+                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 supercomputer_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Workspace properties
 
@@ -1396,98 +1396,98 @@ class WorkspacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentSubnetId")
-    def agent_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Agent Subnet ID for agent resources.
         """
         return pulumi.get(self, "agent_subnet_id")
 
     @agent_subnet_id.setter
-    def agent_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeys")
-    def customer_managed_keys(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]:
+    def customer_managed_keys(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]:
         """
         Whether or not to use a customer managed key when encrypting data at rest
         """
         return pulumi.get(self, "customer_managed_keys")
 
     @customer_managed_keys.setter
-    def customer_managed_keys(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomerManagedKeys']]]):
+    def customer_managed_keys(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CustomerManagedKeys']]]):
         pulumi.set(self, "customer_managed_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         The key to use for encrypting data at rest when customer managed keys are enabled.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsClusterId")
-    def log_analytics_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
         """
         return pulumi.get(self, "log_analytics_cluster_id")
 
     @log_analytics_cluster_id.setter
-    def log_analytics_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointSubnetId")
-    def private_endpoint_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Endpoint Subnet ID for private endpoint connections.
         """
         return pulumi.get(self, "private_endpoint_subnet_id")
 
     @private_endpoint_subnet_id.setter
-    def private_endpoint_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="supercomputerIds")
-    def supercomputer_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supercomputer_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of linked SuperComputers.
         """
         return pulumi.get(self, "supercomputer_ids")
 
     @supercomputer_ids.setter
-    def supercomputer_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supercomputer_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supercomputer_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceSubnetId")
-    def workspace_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function Subnet ID for workspace resources.
         """
         return pulumi.get(self, "workspace_subnet_id")
 
     @workspace_subnet_id.setter
-    def workspace_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_subnet_id", value)
 
 

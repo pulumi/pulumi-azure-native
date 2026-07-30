@@ -24,10 +24,10 @@ class WorkspaceCertificateArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceCertificate resource.
 
@@ -89,50 +89,50 @@ class WorkspaceCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the certificate entity. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base 64 encoded certificate using the application/x-pkcs12 representation.
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]:
+    def key_vault(self) -> pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]:
         """
         KeyVault location details of the certificate.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]):
+    def key_vault(self, value: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the Certificate
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
@@ -142,13 +142,13 @@ class WorkspaceCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Certificate details.
@@ -156,7 +156,6 @@ class WorkspaceCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class WorkspaceCertificate(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkspaceCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class WorkspaceCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

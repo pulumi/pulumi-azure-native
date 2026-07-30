@@ -101,15 +101,15 @@ export interface ListSourceControlRepositoriesOutputArgs {
     /**
      * OAuth ClientId. Required when `kind` is `OAuth`
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * OAuth Code. Required when `kind` is `OAuth`
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
      */
-    installationId?: pulumi.Input<string>;
+    installationId?: pulumi.Input<string | undefined>;
     /**
      * The kind of repository access credentials
      */
@@ -121,11 +121,11 @@ export interface ListSourceControlRepositoriesOutputArgs {
     /**
      * OAuth State. Required when `kind` is `OAuth`
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Personal Access Token. Required when `kind` is `PAT`
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

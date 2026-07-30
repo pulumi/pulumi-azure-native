@@ -203,7 +203,6 @@ def get_sap_instance(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-10-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sap_discovery_site_name: The name of the discovery site resource for SAP Migration.
     :param _builtins.str sap_instance_name: The name of SAP Instance resource for SAP Migration.
@@ -229,15 +228,14 @@ def get_sap_instance(resource_group_name: Optional[_builtins.str] = None,
         system_sid=pulumi.get(__ret__, 'system_sid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sap_instance_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            sap_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sap_instance_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            sap_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapInstanceResult]:
     """
     Gets the SAP Instance resource.
 
     Uses Azure REST API version 2023-10-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sap_discovery_site_name: The name of the discovery site resource for SAP Migration.

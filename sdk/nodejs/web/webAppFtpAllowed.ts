@@ -119,7 +119,7 @@ export interface WebAppFtpAllowedArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

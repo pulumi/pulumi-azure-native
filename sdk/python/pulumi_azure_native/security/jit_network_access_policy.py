@@ -25,9 +25,9 @@ class JitNetworkAccessPolicyArgs:
                  asc_location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]],
-                 jit_network_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
+                 jit_network_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
         """
         The set of arguments for constructing a JitNetworkAccessPolicy resource.
 
@@ -85,35 +85,35 @@ class JitNetworkAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="jitNetworkAccessPolicyName")
-    def jit_network_access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jit_network_access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Just-in-Time access configuration policy.
         """
         return pulumi.get(self, "jit_network_access_policy_name")
 
     @jit_network_access_policy_name.setter
-    def jit_network_access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jit_network_access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jit_network_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the resource
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]:
+    def requests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]:
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]):
+    def requests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]):
         pulumi.set(self, "requests", value)
 
 
@@ -123,18 +123,17 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asc_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_network_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
+                 asc_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_network_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +154,6 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
 
-
         :param str resource_name: The name of the resource.
         :param JitNetworkAccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,12 +169,12 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asc_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_network_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
+                 asc_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_network_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

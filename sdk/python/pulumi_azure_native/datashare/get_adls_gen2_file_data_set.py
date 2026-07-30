@@ -193,7 +193,6 @@ def get_adls_gen2_file_data_set(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str data_set_name: The name of the dataSet.
     :param _builtins.str resource_group_name: The resource group name.
@@ -220,16 +219,15 @@ def get_adls_gen2_file_data_set(account_name: Optional[_builtins.str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_adls_gen2_file_data_set_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       share_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_adls_gen2_file_data_set_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       share_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADLSGen2FileDataSetResult]:
     """
     Get a DataSet in a share
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str data_set_name: The name of the dataSet.

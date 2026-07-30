@@ -87,7 +87,7 @@ export interface GetExpressRouteGatewayResiliencyInformationOutputArgs {
     /**
      * Whether to attempt a refresh of the resiliency information.
      */
-    attemptRefresh?: pulumi.Input<boolean>;
+    attemptRefresh?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the ExpressRoute gateway.
      */

@@ -171,19 +171,19 @@ export interface PrivateStoreCollectionOfferArgs {
     /**
      * Identifier for purposes of race condition
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Icon File Uris
      */
-    iconFileUris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    iconFileUris?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The offer ID to update or delete
      */
-    offerId?: pulumi.Input<string>;
+    offerId?: pulumi.Input<string | undefined>;
     /**
      * Offer plans
      */
-    plans?: pulumi.Input<pulumi.Input<inputs.marketplace.PlanArgs>[]>;
+    plans?: pulumi.Input<pulumi.Input<inputs.marketplace.PlanArgs>[] | undefined>;
     /**
      * The store ID - must use the tenant ID
      */
@@ -191,9 +191,9 @@ export interface PrivateStoreCollectionOfferArgs {
     /**
      * Plan ids limitation for this offer
      */
-    specificPlanIdsLimitation?: pulumi.Input<pulumi.Input<string>[]>;
+    specificPlanIdsLimitation?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    updateSuppressedDueIdempotence?: pulumi.Input<boolean>;
+    updateSuppressedDueIdempotence?: pulumi.Input<boolean | undefined>;
 }

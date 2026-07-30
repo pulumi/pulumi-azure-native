@@ -112,11 +112,11 @@ export interface ManagedNetworkSettingArgs {
     /**
      * Name of the managedNetwork associated with the cognitive services account. Only 'default' is supported.
      */
-    managedNetworkName?: pulumi.Input<string>;
+    managedNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the managed network settings of a cognitive services account.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.ManagedNetworkSettingsPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.ManagedNetworkSettingsPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

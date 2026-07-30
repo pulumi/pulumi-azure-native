@@ -26,18 +26,18 @@ class MySQLServerArgs:
                  port_number: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 edition: Optional[pulumi.Input[Union[_builtins.str, 'Edition']]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]] = None,
-                 host_ip: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_database: Optional[pulumi.Input[_builtins.float]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_end_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_status: Optional[pulumi.Input[Union[_builtins.str, 'SupportStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 edition: pulumi.Input[Optional[Union[_builtins.str, 'Edition']]] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input['ErrorArgs']]]] = None,
+                 host_ip: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_database: pulumi.Input[Optional[_builtins.float]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_end_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_status: pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MySQLServer resource.
 
@@ -137,146 +137,146 @@ class MySQLServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Edition']]]:
+    def edition(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Edition']]]:
         """
         mysql server edition.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Edition']]]):
+    def edition(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Edition']]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]]:
+    def errors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ErrorArgs']]]]:
         """
         The list of errors.
         """
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]]):
+    def errors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ErrorArgs']]]]):
         pulumi.set(self, "errors", value)
 
     @_builtins.property
     @pulumi.getter(name="hostIp")
-    def host_ip(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def host_ip(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Server IP/host name.
         """
         return pulumi.get(self, "host_ip")
 
     @host_ip.setter
-    def host_ip(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def host_ip(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "host_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource labels.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="machineId")
-    def machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         discovery Machine Id
         """
         return pulumi.get(self, "machine_id")
 
     @machine_id.setter
-    def machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mysqlVersion")
-    def mysql_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mysql_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mysql server version.
         """
         return pulumi.get(self, "mysql_version")
 
     @mysql_version.setter
-    def mysql_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mysql_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mysql_version", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfDatabase")
-    def number_of_database(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_database(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of database.
         """
         return pulumi.get(self, "number_of_database")
 
     @number_of_database.setter
-    def number_of_database(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_database(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_database", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Gets or sets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Server
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportEndIn")
-    def support_end_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_end_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when mysql version support end.
         """
         return pulumi.get(self, "support_end_in")
 
     @support_end_in.setter
-    def support_end_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_end_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_end_in", value)
 
     @_builtins.property
     @pulumi.getter(name="supportStatus")
-    def support_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportStatus']]]:
+    def support_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]]:
         """
         mysql version support status.
         """
         return pulumi.get(self, "support_status")
 
     @support_status.setter
-    def support_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportStatus']]]):
+    def support_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]]):
         pulumi.set(self, "support_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -286,28 +286,27 @@ class MySQLServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edition: Optional[pulumi.Input[Union[_builtins.str, 'Edition']]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ErrorArgs', 'ErrorArgsDict']]]]] = None,
-                 host_ip: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_database: Optional[pulumi.Input[_builtins.float]] = None,
-                 port_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_end_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_status: Optional[pulumi.Input[Union[_builtins.str, 'SupportStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 edition: pulumi.Input[Optional[Union[_builtins.str, 'Edition']]] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ErrorArgs', 'ErrorArgsDict']]]]] = None,
+                 host_ip: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_database: pulumi.Input[Optional[_builtins.float]] = None,
+                 port_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_end_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_status: pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The MySQLServer resource definition.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,7 +338,6 @@ class MySQLServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MySQLServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,22 +353,22 @@ class MySQLServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edition: Optional[pulumi.Input[Union[_builtins.str, 'Edition']]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ErrorArgs', 'ErrorArgsDict']]]]] = None,
-                 host_ip: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_database: Optional[pulumi.Input[_builtins.float]] = None,
-                 port_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_end_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_status: Optional[pulumi.Input[Union[_builtins.str, 'SupportStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 edition: pulumi.Input[Optional[Union[_builtins.str, 'Edition']]] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ErrorArgs', 'ErrorArgsDict']]]]] = None,
+                 host_ip: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_database: pulumi.Input[Optional[_builtins.float]] = None,
+                 port_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_end_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_status: pulumi.Input[Optional[Union[_builtins.str, 'SupportStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

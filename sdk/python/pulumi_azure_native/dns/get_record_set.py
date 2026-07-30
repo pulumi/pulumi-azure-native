@@ -350,7 +350,6 @@ def get_record_set(record_type: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str record_type: The type of DNS record in this record set.
     :param _builtins.str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -390,10 +389,10 @@ def get_record_set(record_type: Optional[_builtins.str] = None,
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))
-def get_record_set_output(record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                          relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_record_set_output(record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                          relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Gets a record set.
@@ -401,7 +400,6 @@ def get_record_set_output(record_type: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str record_type: The type of DNS record in this record set.
     :param _builtins.str relative_record_set_name: The name of the record set, relative to the name of the zone.

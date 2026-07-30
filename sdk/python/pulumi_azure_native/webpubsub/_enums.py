@@ -91,8 +91,8 @@ class WebPubSubRequestType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:webpubsub:WebPubSubSkuTier")
 class WebPubSubSkuTier(_builtins.str, Enum):
     """
-    Optional tier of this particular SKU. 'Standard' or 'Free'. 
-    
+    Optional tier of this particular SKU. 'Standard' or 'Free'.
+
     `Basic` is deprecated, use `Standard` instead.
     """
     FREE = "Free"

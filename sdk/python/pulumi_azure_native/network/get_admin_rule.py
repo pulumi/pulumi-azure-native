@@ -268,7 +268,6 @@ def get_admin_rule(configuration_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_name: The name of the network manager Security Configuration.
     :param _builtins.str network_manager_name: The name of the network manager.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -303,11 +302,11 @@ def get_admin_rule(configuration_name: Optional[_builtins.str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_admin_rule_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_admin_rule_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdminRuleResult]:
     """
     Gets a network manager security configuration admin rule.
@@ -315,7 +314,6 @@ def get_admin_rule_output(configuration_name: Optional[pulumi.Input[_builtins.st
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_name: The name of the network manager Security Configuration.
     :param _builtins.str network_manager_name: The name of the network manager.

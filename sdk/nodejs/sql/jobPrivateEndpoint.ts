@@ -116,7 +116,7 @@ export interface JobPrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName?: pulumi.Input<string>;
+    privateEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

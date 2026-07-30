@@ -23,10 +23,10 @@ class SecuritySettingArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 secured_core_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 security_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 wdac_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None):
+                 secured_core_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 security_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 wdac_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None):
         """
         The set of arguments for constructing a SecuritySetting resource.
 
@@ -80,50 +80,50 @@ class SecuritySettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="securedCoreComplianceAssignment")
-    def secured_core_compliance_assignment(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]:
+    def secured_core_compliance_assignment(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]:
         """
         Secured Core Compliance Assignment
         """
         return pulumi.get(self, "secured_core_compliance_assignment")
 
     @secured_core_compliance_assignment.setter
-    def secured_core_compliance_assignment(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]):
+    def secured_core_compliance_assignment(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]):
         pulumi.set(self, "secured_core_compliance_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="securitySettingsName")
-    def security_settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of security setting
         """
         return pulumi.get(self, "security_settings_name")
 
     @security_settings_name.setter
-    def security_settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="smbEncryptionForIntraClusterTrafficComplianceAssignment")
-    def smb_encryption_for_intra_cluster_traffic_compliance_assignment(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]:
+    def smb_encryption_for_intra_cluster_traffic_compliance_assignment(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]:
         """
         SMB encryption for intra-cluster traffic Compliance Assignment
         """
         return pulumi.get(self, "smb_encryption_for_intra_cluster_traffic_compliance_assignment")
 
     @smb_encryption_for_intra_cluster_traffic_compliance_assignment.setter
-    def smb_encryption_for_intra_cluster_traffic_compliance_assignment(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]):
+    def smb_encryption_for_intra_cluster_traffic_compliance_assignment(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]):
         pulumi.set(self, "smb_encryption_for_intra_cluster_traffic_compliance_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="wdacComplianceAssignment")
-    def wdac_compliance_assignment(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]:
+    def wdac_compliance_assignment(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]:
         """
         WDAC Compliance Assignment
         """
         return pulumi.get(self, "wdac_compliance_assignment")
 
     @wdac_compliance_assignment.setter
-    def wdac_compliance_assignment(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]]):
+    def wdac_compliance_assignment(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]]):
         pulumi.set(self, "wdac_compliance_assignment", value)
 
 
@@ -133,12 +133,12 @@ class SecuritySetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secured_core_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 security_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 wdac_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secured_core_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 security_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 wdac_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
                  __props__=None):
         """
         Security settings proxy resource
@@ -146,7 +146,6 @@ class SecuritySetting(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
         Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +169,6 @@ class SecuritySetting(pulumi.CustomResource):
 
         Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SecuritySettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,12 +184,12 @@ class SecuritySetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secured_core_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 security_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
-                 wdac_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secured_core_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 security_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_encryption_for_intra_cluster_traffic_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
+                 wdac_compliance_assignment: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceAssignmentType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

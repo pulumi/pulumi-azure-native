@@ -109,7 +109,6 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
 
     Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
     :param _builtins.str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param _builtins.str virtual_wan_name: The name of the VirtualWan.
@@ -127,9 +126,9 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
     """
     Retrieves the details of a P2SVpnServerConfiguration.
@@ -137,7 +136,6 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
     Uses Azure REST API version 2019-07-01.
 
     Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
     :param _builtins.str resource_group_name: The resource group name of the P2SVpnServerConfiguration.

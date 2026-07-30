@@ -22,14 +22,14 @@ class WebAppRelayServiceConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 biztalk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 biztalk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppRelayServiceConnection resource.
 
@@ -82,77 +82,77 @@ class WebAppRelayServiceConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="biztalkUri")
-    def biztalk_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def biztalk_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "biztalk_uri")
 
     @biztalk_uri.setter
-    def biztalk_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def biztalk_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "biztalk_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="entityConnectionString")
-    def entity_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "entity_connection_string")
 
     @entity_connection_string.setter
-    def entity_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "entity_name")
 
     @entity_name.setter
-    def entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConnectionString")
-    def resource_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_connection_string")
 
     @resource_connection_string.setter
-    def resource_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
 
@@ -162,16 +162,16 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 biztalk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 biztalk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Hybrid Connection for an App Service app.
@@ -179,7 +179,6 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppRelayServiceConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,16 +214,16 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 biztalk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 biztalk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

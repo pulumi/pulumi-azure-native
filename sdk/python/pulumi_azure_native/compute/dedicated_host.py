@@ -25,12 +25,12 @@ class DedicatedHostArgs:
                  host_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 auto_replace_on_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input['DedicatedHostLicenseTypes']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_replace_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional['DedicatedHostLicenseTypes']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DedicatedHost resource.
 
@@ -98,74 +98,74 @@ class DedicatedHostArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoReplaceOnFailure")
-    def auto_replace_on_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_replace_on_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         """
         return pulumi.get(self, "auto_replace_on_failure")
 
     @auto_replace_on_failure.setter
-    def auto_replace_on_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_replace_on_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_replace_on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dedicated host.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input['DedicatedHostLicenseTypes']]:
+    def license_type(self) -> pulumi.Input[Optional['DedicatedHostLicenseTypes']]:
         """
         Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input['DedicatedHostLicenseTypes']]):
+    def license_type(self, value: pulumi.Input[Optional['DedicatedHostLicenseTypes']]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Fault domain of the dedicated host within a dedicated host group.
         """
         return pulumi.get(self, "platform_fault_domain")
 
     @platform_fault_domain.setter
-    def platform_fault_domain(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,15 +175,15 @@ class DedicatedHost(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_replace_on_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input['DedicatedHostLicenseTypes']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_replace_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional['DedicatedHostLicenseTypes']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the Dedicated host.
@@ -191,7 +191,6 @@ class DedicatedHost(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class DedicatedHost(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,15 +232,15 @@ class DedicatedHost(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_replace_on_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input['DedicatedHostLicenseTypes']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_replace_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional['DedicatedHostLicenseTypes']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

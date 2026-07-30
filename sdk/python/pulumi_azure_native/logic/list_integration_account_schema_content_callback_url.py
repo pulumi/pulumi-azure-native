@@ -124,7 +124,6 @@ def list_integration_account_schema_content_callback_url(integration_account_nam
 
     Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_account_name: The integration account name.
     :param Union[_builtins.str, 'KeyType'] key_type: The key type.
     :param _builtins.str not_after: The expiry time.
@@ -147,11 +146,11 @@ def list_integration_account_schema_content_callback_url(integration_account_nam
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_schema_content_callback_url_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                key_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]] = None,
-                                                                not_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_integration_account_schema_content_callback_url_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                key_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'KeyType']]]] = None,
+                                                                not_after: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountSchemaContentCallbackUrlResult]:
     """
     Get the content callback url.
@@ -159,7 +158,6 @@ def list_integration_account_schema_content_callback_url_output(integration_acco
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_account_name: The integration account name.
     :param Union[_builtins.str, 'KeyType'] key_type: The key type.

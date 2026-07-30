@@ -194,15 +194,15 @@ export interface CloudServicesNetworkArgs {
     /**
      * The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.
      */
-    additionalEgressEndpoints?: pulumi.Input<pulumi.Input<inputs.networkcloud.EgressEndpointArgs>[]>;
+    additionalEgressEndpoints?: pulumi.Input<pulumi.Input<inputs.networkcloud.EgressEndpointArgs>[] | undefined>;
     /**
      * The name of the cloud services network.
      */
-    cloudServicesNetworkName?: pulumi.Input<string>;
+    cloudServicesNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The indicator of whether the platform default endpoints are allowed for the egress traffic.
      */
-    enableDefaultEgressEndpoints?: pulumi.Input<string | enums.networkcloud.CloudServicesNetworkEnableDefaultEgressEndpoints>;
+    enableDefaultEgressEndpoints?: pulumi.Input<string | enums.networkcloud.CloudServicesNetworkEnableDefaultEgressEndpoints | undefined>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -210,7 +210,7 @@ export interface CloudServicesNetworkArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -218,5 +218,5 @@ export interface CloudServicesNetworkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

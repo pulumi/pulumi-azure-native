@@ -71,7 +71,7 @@ export interface GetMigrationConfigResult {
      */
     readonly postMigrationName: string;
     /**
-     * Provisioning state of Migration Configuration 
+     * Provisioning state of Migration Configuration
      */
     readonly provisioningState: string;
     /**

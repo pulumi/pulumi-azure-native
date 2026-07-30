@@ -136,15 +136,15 @@ export interface DelegatedSubnetServiceDetailsArgs {
      * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
      * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
      */
-    allocationBlockPrefixSize?: pulumi.Input<number>;
+    allocationBlockPrefixSize?: pulumi.Input<number | undefined>;
     /**
      * Properties of the controller.
      */
-    controllerDetails?: pulumi.Input<inputs.delegatednetwork.ControllerDetailsArgs>;
+    controllerDetails?: pulumi.Input<inputs.delegatednetwork.ControllerDetailsArgs | undefined>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,13 +152,13 @@ export interface DelegatedSubnetServiceDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * subnet details
      */
-    subnetDetails?: pulumi.Input<inputs.delegatednetwork.SubnetDetailsArgs>;
+    subnetDetails?: pulumi.Input<inputs.delegatednetwork.SubnetDetailsArgs | undefined>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

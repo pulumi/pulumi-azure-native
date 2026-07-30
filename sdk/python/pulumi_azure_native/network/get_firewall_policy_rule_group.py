@@ -145,7 +145,6 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[_builtins.str]
 
     Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str firewall_policy_name: The name of the Firewall Policy.
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str rule_group_name: The name of the FirewallPolicyRuleGroup.
@@ -166,9 +165,9 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[_builtins.str]
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_rule_group_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleGroupResult]:
     """
     Gets the specified FirewallPolicyRuleGroup.
@@ -176,7 +175,6 @@ def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.
     Uses Azure REST API version 2020-04-01.
 
     Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str firewall_policy_name: The name of the Firewall Policy.
     :param _builtins.str resource_group_name: The name of the resource group.

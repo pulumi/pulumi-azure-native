@@ -24,7 +24,7 @@ class ProductWikiArgs:
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]] = None):
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]] = None):
         """
         The set of arguments for constructing a ProductWiki resource.
 
@@ -77,14 +77,14 @@ class ProductWikiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]:
+    def documents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]:
         """
         Collection wiki documents included into this wiki.
         """
         return pulumi.get(self, "documents")
 
     @documents.setter
-    def documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]):
+    def documents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]):
         pulumi.set(self, "documents", value)
 
 
@@ -94,10 +94,10 @@ class ProductWiki(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Wiki properties
@@ -105,7 +105,6 @@ class ProductWiki(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class ProductWiki(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProductWikiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class ProductWiki(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

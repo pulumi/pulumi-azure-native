@@ -108,7 +108,7 @@ export interface GetFirewallSupportInfoOutputArgs {
     /**
      * email address on behalf of which this API called
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Firewall resource name
      */

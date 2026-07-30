@@ -74,7 +74,6 @@ def get_test_base_account_file_upload_url(blob_name: Optional[_builtins.str] = N
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str blob_name: The custom file name of the uploaded blob.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Union[_builtins.str, 'FileUploadResourceType'] resource_type: Resource type for file uploading.
@@ -91,10 +90,10 @@ def get_test_base_account_file_upload_url(blob_name: Optional[_builtins.str] = N
     return AwaitableGetTestBaseAccountFileUploadUrlResult(
         blob_path=pulumi.get(__ret__, 'blob_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'FileUploadResourceType']]]] = None,
-                                                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_base_account_file_upload_url_output(blob_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'FileUploadResourceType']]]] = None,
+                                                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
     """
     Gets the file upload URL of a Test Base Account.
@@ -102,7 +101,6 @@ def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str blob_name: The custom file name of the uploaded blob.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

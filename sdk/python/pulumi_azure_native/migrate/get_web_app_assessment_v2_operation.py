@@ -450,7 +450,6 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[_builtins.str]
 
     Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str assessment_name: Web app Assessment arm name.
     :param _builtins.str group_name: Group ARM name
     :param _builtins.str project_name: Assessment Project Name
@@ -498,10 +497,10 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[_builtins.str]
         time_range=pulumi.get(__ret__, 'time_range'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_assessment_v2_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppAssessmentV2OperationResult]:
     """
     Get a WebAppAssessmentV2
@@ -509,7 +508,6 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str assessment_name: Web app Assessment arm name.
     :param _builtins.str group_name: Group ARM name

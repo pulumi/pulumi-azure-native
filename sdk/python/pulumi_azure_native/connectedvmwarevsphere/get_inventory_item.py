@@ -181,7 +181,6 @@ def get_inventory_item(inventory_item_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str inventory_item_name: Name of the inventoryItem.
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str vcenter_name: Name of the vCenter.
@@ -205,9 +204,9 @@ def get_inventory_item(inventory_item_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              vcenter_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inventory_item_output(inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              vcenter_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Implements InventoryItem GET method.
@@ -215,7 +214,6 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str inventory_item_name: Name of the inventoryItem.
     :param _builtins.str resource_group_name: The Resource Group Name.

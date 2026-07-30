@@ -28,14 +28,14 @@ class MqttBridgeConnectorArgs:
                  protocol: pulumi.Input[Union[_builtins.str, 'MqttProtocol']],
                  remote_broker_connection: pulumi.Input['MqttBridgeRemoteBrokerConnectionSpecArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bridge_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_broker_connection: Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 mqtt_bridge_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input['NodeTolerationsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bridge_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_broker_connection: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 mqtt_bridge_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional['NodeTolerationsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MqttBridgeConnector resource.
 
@@ -151,98 +151,98 @@ class MqttBridgeConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="bridgeInstances")
-    def bridge_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bridge_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances to deploy for a bridge rollout.
         """
         return pulumi.get(self, "bridge_instances")
 
     @bridge_instances.setter
-    def bridge_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bridge_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bridge_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="clientIdPrefix")
-    def client_id_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id prefix of the dynamically generated client ids.
         """
         return pulumi.get(self, "client_id_prefix")
 
     @client_id_prefix.setter
-    def client_id_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="localBrokerConnection")
-    def local_broker_connection(self) -> Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']]:
+    def local_broker_connection(self) -> pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']]:
         """
         The details for connecting with Local Broker.
         """
         return pulumi.get(self, "local_broker_connection")
 
     @local_broker_connection.setter
-    def local_broker_connection(self, value: Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']]):
+    def local_broker_connection(self, value: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']]):
         pulumi.set(self, "local_broker_connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The log level of the Bridge Connector instances.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="mqttBridgeConnectorName")
-    def mqtt_bridge_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mqtt_bridge_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ mqttBridgeConnector resource
         """
         return pulumi.get(self, "mqtt_bridge_connector_name")
 
     @mqtt_bridge_connector_name.setter
-    def mqtt_bridge_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mqtt_bridge_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mqtt_bridge_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTolerations")
-    def node_tolerations(self) -> Optional[pulumi.Input['NodeTolerationsArgs']]:
+    def node_tolerations(self) -> pulumi.Input[Optional['NodeTolerationsArgs']]:
         """
         The Node Tolerations for the Bridge Connector pods.
         """
         return pulumi.get(self, "node_tolerations")
 
     @node_tolerations.setter
-    def node_tolerations(self, value: Optional[pulumi.Input['NodeTolerationsArgs']]):
+    def node_tolerations(self, value: pulumi.Input[Optional['NodeTolerationsArgs']]):
         pulumi.set(self, "node_tolerations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -252,26 +252,25 @@ class MqttBridgeConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bridge_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mqtt_bridge_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'MqttProtocol']]] = None,
-                 remote_broker_connection: Optional[pulumi.Input[Union['MqttBridgeRemoteBrokerConnectionSpecArgs', 'MqttBridgeRemoteBrokerConnectionSpecArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bridge_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 local_broker_connection: pulumi.Input[Optional[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mqtt_bridge_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'MqttProtocol']]] = None,
+                 remote_broker_connection: pulumi.Input[Optional[Union['MqttBridgeRemoteBrokerConnectionSpecArgs', 'MqttBridgeRemoteBrokerConnectionSpecArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MQ mqttBridgeConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +300,6 @@ class MqttBridgeConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MqttBridgeConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,20 +315,20 @@ class MqttBridgeConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bridge_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mqtt_bridge_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'MqttProtocol']]] = None,
-                 remote_broker_connection: Optional[pulumi.Input[Union['MqttBridgeRemoteBrokerConnectionSpecArgs', 'MqttBridgeRemoteBrokerConnectionSpecArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bridge_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 local_broker_connection: pulumi.Input[Optional[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mqtt_bridge_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'MqttProtocol']]] = None,
+                 remote_broker_connection: pulumi.Input[Optional[Union['MqttBridgeRemoteBrokerConnectionSpecArgs', 'MqttBridgeRemoteBrokerConnectionSpecArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

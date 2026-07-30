@@ -159,19 +159,19 @@ export interface NetworkSecurityGroupArgs {
     /**
      * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
      */
-    flushConnection?: pulumi.Input<boolean>;
+    flushConnection?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security group.
      */
-    networkSecurityGroupName?: pulumi.Input<string>;
+    networkSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -180,9 +180,9 @@ export interface NetworkSecurityGroupArgs {
      * A collection of security rules of the network security group.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    securityRules?: pulumi.Input<pulumi.Input<inputs.network.SecurityRuleArgs>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.network.SecurityRuleArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

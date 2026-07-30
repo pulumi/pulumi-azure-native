@@ -192,7 +192,6 @@ def get_graph_query(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Graph Query resource.
     """
@@ -215,8 +214,8 @@ def get_graph_query(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
-def get_graph_query_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_query_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQueryResult]:
     """
     Get a single graph query by its resourceName.
@@ -224,7 +223,6 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Graph Query resource.

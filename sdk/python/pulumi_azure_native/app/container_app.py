@@ -23,19 +23,19 @@ __all__ = ['ContainerAppArgs', 'ContainerApp']
 class ContainerAppArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['ConfigurationArgs']] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patching_configuration: Optional[pulumi.Input['ContainerAppPatchingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input['TemplateArgs']] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['ConfigurationArgs']] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patching_configuration: pulumi.Input[Optional['ContainerAppPatchingConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional['TemplateArgs']] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerApp resource.
 
@@ -96,158 +96,158 @@ class ContainerAppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ConfigurationArgs']]:
         """
         Non versioned Container App configuration properties.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppName")
-    def container_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Container App.
         """
         return pulumi.get(self, "container_app_name")
 
     @container_app_name.setter
-    def container_app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of environment.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]:
         """
         Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEnvironmentId")
-    def managed_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecated. Resource ID of the Container App's environment.
         """
         return pulumi.get(self, "managed_environment_id")
 
     @managed_environment_id.setter
-    def managed_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchingConfiguration")
-    def patching_configuration(self) -> Optional[pulumi.Input['ContainerAppPatchingConfigurationArgs']]:
+    def patching_configuration(self) -> pulumi.Input[Optional['ContainerAppPatchingConfigurationArgs']]:
         """
         Container App auto patch configuration.
         """
         return pulumi.get(self, "patching_configuration")
 
     @patching_configuration.setter
-    def patching_configuration(self, value: Optional[pulumi.Input['ContainerAppPatchingConfigurationArgs']]):
+    def patching_configuration(self, value: pulumi.Input[Optional['ContainerAppPatchingConfigurationArgs']]):
         pulumi.set(self, "patching_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['TemplateArgs']]:
+    def template(self) -> pulumi.Input[Optional['TemplateArgs']]:
         """
         Container App versioned application definition.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['TemplateArgs']]):
+    def template(self, value: pulumi.Input[Optional['TemplateArgs']]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfileName")
-    def workload_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workload profile name to pin for container app execution.
         """
         return pulumi.get(self, "workload_profile_name")
 
     @workload_profile_name.setter
-    def workload_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_profile_name", value)
 
 
@@ -257,20 +257,20 @@ class ContainerApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patching_configuration: Optional[pulumi.Input[Union['ContainerAppPatchingConfigurationArgs', 'ContainerAppPatchingConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patching_configuration: pulumi.Input[Optional[Union['ContainerAppPatchingConfigurationArgs', 'ContainerAppPatchingConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Container App.
@@ -278,7 +278,6 @@ class ContainerApp(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,7 +309,6 @@ class ContainerApp(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,20 +324,20 @@ class ContainerApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patching_configuration: Optional[pulumi.Input[Union['ContainerAppPatchingConfigurationArgs', 'ContainerAppPatchingConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patching_configuration: pulumi.Input[Optional[Union['ContainerAppPatchingConfigurationArgs', 'ContainerAppPatchingConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

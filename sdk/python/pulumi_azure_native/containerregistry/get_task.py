@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetTaskResult:
     """
-    The task that has the ARM resource and task properties. 
+    The task that has the ARM resource and task properties.
     The task will have all information to schedule a run against it.
     """
     def __init__(__self__, agent_configuration=None, agent_pool_name=None, azure_api_version=None, creation_date=None, credentials=None, id=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, system_data=None, tags=None, timeout=None, trigger=None, type=None):
@@ -290,7 +290,6 @@ def get_task(registry_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.
     :param _builtins.str task_name: The name of the container registry task.
@@ -323,9 +322,9 @@ def get_task(registry_name: Optional[_builtins.str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         trigger=pulumi.get(__ret__, 'trigger'),
         type=pulumi.get(__ret__, 'type'))
-def get_task_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    task_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    task_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskResult]:
     """
     Get the properties of a specified task.
@@ -333,7 +332,6 @@ def get_task_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2019-06-01-preview.
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.

@@ -121,7 +121,6 @@ def get_certificate(certificate_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2017-07-01, 2018-01-22, 2018-04-01, 2018-12-01-preview, 2019-03-22, 2019-03-22-preview, 2019-07-01-preview, 2019-11-04, 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview, 2025-08-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iothub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str certificate_name: The name of the certificate
     :param _builtins.str resource_group_name: The name of the resource group that contains the IoT hub.
     :param _builtins.str resource_name: The name of the IoT hub.
@@ -140,9 +139,9 @@ def get_certificate(certificate_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Returns the certificate.
@@ -150,7 +149,6 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2023-06-30.
 
     Other available API versions: 2017-07-01, 2018-01-22, 2018-04-01, 2018-12-01-preview, 2019-03-22, 2019-03-22-preview, 2019-07-01-preview, 2019-11-04, 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview, 2025-08-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iothub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str certificate_name: The name of the certificate
     :param _builtins.str resource_group_name: The name of the resource group that contains the IoT hub.

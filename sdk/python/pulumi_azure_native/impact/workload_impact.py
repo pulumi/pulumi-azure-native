@@ -22,13 +22,13 @@ __all__ = ['WorkloadImpactArgs', 'WorkloadImpact']
 @pulumi.input_type
 class WorkloadImpactArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['WorkloadImpactPropertiesArgs']] = None,
-                 workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['WorkloadImpactPropertiesArgs']] = None,
+                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadImpact resource.
 
         :param pulumi.Input['WorkloadImpactPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
+        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -37,26 +37,26 @@ class WorkloadImpactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['WorkloadImpactPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['WorkloadImpactPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['WorkloadImpactPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['WorkloadImpactPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadImpactName")
-    def workload_impact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_impact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        workloadImpact resource 
+        workloadImpact resource
         """
         return pulumi.get(self, "workload_impact_name")
 
     @workload_impact_name.setter
-    def workload_impact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_impact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_impact_name", value)
 
 
@@ -66,8 +66,8 @@ class WorkloadImpact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']]] = None,
-                 workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']]] = None,
+                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Workload Impact properties
@@ -76,11 +76,10 @@ class WorkloadImpact(pulumi.CustomResource):
 
         Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
+        :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource
         """
         ...
     @overload
@@ -94,7 +93,6 @@ class WorkloadImpact(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param WorkloadImpactArgs args: The arguments to use to populate this resource's properties.
@@ -111,8 +109,8 @@ class WorkloadImpact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']]] = None,
-                 workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']]] = None,
+                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

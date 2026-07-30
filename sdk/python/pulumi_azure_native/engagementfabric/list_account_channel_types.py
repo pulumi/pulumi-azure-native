@@ -58,7 +58,6 @@ def list_account_channel_types(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str account_name: Account Name
     :param _builtins.str resource_group_name: Resource Group Name
     """
@@ -70,14 +69,13 @@ def list_account_channel_types(account_name: Optional[_builtins.str] = None,
 
     return AwaitableListAccountChannelTypesResult(
         value=pulumi.get(__ret__, 'value'))
-def list_account_channel_types_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_account_channel_types_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountChannelTypesResult]:
     """
     List of the EngagementFabric channel descriptions
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str account_name: Account Name
     :param _builtins.str resource_group_name: Resource Group Name

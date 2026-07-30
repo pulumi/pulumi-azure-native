@@ -24,16 +24,16 @@ class PipelineArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input['PipelineFolderArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input['PipelinePolicyArgs']] = None,
+                 activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional['PipelineFolderArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional['PipelinePolicyArgs']] = None,
                  run_dimensions: Optional[Any] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]] = None):
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
 
@@ -99,98 +99,98 @@ class PipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
+    def activities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
         """
         List of activities in pipeline.
         """
         return pulumi.get(self, "activities")
 
     @activities.setter
-    def activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
+    def activities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
         pulumi.set(self, "activities", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max number of concurrent runs for the pipeline.
         """
         return pulumi.get(self, "concurrency")
 
     @concurrency.setter
-    def concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrency", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the pipeline.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input['PipelineFolderArgs']]:
+    def folder(self) -> pulumi.Input[Optional['PipelineFolderArgs']]:
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input['PipelineFolderArgs']]):
+    def folder(self, value: pulumi.Input[Optional['PipelineFolderArgs']]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
         """
         List of parameters for pipeline.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pipeline name.
         """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
-    def pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input['PipelinePolicyArgs']]:
+    def policy(self) -> pulumi.Input[Optional['PipelinePolicyArgs']]:
         """
         Pipeline Policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input['PipelinePolicyArgs']]):
+    def policy(self, value: pulumi.Input[Optional['PipelinePolicyArgs']]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
@@ -207,14 +207,14 @@ class PipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]]:
         """
         List of variables for pipeline.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -224,24 +224,23 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AppendVariableActivityArgs', 'AppendVariableActivityArgsDict'], Union['AzureDataExplorerCommandActivityArgs', 'AzureDataExplorerCommandActivityArgsDict'], Union['AzureFunctionActivityArgs', 'AzureFunctionActivityArgsDict'], Union['AzureMLBatchExecutionActivityArgs', 'AzureMLBatchExecutionActivityArgsDict'], Union['AzureMLExecutePipelineActivityArgs', 'AzureMLExecutePipelineActivityArgsDict'], Union['AzureMLUpdateResourceActivityArgs', 'AzureMLUpdateResourceActivityArgsDict'], Union['ControlActivityArgs', 'ControlActivityArgsDict'], Union['CopyActivityArgs', 'CopyActivityArgsDict'], Union['CustomActivityArgs', 'CustomActivityArgsDict'], Union['DataLakeAnalyticsUSQLActivityArgs', 'DataLakeAnalyticsUSQLActivityArgsDict'], Union['DatabricksJobActivityArgs', 'DatabricksJobActivityArgsDict'], Union['DatabricksNotebookActivityArgs', 'DatabricksNotebookActivityArgsDict'], Union['DatabricksSparkJarActivityArgs', 'DatabricksSparkJarActivityArgsDict'], Union['DatabricksSparkPythonActivityArgs', 'DatabricksSparkPythonActivityArgsDict'], Union['DeleteActivityArgs', 'DeleteActivityArgsDict'], Union['ExecuteDataFlowActivityArgs', 'ExecuteDataFlowActivityArgsDict'], Union['ExecutePipelineActivityArgs', 'ExecutePipelineActivityArgsDict'], Union['ExecuteSSISPackageActivityArgs', 'ExecuteSSISPackageActivityArgsDict'], Union['ExecuteWranglingDataflowActivityArgs', 'ExecuteWranglingDataflowActivityArgsDict'], Union['ExecutionActivityArgs', 'ExecutionActivityArgsDict'], Union['FailActivityArgs', 'FailActivityArgsDict'], Union['FilterActivityArgs', 'FilterActivityArgsDict'], Union['ForEachActivityArgs', 'ForEachActivityArgsDict'], Union['GetMetadataActivityArgs', 'GetMetadataActivityArgsDict'], Union['HDInsightHiveActivityArgs', 'HDInsightHiveActivityArgsDict'], Union['HDInsightMapReduceActivityArgs', 'HDInsightMapReduceActivityArgsDict'], Union['HDInsightPigActivityArgs', 'HDInsightPigActivityArgsDict'], Union['HDInsightSparkActivityArgs', 'HDInsightSparkActivityArgsDict'], Union['HDInsightStreamingActivityArgs', 'HDInsightStreamingActivityArgsDict'], Union['IfConditionActivityArgs', 'IfConditionActivityArgsDict'], Union['LookupActivityArgs', 'LookupActivityArgsDict'], Union['ScriptActivityArgs', 'ScriptActivityArgsDict'], Union['SetVariableActivityArgs', 'SetVariableActivityArgsDict'], Union['SqlServerStoredProcedureActivityArgs', 'SqlServerStoredProcedureActivityArgsDict'], Union['SwitchActivityArgs', 'SwitchActivityArgsDict'], Union['SynapseNotebookActivityArgs', 'SynapseNotebookActivityArgsDict'], Union['SynapseSparkJobDefinitionActivityArgs', 'SynapseSparkJobDefinitionActivityArgsDict'], Union['UntilActivityArgs', 'UntilActivityArgsDict'], Union['ValidationActivityArgs', 'ValidationActivityArgsDict'], Union['WaitActivityArgs', 'WaitActivityArgsDict'], Union['WebActivityArgs', 'WebActivityArgsDict'], Union['WebHookActivityArgs', 'WebHookActivityArgsDict']]]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[Union['PipelineFolderArgs', 'PipelineFolderArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterSpecificationArgs', 'ParameterSpecificationArgsDict']]]]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[Union['PipelinePolicyArgs', 'PipelinePolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AppendVariableActivityArgs', 'AppendVariableActivityArgsDict'], Union['AzureDataExplorerCommandActivityArgs', 'AzureDataExplorerCommandActivityArgsDict'], Union['AzureFunctionActivityArgs', 'AzureFunctionActivityArgsDict'], Union['AzureMLBatchExecutionActivityArgs', 'AzureMLBatchExecutionActivityArgsDict'], Union['AzureMLExecutePipelineActivityArgs', 'AzureMLExecutePipelineActivityArgsDict'], Union['AzureMLUpdateResourceActivityArgs', 'AzureMLUpdateResourceActivityArgsDict'], Union['ControlActivityArgs', 'ControlActivityArgsDict'], Union['CopyActivityArgs', 'CopyActivityArgsDict'], Union['CustomActivityArgs', 'CustomActivityArgsDict'], Union['DataLakeAnalyticsUSQLActivityArgs', 'DataLakeAnalyticsUSQLActivityArgsDict'], Union['DatabricksJobActivityArgs', 'DatabricksJobActivityArgsDict'], Union['DatabricksNotebookActivityArgs', 'DatabricksNotebookActivityArgsDict'], Union['DatabricksSparkJarActivityArgs', 'DatabricksSparkJarActivityArgsDict'], Union['DatabricksSparkPythonActivityArgs', 'DatabricksSparkPythonActivityArgsDict'], Union['DeleteActivityArgs', 'DeleteActivityArgsDict'], Union['ExecuteDataFlowActivityArgs', 'ExecuteDataFlowActivityArgsDict'], Union['ExecutePipelineActivityArgs', 'ExecutePipelineActivityArgsDict'], Union['ExecuteSSISPackageActivityArgs', 'ExecuteSSISPackageActivityArgsDict'], Union['ExecuteWranglingDataflowActivityArgs', 'ExecuteWranglingDataflowActivityArgsDict'], Union['ExecutionActivityArgs', 'ExecutionActivityArgsDict'], Union['FailActivityArgs', 'FailActivityArgsDict'], Union['FilterActivityArgs', 'FilterActivityArgsDict'], Union['ForEachActivityArgs', 'ForEachActivityArgsDict'], Union['GetMetadataActivityArgs', 'GetMetadataActivityArgsDict'], Union['HDInsightHiveActivityArgs', 'HDInsightHiveActivityArgsDict'], Union['HDInsightMapReduceActivityArgs', 'HDInsightMapReduceActivityArgsDict'], Union['HDInsightPigActivityArgs', 'HDInsightPigActivityArgsDict'], Union['HDInsightSparkActivityArgs', 'HDInsightSparkActivityArgsDict'], Union['HDInsightStreamingActivityArgs', 'HDInsightStreamingActivityArgsDict'], Union['IfConditionActivityArgs', 'IfConditionActivityArgsDict'], Union['LookupActivityArgs', 'LookupActivityArgsDict'], Union['ScriptActivityArgs', 'ScriptActivityArgsDict'], Union['SetVariableActivityArgs', 'SetVariableActivityArgsDict'], Union['SqlServerStoredProcedureActivityArgs', 'SqlServerStoredProcedureActivityArgsDict'], Union['SwitchActivityArgs', 'SwitchActivityArgsDict'], Union['SynapseNotebookActivityArgs', 'SynapseNotebookActivityArgsDict'], Union['SynapseSparkJobDefinitionActivityArgs', 'SynapseSparkJobDefinitionActivityArgsDict'], Union['UntilActivityArgs', 'UntilActivityArgsDict'], Union['ValidationActivityArgs', 'ValidationActivityArgsDict'], Union['WaitActivityArgs', 'WaitActivityArgsDict'], Union['WebActivityArgs', 'WebActivityArgsDict'], Union['WebHookActivityArgs', 'WebHookActivityArgsDict']]]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[Union['PipelineFolderArgs', 'PipelineFolderArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterSpecificationArgs', 'ParameterSpecificationArgsDict']]]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['PipelinePolicyArgs', 'PipelinePolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  run_dimensions: Optional[Any] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['VariableSpecificationArgs', 'VariableSpecificationArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['VariableSpecificationArgs', 'VariableSpecificationArgsDict']]]]] = None,
                  __props__=None):
         """
         Pipeline resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,7 +268,6 @@ class Pipeline(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,18 +283,18 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AppendVariableActivityArgs', 'AppendVariableActivityArgsDict'], Union['AzureDataExplorerCommandActivityArgs', 'AzureDataExplorerCommandActivityArgsDict'], Union['AzureFunctionActivityArgs', 'AzureFunctionActivityArgsDict'], Union['AzureMLBatchExecutionActivityArgs', 'AzureMLBatchExecutionActivityArgsDict'], Union['AzureMLExecutePipelineActivityArgs', 'AzureMLExecutePipelineActivityArgsDict'], Union['AzureMLUpdateResourceActivityArgs', 'AzureMLUpdateResourceActivityArgsDict'], Union['ControlActivityArgs', 'ControlActivityArgsDict'], Union['CopyActivityArgs', 'CopyActivityArgsDict'], Union['CustomActivityArgs', 'CustomActivityArgsDict'], Union['DataLakeAnalyticsUSQLActivityArgs', 'DataLakeAnalyticsUSQLActivityArgsDict'], Union['DatabricksJobActivityArgs', 'DatabricksJobActivityArgsDict'], Union['DatabricksNotebookActivityArgs', 'DatabricksNotebookActivityArgsDict'], Union['DatabricksSparkJarActivityArgs', 'DatabricksSparkJarActivityArgsDict'], Union['DatabricksSparkPythonActivityArgs', 'DatabricksSparkPythonActivityArgsDict'], Union['DeleteActivityArgs', 'DeleteActivityArgsDict'], Union['ExecuteDataFlowActivityArgs', 'ExecuteDataFlowActivityArgsDict'], Union['ExecutePipelineActivityArgs', 'ExecutePipelineActivityArgsDict'], Union['ExecuteSSISPackageActivityArgs', 'ExecuteSSISPackageActivityArgsDict'], Union['ExecuteWranglingDataflowActivityArgs', 'ExecuteWranglingDataflowActivityArgsDict'], Union['ExecutionActivityArgs', 'ExecutionActivityArgsDict'], Union['FailActivityArgs', 'FailActivityArgsDict'], Union['FilterActivityArgs', 'FilterActivityArgsDict'], Union['ForEachActivityArgs', 'ForEachActivityArgsDict'], Union['GetMetadataActivityArgs', 'GetMetadataActivityArgsDict'], Union['HDInsightHiveActivityArgs', 'HDInsightHiveActivityArgsDict'], Union['HDInsightMapReduceActivityArgs', 'HDInsightMapReduceActivityArgsDict'], Union['HDInsightPigActivityArgs', 'HDInsightPigActivityArgsDict'], Union['HDInsightSparkActivityArgs', 'HDInsightSparkActivityArgsDict'], Union['HDInsightStreamingActivityArgs', 'HDInsightStreamingActivityArgsDict'], Union['IfConditionActivityArgs', 'IfConditionActivityArgsDict'], Union['LookupActivityArgs', 'LookupActivityArgsDict'], Union['ScriptActivityArgs', 'ScriptActivityArgsDict'], Union['SetVariableActivityArgs', 'SetVariableActivityArgsDict'], Union['SqlServerStoredProcedureActivityArgs', 'SqlServerStoredProcedureActivityArgsDict'], Union['SwitchActivityArgs', 'SwitchActivityArgsDict'], Union['SynapseNotebookActivityArgs', 'SynapseNotebookActivityArgsDict'], Union['SynapseSparkJobDefinitionActivityArgs', 'SynapseSparkJobDefinitionActivityArgsDict'], Union['UntilActivityArgs', 'UntilActivityArgsDict'], Union['ValidationActivityArgs', 'ValidationActivityArgsDict'], Union['WaitActivityArgs', 'WaitActivityArgsDict'], Union['WebActivityArgs', 'WebActivityArgsDict'], Union['WebHookActivityArgs', 'WebHookActivityArgsDict']]]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[Union['PipelineFolderArgs', 'PipelineFolderArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterSpecificationArgs', 'ParameterSpecificationArgsDict']]]]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[Union['PipelinePolicyArgs', 'PipelinePolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AppendVariableActivityArgs', 'AppendVariableActivityArgsDict'], Union['AzureDataExplorerCommandActivityArgs', 'AzureDataExplorerCommandActivityArgsDict'], Union['AzureFunctionActivityArgs', 'AzureFunctionActivityArgsDict'], Union['AzureMLBatchExecutionActivityArgs', 'AzureMLBatchExecutionActivityArgsDict'], Union['AzureMLExecutePipelineActivityArgs', 'AzureMLExecutePipelineActivityArgsDict'], Union['AzureMLUpdateResourceActivityArgs', 'AzureMLUpdateResourceActivityArgsDict'], Union['ControlActivityArgs', 'ControlActivityArgsDict'], Union['CopyActivityArgs', 'CopyActivityArgsDict'], Union['CustomActivityArgs', 'CustomActivityArgsDict'], Union['DataLakeAnalyticsUSQLActivityArgs', 'DataLakeAnalyticsUSQLActivityArgsDict'], Union['DatabricksJobActivityArgs', 'DatabricksJobActivityArgsDict'], Union['DatabricksNotebookActivityArgs', 'DatabricksNotebookActivityArgsDict'], Union['DatabricksSparkJarActivityArgs', 'DatabricksSparkJarActivityArgsDict'], Union['DatabricksSparkPythonActivityArgs', 'DatabricksSparkPythonActivityArgsDict'], Union['DeleteActivityArgs', 'DeleteActivityArgsDict'], Union['ExecuteDataFlowActivityArgs', 'ExecuteDataFlowActivityArgsDict'], Union['ExecutePipelineActivityArgs', 'ExecutePipelineActivityArgsDict'], Union['ExecuteSSISPackageActivityArgs', 'ExecuteSSISPackageActivityArgsDict'], Union['ExecuteWranglingDataflowActivityArgs', 'ExecuteWranglingDataflowActivityArgsDict'], Union['ExecutionActivityArgs', 'ExecutionActivityArgsDict'], Union['FailActivityArgs', 'FailActivityArgsDict'], Union['FilterActivityArgs', 'FilterActivityArgsDict'], Union['ForEachActivityArgs', 'ForEachActivityArgsDict'], Union['GetMetadataActivityArgs', 'GetMetadataActivityArgsDict'], Union['HDInsightHiveActivityArgs', 'HDInsightHiveActivityArgsDict'], Union['HDInsightMapReduceActivityArgs', 'HDInsightMapReduceActivityArgsDict'], Union['HDInsightPigActivityArgs', 'HDInsightPigActivityArgsDict'], Union['HDInsightSparkActivityArgs', 'HDInsightSparkActivityArgsDict'], Union['HDInsightStreamingActivityArgs', 'HDInsightStreamingActivityArgsDict'], Union['IfConditionActivityArgs', 'IfConditionActivityArgsDict'], Union['LookupActivityArgs', 'LookupActivityArgsDict'], Union['ScriptActivityArgs', 'ScriptActivityArgsDict'], Union['SetVariableActivityArgs', 'SetVariableActivityArgsDict'], Union['SqlServerStoredProcedureActivityArgs', 'SqlServerStoredProcedureActivityArgsDict'], Union['SwitchActivityArgs', 'SwitchActivityArgsDict'], Union['SynapseNotebookActivityArgs', 'SynapseNotebookActivityArgsDict'], Union['SynapseSparkJobDefinitionActivityArgs', 'SynapseSparkJobDefinitionActivityArgsDict'], Union['UntilActivityArgs', 'UntilActivityArgsDict'], Union['ValidationActivityArgs', 'ValidationActivityArgsDict'], Union['WaitActivityArgs', 'WaitActivityArgsDict'], Union['WebActivityArgs', 'WebActivityArgsDict'], Union['WebHookActivityArgs', 'WebHookActivityArgsDict']]]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[Union['PipelineFolderArgs', 'PipelineFolderArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterSpecificationArgs', 'ParameterSpecificationArgsDict']]]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['PipelinePolicyArgs', 'PipelinePolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  run_dimensions: Optional[Any] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['VariableSpecificationArgs', 'VariableSpecificationArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['VariableSpecificationArgs', 'VariableSpecificationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

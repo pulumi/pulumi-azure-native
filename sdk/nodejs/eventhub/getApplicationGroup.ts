@@ -25,7 +25,7 @@ export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi
 
 export interface GetApplicationGroupArgs {
     /**
-     * The Application Group name 
+     * The Application Group name
      */
     applicationGroupName: string;
     /**
@@ -97,7 +97,7 @@ export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, o
 
 export interface GetApplicationGroupOutputArgs {
     /**
-     * The Application Group name 
+     * The Application Group name
      */
     applicationGroupName: pulumi.Input<string>;
     /**

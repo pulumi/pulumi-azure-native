@@ -66,7 +66,7 @@ export class MigrationConfig extends pulumi.CustomResource {
      */
     declare public readonly postMigrationName: pulumi.Output<string>;
     /**
-     * Provisioning state of Migration Configuration 
+     * Provisioning state of Migration Configuration
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface MigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    configName?: pulumi.Input<string>;
+    configName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */

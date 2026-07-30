@@ -24,15 +24,15 @@ class IntegrationAccountSchemaArgs:
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[Union[_builtins.str, 'SchemaType']],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountSchema resource.
 
@@ -109,62 +109,62 @@ class IntegrationAccountSchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="documentName")
-    def document_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The document name.
         """
         return pulumi.get(self, "document_name")
 
     @document_name.setter
-    def document_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file name.
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
@@ -181,38 +181,38 @@ class IntegrationAccountSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account schema name.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target namespace of the schema.
         """
         return pulumi.get(self, "target_namespace")
 
     @target_namespace.setter
-    def target_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_namespace", value)
 
 
@@ -222,18 +222,18 @@ class IntegrationAccountSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The integration account schema.
@@ -241,7 +241,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +270,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,18 +285,18 @@ class IntegrationAccountSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -61,7 +61,6 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[_builtins
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str artifact_manifest_name: The name of the artifact manifest.
     :param _builtins.str artifact_store_name: The name of the artifact store.
     :param _builtins.str publisher_name: The name of the publisher.
@@ -77,10 +76,10 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[_builtins
 
     return AwaitableListArtifactManifestCredentialResult(
         credential_type=pulumi.get(__ret__, 'credential_type'))
-def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_artifact_manifest_credential_output(artifact_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactManifestCredentialResult]:
     """
     List credential for publishing artifacts defined in artifact manifest.
@@ -88,7 +87,6 @@ def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pu
     Uses Azure REST API version 2024-04-15.
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str artifact_manifest_name: The name of the artifact manifest.
     :param _builtins.str artifact_store_name: The name of the artifact store.

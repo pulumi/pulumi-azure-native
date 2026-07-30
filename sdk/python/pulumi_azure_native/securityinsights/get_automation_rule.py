@@ -214,7 +214,6 @@ def get_automation_rule(automation_rule_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_rule_id: Automation rule ID
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -241,9 +240,9 @@ def get_automation_rule(automation_rule_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         triggering_logic=pulumi.get(__ret__, 'triggering_logic'),
         type=pulumi.get(__ret__, 'type'))
-def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automation_rule_output(automation_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     Gets the automation rule.
@@ -251,7 +250,6 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_rule_id: Automation rule ID
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

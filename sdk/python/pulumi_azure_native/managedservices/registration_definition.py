@@ -23,9 +23,9 @@ __all__ = ['RegistrationDefinitionArgs', 'RegistrationDefinition']
 class RegistrationDefinitionArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 properties: Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']] = None,
-                 registration_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 plan: pulumi.Input[Optional['PlanArgs']] = None,
+                 properties: pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']] = None,
+                 registration_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationDefinition resource.
 
@@ -56,38 +56,38 @@ class RegistrationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
         """
         The details for the Managed Services offer’s plan in Azure Marketplace.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']]:
         """
         The properties of a registration definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationDefinitionId")
-    def registration_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the registration definition.
         """
         return pulumi.get(self, "registration_definition_id")
 
     @registration_definition_id.setter
-    def registration_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_definition_id", value)
 
 
@@ -97,16 +97,15 @@ class RegistrationDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
-                 registration_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
+                 registration_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The registration definition.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class RegistrationDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-
         :param str resource_name: The name of the resource.
         :param RegistrationDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class RegistrationDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
-                 registration_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
+                 registration_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

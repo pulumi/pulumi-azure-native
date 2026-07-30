@@ -26,30 +26,30 @@ class HostPoolArgs:
                  load_balancer_type: pulumi.Input[Union[_builtins.str, 'LoadBalancerType']],
                  preferred_app_group_type: pulumi.Input[Union[_builtins.str, 'PreferredAppGroupType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_update: Optional[pulumi.Input['AgentUpdatePropertiesArgs']] = None,
-                 custom_rdp_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_session_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
-                 plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
-                 registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
-                 ring: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
-                 sso_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_client_secret_key_vault_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_secret_type: Optional[pulumi.Input[Union[_builtins.str, 'SSOSecretType']]] = None,
-                 ssoadfs_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_update: pulumi.Input[Optional['AgentUpdatePropertiesArgs']] = None,
+                 custom_rdp_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_session_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
+                 plan: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
+                 registration_info: pulumi.Input[Optional['RegistrationInfoArgs']] = None,
+                 ring: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+                 sso_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_client_secret_key_vault_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_secret_type: pulumi.Input[Optional[Union[_builtins.str, 'SSOSecretType']]] = None,
+                 ssoadfs_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostPool resource.
 
@@ -182,281 +182,281 @@ class HostPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentUpdate")
-    def agent_update(self) -> Optional[pulumi.Input['AgentUpdatePropertiesArgs']]:
+    def agent_update(self) -> pulumi.Input[Optional['AgentUpdatePropertiesArgs']]:
         """
         The session host configuration for updating agent, monitoring agent, and stack component.
         """
         return pulumi.get(self, "agent_update")
 
     @agent_update.setter
-    def agent_update(self, value: Optional[pulumi.Input['AgentUpdatePropertiesArgs']]):
+    def agent_update(self, value: pulumi.Input[Optional['AgentUpdatePropertiesArgs']]):
         pulumi.set(self, "agent_update", value)
 
     @_builtins.property
     @pulumi.getter(name="customRdpProperty")
-    def custom_rdp_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_rdp_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom rdp property of HostPool.
         """
         return pulumi.get(self, "custom_rdp_property")
 
     @custom_rdp_property.setter
-    def custom_rdp_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_rdp_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_rdp_property", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of HostPool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of HostPool.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolName")
-    def host_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host pool within the specified resource group
         """
         return pulumi.get(self, "host_pool_name")
 
     @host_pool_name.setter
-    def host_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSessionLimit")
-    def max_session_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_session_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max session limit of HostPool.
         """
         return pulumi.get(self, "max_session_limit")
 
     @max_session_limit.setter
-    def max_session_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_session_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_session_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="personalDesktopAssignmentType")
-    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PersonalDesktopAssignmentType']]]:
+    def personal_desktop_assignment_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PersonalDesktopAssignmentType']]]:
         """
         PersonalDesktopAssignment type for HostPool.
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
 
     @personal_desktop_assignment_type.setter
-    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PersonalDesktopAssignmentType']]]):
+    def personal_desktop_assignment_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PersonalDesktopAssignmentType']]]):
         pulumi.set(self, "personal_desktop_assignment_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']]:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]]:
         """
         Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationInfo")
-    def registration_info(self) -> Optional[pulumi.Input['RegistrationInfoArgs']]:
+    def registration_info(self) -> pulumi.Input[Optional['RegistrationInfoArgs']]:
         """
         The registration info of HostPool.
         """
         return pulumi.get(self, "registration_info")
 
     @registration_info.setter
-    def registration_info(self, value: Optional[pulumi.Input['RegistrationInfoArgs']]):
+    def registration_info(self, value: pulumi.Input[Optional['RegistrationInfoArgs']]):
         pulumi.set(self, "registration_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def ring(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ring(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ring number of HostPool.
         """
         return pulumi.get(self, "ring")
 
     @ring.setter
-    def ring(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ring(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ring", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']]:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoClientId")
-    def sso_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ClientId for the registered Relying Party used to issue WVD SSO certificates.
         """
         return pulumi.get(self, "sso_client_id")
 
     @sso_client_id.setter
-    def sso_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoClientSecretKeyVaultPath")
-    def sso_client_secret_key_vault_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_client_secret_key_vault_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to Azure KeyVault storing the secret used for communication to ADFS.
         """
         return pulumi.get(self, "sso_client_secret_key_vault_path")
 
     @sso_client_secret_key_vault_path.setter
-    def sso_client_secret_key_vault_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_client_secret_key_vault_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_client_secret_key_vault_path", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoSecretType")
-    def sso_secret_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SSOSecretType']]]:
+    def sso_secret_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SSOSecretType']]]:
         """
         The type of single sign on Secret Type.
         """
         return pulumi.get(self, "sso_secret_type")
 
     @sso_secret_type.setter
-    def sso_secret_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SSOSecretType']]]):
+    def sso_secret_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SSOSecretType']]]):
         pulumi.set(self, "sso_secret_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoadfsAuthority")
-    def ssoadfs_authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssoadfs_authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL to customer ADFS server for signing WVD SSO certificates.
         """
         return pulumi.get(self, "ssoadfs_authority")
 
     @ssoadfs_authority.setter
-    def ssoadfs_authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssoadfs_authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssoadfs_authority", value)
 
     @_builtins.property
     @pulumi.getter(name="startVMOnConnect")
-    def start_vm_on_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_vm_on_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to turn on/off StartVMOnConnect feature.
         """
         return pulumi.get(self, "start_vm_on_connect")
 
     @start_vm_on_connect.setter
-    def start_vm_on_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_vm_on_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validationEnvironment")
-    def validation_environment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validation_environment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is validation environment.
         """
         return pulumi.get(self, "validation_environment")
 
     @validation_environment.setter
-    def validation_environment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validation_environment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validation_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="vmTemplate")
-    def vm_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VM template for sessionhosts configuration within hostpool.
         """
         return pulumi.get(self, "vm_template")
 
     @vm_template.setter
-    def vm_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_template", value)
 
 
@@ -466,34 +466,34 @@ class HostPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_update: Optional[pulumi.Input[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
-                 custom_rdp_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'HostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_session_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[Union[_builtins.str, 'PreferredAppGroupType']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
-                 registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ring: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
-                 sso_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_client_secret_key_vault_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_secret_type: Optional[pulumi.Input[Union[_builtins.str, 'SSOSecretType']]] = None,
-                 ssoadfs_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_update: pulumi.Input[Optional[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
+                 custom_rdp_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'HostPoolType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_type: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_session_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
+                 plan: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[Union[_builtins.str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
+                 registration_info: pulumi.Input[Optional[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ring: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
+                 sso_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_client_secret_key_vault_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_secret_type: pulumi.Input[Optional[Union[_builtins.str, 'SSOSecretType']]] = None,
+                 ssoadfs_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a HostPool definition.
@@ -501,7 +501,6 @@ class HostPool(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -544,7 +543,6 @@ class HostPool(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -560,34 +558,34 @@ class HostPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_update: Optional[pulumi.Input[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
-                 custom_rdp_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'HostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_session_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[Union[_builtins.str, 'PreferredAppGroupType']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
-                 registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ring: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
-                 sso_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_client_secret_key_vault_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_secret_type: Optional[pulumi.Input[Union[_builtins.str, 'SSOSecretType']]] = None,
-                 ssoadfs_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_update: pulumi.Input[Optional[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
+                 custom_rdp_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'HostPoolType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_type: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_session_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[Union[_builtins.str, 'PersonalDesktopAssignmentType']]] = None,
+                 plan: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[Union[_builtins.str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'HostpoolPublicNetworkAccess']]] = None,
+                 registration_info: pulumi.Input[Optional[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ring: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
+                 sso_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_client_secret_key_vault_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_secret_type: pulumi.Input[Optional[Union[_builtins.str, 'SSOSecretType']]] = None,
+                 ssoadfs_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -765,7 +763,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 

@@ -240,7 +240,6 @@ def get_student(billing_account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-12-01-preview.
 
-
     :param _builtins.str billing_account_name: The name of the billing account.
     :param _builtins.str billing_profile_name: The name of the billing profile.
     :param _builtins.str invoice_section_name: The name of the invoice section.
@@ -271,16 +270,15 @@ def get_student(billing_account_name: Optional[_builtins.str] = None,
         subscription_invite_last_sent_date=pulumi.get(__ret__, 'subscription_invite_last_sent_date'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_student_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       student_alias: Optional[pulumi.Input[_builtins.str]] = None,
+def get_student_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       student_alias: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudentResult]:
     """
     Get the details for a specific student in the specified lab by student alias
 
     Uses Azure REST API version 2021-12-01-preview.
-
 
     :param _builtins.str billing_account_name: The name of the billing account.
     :param _builtins.str billing_profile_name: The name of the billing profile.

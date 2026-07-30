@@ -24,13 +24,13 @@ class TableArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 plan: Optional[pulumi.Input[Union[_builtins.str, 'TablePlanEnum']]] = None,
-                 restored_logs: Optional[pulumi.Input['RestoredLogsArgs']] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema: Optional[pulumi.Input['SchemaArgs']] = None,
-                 search_results: Optional[pulumi.Input['SearchResultsArgs']] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 restored_logs: pulumi.Input[Optional['RestoredLogsArgs']] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema: pulumi.Input[Optional['SchemaArgs']] = None,
+                 search_results: pulumi.Input[Optional['SearchResultsArgs']] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -87,86 +87,86 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TablePlanEnum']]]:
+    def plan(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]]:
         """
         Instruct the system how to handle and charge the logs ingested to this table.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TablePlanEnum']]]):
+    def plan(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="restoredLogs")
-    def restored_logs(self) -> Optional[pulumi.Input['RestoredLogsArgs']]:
+    def restored_logs(self) -> pulumi.Input[Optional['RestoredLogsArgs']]:
         """
         Parameters of the restore operation that initiated this table.
         """
         return pulumi.get(self, "restored_logs")
 
     @restored_logs.setter
-    def restored_logs(self, value: Optional[pulumi.Input['RestoredLogsArgs']]):
+    def restored_logs(self, value: pulumi.Input[Optional['RestoredLogsArgs']]):
         pulumi.set(self, "restored_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['SchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['SchemaArgs']]:
         """
         Table schema.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['SchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['SchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="searchResults")
-    def search_results(self) -> Optional[pulumi.Input['SearchResultsArgs']]:
+    def search_results(self) -> pulumi.Input[Optional['SearchResultsArgs']]:
         """
         Parameters of the search job that initiated this table.
         """
         return pulumi.get(self, "search_results")
 
     @search_results.setter
-    def search_results(self, value: Optional[pulumi.Input['SearchResultsArgs']]):
+    def search_results(self, value: pulumi.Input[Optional['SearchResultsArgs']]):
         pulumi.set(self, "search_results", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the table.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
-    def total_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 
     @total_retention_in_days.setter
-    def total_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_retention_in_days", value)
 
 
@@ -176,15 +176,15 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[Union[_builtins.str, 'TablePlanEnum']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restored_logs: Optional[pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
-                 search_results: Optional[pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restored_logs: pulumi.Input[Optional[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
+                 search_results: pulumi.Input[Optional[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Workspace data table definition.
@@ -192,7 +192,6 @@ class Table(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +218,6 @@ class Table(pulumi.CustomResource):
 
         Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,15 +233,15 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[Union[_builtins.str, 'TablePlanEnum']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restored_logs: Optional[pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
-                 search_results: Optional[pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restored_logs: pulumi.Input[Optional[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
+                 search_results: pulumi.Input[Optional[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

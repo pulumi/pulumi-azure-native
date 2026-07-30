@@ -25,16 +25,16 @@ class VirtualEnclaveArgs:
                  community_resource_id: pulumi.Input[_builtins.str],
                  enclave_virtual_network: pulumi.Input['EnclaveVirtualNetworkModelArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bastion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enclave_default_settings: Optional[pulumi.Input['EnclaveDefaultSettingsModelArgs']] = None,
-                 enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
-                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_mode_configuration: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_enclave_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None):
+                 bastion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enclave_default_settings: pulumi.Input[Optional['EnclaveDefaultSettingsModelArgs']] = None,
+                 enclave_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
+                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_mode_configuration: pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualEnclave resource.
 
@@ -116,122 +116,122 @@ class VirtualEnclaveArgs:
 
     @_builtins.property
     @pulumi.getter(name="bastionEnabled")
-    def bastion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bastion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Deploy Bastion service (True or False).
         """
         return pulumi.get(self, "bastion_enabled")
 
     @bastion_enabled.setter
-    def bastion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bastion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bastion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="enclaveDefaultSettings")
-    def enclave_default_settings(self) -> Optional[pulumi.Input['EnclaveDefaultSettingsModelArgs']]:
+    def enclave_default_settings(self) -> pulumi.Input[Optional['EnclaveDefaultSettingsModelArgs']]:
         """
         Enclave default settings.
         """
         return pulumi.get(self, "enclave_default_settings")
 
     @enclave_default_settings.setter
-    def enclave_default_settings(self, value: Optional[pulumi.Input['EnclaveDefaultSettingsModelArgs']]):
+    def enclave_default_settings(self, value: pulumi.Input[Optional['EnclaveDefaultSettingsModelArgs']]):
         pulumi.set(self, "enclave_default_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="enclaveRoleAssignments")
-    def enclave_role_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
+    def enclave_role_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
         """
         Enclave role assignments
         """
         return pulumi.get(self, "enclave_role_assignments")
 
     @enclave_role_assignments.setter
-    def enclave_role_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
+    def enclave_role_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
         pulumi.set(self, "enclave_role_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="governedServiceList")
-    def governed_service_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]:
+    def governed_service_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]:
         """
         Enclave specific policies
         """
         return pulumi.get(self, "governed_service_list")
 
     @governed_service_list.setter
-    def governed_service_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]):
+    def governed_service_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]):
         pulumi.set(self, "governed_service_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceModeConfiguration")
-    def maintenance_mode_configuration(self) -> Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']]:
+    def maintenance_mode_configuration(self) -> pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']]:
         """
         Maintenance Mode configuration.
         """
         return pulumi.get(self, "maintenance_mode_configuration")
 
     @maintenance_mode_configuration.setter
-    def maintenance_mode_configuration(self, value: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']]):
+    def maintenance_mode_configuration(self, value: pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']]):
         pulumi.set(self, "maintenance_mode_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualEnclaveName")
-    def virtual_enclave_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_enclave_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the enclaveResource Resource
         """
         return pulumi.get(self, "virtual_enclave_name")
 
     @virtual_enclave_name.setter
-    def virtual_enclave_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_enclave_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_enclave_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadRoleAssignments")
-    def workload_role_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
+    def workload_role_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
         """
         Workload role assignments
         """
         return pulumi.get(self, "workload_role_assignments")
 
     @workload_role_assignments.setter
-    def workload_role_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
+    def workload_role_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
         pulumi.set(self, "workload_role_assignments", value)
 
 
@@ -241,19 +241,19 @@ class VirtualEnclave(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bastion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 community_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_default_settings: Optional[pulumi.Input[Union['EnclaveDefaultSettingsModelArgs', 'EnclaveDefaultSettingsModelArgsDict']]] = None,
-                 enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
-                 enclave_virtual_network: Optional[pulumi.Input[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
-                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_enclave_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 bastion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 community_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_default_settings: pulumi.Input[Optional[Union['EnclaveDefaultSettingsModelArgs', 'EnclaveDefaultSettingsModelArgsDict']]] = None,
+                 enclave_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 enclave_virtual_network: pulumi.Input[Optional[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
+                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_mode_configuration: pulumi.Input[Optional[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
                  __props__=None):
         """
         Virtual Enclave Model Resource
@@ -261,7 +261,6 @@ class VirtualEnclave(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,7 +291,6 @@ class VirtualEnclave(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualEnclaveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,19 +306,19 @@ class VirtualEnclave(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bastion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 community_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_default_settings: Optional[pulumi.Input[Union['EnclaveDefaultSettingsModelArgs', 'EnclaveDefaultSettingsModelArgsDict']]] = None,
-                 enclave_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
-                 enclave_virtual_network: Optional[pulumi.Input[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
-                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_enclave_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 bastion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 community_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_default_settings: pulumi.Input[Optional[Union['EnclaveDefaultSettingsModelArgs', 'EnclaveDefaultSettingsModelArgsDict']]] = None,
+                 enclave_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 enclave_virtual_network: pulumi.Input[Optional[Union['EnclaveVirtualNetworkModelArgs', 'EnclaveVirtualNetworkModelArgsDict']]] = None,
+                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_mode_configuration: pulumi.Input[Optional[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

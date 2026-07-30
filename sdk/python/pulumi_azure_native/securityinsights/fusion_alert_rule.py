@@ -25,7 +25,7 @@ class FusionAlertRuleArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FusionAlertRule resource.
 
@@ -108,14 +108,14 @@ class FusionAlertRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert rule ID
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
 
@@ -125,18 +125,17 @@ class FusionAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Fusion alert rule.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class FusionAlertRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param FusionAlertRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class FusionAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

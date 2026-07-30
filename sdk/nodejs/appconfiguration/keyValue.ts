@@ -150,11 +150,11 @@ export interface KeyValueArgs {
      * The content type of the key-value's value.
      * Providing a proper content-type can enable transformations of values when they are retrieved by applications.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    keyValueName?: pulumi.Input<string>;
+    keyValueName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -162,9 +162,9 @@ export interface KeyValueArgs {
     /**
      * A dictionary of tags that can help identify what a key-value may be applicable for.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The value of the key-value.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }

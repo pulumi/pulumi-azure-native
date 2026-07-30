@@ -57,7 +57,6 @@ def list_server_gateway_status(resource_group_name: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2017-08-01.
 
-
     :param _builtins.str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param _builtins.str server_name: The name of the Analysis Services server.
     """
@@ -69,14 +68,13 @@ def list_server_gateway_status(resource_group_name: Optional[_builtins.str] = No
 
     return AwaitableListServerGatewayStatusResult(
         status=pulumi.get(__ret__, 'status'))
-def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_server_gateway_status_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
     Return the gateway status of the specified Analysis Services server instance.
 
     Uses Azure REST API version 2017-08-01.
-
 
     :param _builtins.str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param _builtins.str server_name: The name of the Analysis Services server.

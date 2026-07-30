@@ -24,8 +24,8 @@ class QueueServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
-                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
+                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueueServiceProperties resource.
 
@@ -67,26 +67,26 @@ class QueueServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['CorsRulesArgs']]:
+    def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
         """
         Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['CorsRulesArgs']]):
+    def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="queueServiceName")
-    def queue_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         """
         return pulumi.get(self, "queue_service_name")
 
     @queue_service_name.setter
-    def queue_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_service_name", value)
 
 
@@ -96,10 +96,10 @@ class QueueServiceProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The properties of a storage account’s Queue service.
@@ -107,7 +107,6 @@ class QueueServiceProperties(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class QueueServiceProperties(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param QueueServicePropertiesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class QueueServiceProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

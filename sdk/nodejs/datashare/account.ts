@@ -141,7 +141,7 @@ export interface AccountArgs {
     /**
      * The name of the share account.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Identity Info on the Account
      */
@@ -149,7 +149,7 @@ export interface AccountArgs {
     /**
      * Location of the azure resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */
@@ -157,5 +157,5 @@ export interface AccountArgs {
     /**
      * Tags on the azure resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

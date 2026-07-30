@@ -1509,19 +1509,19 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
         AuthType:= ApiKey (as type discriminator)
         Credentials:= {ApiKey} as .ApiKey
         Target:= {ApiBase}
-                
+
     CognitiveService:
         Category:= CognitiveService
         AuthType:= ApiKey (as type discriminator)
         Credentials:= {SubscriptionKey} as ApiKey
         Target:= ServiceRegion={serviceRegion}
-                
+
     CognitiveSearch:
         Category:= CognitiveSearch
         AuthType:= ApiKey (as type discriminator)
         Credentials:= {Key} as ApiKey
         Target:= {Endpoint}
-                
+
     Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
     """
     @staticmethod
@@ -1577,19 +1577,19 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
             AuthType:= ApiKey (as type discriminator)
             Credentials:= {ApiKey} as .ApiKey
             Target:= {ApiBase}
-                    
+
         CognitiveService:
             Category:= CognitiveService
             AuthType:= ApiKey (as type discriminator)
             Credentials:= {SubscriptionKey} as ApiKey
             Target:= ServiceRegion={serviceRegion}
-                    
+
         CognitiveSearch:
             Category:= CognitiveSearch
             AuthType:= ApiKey (as type discriminator)
             Credentials:= {Key} as ApiKey
             Target:= {Endpoint}
-                    
+
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
 
         :param _builtins.str auth_type: Authentication type of the connection target
@@ -8030,7 +8030,7 @@ class SkuResponse(dict):
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -8071,7 +8071,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 

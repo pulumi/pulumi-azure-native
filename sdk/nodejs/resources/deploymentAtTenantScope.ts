@@ -109,11 +109,11 @@ export interface DeploymentAtTenantScopeArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * The location to store the deployment data.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The deployment properties.
      */
@@ -121,5 +121,5 @@ export interface DeploymentAtTenantScopeArgs {
     /**
      * Deployment tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

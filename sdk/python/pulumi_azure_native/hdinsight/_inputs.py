@@ -22,6 +22,8 @@ __all__ = [
     'ApplicationGetHttpsEndpointArgsDict',
     'ApplicationPropertiesArgs',
     'ApplicationPropertiesArgsDict',
+    'AutoscaleArgs',
+    'AutoscaleArgsDict',
     'AutoscaleCapacityArgs',
     'AutoscaleCapacityArgsDict',
     'AutoscaleRecurrenceArgs',
@@ -30,8 +32,6 @@ __all__ = [
     'AutoscaleScheduleArgsDict',
     'AutoscaleTimeAndCapacityArgs',
     'AutoscaleTimeAndCapacityArgsDict',
-    'AutoscaleArgs',
-    'AutoscaleArgsDict',
     'AzureMonitorSelectedConfigurationsArgs',
     'AzureMonitorSelectedConfigurationsArgsDict',
     'AzureMonitorTableConfigurationArgs',
@@ -102,19 +102,19 @@ class ApplicationGetEndpointArgsDict(TypedDict):
     """
     Gets the application SSH endpoint
     """
-    destination_port: NotRequired[pulumi.Input[_builtins.int]]
+    destination_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The destination port to connect to.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the endpoint.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private ip address of the endpoint.
     """
-    public_port: NotRequired[pulumi.Input[_builtins.int]]
+    public_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The public port to connect to.
     """
@@ -122,10 +122,10 @@ class ApplicationGetEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGetEndpointArgs:
     def __init__(__self__, *,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Gets the application SSH endpoint
 
@@ -145,50 +145,50 @@ class ApplicationGetEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The destination port to connect to.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the endpoint.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private ip address of the endpoint.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def public_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The public port to connect to.
         """
         return pulumi.get(self, "public_port")
 
     @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def public_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "public_port", value)
 
 
@@ -196,23 +196,23 @@ class ApplicationGetHttpsEndpointArgsDict(TypedDict):
     """
     Gets the application HTTP endpoints.
     """
-    access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    access_modes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of access modes for the application.
     """
-    destination_port: NotRequired[pulumi.Input[_builtins.int]]
+    destination_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The destination port to connect to.
     """
-    disable_gateway_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_gateway_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicates whether to disable GatewayAuth.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private ip address of the endpoint.
     """
-    sub_domain_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    sub_domain_suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subdomain suffix of the application.
     """
@@ -220,11 +220,11 @@ class ApplicationGetHttpsEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGetHttpsEndpointArgs:
     def __init__(__self__, *,
-                 access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 disable_gateway_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_domain_suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 disable_gateway_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_domain_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Gets the application HTTP endpoints.
 
@@ -247,62 +247,62 @@ class ApplicationGetHttpsEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessModes")
-    def access_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def access_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of access modes for the application.
         """
         return pulumi.get(self, "access_modes")
 
     @access_modes.setter
-    def access_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def access_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "access_modes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The destination port to connect to.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter(name="disableGatewayAuth")
-    def disable_gateway_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_gateway_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicates whether to disable GatewayAuth.
         """
         return pulumi.get(self, "disable_gateway_auth")
 
     @disable_gateway_auth.setter
-    def disable_gateway_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_gateway_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_gateway_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private ip address of the endpoint.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="subDomainSuffix")
-    def sub_domain_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_domain_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain suffix of the application.
         """
         return pulumi.get(self, "sub_domain_suffix")
 
     @sub_domain_suffix.setter
-    def sub_domain_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_domain_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_domain_suffix", value)
 
 
@@ -310,35 +310,35 @@ class ApplicationPropertiesArgsDict(TypedDict):
     """
     The HDInsight cluster application GET response.
     """
-    application_type: NotRequired[pulumi.Input[_builtins.str]]
+    application_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application type.
     """
-    compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+    compute_profile: NotRequired[pulumi.Input[Optional['ComputeProfileArgsDict']]]
     """
     The list of roles in the cluster.
     """
-    errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorsArgsDict']]]]
+    errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ErrorsArgsDict']]]]]
     """
     The list of errors.
     """
-    https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgsDict']]]]
+    https_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgsDict']]]]]
     """
     The list of application HTTPS endpoints.
     """
-    install_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+    install_script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]]
     """
     The list of install script actions.
     """
-    private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+    private_link_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]]
     """
     The private link configurations.
     """
-    ssh_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgsDict']]]]
+    ssh_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetEndpointArgsDict']]]]]
     """
     The list of application SSH endpoints.
     """
-    uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+    uninstall_script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]]
     """
     The list of uninstall script actions.
     """
@@ -346,14 +346,14 @@ class ApplicationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPropertiesArgs:
     def __init__(__self__, *,
-                 application_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_profile: Optional[pulumi.Input['ComputeProfileArgs']] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]] = None,
-                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]] = None,
-                 install_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None,
-                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
-                 ssh_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]] = None,
-                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
+                 application_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_profile: pulumi.Input[Optional['ComputeProfileArgs']] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input['ErrorsArgs']]]] = None,
+                 https_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]] = None,
+                 install_script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None,
+                 private_link_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
+                 ssh_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]] = None,
+                 uninstall_script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
         """
         The HDInsight cluster application GET response.
 
@@ -385,110 +385,164 @@ class ApplicationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application type.
         """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
-    def application_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_type", value)
 
     @_builtins.property
     @pulumi.getter(name="computeProfile")
-    def compute_profile(self) -> Optional[pulumi.Input['ComputeProfileArgs']]:
+    def compute_profile(self) -> pulumi.Input[Optional['ComputeProfileArgs']]:
         """
         The list of roles in the cluster.
         """
         return pulumi.get(self, "compute_profile")
 
     @compute_profile.setter
-    def compute_profile(self, value: Optional[pulumi.Input['ComputeProfileArgs']]):
+    def compute_profile(self, value: pulumi.Input[Optional['ComputeProfileArgs']]):
         pulumi.set(self, "compute_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]]:
+    def errors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ErrorsArgs']]]]:
         """
         The list of errors.
         """
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]]):
+    def errors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ErrorsArgs']]]]):
         pulumi.set(self, "errors", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEndpoints")
-    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]:
+    def https_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]:
         """
         The list of application HTTPS endpoints.
         """
         return pulumi.get(self, "https_endpoints")
 
     @https_endpoints.setter
-    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]):
+    def https_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]):
         pulumi.set(self, "https_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="installScriptActions")
-    def install_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
+    def install_script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
         """
         The list of install script actions.
         """
         return pulumi.get(self, "install_script_actions")
 
     @install_script_actions.setter
-    def install_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
+    def install_script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
         pulumi.set(self, "install_script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfigurations")
-    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
+    def private_link_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
         """
         The private link configurations.
         """
         return pulumi.get(self, "private_link_configurations")
 
     @private_link_configurations.setter
-    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
+    def private_link_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
         pulumi.set(self, "private_link_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="sshEndpoints")
-    def ssh_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]:
+    def ssh_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]:
         """
         The list of application SSH endpoints.
         """
         return pulumi.get(self, "ssh_endpoints")
 
     @ssh_endpoints.setter
-    def ssh_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]):
+    def ssh_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]):
         pulumi.set(self, "ssh_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="uninstallScriptActions")
-    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
+    def uninstall_script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
         """
         The list of uninstall script actions.
         """
         return pulumi.get(self, "uninstall_script_actions")
 
     @uninstall_script_actions.setter
-    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
+    def uninstall_script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
         pulumi.set(self, "uninstall_script_actions", value)
+
+
+class AutoscaleArgsDict(TypedDict):
+    """
+    The autoscale request parameters
+    """
+    capacity: NotRequired[pulumi.Input[Optional['AutoscaleCapacityArgsDict']]]
+    """
+    Parameters for load-based autoscale
+    """
+    recurrence: NotRequired[pulumi.Input[Optional['AutoscaleRecurrenceArgsDict']]]
+    """
+    Parameters for schedule-based autoscale
+    """
+
+@pulumi.input_type
+class AutoscaleArgs:
+    def __init__(__self__, *,
+                 capacity: pulumi.Input[Optional['AutoscaleCapacityArgs']] = None,
+                 recurrence: pulumi.Input[Optional['AutoscaleRecurrenceArgs']] = None):
+        """
+        The autoscale request parameters
+
+        :param pulumi.Input['AutoscaleCapacityArgs'] capacity: Parameters for load-based autoscale
+        :param pulumi.Input['AutoscaleRecurrenceArgs'] recurrence: Parameters for schedule-based autoscale
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Input[Optional['AutoscaleCapacityArgs']]:
+        """
+        Parameters for load-based autoscale
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: pulumi.Input[Optional['AutoscaleCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def recurrence(self) -> pulumi.Input[Optional['AutoscaleRecurrenceArgs']]:
+        """
+        Parameters for schedule-based autoscale
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: pulumi.Input[Optional['AutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
 
 
 class AutoscaleCapacityArgsDict(TypedDict):
     """
     The load-based autoscale request parameters
     """
-    max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum instance count of the cluster
     """
-    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum instance count of the cluster
     """
@@ -496,8 +550,8 @@ class AutoscaleCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class AutoscaleCapacityArgs:
     def __init__(__self__, *,
-                 max_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instance_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instance_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The load-based autoscale request parameters
 
@@ -511,26 +565,26 @@ class AutoscaleCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum instance count of the cluster
         """
         return pulumi.get(self, "max_instance_count")
 
     @max_instance_count.setter
-    def max_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum instance count of the cluster
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instance_count", value)
 
 
@@ -538,11 +592,11 @@ class AutoscaleRecurrenceArgsDict(TypedDict):
     """
     Schedule-based autoscale request parameters
     """
-    schedule: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgsDict']]]]
+    schedule: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleScheduleArgsDict']]]]]
     """
     Array of schedule-based autoscale rules
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time zone for the autoscale schedule times
     """
@@ -550,8 +604,8 @@ class AutoscaleRecurrenceArgsDict(TypedDict):
 @pulumi.input_type
 class AutoscaleRecurrenceArgs:
     def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 schedule: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schedule-based autoscale request parameters
 
@@ -565,26 +619,26 @@ class AutoscaleRecurrenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]:
+    def schedule(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]:
         """
         Array of schedule-based autoscale rules
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]):
+    def schedule(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone for the autoscale schedule times
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -592,11 +646,11 @@ class AutoscaleScheduleArgsDict(TypedDict):
     """
     Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
     """
-    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]
+    days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]]
     """
     Days of the week for a schedule-based autoscale rule
     """
-    time_and_capacity: NotRequired[pulumi.Input['AutoscaleTimeAndCapacityArgsDict']]
+    time_and_capacity: NotRequired[pulumi.Input[Optional['AutoscaleTimeAndCapacityArgsDict']]]
     """
     Time and capacity for a schedule-based autoscale rule
     """
@@ -604,8 +658,8 @@ class AutoscaleScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class AutoscaleScheduleArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]] = None,
-                 time_and_capacity: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']] = None):
+                 days: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]] = None,
+                 time_and_capacity: pulumi.Input[Optional['AutoscaleTimeAndCapacityArgs']] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
 
@@ -619,26 +673,26 @@ class AutoscaleScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]:
+    def days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]:
         """
         Days of the week for a schedule-based autoscale rule
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]):
+    def days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]):
         pulumi.set(self, "days", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAndCapacity")
-    def time_and_capacity(self) -> Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']]:
+    def time_and_capacity(self) -> pulumi.Input[Optional['AutoscaleTimeAndCapacityArgs']]:
         """
         Time and capacity for a schedule-based autoscale rule
         """
         return pulumi.get(self, "time_and_capacity")
 
     @time_and_capacity.setter
-    def time_and_capacity(self, value: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']]):
+    def time_and_capacity(self, value: pulumi.Input[Optional['AutoscaleTimeAndCapacityArgs']]):
         pulumi.set(self, "time_and_capacity", value)
 
 
@@ -646,15 +700,15 @@ class AutoscaleTimeAndCapacityArgsDict(TypedDict):
     """
     Time and capacity request parameters
     """
-    max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum instance count of the cluster
     """
-    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum instance count of the cluster
     """
-    time: NotRequired[pulumi.Input[_builtins.str]]
+    time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     24-hour time in the form xx:xx
     """
@@ -662,9 +716,9 @@ class AutoscaleTimeAndCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class AutoscaleTimeAndCapacityArgs:
     def __init__(__self__, *,
-                 max_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Time and capacity request parameters
 
@@ -681,108 +735,54 @@ class AutoscaleTimeAndCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum instance count of the cluster
         """
         return pulumi.get(self, "max_instance_count")
 
     @max_instance_count.setter
-    def max_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum instance count of the cluster
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         24-hour time in the form xx:xx
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
-
-
-class AutoscaleArgsDict(TypedDict):
-    """
-    The autoscale request parameters
-    """
-    capacity: NotRequired[pulumi.Input['AutoscaleCapacityArgsDict']]
-    """
-    Parameters for load-based autoscale
-    """
-    recurrence: NotRequired[pulumi.Input['AutoscaleRecurrenceArgsDict']]
-    """
-    Parameters for schedule-based autoscale
-    """
-
-@pulumi.input_type
-class AutoscaleArgs:
-    def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['AutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['AutoscaleRecurrenceArgs']] = None):
-        """
-        The autoscale request parameters
-
-        :param pulumi.Input['AutoscaleCapacityArgs'] capacity: Parameters for load-based autoscale
-        :param pulumi.Input['AutoscaleRecurrenceArgs'] recurrence: Parameters for schedule-based autoscale
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
-
-    @_builtins.property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['AutoscaleCapacityArgs']]:
-        """
-        Parameters for load-based autoscale
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['AutoscaleCapacityArgs']]):
-        pulumi.set(self, "capacity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['AutoscaleRecurrenceArgs']]:
-        """
-        Parameters for schedule-based autoscale
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['AutoscaleRecurrenceArgs']]):
-        pulumi.set(self, "recurrence", value)
 
 
 class AzureMonitorSelectedConfigurationsArgsDict(TypedDict):
     """
     The selected configurations for azure monitor.
     """
-    configuration_version: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configuration version.
     """
-    global_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    global_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The global configurations of selected configurations.
     """
-    table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgsDict']]]]
+    table_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgsDict']]]]]
     """
     The table list.
     """
@@ -790,9 +790,9 @@ class AzureMonitorSelectedConfigurationsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureMonitorSelectedConfigurationsArgs:
     def __init__(__self__, *,
-                 configuration_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 table_list: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]] = None):
+                 configuration_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 table_list: pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]] = None):
         """
         The selected configurations for azure monitor.
 
@@ -809,38 +809,38 @@ class AzureMonitorSelectedConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationVersion")
-    def configuration_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration version.
         """
         return pulumi.get(self, "configuration_version")
 
     @configuration_version.setter
-    def configuration_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_version", value)
 
     @_builtins.property
     @pulumi.getter(name="globalConfigurations")
-    def global_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def global_configurations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The global configurations of selected configurations.
         """
         return pulumi.get(self, "global_configurations")
 
     @global_configurations.setter
-    def global_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def global_configurations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "global_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="tableList")
-    def table_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]:
+    def table_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]:
         """
         The table list.
         """
         return pulumi.get(self, "table_list")
 
     @table_list.setter
-    def table_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]):
+    def table_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]):
         pulumi.set(self, "table_list", value)
 
 
@@ -848,7 +848,7 @@ class AzureMonitorTableConfigurationArgsDict(TypedDict):
     """
     The table configuration for the Log Analytics integration.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name.
     """
@@ -856,7 +856,7 @@ class AzureMonitorTableConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AzureMonitorTableConfigurationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The table configuration for the Log Analytics integration.
 
@@ -867,14 +867,14 @@ class AzureMonitorTableConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -882,11 +882,11 @@ class ClientGroupInfoArgsDict(TypedDict):
     """
     The information of AAD security group.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AAD security group id.
     """
-    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AAD security group name.
     """
@@ -894,8 +894,8 @@ class ClientGroupInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClientGroupInfoArgs:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The information of AAD security group.
 
@@ -909,26 +909,26 @@ class ClientGroupInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD security group id.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD security group name.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
 
@@ -936,59 +936,59 @@ class ClusterCreatePropertiesArgsDict(TypedDict):
     """
     The cluster create parameters.
     """
-    cluster_definition: NotRequired[pulumi.Input['ClusterDefinitionArgsDict']]
+    cluster_definition: NotRequired[pulumi.Input[Optional['ClusterDefinitionArgsDict']]]
     """
     The cluster definition.
     """
-    cluster_version: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the cluster.
     """
-    compute_isolation_properties: NotRequired[pulumi.Input['ComputeIsolationPropertiesArgsDict']]
+    compute_isolation_properties: NotRequired[pulumi.Input[Optional['ComputeIsolationPropertiesArgsDict']]]
     """
     The compute isolation properties.
     """
-    compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+    compute_profile: NotRequired[pulumi.Input[Optional['ComputeProfileArgsDict']]]
     """
     The compute profile.
     """
-    disk_encryption_properties: NotRequired[pulumi.Input['DiskEncryptionPropertiesArgsDict']]
+    disk_encryption_properties: NotRequired[pulumi.Input[Optional['DiskEncryptionPropertiesArgsDict']]]
     """
     The disk encryption properties.
     """
-    encryption_in_transit_properties: NotRequired[pulumi.Input['EncryptionInTransitPropertiesArgsDict']]
+    encryption_in_transit_properties: NotRequired[pulumi.Input[Optional['EncryptionInTransitPropertiesArgsDict']]]
     """
     The encryption-in-transit properties.
     """
-    kafka_rest_properties: NotRequired[pulumi.Input['KafkaRestPropertiesArgsDict']]
+    kafka_rest_properties: NotRequired[pulumi.Input[Optional['KafkaRestPropertiesArgsDict']]]
     """
     The cluster kafka rest proxy configuration.
     """
-    min_supported_tls_version: NotRequired[pulumi.Input[_builtins.str]]
+    min_supported_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The minimal supported tls version.
     """
-    network_properties: NotRequired[pulumi.Input['NetworkPropertiesArgsDict']]
+    network_properties: NotRequired[pulumi.Input[Optional['NetworkPropertiesArgsDict']]]
     """
     The network properties.
     """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSType']]]
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]]
     """
     The type of operating system.
     """
-    private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+    private_link_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]]
     """
     The private link configurations.
     """
-    security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
+    security_profile: NotRequired[pulumi.Input[Optional['SecurityProfileArgsDict']]]
     """
     The security profile.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     The storage profile.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'Tier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Tier']]]]
     """
     The cluster tier.
     """
@@ -996,20 +996,20 @@ class ClusterCreatePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterCreatePropertiesArgs:
     def __init__(__self__, *,
-                 cluster_definition: Optional[pulumi.Input['ClusterDefinitionArgs']] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_isolation_properties: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']] = None,
-                 compute_profile: Optional[pulumi.Input['ComputeProfileArgs']] = None,
-                 disk_encryption_properties: Optional[pulumi.Input['DiskEncryptionPropertiesArgs']] = None,
-                 encryption_in_transit_properties: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']] = None,
-                 kafka_rest_properties: Optional[pulumi.Input['KafkaRestPropertiesArgs']] = None,
-                 min_supported_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_properties: Optional[pulumi.Input['NetworkPropertiesArgs']] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OSType']]] = None,
-                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
-                 security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'Tier']]] = None):
+                 cluster_definition: pulumi.Input[Optional['ClusterDefinitionArgs']] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_isolation_properties: pulumi.Input[Optional['ComputeIsolationPropertiesArgs']] = None,
+                 compute_profile: pulumi.Input[Optional['ComputeProfileArgs']] = None,
+                 disk_encryption_properties: pulumi.Input[Optional['DiskEncryptionPropertiesArgs']] = None,
+                 encryption_in_transit_properties: pulumi.Input[Optional['EncryptionInTransitPropertiesArgs']] = None,
+                 kafka_rest_properties: pulumi.Input[Optional['KafkaRestPropertiesArgs']] = None,
+                 min_supported_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_properties: pulumi.Input[Optional['NetworkPropertiesArgs']] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OSType']]] = None,
+                 private_link_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
+                 security_profile: pulumi.Input[Optional['SecurityProfileArgs']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'Tier']]] = None):
         """
         The cluster create parameters.
 
@@ -1061,170 +1061,170 @@ class ClusterCreatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterDefinition")
-    def cluster_definition(self) -> Optional[pulumi.Input['ClusterDefinitionArgs']]:
+    def cluster_definition(self) -> pulumi.Input[Optional['ClusterDefinitionArgs']]:
         """
         The cluster definition.
         """
         return pulumi.get(self, "cluster_definition")
 
     @cluster_definition.setter
-    def cluster_definition(self, value: Optional[pulumi.Input['ClusterDefinitionArgs']]):
+    def cluster_definition(self, value: pulumi.Input[Optional['ClusterDefinitionArgs']]):
         pulumi.set(self, "cluster_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the cluster.
         """
         return pulumi.get(self, "cluster_version")
 
     @cluster_version.setter
-    def cluster_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_version", value)
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationProperties")
-    def compute_isolation_properties(self) -> Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]:
+    def compute_isolation_properties(self) -> pulumi.Input[Optional['ComputeIsolationPropertiesArgs']]:
         """
         The compute isolation properties.
         """
         return pulumi.get(self, "compute_isolation_properties")
 
     @compute_isolation_properties.setter
-    def compute_isolation_properties(self, value: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]):
+    def compute_isolation_properties(self, value: pulumi.Input[Optional['ComputeIsolationPropertiesArgs']]):
         pulumi.set(self, "compute_isolation_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="computeProfile")
-    def compute_profile(self) -> Optional[pulumi.Input['ComputeProfileArgs']]:
+    def compute_profile(self) -> pulumi.Input[Optional['ComputeProfileArgs']]:
         """
         The compute profile.
         """
         return pulumi.get(self, "compute_profile")
 
     @compute_profile.setter
-    def compute_profile(self, value: Optional[pulumi.Input['ComputeProfileArgs']]):
+    def compute_profile(self, value: pulumi.Input[Optional['ComputeProfileArgs']]):
         pulumi.set(self, "compute_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionProperties")
-    def disk_encryption_properties(self) -> Optional[pulumi.Input['DiskEncryptionPropertiesArgs']]:
+    def disk_encryption_properties(self) -> pulumi.Input[Optional['DiskEncryptionPropertiesArgs']]:
         """
         The disk encryption properties.
         """
         return pulumi.get(self, "disk_encryption_properties")
 
     @disk_encryption_properties.setter
-    def disk_encryption_properties(self, value: Optional[pulumi.Input['DiskEncryptionPropertiesArgs']]):
+    def disk_encryption_properties(self, value: pulumi.Input[Optional['DiskEncryptionPropertiesArgs']]):
         pulumi.set(self, "disk_encryption_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInTransitProperties")
-    def encryption_in_transit_properties(self) -> Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']]:
+    def encryption_in_transit_properties(self) -> pulumi.Input[Optional['EncryptionInTransitPropertiesArgs']]:
         """
         The encryption-in-transit properties.
         """
         return pulumi.get(self, "encryption_in_transit_properties")
 
     @encryption_in_transit_properties.setter
-    def encryption_in_transit_properties(self, value: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']]):
+    def encryption_in_transit_properties(self, value: pulumi.Input[Optional['EncryptionInTransitPropertiesArgs']]):
         pulumi.set(self, "encryption_in_transit_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaRestProperties")
-    def kafka_rest_properties(self) -> Optional[pulumi.Input['KafkaRestPropertiesArgs']]:
+    def kafka_rest_properties(self) -> pulumi.Input[Optional['KafkaRestPropertiesArgs']]:
         """
         The cluster kafka rest proxy configuration.
         """
         return pulumi.get(self, "kafka_rest_properties")
 
     @kafka_rest_properties.setter
-    def kafka_rest_properties(self, value: Optional[pulumi.Input['KafkaRestPropertiesArgs']]):
+    def kafka_rest_properties(self, value: pulumi.Input[Optional['KafkaRestPropertiesArgs']]):
         pulumi.set(self, "kafka_rest_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="minSupportedTlsVersion")
-    def min_supported_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_supported_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported tls version.
         """
         return pulumi.get(self, "min_supported_tls_version")
 
     @min_supported_tls_version.setter
-    def min_supported_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_supported_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_supported_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProperties")
-    def network_properties(self) -> Optional[pulumi.Input['NetworkPropertiesArgs']]:
+    def network_properties(self) -> pulumi.Input[Optional['NetworkPropertiesArgs']]:
         """
         The network properties.
         """
         return pulumi.get(self, "network_properties")
 
     @network_properties.setter
-    def network_properties(self, value: Optional[pulumi.Input['NetworkPropertiesArgs']]):
+    def network_properties(self, value: pulumi.Input[Optional['NetworkPropertiesArgs']]):
         pulumi.set(self, "network_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSType']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]:
         """
         The type of operating system.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSType']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfigurations")
-    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
+    def private_link_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
         """
         The private link configurations.
         """
         return pulumi.get(self, "private_link_configurations")
 
     @private_link_configurations.setter
-    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
+    def private_link_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
         pulumi.set(self, "private_link_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['SecurityProfileArgs']]:
         """
         The security profile.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['SecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['SecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         The storage profile.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Tier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Tier']]]:
         """
         The cluster tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Tier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Tier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -1232,11 +1232,11 @@ class ClusterDefinitionArgsDict(TypedDict):
     """
     The cluster definition.
     """
-    blueprint: NotRequired[pulumi.Input[_builtins.str]]
+    blueprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The link to the blueprint.
     """
-    component_version: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    component_version: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The versions of different services in the cluster.
     """
@@ -1244,7 +1244,7 @@ class ClusterDefinitionArgsDict(TypedDict):
     """
     The cluster configurations.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of cluster.
     """
@@ -1252,10 +1252,10 @@ class ClusterDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterDefinitionArgs:
     def __init__(__self__, *,
-                 blueprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 blueprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  configurations: Optional[Any] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The cluster definition.
 
@@ -1275,26 +1275,26 @@ class ClusterDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blueprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blueprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The link to the blueprint.
         """
         return pulumi.get(self, "blueprint")
 
     @blueprint.setter
-    def blueprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blueprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blueprint", value)
 
     @_builtins.property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def component_version(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The versions of different services in the cluster.
         """
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def component_version(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "component_version", value)
 
     @_builtins.property
@@ -1311,14 +1311,14 @@ class ClusterDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of cluster.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -1326,11 +1326,11 @@ class ClusterIdentityArgsDict(TypedDict):
     """
     Identity for the cluster.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]]
     """
     The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]]
     """
     The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -1338,8 +1338,8 @@ class ClusterIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Identity for the cluster.
 
@@ -1353,26 +1353,26 @@ class ClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]:
         """
         The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1380,11 +1380,11 @@ class ComputeIsolationPropertiesArgsDict(TypedDict):
     """
     The compute isolation properties.
     """
-    enable_compute_isolation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_compute_isolation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag indicates whether enable compute isolation or not.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host sku.
     """
@@ -1392,8 +1392,8 @@ class ComputeIsolationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ComputeIsolationPropertiesArgs:
     def __init__(__self__, *,
-                 enable_compute_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_compute_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The compute isolation properties.
 
@@ -1409,26 +1409,26 @@ class ComputeIsolationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableComputeIsolation")
-    def enable_compute_isolation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_compute_isolation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicates whether enable compute isolation or not.
         """
         return pulumi.get(self, "enable_compute_isolation")
 
     @enable_compute_isolation.setter
-    def enable_compute_isolation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_compute_isolation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_compute_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host sku.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
@@ -1436,7 +1436,7 @@ class ComputeProfileArgsDict(TypedDict):
     """
     Describes the compute profile.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoleArgsDict']]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgsDict']]]]]
     """
     The list of roles in the cluster.
     """
@@ -1444,7 +1444,7 @@ class ComputeProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ComputeProfileArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None):
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]] = None):
         """
         Describes the compute profile.
 
@@ -1455,14 +1455,14 @@ class ComputeProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]]:
         """
         The list of roles in the cluster.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -1470,7 +1470,7 @@ class DataDisksGroupsArgsDict(TypedDict):
     """
     The data disks groups for the role.
     """
-    disks_per_node: NotRequired[pulumi.Input[_builtins.int]]
+    disks_per_node: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of disks per node.
     """
@@ -1478,7 +1478,7 @@ class DataDisksGroupsArgsDict(TypedDict):
 @pulumi.input_type
 class DataDisksGroupsArgs:
     def __init__(__self__, *,
-                 disks_per_node: Optional[pulumi.Input[_builtins.int]] = None):
+                 disks_per_node: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The data disks groups for the role.
 
@@ -1489,14 +1489,14 @@ class DataDisksGroupsArgs:
 
     @_builtins.property
     @pulumi.getter(name="disksPerNode")
-    def disks_per_node(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disks_per_node(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of disks per node.
         """
         return pulumi.get(self, "disks_per_node")
 
     @disks_per_node.setter
-    def disks_per_node(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disks_per_node(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disks_per_node", value)
 
 
@@ -1504,27 +1504,27 @@ class DiskEncryptionPropertiesArgsDict(TypedDict):
     """
     The disk encryption properties
     """
-    encryption_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]]
     """
     Algorithm identifier for encryption, default RSA-OAEP.
     """
-    encryption_at_host: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether or not resource disk encryption is enabled.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key name that is used for enabling disk encryption.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specific key version that is used for enabling disk encryption.
     """
-    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    msi_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of Managed Identity that is used to access the key vault.
     """
-    vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
     """
@@ -1532,12 +1532,12 @@ class DiskEncryptionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DiskEncryptionPropertiesArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]] = None,
-                 encryption_at_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 msi_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]] = None,
+                 encryption_at_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 msi_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The disk encryption properties
 
@@ -1565,74 +1565,74 @@ class DiskEncryptionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]:
         """
         Algorithm identifier for encryption, default RSA-OAEP.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHost")
-    def encryption_at_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host")
 
     @encryption_at_host.setter
-    def encryption_at_host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key name that is used for enabling disk encryption.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specific key version that is used for enabling disk encryption.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
     @_builtins.property
     @pulumi.getter(name="msiResourceId")
-    def msi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msi_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of Managed Identity that is used to access the key vault.
         """
         return pulumi.get(self, "msi_resource_id")
 
     @msi_resource_id.setter
-    def msi_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msi_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msi_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
         """
         return pulumi.get(self, "vault_uri")
 
     @vault_uri.setter
-    def vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_uri", value)
 
 
@@ -1640,7 +1640,7 @@ class EncryptionInTransitPropertiesArgsDict(TypedDict):
     """
     The encryption-in-transit properties.
     """
-    is_encryption_in_transit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_encryption_in_transit_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether or not inter cluster node communication is encrypted in transit.
     """
@@ -1648,7 +1648,7 @@ class EncryptionInTransitPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionInTransitPropertiesArgs:
     def __init__(__self__, *,
-                 is_encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The encryption-in-transit properties.
 
@@ -1661,14 +1661,14 @@ class EncryptionInTransitPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="isEncryptionInTransitEnabled")
-    def is_encryption_in_transit_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_encryption_in_transit_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not inter cluster node communication is encrypted in transit.
         """
         return pulumi.get(self, "is_encryption_in_transit_enabled")
 
     @is_encryption_in_transit_enabled.setter
-    def is_encryption_in_transit_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_encryption_in_transit_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_encryption_in_transit_enabled", value)
 
 
@@ -1676,11 +1676,11 @@ class ErrorsArgsDict(TypedDict):
     """
     The error message associated with the cluster creation.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error code.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error message.
     """
@@ -1688,8 +1688,8 @@ class ErrorsArgsDict(TypedDict):
 @pulumi.input_type
 class ErrorsArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The error message associated with the cluster creation.
 
@@ -1703,26 +1703,26 @@ class ErrorsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error message.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
@@ -1730,7 +1730,7 @@ class HardwareProfileArgsDict(TypedDict):
     """
     The hardware profile.
     """
-    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    vm_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the VM
     """
@@ -1738,7 +1738,7 @@ class HardwareProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The hardware profile.
 
@@ -1749,14 +1749,14 @@ class HardwareProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the VM
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
 
@@ -1768,19 +1768,19 @@ class IPConfigurationArgsDict(TypedDict):
     """
     The name of private link IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary for the corresponding NIC.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAllocationMethod']]]]
     """
     The method that private IP address is allocated.
     """
-    subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['ResourceIdArgsDict']]]
     """
     The subnet resource id.
     """
@@ -1789,10 +1789,10 @@ class IPConfigurationArgsDict(TypedDict):
 class IPConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]] = None,
-                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAllocationMethod']]] = None,
+                 subnet: pulumi.Input[Optional['ResourceIdArgs']] = None):
         """
         The ip configurations for the private link service.
 
@@ -1826,50 +1826,50 @@ class IPConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary for the corresponding NIC.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAllocationMethod']]]:
         """
         The method that private IP address is allocated.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAllocationMethod']]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['ResourceIdArgs']]:
         """
         The subnet resource id.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['ResourceIdArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -1929,11 +1929,11 @@ class KafkaRestPropertiesArgsDict(TypedDict):
     """
     The kafka rest proxy configuration which contains AAD security group information.
     """
-    client_group_info: NotRequired[pulumi.Input['ClientGroupInfoArgsDict']]
+    client_group_info: NotRequired[pulumi.Input[Optional['ClientGroupInfoArgsDict']]]
     """
     The information of AAD security group.
     """
-    configuration_override: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    configuration_override: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The configurations that need to be overriden.
     """
@@ -1941,8 +1941,8 @@ class KafkaRestPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaRestPropertiesArgs:
     def __init__(__self__, *,
-                 client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None,
-                 configuration_override: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 client_group_info: pulumi.Input[Optional['ClientGroupInfoArgs']] = None,
+                 configuration_override: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
 
@@ -1956,26 +1956,26 @@ class KafkaRestPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientGroupInfo")
-    def client_group_info(self) -> Optional[pulumi.Input['ClientGroupInfoArgs']]:
+    def client_group_info(self) -> pulumi.Input[Optional['ClientGroupInfoArgs']]:
         """
         The information of AAD security group.
         """
         return pulumi.get(self, "client_group_info")
 
     @client_group_info.setter
-    def client_group_info(self, value: Optional[pulumi.Input['ClientGroupInfoArgs']]):
+    def client_group_info(self, value: pulumi.Input[Optional['ClientGroupInfoArgs']]):
         pulumi.set(self, "client_group_info", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationOverride")
-    def configuration_override(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_override(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The configurations that need to be overriden.
         """
         return pulumi.get(self, "configuration_override")
 
     @configuration_override.setter
-    def configuration_override(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_override(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_override", value)
 
 
@@ -1983,15 +1983,15 @@ class LinuxOperatingSystemProfileArgsDict(TypedDict):
     """
     The ssh username, password, and ssh public key.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password.
     """
-    ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
+    ssh_profile: NotRequired[pulumi.Input[Optional['SshProfileArgsDict']]]
     """
     The SSH profile.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username.
     """
@@ -1999,9 +1999,9 @@ class LinuxOperatingSystemProfileArgsDict(TypedDict):
 @pulumi.input_type
 class LinuxOperatingSystemProfileArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_profile: Optional[pulumi.Input['SshProfileArgs']] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_profile: pulumi.Input[Optional['SshProfileArgs']] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ssh username, password, and ssh public key.
 
@@ -2018,38 +2018,38 @@ class LinuxOperatingSystemProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="sshProfile")
-    def ssh_profile(self) -> Optional[pulumi.Input['SshProfileArgs']]:
+    def ssh_profile(self) -> pulumi.Input[Optional['SshProfileArgs']]:
         """
         The SSH profile.
         """
         return pulumi.get(self, "ssh_profile")
 
     @ssh_profile.setter
-    def ssh_profile(self, value: Optional[pulumi.Input['SshProfileArgs']]):
+    def ssh_profile(self, value: pulumi.Input[Optional['SshProfileArgs']]):
         pulumi.set(self, "ssh_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -2057,19 +2057,19 @@ class NetworkPropertiesArgsDict(TypedDict):
     """
     The network properties.
     """
-    outbound_dependencies_managed_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]]
+    outbound_dependencies_managed_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OutboundDependenciesManagedType']]]]
     """
     A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
     """
-    private_link: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLink']]]
+    private_link: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLink']]]]
     """
     Indicates whether or not private link is enabled.
     """
-    public_ip_tag: NotRequired[pulumi.Input['IpTagArgsDict']]
+    public_ip_tag: NotRequired[pulumi.Input[Optional['IpTagArgsDict']]]
     """
-    Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+    Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
     """
-    resource_provider_connection: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]]
+    resource_provider_connection: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderConnection']]]]
     """
     The direction for the resource provider connection.
     """
@@ -2077,16 +2077,16 @@ class NetworkPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkPropertiesArgs:
     def __init__(__self__, *,
-                 outbound_dependencies_managed_type: Optional[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]] = None,
-                 private_link: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLink']]] = None,
-                 public_ip_tag: Optional[pulumi.Input['IpTagArgs']] = None,
-                 resource_provider_connection: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]] = None):
+                 outbound_dependencies_managed_type: pulumi.Input[Optional[Union[_builtins.str, 'OutboundDependenciesManagedType']]] = None,
+                 private_link: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLink']]] = None,
+                 public_ip_tag: pulumi.Input[Optional['IpTagArgs']] = None,
+                 resource_provider_connection: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderConnection']]] = None):
         """
         The network properties.
 
         :param pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']] outbound_dependencies_managed_type: A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
         :param pulumi.Input[Union[_builtins.str, 'PrivateLink']] private_link: Indicates whether or not private link is enabled.
-        :param pulumi.Input['IpTagArgs'] public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        :param pulumi.Input['IpTagArgs'] public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
         :param pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']] resource_provider_connection: The direction for the resource provider connection.
         """
         if outbound_dependencies_managed_type is not None:
@@ -2100,50 +2100,50 @@ class NetworkPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="outboundDependenciesManagedType")
-    def outbound_dependencies_managed_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]]:
+    def outbound_dependencies_managed_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OutboundDependenciesManagedType']]]:
         """
         A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
         """
         return pulumi.get(self, "outbound_dependencies_managed_type")
 
     @outbound_dependencies_managed_type.setter
-    def outbound_dependencies_managed_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]]):
+    def outbound_dependencies_managed_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OutboundDependenciesManagedType']]]):
         pulumi.set(self, "outbound_dependencies_managed_type", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLink']]]:
+    def private_link(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLink']]]:
         """
         Indicates whether or not private link is enabled.
         """
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLink']]]):
+    def private_link(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLink']]]):
         pulumi.set(self, "private_link", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpTag")
-    def public_ip_tag(self) -> Optional[pulumi.Input['IpTagArgs']]:
+    def public_ip_tag(self) -> pulumi.Input[Optional['IpTagArgs']]:
         """
-        Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
         """
         return pulumi.get(self, "public_ip_tag")
 
     @public_ip_tag.setter
-    def public_ip_tag(self, value: Optional[pulumi.Input['IpTagArgs']]):
+    def public_ip_tag(self, value: pulumi.Input[Optional['IpTagArgs']]):
         pulumi.set(self, "public_ip_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderConnection")
-    def resource_provider_connection(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]]:
+    def resource_provider_connection(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderConnection']]]:
         """
         The direction for the resource provider connection.
         """
         return pulumi.get(self, "resource_provider_connection")
 
     @resource_provider_connection.setter
-    def resource_provider_connection(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]]):
+    def resource_provider_connection(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderConnection']]]):
         pulumi.set(self, "resource_provider_connection", value)
 
 
@@ -2151,7 +2151,7 @@ class OsProfileArgsDict(TypedDict):
     """
     The Linux operation systems profile.
     """
-    linux_operating_system_profile: NotRequired[pulumi.Input['LinuxOperatingSystemProfileArgsDict']]
+    linux_operating_system_profile: NotRequired[pulumi.Input[Optional['LinuxOperatingSystemProfileArgsDict']]]
     """
     The Linux OS profile.
     """
@@ -2159,7 +2159,7 @@ class OsProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
-                 linux_operating_system_profile: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']] = None):
+                 linux_operating_system_profile: pulumi.Input[Optional['LinuxOperatingSystemProfileArgs']] = None):
         """
         The Linux operation systems profile.
 
@@ -2170,14 +2170,14 @@ class OsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="linuxOperatingSystemProfile")
-    def linux_operating_system_profile(self) -> Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']]:
+    def linux_operating_system_profile(self) -> pulumi.Input[Optional['LinuxOperatingSystemProfileArgs']]:
         """
         The Linux OS profile.
         """
         return pulumi.get(self, "linux_operating_system_profile")
 
     @linux_operating_system_profile.setter
-    def linux_operating_system_profile(self, value: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']]):
+    def linux_operating_system_profile(self, value: pulumi.Input[Optional['LinuxOperatingSystemProfileArgs']]):
         pulumi.set(self, "linux_operating_system_profile", value)
 
 
@@ -2260,11 +2260,11 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The concrete private link service connection.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether there is further actions.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The optional description of the status.
     """
@@ -2273,8 +2273,8 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']],
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The private link service connection state.
 
@@ -2302,26 +2302,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether there is further actions.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description of the status.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2329,7 +2329,7 @@ class ResourceIdArgsDict(TypedDict):
     """
     The azure resource id.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The azure resource id.
     """
@@ -2337,7 +2337,7 @@ class ResourceIdArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The azure resource id.
 
@@ -2348,14 +2348,14 @@ class ResourceIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The azure resource id.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -2363,47 +2363,47 @@ class RoleArgsDict(TypedDict):
     """
     Describes a role on the cluster.
     """
-    autoscale_configuration: NotRequired[pulumi.Input['AutoscaleArgsDict']]
+    autoscale_configuration: NotRequired[pulumi.Input[Optional['AutoscaleArgsDict']]]
     """
     The autoscale configurations.
     """
-    data_disks_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgsDict']]]]
+    data_disks_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataDisksGroupsArgsDict']]]]]
     """
     The data disks groups for the role.
     """
-    encrypt_data_disks: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_data_disks: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether encrypt the data disks.
     """
-    hardware_profile: NotRequired[pulumi.Input['HardwareProfileArgsDict']]
+    hardware_profile: NotRequired[pulumi.Input[Optional['HardwareProfileArgsDict']]]
     """
     The hardware profile.
     """
-    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum instance count of the cluster.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the role.
     """
-    os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+    os_profile: NotRequired[pulumi.Input[Optional['OsProfileArgsDict']]]
     """
     The operating system profile.
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScriptActionArgsDict']]]]]
     """
     The list of script actions on the role.
     """
-    target_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    target_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The instance count of the cluster.
     """
-    v_m_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    v_m_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the virtual machine group.
     """
-    virtual_network_profile: NotRequired[pulumi.Input['VirtualNetworkProfileArgsDict']]
+    virtual_network_profile: NotRequired[pulumi.Input[Optional['VirtualNetworkProfileArgsDict']]]
     """
     The virtual network profile.
     """
@@ -2411,17 +2411,17 @@ class RoleArgsDict(TypedDict):
 @pulumi.input_type
 class RoleArgs:
     def __init__(__self__, *,
-                 autoscale_configuration: Optional[pulumi.Input['AutoscaleArgs']] = None,
-                 data_disks_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]] = None,
-                 encrypt_data_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 min_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]] = None,
-                 target_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 v_m_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None):
+                 autoscale_configuration: pulumi.Input[Optional['AutoscaleArgs']] = None,
+                 data_disks_groups: pulumi.Input[Optional[Sequence[pulumi.Input['DataDisksGroupsArgs']]]] = None,
+                 encrypt_data_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
+                 min_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_profile: pulumi.Input[Optional['OsProfileArgs']] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptActionArgs']]]] = None,
+                 target_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 v_m_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_profile: pulumi.Input[Optional['VirtualNetworkProfileArgs']] = None):
         """
         Describes a role on the cluster.
 
@@ -2464,134 +2464,134 @@ class RoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoscaleConfiguration")
-    def autoscale_configuration(self) -> Optional[pulumi.Input['AutoscaleArgs']]:
+    def autoscale_configuration(self) -> pulumi.Input[Optional['AutoscaleArgs']]:
         """
         The autoscale configurations.
         """
         return pulumi.get(self, "autoscale_configuration")
 
     @autoscale_configuration.setter
-    def autoscale_configuration(self, value: Optional[pulumi.Input['AutoscaleArgs']]):
+    def autoscale_configuration(self, value: pulumi.Input[Optional['AutoscaleArgs']]):
         pulumi.set(self, "autoscale_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDisksGroups")
-    def data_disks_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]:
+    def data_disks_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]:
         """
         The data disks groups for the role.
         """
         return pulumi.get(self, "data_disks_groups")
 
     @data_disks_groups.setter
-    def data_disks_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]):
+    def data_disks_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]):
         pulumi.set(self, "data_disks_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptDataDisks")
-    def encrypt_data_disks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_data_disks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether encrypt the data disks.
         """
         return pulumi.get(self, "encrypt_data_disks")
 
     @encrypt_data_disks.setter
-    def encrypt_data_disks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_data_disks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['HardwareProfileArgs']]:
         """
         The hardware profile.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum instance count of the cluster.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the role.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OsProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OsProfileArgs']]:
         """
         The operating system profile.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OsProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OsProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScriptActionArgs']]]]:
         """
         The list of script actions on the role.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The instance count of the cluster.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="vMGroupName")
-    def v_m_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def v_m_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine group.
         """
         return pulumi.get(self, "v_m_group_name")
 
     @v_m_group_name.setter
-    def v_m_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def v_m_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "v_m_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkProfile")
-    def virtual_network_profile(self) -> Optional[pulumi.Input['VirtualNetworkProfileArgs']]:
+    def virtual_network_profile(self) -> pulumi.Input[Optional['VirtualNetworkProfileArgs']]:
         """
         The virtual network profile.
         """
         return pulumi.get(self, "virtual_network_profile")
 
     @virtual_network_profile.setter
-    def virtual_network_profile(self, value: Optional[pulumi.Input['VirtualNetworkProfileArgs']]):
+    def virtual_network_profile(self, value: pulumi.Input[Optional['VirtualNetworkProfileArgs']]):
         pulumi.set(self, "virtual_network_profile", value)
 
 
@@ -2611,7 +2611,7 @@ class RuntimeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script
     """
@@ -2622,7 +2622,7 @@ class RuntimeScriptActionArgs:
                  name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a script action on a running cluster.
 
@@ -2675,14 +2675,14 @@ class RuntimeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -2761,39 +2761,39 @@ class SecurityProfileArgsDict(TypedDict):
     """
     The security profile which contains Ssh public key for the HDInsight cluster.
     """
-    aadds_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    aadds_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the user's Azure Active Directory Domain Service.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Optional. The Distinguished Names for cluster user groups
     """
-    directory_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DirectoryType']]]
+    directory_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DirectoryType']]]]
     """
     The directory type.
     """
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The organization's active directory domain.
     """
-    domain_user_password: NotRequired[pulumi.Input[_builtins.str]]
+    domain_user_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain admin password.
     """
-    domain_username: NotRequired[pulumi.Input[_builtins.str]]
+    domain_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain user account that will have admin privileges on the cluster.
     """
-    ldaps_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ldaps_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The LDAPS protocol URLs to communicate with the Active Directory.
     """
-    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    msi_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
     """
-    organizational_unit_dn: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_dn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The organizational unit within the Active Directory to place the cluster and service accounts.
     """
@@ -2801,15 +2801,15 @@ class SecurityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileArgs:
     def __init__(__self__, *,
-                 aadds_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 directory_type: Optional[pulumi.Input[Union[_builtins.str, 'DirectoryType']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 msi_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_dn: Optional[pulumi.Input[_builtins.str]] = None):
+                 aadds_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 directory_type: pulumi.Input[Optional[Union[_builtins.str, 'DirectoryType']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldaps_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 msi_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_dn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The security profile which contains Ssh public key for the HDInsight cluster.
 
@@ -2844,110 +2844,110 @@ class SecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="aaddsResourceId")
-    def aadds_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aadds_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the user's Azure Active Directory Domain Service.
         """
         return pulumi.get(self, "aadds_resource_id")
 
     @aadds_resource_id.setter
-    def aadds_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aadds_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aadds_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDNs")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional. The Distinguished Names for cluster user groups
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DirectoryType']]]:
+    def directory_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DirectoryType']]]:
         """
         The directory type.
         """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
-    def directory_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DirectoryType']]]):
+    def directory_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DirectoryType']]]):
         pulumi.set(self, "directory_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization's active directory domain.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUserPassword")
-    def domain_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_user_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain admin password.
         """
         return pulumi.get(self, "domain_user_password")
 
     @domain_user_password.setter
-    def domain_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_user_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUsername")
-    def domain_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain user account that will have admin privileges on the cluster.
         """
         return pulumi.get(self, "domain_username")
 
     @domain_username.setter
-    def domain_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_username", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapsUrls")
-    def ldaps_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ldaps_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The LDAPS protocol URLs to communicate with the Active Directory.
         """
         return pulumi.get(self, "ldaps_urls")
 
     @ldaps_urls.setter
-    def ldaps_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ldaps_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ldaps_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="msiResourceId")
-    def msi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msi_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
         """
         return pulumi.get(self, "msi_resource_id")
 
     @msi_resource_id.setter
-    def msi_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msi_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msi_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDN")
-    def organizational_unit_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organizational unit within the Active Directory to place the cluster and service accounts.
         """
         return pulumi.get(self, "organizational_unit_dn")
 
     @organizational_unit_dn.setter
-    def organizational_unit_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_dn", value)
 
 
@@ -2955,7 +2955,7 @@ class SshProfileArgsDict(TypedDict):
     """
     The list of SSH public keys.
     """
-    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    public_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]]
     """
     The list of SSH public keys.
     """
@@ -2963,7 +2963,7 @@ class SshProfileArgsDict(TypedDict):
 @pulumi.input_type
 class SshProfileArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         The list of SSH public keys.
 
@@ -2974,14 +2974,14 @@ class SshProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+    def public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         The list of SSH public keys.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+    def public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
@@ -2989,7 +2989,7 @@ class SshPublicKeyArgsDict(TypedDict):
     """
     The SSH public key for the cluster nodes.
     """
-    certificate_data: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate for SSH.
     """
@@ -2997,7 +2997,7 @@ class SshPublicKeyArgsDict(TypedDict):
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
-                 certificate_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The SSH public key for the cluster nodes.
 
@@ -3008,14 +3008,14 @@ class SshPublicKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateData")
-    def certificate_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate for SSH.
         """
         return pulumi.get(self, "certificate_data")
 
     @certificate_data.setter
-    def certificate_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_data", value)
 
 
@@ -3023,43 +3023,43 @@ class StorageAccountArgsDict(TypedDict):
     """
     The storage Account.
     """
-    container: NotRequired[pulumi.Input[_builtins.str]]
+    container: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The container in the storage account, only to be specified for WASB storage accounts.
     """
-    enable_secure_channel: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_secure_channel: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+    Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
     """
-    file_system: NotRequired[pulumi.Input[_builtins.str]]
+    file_system: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
     """
-    fileshare: NotRequired[pulumi.Input[_builtins.str]]
+    fileshare: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The file share name.
     """
-    is_default: NotRequired[pulumi.Input[_builtins.bool]]
+    is_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the storage account is the default storage account.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage account access key.
     """
-    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    msi_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the storage account.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
     """
-    saskey: NotRequired[pulumi.Input[_builtins.str]]
+    saskey: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The shared access signature key.
     """
@@ -3067,21 +3067,21 @@ class StorageAccountArgsDict(TypedDict):
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
-                 container: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_secure_channel: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 fileshare: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 msi_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saskey: Optional[pulumi.Input[_builtins.str]] = None):
+                 container: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_secure_channel: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 fileshare: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 msi_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saskey: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The storage Account.
 
         :param pulumi.Input[_builtins.str] container: The container in the storage account, only to be specified for WASB storage accounts.
-        :param pulumi.Input[_builtins.bool] enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+        :param pulumi.Input[_builtins.bool] enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
         :param pulumi.Input[_builtins.str] file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         :param pulumi.Input[_builtins.str] fileshare: The file share name.
         :param pulumi.Input[_builtins.bool] is_default: Whether or not the storage account is the default storage account.
@@ -3114,122 +3114,122 @@ class StorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def container(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The container in the storage account, only to be specified for WASB storage accounts.
         """
         return pulumi.get(self, "container")
 
     @container.setter
-    def container(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSecureChannel")
-    def enable_secure_channel(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_secure_channel(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
         """
         return pulumi.get(self, "enable_secure_channel")
 
     @enable_secure_channel.setter
-    def enable_secure_channel(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_secure_channel(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_secure_channel", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system", value)
 
     @_builtins.property
     @pulumi.getter
-    def fileshare(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fileshare(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file share name.
         """
         return pulumi.get(self, "fileshare")
 
     @fileshare.setter
-    def fileshare(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fileshare(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fileshare", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the storage account is the default storage account.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account access key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="msiResourceId")
-    def msi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msi_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
         """
         return pulumi.get(self, "msi_resource_id")
 
     @msi_resource_id.setter
-    def msi_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msi_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msi_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def saskey(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saskey(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access signature key.
         """
         return pulumi.get(self, "saskey")
 
     @saskey.setter
-    def saskey(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saskey(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saskey", value)
 
 
@@ -3237,7 +3237,7 @@ class StorageProfileArgsDict(TypedDict):
     """
     The storage profile.
     """
-    storageaccounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+    storageaccounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageAccountArgsDict']]]]]
     """
     The list of storage accounts in the cluster.
     """
@@ -3245,7 +3245,7 @@ class StorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 storageaccounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None):
+                 storageaccounts: pulumi.Input[Optional[Sequence[pulumi.Input['StorageAccountArgs']]]] = None):
         """
         The storage profile.
 
@@ -3256,14 +3256,14 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def storageaccounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
+    def storageaccounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageAccountArgs']]]]:
         """
         The list of storage accounts in the cluster.
         """
         return pulumi.get(self, "storageaccounts")
 
     @storageaccounts.setter
-    def storageaccounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
+    def storageaccounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storageaccounts", value)
 
 
@@ -3271,7 +3271,7 @@ class UserAssignedIdentityArgsDict(TypedDict):
     """
     The User Assigned Identity
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of user assigned identity.
     """
@@ -3279,7 +3279,7 @@ class UserAssignedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The User Assigned Identity
 
@@ -3290,14 +3290,14 @@ class UserAssignedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of user assigned identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -3305,11 +3305,11 @@ class VirtualNetworkProfileArgsDict(TypedDict):
     """
     The virtual network properties.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the virtual network.
     """
-    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    subnet: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the subnet.
     """
@@ -3317,8 +3317,8 @@ class VirtualNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The virtual network properties.
 
@@ -3332,26 +3332,26 @@ class VirtualNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subnet.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet", value)
 
 

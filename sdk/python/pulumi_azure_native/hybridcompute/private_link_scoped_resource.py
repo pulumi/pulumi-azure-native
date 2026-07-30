@@ -21,8 +21,8 @@ class PrivateLinkScopedResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_name: pulumi.Input[_builtins.str],
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
 
@@ -64,26 +64,26 @@ class PrivateLinkScopedResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedResourceId")
-    def linked_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the scoped Azure monitor resource.
         """
         return pulumi.get(self, "linked_resource_id")
 
     @linked_resource_id.setter
-    def linked_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the scoped resource object.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -93,16 +93,15 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A private link scoped resource
 
         Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +121,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,10 +136,10 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

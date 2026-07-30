@@ -146,7 +146,6 @@ def get_artifact_manifest(artifact_manifest_name: Optional[_builtins.str] = None
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str artifact_manifest_name: The name of the artifact manifest.
     :param _builtins.str artifact_store_name: The name of the artifact store.
     :param _builtins.str publisher_name: The name of the publisher.
@@ -169,10 +168,10 @@ def get_artifact_manifest(artifact_manifest_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_artifact_manifest_output(artifact_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_artifact_manifest_output(artifact_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArtifactManifestResult]:
     """
     Gets information about a artifact manifest resource.
@@ -180,7 +179,6 @@ def get_artifact_manifest_output(artifact_manifest_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2024-04-15.
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str artifact_manifest_name: The name of the artifact manifest.
     :param _builtins.str artifact_store_name: The name of the artifact store.

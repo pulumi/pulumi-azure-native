@@ -25,14 +25,14 @@ class DscConfigurationArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ContentSourceArgs'],
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DscConfiguration resource.
 
@@ -106,98 +106,98 @@ class DscConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration name.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the description of the configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logProgress")
-    def log_progress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_progress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets progress log option.
         """
         return pulumi.get(self, "log_progress")
 
     @log_progress.setter
-    def log_progress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_progress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_progress", value)
 
     @_builtins.property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_verbose(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets verbose log option.
         """
         return pulumi.get(self, "log_verbose")
 
     @log_verbose.setter
-    def log_verbose(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_verbose(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_verbose", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets name of the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]:
         """
         Gets or sets the configuration parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the tags attached to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -207,17 +207,17 @@ class DscConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DscConfigurationParameterArgs', 'DscConfigurationParameterArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DscConfigurationParameterArgs', 'DscConfigurationParameterArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of the configuration type.
@@ -225,7 +225,6 @@ class DscConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,7 +253,6 @@ class DscConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DscConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,17 +268,17 @@ class DscConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DscConfigurationParameterArgs', 'DscConfigurationParameterArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DscConfigurationParameterArgs', 'DscConfigurationParameterArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

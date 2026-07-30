@@ -126,7 +126,7 @@ export interface ArchiveVersionArgs {
     /**
      * The name of the archive version resource.
      */
-    archiveVersionName?: pulumi.Input<string>;
+    archiveVersionName?: pulumi.Input<string | undefined>;
     /**
      * The type of the package resource.
      */

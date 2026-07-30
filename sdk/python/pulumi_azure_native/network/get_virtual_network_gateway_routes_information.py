@@ -109,7 +109,6 @@ def get_virtual_network_gateway_routes_information(attempt_refresh: Optional[_bu
 
     Other available API versions: 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.bool attempt_refresh: Attempt to recalculate the Route Sets Information for the gateway
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str virtual_network_gateway_name: The name of the virtual network gateway.
@@ -127,9 +126,9 @@ def get_virtual_network_gateway_routes_information(attempt_refresh: Optional[_bu
         next_eligible_compute_time=pulumi.get(__ret__, 'next_eligible_compute_time'),
         route_set_version=pulumi.get(__ret__, 'route_set_version'),
         route_sets=pulumi.get(__ret__, 'route_sets'))
-def get_virtual_network_gateway_routes_information_output(attempt_refresh: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_routes_information_output(attempt_refresh: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayRoutesInformationResult]:
     """
     This operation retrieves the route set information for an Express Route Gateway based on their resiliency
@@ -137,7 +136,6 @@ def get_virtual_network_gateway_routes_information_output(attempt_refresh: Optio
     Uses Azure REST API version 2024-07-01.
 
     Other available API versions: 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.bool attempt_refresh: Attempt to recalculate the Route Sets Information for the gateway
     :param _builtins.str resource_group_name: The name of the resource group.

@@ -24,9 +24,9 @@ class PipelineRunArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input['PipelineRunRequestArgs']] = None):
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional['PipelineRunRequestArgs']] = None):
         """
         The set of arguments for constructing a PipelineRun resource.
 
@@ -71,38 +71,38 @@ class PipelineRunArgs:
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineRunName")
-    def pipeline_run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the pipeline run.
         """
         return pulumi.get(self, "pipeline_run_name")
 
     @pipeline_run_name.setter
-    def pipeline_run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_run_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input['PipelineRunRequestArgs']]:
+    def request(self) -> pulumi.Input[Optional['PipelineRunRequestArgs']]:
         """
         The request parameters for a pipeline run.
         """
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input['PipelineRunRequestArgs']]):
+    def request(self, value: pulumi.Input[Optional['PipelineRunRequestArgs']]):
         pulumi.set(self, "request", value)
 
 
@@ -112,11 +112,11 @@ class PipelineRun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a pipeline run for a container registry.
@@ -124,7 +124,6 @@ class PipelineRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,6 @@ class PipelineRun(pulumi.CustomResource):
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PipelineRunArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +161,11 @@ class PipelineRun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

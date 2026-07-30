@@ -69,7 +69,6 @@ def list_list_schema(connection_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connection_id: Connection ID associated with this schema
     :param _builtins.str content: Content of the schema
     :param Union[_builtins.str, 'SchemaDirection'] direction: The direction of the schema.
@@ -97,16 +96,16 @@ def list_list_schema(connection_id: Optional[_builtins.str] = None,
 
     return AwaitableListListSchemaResult(
         value=pulumi.get(__ret__, 'value'))
-def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            content: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            direction: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]]] = None,
-                            id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            schema_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]] = None,
-                            schema_uri: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            status: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]]] = None,
+def list_list_schema_output(connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            content: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            direction: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaDirection']]]] = None,
+                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            schema_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaType']]]] = None,
+                            schema_uri: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            status: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaStatus']]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListSchemaResult]:
     """
     Lists the schemas for the specified connection in a pipeline.
@@ -114,7 +113,6 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[_built
     Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connection_id: Connection ID associated with this schema
     :param _builtins.str content: Content of the schema

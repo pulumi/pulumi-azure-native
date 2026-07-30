@@ -42,67 +42,67 @@ class AdditionalCacheNodePropertiesArgsDict(TypedDict):
     """
     Model representing cache node for connected cache resource
     """
-    auto_update_version: NotRequired[pulumi.Input[_builtins.str]]
+    auto_update_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Auto update or fast update version
     """
-    bgp_configuration: NotRequired[pulumi.Input['BgpConfigurationArgsDict']]
+    bgp_configuration: NotRequired[pulumi.Input[Optional['BgpConfigurationArgsDict']]]
     """
     Cache node resource Bgp configuration.
     """
-    cache_node_properties_details_issues_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cache_node_properties_details_issues_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     issues list to return the issues as part of the additional cache node properties
     """
-    drive_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgsDict']]]]
+    drive_configuration: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgsDict']]]]]
     """
     Cache node resource drive configurations.
     """
-    is_proxy_required: NotRequired[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]]
+    is_proxy_required: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProxyRequired']]]]
     """
     Cache node resource requires a proxy
     """
-    optional_property1: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #1 of Mcc response object
     """
-    optional_property2: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #2 of Mcc response object
     """
-    optional_property3: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #3 of Mcc response object
     """
-    optional_property4: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #4 of Mcc response object
     """
-    optional_property5: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property5: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #5 of Mcc response object
     """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsType']]]
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]]
     """
     Operating system of the cache node
     """
-    proxy_url: NotRequired[pulumi.Input[_builtins.str]]
+    proxy_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource Mcc proxy Url
     """
-    proxy_url_configuration: NotRequired[pulumi.Input['ProxyUrlConfigurationArgsDict']]
+    proxy_url_configuration: NotRequired[pulumi.Input[Optional['ProxyUrlConfigurationArgsDict']]]
     """
     proxyUrl configuration of the cache node
     """
-    update_cycle_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CycleType']]]
+    update_cycle_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CycleType']]]]
     """
     Update Cycle Type
     """
-    update_info_details: NotRequired[pulumi.Input[_builtins.str]]
+    update_info_details: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Update related information details
     """
-    update_requested_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    update_requested_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     customer requested date time for mcc install of update cycle
     """
@@ -110,22 +110,22 @@ class AdditionalCacheNodePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AdditionalCacheNodePropertiesArgs:
     def __init__(__self__, *,
-                 auto_update_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_configuration: Optional[pulumi.Input['BgpConfigurationArgs']] = None,
-                 cache_node_properties_details_issues_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 drive_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]] = None,
-                 is_proxy_required: Optional[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]] = None,
-                 optional_property1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property4: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property5: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 proxy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_url_configuration: Optional[pulumi.Input['ProxyUrlConfigurationArgs']] = None,
-                 update_cycle_type: Optional[pulumi.Input[Union[_builtins.str, 'CycleType']]] = None,
-                 update_info_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_requested_date_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_update_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_configuration: pulumi.Input[Optional['BgpConfigurationArgs']] = None,
+                 cache_node_properties_details_issues_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 drive_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]] = None,
+                 is_proxy_required: pulumi.Input[Optional[Union[_builtins.str, 'ProxyRequired']]] = None,
+                 optional_property1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property4: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property5: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 proxy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_url_configuration: pulumi.Input[Optional['ProxyUrlConfigurationArgs']] = None,
+                 update_cycle_type: pulumi.Input[Optional[Union[_builtins.str, 'CycleType']]] = None,
+                 update_info_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_requested_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model representing cache node for connected cache resource
 
@@ -181,194 +181,194 @@ class AdditionalCacheNodePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpdateVersion")
-    def auto_update_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_update_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auto update or fast update version
         """
         return pulumi.get(self, "auto_update_version")
 
     @auto_update_version.setter
-    def auto_update_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_update_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_update_version", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpConfiguration")
-    def bgp_configuration(self) -> Optional[pulumi.Input['BgpConfigurationArgs']]:
+    def bgp_configuration(self) -> pulumi.Input[Optional['BgpConfigurationArgs']]:
         """
         Cache node resource Bgp configuration.
         """
         return pulumi.get(self, "bgp_configuration")
 
     @bgp_configuration.setter
-    def bgp_configuration(self, value: Optional[pulumi.Input['BgpConfigurationArgs']]):
+    def bgp_configuration(self, value: pulumi.Input[Optional['BgpConfigurationArgs']]):
         pulumi.set(self, "bgp_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodePropertiesDetailsIssuesList")
-    def cache_node_properties_details_issues_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_node_properties_details_issues_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         issues list to return the issues as part of the additional cache node properties
         """
         return pulumi.get(self, "cache_node_properties_details_issues_list")
 
     @cache_node_properties_details_issues_list.setter
-    def cache_node_properties_details_issues_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_node_properties_details_issues_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_node_properties_details_issues_list", value)
 
     @_builtins.property
     @pulumi.getter(name="driveConfiguration")
-    def drive_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]]:
+    def drive_configuration(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]]:
         """
         Cache node resource drive configurations.
         """
         return pulumi.get(self, "drive_configuration")
 
     @drive_configuration.setter
-    def drive_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]]):
+    def drive_configuration(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgs']]]]):
         pulumi.set(self, "drive_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="isProxyRequired")
-    def is_proxy_required(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]]:
+    def is_proxy_required(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProxyRequired']]]:
         """
         Cache node resource requires a proxy
         """
         return pulumi.get(self, "is_proxy_required")
 
     @is_proxy_required.setter
-    def is_proxy_required(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]]):
+    def is_proxy_required(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProxyRequired']]]):
         pulumi.set(self, "is_proxy_required", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty1")
-    def optional_property1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #1 of Mcc response object
         """
         return pulumi.get(self, "optional_property1")
 
     @optional_property1.setter
-    def optional_property1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property1", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty2")
-    def optional_property2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #2 of Mcc response object
         """
         return pulumi.get(self, "optional_property2")
 
     @optional_property2.setter
-    def optional_property2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property2", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty3")
-    def optional_property3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #3 of Mcc response object
         """
         return pulumi.get(self, "optional_property3")
 
     @optional_property3.setter
-    def optional_property3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property3", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty4")
-    def optional_property4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #4 of Mcc response object
         """
         return pulumi.get(self, "optional_property4")
 
     @optional_property4.setter
-    def optional_property4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property4", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty5")
-    def optional_property5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #5 of Mcc response object
         """
         return pulumi.get(self, "optional_property5")
 
     @optional_property5.setter
-    def optional_property5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property5", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]:
         """
         Operating system of the cache node
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyUrl")
-    def proxy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource Mcc proxy Url
         """
         return pulumi.get(self, "proxy_url")
 
     @proxy_url.setter
-    def proxy_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_url", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyUrlConfiguration")
-    def proxy_url_configuration(self) -> Optional[pulumi.Input['ProxyUrlConfigurationArgs']]:
+    def proxy_url_configuration(self) -> pulumi.Input[Optional['ProxyUrlConfigurationArgs']]:
         """
         proxyUrl configuration of the cache node
         """
         return pulumi.get(self, "proxy_url_configuration")
 
     @proxy_url_configuration.setter
-    def proxy_url_configuration(self, value: Optional[pulumi.Input['ProxyUrlConfigurationArgs']]):
+    def proxy_url_configuration(self, value: pulumi.Input[Optional['ProxyUrlConfigurationArgs']]):
         pulumi.set(self, "proxy_url_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="updateCycleType")
-    def update_cycle_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CycleType']]]:
+    def update_cycle_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CycleType']]]:
         """
         Update Cycle Type
         """
         return pulumi.get(self, "update_cycle_type")
 
     @update_cycle_type.setter
-    def update_cycle_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CycleType']]]):
+    def update_cycle_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CycleType']]]):
         pulumi.set(self, "update_cycle_type", value)
 
     @_builtins.property
     @pulumi.getter(name="updateInfoDetails")
-    def update_info_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_info_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Update related information details
         """
         return pulumi.get(self, "update_info_details")
 
     @update_info_details.setter
-    def update_info_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_info_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_info_details", value)
 
     @_builtins.property
     @pulumi.getter(name="updateRequestedDateTime")
-    def update_requested_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_requested_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         customer requested date time for mcc install of update cycle
         """
         return pulumi.get(self, "update_requested_date_time")
 
     @update_requested_date_time.setter
-    def update_requested_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_requested_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_requested_date_time", value)
 
 
@@ -376,55 +376,55 @@ class AdditionalCustomerPropertiesArgsDict(TypedDict):
     """
     Model representing customer for connected cache resource
     """
-    customer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_asn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource Asn (autonomous system number).
     """
-    customer_email: NotRequired[pulumi.Input[_builtins.str]]
+    customer_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource contact email.
     """
-    customer_entitlement_expiration: NotRequired[pulumi.Input[_builtins.str]]
+    customer_entitlement_expiration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource entitlement expiration date string.
     """
-    customer_entitlement_sku_guid: NotRequired[pulumi.Input[_builtins.str]]
+    customer_entitlement_sku_guid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource entitlement Sku Guid.
     """
-    customer_entitlement_sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    customer_entitlement_sku_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource entitlement Sku Id.
     """
-    customer_entitlement_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    customer_entitlement_sku_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource entitlement Sku name.
     """
-    customer_transit_asn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_transit_asn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource transit Asn (autonomous system number).
     """
-    customer_transit_state: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]]
+    customer_transit_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CustomerTransitState']]]]
     """
     Customer resource transit state.
     """
-    optional_property1: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #1 of Mcc response object.
     """
-    optional_property2: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #2 of Mcc response object.
     """
-    optional_property3: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #3 of Mcc response object.
     """
-    optional_property4: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #4 of Mcc response object.
     """
-    optional_property5: NotRequired[pulumi.Input[_builtins.str]]
+    optional_property5: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional property #5 of Mcc response object.
     """
@@ -432,19 +432,19 @@ class AdditionalCustomerPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AdditionalCustomerPropertiesArgs:
     def __init__(__self__, *,
-                 customer_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_entitlement_expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_entitlement_sku_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_entitlement_sku_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_entitlement_sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_transit_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_transit_state: Optional[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]] = None,
-                 optional_property1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property4: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_property5: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_entitlement_expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_entitlement_sku_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_entitlement_sku_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_entitlement_sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_transit_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_transit_state: pulumi.Input[Optional[Union[_builtins.str, 'CustomerTransitState']]] = None,
+                 optional_property1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property4: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_property5: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model representing customer for connected cache resource
 
@@ -491,158 +491,158 @@ class AdditionalCustomerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerAsn")
-    def customer_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource Asn (autonomous system number).
         """
         return pulumi.get(self, "customer_asn")
 
     @customer_asn.setter
-    def customer_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEmail")
-    def customer_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource contact email.
         """
         return pulumi.get(self, "customer_email")
 
     @customer_email.setter
-    def customer_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_email", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEntitlementExpiration")
-    def customer_entitlement_expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_entitlement_expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource entitlement expiration date string.
         """
         return pulumi.get(self, "customer_entitlement_expiration")
 
     @customer_entitlement_expiration.setter
-    def customer_entitlement_expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_entitlement_expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_entitlement_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEntitlementSkuGuid")
-    def customer_entitlement_sku_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_entitlement_sku_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource entitlement Sku Guid.
         """
         return pulumi.get(self, "customer_entitlement_sku_guid")
 
     @customer_entitlement_sku_guid.setter
-    def customer_entitlement_sku_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_entitlement_sku_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_entitlement_sku_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEntitlementSkuId")
-    def customer_entitlement_sku_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_entitlement_sku_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource entitlement Sku Id.
         """
         return pulumi.get(self, "customer_entitlement_sku_id")
 
     @customer_entitlement_sku_id.setter
-    def customer_entitlement_sku_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_entitlement_sku_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_entitlement_sku_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEntitlementSkuName")
-    def customer_entitlement_sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_entitlement_sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource entitlement Sku name.
         """
         return pulumi.get(self, "customer_entitlement_sku_name")
 
     @customer_entitlement_sku_name.setter
-    def customer_entitlement_sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_entitlement_sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_entitlement_sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerTransitAsn")
-    def customer_transit_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_transit_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource transit Asn (autonomous system number).
         """
         return pulumi.get(self, "customer_transit_asn")
 
     @customer_transit_asn.setter
-    def customer_transit_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_transit_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_transit_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="customerTransitState")
-    def customer_transit_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]]:
+    def customer_transit_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CustomerTransitState']]]:
         """
         Customer resource transit state.
         """
         return pulumi.get(self, "customer_transit_state")
 
     @customer_transit_state.setter
-    def customer_transit_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]]):
+    def customer_transit_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CustomerTransitState']]]):
         pulumi.set(self, "customer_transit_state", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty1")
-    def optional_property1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #1 of Mcc response object.
         """
         return pulumi.get(self, "optional_property1")
 
     @optional_property1.setter
-    def optional_property1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property1", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty2")
-    def optional_property2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #2 of Mcc response object.
         """
         return pulumi.get(self, "optional_property2")
 
     @optional_property2.setter
-    def optional_property2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property2", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty3")
-    def optional_property3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #3 of Mcc response object.
         """
         return pulumi.get(self, "optional_property3")
 
     @optional_property3.setter
-    def optional_property3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property3", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty4")
-    def optional_property4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #4 of Mcc response object.
         """
         return pulumi.get(self, "optional_property4")
 
     @optional_property4.setter
-    def optional_property4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property4", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalProperty5")
-    def optional_property5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_property5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional property #5 of Mcc response object.
         """
         return pulumi.get(self, "optional_property5")
 
     @optional_property5.setter
-    def optional_property5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_property5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_property5", value)
 
 
@@ -650,7 +650,7 @@ class BgpConfigurationArgsDict(TypedDict):
     """
     Bgp configuration of cache node
     """
-    asn_to_ip_address_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    asn_to_ip_address_mapping: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Asn to ip address mapping
     """
@@ -658,7 +658,7 @@ class BgpConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class BgpConfigurationArgs:
     def __init__(__self__, *,
-                 asn_to_ip_address_mapping: Optional[pulumi.Input[_builtins.str]] = None):
+                 asn_to_ip_address_mapping: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Bgp configuration of cache node
 
@@ -669,14 +669,14 @@ class BgpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="asnToIpAddressMapping")
-    def asn_to_ip_address_mapping(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asn_to_ip_address_mapping(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asn to ip address mapping
         """
         return pulumi.get(self, "asn_to_ip_address_mapping")
 
     @asn_to_ip_address_mapping.setter
-    def asn_to_ip_address_mapping(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asn_to_ip_address_mapping(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asn_to_ip_address_mapping", value)
 
 
@@ -684,19 +684,19 @@ class CacheNodeDriveConfigurationArgsDict(TypedDict):
     """
     Drive configuration for cache node
     """
-    cache_number: NotRequired[pulumi.Input[_builtins.int]]
+    cache_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     corresponding nginx cache number. Valid cache numbers are 1 - 20
     """
-    nginx_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    nginx_mapping: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     full binding for corresponding nginx cache drive
     """
-    physical_path: NotRequired[pulumi.Input[_builtins.str]]
+    physical_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     physical path location of the folder used for caching content
     """
-    size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     physical size of the drive used for caching content
     """
@@ -704,10 +704,10 @@ class CacheNodeDriveConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CacheNodeDriveConfigurationArgs:
     def __init__(__self__, *,
-                 cache_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 nginx_mapping: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 nginx_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Drive configuration for cache node
 
@@ -727,50 +727,50 @@ class CacheNodeDriveConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheNumber")
-    def cache_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         corresponding nginx cache number. Valid cache numbers are 1 - 20
         """
         return pulumi.get(self, "cache_number")
 
     @cache_number.setter
-    def cache_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_number", value)
 
     @_builtins.property
     @pulumi.getter(name="nginxMapping")
-    def nginx_mapping(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nginx_mapping(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         full binding for corresponding nginx cache drive
         """
         return pulumi.get(self, "nginx_mapping")
 
     @nginx_mapping.setter
-    def nginx_mapping(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nginx_mapping(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nginx_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalPath")
-    def physical_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def physical_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         physical path location of the folder used for caching content
         """
         return pulumi.get(self, "physical_path")
 
     @physical_path.setter
-    def physical_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def physical_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "physical_path", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInGb")
-    def size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         physical size of the drive used for caching content
         """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_gb", value)
 
 
@@ -778,75 +778,75 @@ class CacheNodeEntityArgsDict(TypedDict):
     """
     Model representing Cache Node for ConnectedCache resource
     """
-    auto_update_requested_day: NotRequired[pulumi.Input[_builtins.int]]
+    auto_update_requested_day: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
     """
-    auto_update_requested_time: NotRequired[pulumi.Input[_builtins.str]]
+    auto_update_requested_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
     """
-    auto_update_requested_week: NotRequired[pulumi.Input[_builtins.int]]
+    auto_update_requested_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
     """
-    auto_update_ring_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]]
+    auto_update_ring_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]]]
     """
     Auto Update Ring Type which is slow or fast etc.
     """
-    cache_node_id: NotRequired[pulumi.Input[_builtins.str]]
+    cache_node_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource identifier of the cache node
     """
-    cache_node_name: NotRequired[pulumi.Input[_builtins.str]]
+    cache_node_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource name.
     """
-    cidr_csv: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cidr_csv: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Cache node resource comma separated values of Cidrs.
     """
-    cidr_selection_type: NotRequired[pulumi.Input[_builtins.int]]
+    cidr_selection_type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Cache node resource current Cidr range precedence selection type.
     """
-    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    customer_asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Cache node resource customer resource Asn (autonomous system number)
     """
-    customer_index: NotRequired[pulumi.Input[_builtins.str]]
+    customer_index: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource customer index as string.
     """
-    customer_name: NotRequired[pulumi.Input[_builtins.str]]
+    customer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource customer resource name.
     """
-    fully_qualified_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    fully_qualified_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     FQDN(fully qualified domain name) value of the mcc cache node
     """
-    fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    fully_qualified_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource Azure fully qualified resource Id.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cache node resource Ip address.
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Cache node resource flag for indicating if cache node is enabled.
     """
-    is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enterprise_managed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Cache node resource flag for determining if managed by enterprise as boolean.
     """
-    max_allowable_egress_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    max_allowable_egress_in_mbps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Cache node resource maximum allowed egress in Mbps.
     """
-    should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
+    should_migrate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Cache node resource flag for determining if customer will be migrated.
     """
@@ -854,24 +854,24 @@ class CacheNodeEntityArgsDict(TypedDict):
 @pulumi.input_type
 class CacheNodeEntityArgs:
     def __init__(__self__, *,
-                 auto_update_requested_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_update_requested_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_update_requested_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_update_ring_type: Optional[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]] = None,
-                 cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_node_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_csv: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cidr_selection_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enterprise_managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_allowable_egress_in_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-                 should_migrate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_update_requested_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_update_requested_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_update_requested_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_update_ring_type: pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]] = None,
+                 cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_node_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_csv: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr_selection_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enterprise_managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_allowable_egress_in_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+                 should_migrate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Model representing Cache Node for ConnectedCache resource
 
@@ -933,218 +933,218 @@ class CacheNodeEntityArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpdateRequestedDay")
-    def auto_update_requested_day(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_update_requested_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         """
         return pulumi.get(self, "auto_update_requested_day")
 
     @auto_update_requested_day.setter
-    def auto_update_requested_day(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_update_requested_day(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_update_requested_day", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdateRequestedTime")
-    def auto_update_requested_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_update_requested_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
         """
         return pulumi.get(self, "auto_update_requested_time")
 
     @auto_update_requested_time.setter
-    def auto_update_requested_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_update_requested_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_update_requested_time", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdateRequestedWeek")
-    def auto_update_requested_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_update_requested_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
         """
         return pulumi.get(self, "auto_update_requested_week")
 
     @auto_update_requested_week.setter
-    def auto_update_requested_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_update_requested_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_update_requested_week", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdateRingType")
-    def auto_update_ring_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]]:
+    def auto_update_ring_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]]:
         """
         Auto Update Ring Type which is slow or fast etc.
         """
         return pulumi.get(self, "auto_update_ring_type")
 
     @auto_update_ring_type.setter
-    def auto_update_ring_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]]):
+    def auto_update_ring_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]]):
         pulumi.set(self, "auto_update_ring_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeId")
-    def cache_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource identifier of the cache node
         """
         return pulumi.get(self, "cache_node_id")
 
     @cache_node_id.setter
-    def cache_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeName")
-    def cache_node_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource name.
         """
         return pulumi.get(self, "cache_node_name")
 
     @cache_node_name.setter
-    def cache_node_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrCsv")
-    def cidr_csv(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidr_csv(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Cache node resource comma separated values of Cidrs.
         """
         return pulumi.get(self, "cidr_csv")
 
     @cidr_csv.setter
-    def cidr_csv(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidr_csv(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidr_csv", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrSelectionType")
-    def cidr_selection_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cidr_selection_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache node resource current Cidr range precedence selection type.
         """
         return pulumi.get(self, "cidr_selection_type")
 
     @cidr_selection_type.setter
-    def cidr_selection_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cidr_selection_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cidr_selection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAsn")
-    def customer_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def customer_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache node resource customer resource Asn (autonomous system number)
         """
         return pulumi.get(self, "customer_asn")
 
     @customer_asn.setter
-    def customer_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def customer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "customer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="customerIndex")
-    def customer_index(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_index(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource customer index as string.
         """
         return pulumi.get(self, "customer_index")
 
     @customer_index.setter
-    def customer_index(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_index", value)
 
     @_builtins.property
     @pulumi.getter(name="customerName")
-    def customer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource customer resource name.
         """
         return pulumi.get(self, "customer_name")
 
     @customer_name.setter
-    def customer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FQDN(fully qualified domain name) value of the mcc cache node
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @fully_qualified_domain_name.setter
-    def fully_qualified_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedResourceId")
-    def fully_qualified_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource Azure fully qualified resource Id.
         """
         return pulumi.get(self, "fully_qualified_resource_id")
 
     @fully_qualified_resource_id.setter
-    def fully_qualified_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache node resource Ip address.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Cache node resource flag for indicating if cache node is enabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnterpriseManaged")
-    def is_enterprise_managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enterprise_managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Cache node resource flag for determining if managed by enterprise as boolean.
         """
         return pulumi.get(self, "is_enterprise_managed")
 
     @is_enterprise_managed.setter
-    def is_enterprise_managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enterprise_managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enterprise_managed", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAllowableEgressInMbps")
-    def max_allowable_egress_in_mbps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_allowable_egress_in_mbps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache node resource maximum allowed egress in Mbps.
         """
         return pulumi.get(self, "max_allowable_egress_in_mbps")
 
     @max_allowable_egress_in_mbps.setter
-    def max_allowable_egress_in_mbps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_allowable_egress_in_mbps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_allowable_egress_in_mbps", value)
 
     @_builtins.property
     @pulumi.getter(name="shouldMigrate")
-    def should_migrate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def should_migrate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Cache node resource flag for determining if customer will be migrated.
         """
         return pulumi.get(self, "should_migrate")
 
     @should_migrate.setter
-    def should_migrate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def should_migrate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "should_migrate", value)
 
 
@@ -1152,15 +1152,15 @@ class CacheNodeOldResponseArgsDict(TypedDict):
     """
     Model representing Cache Node for ConnectedCache resource
     """
-    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    status_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     statusCode used to get code details of Mcc response object
     """
-    status_details: NotRequired[pulumi.Input[_builtins.str]]
+    status_details: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     statusDetails used to get inner details of Mcc response object
     """
-    status_text: NotRequired[pulumi.Input[_builtins.str]]
+    status_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     statusText used to get status details in string format of Mcc response object
     """
@@ -1168,9 +1168,9 @@ class CacheNodeOldResponseArgsDict(TypedDict):
 @pulumi.input_type
 class CacheNodeOldResponseArgs:
     def __init__(__self__, *,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model representing Cache Node for ConnectedCache resource
 
@@ -1187,38 +1187,38 @@ class CacheNodeOldResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         statusCode used to get code details of Mcc response object
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="statusDetails")
-    def status_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         statusDetails used to get inner details of Mcc response object
         """
         return pulumi.get(self, "status_details")
 
     @status_details.setter
-    def status_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_details", value)
 
     @_builtins.property
     @pulumi.getter(name="statusText")
-    def status_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         statusText used to get status details in string format of Mcc response object
         """
         return pulumi.get(self, "status_text")
 
     @status_text.setter
-    def status_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_text", value)
 
 
@@ -1226,23 +1226,23 @@ class CacheNodePropertyArgsDict(TypedDict):
     """
     Model representing an Mcc cache node connectedCache resource
     """
-    additional_cache_node_properties: NotRequired[pulumi.Input['AdditionalCacheNodePropertiesArgsDict']]
+    additional_cache_node_properties: NotRequired[pulumi.Input[Optional['AdditionalCacheNodePropertiesArgsDict']]]
     """
     Mcc cache node resource additional properties.
     """
-    cache_node: NotRequired[pulumi.Input['CacheNodeEntityArgsDict']]
+    cache_node: NotRequired[pulumi.Input[Optional['CacheNodeEntityArgsDict']]]
     """
     Mcc cache node resource (cache node entity).
     """
-    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    status_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mcc response status code.
     """
-    status_details: NotRequired[pulumi.Input[_builtins.str]]
+    status_details: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mcc response status details for retrieving response inner details.
     """
-    status_text: NotRequired[pulumi.Input[_builtins.str]]
+    status_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mcc response status text as string for retrieving status details.
     """
@@ -1250,11 +1250,11 @@ class CacheNodePropertyArgsDict(TypedDict):
 @pulumi.input_type
 class CacheNodePropertyArgs:
     def __init__(__self__, *,
-                 additional_cache_node_properties: Optional[pulumi.Input['AdditionalCacheNodePropertiesArgs']] = None,
-                 cache_node: Optional[pulumi.Input['CacheNodeEntityArgs']] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_cache_node_properties: pulumi.Input[Optional['AdditionalCacheNodePropertiesArgs']] = None,
+                 cache_node: pulumi.Input[Optional['CacheNodeEntityArgs']] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model representing an Mcc cache node connectedCache resource
 
@@ -1277,62 +1277,62 @@ class CacheNodePropertyArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCacheNodeProperties")
-    def additional_cache_node_properties(self) -> Optional[pulumi.Input['AdditionalCacheNodePropertiesArgs']]:
+    def additional_cache_node_properties(self) -> pulumi.Input[Optional['AdditionalCacheNodePropertiesArgs']]:
         """
         Mcc cache node resource additional properties.
         """
         return pulumi.get(self, "additional_cache_node_properties")
 
     @additional_cache_node_properties.setter
-    def additional_cache_node_properties(self, value: Optional[pulumi.Input['AdditionalCacheNodePropertiesArgs']]):
+    def additional_cache_node_properties(self, value: pulumi.Input[Optional['AdditionalCacheNodePropertiesArgs']]):
         pulumi.set(self, "additional_cache_node_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNode")
-    def cache_node(self) -> Optional[pulumi.Input['CacheNodeEntityArgs']]:
+    def cache_node(self) -> pulumi.Input[Optional['CacheNodeEntityArgs']]:
         """
         Mcc cache node resource (cache node entity).
         """
         return pulumi.get(self, "cache_node")
 
     @cache_node.setter
-    def cache_node(self, value: Optional[pulumi.Input['CacheNodeEntityArgs']]):
+    def cache_node(self, value: pulumi.Input[Optional['CacheNodeEntityArgs']]):
         pulumi.set(self, "cache_node", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mcc response status code.
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="statusDetails")
-    def status_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mcc response status details for retrieving response inner details.
         """
         return pulumi.get(self, "status_details")
 
     @status_details.setter
-    def status_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_details", value)
 
     @_builtins.property
     @pulumi.getter(name="statusText")
-    def status_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mcc response status text as string for retrieving status details.
         """
         return pulumi.get(self, "status_text")
 
     @status_text.setter
-    def status_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_text", value)
 
 
@@ -1340,55 +1340,55 @@ class CustomerEntityArgsDict(TypedDict):
     """
     Model representing Customer resource for ConnectedCache resource
     """
-    client_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource client tenant Id of subscription.
     """
-    contact_email: NotRequired[pulumi.Input[_builtins.str]]
+    contact_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource contact email.
     """
-    contact_name: NotRequired[pulumi.Input[_builtins.str]]
+    contact_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource contact full name.
     """
-    contact_phone: NotRequired[pulumi.Input[_builtins.str]]
+    contact_phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource contact phone.
     """
-    customer_name: NotRequired[pulumi.Input[_builtins.str]]
+    customer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource name.
     """
-    fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    fully_qualified_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource Azure fully qualified resource Id.
     """
-    is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enterprise_managed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Customer resource flag for enterprise management as boolean.
     """
-    is_entitled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_entitled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Customer resource entitlement flag as boolean.
     """
-    release_version: NotRequired[pulumi.Input[_builtins.int]]
+    release_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Customer resource Mcc release version.
     """
-    resend_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
+    resend_signup_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Customer resource flag for resending signup code as boolean.
     """
-    should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
+    should_migrate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Customer resource flag for migration.
     """
-    verify_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
+    verify_signup_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Customer resource flag for requiring verification of signup code as boolean.
     """
-    verify_signup_phrase: NotRequired[pulumi.Input[_builtins.str]]
+    verify_signup_phrase: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer resource phrase for verifying signup.
     """
@@ -1396,19 +1396,19 @@ class CustomerEntityArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerEntityArgs:
     def __init__(__self__, *,
-                 client_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enterprise_managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_entitled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 release_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 resend_signup_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 should_migrate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_signup_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_signup_phrase: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enterprise_managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_entitled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 release_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 resend_signup_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 should_migrate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_signup_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_signup_phrase: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model representing Customer resource for ConnectedCache resource
 
@@ -1455,158 +1455,158 @@ class CustomerEntityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientTenantId")
-    def client_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource client tenant Id of subscription.
         """
         return pulumi.get(self, "client_tenant_id")
 
     @client_tenant_id.setter
-    def client_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contactEmail")
-    def contact_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource contact email.
         """
         return pulumi.get(self, "contact_email")
 
     @contact_email.setter
-    def contact_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_email", value)
 
     @_builtins.property
     @pulumi.getter(name="contactName")
-    def contact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource contact full name.
         """
         return pulumi.get(self, "contact_name")
 
     @contact_name.setter
-    def contact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contactPhone")
-    def contact_phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource contact phone.
         """
         return pulumi.get(self, "contact_phone")
 
     @contact_phone.setter
-    def contact_phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_phone", value)
 
     @_builtins.property
     @pulumi.getter(name="customerName")
-    def customer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource name.
         """
         return pulumi.get(self, "customer_name")
 
     @customer_name.setter
-    def customer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedResourceId")
-    def fully_qualified_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource Azure fully qualified resource Id.
         """
         return pulumi.get(self, "fully_qualified_resource_id")
 
     @fully_qualified_resource_id.setter
-    def fully_qualified_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnterpriseManaged")
-    def is_enterprise_managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enterprise_managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Customer resource flag for enterprise management as boolean.
         """
         return pulumi.get(self, "is_enterprise_managed")
 
     @is_enterprise_managed.setter
-    def is_enterprise_managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enterprise_managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enterprise_managed", value)
 
     @_builtins.property
     @pulumi.getter(name="isEntitled")
-    def is_entitled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_entitled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Customer resource entitlement flag as boolean.
         """
         return pulumi.get(self, "is_entitled")
 
     @is_entitled.setter
-    def is_entitled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_entitled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_entitled", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
-    def release_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def release_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Customer resource Mcc release version.
         """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
-    def release_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def release_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "release_version", value)
 
     @_builtins.property
     @pulumi.getter(name="resendSignupCode")
-    def resend_signup_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resend_signup_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Customer resource flag for resending signup code as boolean.
         """
         return pulumi.get(self, "resend_signup_code")
 
     @resend_signup_code.setter
-    def resend_signup_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resend_signup_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resend_signup_code", value)
 
     @_builtins.property
     @pulumi.getter(name="shouldMigrate")
-    def should_migrate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def should_migrate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Customer resource flag for migration.
         """
         return pulumi.get(self, "should_migrate")
 
     @should_migrate.setter
-    def should_migrate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def should_migrate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "should_migrate", value)
 
     @_builtins.property
     @pulumi.getter(name="verifySignupCode")
-    def verify_signup_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_signup_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Customer resource flag for requiring verification of signup code as boolean.
         """
         return pulumi.get(self, "verify_signup_code")
 
     @verify_signup_code.setter
-    def verify_signup_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_signup_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_signup_code", value)
 
     @_builtins.property
     @pulumi.getter(name="verifySignupPhrase")
-    def verify_signup_phrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_signup_phrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer resource phrase for verifying signup.
         """
         return pulumi.get(self, "verify_signup_phrase")
 
     @verify_signup_phrase.setter
-    def verify_signup_phrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_signup_phrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_signup_phrase", value)
 
 
@@ -1614,11 +1614,11 @@ class CustomerPropertyArgsDict(TypedDict):
     """
     Model representing customer for connectedCache resource
     """
-    additional_customer_properties: NotRequired[pulumi.Input['AdditionalCustomerPropertiesArgsDict']]
+    additional_customer_properties: NotRequired[pulumi.Input[Optional['AdditionalCustomerPropertiesArgsDict']]]
     """
     Mcc customer resource additional properties.
     """
-    customer: NotRequired[pulumi.Input['CustomerEntityArgsDict']]
+    customer: NotRequired[pulumi.Input[Optional['CustomerEntityArgsDict']]]
     """
     Mcc customer resource (customer entity).
     """
@@ -1626,8 +1626,8 @@ class CustomerPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerPropertyArgs:
     def __init__(__self__, *,
-                 additional_customer_properties: Optional[pulumi.Input['AdditionalCustomerPropertiesArgs']] = None,
-                 customer: Optional[pulumi.Input['CustomerEntityArgs']] = None):
+                 additional_customer_properties: pulumi.Input[Optional['AdditionalCustomerPropertiesArgs']] = None,
+                 customer: pulumi.Input[Optional['CustomerEntityArgs']] = None):
         """
         Model representing customer for connectedCache resource
 
@@ -1641,26 +1641,26 @@ class CustomerPropertyArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCustomerProperties")
-    def additional_customer_properties(self) -> Optional[pulumi.Input['AdditionalCustomerPropertiesArgs']]:
+    def additional_customer_properties(self) -> pulumi.Input[Optional['AdditionalCustomerPropertiesArgs']]:
         """
         Mcc customer resource additional properties.
         """
         return pulumi.get(self, "additional_customer_properties")
 
     @additional_customer_properties.setter
-    def additional_customer_properties(self, value: Optional[pulumi.Input['AdditionalCustomerPropertiesArgs']]):
+    def additional_customer_properties(self, value: pulumi.Input[Optional['AdditionalCustomerPropertiesArgs']]):
         pulumi.set(self, "additional_customer_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def customer(self) -> Optional[pulumi.Input['CustomerEntityArgs']]:
+    def customer(self) -> pulumi.Input[Optional['CustomerEntityArgs']]:
         """
         Mcc customer resource (customer entity).
         """
         return pulumi.get(self, "customer")
 
     @customer.setter
-    def customer(self, value: Optional[pulumi.Input['CustomerEntityArgs']]):
+    def customer(self, value: pulumi.Input[Optional['CustomerEntityArgs']]):
         pulumi.set(self, "customer", value)
 
 
@@ -1668,7 +1668,7 @@ class ProxyUrlConfigurationArgsDict(TypedDict):
     """
     ProxyUrl configuration of cache node
     """
-    proxy_url: NotRequired[pulumi.Input[_builtins.str]]
+    proxy_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
     """
@@ -1676,7 +1676,7 @@ class ProxyUrlConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ProxyUrlConfigurationArgs:
     def __init__(__self__, *,
-                 proxy_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 proxy_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ProxyUrl configuration of cache node
 
@@ -1687,14 +1687,14 @@ class ProxyUrlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="proxyUrl")
-    def proxy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
         """
         return pulumi.get(self, "proxy_url")
 
     @proxy_url.setter
-    def proxy_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_url", value)
 
 

@@ -32,23 +32,23 @@ class ConfigurationAssignmentFilterPropertiesArgsDict(TypedDict):
     """
     Azure query for the update configuration.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of locations to scope the query to.
     """
-    os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    os_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of allowed operating systems.
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of allowed resource groups.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of allowed resources.
     """
-    tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
+    tag_settings: NotRequired[pulumi.Input[Optional['TagSettingsPropertiesArgsDict']]]
     """
     Tag settings for the VM.
     """
@@ -56,11 +56,11 @@ class ConfigurationAssignmentFilterPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationAssignmentFilterPropertiesArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_settings: Optional[pulumi.Input['TagSettingsPropertiesArgs']] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_settings: pulumi.Input[Optional['TagSettingsPropertiesArgs']] = None):
         """
         Azure query for the update configuration.
 
@@ -83,62 +83,62 @@ class ConfigurationAssignmentFilterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of locations to scope the query to.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="osTypes")
-    def os_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def os_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of allowed operating systems.
         """
         return pulumi.get(self, "os_types")
 
     @os_types.setter
-    def os_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def os_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "os_types", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of allowed resource groups.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of allowed resources.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSettings")
-    def tag_settings(self) -> Optional[pulumi.Input['TagSettingsPropertiesArgs']]:
+    def tag_settings(self) -> pulumi.Input[Optional['TagSettingsPropertiesArgs']]:
         """
         Tag settings for the VM.
         """
         return pulumi.get(self, "tag_settings")
 
     @tag_settings.setter
-    def tag_settings(self, value: Optional[pulumi.Input['TagSettingsPropertiesArgs']]):
+    def tag_settings(self, value: pulumi.Input[Optional['TagSettingsPropertiesArgs']]):
         pulumi.set(self, "tag_settings", value)
 
 
@@ -146,15 +146,15 @@ class InputLinuxParametersArgsDict(TypedDict):
     """
     Input properties for patching a Linux machine.
     """
-    classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    classifications_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
     """
-    package_name_masks_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    package_name_masks_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Package names to be excluded for patching.
     """
-    package_name_masks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    package_name_masks_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Package names to be included for patching.
     """
@@ -162,9 +162,9 @@ class InputLinuxParametersArgsDict(TypedDict):
 @pulumi.input_type
 class InputLinuxParametersArgs:
     def __init__(__self__, *,
-                 classifications_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 package_name_masks_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 package_name_masks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 classifications_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 package_name_masks_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 package_name_masks_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties for patching a Linux machine.
 
@@ -181,38 +181,38 @@ class InputLinuxParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="classificationsToInclude")
-    def classifications_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classifications_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         """
         return pulumi.get(self, "classifications_to_include")
 
     @classifications_to_include.setter
-    def classifications_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classifications_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classifications_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="packageNameMasksToExclude")
-    def package_name_masks_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def package_name_masks_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Package names to be excluded for patching.
         """
         return pulumi.get(self, "package_name_masks_to_exclude")
 
     @package_name_masks_to_exclude.setter
-    def package_name_masks_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def package_name_masks_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "package_name_masks_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="packageNameMasksToInclude")
-    def package_name_masks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def package_name_masks_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Package names to be included for patching.
         """
         return pulumi.get(self, "package_name_masks_to_include")
 
     @package_name_masks_to_include.setter
-    def package_name_masks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def package_name_masks_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "package_name_masks_to_include", value)
 
 
@@ -220,15 +220,15 @@ class InputPatchConfigurationArgsDict(TypedDict):
     """
     Input configuration for a patch run
     """
-    linux_parameters: NotRequired[pulumi.Input['InputLinuxParametersArgsDict']]
+    linux_parameters: NotRequired[pulumi.Input[Optional['InputLinuxParametersArgsDict']]]
     """
     Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
     """
-    reboot_setting: NotRequired[pulumi.Input[Union[_builtins.str, 'RebootOptions']]]
+    reboot_setting: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RebootOptions']]]]
     """
     Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
     """
-    windows_parameters: NotRequired[pulumi.Input['InputWindowsParametersArgsDict']]
+    windows_parameters: NotRequired[pulumi.Input[Optional['InputWindowsParametersArgsDict']]]
     """
     Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
     """
@@ -236,9 +236,9 @@ class InputPatchConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class InputPatchConfigurationArgs:
     def __init__(__self__, *,
-                 linux_parameters: Optional[pulumi.Input['InputLinuxParametersArgs']] = None,
-                 reboot_setting: Optional[pulumi.Input[Union[_builtins.str, 'RebootOptions']]] = None,
-                 windows_parameters: Optional[pulumi.Input['InputWindowsParametersArgs']] = None):
+                 linux_parameters: pulumi.Input[Optional['InputLinuxParametersArgs']] = None,
+                 reboot_setting: pulumi.Input[Optional[Union[_builtins.str, 'RebootOptions']]] = None,
+                 windows_parameters: pulumi.Input[Optional['InputWindowsParametersArgs']] = None):
         """
         Input configuration for a patch run
 
@@ -257,38 +257,38 @@ class InputPatchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="linuxParameters")
-    def linux_parameters(self) -> Optional[pulumi.Input['InputLinuxParametersArgs']]:
+    def linux_parameters(self) -> pulumi.Input[Optional['InputLinuxParametersArgs']]:
         """
         Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
         """
         return pulumi.get(self, "linux_parameters")
 
     @linux_parameters.setter
-    def linux_parameters(self, value: Optional[pulumi.Input['InputLinuxParametersArgs']]):
+    def linux_parameters(self, value: pulumi.Input[Optional['InputLinuxParametersArgs']]):
         pulumi.set(self, "linux_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="rebootSetting")
-    def reboot_setting(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RebootOptions']]]:
+    def reboot_setting(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RebootOptions']]]:
         """
         Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         """
         return pulumi.get(self, "reboot_setting")
 
     @reboot_setting.setter
-    def reboot_setting(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RebootOptions']]]):
+    def reboot_setting(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RebootOptions']]]):
         pulumi.set(self, "reboot_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsParameters")
-    def windows_parameters(self) -> Optional[pulumi.Input['InputWindowsParametersArgs']]:
+    def windows_parameters(self) -> pulumi.Input[Optional['InputWindowsParametersArgs']]:
         """
         Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
         return pulumi.get(self, "windows_parameters")
 
     @windows_parameters.setter
-    def windows_parameters(self, value: Optional[pulumi.Input['InputWindowsParametersArgs']]):
+    def windows_parameters(self, value: pulumi.Input[Optional['InputWindowsParametersArgs']]):
         pulumi.set(self, "windows_parameters", value)
 
 
@@ -296,19 +296,19 @@ class InputWindowsParametersArgsDict(TypedDict):
     """
     Input properties for patching a Windows machine.
     """
-    classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    classifications_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
     """
-    exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[_builtins.bool]]
+    exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Exclude patches which need reboot
     """
-    kb_numbers_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kb_numbers_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Windows KBID to be excluded for patching.
     """
-    kb_numbers_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kb_numbers_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Windows KBID to be included for patching.
     """
@@ -316,10 +316,10 @@ class InputWindowsParametersArgsDict(TypedDict):
 @pulumi.input_type
 class InputWindowsParametersArgs:
     def __init__(__self__, *,
-                 classifications_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exclude_kbs_requiring_reboot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kb_numbers_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kb_numbers_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 classifications_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclude_kbs_requiring_reboot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kb_numbers_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kb_numbers_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties for patching a Windows machine.
 
@@ -339,50 +339,50 @@ class InputWindowsParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="classificationsToInclude")
-    def classifications_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classifications_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         """
         return pulumi.get(self, "classifications_to_include")
 
     @classifications_to_include.setter
-    def classifications_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classifications_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classifications_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeKbsRequiringReboot")
-    def exclude_kbs_requiring_reboot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_kbs_requiring_reboot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Exclude patches which need reboot
         """
         return pulumi.get(self, "exclude_kbs_requiring_reboot")
 
     @exclude_kbs_requiring_reboot.setter
-    def exclude_kbs_requiring_reboot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_kbs_requiring_reboot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_kbs_requiring_reboot", value)
 
     @_builtins.property
     @pulumi.getter(name="kbNumbersToExclude")
-    def kb_numbers_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kb_numbers_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Windows KBID to be excluded for patching.
         """
         return pulumi.get(self, "kb_numbers_to_exclude")
 
     @kb_numbers_to_exclude.setter
-    def kb_numbers_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kb_numbers_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kb_numbers_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="kbNumbersToInclude")
-    def kb_numbers_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kb_numbers_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Windows KBID to be included for patching.
         """
         return pulumi.get(self, "kb_numbers_to_include")
 
     @kb_numbers_to_include.setter
-    def kb_numbers_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kb_numbers_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kb_numbers_to_include", value)
 
 
@@ -390,11 +390,11 @@ class TagSettingsPropertiesArgsDict(TypedDict):
     """
     Tag filter information for the VM.
     """
-    filter_operator: NotRequired[pulumi.Input['TagOperators']]
+    filter_operator: NotRequired[pulumi.Input[Optional['TagOperators']]]
     """
     Filter VMs by Any or All specified tags.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]]
     """
     Dictionary of tags with its list of values.
     """
@@ -402,8 +402,8 @@ class TagSettingsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
     def __init__(__self__, *,
-                 filter_operator: Optional[pulumi.Input['TagOperators']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
+                 filter_operator: pulumi.Input[Optional['TagOperators']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         Tag filter information for the VM.
 
@@ -417,26 +417,26 @@ class TagSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterOperator")
-    def filter_operator(self) -> Optional[pulumi.Input['TagOperators']]:
+    def filter_operator(self) -> pulumi.Input[Optional['TagOperators']]:
         """
         Filter VMs by Any or All specified tags.
         """
         return pulumi.get(self, "filter_operator")
 
     @filter_operator.setter
-    def filter_operator(self, value: Optional[pulumi.Input['TagOperators']]):
+    def filter_operator(self, value: pulumi.Input[Optional['TagOperators']]):
         pulumi.set(self, "filter_operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Dictionary of tags with its list of values.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "tags", value)
 
 

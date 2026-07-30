@@ -216,7 +216,6 @@ def get_policy_exemption(policy_exemption_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str policy_exemption_name: The name of the policy exemption to delete.
     :param _builtins.str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
@@ -241,8 +240,8 @@ def get_policy_exemption(policy_exemption_name: Optional[_builtins.str] = None,
         resource_selectors=pulumi.get(__ret__, 'resource_selectors'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_exemption_output(policy_exemption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                scope: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
@@ -250,7 +249,6 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2022-07-01-preview.
 
     Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str policy_exemption_name: The name of the policy exemption to delete.
     :param _builtins.str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

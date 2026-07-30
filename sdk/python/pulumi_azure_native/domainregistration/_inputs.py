@@ -48,7 +48,7 @@ class AddressArgsDict(TypedDict):
     """
     The state or province for the address.
     """
-    address2: NotRequired[pulumi.Input[_builtins.str]]
+    address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The second line of the Address. Optional.
     """
@@ -61,7 +61,7 @@ class AddressArgs:
                  country: pulumi.Input[_builtins.str],
                  postal_code: pulumi.Input[_builtins.str],
                  state: pulumi.Input[_builtins.str],
-                 address2: Optional[pulumi.Input[_builtins.str]] = None):
+                 address2: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Address information for domain registration.
 
@@ -142,20 +142,20 @@ class AddressArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of the Address. Optional.
         """
         return pulumi.get(self, "address2")
 
     @address2.setter
-    def address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address2", value)
 
 
 class ContactArgsDict(TypedDict):
     """
-    Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
+    Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
     directories as per ICANN requirements.
     """
     email: pulumi.Input[_builtins.str]
@@ -174,23 +174,23 @@ class ContactArgsDict(TypedDict):
     """
     Phone number.
     """
-    address_mailing: NotRequired[pulumi.Input['AddressArgsDict']]
+    address_mailing: NotRequired[pulumi.Input[Optional['AddressArgsDict']]]
     """
     Mailing address.
     """
-    fax: NotRequired[pulumi.Input[_builtins.str]]
+    fax: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fax number.
     """
-    job_title: NotRequired[pulumi.Input[_builtins.str]]
+    job_title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Job title.
     """
-    name_middle: NotRequired[pulumi.Input[_builtins.str]]
+    name_middle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Middle name.
     """
-    organization: NotRequired[pulumi.Input[_builtins.str]]
+    organization: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Organization contact belongs to.
     """
@@ -202,13 +202,13 @@ class ContactArgs:
                  name_first: pulumi.Input[_builtins.str],
                  name_last: pulumi.Input[_builtins.str],
                  phone: pulumi.Input[_builtins.str],
-                 address_mailing: Optional[pulumi.Input['AddressArgs']] = None,
-                 fax: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_middle: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_mailing: pulumi.Input[Optional['AddressArgs']] = None,
+                 fax: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_middle: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
+        Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
         directories as per ICANN requirements.
 
         :param pulumi.Input[_builtins.str] email: Email address.
@@ -286,62 +286,62 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressMailing")
-    def address_mailing(self) -> Optional[pulumi.Input['AddressArgs']]:
+    def address_mailing(self) -> pulumi.Input[Optional['AddressArgs']]:
         """
         Mailing address.
         """
         return pulumi.get(self, "address_mailing")
 
     @address_mailing.setter
-    def address_mailing(self, value: Optional[pulumi.Input['AddressArgs']]):
+    def address_mailing(self, value: pulumi.Input[Optional['AddressArgs']]):
         pulumi.set(self, "address_mailing", value)
 
     @_builtins.property
     @pulumi.getter
-    def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fax(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fax number.
         """
         return pulumi.get(self, "fax")
 
     @fax.setter
-    def fax(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fax(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fax", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTitle")
-    def job_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Job title.
         """
         return pulumi.get(self, "job_title")
 
     @job_title.setter
-    def job_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_title", value)
 
     @_builtins.property
     @pulumi.getter(name="nameMiddle")
-    def name_middle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_middle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Middle name.
         """
         return pulumi.get(self, "name_middle")
 
     @name_middle.setter
-    def name_middle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_middle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_middle", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Organization contact belongs to.
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
 
@@ -349,15 +349,15 @@ class DomainPurchaseConsentArgsDict(TypedDict):
     """
     Domain purchase consent object, representing acceptance of applicable legal agreements.
     """
-    agreed_at: NotRequired[pulumi.Input[_builtins.str]]
+    agreed_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp when the agreements were accepted.
     """
-    agreed_by: NotRequired[pulumi.Input[_builtins.str]]
+    agreed_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client IP address.
     """
-    agreement_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    agreement_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
     """
@@ -365,9 +365,9 @@ class DomainPurchaseConsentArgsDict(TypedDict):
 @pulumi.input_type
 class DomainPurchaseConsentArgs:
     def __init__(__self__, *,
-                 agreed_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 agreed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 agreement_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 agreed_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 agreed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 agreement_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Domain purchase consent object, representing acceptance of applicable legal agreements.
 
@@ -384,38 +384,38 @@ class DomainPurchaseConsentArgs:
 
     @_builtins.property
     @pulumi.getter(name="agreedAt")
-    def agreed_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agreed_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the agreements were accepted.
         """
         return pulumi.get(self, "agreed_at")
 
     @agreed_at.setter
-    def agreed_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agreed_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agreed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="agreedBy")
-    def agreed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agreed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client IP address.
         """
         return pulumi.get(self, "agreed_by")
 
     @agreed_by.setter
-    def agreed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agreed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agreed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="agreementKeys")
-    def agreement_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def agreement_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
         return pulumi.get(self, "agreement_keys")
 
     @agreement_keys.setter
-    def agreement_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def agreement_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "agreement_keys", value)
 
 

@@ -122,7 +122,6 @@ def get_placement_policy(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: Name of the cluster
     :param _builtins.str placement_policy_name: Name of the placement policy.
     :param _builtins.str private_cloud_name: Name of the private cloud
@@ -143,10 +142,10 @@ def get_placement_policy(cluster_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_placement_policy_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_placement_policy_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementPolicyResult]:
     """
     Get a PlacementPolicy
@@ -154,7 +153,6 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[_builtins.st
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: Name of the cluster
     :param _builtins.str placement_policy_name: Name of the placement policy.

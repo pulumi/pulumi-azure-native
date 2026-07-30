@@ -25,29 +25,29 @@ class VirtualNetworkGatewayConnectionArgs:
                  connection_type: pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_gateway1: pulumi.Input['VirtualNetworkGatewayArgs'],
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_mode: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
-                 connection_protocol: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
-                 dpd_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 enable_bgp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_custom_bgp_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
-                 local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
-                 use_local_azure_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_policy_based_traffic_selectors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_gateway2: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None,
-                 virtual_network_gateway_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
+                 connection_protocol: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 egress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_custom_bgp_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 ipsec_policies: pulumi.Input[Optional[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+                 local_network_gateway2: pulumi.Input[Optional['LocalNetworkGatewayArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_selector_policies: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
+                 use_local_azure_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_policy_based_traffic_selectors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_gateway2: pulumi.Input[Optional['VirtualNetworkGatewayArgs']] = None,
+                 virtual_network_gateway_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
 
@@ -166,278 +166,278 @@ class VirtualNetworkGatewayConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorizationKey.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]]:
+    def connection_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]]:
         """
         The connection mode for this connection.
         """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
-    def connection_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]]):
+    def connection_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]]):
         pulumi.set(self, "connection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionProtocol")
-    def connection_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]]:
+    def connection_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]]:
         """
         Connection protocol used for this connection.
         """
         return pulumi.get(self, "connection_protocol")
 
     @connection_protocol.setter
-    def connection_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]]):
+    def connection_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]]):
         pulumi.set(self, "connection_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="dpdTimeoutSeconds")
-    def dpd_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dpd_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The dead peer detection timeout of this connection in seconds.
         """
         return pulumi.get(self, "dpd_timeout_seconds")
 
     @dpd_timeout_seconds.setter
-    def dpd_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dpd_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dpd_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="egressNatRules")
-    def egress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def egress_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         List of egress NatRules.
         """
         return pulumi.get(self, "egress_nat_rules")
 
     @egress_nat_rules.setter
-    def egress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def egress_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "egress_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBgp")
-    def enable_bgp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         EnableBgp flag.
         """
         return pulumi.get(self, "enable_bgp")
 
     @enable_bgp.setter
-    def enable_bgp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateLinkFastPath")
-    def enable_private_link_fast_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_link_fast_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         """
         return pulumi.get(self, "enable_private_link_fast_path")
 
     @enable_private_link_fast_path.setter
-    def enable_private_link_fast_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_link_fast_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_link_fast_path", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteGatewayBypass")
-    def express_route_gateway_bypass(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def express_route_gateway_bypass(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Bypass ExpressRoute Gateway for data forwarding.
         """
         return pulumi.get(self, "express_route_gateway_bypass")
 
     @express_route_gateway_bypass.setter
-    def express_route_gateway_bypass(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def express_route_gateway_bypass(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "express_route_gateway_bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayCustomBgpIpAddresses")
-    def gateway_custom_bgp_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]]:
+    def gateway_custom_bgp_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]]:
         """
         GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
         """
         return pulumi.get(self, "gateway_custom_bgp_ip_addresses")
 
     @gateway_custom_bgp_ip_addresses.setter
-    def gateway_custom_bgp_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]]):
+    def gateway_custom_bgp_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgs']]]]):
         pulumi.set(self, "gateway_custom_bgp_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressNatRules")
-    def ingress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def ingress_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         List of ingress NatRules.
         """
         return pulumi.get(self, "ingress_nat_rules")
 
     @ingress_nat_rules.setter
-    def ingress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def ingress_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "ingress_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]:
+    def ipsec_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpsecPolicyArgs']]]]:
         """
         The IPSec Policies to be considered by this connection.
         """
         return pulumi.get(self, "ipsec_policies")
 
     @ipsec_policies.setter
-    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]):
+    def ipsec_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpsecPolicyArgs']]]]):
         pulumi.set(self, "ipsec_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="localNetworkGateway2")
-    def local_network_gateway2(self) -> Optional[pulumi.Input['LocalNetworkGatewayArgs']]:
+    def local_network_gateway2(self) -> pulumi.Input[Optional['LocalNetworkGatewayArgs']]:
         """
         The reference to local network gateway resource.
         """
         return pulumi.get(self, "local_network_gateway2")
 
     @local_network_gateway2.setter
-    def local_network_gateway2(self, value: Optional[pulumi.Input['LocalNetworkGatewayArgs']]):
+    def local_network_gateway2(self, value: pulumi.Input[Optional['LocalNetworkGatewayArgs']]):
         pulumi.set(self, "local_network_gateway2", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def peer(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def peer(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The reference to peerings resource.
         """
         return pulumi.get(self, "peer")
 
     @peer.setter
-    def peer(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def peer(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "peer", value)
 
     @_builtins.property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def routing_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The routing weight.
         """
         return pulumi.get(self, "routing_weight")
 
     @routing_weight.setter
-    def routing_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def routing_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "routing_weight", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPSec shared key.
         """
         return pulumi.get(self, "shared_key")
 
     @shared_key.setter
-    def shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSelectorPolicies")
-    def traffic_selector_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]:
+    def traffic_selector_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]:
         """
         The Traffic Selector Policies to be considered by this connection.
         """
         return pulumi.get(self, "traffic_selector_policies")
 
     @traffic_selector_policies.setter
-    def traffic_selector_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]):
+    def traffic_selector_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]):
         pulumi.set(self, "traffic_selector_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="useLocalAzureIpAddress")
-    def use_local_azure_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_local_azure_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use private local Azure IP for the connection.
         """
         return pulumi.get(self, "use_local_azure_ip_address")
 
     @use_local_azure_ip_address.setter
-    def use_local_azure_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_local_azure_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_local_azure_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="usePolicyBasedTrafficSelectors")
-    def use_policy_based_traffic_selectors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_policy_based_traffic_selectors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable policy-based traffic selectors.
         """
         return pulumi.get(self, "use_policy_based_traffic_selectors")
 
     @use_policy_based_traffic_selectors.setter
-    def use_policy_based_traffic_selectors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_policy_based_traffic_selectors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_policy_based_traffic_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkGateway2")
-    def virtual_network_gateway2(self) -> Optional[pulumi.Input['VirtualNetworkGatewayArgs']]:
+    def virtual_network_gateway2(self) -> pulumi.Input[Optional['VirtualNetworkGatewayArgs']]:
         """
         The reference to virtual network gateway resource.
         """
         return pulumi.get(self, "virtual_network_gateway2")
 
     @virtual_network_gateway2.setter
-    def virtual_network_gateway2(self, value: Optional[pulumi.Input['VirtualNetworkGatewayArgs']]):
+    def virtual_network_gateway2(self, value: pulumi.Input[Optional['VirtualNetworkGatewayArgs']]):
         pulumi.set(self, "virtual_network_gateway2", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkGatewayConnectionName")
-    def virtual_network_gateway_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_gateway_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network gateway connection.
         """
         return pulumi.get(self, "virtual_network_gateway_connection_name")
 
     @virtual_network_gateway_connection_name.setter
-    def virtual_network_gateway_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_gateway_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_gateway_connection_name", value)
 
 
@@ -447,32 +447,32 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_mode: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
-                 connection_protocol: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
-                 connection_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']]] = None,
-                 dpd_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 enable_bgp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_custom_bgp_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCustomBgpIpAddressIpConfigurationArgs', 'GatewayCustomBgpIpAddressIpConfigurationArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
-                 local_network_gateway2: Optional[pulumi.Input[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
-                 use_local_azure_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_policy_based_traffic_selectors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_gateway1: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
-                 virtual_network_gateway2: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
-                 virtual_network_gateway_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
+                 connection_protocol: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 connection_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']]] = None,
+                 dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 egress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_custom_bgp_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCustomBgpIpAddressIpConfigurationArgs', 'GatewayCustomBgpIpAddressIpConfigurationArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 ipsec_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
+                 local_network_gateway2: pulumi.Input[Optional[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_selector_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
+                 use_local_azure_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_policy_based_traffic_selectors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_gateway1: pulumi.Input[Optional[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway2: pulumi.Input[Optional[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A common class for general resource information.
@@ -480,7 +480,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -524,7 +523,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -540,32 +538,32 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_mode: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
-                 connection_protocol: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
-                 connection_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']]] = None,
-                 dpd_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 enable_bgp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_custom_bgp_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCustomBgpIpAddressIpConfigurationArgs', 'GatewayCustomBgpIpAddressIpConfigurationArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
-                 local_network_gateway2: Optional[pulumi.Input[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
-                 use_local_azure_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_policy_based_traffic_selectors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_gateway1: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
-                 virtual_network_gateway2: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
-                 virtual_network_gateway_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionMode']]] = None,
+                 connection_protocol: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 connection_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']]] = None,
+                 dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 egress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_custom_bgp_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCustomBgpIpAddressIpConfigurationArgs', 'GatewayCustomBgpIpAddressIpConfigurationArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 ipsec_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
+                 local_network_gateway2: pulumi.Input[Optional[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_selector_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
+                 use_local_azure_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_policy_based_traffic_selectors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_gateway1: pulumi.Input[Optional[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway2: pulumi.Input[Optional[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

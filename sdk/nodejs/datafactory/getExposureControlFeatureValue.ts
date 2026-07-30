@@ -64,11 +64,11 @@ export interface GetExposureControlFeatureValueOutputArgs {
     /**
      * The feature name.
      */
-    featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * The feature type.
      */
-    featureType?: pulumi.Input<string>;
+    featureType?: pulumi.Input<string | undefined>;
     /**
      * The location identifier.
      */

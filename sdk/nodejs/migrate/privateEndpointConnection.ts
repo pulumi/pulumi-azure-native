@@ -109,11 +109,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * For optimistic concurrency control.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Unique name of a private endpoint connection within a project.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */

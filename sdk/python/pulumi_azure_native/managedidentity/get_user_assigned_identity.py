@@ -168,7 +168,6 @@ def get_user_assigned_identity(resource_group_name: Optional[_builtins.str] = No
 
     Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview, 2025-05-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param _builtins.str resource_name: The name of the identity resource.
     """
@@ -189,8 +188,8 @@ def get_user_assigned_identity(resource_group_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_assigned_identity_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
     """
     Gets the identity.
@@ -198,7 +197,6 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
     Uses Azure REST API version 2023-01-31.
 
     Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview, 2025-05-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param _builtins.str resource_name: The name of the identity resource.

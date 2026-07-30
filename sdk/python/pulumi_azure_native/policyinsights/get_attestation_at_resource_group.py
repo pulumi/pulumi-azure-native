@@ -240,7 +240,6 @@ def get_attestation_at_resource_group(attestation_name: Optional[_builtins.str] 
 
     Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str attestation_name: The name of the attestation.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -267,8 +266,8 @@ def get_attestation_at_resource_group(attestation_name: Optional[_builtins.str] 
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_attestation_at_resource_group_output(attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceGroupResult]:
     """
     Gets an existing attestation at resource group scope.
@@ -276,7 +275,6 @@ def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.I
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str attestation_name: The name of the attestation.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

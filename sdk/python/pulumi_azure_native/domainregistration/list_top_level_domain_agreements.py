@@ -73,7 +73,6 @@ def list_top_level_domain_agreements(for_transfer: Optional[_builtins.bool] = No
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
     :param _builtins.bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
     :param _builtins.str name: Name of the top-level domain.
@@ -88,9 +87,9 @@ def list_top_level_domain_agreements(for_transfer: Optional[_builtins.bool] = No
     return AwaitableListTopLevelDomainAgreementsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                            include_privacy: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                            name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_top_level_domain_agreements_output(for_transfer: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                            include_privacy: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                            name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
     """
     Description for Gets all legal agreements that user needs to accept before purchasing a domain.
@@ -98,7 +97,6 @@ def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
     :param _builtins.bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.

@@ -71,7 +71,6 @@ def list_topic_shared_access_keys(resource_group_name: Optional[_builtins.str] =
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.
     :param _builtins.str topic_name: Name of the topic.
     """
@@ -84,8 +83,8 @@ def list_topic_shared_access_keys(resource_group_name: Optional[_builtins.str] =
     return AwaitableListTopicSharedAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_topic_shared_access_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
     """
     List the two keys used to publish to a topic.
@@ -93,7 +92,6 @@ def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.In
     Uses Azure REST API version 2025-02-15.
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.
     :param _builtins.str topic_name: Name of the topic.

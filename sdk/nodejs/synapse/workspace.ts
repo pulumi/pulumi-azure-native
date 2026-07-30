@@ -231,52 +231,52 @@ export interface WorkspaceArgs {
     /**
      * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
      */
-    azureADOnlyAuthentication?: pulumi.Input<boolean>;
+    azureADOnlyAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Initial workspace AAD admin properties for a CSP subscription
      */
-    cspWorkspaceAdminProperties?: pulumi.Input<inputs.synapse.CspWorkspaceAdminPropertiesArgs>;
+    cspWorkspaceAdminProperties?: pulumi.Input<inputs.synapse.CspWorkspaceAdminPropertiesArgs | undefined>;
     /**
      * Workspace default data lake storage account details
      */
-    defaultDataLakeStorage?: pulumi.Input<inputs.synapse.DataLakeStorageAccountDetailsArgs>;
+    defaultDataLakeStorage?: pulumi.Input<inputs.synapse.DataLakeStorageAccountDetailsArgs | undefined>;
     /**
      * The encryption details of the workspace
      */
-    encryption?: pulumi.Input<inputs.synapse.EncryptionDetailsArgs>;
+    encryption?: pulumi.Input<inputs.synapse.EncryptionDetailsArgs | undefined>;
     /**
      * Identity of the workspace
      */
-    identity?: pulumi.Input<inputs.synapse.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.synapse.ManagedIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
      */
-    managedVirtualNetwork?: pulumi.Input<string>;
+    managedVirtualNetwork?: pulumi.Input<string | undefined>;
     /**
      * Managed Virtual Network Settings
      */
-    managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.ManagedVirtualNetworkSettingsArgs>;
+    managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.ManagedVirtualNetworkSettingsArgs | undefined>;
     /**
      * Private endpoint connections to the workspace
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.PrivateEndpointConnectionArgs>[] | undefined>;
     /**
      * Enable or Disable public network access to workspace
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.synapse.WorkspacePublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.synapse.WorkspacePublicNetworkAccess | undefined>;
     /**
      * Purview Configuration
      */
-    purviewConfiguration?: pulumi.Input<inputs.synapse.PurviewConfigurationArgs>;
+    purviewConfiguration?: pulumi.Input<inputs.synapse.PurviewConfigurationArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -284,29 +284,29 @@ export interface WorkspaceArgs {
     /**
      * Login for workspace SQL active directory administrator
      */
-    sqlAdministratorLogin?: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string | undefined>;
     /**
      * SQL administrator login password
      */
-    sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is trustedServiceBypassEnabled for the workspace
      */
-    trustedServiceBypassEnabled?: pulumi.Input<boolean>;
+    trustedServiceBypassEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Virtual Network profile
      */
-    virtualNetworkProfile?: pulumi.Input<inputs.synapse.VirtualNetworkProfileArgs>;
+    virtualNetworkProfile?: pulumi.Input<inputs.synapse.VirtualNetworkProfileArgs | undefined>;
     /**
      * The name of the workspace.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
     /**
      * Git integration settings
      */
-    workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.WorkspaceRepositoryConfigurationArgs>;
+    workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.WorkspaceRepositoryConfigurationArgs | undefined>;
 }

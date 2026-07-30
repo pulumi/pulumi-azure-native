@@ -21,9 +21,9 @@ __all__ = ['ManagementGroupNetworkManagerConnectionArgs', 'ManagementGroupNetwor
 class ManagementGroupNetworkManagerConnectionArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagementGroupNetworkManagerConnection resource.
 
@@ -54,38 +54,38 @@ class ManagementGroupNetworkManagerConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the network manager connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerConnectionName")
-    def network_manager_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the network manager connection.
         """
         return pulumi.get(self, "network_manager_connection_name")
 
     @network_manager_connection_name.setter
-    def network_manager_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
-    def network_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network Manager Id.
         """
         return pulumi.get(self, "network_manager_id")
 
     @network_manager_id.setter
-    def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
 
@@ -95,10 +95,10 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Network Manager Connection resource
@@ -106,7 +106,6 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ManagementGroupNetworkManagerConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

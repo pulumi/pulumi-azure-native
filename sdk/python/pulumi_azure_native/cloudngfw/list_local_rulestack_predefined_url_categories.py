@@ -74,7 +74,6 @@ def list_local_rulestack_predefined_url_categories(local_rulestack_name: Optiona
 
     Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str local_rulestack_name: LocalRulestack resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -89,10 +88,10 @@ def list_local_rulestack_predefined_url_categories(local_rulestack_name: Optiona
     return AwaitableListLocalRulestackPredefinedUrlCategoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_local_rulestack_predefined_url_categories_output(local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          skip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                          top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_local_rulestack_predefined_url_categories_output(local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          skip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                          top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalRulestackPredefinedUrlCategoriesResult]:
     """
     List predefined URL categories for rulestack
@@ -100,7 +99,6 @@ def list_local_rulestack_predefined_url_categories_output(local_rulestack_name: 
     Uses Azure REST API version 2025-05-23.
 
     Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str local_rulestack_name: LocalRulestack resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

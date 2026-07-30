@@ -25,12 +25,12 @@ class GatewayArgs:
                  destination_network: pulumi.Input['NetworkRefArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_network: pulumi.Input['NetworkRefArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http: Optional[pulumi.Input[Sequence[pulumi.Input['HttpConfigArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp: Optional[pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http: pulumi.Input[Optional[Sequence[pulumi.Input['HttpConfigArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp: pulumi.Input[Optional[Sequence[pulumi.Input['TcpConfigArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -98,74 +98,74 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayResourceName")
-    def gateway_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity of the gateway.
         """
         return pulumi.get(self, "gateway_resource_name")
 
     @gateway_resource_name.setter
-    def gateway_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpConfigArgs']]]]:
+    def http(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HttpConfigArgs']]]]:
         """
         Configuration for http connectivity for this gateway.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpConfigArgs']]]]):
+    def http(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HttpConfigArgs']]]]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tcp(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]]]:
+    def tcp(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TcpConfigArgs']]]]:
         """
         Configuration for tcp connectivity for this gateway.
         """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
-    def tcp(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]]]):
+    def tcp(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TcpConfigArgs']]]]):
         pulumi.set(self, "tcp", value)
 
 
@@ -175,21 +175,20 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_network: Optional[pulumi.Input[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
-                 gateway_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HttpConfigArgs', 'HttpConfigArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network: Optional[pulumi.Input[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TcpConfigArgs', 'TcpConfigArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_network: pulumi.Input[Optional[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
+                 gateway_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HttpConfigArgs', 'HttpConfigArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network: pulumi.Input[Optional[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TcpConfigArgs', 'TcpConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         This type describes a gateway resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +213,6 @@ class Gateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,15 +228,15 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_network: Optional[pulumi.Input[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
-                 gateway_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HttpConfigArgs', 'HttpConfigArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network: Optional[pulumi.Input[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TcpConfigArgs', 'TcpConfigArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_network: pulumi.Input[Optional[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
+                 gateway_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HttpConfigArgs', 'HttpConfigArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network: pulumi.Input[Optional[Union['NetworkRefArgs', 'NetworkRefArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TcpConfigArgs', 'TcpConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

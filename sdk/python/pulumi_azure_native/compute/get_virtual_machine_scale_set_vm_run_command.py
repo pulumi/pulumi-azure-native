@@ -303,7 +303,6 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[_builtins.str]
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The expand expression to apply on the operation.
     :param _builtins.str instance_id: The name of the VirtualMachineScaleSetVM
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -341,11 +340,11 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[_builtins.str]
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
         treat_failure_as_deployment_failure=pulumi.get(__ret__, 'treat_failure_as_deployment_failure'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        run_command_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_scale_set_vm_run_command_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        run_command_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """
     The operation to get the VMSS VM run command.
@@ -353,7 +352,6 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The expand expression to apply on the operation.
     :param _builtins.str instance_id: The name of the VirtualMachineScaleSetVM

@@ -24,11 +24,11 @@ class EnvironmentArgs:
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 arm_template_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_properties: Optional[pulumi.Input['EnvironmentDeploymentPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arm_template_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_properties: pulumi.Input[Optional['EnvironmentDeploymentPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -93,62 +93,62 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="armTemplateDisplayName")
-    def arm_template_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arm_template_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the Azure Resource Manager template that produced the environment.
         """
         return pulumi.get(self, "arm_template_display_name")
 
     @arm_template_display_name.setter
-    def arm_template_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arm_template_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arm_template_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentProperties")
-    def deployment_properties(self) -> Optional[pulumi.Input['EnvironmentDeploymentPropertiesArgs']]:
+    def deployment_properties(self) -> pulumi.Input[Optional['EnvironmentDeploymentPropertiesArgs']]:
         """
         The deployment properties of the environment.
         """
         return pulumi.get(self, "deployment_properties")
 
     @deployment_properties.setter
-    def deployment_properties(self, value: Optional[pulumi.Input['EnvironmentDeploymentPropertiesArgs']]):
+    def deployment_properties(self, value: pulumi.Input[Optional['EnvironmentDeploymentPropertiesArgs']]):
         pulumi.set(self, "deployment_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,20 +158,19 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arm_template_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_properties: Optional[pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 arm_template_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_properties: pulumi.Input[Optional[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An environment, which is essentially an ARM template deployment.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arm_template_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_properties: Optional[pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 arm_template_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_properties: pulumi.Input[Optional[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

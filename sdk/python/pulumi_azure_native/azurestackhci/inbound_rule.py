@@ -24,9 +24,9 @@ class InboundRuleArgs:
     def __init__(__self__, *,
                  nat_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 inbound_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['InboundRulePropertiesArgs']] = None):
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 inbound_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['InboundRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a InboundRule resource.
 
@@ -71,38 +71,38 @@ class InboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundRuleName")
-    def inbound_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the inbound rule
         """
         return pulumi.get(self, "inbound_rule_name")
 
     @inbound_rule_name.setter
-    def inbound_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['InboundRulePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['InboundRulePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['InboundRulePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['InboundRulePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -112,17 +112,16 @@ class InboundRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 inbound_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['InboundRulePropertiesArgs', 'InboundRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 inbound_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['InboundRulePropertiesArgs', 'InboundRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The inbound rule resource definition.
 
         Uses Azure REST API version 2026-04-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class InboundRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-04-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param InboundRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class InboundRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 inbound_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['InboundRulePropertiesArgs', 'InboundRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 inbound_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['InboundRulePropertiesArgs', 'InboundRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

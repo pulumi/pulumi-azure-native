@@ -23,13 +23,13 @@ class BlobArgs:
                  account_name: pulumi.Input[_builtins.str],
                  container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
-                 blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
-                 type: Optional[pulumi.Input['BlobType']] = None):
+                 access_tier: pulumi.Input[Optional['BlobAccessTier']] = None,
+                 blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 type: pulumi.Input[Optional['BlobType']] = None):
         """
         The set of arguments for constructing a Blob resource.
 
@@ -102,86 +102,86 @@ class BlobArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input['BlobAccessTier']]:
+    def access_tier(self) -> pulumi.Input[Optional['BlobAccessTier']]:
         """
         The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input['BlobAccessTier']]):
+    def access_tier(self, value: pulumi.Input[Optional['BlobAccessTier']]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="blobName")
-    def blob_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
         """
         return pulumi.get(self, "blob_name")
 
     @blob_name.setter
-    def blob_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contentMd5")
-    def content_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
         """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
-    def content_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_md5", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type of the storage blob. Defaults to `application/octet-stream`.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of custom blob metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
+    def source(self) -> pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         An asset to copy to the blob contents. This field cannot be specified for Append blobs.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
+    def source(self, value: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['BlobType']]:
+    def type(self) -> pulumi.Input[Optional['BlobType']]:
         """
         The type of the storage blob to be created. Defaults to 'Block'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['BlobType']]):
+    def type(self, value: pulumi.Input[Optional['BlobType']]):
         pulumi.set(self, "type", value)
 
 
@@ -191,20 +191,19 @@ class Blob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
-                 type: Optional[pulumi.Input['BlobType']] = None,
+                 access_tier: pulumi.Input[Optional['BlobAccessTier']] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 type: pulumi.Input[Optional['BlobType']] = None,
                  __props__=None):
         """
         Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +227,6 @@ class Blob(pulumi.CustomResource):
         """
         Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
 
-
         :param str resource_name: The name of the resource.
         :param BlobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,16 +242,16 @@ class Blob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
-                 type: Optional[pulumi.Input['BlobType']] = None,
+                 access_tier: pulumi.Input[Optional['BlobAccessTier']] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 type: pulumi.Input[Optional['BlobType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

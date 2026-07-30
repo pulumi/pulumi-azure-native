@@ -57,7 +57,6 @@ def list_device_registration_key(device_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-01-01-preview.
 
-
     :param _builtins.str device_name: The name of the device resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -69,14 +68,13 @@ def list_device_registration_key(device_name: Optional[_builtins.str] = None,
 
     return AwaitableListDeviceRegistrationKeyResult(
         registration_key=pulumi.get(__ret__, 'registration_key'))
-def list_device_registration_key_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_device_registration_key_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
     """
     List the registration key for the device.
 
     Uses Azure REST API version 2022-01-01-preview.
-
 
     :param _builtins.str device_name: The name of the device resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

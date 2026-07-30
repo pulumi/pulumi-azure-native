@@ -20,13 +20,13 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 admin_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 quantity: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 admin_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 quantity: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -69,86 +69,86 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminDomainName")
-    def admin_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Windows IoT Device Service OEM AAD domain
         """
         return pulumi.get(self, "admin_domain_name")
 
     @admin_domain_name.setter
-    def admin_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="billingDomainName")
-    def billing_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Windows IoT Device Service ODM AAD domain
         """
         return pulumi.get(self, "billing_domain_name")
 
     @billing_domain_name.setter
-    def billing_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows IoT Device Service.
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Windows IoT Device Service notes.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def quantity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def quantity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Windows IoT Device Service device allocation,
         """
         return pulumi.get(self, "quantity")
 
     @quantity.setter
-    def quantity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def quantity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "quantity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,20 +158,19 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 quantity: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 quantity: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The description of the Windows IoT Device Service.
 
         Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class Service(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 quantity: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 quantity: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

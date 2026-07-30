@@ -22,9 +22,9 @@ class PrefixArgs:
     def __init__(__self__, *,
                  peering_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 peering_service_prefix_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 peering_service_prefix_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Prefix resource.
 
@@ -69,38 +69,38 @@ class PrefixArgs:
 
     @_builtins.property
     @pulumi.getter(name="peeringServicePrefixKey")
-    def peering_service_prefix_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peering_service_prefix_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The peering service prefix key
         """
         return pulumi.get(self, "peering_service_prefix_key")
 
     @peering_service_prefix_key.setter
-    def peering_service_prefix_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peering_service_prefix_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_service_prefix_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix from which your traffic originates.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixName")
-    def prefix_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the prefix.
         """
         return pulumi.get(self, "prefix_name")
 
     @prefix_name.setter
-    def prefix_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_name", value)
 
 
@@ -110,11 +110,11 @@ class Prefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_service_prefix_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_service_prefix_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The peering service prefix class.
@@ -122,7 +122,6 @@ class Prefix(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class Prefix(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrefixArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class Prefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_service_prefix_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_service_prefix_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

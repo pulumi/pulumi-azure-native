@@ -180,7 +180,6 @@ def get_policy_assignment_artifact(artifact_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2018-11-01-preview.
 
-
     :param _builtins.str artifact_name: Name of the blueprint artifact.
     :param _builtins.str blueprint_name: Name of the blueprint definition.
     :param _builtins.str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
@@ -204,15 +203,14 @@ def get_policy_assignment_artifact(artifact_name: Optional[_builtins.str] = None
         policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_assignment_artifact_output(artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
     """
     Get a blueprint artifact.
 
     Uses Azure REST API version 2018-11-01-preview.
-
 
     :param _builtins.str artifact_name: Name of the blueprint artifact.
     :param _builtins.str blueprint_name: Name of the blueprint definition.

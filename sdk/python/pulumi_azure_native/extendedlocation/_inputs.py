@@ -28,11 +28,11 @@ class CustomLocationPropertiesAuthenticationArgsDict(TypedDict):
     """
     This is optional input that contains the authentication that should be used to generate the namespace.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the Custom Locations authentication
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The kubeconfig value.
     """
@@ -40,8 +40,8 @@ class CustomLocationPropertiesAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class CustomLocationPropertiesAuthenticationArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This is optional input that contains the authentication that should be used to generate the namespace.
 
@@ -55,26 +55,26 @@ class CustomLocationPropertiesAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Custom Locations authentication
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kubeconfig value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -82,7 +82,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]]
     """
     The identity type.
     """
@@ -90,7 +90,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]] = None):
         """
         Identity for the resource.
 
@@ -101,14 +101,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -116,7 +116,7 @@ class ResourceSyncRulePropertiesSelectorArgsDict(TypedDict):
     """
     A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
     """
-    match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    match_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
     """
@@ -124,7 +124,7 @@ class ResourceSyncRulePropertiesSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSyncRulePropertiesSelectorArgs:
     def __init__(__self__, *,
-                 match_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 match_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
 
@@ -135,14 +135,14 @@ class ResourceSyncRulePropertiesSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def match_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
         """
         return pulumi.get(self, "match_labels")
 
     @match_labels.setter
-    def match_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def match_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_labels", value)
 
 

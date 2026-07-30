@@ -24,12 +24,12 @@ class DeviceGroupArgs:
                  catalog_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_crash_dumps_collection: Optional[pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_feed_type: Optional[pulumi.Input[Union[_builtins.str, 'OSFeedType']]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
-                 update_policy: Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]] = None):
+                 allow_crash_dumps_collection: pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_feed_type: pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
+                 update_policy: pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]] = None):
         """
         The set of arguments for constructing a DeviceGroup resource.
 
@@ -97,74 +97,74 @@ class DeviceGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCrashDumpsCollection")
-    def allow_crash_dumps_collection(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']]]:
+    def allow_crash_dumps_collection(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]]:
         """
         Flag to define if the user allows for crash dump collection.
         """
         return pulumi.get(self, "allow_crash_dumps_collection")
 
     @allow_crash_dumps_collection.setter
-    def allow_crash_dumps_collection(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']]]):
+    def allow_crash_dumps_collection(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]]):
         pulumi.set(self, "allow_crash_dumps_collection", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the device group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceGroupName")
-    def device_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of device group.
         """
         return pulumi.get(self, "device_group_name")
 
     @device_group_name.setter
-    def device_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osFeedType")
-    def os_feed_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSFeedType']]]:
+    def os_feed_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]]:
         """
         Operating system feed type of the device group.
         """
         return pulumi.get(self, "os_feed_type")
 
     @os_feed_type.setter
-    def os_feed_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSFeedType']]]):
+    def os_feed_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]]):
         pulumi.set(self, "os_feed_type", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalDataBoundary")
-    def regional_data_boundary(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]:
+    def regional_data_boundary(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]]:
         """
         Regional data boundary for the device group.
         """
         return pulumi.get(self, "regional_data_boundary")
 
     @regional_data_boundary.setter
-    def regional_data_boundary(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]):
+    def regional_data_boundary(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]]):
         pulumi.set(self, "regional_data_boundary", value)
 
     @_builtins.property
     @pulumi.getter(name="updatePolicy")
-    def update_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]]:
+    def update_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]]:
         """
         Update policy of the device group.
         """
         return pulumi.get(self, "update_policy")
 
     @update_policy.setter
-    def update_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]]):
+    def update_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]]):
         pulumi.set(self, "update_policy", value)
 
 
@@ -174,21 +174,20 @@ class DeviceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_crash_dumps_collection: Optional[pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_feed_type: Optional[pulumi.Input[Union[_builtins.str, 'OSFeedType']]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_policy: Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]] = None,
+                 allow_crash_dumps_collection: pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_feed_type: pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_policy: pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]] = None,
                  __props__=None):
         """
         An device group resource belonging to a product resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +212,6 @@ class DeviceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,15 +227,15 @@ class DeviceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_crash_dumps_collection: Optional[pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_feed_type: Optional[pulumi.Input[Union[_builtins.str, 'OSFeedType']]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_policy: Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]] = None,
+                 allow_crash_dumps_collection: pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_feed_type: pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_policy: pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

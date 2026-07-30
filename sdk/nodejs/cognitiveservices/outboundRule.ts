@@ -131,5 +131,5 @@ export interface OutboundRuleArgs {
     /**
      * Name of the cognitive services account managed network outbound rule
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

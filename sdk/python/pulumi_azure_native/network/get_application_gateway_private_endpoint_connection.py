@@ -157,7 +157,6 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
 
     Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str application_gateway_name: The name of the application gateway.
     :param _builtins.str connection_name: The name of the application gateway private endpoint connection.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -179,9 +178,9 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_gateway_private_endpoint_connection_output(application_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_gateway_private_endpoint_connection_output(application_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                               connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection on application gateway.
@@ -189,7 +188,6 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str application_gateway_name: The name of the application gateway.
     :param _builtins.str connection_name: The name of the application gateway private endpoint connection.

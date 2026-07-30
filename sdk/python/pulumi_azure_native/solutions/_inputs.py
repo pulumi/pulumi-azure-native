@@ -212,15 +212,15 @@ class ApplicationJitAccessPolicyArgsDict(TypedDict):
     """
     Whether the JIT access is enabled.
     """
-    jit_approval_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'JitApprovalMode']]]
+    jit_approval_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JitApprovalMode']]]]
     """
     JIT approval mode.
     """
-    jit_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgsDict']]]]
+    jit_approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JitApproverDefinitionArgsDict']]]]]
     """
     The JIT approvers
     """
-    maximum_jit_access_duration: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_jit_access_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum duration JIT access is granted. This is an ISO8601 time period value.
     """
@@ -229,9 +229,9 @@ class ApplicationJitAccessPolicyArgsDict(TypedDict):
 class ApplicationJitAccessPolicyArgs:
     def __init__(__self__, *,
                  jit_access_enabled: pulumi.Input[_builtins.bool],
-                 jit_approval_mode: Optional[pulumi.Input[Union[_builtins.str, 'JitApprovalMode']]] = None,
-                 jit_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
-                 maximum_jit_access_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 jit_approval_mode: pulumi.Input[Optional[Union[_builtins.str, 'JitApprovalMode']]] = None,
+                 jit_approvers: pulumi.Input[Optional[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
+                 maximum_jit_access_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Managed application Jit access policy.
 
@@ -262,38 +262,38 @@ class ApplicationJitAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="jitApprovalMode")
-    def jit_approval_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JitApprovalMode']]]:
+    def jit_approval_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JitApprovalMode']]]:
         """
         JIT approval mode.
         """
         return pulumi.get(self, "jit_approval_mode")
 
     @jit_approval_mode.setter
-    def jit_approval_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JitApprovalMode']]]):
+    def jit_approval_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JitApprovalMode']]]):
         pulumi.set(self, "jit_approval_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="jitApprovers")
-    def jit_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]:
+    def jit_approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]:
         """
         The JIT approvers
         """
         return pulumi.get(self, "jit_approvers")
 
     @jit_approvers.setter
-    def jit_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]):
+    def jit_approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]):
         pulumi.set(self, "jit_approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumJitAccessDuration")
-    def maximum_jit_access_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_jit_access_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
         return pulumi.get(self, "maximum_jit_access_duration")
 
     @maximum_jit_access_duration.setter
-    def maximum_jit_access_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_jit_access_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_jit_access_duration", value)
 
 
@@ -301,7 +301,7 @@ class ApplicationManagementPolicyArgsDict(TypedDict):
     """
     Managed application management policy.
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationManagementMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationManagementMode']]]]
     """
     The managed application management mode.
     """
@@ -309,7 +309,7 @@ class ApplicationManagementPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationManagementPolicyArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationManagementMode']]] = None):
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationManagementMode']]] = None):
         """
         Managed application management policy.
 
@@ -320,14 +320,14 @@ class ApplicationManagementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationManagementMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationManagementMode']]]:
         """
         The managed application management mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationManagementMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationManagementMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -401,11 +401,11 @@ class ApplicationPackageLockingPolicyDefinitionArgsDict(TypedDict):
     """
     Managed application locking policy.
     """
-    allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The deny assignment excluded actions.
     """
-    allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The deny assignment excluded data actions.
     """
@@ -413,8 +413,8 @@ class ApplicationPackageLockingPolicyDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPackageLockingPolicyDefinitionArgs:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed application locking policy.
 
@@ -428,26 +428,26 @@ class ApplicationPackageLockingPolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The deny assignment excluded actions.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedDataActions")
-    def allowed_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The deny assignment excluded data actions.
         """
         return pulumi.get(self, "allowed_data_actions")
 
     @allowed_data_actions.setter
-    def allowed_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_data_actions", value)
 
 
@@ -455,15 +455,15 @@ class ApplicationPolicyArgsDict(TypedDict):
     """
     Managed application policy.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The policy name
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The policy parameters.
     """
-    policy_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The policy definition Id.
     """
@@ -471,9 +471,9 @@ class ApplicationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPolicyArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Managed application policy.
 
@@ -490,38 +490,38 @@ class ApplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition Id.
         """
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
-    def policy_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_id", value)
 
 
@@ -529,11 +529,11 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -541,8 +541,8 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -556,26 +556,26 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -587,11 +587,11 @@ class JitApproverDefinitionArgsDict(TypedDict):
     """
     The approver service principal Id.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The approver display name.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'JitApproverType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JitApproverType']]]]
     """
     The approver type.
     """
@@ -600,8 +600,8 @@ class JitApproverDefinitionArgsDict(TypedDict):
 class JitApproverDefinitionArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'JitApproverType']]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'JitApproverType']]] = None):
         """
         JIT approver definition.
 
@@ -629,26 +629,26 @@ class JitApproverDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The approver display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JitApproverType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JitApproverType']]]:
         """
         The approver type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JitApproverType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JitApproverType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -788,7 +788,7 @@ class PlanArgsDict(TypedDict):
     """
     The plan's version.
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The promotion code.
     """
@@ -800,7 +800,7 @@ class PlanArgs:
                  product: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan for the managed application.
 
@@ -867,14 +867,14 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The promotion code.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
 
@@ -886,23 +886,23 @@ class SkuArgsDict(TypedDict):
     """
     The SKU name.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SKU capacity.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU family.
     """
-    model: NotRequired[pulumi.Input[_builtins.str]]
+    model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU model.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU size.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU tier.
     """
@@ -911,11 +911,11 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         SKU for the resource.
 
@@ -952,62 +952,62 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SKU capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU family.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU model.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU size.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 

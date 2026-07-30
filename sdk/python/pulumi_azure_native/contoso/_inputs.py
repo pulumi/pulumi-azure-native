@@ -23,15 +23,15 @@ class EmployeePropertiesArgsDict(TypedDict):
     """
     Employee properties
     """
-    age: NotRequired[pulumi.Input[_builtins.int]]
+    age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Age of employee
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     City of employee
     """
-    profile: NotRequired[pulumi.Input[_builtins.str]]
+    profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Profile of employee
     """
@@ -39,9 +39,9 @@ class EmployeePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EmployeePropertiesArgs:
     def __init__(__self__, *,
-                 age: Optional[pulumi.Input[_builtins.int]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None):
+                 age: pulumi.Input[Optional[_builtins.int]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Employee properties
 
@@ -58,38 +58,38 @@ class EmployeePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Age of employee
         """
         return pulumi.get(self, "age")
 
     @age.setter
-    def age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "age", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         City of employee
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile of employee
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
 

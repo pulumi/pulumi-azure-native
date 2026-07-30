@@ -25,7 +25,7 @@ class PatchScheduleArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]],
-                 default: Optional[pulumi.Input[_builtins.str]] = None):
+                 default: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PatchSchedule resource.
 
@@ -78,14 +78,14 @@ class PatchScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the RedisPatchSchedule
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default", value)
 
 
@@ -95,10 +95,10 @@ class PatchSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
@@ -106,7 +106,6 @@ class PatchSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class PatchSchedule(pulumi.CustomResource):
 
         Other available API versions: 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class PatchSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

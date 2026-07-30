@@ -170,7 +170,6 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[_bu
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str event_subscription_name: Name of the event subscription to be found.
     :param _builtins.str namespace_name: Name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.
@@ -195,10 +194,10 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[_bu
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_topic_event_subscription_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionResult]:
     """
     Get properties of an event subscription of a namespace topic.
@@ -206,7 +205,6 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
     Uses Azure REST API version 2025-02-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str event_subscription_name: Name of the event subscription to be found.
     :param _builtins.str namespace_name: Name of the namespace.

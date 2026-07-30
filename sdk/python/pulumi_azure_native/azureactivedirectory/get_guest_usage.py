@@ -144,7 +144,6 @@ def get_guest_usage(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
@@ -163,8 +162,8 @@ def get_guest_usage(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_usage_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
@@ -172,7 +171,6 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2023-05-17-preview.
 
     Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The initial domain name of the Azure AD B2C tenant.

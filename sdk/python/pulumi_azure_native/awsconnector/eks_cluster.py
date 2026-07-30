@@ -23,7 +23,7 @@ __all__ = ['EksClusterArgs', 'EksCluster']
 class EksClusterArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['EksClusterPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['EksClusterPropertiesArgs']] = None):
         """
         The set of arguments for constructing a EksCluster resource.
 
@@ -48,14 +48,14 @@ class EksClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EksClusterPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['EksClusterPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EksClusterPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['EksClusterPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -65,14 +65,13 @@ class EksCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,7 +89,6 @@ class EksCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-
         :param str resource_name: The name of the resource.
         :param EksClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,8 +104,8 @@ class EksCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

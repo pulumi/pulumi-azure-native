@@ -64,7 +64,7 @@ export interface GetApiGatewayConfigConnectionResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of the API Management gateway config connection 
+     * The current provisioning state of the API Management gateway config connection
      */
     readonly provisioningState: string;
     /**

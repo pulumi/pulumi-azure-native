@@ -83,7 +83,6 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
 
     Other available API versions: 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str application_gateway_name: The name of the application gateway.
     :param Union['SubResource', 'SubResourceDict'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.
     :param Union['SubResource', 'SubResourceDict'] backend_http_settings: Reference to backend http setting of application gateway to be used for test probe.
@@ -114,17 +113,17 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     return AwaitableGetApplicationGatewayBackendHealthOnDemandResult(
         backend_address_pool=pulumi.get(__ret__, 'backend_address_pool'),
         backend_health_http_settings=pulumi.get(__ret__, 'backend_health_http_settings'))
-def get_application_gateway_backend_health_on_demand_output(application_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            backend_address_pool: Optional[pulumi.Input[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
-                                                            backend_http_settings: Optional[pulumi.Input[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
-                                                            expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                            host: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                            match: Optional[pulumi.Input[Optional[Union['ApplicationGatewayProbeHealthResponseMatch', 'ApplicationGatewayProbeHealthResponseMatchDict']]]] = None,
-                                                            path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                            pick_host_name_from_backend_http_settings: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            protocol: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationGatewayProtocol']]]] = None,
-                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            timeout: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_application_gateway_backend_health_on_demand_output(application_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            backend_address_pool: pulumi.Input[Optional[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
+                                                            backend_http_settings: pulumi.Input[Optional[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
+                                                            expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                            host: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                            match: pulumi.Input[Optional[Optional[Union['ApplicationGatewayProbeHealthResponseMatch', 'ApplicationGatewayProbeHealthResponseMatchDict']]]] = None,
+                                                            path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                            pick_host_name_from_backend_http_settings: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            protocol: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ApplicationGatewayProtocol']]]] = None,
+                                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            timeout: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayBackendHealthOnDemandResult]:
     """
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
@@ -132,7 +131,6 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str application_gateway_name: The name of the application gateway.
     :param Union['SubResource', 'SubResourceDict'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.

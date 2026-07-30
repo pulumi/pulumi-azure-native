@@ -226,7 +226,6 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param _builtins.str workspace_name: The name of the machine learning workspace.
     """
@@ -252,14 +251,13 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_state=pulumi.get(__ret__, 'workspace_state'),
         workspace_type=pulumi.get(__ret__, 'workspace_type'))
-def get_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the properties of the specified machine learning workspace.
 
     Uses Azure REST API version 2019-10-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param _builtins.str workspace_name: The name of the machine learning workspace.

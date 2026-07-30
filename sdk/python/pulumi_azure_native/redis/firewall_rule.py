@@ -24,7 +24,7 @@ class FirewallRuleArgs:
                  end_ip: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  start_ip: pulumi.Input[_builtins.str],
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -91,14 +91,14 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the firewall rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -108,11 +108,11 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
@@ -120,7 +120,6 @@ class FirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

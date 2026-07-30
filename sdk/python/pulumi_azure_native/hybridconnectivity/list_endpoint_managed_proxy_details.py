@@ -75,7 +75,6 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[_builtins.str] =
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.str hostname: The target host name.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -94,11 +93,11 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[_builtins.str] =
     return AwaitableListEndpointManagedProxyDetailsResult(
         expires_on=pulumi.get(__ret__, 'expires_on'),
         proxy=pulumi.get(__ret__, 'proxy'))
-def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                                               service: Optional[pulumi.Input[_builtins.str]] = None,
-                                               service_name: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
+def list_endpoint_managed_proxy_details_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                                               service: pulumi.Input[Optional[_builtins.str]] = None,
+                                               service_name: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
     Fetches the managed proxy details
@@ -106,7 +105,6 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
     Uses Azure REST API version 2024-12-01.
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.str hostname: The target host name.

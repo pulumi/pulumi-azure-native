@@ -194,7 +194,6 @@ def get_availability_group_listener(availability_group_listener_name: Optional[_
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str availability_group_listener_name: Name of the availability group listener.
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -221,10 +220,10 @@ def get_availability_group_listener(availability_group_listener_name: Optional[_
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_availability_group_listener_output(availability_group_listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           sql_virtual_machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_availability_group_listener_output(availability_group_listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           sql_virtual_machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
     """
     Gets an availability group listener.
@@ -232,7 +231,6 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     Uses Azure REST API version 2023-10-01.
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str availability_group_listener_name: Name of the availability group listener.
     :param _builtins.str expand: The child resources to include in the response.

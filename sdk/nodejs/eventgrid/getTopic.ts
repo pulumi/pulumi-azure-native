@@ -54,7 +54,7 @@ export interface GetTopicResult {
      */
     readonly endpoint: string;
     /**
-     * Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+     * Event Type Information for the user topic. This information is provided by the publisher and can be used by the
      * subscriber to view different types of events that are published.
      */
     readonly eventTypeInfo?: outputs.eventgrid.EventTypeInfoResponse;
@@ -103,7 +103,7 @@ export interface GetTopicResult {
      */
     readonly provisioningState: string;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
      */
     readonly publicNetworkAccess?: string;

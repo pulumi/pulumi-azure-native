@@ -23,12 +23,12 @@ __all__ = ['CustomResourceProviderArgs', 'CustomResourceProvider']
 class CustomResourceProviderArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validations: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPValidationsArgs']]]] = None):
         """
         The set of arguments for constructing a CustomResourceProvider resource.
 
@@ -68,74 +68,74 @@ class CustomResourceProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]:
         """
         A list of actions that the custom resource provider implements.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderName")
-    def resource_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource provider.
         """
         return pulumi.get(self, "resource_provider_name")
 
     @resource_provider_name.setter
-    def resource_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]:
         """
         A list of resource types that the custom resource provider implements.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def validations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]:
+    def validations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]:
         """
         A list of validations to run on the custom resource provider's requests.
         """
         return pulumi.get(self, "validations")
 
     @validations.setter
-    def validations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]):
+    def validations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]):
         pulumi.set(self, "validations", value)
 
 
@@ -145,19 +145,18 @@ class CustomResourceProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPActionRouteDefinitionArgs', 'CustomRPActionRouteDefinitionArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPResourceTypeRouteDefinitionArgs', 'CustomRPResourceTypeRouteDefinitionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPValidationsArgs', 'CustomRPValidationsArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPActionRouteDefinitionArgs', 'CustomRPActionRouteDefinitionArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPResourceTypeRouteDefinitionArgs', 'CustomRPResourceTypeRouteDefinitionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPValidationsArgs', 'CustomRPValidationsArgsDict']]]]] = None,
                  __props__=None):
         """
         A manifest file that defines the custom resource provider resources.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class CustomResourceProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param CustomResourceProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class CustomResourceProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPActionRouteDefinitionArgs', 'CustomRPActionRouteDefinitionArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPResourceTypeRouteDefinitionArgs', 'CustomRPResourceTypeRouteDefinitionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRPValidationsArgs', 'CustomRPValidationsArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPActionRouteDefinitionArgs', 'CustomRPActionRouteDefinitionArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPResourceTypeRouteDefinitionArgs', 'CustomRPResourceTypeRouteDefinitionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRPValidationsArgs', 'CustomRPValidationsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

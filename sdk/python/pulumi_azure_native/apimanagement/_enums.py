@@ -720,12 +720,12 @@ class SkuType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:apimanagement:SoapApiType")
 class SoapApiType(_builtins.str, Enum):
     """
-    Type of API to create. 
-     * `http` creates a REST API 
-     * `soap` creates a SOAP pass-through API  
-     * `websocket` creates websocket API 
-     * `graphql` creates GraphQL API. 
-     New types can be added in the future.
+    Type of API to create.
+     * `http` creates a REST API
+     * `soap` creates a SOAP pass-through API
+     * `websocket` creates websocket API
+     * `graphql` creates GraphQL API.
+        New types can be added in the future.
     """
     SOAP_TO_REST = "http"
     """

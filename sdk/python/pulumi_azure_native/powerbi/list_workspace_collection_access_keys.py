@@ -66,7 +66,6 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[_builtin
 
     Uses Azure REST API version 2016-01-29.
 
-
     :param _builtins.str resource_group_name: Azure resource group
     :param _builtins.str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
@@ -79,14 +78,13 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[_builtin
     return AwaitableListWorkspaceCollectionAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-def list_workspace_collection_access_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 workspace_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_collection_access_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 workspace_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
     """
     Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
 
     Uses Azure REST API version 2016-01-29.
-
 
     :param _builtins.str resource_group_name: Azure resource group
     :param _builtins.str workspace_collection_name: Power BI Embedded Workspace Collection name

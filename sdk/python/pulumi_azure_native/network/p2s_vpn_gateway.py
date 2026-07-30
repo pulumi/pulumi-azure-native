@@ -23,16 +23,16 @@ __all__ = ['P2sVpnGatewayArgs', 'P2sVpnGateway']
 class P2sVpnGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_routing_preference_internet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 vpn_gateway_scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration: Optional[pulumi.Input['SubResourceArgs']] = None):
+                 custom_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_routing_preference_internet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 vpn_gateway_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration: pulumi.Input[Optional['SubResourceArgs']] = None):
         """
         The set of arguments for constructing a P2sVpnGateway resource.
 
@@ -84,122 +84,122 @@ class P2sVpnGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="customDnsServers")
-    def custom_dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of all customer specified DNS servers IP addresses.
         """
         return pulumi.get(self, "custom_dns_servers")
 
     @custom_dns_servers.setter
-    def custom_dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the gateway.
         """
         return pulumi.get(self, "gateway_name")
 
     @gateway_name.setter
-    def gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isRoutingPreferenceInternet")
-    def is_routing_preference_internet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_routing_preference_internet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
         """
         return pulumi.get(self, "is_routing_preference_internet")
 
     @is_routing_preference_internet.setter
-    def is_routing_preference_internet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_routing_preference_internet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_routing_preference_internet", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]:
+    def p2_s_connection_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]:
         """
         List of all p2s connection configurations of the gateway.
         """
         return pulumi.get(self, "p2_s_connection_configurations")
 
     @p2_s_connection_configurations.setter
-    def p2_s_connection_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]):
+    def p2_s_connection_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]):
         pulumi.set(self, "p2_s_connection_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def virtual_hub(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The VirtualHub to which the gateway belongs.
         """
         return pulumi.get(self, "virtual_hub")
 
     @virtual_hub.setter
-    def virtual_hub(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def virtual_hub(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_hub", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vpn_gateway_scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The scale unit for this p2s vpn gateway.
         """
         return pulumi.get(self, "vpn_gateway_scale_unit")
 
     @vpn_gateway_scale_unit.setter
-    def vpn_gateway_scale_unit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vpn_gateway_scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vpn_gateway_scale_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnServerConfiguration")
-    def vpn_server_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def vpn_server_configuration(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
         return pulumi.get(self, "vpn_server_configuration")
 
     @vpn_server_configuration.setter
-    def vpn_server_configuration(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def vpn_server_configuration(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "vpn_server_configuration", value)
 
 
@@ -209,17 +209,17 @@ class P2sVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_routing_preference_internet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['P2SConnectionConfigurationArgs', 'P2SConnectionConfigurationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vpn_gateway_scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 custom_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_routing_preference_internet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['P2SConnectionConfigurationArgs', 'P2SConnectionConfigurationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_gateway_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         P2SVpnGateway Resource.
@@ -227,7 +227,6 @@ class P2sVpnGateway(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,7 +255,6 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param P2sVpnGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,17 +270,17 @@ class P2sVpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_routing_preference_internet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['P2SConnectionConfigurationArgs', 'P2SConnectionConfigurationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vpn_gateway_scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 custom_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_routing_preference_internet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['P2SConnectionConfigurationArgs', 'P2SConnectionConfigurationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_gateway_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

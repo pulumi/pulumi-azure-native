@@ -156,7 +156,6 @@ def get_data_controller(data_controller_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str data_controller_name: The name of the data controller
     :param _builtins.str resource_group_name: The name of the Azure resource group
     """
@@ -176,8 +175,8 @@ def get_data_controller(data_controller_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_controller_output(data_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_controller_output(data_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataControllerResult]:
     """
     Retrieves a dataController resource
@@ -185,7 +184,6 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str data_controller_name: The name of the data controller
     :param _builtins.str resource_group_name: The name of the Azure resource group

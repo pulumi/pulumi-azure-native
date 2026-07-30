@@ -118,11 +118,11 @@ export interface HorizonDbReplicaArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.horizondb.HorizonDbReplicaPropertiesArgs>;
+    properties?: pulumi.Input<inputs.horizondb.HorizonDbReplicaPropertiesArgs | undefined>;
     /**
      * The name of the HorizonDB replica.
      */
-    replicaName?: pulumi.Input<string>;
+    replicaName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

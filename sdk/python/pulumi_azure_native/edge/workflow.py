@@ -24,8 +24,8 @@ class WorkflowArgs:
     def __init__(__self__, *,
                  context_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
@@ -67,26 +67,26 @@ class WorkflowArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workflow
         """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
-    def workflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_name", value)
 
 
@@ -96,10 +96,10 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 context_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Workflow Resource
@@ -107,7 +107,6 @@ class Workflow(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class Workflow(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 context_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

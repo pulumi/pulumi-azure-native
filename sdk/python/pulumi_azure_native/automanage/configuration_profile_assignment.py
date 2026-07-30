@@ -23,8 +23,8 @@ class ConfigurationProfileAssignmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_name: pulumi.Input[_builtins.str],
-                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']] = None):
+                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfileAssignment resource.
 
@@ -66,26 +66,26 @@ class ConfigurationProfileAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProfileAssignmentName")
-    def configuration_profile_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_profile_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the configuration profile assignment. Only default is supported.
         """
         return pulumi.get(self, "configuration_profile_assignment_name")
 
     @configuration_profile_assignment_name.setter
-    def configuration_profile_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_profile_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_profile_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']]:
         """
         Properties of the configuration profile assignment.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
@@ -106,7 +106,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
 
         Other available API versions: 2020-06-30-preview, 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-06-30-preview, 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

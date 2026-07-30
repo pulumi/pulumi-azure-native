@@ -253,7 +253,6 @@ def list_geodata_by_ip(enrichment_type: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str enrichment_type: Enrichment type
     :param _builtins.str ip_address: The dotted-decimal or colon-separated string representation of the IP address
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -285,10 +284,10 @@ def list_geodata_by_ip(enrichment_type: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_code=pulumi.get(__ret__, 'state_code'),
         state_confidence_factor=pulumi.get(__ret__, 'state_confidence_factor'))
-def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                              ip_address: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_geodata_by_ip_output(enrichment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                              ip_address: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGeodataByIpResult]:
     """
     Get geodata for a single IP address
@@ -296,7 +295,6 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str enrichment_type: Enrichment type
     :param _builtins.str ip_address: The dotted-decimal or colon-separated string representation of the IP address

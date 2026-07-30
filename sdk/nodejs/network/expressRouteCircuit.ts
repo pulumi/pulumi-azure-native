@@ -219,57 +219,57 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Allow classic operations.
      */
-    allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean | undefined>;
     /**
      * The authorizationKey.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The list of authorizations.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitAuthorizationArgs>[] | undefined>;
     /**
      * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    bandwidthInGbps?: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number | undefined>;
     /**
      * The name of the circuit.
      */
-    circuitName?: pulumi.Input<string>;
+    circuitName?: pulumi.Input<string | undefined>;
     /**
      * The CircuitProvisioningState state of the resource.
      */
-    circuitProvisioningState?: pulumi.Input<string>;
+    circuitProvisioningState?: pulumi.Input<string | undefined>;
     /**
      * Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
      */
-    enableDirectPortRateLimit?: pulumi.Input<boolean>;
+    enableDirectPortRateLimit?: pulumi.Input<boolean | undefined>;
     /**
      * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    expressRoutePort?: pulumi.Input<inputs.network.SubResourceArgs>;
+    expressRoutePort?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The GatewayManager Etag.
      */
-    gatewayManagerEtag?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string | undefined>;
     /**
      * Flag denoting global reach status.
      */
-    globalReachEnabled?: pulumi.Input<boolean>;
+    globalReachEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The list of peerings.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    peerings?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitPeeringArgs>[]>;
+    peerings?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitPeeringArgs>[] | undefined>;
     /**
      * The name of the resource group.
      */
@@ -277,25 +277,25 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The ServiceKey.
      */
-    serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string | undefined>;
     /**
      * The ServiceProviderNotes.
      */
-    serviceProviderNotes?: pulumi.Input<string>;
+    serviceProviderNotes?: pulumi.Input<string | undefined>;
     /**
      * The ServiceProviderProperties.
      */
-    serviceProviderProperties?: pulumi.Input<inputs.network.ExpressRouteCircuitServiceProviderPropertiesArgs>;
+    serviceProviderProperties?: pulumi.Input<inputs.network.ExpressRouteCircuitServiceProviderPropertiesArgs | undefined>;
     /**
      * The ServiceProviderProvisioningState state of the resource.
      */
-    serviceProviderProvisioningState?: pulumi.Input<string | enums.network.ServiceProviderProvisioningState>;
+    serviceProviderProvisioningState?: pulumi.Input<string | enums.network.ServiceProviderProvisioningState | undefined>;
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSkuArgs>;
+    sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

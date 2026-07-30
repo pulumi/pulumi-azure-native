@@ -72,7 +72,6 @@ def list_notebook_workspace_connection_info(account_name: Optional[_builtins.str
 
     Other available API versions: 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str notebook_workspace_name: The name of the notebook workspace resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,9 +86,9 @@ def list_notebook_workspace_connection_info(account_name: Optional[_builtins.str
     return AwaitableListNotebookWorkspaceConnectionInfoResult(
         auth_token=pulumi.get(__ret__, 'auth_token'),
         notebook_server_endpoint=pulumi.get(__ret__, 'notebook_server_endpoint'))
-def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_notebook_workspace_connection_info_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNotebookWorkspaceConnectionInfoResult]:
     """
     Retrieves the connection info for the notebook workspace
@@ -97,7 +96,6 @@ def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi
     Uses Azure REST API version 2025-10-15.
 
     Other available API versions: 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str notebook_workspace_name: The name of the notebook workspace resource.

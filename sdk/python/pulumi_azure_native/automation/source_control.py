@@ -24,15 +24,15 @@ class SourceControlArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_runbook: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_token: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']] = None,
-                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None):
+                 auto_sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_runbook: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_token: pulumi.Input[Optional['SourceControlSecurityTokenPropertiesArgs']] = None,
+                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
 
@@ -95,110 +95,110 @@ class SourceControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoSync")
-    def auto_sync(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_sync(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The auto async of the source control. Default is false.
         """
         return pulumi.get(self, "auto_sync")
 
     @auto_sync.setter
-    def auto_sync(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_sync(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repo branch of the source control. Include branch as empty string for VsoTfvc.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user description of the source control.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path of the source control. Path must be relative.
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_path", value)
 
     @_builtins.property
     @pulumi.getter(name="publishRunbook")
-    def publish_runbook(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_runbook(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The auto publish of the source control. Default is true.
         """
         return pulumi.get(self, "publish_runbook")
 
     @publish_runbook.setter
-    def publish_runbook(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_runbook(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_runbook", value)
 
     @_builtins.property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repo url of the source control.
         """
         return pulumi.get(self, "repo_url")
 
     @repo_url.setter
-    def repo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
 
     @_builtins.property
     @pulumi.getter(name="securityToken")
-    def security_token(self) -> Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]:
+    def security_token(self) -> pulumi.Input[Optional['SourceControlSecurityTokenPropertiesArgs']]:
         """
         The authorization token for the repo of the source control.
         """
         return pulumi.get(self, "security_token")
 
     @security_token.setter
-    def security_token(self, value: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]):
+    def security_token(self, value: pulumi.Input[Optional['SourceControlSecurityTokenPropertiesArgs']]):
         pulumi.set(self, "security_token", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlName")
-    def source_control_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_control_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of source control.
         """
         return pulumi.get(self, "source_control_name")
 
     @source_control_name.setter
-    def source_control_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_control_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_control_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]:
+    def source_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]:
         """
         The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]):
+    def source_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]):
         pulumi.set(self, "source_type", value)
 
 
@@ -208,17 +208,17 @@ class SourceControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_runbook: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_token: Optional[pulumi.Input[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
-                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
+                 auto_sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_runbook: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_token: pulumi.Input[Optional[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
+                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None,
                  __props__=None):
         """
         Definition of the source control.
@@ -226,7 +226,6 @@ class SourceControl(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class SourceControl(pulumi.CustomResource):
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,17 +269,17 @@ class SourceControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_runbook: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_token: Optional[pulumi.Input[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
-                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
+                 auto_sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_runbook: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_token: pulumi.Input[Optional[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
+                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

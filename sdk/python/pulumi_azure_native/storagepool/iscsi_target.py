@@ -25,12 +25,12 @@ class IscsiTargetArgs:
                  acl_mode: pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']],
                  disk_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 iscsi_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]] = None,
-                 target_iqn: Optional[pulumi.Input[_builtins.str]] = None):
+                 iscsi_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 luns: pulumi.Input[Optional[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 static_acls: pulumi.Input[Optional[Sequence[pulumi.Input['AclArgs']]]] = None,
+                 target_iqn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IscsiTarget resource.
 
@@ -98,74 +98,74 @@ class IscsiTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="iscsiTargetName")
-    def iscsi_target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iscsi_target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the iSCSI Target.
         """
         return pulumi.get(self, "iscsi_target_name")
 
     @iscsi_target_name.setter
-    def iscsi_target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iscsi_target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iscsi_target_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]:
+    def luns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IscsiLunArgs']]]]:
         """
         List of LUNs to be exposed through iSCSI Target.
         """
         return pulumi.get(self, "luns")
 
     @luns.setter
-    def luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]):
+    def luns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IscsiLunArgs']]]]):
         pulumi.set(self, "luns", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource id. Indicates if this resource is managed by another Azure resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="managedByExtended")
-    def managed_by_extended(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def managed_by_extended(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Azure resource ids that manage this resource.
         """
         return pulumi.get(self, "managed_by_extended")
 
     @managed_by_extended.setter
-    def managed_by_extended(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def managed_by_extended(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_by_extended", value)
 
     @_builtins.property
     @pulumi.getter(name="staticAcls")
-    def static_acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]:
+    def static_acls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AclArgs']]]]:
         """
         Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
         """
         return pulumi.get(self, "static_acls")
 
     @static_acls.setter
-    def static_acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]):
+    def static_acls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AclArgs']]]]):
         pulumi.set(self, "static_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_iqn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         return pulumi.get(self, "target_iqn")
 
     @target_iqn.setter
-    def target_iqn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_iqn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_iqn", value)
 
 
@@ -175,21 +175,20 @@ class IscsiTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_mode: Optional[pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']]] = None,
-                 disk_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iscsi_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
-                 target_iqn: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl_mode: pulumi.Input[Optional[Union[_builtins.str, 'IscsiTargetAclMode']]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iscsi_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 luns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
+                 target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Response for iSCSI Target requests.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +213,6 @@ class IscsiTarget(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,15 +228,15 @@ class IscsiTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_mode: Optional[pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']]] = None,
-                 disk_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iscsi_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
-                 target_iqn: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl_mode: pulumi.Input[Optional[Union[_builtins.str, 'IscsiTargetAclMode']]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iscsi_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 luns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
+                 target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

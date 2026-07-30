@@ -190,22 +190,22 @@ class AppAttachPackageInfoPropertiesResponse(dict):
         """
         Schema for Import Package Information properties.
 
-        :param _builtins.str certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
-        :param _builtins.str certificate_name: Certificate name found in the appxmanifest.xml. 
-        :param _builtins.str display_name: User friendly Name to be displayed in the portal. 
+        :param _builtins.str certificate_expiry: Date certificate expires, found in the appxmanifest.xml.
+        :param _builtins.str certificate_name: Certificate name found in the appxmanifest.xml.
+        :param _builtins.str display_name: User friendly Name to be displayed in the portal.
         :param _builtins.str image_path: VHD/CIM image path on Network Share.
-        :param _builtins.bool is_active: Make this version of the package the active one across the hostpool. 
+        :param _builtins.bool is_active: Make this version of the package the active one across the hostpool.
         :param _builtins.str is_package_timestamped: Is package timestamped so it can ignore the certificate expiry date
         :param _builtins.bool is_regular_registration: Specifies how to register Package in feed.
-        :param _builtins.str last_updated: Date Package was last updated, found in the appxmanifest.xml. 
+        :param _builtins.str last_updated: Date Package was last updated, found in the appxmanifest.xml.
         :param _builtins.str package_alias: Alias of App Attach Package. Assigned at import time
-        :param Sequence['MsixPackageApplicationsResponse'] package_applications: List of package applications. 
-        :param Sequence['MsixPackageDependenciesResponse'] package_dependencies: List of package dependencies. 
-        :param _builtins.str package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        :param _builtins.str package_full_name: Package Full Name from appxmanifest.xml. 
-        :param _builtins.str package_name: Package Name from appxmanifest.xml. 
-        :param _builtins.str package_relative_path: Relative Path to the package inside the image. 
-        :param _builtins.str version: Package version found in the appxmanifest.xml. 
+        :param Sequence['MsixPackageApplicationsResponse'] package_applications: List of package applications.
+        :param Sequence['MsixPackageDependenciesResponse'] package_dependencies: List of package dependencies.
+        :param _builtins.str package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+        :param _builtins.str package_full_name: Package Full Name from appxmanifest.xml.
+        :param _builtins.str package_name: Package Name from appxmanifest.xml.
+        :param _builtins.str package_relative_path: Relative Path to the package inside the image.
+        :param _builtins.str version: Package version found in the appxmanifest.xml.
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -244,7 +244,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="certificateExpiry")
     def certificate_expiry(self) -> Optional[_builtins.str]:
         """
-        Date certificate expires, found in the appxmanifest.xml. 
+        Date certificate expires, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_expiry")
 
@@ -252,7 +252,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[_builtins.str]:
         """
-        Certificate name found in the appxmanifest.xml. 
+        Certificate name found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -260,7 +260,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[_builtins.str]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
@@ -276,7 +276,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[_builtins.bool]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
@@ -300,7 +300,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[_builtins.str]:
         """
-        Date Package was last updated, found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
@@ -316,7 +316,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageApplications")
     def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsResponse']]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
@@ -324,7 +324,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageDependencies")
     def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesResponse']]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
@@ -332,7 +332,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageFamilyName")
     def package_family_name(self) -> Optional[_builtins.str]:
         """
-        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
@@ -340,7 +340,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageFullName")
     def package_full_name(self) -> Optional[_builtins.str]:
         """
-        Package Full Name from appxmanifest.xml. 
+        Package Full Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_full_name")
 
@@ -348,7 +348,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[_builtins.str]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
@@ -356,7 +356,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageRelativePath")
     def package_relative_path(self) -> Optional[_builtins.str]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
@@ -364,7 +364,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        Package version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
 
@@ -1110,7 +1110,7 @@ class ResourceModelWithAllowedPropertySetResponsePlan(dict):
                  version: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param _builtins.str version: The version of the desired product/artifact.
@@ -1135,7 +1135,7 @@ class ResourceModelWithAllowedPropertySetResponsePlan(dict):
     @pulumi.getter
     def product(self) -> _builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -1176,7 +1176,7 @@ class ResourceModelWithAllowedPropertySetResponseSku(dict):
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -1217,7 +1217,7 @@ class ResourceModelWithAllowedPropertySetResponseSku(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 

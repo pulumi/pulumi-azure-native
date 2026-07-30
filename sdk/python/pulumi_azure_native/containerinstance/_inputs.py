@@ -18,16 +18,18 @@ from ._enums import *
 __all__ = [
     'ApiEntityReferenceArgs',
     'ApiEntityReferenceArgsDict',
-    'ApplicationGatewayBackendAddressPoolArgs',
-    'ApplicationGatewayBackendAddressPoolArgsDict',
     'ApplicationGatewayArgs',
     'ApplicationGatewayArgsDict',
+    'ApplicationGatewayBackendAddressPoolArgs',
+    'ApplicationGatewayBackendAddressPoolArgsDict',
     'AzureFileVolumeArgs',
     'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
     'ConfidentialComputePropertiesArgsDict',
     'ConfigMapArgs',
     'ConfigMapArgsDict',
+    'ContainerArgs',
+    'ContainerArgsDict',
     'ContainerExecArgs',
     'ContainerExecArgsDict',
     'ContainerGroupDiagnosticsArgs',
@@ -46,26 +48,24 @@ __all__ = [
     'ContainerPortArgsDict',
     'ContainerProbeArgs',
     'ContainerProbeArgsDict',
-    'ContainerArgs',
-    'ContainerArgsDict',
     'DeploymentExtensionSpecArgs',
     'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
     'DnsConfigurationArgsDict',
-    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs',
-    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict',
-    'ElasticProfileContainerGroupNamingPolicyArgs',
-    'ElasticProfileContainerGroupNamingPolicyArgsDict',
     'ElasticProfileArgs',
     'ElasticProfileArgsDict',
+    'ElasticProfileContainerGroupNamingPolicyArgs',
+    'ElasticProfileContainerGroupNamingPolicyArgsDict',
+    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs',
+    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
     'EnvironmentVariableArgs',
     'EnvironmentVariableArgsDict',
-    'FileSharePropertiesArgs',
-    'FileSharePropertiesArgsDict',
     'FileShareArgs',
     'FileShareArgsDict',
+    'FileSharePropertiesArgs',
+    'FileSharePropertiesArgsDict',
     'GitRepoVolumeArgs',
     'GitRepoVolumeArgsDict',
     'GpuResourceArgs',
@@ -78,16 +78,16 @@ __all__ = [
     'InitContainerDefinitionArgsDict',
     'IpAddressArgs',
     'IpAddressArgsDict',
-    'LoadBalancerBackendAddressPoolArgs',
-    'LoadBalancerBackendAddressPoolArgsDict',
     'LoadBalancerArgs',
     'LoadBalancerArgsDict',
+    'LoadBalancerBackendAddressPoolArgs',
+    'LoadBalancerBackendAddressPoolArgsDict',
     'LogAnalyticsArgs',
     'LogAnalyticsArgsDict',
-    'NGroupCGPropertyContainerPropertiesArgs',
-    'NGroupCGPropertyContainerPropertiesArgsDict',
     'NGroupCGPropertyContainerArgs',
     'NGroupCGPropertyContainerArgsDict',
+    'NGroupCGPropertyContainerPropertiesArgs',
+    'NGroupCGPropertyContainerPropertiesArgsDict',
     'NGroupCGPropertyVolumeArgs',
     'NGroupCGPropertyVolumeArgsDict',
     'NGroupContainerGroupPropertiesArgs',
@@ -114,21 +114,21 @@ __all__ = [
     'StandbyPoolProfileDefinitionArgsDict',
     'StorageProfileArgs',
     'StorageProfileArgsDict',
-    'UpdateProfileRollingUpdateProfileArgs',
-    'UpdateProfileRollingUpdateProfileArgsDict',
     'UpdateProfileArgs',
     'UpdateProfileArgsDict',
-    'VolumeMountArgs',
-    'VolumeMountArgsDict',
+    'UpdateProfileRollingUpdateProfileArgs',
+    'UpdateProfileRollingUpdateProfileArgsDict',
     'VolumeArgs',
     'VolumeArgsDict',
+    'VolumeMountArgs',
+    'VolumeMountArgsDict',
 ]
 
 class ApiEntityReferenceArgsDict(TypedDict):
     """
     The API entity reference.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
     """
@@ -136,7 +136,7 @@ class ApiEntityReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ApiEntityReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The API entity reference.
 
@@ -147,60 +147,26 @@ class ApiEntityReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
-
-
-class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
-    """
-    NGroups application gateway backend address pool
-    """
-    resource: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The application gateway backend address pool ARM resource Id.
-    """
-
-@pulumi.input_type
-class ApplicationGatewayBackendAddressPoolArgs:
-    def __init__(__self__, *,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        NGroups application gateway backend address pool
-
-        :param pulumi.Input[_builtins.str] resource: The application gateway backend address pool ARM resource Id.
-        """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-
-    @_builtins.property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The application gateway backend address pool ARM resource Id.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource", value)
 
 
 class ApplicationGatewayArgsDict(TypedDict):
     """
     Application Gateway the CG profile will use to interact with CGs in a backend pool
     """
-    backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]
+    backend_address_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]]
     """
     List of Application Gateway Backend Address Pools.
     """
-    resource: NotRequired[pulumi.Input[_builtins.str]]
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Application Gateway ARM resource Id.
     """
@@ -208,8 +174,8 @@ class ApplicationGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGatewayArgs:
     def __init__(__self__, *,
-                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Application Gateway the CG profile will use to interact with CGs in a backend pool
 
@@ -223,26 +189,60 @@ class ApplicationGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]:
+    def backend_address_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]:
         """
         List of Application Gateway Backend Address Pools.
         """
         return pulumi.get(self, "backend_address_pools")
 
     @backend_address_pools.setter
-    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]):
+    def backend_address_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]):
         pulumi.set(self, "backend_address_pools", value)
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Gateway ARM resource Id.
         """
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource", value)
+
+
+class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
+    """
+    NGroups application gateway backend address pool
+    """
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The application gateway backend address pool ARM resource Id.
+    """
+
+@pulumi.input_type
+class ApplicationGatewayBackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        NGroups application gateway backend address pool
+
+        :param pulumi.Input[_builtins.str] resource: The application gateway backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The application gateway backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
 
@@ -258,15 +258,15 @@ class AzureFileVolumeArgsDict(TypedDict):
     """
     The name of the storage account that contains the Azure File share.
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag indicating whether the Azure File shared mounted as a volume is read-only.
     """
-    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage account access key used to access the Azure File share.
     """
-    storage_account_key_reference: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_key_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference to the storage account access key used to access the Azure File share.
     """
@@ -276,9 +276,9 @@ class AzureFileVolumeArgs:
     def __init__(__self__, *,
                  share_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key_reference: Optional[pulumi.Input[_builtins.str]] = None):
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key_reference: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
 
@@ -323,38 +323,38 @@ class AzureFileVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicating whether the Azure File shared mounted as a volume is read-only.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKeyReference")
-    def storage_account_key_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to the storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key_reference")
 
     @storage_account_key_reference.setter
-    def storage_account_key_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key_reference", value)
 
 
@@ -362,7 +362,7 @@ class ConfidentialComputePropertiesArgsDict(TypedDict):
     """
     The properties for confidential container group
     """
-    cce_policy: NotRequired[pulumi.Input[_builtins.str]]
+    cce_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base64 encoded confidential compute enforcement policy
     """
@@ -370,7 +370,7 @@ class ConfidentialComputePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfidentialComputePropertiesArgs:
     def __init__(__self__, *,
-                 cce_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 cce_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties for confidential container group
 
@@ -381,14 +381,14 @@ class ConfidentialComputePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ccePolicy")
-    def cce_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cce_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64 encoded confidential compute enforcement policy
         """
         return pulumi.get(self, "cce_policy")
 
     @cce_policy.setter
-    def cce_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cce_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cce_policy", value)
 
 
@@ -396,7 +396,7 @@ class ConfigMapArgsDict(TypedDict):
     """
     The container config map.
     """
-    key_value_pairs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    key_value_pairs: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The key value pairs dictionary in the config map.
     """
@@ -404,7 +404,7 @@ class ConfigMapArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigMapArgs:
     def __init__(__self__, *,
-                 key_value_pairs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 key_value_pairs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The container config map.
 
@@ -415,658 +415,15 @@ class ConfigMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyValuePairs")
-    def key_value_pairs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def key_value_pairs(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The key value pairs dictionary in the config map.
         """
         return pulumi.get(self, "key_value_pairs")
 
     @key_value_pairs.setter
-    def key_value_pairs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def key_value_pairs(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_value_pairs", value)
-
-
-class ContainerExecArgsDict(TypedDict):
-    """
-    The container execution command, for liveness or readiness probe
-    """
-    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The commands to execute within the container.
-    """
-
-@pulumi.input_type
-class ContainerExecArgs:
-    def __init__(__self__, *,
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The container execution command, for liveness or readiness probe
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The commands to execute within the container.
-        """
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-
-    @_builtins.property
-    @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The commands to execute within the container.
-        """
-        return pulumi.get(self, "command")
-
-    @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "command", value)
-
-
-class ContainerGroupDiagnosticsArgsDict(TypedDict):
-    """
-    Container group diagnostic information.
-    """
-    log_analytics: NotRequired[pulumi.Input['LogAnalyticsArgsDict']]
-    """
-    Container group log analytics information.
-    """
-
-@pulumi.input_type
-class ContainerGroupDiagnosticsArgs:
-    def __init__(__self__, *,
-                 log_analytics: Optional[pulumi.Input['LogAnalyticsArgs']] = None):
-        """
-        Container group diagnostic information.
-
-        :param pulumi.Input['LogAnalyticsArgs'] log_analytics: Container group log analytics information.
-        """
-        if log_analytics is not None:
-            pulumi.set(__self__, "log_analytics", log_analytics)
-
-    @_builtins.property
-    @pulumi.getter(name="logAnalytics")
-    def log_analytics(self) -> Optional[pulumi.Input['LogAnalyticsArgs']]:
-        """
-        Container group log analytics information.
-        """
-        return pulumi.get(self, "log_analytics")
-
-    @log_analytics.setter
-    def log_analytics(self, value: Optional[pulumi.Input['LogAnalyticsArgs']]):
-        pulumi.set(self, "log_analytics", value)
-
-
-class ContainerGroupIdentityArgsDict(TypedDict):
-    """
-    Identity for the container group.
-    """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
-    """
-    The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of user identities associated with the container group.
-    """
-
-@pulumi.input_type
-class ContainerGroupIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Identity for the container group.
-
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the container group.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of user identities associated with the container group.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
-class ContainerGroupProfileReferenceDefinitionArgsDict(TypedDict):
-    """
-    The container group profile reference.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
-    """
-    revision: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The container group profile reference revision.
-    """
-
-@pulumi.input_type
-class ContainerGroupProfileReferenceDefinitionArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        The container group profile reference.
-
-        :param pulumi.Input[_builtins.str] id: The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
-        :param pulumi.Input[_builtins.int] revision: The container group profile reference revision.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The container group profile reference revision.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "revision", value)
-
-
-class ContainerGroupProfileStubArgsDict(TypedDict):
-    """
-    The object that contains a reference to a Container Group Profile and it's other related properties.
-    """
-    container_group_properties: NotRequired[pulumi.Input['NGroupContainerGroupPropertiesArgsDict']]
-    """
-    Container Group properties which can be set while creating or updating the NGroups.
-    """
-    network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
-    """
-    A network profile for network settings of a ContainerGroupProfile.
-    """
-    resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
-    """
-    A reference to the container group profile ARM resource hosted in ACI RP.
-    """
-    revision: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
-    """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-    """
-    Storage profile for storage related settings of a container group profile.
-    """
-
-@pulumi.input_type
-class ContainerGroupProfileStubArgs:
-    def __init__(__self__, *,
-                 container_group_properties: Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 resource: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
-                 revision: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
-        """
-        The object that contains a reference to a Container Group Profile and it's other related properties.
-
-        :param pulumi.Input['NGroupContainerGroupPropertiesArgs'] container_group_properties: Container Group properties which can be set while creating or updating the NGroups.
-        :param pulumi.Input['NetworkProfileArgs'] network_profile: A network profile for network settings of a ContainerGroupProfile.
-        :param pulumi.Input['ApiEntityReferenceArgs'] resource: A reference to the container group profile ARM resource hosted in ACI RP.
-        :param pulumi.Input[_builtins.int] revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
-        :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile for storage related settings of a container group profile.
-        """
-        if container_group_properties is not None:
-            pulumi.set(__self__, "container_group_properties", container_group_properties)
-        if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
-
-    @_builtins.property
-    @pulumi.getter(name="containerGroupProperties")
-    def container_group_properties(self) -> Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']]:
-        """
-        Container Group properties which can be set while creating or updating the NGroups.
-        """
-        return pulumi.get(self, "container_group_properties")
-
-    @container_group_properties.setter
-    def container_group_properties(self, value: Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']]):
-        pulumi.set(self, "container_group_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
-        """
-        A network profile for network settings of a ContainerGroupProfile.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
-        pulumi.set(self, "network_profile", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
-        """
-        A reference to the container group profile ARM resource hosted in ACI RP.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
-        pulumi.set(self, "resource", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "revision", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
-        """
-        Storage profile for storage related settings of a container group profile.
-        """
-        return pulumi.get(self, "storage_profile")
-
-    @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
-        pulumi.set(self, "storage_profile", value)
-
-
-class ContainerGroupSubnetIdArgsDict(TypedDict):
-    """
-    Container group subnet information.
-    """
-    id: pulumi.Input[_builtins.str]
-    """
-    Resource ID of virtual network and subnet.
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Friendly name for the subnet.
-    """
-
-@pulumi.input_type
-class ContainerGroupSubnetIdArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Container group subnet information.
-
-        :param pulumi.Input[_builtins.str] id: Resource ID of virtual network and subnet.
-        :param pulumi.Input[_builtins.str] name: Friendly name for the subnet.
-        """
-        pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource ID of virtual network and subnet.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name for the subnet.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-
-class ContainerHttpGetArgsDict(TypedDict):
-    """
-    The container Http Get settings, for liveness or readiness probe
-    """
-    port: pulumi.Input[_builtins.int]
-    """
-    The port number to probe.
-    """
-    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgsDict']]]]
-    """
-    The HTTP headers.
-    """
-    path: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The path to probe.
-    """
-    scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'Scheme']]]
-    """
-    The scheme.
-    """
-
-@pulumi.input_type
-class ContainerHttpGetArgs:
-    def __init__(__self__, *,
-                 port: pulumi.Input[_builtins.int],
-                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheme: Optional[pulumi.Input[Union[_builtins.str, 'Scheme']]] = None):
-        """
-        The container Http Get settings, for liveness or readiness probe
-
-        :param pulumi.Input[_builtins.int] port: The port number to probe.
-        :param pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]] http_headers: The HTTP headers.
-        :param pulumi.Input[_builtins.str] path: The path to probe.
-        :param pulumi.Input[Union[_builtins.str, 'Scheme']] scheme: The scheme.
-        """
-        pulumi.set(__self__, "port", port)
-        if http_headers is not None:
-            pulumi.set(__self__, "http_headers", http_headers)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The port number to probe.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "port", value)
-
-    @_builtins.property
-    @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]:
-        """
-        The HTTP headers.
-        """
-        return pulumi.get(self, "http_headers")
-
-    @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]):
-        pulumi.set(self, "http_headers", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The path to probe.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Scheme']]]:
-        """
-        The scheme.
-        """
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Scheme']]]):
-        pulumi.set(self, "scheme", value)
-
-
-class ContainerPortArgsDict(TypedDict):
-    """
-    The port exposed on the container instance.
-    """
-    port: pulumi.Input[_builtins.int]
-    """
-    The port number exposed within the container group.
-    """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]]
-    """
-    The protocol associated with the port.
-    """
-
-@pulumi.input_type
-class ContainerPortArgs:
-    def __init__(__self__, *,
-                 port: pulumi.Input[_builtins.int],
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]] = None):
-        """
-        The port exposed on the container instance.
-
-        :param pulumi.Input[_builtins.int] port: The port number exposed within the container group.
-        :param pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
-        """
-        pulumi.set(__self__, "port", port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The port number exposed within the container group.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "port", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]]:
-        """
-        The protocol associated with the port.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]]):
-        pulumi.set(self, "protocol", value)
-
-
-class ContainerProbeArgsDict(TypedDict):
-    """
-    The container probe, for liveness or readiness
-    """
-    exec_: NotRequired[pulumi.Input['ContainerExecArgsDict']]
-    """
-    The execution command to probe
-    """
-    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The failure threshold.
-    """
-    http_get: NotRequired[pulumi.Input['ContainerHttpGetArgsDict']]
-    """
-    The Http Get settings to probe
-    """
-    initial_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The initial delay seconds.
-    """
-    period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The period seconds.
-    """
-    success_threshold: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The success threshold.
-    """
-    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The timeout seconds.
-    """
-
-@pulumi.input_type
-class ContainerProbeArgs:
-    def __init__(__self__, *,
-                 exec_: Optional[pulumi.Input['ContainerExecArgs']] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_get: Optional[pulumi.Input['ContainerHttpGetArgs']] = None,
-                 initial_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 success_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        The container probe, for liveness or readiness
-
-        :param pulumi.Input['ContainerExecArgs'] exec_: The execution command to probe
-        :param pulumi.Input[_builtins.int] failure_threshold: The failure threshold.
-        :param pulumi.Input['ContainerHttpGetArgs'] http_get: The Http Get settings to probe
-        :param pulumi.Input[_builtins.int] initial_delay_seconds: The initial delay seconds.
-        :param pulumi.Input[_builtins.int] period_seconds: The period seconds.
-        :param pulumi.Input[_builtins.int] success_threshold: The success threshold.
-        :param pulumi.Input[_builtins.int] timeout_seconds: The timeout seconds.
-        """
-        if exec_ is not None:
-            pulumi.set(__self__, "exec_", exec_)
-        if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
-        if http_get is not None:
-            pulumi.set(__self__, "http_get", http_get)
-        if initial_delay_seconds is not None:
-            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
-        if period_seconds is not None:
-            pulumi.set(__self__, "period_seconds", period_seconds)
-        if success_threshold is not None:
-            pulumi.set(__self__, "success_threshold", success_threshold)
-        if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
-
-    @_builtins.property
-    @pulumi.getter(name="exec")
-    def exec_(self) -> Optional[pulumi.Input['ContainerExecArgs']]:
-        """
-        The execution command to probe
-        """
-        return pulumi.get(self, "exec_")
-
-    @exec_.setter
-    def exec_(self, value: Optional[pulumi.Input['ContainerExecArgs']]):
-        pulumi.set(self, "exec_", value)
-
-    @_builtins.property
-    @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The failure threshold.
-        """
-        return pulumi.get(self, "failure_threshold")
-
-    @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "failure_threshold", value)
-
-    @_builtins.property
-    @pulumi.getter(name="httpGet")
-    def http_get(self) -> Optional[pulumi.Input['ContainerHttpGetArgs']]:
-        """
-        The Http Get settings to probe
-        """
-        return pulumi.get(self, "http_get")
-
-    @http_get.setter
-    def http_get(self, value: Optional[pulumi.Input['ContainerHttpGetArgs']]):
-        pulumi.set(self, "http_get", value)
-
-    @_builtins.property
-    @pulumi.getter(name="initialDelaySeconds")
-    def initial_delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The initial delay seconds.
-        """
-        return pulumi.get(self, "initial_delay_seconds")
-
-    @initial_delay_seconds.setter
-    def initial_delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "initial_delay_seconds", value)
-
-    @_builtins.property
-    @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The period seconds.
-        """
-        return pulumi.get(self, "period_seconds")
-
-    @period_seconds.setter
-    def period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "period_seconds", value)
-
-    @_builtins.property
-    @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The success threshold.
-        """
-        return pulumi.get(self, "success_threshold")
-
-    @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "success_threshold", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The timeout seconds.
-        """
-        return pulumi.get(self, "timeout_seconds")
-
-    @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "timeout_seconds", value)
 
 
 class ContainerArgsDict(TypedDict):
@@ -1077,43 +434,43 @@ class ContainerArgsDict(TypedDict):
     """
     The user-provided name of the container instance.
     """
-    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    command: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The commands to execute within the container instance in exec form.
     """
-    config_map: NotRequired[pulumi.Input['ConfigMapArgsDict']]
+    config_map: NotRequired[pulumi.Input[Optional['ConfigMapArgsDict']]]
     """
     The config map.
     """
-    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]]
     """
     The environment variables to set in the container instance.
     """
-    image: NotRequired[pulumi.Input[_builtins.str]]
+    image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the image used to create the container instance.
     """
-    liveness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+    liveness_probe: NotRequired[pulumi.Input[Optional['ContainerProbeArgsDict']]]
     """
     The liveness probe.
     """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgsDict']]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortArgsDict']]]]]
     """
     The exposed ports on the container instance.
     """
-    readiness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+    readiness_probe: NotRequired[pulumi.Input[Optional['ContainerProbeArgsDict']]]
     """
     The readiness probe.
     """
-    resources: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+    resources: NotRequired[pulumi.Input[Optional['ResourceRequirementsArgsDict']]]
     """
     The resource requirements of the container instance.
     """
-    security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+    security_context: NotRequired[pulumi.Input[Optional['SecurityContextDefinitionArgsDict']]]
     """
     The container security properties.
     """
-    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgsDict']]]]]
     """
     The volume mounts available to the container instance.
     """
@@ -1122,16 +479,16 @@ class ContainerArgsDict(TypedDict):
 class ContainerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 config_map: Optional[pulumi.Input['ConfigMapArgs']] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
-                 readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 resources: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
-                 security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+                 command: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 config_map: pulumi.Input[Optional['ConfigMapArgs']] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 liveness_probe: pulumi.Input[Optional['ContainerProbeArgs']] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
+                 readiness_probe: pulumi.Input[Optional['ContainerProbeArgs']] = None,
+                 resources: pulumi.Input[Optional['ResourceRequirementsArgs']] = None,
+                 security_context: pulumi.Input[Optional['SecurityContextDefinitionArgs']] = None,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         A container instance.
 
@@ -1183,123 +540,766 @@ class ContainerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def command(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The commands to execute within the container instance in exec form.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def command(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command", value)
 
     @_builtins.property
     @pulumi.getter(name="configMap")
-    def config_map(self) -> Optional[pulumi.Input['ConfigMapArgs']]:
+    def config_map(self) -> pulumi.Input[Optional['ConfigMapArgs']]:
         """
         The config map.
         """
         return pulumi.get(self, "config_map")
 
     @config_map.setter
-    def config_map(self, value: Optional[pulumi.Input['ConfigMapArgs']]):
+    def config_map(self, value: pulumi.Input[Optional['ConfigMapArgs']]):
         pulumi.set(self, "config_map", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in the container instance.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the image used to create the container instance.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="livenessProbe")
-    def liveness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
+    def liveness_probe(self) -> pulumi.Input[Optional['ContainerProbeArgs']]:
         """
         The liveness probe.
         """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
-    def liveness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
+    def liveness_probe(self, value: pulumi.Input[Optional['ContainerProbeArgs']]):
         pulumi.set(self, "liveness_probe", value)
 
     @_builtins.property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]:
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortArgs']]]]:
         """
         The exposed ports on the container instance.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]):
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortArgs']]]]):
         pulumi.set(self, "ports", value)
 
     @_builtins.property
     @pulumi.getter(name="readinessProbe")
-    def readiness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
+    def readiness_probe(self) -> pulumi.Input[Optional['ContainerProbeArgs']]:
         """
         The readiness probe.
         """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
-    def readiness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
+    def readiness_probe(self, value: pulumi.Input[Optional['ContainerProbeArgs']]):
         pulumi.set(self, "readiness_probe", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input['ResourceRequirementsArgs']]:
+    def resources(self) -> pulumi.Input[Optional['ResourceRequirementsArgs']]:
         """
         The resource requirements of the container instance.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input['ResourceRequirementsArgs']]):
+    def resources(self, value: pulumi.Input[Optional['ResourceRequirementsArgs']]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContext")
-    def security_context(self) -> Optional[pulumi.Input['SecurityContextDefinitionArgs']]:
+    def security_context(self) -> pulumi.Input[Optional['SecurityContextDefinitionArgs']]:
         """
         The container security properties.
         """
         return pulumi.get(self, "security_context")
 
     @security_context.setter
-    def security_context(self, value: Optional[pulumi.Input['SecurityContextDefinitionArgs']]):
+    def security_context(self, value: pulumi.Input[Optional['SecurityContextDefinitionArgs']]):
         pulumi.set(self, "security_context", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+    def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]:
         """
         The volume mounts available to the container instance.
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+    def volume_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
+
+
+class ContainerExecArgsDict(TypedDict):
+    """
+    The container execution command, for liveness or readiness probe
+    """
+    command: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The commands to execute within the container.
+    """
+
+@pulumi.input_type
+class ContainerExecArgs:
+    def __init__(__self__, *,
+                 command: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The container execution command, for liveness or readiness probe
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The commands to execute within the container.
+        """
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The commands to execute within the container.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "command", value)
+
+
+class ContainerGroupDiagnosticsArgsDict(TypedDict):
+    """
+    Container group diagnostic information.
+    """
+    log_analytics: NotRequired[pulumi.Input[Optional['LogAnalyticsArgsDict']]]
+    """
+    Container group log analytics information.
+    """
+
+@pulumi.input_type
+class ContainerGroupDiagnosticsArgs:
+    def __init__(__self__, *,
+                 log_analytics: pulumi.Input[Optional['LogAnalyticsArgs']] = None):
+        """
+        Container group diagnostic information.
+
+        :param pulumi.Input['LogAnalyticsArgs'] log_analytics: Container group log analytics information.
+        """
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @_builtins.property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> pulumi.Input[Optional['LogAnalyticsArgs']]:
+        """
+        Container group log analytics information.
+        """
+        return pulumi.get(self, "log_analytics")
+
+    @log_analytics.setter
+    def log_analytics(self, value: pulumi.Input[Optional['LogAnalyticsArgs']]):
+        pulumi.set(self, "log_analytics", value)
+
+
+class ContainerGroupIdentityArgsDict(TypedDict):
+    """
+    Identity for the container group.
+    """
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
+    """
+    The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of user identities associated with the container group.
+    """
+
+@pulumi.input_type
+class ContainerGroupIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Identity for the container group.
+
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the container group.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
+        """
+        The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of user identities associated with the container group.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+class ContainerGroupProfileReferenceDefinitionArgsDict(TypedDict):
+    """
+    The container group profile reference.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+    """
+    revision: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The container group profile reference revision.
+    """
+
+@pulumi.input_type
+class ContainerGroupProfileReferenceDefinitionArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The container group profile reference.
+
+        :param pulumi.Input[_builtins.str] id: The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+        :param pulumi.Input[_builtins.int] revision: The container group profile reference revision.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def revision(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The container group profile reference revision.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "revision", value)
+
+
+class ContainerGroupProfileStubArgsDict(TypedDict):
+    """
+    The object that contains a reference to a Container Group Profile and it's other related properties.
+    """
+    container_group_properties: NotRequired[pulumi.Input[Optional['NGroupContainerGroupPropertiesArgsDict']]]
+    """
+    Container Group properties which can be set while creating or updating the NGroups.
+    """
+    network_profile: NotRequired[pulumi.Input[Optional['NetworkProfileArgsDict']]]
+    """
+    A network profile for network settings of a ContainerGroupProfile.
+    """
+    resource: NotRequired[pulumi.Input[Optional['ApiEntityReferenceArgsDict']]]
+    """
+    A reference to the container group profile ARM resource hosted in ACI RP.
+    """
+    revision: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+    """
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
+    """
+    Storage profile for storage related settings of a container group profile.
+    """
+
+@pulumi.input_type
+class ContainerGroupProfileStubArgs:
+    def __init__(__self__, *,
+                 container_group_properties: pulumi.Input[Optional['NGroupContainerGroupPropertiesArgs']] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 resource: pulumi.Input[Optional['ApiEntityReferenceArgs']] = None,
+                 revision: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None):
+        """
+        The object that contains a reference to a Container Group Profile and it's other related properties.
+
+        :param pulumi.Input['NGroupContainerGroupPropertiesArgs'] container_group_properties: Container Group properties which can be set while creating or updating the NGroups.
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: A network profile for network settings of a ContainerGroupProfile.
+        :param pulumi.Input['ApiEntityReferenceArgs'] resource: A reference to the container group profile ARM resource hosted in ACI RP.
+        :param pulumi.Input[_builtins.int] revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile for storage related settings of a container group profile.
+        """
+        if container_group_properties is not None:
+            pulumi.set(__self__, "container_group_properties", container_group_properties)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="containerGroupProperties")
+    def container_group_properties(self) -> pulumi.Input[Optional['NGroupContainerGroupPropertiesArgs']]:
+        """
+        Container Group properties which can be set while creating or updating the NGroups.
+        """
+        return pulumi.get(self, "container_group_properties")
+
+    @container_group_properties.setter
+    def container_group_properties(self, value: pulumi.Input[Optional['NGroupContainerGroupPropertiesArgs']]):
+        pulumi.set(self, "container_group_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
+        """
+        A network profile for network settings of a ContainerGroupProfile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional['ApiEntityReferenceArgs']]:
+        """
+        A reference to the container group profile ARM resource hosted in ACI RP.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional['ApiEntityReferenceArgs']]):
+        pulumi.set(self, "resource", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def revision(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "revision", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+
+class ContainerGroupSubnetIdArgsDict(TypedDict):
+    """
+    Container group subnet information.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of virtual network and subnet.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Friendly name for the subnet.
+    """
+
+@pulumi.input_type
+class ContainerGroupSubnetIdArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Container group subnet information.
+
+        :param pulumi.Input[_builtins.str] id: Resource ID of virtual network and subnet.
+        :param pulumi.Input[_builtins.str] name: Friendly name for the subnet.
+        """
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource ID of virtual network and subnet.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Friendly name for the subnet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class ContainerHttpGetArgsDict(TypedDict):
+    """
+    The container Http Get settings, for liveness or readiness probe
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to probe.
+    """
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HttpHeaderArgsDict']]]]]
+    """
+    The HTTP headers.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The path to probe.
+    """
+    scheme: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Scheme']]]]
+    """
+    The scheme.
+    """
+
+@pulumi.input_type
+class ContainerHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[_builtins.int],
+                 http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['HttpHeaderArgs']]]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheme: pulumi.Input[Optional[Union[_builtins.str, 'Scheme']]] = None):
+        """
+        The container Http Get settings, for liveness or readiness probe
+
+        :param pulumi.Input[_builtins.int] port: The port number to probe.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]] http_headers: The HTTP headers.
+        :param pulumi.Input[_builtins.str] path: The path to probe.
+        :param pulumi.Input[Union[_builtins.str, 'Scheme']] scheme: The scheme.
+        """
+        pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port number to probe.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HttpHeaderArgs']]]]:
+        """
+        The HTTP headers.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HttpHeaderArgs']]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path to probe.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scheme(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Scheme']]]:
+        """
+        The scheme.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Scheme']]]):
+        pulumi.set(self, "scheme", value)
+
+
+class ContainerPortArgsDict(TypedDict):
+    """
+    The port exposed on the container instance.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number exposed within the container group.
+    """
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ContainerNetworkProtocol']]]]
+    """
+    The protocol associated with the port.
+    """
+
+@pulumi.input_type
+class ContainerPortArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'ContainerNetworkProtocol']]] = None):
+        """
+        The port exposed on the container instance.
+
+        :param pulumi.Input[_builtins.int] port: The port number exposed within the container group.
+        :param pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
+        """
+        pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port number exposed within the container group.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ContainerNetworkProtocol']]]:
+        """
+        The protocol associated with the port.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ContainerNetworkProtocol']]]):
+        pulumi.set(self, "protocol", value)
+
+
+class ContainerProbeArgsDict(TypedDict):
+    """
+    The container probe, for liveness or readiness
+    """
+    exec_: NotRequired[pulumi.Input[Optional['ContainerExecArgsDict']]]
+    """
+    The execution command to probe
+    """
+    failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The failure threshold.
+    """
+    http_get: NotRequired[pulumi.Input[Optional['ContainerHttpGetArgsDict']]]
+    """
+    The Http Get settings to probe
+    """
+    initial_delay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The initial delay seconds.
+    """
+    period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The period seconds.
+    """
+    success_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The success threshold.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The timeout seconds.
+    """
+
+@pulumi.input_type
+class ContainerProbeArgs:
+    def __init__(__self__, *,
+                 exec_: pulumi.Input[Optional['ContainerExecArgs']] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_get: pulumi.Input[Optional['ContainerHttpGetArgs']] = None,
+                 initial_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 success_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The container probe, for liveness or readiness
+
+        :param pulumi.Input['ContainerExecArgs'] exec_: The execution command to probe
+        :param pulumi.Input[_builtins.int] failure_threshold: The failure threshold.
+        :param pulumi.Input['ContainerHttpGetArgs'] http_get: The Http Get settings to probe
+        :param pulumi.Input[_builtins.int] initial_delay_seconds: The initial delay seconds.
+        :param pulumi.Input[_builtins.int] period_seconds: The period seconds.
+        :param pulumi.Input[_builtins.int] success_threshold: The success threshold.
+        :param pulumi.Input[_builtins.int] timeout_seconds: The timeout seconds.
+        """
+        if exec_ is not None:
+            pulumi.set(__self__, "exec_", exec_)
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="exec")
+    def exec_(self) -> pulumi.Input[Optional['ContainerExecArgs']]:
+        """
+        The execution command to probe
+        """
+        return pulumi.get(self, "exec_")
+
+    @exec_.setter
+    def exec_(self, value: pulumi.Input[Optional['ContainerExecArgs']]):
+        pulumi.set(self, "exec_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The failure threshold.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> pulumi.Input[Optional['ContainerHttpGetArgs']]:
+        """
+        The Http Get settings to probe
+        """
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: pulumi.Input[Optional['ContainerHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @_builtins.property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The initial delay seconds.
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The period seconds.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The success threshold.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "success_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The timeout seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_seconds", value)
 
 
 class DeploymentExtensionSpecArgsDict(TypedDict):
@@ -1421,11 +1421,11 @@ class DnsConfigurationArgsDict(TypedDict):
     """
     The DNS servers for the container group.
     """
-    options: NotRequired[pulumi.Input[_builtins.str]]
+    options: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS options for the container group.
     """
-    search_domains: NotRequired[pulumi.Input[_builtins.str]]
+    search_domains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS search domains for hostname lookup in the container group.
     """
@@ -1434,8 +1434,8 @@ class DnsConfigurationArgsDict(TypedDict):
 class DnsConfigurationArgs:
     def __init__(__self__, *,
                  name_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 options: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_domains: Optional[pulumi.Input[_builtins.str]] = None):
+                 options: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_domains: pulumi.Input[Optional[_builtins.str]] = None):
         """
         DNS configuration for the container group.
 
@@ -1463,94 +1463,39 @@ class DnsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def options(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS options for the container group.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="searchDomains")
-    def search_domains(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_domains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS search domains for hostname lookup in the container group.
         """
         return pulumi.get(self, "search_domains")
 
     @search_domains.setter
-    def search_domains(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_domains(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_domains", value)
-
-
-class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict(TypedDict):
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-    """
-
-@pulumi.input_type
-class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs:
-    def __init__(__self__, *,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-        """
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @_builtins.property
-    @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-        """
-        return pulumi.get(self, "prefix")
-
-    @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "prefix", value)
-
-
-class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
-    """
-    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-    """
-    guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict']]
-
-@pulumi.input_type
-class ElasticProfileContainerGroupNamingPolicyArgs:
-    def __init__(__self__, *,
-                 guid_naming_policy: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']] = None):
-        """
-        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-        """
-        if guid_naming_policy is not None:
-            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="guidNamingPolicy")
-    def guid_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]:
-        return pulumi.get(self, "guid_naming_policy")
-
-    @guid_naming_policy.setter
-    def guid_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]):
-        pulumi.set(self, "guid_naming_policy", value)
 
 
 class ElasticProfileArgsDict(TypedDict):
     """
     Describes the elastic profile of the NGroup
     """
-    container_group_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgsDict']]
+    container_group_naming_policy: NotRequired[pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyArgsDict']]]
     """
     Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
     """
-    desired_count: NotRequired[pulumi.Input[_builtins.int]]
-    maintain_desired_count: NotRequired[pulumi.Input[_builtins.bool]]
+    desired_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    maintain_desired_count: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
     """
@@ -1558,9 +1503,9 @@ class ElasticProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticProfileArgs:
     def __init__(__self__, *,
-                 container_group_naming_policy: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']] = None,
-                 desired_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 maintain_desired_count: Optional[pulumi.Input[_builtins.bool]] = None):
+                 container_group_naming_policy: pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyArgs']] = None,
+                 desired_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 maintain_desired_count: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Describes the elastic profile of the NGroup
 
@@ -1576,36 +1521,91 @@ class ElasticProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerGroupNamingPolicy")
-    def container_group_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']]:
+    def container_group_naming_policy(self) -> pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyArgs']]:
         """
         Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
         """
         return pulumi.get(self, "container_group_naming_policy")
 
     @container_group_naming_policy.setter
-    def container_group_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']]):
+    def container_group_naming_policy(self, value: pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyArgs']]):
         pulumi.set(self, "container_group_naming_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCount")
-    def desired_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "desired_count")
 
     @desired_count.setter
-    def desired_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maintainDesiredCount")
-    def maintain_desired_count(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def maintain_desired_count(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
         """
         return pulumi.get(self, "maintain_desired_count")
 
     @maintain_desired_count.setter
-    def maintain_desired_count(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def maintain_desired_count(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "maintain_desired_count", value)
+
+
+class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    guid_naming_policy: NotRequired[pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict']]]
+
+@pulumi.input_type
+class ElasticProfileContainerGroupNamingPolicyArgs:
+    def __init__(__self__, *,
+                 guid_naming_policy: pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']] = None):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        if guid_naming_policy is not None:
+            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="guidNamingPolicy")
+    def guid_naming_policy(self) -> pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]:
+        return pulumi.get(self, "guid_naming_policy")
+
+    @guid_naming_policy.setter
+    def guid_naming_policy(self, value: pulumi.Input[Optional['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]):
+        pulumi.set(self, "guid_naming_policy", value)
+
+
+class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict(TypedDict):
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+    """
+
+@pulumi.input_type
+class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
 
 
 class EncryptionPropertiesArgsDict(TypedDict):
@@ -1624,7 +1624,7 @@ class EncryptionPropertiesArgsDict(TypedDict):
     """
     The keyvault base url.
     """
-    identity: NotRequired[pulumi.Input[_builtins.str]]
+    identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The keyvault managed identity.
     """
@@ -1635,7 +1635,7 @@ class EncryptionPropertiesArgs:
                  key_name: pulumi.Input[_builtins.str],
                  key_version: pulumi.Input[_builtins.str],
                  vault_base_url: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The container group encryption properties.
 
@@ -1688,14 +1688,14 @@ class EncryptionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The keyvault managed identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity", value)
 
 
@@ -1707,15 +1707,15 @@ class EnvironmentVariableArgsDict(TypedDict):
     """
     The name of the environment variable.
     """
-    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    secure_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the secure environment variable.
     """
-    secure_value_reference: NotRequired[pulumi.Input[_builtins.str]]
+    secure_value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference of the secure environment variable.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the environment variable.
     """
@@ -1724,9 +1724,9 @@ class EnvironmentVariableArgsDict(TypedDict):
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 secure_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_value_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 secure_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The environment variable to set within the container instance.
 
@@ -1757,108 +1757,57 @@ class EnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="secureValue")
-    def secure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
 
     @secure_value.setter
-    def secure_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_value", value)
 
     @_builtins.property
     @pulumi.getter(name="secureValueReference")
-    def secure_value_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference of the secure environment variable.
         """
         return pulumi.get(self, "secure_value_reference")
 
     @secure_value_reference.setter
-    def secure_value_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_value_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the environment variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
-
-
-class FileSharePropertiesArgsDict(TypedDict):
-    share_access_tier: NotRequired[pulumi.Input['AzureFileShareAccessTier']]
-    """
-    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-    """
-    share_access_type: NotRequired[pulumi.Input['AzureFileShareAccessType']]
-    """
-    Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-    """
-
-@pulumi.input_type
-class FileSharePropertiesArgs:
-    def __init__(__self__, *,
-                 share_access_tier: Optional[pulumi.Input['AzureFileShareAccessTier']] = None,
-                 share_access_type: Optional[pulumi.Input['AzureFileShareAccessType']] = None):
-        """
-        :param pulumi.Input['AzureFileShareAccessTier'] share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        :param pulumi.Input['AzureFileShareAccessType'] share_access_type: Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-        """
-        if share_access_tier is None:
-            share_access_tier = 'TransactionOptimized'
-        if share_access_tier is not None:
-            pulumi.set(__self__, "share_access_tier", share_access_tier)
-        if share_access_type is not None:
-            pulumi.set(__self__, "share_access_type", share_access_type)
-
-    @_builtins.property
-    @pulumi.getter(name="shareAccessTier")
-    def share_access_tier(self) -> Optional[pulumi.Input['AzureFileShareAccessTier']]:
-        """
-        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        """
-        return pulumi.get(self, "share_access_tier")
-
-    @share_access_tier.setter
-    def share_access_tier(self, value: Optional[pulumi.Input['AzureFileShareAccessTier']]):
-        pulumi.set(self, "share_access_tier", value)
-
-    @_builtins.property
-    @pulumi.getter(name="shareAccessType")
-    def share_access_type(self) -> Optional[pulumi.Input['AzureFileShareAccessType']]:
-        """
-        Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-        """
-        return pulumi.get(self, "share_access_type")
-
-    @share_access_type.setter
-    def share_access_type(self, value: Optional[pulumi.Input['AzureFileShareAccessType']]):
-        pulumi.set(self, "share_access_type", value)
 
 
 class FileShareArgsDict(TypedDict):
     """
     File shares that can be mounted on container groups.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    properties: NotRequired[pulumi.Input['FileSharePropertiesArgsDict']]
-    resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    properties: NotRequired[pulumi.Input[Optional['FileSharePropertiesArgsDict']]]
+    resource_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FileShareArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FileSharePropertiesArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FileSharePropertiesArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         File shares that can be mounted on container groups.
         """
@@ -1873,39 +1822,90 @@ class FileShareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FileSharePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FileSharePropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FileSharePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FileSharePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
+
+
+class FileSharePropertiesArgsDict(TypedDict):
+    share_access_tier: NotRequired[pulumi.Input[Optional['AzureFileShareAccessTier']]]
+    """
+    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+    """
+    share_access_type: NotRequired[pulumi.Input[Optional['AzureFileShareAccessType']]]
+    """
+    Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    """
+
+@pulumi.input_type
+class FileSharePropertiesArgs:
+    def __init__(__self__, *,
+                 share_access_tier: pulumi.Input[Optional['AzureFileShareAccessTier']] = None,
+                 share_access_type: pulumi.Input[Optional['AzureFileShareAccessType']] = None):
+        """
+        :param pulumi.Input['AzureFileShareAccessTier'] share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        :param pulumi.Input['AzureFileShareAccessType'] share_access_type: Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        if share_access_tier is None:
+            share_access_tier = 'TransactionOptimized'
+        if share_access_tier is not None:
+            pulumi.set(__self__, "share_access_tier", share_access_tier)
+        if share_access_type is not None:
+            pulumi.set(__self__, "share_access_type", share_access_type)
+
+    @_builtins.property
+    @pulumi.getter(name="shareAccessTier")
+    def share_access_tier(self) -> pulumi.Input[Optional['AzureFileShareAccessTier']]:
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        """
+        return pulumi.get(self, "share_access_tier")
+
+    @share_access_tier.setter
+    def share_access_tier(self, value: pulumi.Input[Optional['AzureFileShareAccessTier']]):
+        pulumi.set(self, "share_access_tier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareAccessType")
+    def share_access_type(self) -> pulumi.Input[Optional['AzureFileShareAccessType']]:
+        """
+        Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        return pulumi.get(self, "share_access_type")
+
+    @share_access_type.setter
+    def share_access_type(self, value: pulumi.Input[Optional['AzureFileShareAccessType']]):
+        pulumi.set(self, "share_access_type", value)
 
 
 class GitRepoVolumeArgsDict(TypedDict):
@@ -1916,11 +1916,11 @@ class GitRepoVolumeArgsDict(TypedDict):
     """
     Repository URL
     """
-    directory: NotRequired[pulumi.Input[_builtins.str]]
+    directory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
     """
-    revision: NotRequired[pulumi.Input[_builtins.str]]
+    revision: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Commit hash for the specified revision.
     """
@@ -1929,8 +1929,8 @@ class GitRepoVolumeArgsDict(TypedDict):
 class GitRepoVolumeArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
-                 directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a volume that is populated with the contents of a git repository
 
@@ -1958,26 +1958,26 @@ class GitRepoVolumeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Commit hash for the specified revision.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision", value)
 
 
@@ -2037,11 +2037,11 @@ class HttpHeaderArgsDict(TypedDict):
     """
     The HTTP header.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The header name.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The header value.
     """
@@ -2049,8 +2049,8 @@ class HttpHeaderArgsDict(TypedDict):
 @pulumi.input_type
 class HttpHeaderArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The HTTP header.
 
@@ -2064,26 +2064,26 @@ class HttpHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The header name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The header value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2095,23 +2095,23 @@ class ImageRegistryCredentialArgsDict(TypedDict):
     """
     The Docker image registry server without a protocol such as "http" and "https".
     """
-    identity: NotRequired[pulumi.Input[_builtins.str]]
+    identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identity for the private registry.
     """
-    identity_url: NotRequired[pulumi.Input[_builtins.str]]
+    identity_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identity URL for the private registry.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password for the private registry.
     """
-    password_reference: NotRequired[pulumi.Input[_builtins.str]]
+    password_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference for the private registry password.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username for the private registry.
     """
@@ -2120,11 +2120,11 @@ class ImageRegistryCredentialArgsDict(TypedDict):
 class ImageRegistryCredentialArgs:
     def __init__(__self__, *,
                  server: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image registry credential.
 
@@ -2161,62 +2161,62 @@ class ImageRegistryCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity for the private registry.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="identityUrl")
-    def identity_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity URL for the private registry.
         """
         return pulumi.get(self, "identity_url")
 
     @identity_url.setter
-    def identity_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the private registry.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference for the private registry password.
         """
         return pulumi.get(self, "password_reference")
 
     @password_reference.setter
-    def password_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username for the private registry.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -2228,23 +2228,23 @@ class InitContainerDefinitionArgsDict(TypedDict):
     """
     The name for the init container.
     """
-    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    command: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The command to execute within the init container in exec form.
     """
-    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]]
     """
     The environment variables to set in the init container.
     """
-    image: NotRequired[pulumi.Input[_builtins.str]]
+    image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image of the init container.
     """
-    security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+    security_context: NotRequired[pulumi.Input[Optional['SecurityContextDefinitionArgsDict']]]
     """
     The container security properties.
     """
-    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgsDict']]]]]
     """
     The volume mounts available to the init container.
     """
@@ -2253,11 +2253,11 @@ class InitContainerDefinitionArgsDict(TypedDict):
 class InitContainerDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+                 command: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_context: pulumi.Input[Optional['SecurityContextDefinitionArgs']] = None,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         The init container definition.
 
@@ -2294,62 +2294,62 @@ class InitContainerDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def command(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The command to execute within the init container in exec form.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def command(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in the init container.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image of the init container.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContext")
-    def security_context(self) -> Optional[pulumi.Input['SecurityContextDefinitionArgs']]:
+    def security_context(self) -> pulumi.Input[Optional['SecurityContextDefinitionArgs']]:
         """
         The container security properties.
         """
         return pulumi.get(self, "security_context")
 
     @security_context.setter
-    def security_context(self, value: Optional[pulumi.Input['SecurityContextDefinitionArgs']]):
+    def security_context(self, value: pulumi.Input[Optional['SecurityContextDefinitionArgs']]):
         pulumi.set(self, "security_context", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+    def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]:
         """
         The volume mounts available to the init container.
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+    def volume_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
 
 
@@ -2365,15 +2365,15 @@ class IpAddressArgsDict(TypedDict):
     """
     Specifies if the IP is exposed to the public internet or private VNET.
     """
-    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]]
     """
     The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
     """
-    dns_name_label: NotRequired[pulumi.Input[_builtins.str]]
+    dns_name_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Dns name label for the IP.
     """
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP exposed to the public internet.
     """
@@ -2383,9 +2383,9 @@ class IpAddressArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
                  type: pulumi.Input[Union[_builtins.str, 'ContainerGroupIpAddressType']],
-                 auto_generated_domain_name_label_scope: Optional[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]] = None,
-                 dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_generated_domain_name_label_scope: pulumi.Input[Optional[Union[_builtins.str, 'DnsNameLabelReusePolicy']]] = None,
+                 dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IP address for the container group.
 
@@ -2432,80 +2432,46 @@ class IpAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
-    def auto_generated_domain_name_label_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]:
+    def auto_generated_domain_name_label_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]:
         """
         The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
         """
         return pulumi.get(self, "auto_generated_domain_name_label_scope")
 
     @auto_generated_domain_name_label_scope.setter
-    def auto_generated_domain_name_label_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]):
+    def auto_generated_domain_name_label_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]):
         pulumi.set(self, "auto_generated_domain_name_label_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsNameLabel")
-    def dns_name_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Dns name label for the IP.
         """
         return pulumi.get(self, "dns_name_label")
 
     @dns_name_label.setter
-    def dns_name_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP exposed to the public internet.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
-
-
-class LoadBalancerBackendAddressPoolArgsDict(TypedDict):
-    """
-    NGroups load balancer backend address pool
-    """
-    resource: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Load Balancer backend address pool ARM resource Id.
-    """
-
-@pulumi.input_type
-class LoadBalancerBackendAddressPoolArgs:
-    def __init__(__self__, *,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        NGroups load balancer backend address pool
-
-        :param pulumi.Input[_builtins.str] resource: The Load Balancer backend address pool ARM resource Id.
-        """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-
-    @_builtins.property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Load Balancer backend address pool ARM resource Id.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource", value)
 
 
 class LoadBalancerArgsDict(TypedDict):
     """
     LoadBalancer the CG profile will use to interact with CGs in a backend pool
     """
-    backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgsDict']]]]
+    backend_address_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgsDict']]]]]
     """
     List of Load Balancer Backend Address Pools.
     """
@@ -2513,7 +2479,7 @@ class LoadBalancerArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerArgs:
     def __init__(__self__, *,
-                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]] = None):
+                 backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]] = None):
         """
         LoadBalancer the CG profile will use to interact with CGs in a backend pool
 
@@ -2524,15 +2490,49 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]:
+    def backend_address_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]:
         """
         List of Load Balancer Backend Address Pools.
         """
         return pulumi.get(self, "backend_address_pools")
 
     @backend_address_pools.setter
-    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]):
+    def backend_address_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]):
         pulumi.set(self, "backend_address_pools", value)
+
+
+class LoadBalancerBackendAddressPoolArgsDict(TypedDict):
+    """
+    NGroups load balancer backend address pool
+    """
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Load Balancer backend address pool ARM resource Id.
+    """
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        NGroups load balancer backend address pool
+
+        :param pulumi.Input[_builtins.str] resource: The Load Balancer backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Load Balancer backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource", value)
 
 
 class LogAnalyticsArgsDict(TypedDict):
@@ -2547,15 +2547,15 @@ class LogAnalyticsArgsDict(TypedDict):
     """
     The workspace key for log analytics
     """
-    log_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]]
+    log_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LogAnalyticsLogType']]]]
     """
     The log type to be used.
     """
-    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Metadata for log analytics.
     """
-    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The workspace resource id for log analytics
     """
@@ -2565,9 +2565,9 @@ class LogAnalyticsArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
                  workspace_key: pulumi.Input[_builtins.str],
-                 log_type: Optional[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_type: pulumi.Input[Optional[Union[_builtins.str, 'LogAnalyticsLogType']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Container group log analytics information.
 
@@ -2612,76 +2612,50 @@ class LogAnalyticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logType")
-    def log_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]]:
+    def log_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LogAnalyticsLogType']]]:
         """
         The log type to be used.
         """
         return pulumi.get(self, "log_type")
 
     @log_type.setter
-    def log_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]]):
+    def log_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LogAnalyticsLogType']]]):
         pulumi.set(self, "log_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata for log analytics.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace resource id for log analytics
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
-
-
-class NGroupCGPropertyContainerPropertiesArgsDict(TypedDict):
-    """
-    container properties
-    """
-    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
-
-@pulumi.input_type
-class NGroupCGPropertyContainerPropertiesArgs:
-    def __init__(__self__, *,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
-        """
-        container properties
-        """
-        if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
-        return pulumi.get(self, "volume_mounts")
-
-    @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
-        pulumi.set(self, "volume_mounts", value)
 
 
 class NGroupCGPropertyContainerArgsDict(TypedDict):
     """
     Container properties that can be provided with NGroups object.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     container name
     """
-    properties: NotRequired[pulumi.Input['NGroupCGPropertyContainerPropertiesArgsDict']]
+    properties: NotRequired[pulumi.Input[Optional['NGroupCGPropertyContainerPropertiesArgsDict']]]
     """
     container properties
     """
@@ -2689,8 +2663,8 @@ class NGroupCGPropertyContainerArgsDict(TypedDict):
 @pulumi.input_type
 class NGroupCGPropertyContainerArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['NGroupCGPropertyContainerPropertiesArgs']] = None):
         """
         Container properties that can be provided with NGroups object.
 
@@ -2704,27 +2678,53 @@ class NGroupCGPropertyContainerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         container name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['NGroupCGPropertyContainerPropertiesArgs']]:
         """
         container properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['NGroupCGPropertyContainerPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+
+class NGroupCGPropertyContainerPropertiesArgsDict(TypedDict):
+    """
+    container properties
+    """
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgsDict']]]]]
+
+@pulumi.input_type
+class NGroupCGPropertyContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+        """
+        container properties
+        """
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
 
 
 class NGroupCGPropertyVolumeArgsDict(TypedDict):
@@ -2735,7 +2735,7 @@ class NGroupCGPropertyVolumeArgsDict(TypedDict):
     """
     The name of the volume.
     """
-    azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+    azure_file: NotRequired[pulumi.Input[Optional['AzureFileVolumeArgsDict']]]
     """
     The Azure File volume.
     """
@@ -2744,7 +2744,7 @@ class NGroupCGPropertyVolumeArgsDict(TypedDict):
 class NGroupCGPropertyVolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None):
+                 azure_file: pulumi.Input[Optional['AzureFileVolumeArgs']] = None):
         """
         Contains information about the volumes that can be mounted by Containers in the Container Groups.
 
@@ -2769,14 +2769,14 @@ class NGroupCGPropertyVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureFile")
-    def azure_file(self) -> Optional[pulumi.Input['AzureFileVolumeArgs']]:
+    def azure_file(self) -> pulumi.Input[Optional['AzureFileVolumeArgs']]:
         """
         The Azure File volume.
         """
         return pulumi.get(self, "azure_file")
 
     @azure_file.setter
-    def azure_file(self, value: Optional[pulumi.Input['AzureFileVolumeArgs']]):
+    def azure_file(self, value: pulumi.Input[Optional['AzureFileVolumeArgs']]):
         pulumi.set(self, "azure_file", value)
 
 
@@ -2784,15 +2784,15 @@ class NGroupContainerGroupPropertiesArgsDict(TypedDict):
     """
     Container Group properties which can be set while creating or updating the NGroups.
     """
-    containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgsDict']]]]
+    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyContainerArgsDict']]]]]
     """
     Contains information about Container which can be set while creating or updating the NGroups.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]]
     """
     Contains information about Virtual Network Subnet ARM Resource
     """
-    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgsDict']]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgsDict']]]]]
     """
     Contains information about the volumes that can be mounted by Containers in the Container Groups.
     """
@@ -2800,9 +2800,9 @@ class NGroupContainerGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NGroupContainerGroupPropertiesArgs:
     def __init__(__self__, *,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]] = None):
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]] = None):
         """
         Container Group properties which can be set while creating or updating the NGroups.
 
@@ -2819,38 +2819,38 @@ class NGroupContainerGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]:
+    def containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]:
         """
         Contains information about Container which can be set while creating or updating the NGroups.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]):
+    def containers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]):
         pulumi.set(self, "containers", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
         """
         Contains information about Virtual Network Subnet ARM Resource
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]:
         """
         Contains information about the volumes that can be mounted by Containers in the Container Groups.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -2858,11 +2858,11 @@ class NGroupIdentityArgsDict(TypedDict):
     """
     Identity for the NGroup.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the NGroup.
     """
@@ -2870,8 +2870,8 @@ class NGroupIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class NGroupIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the NGroup.
 
@@ -2885,26 +2885,26 @@ class NGroupIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the NGroup.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2912,11 +2912,11 @@ class NetworkProfileArgsDict(TypedDict):
     """
     A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
     """
-    application_gateway: NotRequired[pulumi.Input['ApplicationGatewayArgsDict']]
+    application_gateway: NotRequired[pulumi.Input[Optional['ApplicationGatewayArgsDict']]]
     """
     Application Gateway the CG profile will use to interact with CGs in a backend pool
     """
-    load_balancer: NotRequired[pulumi.Input['LoadBalancerArgsDict']]
+    load_balancer: NotRequired[pulumi.Input[Optional['LoadBalancerArgsDict']]]
     """
     LoadBalancer the CG profile will use to interact with CGs in a backend pool
     """
@@ -2924,8 +2924,8 @@ class NetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 application_gateway: Optional[pulumi.Input['ApplicationGatewayArgs']] = None,
-                 load_balancer: Optional[pulumi.Input['LoadBalancerArgs']] = None):
+                 application_gateway: pulumi.Input[Optional['ApplicationGatewayArgs']] = None,
+                 load_balancer: pulumi.Input[Optional['LoadBalancerArgs']] = None):
         """
         A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
 
@@ -2939,26 +2939,26 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationGateway")
-    def application_gateway(self) -> Optional[pulumi.Input['ApplicationGatewayArgs']]:
+    def application_gateway(self) -> pulumi.Input[Optional['ApplicationGatewayArgs']]:
         """
         Application Gateway the CG profile will use to interact with CGs in a backend pool
         """
         return pulumi.get(self, "application_gateway")
 
     @application_gateway.setter
-    def application_gateway(self, value: Optional[pulumi.Input['ApplicationGatewayArgs']]):
+    def application_gateway(self, value: pulumi.Input[Optional['ApplicationGatewayArgs']]):
         pulumi.set(self, "application_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> Optional[pulumi.Input['LoadBalancerArgs']]:
+    def load_balancer(self) -> pulumi.Input[Optional['LoadBalancerArgs']]:
         """
         LoadBalancer the CG profile will use to interact with CGs in a backend pool
         """
         return pulumi.get(self, "load_balancer")
 
     @load_balancer.setter
-    def load_balancer(self, value: Optional[pulumi.Input['LoadBalancerArgs']]):
+    def load_balancer(self, value: pulumi.Input[Optional['LoadBalancerArgs']]):
         pulumi.set(self, "load_balancer", value)
 
 
@@ -2966,7 +2966,7 @@ class PlacementProfileArgsDict(TypedDict):
     """
     Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
     """
-    fault_domain_count: NotRequired[pulumi.Input[_builtins.int]]
+    fault_domain_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
     """
@@ -2974,7 +2974,7 @@ class PlacementProfileArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementProfileArgs:
     def __init__(__self__, *,
-                 fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
 
@@ -2985,14 +2985,14 @@ class PlacementProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="faultDomainCount")
-    def fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
         """
         return pulumi.get(self, "fault_domain_count")
 
     @fault_domain_count.setter
-    def fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fault_domain_count", value)
 
 
@@ -3004,7 +3004,7 @@ class PortArgsDict(TypedDict):
     """
     The port number.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]]
     """
     The protocol associated with the port.
     """
@@ -3013,7 +3013,7 @@ class PortArgsDict(TypedDict):
 class PortArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[_builtins.int],
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]] = None):
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]] = None):
         """
         The port exposed on the container group.
 
@@ -3038,14 +3038,14 @@ class PortArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]:
         """
         The protocol associated with the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -3053,15 +3053,15 @@ class ResourceLimitsArgsDict(TypedDict):
     """
     The resource limits.
     """
-    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The CPU limit of this container instance.
     """
-    gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+    gpu: NotRequired[pulumi.Input[Optional['GpuResourceArgsDict']]]
     """
     The GPU limit of this container instance.
     """
-    memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
+    memory_in_gb: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The memory limit in GB of this container instance.
     """
@@ -3069,9 +3069,9 @@ class ResourceLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceLimitsArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.float]] = None,
-                 gpu: Optional[pulumi.Input['GpuResourceArgs']] = None,
-                 memory_in_gb: Optional[pulumi.Input[_builtins.float]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.float]] = None,
+                 gpu: pulumi.Input[Optional['GpuResourceArgs']] = None,
+                 memory_in_gb: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The resource limits.
 
@@ -3088,38 +3088,38 @@ class ResourceLimitsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The CPU limit of this container instance.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def gpu(self) -> Optional[pulumi.Input['GpuResourceArgs']]:
+    def gpu(self) -> pulumi.Input[Optional['GpuResourceArgs']]:
         """
         The GPU limit of this container instance.
         """
         return pulumi.get(self, "gpu")
 
     @gpu.setter
-    def gpu(self, value: Optional[pulumi.Input['GpuResourceArgs']]):
+    def gpu(self, value: pulumi.Input[Optional['GpuResourceArgs']]):
         pulumi.set(self, "gpu", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def memory_in_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The memory limit in GB of this container instance.
         """
         return pulumi.get(self, "memory_in_gb")
 
     @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def memory_in_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "memory_in_gb", value)
 
 
@@ -3135,7 +3135,7 @@ class ResourceRequestsArgsDict(TypedDict):
     """
     The memory request in GB of this container instance.
     """
-    gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+    gpu: NotRequired[pulumi.Input[Optional['GpuResourceArgsDict']]]
     """
     The GPU request of this container instance.
     """
@@ -3145,7 +3145,7 @@ class ResourceRequestsArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[_builtins.float],
                  memory_in_gb: pulumi.Input[_builtins.float],
-                 gpu: Optional[pulumi.Input['GpuResourceArgs']] = None):
+                 gpu: pulumi.Input[Optional['GpuResourceArgs']] = None):
         """
         The resource requests.
 
@@ -3184,14 +3184,14 @@ class ResourceRequestsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def gpu(self) -> Optional[pulumi.Input['GpuResourceArgs']]:
+    def gpu(self) -> pulumi.Input[Optional['GpuResourceArgs']]:
         """
         The GPU request of this container instance.
         """
         return pulumi.get(self, "gpu")
 
     @gpu.setter
-    def gpu(self, value: Optional[pulumi.Input['GpuResourceArgs']]):
+    def gpu(self, value: pulumi.Input[Optional['GpuResourceArgs']]):
         pulumi.set(self, "gpu", value)
 
 
@@ -3203,7 +3203,7 @@ class ResourceRequirementsArgsDict(TypedDict):
     """
     The resource requests of this container instance.
     """
-    limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
+    limits: NotRequired[pulumi.Input[Optional['ResourceLimitsArgsDict']]]
     """
     The resource limits of this container instance.
     """
@@ -3212,7 +3212,7 @@ class ResourceRequirementsArgsDict(TypedDict):
 class ResourceRequirementsArgs:
     def __init__(__self__, *,
                  requests: pulumi.Input['ResourceRequestsArgs'],
-                 limits: Optional[pulumi.Input['ResourceLimitsArgs']] = None):
+                 limits: pulumi.Input[Optional['ResourceLimitsArgs']] = None):
         """
         The resource requirements.
 
@@ -3237,14 +3237,14 @@ class ResourceRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> Optional[pulumi.Input['ResourceLimitsArgs']]:
+    def limits(self) -> pulumi.Input[Optional['ResourceLimitsArgs']]:
         """
         The resource limits of this container instance.
         """
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: Optional[pulumi.Input['ResourceLimitsArgs']]):
+    def limits(self, value: pulumi.Input[Optional['ResourceLimitsArgs']]):
         pulumi.set(self, "limits", value)
 
 
@@ -3252,11 +3252,11 @@ class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
     """
     The capabilities to add or drop from a container.
     """
-    add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    add: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The capabilities to add to the container.
     """
-    drop: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    drop: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The capabilities to drop from the container.
     """
@@ -3264,8 +3264,8 @@ class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityContextCapabilitiesDefinitionArgs:
     def __init__(__self__, *,
-                 add: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 drop: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 add: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 drop: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The capabilities to add or drop from a container.
 
@@ -3279,26 +3279,26 @@ class SecurityContextCapabilitiesDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def add(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The capabilities to add to the container.
         """
         return pulumi.get(self, "add")
 
     @add.setter
-    def add(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def add(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "add", value)
 
     @_builtins.property
     @pulumi.getter
-    def drop(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def drop(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The capabilities to drop from the container.
         """
         return pulumi.get(self, "drop")
 
     @drop.setter
-    def drop(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def drop(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "drop", value)
 
 
@@ -3306,27 +3306,27 @@ class SecurityContextDefinitionArgsDict(TypedDict):
     """
     The security context for the container.
     """
-    allow_privilege_escalation: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_privilege_escalation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value indicating whether the init process can elevate its privileges
     """
-    capabilities: NotRequired[pulumi.Input['SecurityContextCapabilitiesDefinitionArgsDict']]
+    capabilities: NotRequired[pulumi.Input[Optional['SecurityContextCapabilitiesDefinitionArgsDict']]]
     """
     The capabilities to add or drop from a container.
     """
-    privileged: NotRequired[pulumi.Input[_builtins.bool]]
+    privileged: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag to determine if the container permissions is elevated to Privileged.
     """
-    run_as_group: NotRequired[pulumi.Input[_builtins.int]]
+    run_as_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets the User GID for the container.
     """
-    run_as_user: NotRequired[pulumi.Input[_builtins.int]]
+    run_as_user: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets the User UID for the container.
     """
-    seccomp_profile: NotRequired[pulumi.Input[_builtins.str]]
+    seccomp_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     a base64 encoded string containing the contents of the JSON in the seccomp profile
     """
@@ -3334,12 +3334,12 @@ class SecurityContextDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityContextDefinitionArgs:
     def __init__(__self__, *,
-                 allow_privilege_escalation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capabilities: Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']] = None,
-                 privileged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 run_as_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 run_as_user: Optional[pulumi.Input[_builtins.int]] = None,
-                 seccomp_profile: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_privilege_escalation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional['SecurityContextCapabilitiesDefinitionArgs']] = None,
+                 privileged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 seccomp_profile: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The security context for the container.
 
@@ -3365,74 +3365,74 @@ class SecurityContextDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowPrivilegeEscalation")
-    def allow_privilege_escalation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_privilege_escalation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value indicating whether the init process can elevate its privileges
         """
         return pulumi.get(self, "allow_privilege_escalation")
 
     @allow_privilege_escalation.setter
-    def allow_privilege_escalation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_privilege_escalation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_privilege_escalation", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']]:
+    def capabilities(self) -> pulumi.Input[Optional['SecurityContextCapabilitiesDefinitionArgs']]:
         """
         The capabilities to add or drop from a container.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']]):
+    def capabilities(self, value: pulumi.Input[Optional['SecurityContextCapabilitiesDefinitionArgs']]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def privileged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to determine if the container permissions is elevated to Privileged.
         """
         return pulumi.get(self, "privileged")
 
     @privileged.setter
-    def privileged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def privileged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "privileged", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsGroup")
-    def run_as_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def run_as_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the User GID for the container.
         """
         return pulumi.get(self, "run_as_group")
 
     @run_as_group.setter
-    def run_as_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def run_as_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "run_as_group", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsUser")
-    def run_as_user(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def run_as_user(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the User UID for the container.
         """
         return pulumi.get(self, "run_as_user")
 
     @run_as_user.setter
-    def run_as_user(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def run_as_user(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "run_as_user", value)
 
     @_builtins.property
     @pulumi.getter(name="seccompProfile")
-    def seccomp_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def seccomp_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         a base64 encoded string containing the contents of the JSON in the seccomp profile
         """
         return pulumi.get(self, "seccomp_profile")
 
     @seccomp_profile.setter
-    def seccomp_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def seccomp_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "seccomp_profile", value)
 
 
@@ -3440,11 +3440,11 @@ class StandbyPoolProfileDefinitionArgsDict(TypedDict):
     """
     The standby pool profile reference.
     """
-    fail_container_group_create_on_reuse_failure: NotRequired[pulumi.Input[_builtins.bool]]
+    fail_container_group_create_on_reuse_failure: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
     """
@@ -3452,8 +3452,8 @@ class StandbyPoolProfileDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class StandbyPoolProfileDefinitionArgs:
     def __init__(__self__, *,
-                 fail_container_group_create_on_reuse_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 fail_container_group_create_on_reuse_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The standby pool profile reference.
 
@@ -3467,26 +3467,26 @@ class StandbyPoolProfileDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="failContainerGroupCreateOnReuseFailure")
-    def fail_container_group_create_on_reuse_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_container_group_create_on_reuse_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
         """
         return pulumi.get(self, "fail_container_group_create_on_reuse_failure")
 
     @fail_container_group_create_on_reuse_failure.setter
-    def fail_container_group_create_on_reuse_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_container_group_create_on_reuse_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_container_group_create_on_reuse_failure", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -3494,12 +3494,12 @@ class StorageProfileArgsDict(TypedDict):
     """
     Storage profile for storage related settings of a container group profile.
     """
-    file_shares: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileShareArgsDict']]]]
+    file_shares: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileShareArgsDict']]]]]
 
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]] = None):
+                 file_shares: pulumi.Input[Optional[Sequence[pulumi.Input['FileShareArgs']]]] = None):
         """
         Storage profile for storage related settings of a container group profile.
         """
@@ -3508,31 +3508,78 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileShares")
-    def file_shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]]:
+    def file_shares(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileShareArgs']]]]:
         return pulumi.get(self, "file_shares")
 
     @file_shares.setter
-    def file_shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]]):
+    def file_shares(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileShareArgs']]]]):
         pulumi.set(self, "file_shares", value)
+
+
+class UpdateProfileArgsDict(TypedDict):
+    """
+    Used by the customer to specify the way to update the Container Groups in NGroup.
+    """
+    rolling_update_profile: NotRequired[pulumi.Input[Optional['UpdateProfileRollingUpdateProfileArgsDict']]]
+    """
+    This profile allows the customers to customize the rolling update.
+    """
+    update_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NGroupUpdateMode']]]]
+
+@pulumi.input_type
+class UpdateProfileArgs:
+    def __init__(__self__, *,
+                 rolling_update_profile: pulumi.Input[Optional['UpdateProfileRollingUpdateProfileArgs']] = None,
+                 update_mode: pulumi.Input[Optional[Union[_builtins.str, 'NGroupUpdateMode']]] = None):
+        """
+        Used by the customer to specify the way to update the Container Groups in NGroup.
+
+        :param pulumi.Input['UpdateProfileRollingUpdateProfileArgs'] rolling_update_profile: This profile allows the customers to customize the rolling update.
+        """
+        if rolling_update_profile is not None:
+            pulumi.set(__self__, "rolling_update_profile", rolling_update_profile)
+        if update_mode is not None:
+            pulumi.set(__self__, "update_mode", update_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="rollingUpdateProfile")
+    def rolling_update_profile(self) -> pulumi.Input[Optional['UpdateProfileRollingUpdateProfileArgs']]:
+        """
+        This profile allows the customers to customize the rolling update.
+        """
+        return pulumi.get(self, "rolling_update_profile")
+
+    @rolling_update_profile.setter
+    def rolling_update_profile(self, value: pulumi.Input[Optional['UpdateProfileRollingUpdateProfileArgs']]):
+        pulumi.set(self, "rolling_update_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateMode")
+    def update_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NGroupUpdateMode']]]:
+        return pulumi.get(self, "update_mode")
+
+    @update_mode.setter
+    def update_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NGroupUpdateMode']]]):
+        pulumi.set(self, "update_mode", value)
 
 
 class UpdateProfileRollingUpdateProfileArgsDict(TypedDict):
     """
     This profile allows the customers to customize the rolling update.
     """
-    in_place_update: NotRequired[pulumi.Input[_builtins.bool]]
+    in_place_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
     """
-    max_batch_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_batch_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
     """
-    max_unhealthy_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_unhealthy_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
     """
-    pause_time_between_batches: NotRequired[pulumi.Input[_builtins.str]]
+    pause_time_between_batches: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
     """
@@ -3540,10 +3587,10 @@ class UpdateProfileRollingUpdateProfileArgsDict(TypedDict):
 @pulumi.input_type
 class UpdateProfileRollingUpdateProfileArgs:
     def __init__(__self__, *,
-                 in_place_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_batch_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_unhealthy_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 pause_time_between_batches: Optional[pulumi.Input[_builtins.str]] = None):
+                 in_place_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_batch_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_unhealthy_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 pause_time_between_batches: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This profile allows the customers to customize the rolling update.
 
@@ -3563,98 +3610,184 @@ class UpdateProfileRollingUpdateProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="inPlaceUpdate")
-    def in_place_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def in_place_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
         """
         return pulumi.get(self, "in_place_update")
 
     @in_place_update.setter
-    def in_place_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def in_place_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "in_place_update", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchPercent")
-    def max_batch_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
         """
         return pulumi.get(self, "max_batch_percent")
 
     @max_batch_percent.setter
-    def max_batch_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyPercent")
-    def max_unhealthy_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unhealthy_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
         """
         return pulumi.get(self, "max_unhealthy_percent")
 
     @max_unhealthy_percent.setter
-    def max_unhealthy_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unhealthy_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unhealthy_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="pauseTimeBetweenBatches")
-    def pause_time_between_batches(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pause_time_between_batches(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
         """
         return pulumi.get(self, "pause_time_between_batches")
 
     @pause_time_between_batches.setter
-    def pause_time_between_batches(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pause_time_between_batches(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pause_time_between_batches", value)
 
 
-class UpdateProfileArgsDict(TypedDict):
+class VolumeArgsDict(TypedDict):
     """
-    Used by the customer to specify the way to update the Container Groups in NGroup.
+    The properties of the volume.
     """
-    rolling_update_profile: NotRequired[pulumi.Input['UpdateProfileRollingUpdateProfileArgsDict']]
+    name: pulumi.Input[_builtins.str]
     """
-    This profile allows the customers to customize the rolling update.
+    The name of the volume.
     """
-    update_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]]
+    azure_file: NotRequired[pulumi.Input[Optional['AzureFileVolumeArgsDict']]]
+    """
+    The Azure File volume.
+    """
+    empty_dir: NotRequired[Any]
+    """
+    The empty directory volume.
+    """
+    git_repo: NotRequired[pulumi.Input[Optional['GitRepoVolumeArgsDict']]]
+    """
+    The git repo volume.
+    """
+    secret: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The secret volume.
+    """
+    secret_reference: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The secret reference volume.
+    """
 
 @pulumi.input_type
-class UpdateProfileArgs:
+class VolumeArgs:
     def __init__(__self__, *,
-                 rolling_update_profile: Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']] = None,
-                 update_mode: Optional[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]] = None):
+                 name: pulumi.Input[_builtins.str],
+                 azure_file: pulumi.Input[Optional['AzureFileVolumeArgs']] = None,
+                 empty_dir: Optional[Any] = None,
+                 git_repo: pulumi.Input[Optional['GitRepoVolumeArgs']] = None,
+                 secret: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 secret_reference: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
-        Used by the customer to specify the way to update the Container Groups in NGroup.
+        The properties of the volume.
 
-        :param pulumi.Input['UpdateProfileRollingUpdateProfileArgs'] rolling_update_profile: This profile allows the customers to customize the rolling update.
+        :param pulumi.Input[_builtins.str] name: The name of the volume.
+        :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The Azure File volume.
+        :param Any empty_dir: The empty directory volume.
+        :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secret: The secret volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secret_reference: The secret reference volume.
         """
-        if rolling_update_profile is not None:
-            pulumi.set(__self__, "rolling_update_profile", rolling_update_profile)
-        if update_mode is not None:
-            pulumi.set(__self__, "update_mode", update_mode)
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if secret_reference is not None:
+            pulumi.set(__self__, "secret_reference", secret_reference)
 
     @_builtins.property
-    @pulumi.getter(name="rollingUpdateProfile")
-    def rolling_update_profile(self) -> Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']]:
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
         """
-        This profile allows the customers to customize the rolling update.
+        The name of the volume.
         """
-        return pulumi.get(self, "rolling_update_profile")
+        return pulumi.get(self, "name")
 
-    @rolling_update_profile.setter
-    def rolling_update_profile(self, value: Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']]):
-        pulumi.set(self, "rolling_update_profile", value)
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="updateMode")
-    def update_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]]:
-        return pulumi.get(self, "update_mode")
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> pulumi.Input[Optional['AzureFileVolumeArgs']]:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
 
-    @update_mode.setter
-    def update_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]]):
-        pulumi.set(self, "update_mode", value)
+    @azure_file.setter
+    def azure_file(self, value: pulumi.Input[Optional['AzureFileVolumeArgs']]):
+        pulumi.set(self, "azure_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[Any]:
+        """
+        The empty directory volume.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @empty_dir.setter
+    def empty_dir(self, value: Optional[Any]):
+        pulumi.set(self, "empty_dir", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> pulumi.Input[Optional['GitRepoVolumeArgs']]:
+        """
+        The git repo volume.
+        """
+        return pulumi.get(self, "git_repo")
+
+    @git_repo.setter
+    def git_repo(self, value: pulumi.Input[Optional['GitRepoVolumeArgs']]):
+        pulumi.set(self, "git_repo", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The secret volume.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretReference")
+    def secret_reference(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The secret reference volume.
+        """
+        return pulumi.get(self, "secret_reference")
+
+    @secret_reference.setter
+    def secret_reference(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "secret_reference", value)
 
 
 class VolumeMountArgsDict(TypedDict):
@@ -3669,7 +3802,7 @@ class VolumeMountArgsDict(TypedDict):
     """
     The name of the volume mount.
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag indicating whether the volume mount is read-only.
     """
@@ -3679,7 +3812,7 @@ class VolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The properties of the volume mount.
 
@@ -3718,147 +3851,14 @@ class VolumeMountArgs:
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicating whether the volume mount is read-only.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
-
-
-class VolumeArgsDict(TypedDict):
-    """
-    The properties of the volume.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the volume.
-    """
-    azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
-    """
-    The Azure File volume.
-    """
-    empty_dir: NotRequired[Any]
-    """
-    The empty directory volume.
-    """
-    git_repo: NotRequired[pulumi.Input['GitRepoVolumeArgsDict']]
-    """
-    The git repo volume.
-    """
-    secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    The secret volume.
-    """
-    secret_reference: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    The secret reference volume.
-    """
-
-@pulumi.input_type
-class VolumeArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None,
-                 empty_dir: Optional[Any] = None,
-                 git_repo: Optional[pulumi.Input['GitRepoVolumeArgs']] = None,
-                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 secret_reference: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
-        """
-        The properties of the volume.
-
-        :param pulumi.Input[_builtins.str] name: The name of the volume.
-        :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The Azure File volume.
-        :param Any empty_dir: The empty directory volume.
-        :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secret: The secret volume.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secret_reference: The secret reference volume.
-        """
-        pulumi.set(__self__, "name", name)
-        if azure_file is not None:
-            pulumi.set(__self__, "azure_file", azure_file)
-        if empty_dir is not None:
-            pulumi.set(__self__, "empty_dir", empty_dir)
-        if git_repo is not None:
-            pulumi.set(__self__, "git_repo", git_repo)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
-        if secret_reference is not None:
-            pulumi.set(__self__, "secret_reference", secret_reference)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the volume.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="azureFile")
-    def azure_file(self) -> Optional[pulumi.Input['AzureFileVolumeArgs']]:
-        """
-        The Azure File volume.
-        """
-        return pulumi.get(self, "azure_file")
-
-    @azure_file.setter
-    def azure_file(self, value: Optional[pulumi.Input['AzureFileVolumeArgs']]):
-        pulumi.set(self, "azure_file", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emptyDir")
-    def empty_dir(self) -> Optional[Any]:
-        """
-        The empty directory volume.
-        """
-        return pulumi.get(self, "empty_dir")
-
-    @empty_dir.setter
-    def empty_dir(self, value: Optional[Any]):
-        pulumi.set(self, "empty_dir", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gitRepo")
-    def git_repo(self) -> Optional[pulumi.Input['GitRepoVolumeArgs']]:
-        """
-        The git repo volume.
-        """
-        return pulumi.get(self, "git_repo")
-
-    @git_repo.setter
-    def git_repo(self, value: Optional[pulumi.Input['GitRepoVolumeArgs']]):
-        pulumi.set(self, "git_repo", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The secret volume.
-        """
-        return pulumi.get(self, "secret")
-
-    @secret.setter
-    def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "secret", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretReference")
-    def secret_reference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The secret reference volume.
-        """
-        return pulumi.get(self, "secret_reference")
-
-    @secret_reference.setter
-    def secret_reference(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "secret_reference", value)
 
 

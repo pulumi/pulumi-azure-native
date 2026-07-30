@@ -137,9 +137,9 @@ export interface SyncAgentArgs {
     /**
      * The name of the sync agent.
      */
-    syncAgentName?: pulumi.Input<string>;
+    syncAgentName?: pulumi.Input<string | undefined>;
     /**
      * ARM resource id of the sync database in the sync agent.
      */
-    syncDatabaseId?: pulumi.Input<string>;
+    syncDatabaseId?: pulumi.Input<string | undefined>;
 }

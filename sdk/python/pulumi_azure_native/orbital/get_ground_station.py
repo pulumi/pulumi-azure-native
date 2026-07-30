@@ -228,7 +228,6 @@ def get_ground_station(ground_station_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str ground_station_name: Ground Station name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -254,8 +253,8 @@ def get_ground_station(ground_station_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_ground_station_output(ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ground_station_output(ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroundStationResult]:
     """
     Gets the specified ground station in a specified resource group.
@@ -263,7 +262,6 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str ground_station_name: Ground Station name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

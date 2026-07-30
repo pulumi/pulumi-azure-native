@@ -1152,7 +1152,7 @@ class DeploymentClusterResponse(dict):
         :param _builtins.str cloud_account_name: Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
         :param _builtins.str name: The cluster name provided when preparing Active Directory.
         :param _builtins.str witness_path: Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
-        :param _builtins.str witness_type: Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+        :param _builtins.str witness_type: Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'.
         """
         if azure_service_endpoint is not None:
             pulumi.set(__self__, "azure_service_endpoint", azure_service_endpoint)
@@ -1201,7 +1201,7 @@ class DeploymentClusterResponse(dict):
     @pulumi.getter(name="witnessType")
     def witness_type(self) -> Optional[_builtins.str]:
         """
-        Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+        Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'.
         """
         return pulumi.get(self, "witness_type")
 
@@ -1235,7 +1235,7 @@ class DeploymentConfigurationResponse(dict):
         Deployment Configuration
 
         :param Sequence['ScaleUnitsResponse'] scale_units: Scale units will contains list of deployment data
-        :param _builtins.str version: deployment template version 
+        :param _builtins.str version: deployment template version
         """
         pulumi.set(__self__, "scale_units", scale_units)
         if version is not None:
@@ -1253,7 +1253,7 @@ class DeploymentConfigurationResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        deployment template version 
+        deployment template version
         """
         return pulumi.get(self, "version")
 
@@ -1316,7 +1316,7 @@ class DeploymentDataResponse(dict):
         """
         The Deployment data of AzureStackHCI Cluster.
 
-        :param _builtins.str adou_path: The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+        :param _builtins.str adou_path: The path to the Active Directory Organizational Unit container object prepared for the deployment.
         :param 'DeploymentClusterResponse' cluster: Observability config to deploy AzureStackHCI Cluster.
         :param _builtins.str domain_fqdn: FQDN to deploy cluster
         :param 'HostNetworkResponse' host_network: HostNetwork config to deploy AzureStackHCI Cluster.
@@ -1364,7 +1364,7 @@ class DeploymentDataResponse(dict):
     @pulumi.getter(name="adouPath")
     def adou_path(self) -> Optional[_builtins.str]:
         """
-        The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+        The path to the Active Directory Organizational Unit container object prepared for the deployment.
         """
         return pulumi.get(self, "adou_path")
 
@@ -1527,7 +1527,7 @@ class DeploymentSecuritySettingsResponse(dict):
         """
         The SecuritySettings of AzureStackHCI Cluster.
 
-        :param _builtins.bool bitlocker_boot_volume: When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+        :param _builtins.bool bitlocker_boot_volume: When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent.
         :param _builtins.bool bitlocker_data_volumes: When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
         :param _builtins.bool credential_guard_enforced: When set to true, Credential Guard is enabled.
         :param _builtins.bool drift_control_enforced: When set to true, the security baseline is re-applied regularly.
@@ -1583,7 +1583,7 @@ class DeploymentSecuritySettingsResponse(dict):
     @pulumi.getter(name="bitlockerBootVolume")
     def bitlocker_boot_volume(self) -> Optional[_builtins.bool]:
         """
-        When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+        When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent.
         """
         return pulumi.get(self, "bitlocker_boot_volume")
 
@@ -3124,7 +3124,7 @@ class EdgeMachinePropertiesResponse(dict):
         :param _builtins.str connectivity_status: machine connectivity status
         :param _builtins.str device_pool_resource_id: A machine can only be assigned to single device pool
         :param _builtins.str last_sync_timestamp: Last time data updated to service.
-        :param _builtins.str machine_state: OS configuration status details 
+        :param _builtins.str machine_state: OS configuration status details
         :param Sequence['OperationDetailResponse'] operation_details: operation status details for edge machine.
         :param _builtins.str provisioning_state: The provisioning state of a resource.
         :param 'EdgeMachineReportedPropertiesResponse' reported_properties: Reported properties for edge machine.
@@ -3204,7 +3204,7 @@ class EdgeMachinePropertiesResponse(dict):
     @pulumi.getter(name="machineState")
     def machine_state(self) -> _builtins.str:
         """
-        OS configuration status details 
+        OS configuration status details
         """
         return pulumi.get(self, "machine_state")
 
@@ -4299,7 +4299,7 @@ class FrontendIPConfigurationPropertiesResponse(dict):
 
         :param _builtins.str private_ip_address: Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
         :param _builtins.str private_ip_allocation_method: privateIPAllocationMethod - set to Static for requesting a specific IP
-        :param 'PublicIPAddressArmReferenceResponse' public_ip_address: Public IP 
+        :param 'PublicIPAddressArmReferenceResponse' public_ip_address: Public IP
         :param 'VirtualNetworkSubnetArmReferenceResponse' subnet: subnet - the subnet from which to allocate the private IP
         """
         if private_ip_address is not None:
@@ -4331,7 +4331,7 @@ class FrontendIPConfigurationPropertiesResponse(dict):
     @pulumi.getter(name="publicIPAddress")
     def public_ip_address(self) -> Optional['outputs.PublicIPAddressArmReferenceResponse']:
         """
-        Public IP 
+        Public IP
         """
         return pulumi.get(self, "public_ip_address")
 
@@ -9971,7 +9971,7 @@ class NatGatewayPropertiesResponse(dict):
 @pulumi.output_type
 class NatGatewayStatusProvisioningStatusResponse(dict):
     """
-    Provisioning status of Nat Gateway 
+    Provisioning status of Nat Gateway
     """
     @staticmethod
     def __key_warning(key: str):
@@ -9994,7 +9994,7 @@ class NatGatewayStatusProvisioningStatusResponse(dict):
                  status: _builtins.str,
                  operation_id: Optional[_builtins.str] = None):
         """
-        Provisioning status of Nat Gateway 
+        Provisioning status of Nat Gateway
 
         :param _builtins.str status: The status of the operation performed on the nat gateway [Succeeded, Failed, InProgress]
         :param _builtins.str operation_id: The ID of the operation performed on the nat gateway
@@ -14577,7 +14577,7 @@ class StorageNetworksHciEdgeDeviceResponse(dict):
         :param _builtins.str name: Name of the storage network.
         :param _builtins.str network_adapter_name: Name of the storage network adapter.
         :param Sequence['StorageAdapterIPInfoHciEdgeDeviceResponse'] storage_adapter_ip_info: List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        :param _builtins.str storage_vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        :param _builtins.str storage_vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_adapter_name", network_adapter_name)
@@ -14612,7 +14612,7 @@ class StorageNetworksHciEdgeDeviceResponse(dict):
     @pulumi.getter(name="storageVlanId")
     def storage_vlan_id(self) -> _builtins.str:
         """
-        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
         """
         return pulumi.get(self, "storage_vlan_id")
 
@@ -14654,7 +14654,7 @@ class StorageNetworksResponse(dict):
         :param _builtins.str name: Name of the storage network.
         :param _builtins.str network_adapter_name: Name of the storage network adapter.
         :param Sequence['StorageAdapterIPInfoResponse'] storage_adapter_ip_info: List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        :param _builtins.str vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        :param _builtins.str vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -14693,7 +14693,7 @@ class StorageNetworksResponse(dict):
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> Optional[_builtins.str]:
         """
-        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
         """
         return pulumi.get(self, "vlan_id")
 
@@ -17374,7 +17374,7 @@ class VirtualMachinePropertiesResponseOsProfile(dict):
         :param _builtins.str computer_name: ComputerName - name of the compute
         :param 'VirtualMachinePropertiesResponseLinuxConfiguration' linux_configuration: LinuxConfiguration - linux specific configuration values for the virtual machine
         :param _builtins.str os_type: OsType - string specifying whether the OS is Linux or Windows
-        :param 'VirtualMachinePropertiesResponseWindowsConfiguration' windows_configuration: Windows Configuration for the virtual machine 
+        :param 'VirtualMachinePropertiesResponseWindowsConfiguration' windows_configuration: Windows Configuration for the virtual machine
         """
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
@@ -17423,7 +17423,7 @@ class VirtualMachinePropertiesResponseOsProfile(dict):
     @pulumi.getter(name="windowsConfiguration")
     def windows_configuration(self) -> Optional['outputs.VirtualMachinePropertiesResponseWindowsConfiguration']:
         """
-        Windows Configuration for the virtual machine 
+        Windows Configuration for the virtual machine
         """
         return pulumi.get(self, "windows_configuration")
 
@@ -17689,7 +17689,7 @@ class VirtualMachinePropertiesResponseUefiSettings(dict):
 @pulumi.output_type
 class VirtualMachinePropertiesResponseWindowsConfiguration(dict):
     """
-    Windows Configuration for the virtual machine 
+    Windows Configuration for the virtual machine
     """
     @staticmethod
     def __key_warning(key: str):
@@ -17718,7 +17718,7 @@ class VirtualMachinePropertiesResponseWindowsConfiguration(dict):
                  ssh: Optional['outputs.VirtualMachinePropertiesResponseSsh'] = None,
                  time_zone: Optional[_builtins.str] = None):
         """
-        Windows Configuration for the virtual machine 
+        Windows Configuration for the virtual machine
 
         :param _builtins.bool enable_automatic_updates: Whether to EnableAutomaticUpdates on the machine
         :param _builtins.bool provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.

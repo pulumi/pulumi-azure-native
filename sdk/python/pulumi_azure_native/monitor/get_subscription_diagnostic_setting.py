@@ -189,7 +189,6 @@ def get_subscription_diagnostic_setting(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-05-01-preview.
 
-
     :param _builtins.str name: The name of the diagnostic setting.
     """
     __args__ = dict()
@@ -210,13 +209,12 @@ def get_subscription_diagnostic_setting(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_diagnostic_setting_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
     """
     Gets the active subscription diagnostic settings for the specified resource.
 
     Uses Azure REST API version 2021-05-01-preview.
-
 
     :param _builtins.str name: The name of the diagnostic setting.
     """

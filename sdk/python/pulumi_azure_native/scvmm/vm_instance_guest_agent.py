@@ -23,9 +23,9 @@ __all__ = ['VMInstanceGuestAgentArgs', 'VMInstanceGuestAgent']
 class VMInstanceGuestAgentArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
-                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None):
+                 credentials: pulumi.Input[Optional['GuestCredentialArgs']] = None,
+                 http_proxy_config: pulumi.Input[Optional['HttpProxyConfigurationArgs']] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a VMInstanceGuestAgent resource.
 
@@ -56,38 +56,38 @@ class VMInstanceGuestAgentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['GuestCredentialArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['GuestCredentialArgs']]:
         """
         Username / Password Credentials to provision guest agent.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['GuestCredentialArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['GuestCredentialArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
+    def http_proxy_config(self) -> pulumi.Input[Optional['HttpProxyConfigurationArgs']]:
         """
         HTTP Proxy configuration for the VM.
         """
         return pulumi.get(self, "http_proxy_config")
 
     @http_proxy_config.setter
-    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
+    def http_proxy_config(self, value: pulumi.Input[Optional['HttpProxyConfigurationArgs']]):
         pulumi.set(self, "http_proxy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]]:
         """
         Gets or sets the guest agent provisioning action.
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]]):
         pulumi.set(self, "provisioning_action", value)
 
 
@@ -97,16 +97,15 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 http_proxy_config: pulumi.Input[Optional[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the GuestAgent.
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param VMInstanceGuestAgentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 http_proxy_config: pulumi.Input[Optional[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

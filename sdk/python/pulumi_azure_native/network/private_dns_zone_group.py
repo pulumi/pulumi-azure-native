@@ -23,10 +23,10 @@ class PrivateDnsZoneGroupArgs:
     def __init__(__self__, *,
                  private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None,
-                 private_dns_zone_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None,
+                 private_dns_zone_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateDnsZoneGroup resource.
 
@@ -74,50 +74,50 @@ class PrivateDnsZoneGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]]:
+    def private_dns_zone_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]]:
         """
         A collection of private dns zone configurations of the private dns zone group.
         """
         return pulumi.get(self, "private_dns_zone_configs")
 
     @private_dns_zone_configs.setter
-    def private_dns_zone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]]):
+    def private_dns_zone_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]]):
         pulumi.set(self, "private_dns_zone_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneGroupName")
-    def private_dns_zone_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private dns zone group.
         """
         return pulumi.get(self, "private_dns_zone_group_name")
 
     @private_dns_zone_group_name.setter
-    def private_dns_zone_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone_group_name", value)
 
 
@@ -127,12 +127,12 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
-                 private_dns_zone_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
+                 private_dns_zone_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Private dns zone group resource.
@@ -140,7 +140,6 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +163,6 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
         Other available API versions: 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateDnsZoneGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,12 +178,12 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
-                 private_dns_zone_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
+                 private_dns_zone_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

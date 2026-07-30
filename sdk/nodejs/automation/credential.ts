@@ -140,11 +140,11 @@ export interface CredentialArgs {
     /**
      * The name of credential.
      */
-    credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the description of the credential.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the name of the credential.
      */

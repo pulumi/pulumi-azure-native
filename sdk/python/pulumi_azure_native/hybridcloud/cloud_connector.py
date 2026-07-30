@@ -22,11 +22,11 @@ __all__ = ['CloudConnectorArgs', 'CloudConnector']
 class CloudConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_type: Optional[pulumi.Input[Union[_builtins.str, 'CloudType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_type: pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudConnector resource.
 
@@ -63,62 +63,62 @@ class CloudConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account identifier of the remote cloud.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudConnectorName")
-    def cloud_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cloud connector resource
         """
         return pulumi.get(self, "cloud_connector_name")
 
     @cloud_connector_name.setter
-    def cloud_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudType")
-    def cloud_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CloudType']]]:
+    def cloud_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]]:
         """
         The cloud connector type.
         """
         return pulumi.get(self, "cloud_type")
 
     @cloud_type.setter
-    def cloud_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CloudType']]]):
+    def cloud_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]]):
         pulumi.set(self, "cloud_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,18 +128,17 @@ class CloudConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_type: Optional[pulumi.Input[Union[_builtins.str, 'CloudType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_type: pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cloud Connector resource.
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class CloudConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class CloudConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_type: Optional[pulumi.Input[Union[_builtins.str, 'CloudType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_type: pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

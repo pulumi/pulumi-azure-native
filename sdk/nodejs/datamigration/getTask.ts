@@ -103,7 +103,7 @@ export interface GetTaskOutputArgs {
     /**
      * Expand the response
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group
      */

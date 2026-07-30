@@ -109,7 +109,7 @@ export interface NotebookWorkspaceArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    notebookWorkspaceName?: pulumi.Input<string>;
+    notebookWorkspaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

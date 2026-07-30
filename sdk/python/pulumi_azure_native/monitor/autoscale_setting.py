@@ -24,15 +24,15 @@ class AutoscaleSettingArgs:
     def __init__(__self__, *,
                  profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 autoscale_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
-                 predictive_autoscale_policy: Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscale_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
+                 predictive_autoscale_policy: pulumi.Input[Optional['PredictiveAutoscalePolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoscaleSetting resource.
 
@@ -97,110 +97,110 @@ class AutoscaleSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettingName")
-    def autoscale_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autoscale_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The autoscale setting name.
         """
         return pulumi.get(self, "autoscale_setting_name")
 
     @autoscale_setting_name.setter
-    def autoscale_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autoscale_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autoscale_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the name of the autoscale setting.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]:
         """
         the collection of notifications.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveAutoscalePolicy")
-    def predictive_autoscale_policy(self) -> Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']]:
+    def predictive_autoscale_policy(self) -> pulumi.Input[Optional['PredictiveAutoscalePolicyArgs']]:
         """
         the predictive autoscale policy mode.
         """
         return pulumi.get(self, "predictive_autoscale_policy")
 
     @predictive_autoscale_policy.setter
-    def predictive_autoscale_policy(self, value: Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']]):
+    def predictive_autoscale_policy(self, value: pulumi.Input[Optional['PredictiveAutoscalePolicyArgs']]):
         pulumi.set(self, "predictive_autoscale_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceLocation")
-    def target_resource_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the location of the resource that the autoscale setting should be added to.
         """
         return pulumi.get(self, "target_resource_location")
 
     @target_resource_location.setter
-    def target_resource_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_location", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceUri")
-    def target_resource_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the resource identifier of the resource that the autoscale setting should be added to.
         """
         return pulumi.get(self, "target_resource_uri")
 
     @target_resource_uri.setter
-    def target_resource_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_uri", value)
 
 
@@ -210,23 +210,22 @@ class AutoscaleSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autoscale_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
-                 predictive_autoscale_policy: Optional[pulumi.Input[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 autoscale_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
+                 predictive_autoscale_policy: pulumi.Input[Optional[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The autoscale setting resource.
 
         Uses Azure REST API version 2021-05-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +252,6 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-05-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AutoscaleSettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,17 +267,17 @@ class AutoscaleSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autoscale_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
-                 predictive_autoscale_policy: Optional[pulumi.Input[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 autoscale_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
+                 predictive_autoscale_policy: pulumi.Input[Optional[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

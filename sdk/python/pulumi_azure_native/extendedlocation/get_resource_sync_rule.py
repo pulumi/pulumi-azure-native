@@ -181,7 +181,6 @@ def get_resource_sync_rule(child_resource_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str child_resource_name: Resource Sync Rule name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Custom Locations name.
@@ -205,9 +204,9 @@ def get_resource_sync_rule(child_resource_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_resource_group=pulumi.get(__ret__, 'target_resource_group'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_sync_rule_output(child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
     """
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
@@ -215,7 +214,6 @@ def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2021-08-31-preview.
 
     Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str child_resource_name: Resource Sync Rule name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

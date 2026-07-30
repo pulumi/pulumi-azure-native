@@ -92,7 +92,6 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[_builtins.str] = None
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
     """
@@ -112,18 +111,17 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[_builtins.str] = None
         total_charges=pulumi.get(__ret__, 'total_charges'),
         total_used_billable_hours=pulumi.get(__ret__, 'total_used_billable_hours'),
         total_used_free_hours=pulumi.get(__ret__, 'total_used_free_hours'))
-def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[_builtins.str]] = None,
-                                         page_index: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                         page_size: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         start_time_stamp: Optional[pulumi.Input[_builtins.str]] = None,
-                                         test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_hub_service_usage_output(end_time_stamp: pulumi.Input[Optional[_builtins.str]] = None,
+                                         page_index: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                         page_size: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         start_time_stamp: pulumi.Input[Optional[_builtins.str]] = None,
+                                         test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
     """
     Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.

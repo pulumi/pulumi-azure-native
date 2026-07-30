@@ -298,7 +298,6 @@ def get_io_mam_policy_by_name(host_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-01-14-preview.
 
-
     :param _builtins.str host_name: Location hostName for the tenant
     :param _builtins.str policy_name: Unique name for the policy
     :param _builtins.str select: select specific fields in entity.
@@ -337,15 +336,14 @@ def get_io_mam_policy_by_name(host_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         touch_id=pulumi.get(__ret__, 'touch_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     select: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_io_mam_policy_by_name_output(host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     select: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
     """
     Returns Intune iOS policies.
 
     Uses Azure REST API version 2015-01-14-preview.
-
 
     :param _builtins.str host_name: Location hostName for the tenant
     :param _builtins.str policy_name: Unique name for the policy

@@ -75,7 +75,6 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
     :param _builtins.str skip_token: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
@@ -90,9 +89,9 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
     return AwaitableListProductsAndConfigurationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_products_and_configurations_output(configuration_filter: Optional[pulumi.Input[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
-                                            customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
-                                            skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_products_and_configurations_output(configuration_filter: pulumi.Input[Optional[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
+                                            customer_subscription_details: pulumi.Input[Optional[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
+                                            skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
     """
     List configurations for the given product family, product line and product for the given subscription.
@@ -100,7 +99,6 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.

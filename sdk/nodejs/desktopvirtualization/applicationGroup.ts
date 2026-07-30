@@ -58,7 +58,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface ApplicationGroupArgs {
     /**
      * The name of the application group
      */
-    applicationGroupName?: pulumi.Input<string>;
+    applicationGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource Type of ApplicationGroup.
      */
@@ -199,29 +199,29 @@ export interface ApplicationGroupArgs {
     /**
      * Description of ApplicationGroup.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of ApplicationGroup.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * HostPool arm path of ApplicationGroup.
      */
     hostPoolArmPath: pulumi.Input<string>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
+    managedBy?: pulumi.Input<string | undefined>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -229,10 +229,10 @@ export interface ApplicationGroupArgs {
     /**
      * Boolean representing whether the applicationGroup is show in the feed.
      */
-    showInFeed?: pulumi.Input<boolean>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
+    showInFeed?: pulumi.Input<boolean | undefined>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

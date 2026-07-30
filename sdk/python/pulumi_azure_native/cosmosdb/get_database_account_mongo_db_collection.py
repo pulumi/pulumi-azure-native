@@ -146,7 +146,6 @@ def get_database_account_mongo_db_collection(account_name: Optional[_builtins.st
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str collection_name: Cosmos DB collection name.
     :param _builtins.str database_name: Cosmos DB database name.
@@ -169,10 +168,10 @@ def get_database_account_mongo_db_collection(account_name: Optional[_builtins.st
         shard_key=pulumi.get(__ret__, 'shard_key'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_account_mongo_db_collection_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_mongo_db_collection_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountMongoDBCollectionResult]:
     """
     Gets the MongoDB collection under an existing Azure Cosmos DB database account.
@@ -180,7 +179,6 @@ def get_database_account_mongo_db_collection_output(account_name: Optional[pulum
     Uses Azure REST API version 2016-03-31.
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str collection_name: Cosmos DB collection name.

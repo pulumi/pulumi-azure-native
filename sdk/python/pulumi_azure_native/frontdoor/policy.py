@@ -23,13 +23,13 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_rules: Optional[pulumi.Input['CustomRuleListArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input['ManagedRuleSetListArgs']] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input['PolicySettingsArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_rules: pulumi.Input[Optional['CustomRuleListArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional['ManagedRuleSetListArgs']] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional['PolicySettingsArgs']] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -72,86 +72,86 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input['CustomRuleListArgs']]:
+    def custom_rules(self) -> pulumi.Input[Optional['CustomRuleListArgs']]:
         """
         Describes custom rules inside the policy.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input['CustomRuleListArgs']]):
+    def custom_rules(self, value: pulumi.Input[Optional['CustomRuleListArgs']]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input['ManagedRuleSetListArgs']]:
+    def managed_rules(self) -> pulumi.Input[Optional['ManagedRuleSetListArgs']]:
         """
         Describes managed rules inside the policy.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input['ManagedRuleSetListArgs']]):
+    def managed_rules(self, value: pulumi.Input[Optional['ManagedRuleSetListArgs']]):
         pulumi.set(self, "managed_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Web Application Firewall Policy.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional[pulumi.Input['PolicySettingsArgs']]:
+    def policy_settings(self) -> pulumi.Input[Optional['PolicySettingsArgs']]:
         """
         Describes settings for the policy.
         """
         return pulumi.get(self, "policy_settings")
 
     @policy_settings.setter
-    def policy_settings(self, value: Optional[pulumi.Input['PolicySettingsArgs']]):
+    def policy_settings(self, value: pulumi.Input[Optional['PolicySettingsArgs']]):
         pulumi.set(self, "policy_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Defines web application firewall policy.
@@ -176,7 +176,6 @@ class Policy(pulumi.CustomResource):
         Uses Azure REST API version 2025-11-01.
 
         Other available API versions: 2018-08-01, 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class Policy(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,12 +23,12 @@ __all__ = ['LicenseInitArgs', 'License']
 class LicenseInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 license_details: Optional[pulumi.Input['LicenseDetailsArgs']] = None,
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 license_details: pulumi.Input[Optional['LicenseDetailsArgs']] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a License resource.
 
@@ -68,74 +68,74 @@ class LicenseInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="licenseDetails")
-    def license_details(self) -> Optional[pulumi.Input['LicenseDetailsArgs']]:
+    def license_details(self) -> pulumi.Input[Optional['LicenseDetailsArgs']]:
         """
         Describes the properties of a License.
         """
         return pulumi.get(self, "license_details")
 
     @license_details.setter
-    def license_details(self, value: Optional[pulumi.Input['LicenseDetailsArgs']]):
+    def license_details(self, value: pulumi.Input[Optional['LicenseDetailsArgs']]):
         pulumi.set(self, "license_details", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseName")
-    def license_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the license.
         """
         return pulumi.get(self, "license_name")
 
     @license_name.setter
-    def license_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]:
         """
         The type of the license resource.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the tenant id.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -145,13 +145,13 @@ class License(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_details: Optional[pulumi.Input[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_details: pulumi.Input[Optional[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a license in a hybrid machine.
@@ -159,7 +159,6 @@ class License(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +183,6 @@ class License(pulumi.CustomResource):
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LicenseInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,13 +198,13 @@ class License(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_details: Optional[pulumi.Input[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_details: pulumi.Input[Optional[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

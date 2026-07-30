@@ -230,7 +230,6 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[_builtins.str]
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str namespace_name: Namespace name
     :param _builtins.str notification_hub_name: Notification Hub name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -258,9 +257,9 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[_builtins.str]
         type=pulumi.get(__ret__, 'type'),
         wns_credential=pulumi.get(__ret__, 'wns_credential'),
         xiaomi_credential=pulumi.get(__ret__, 'xiaomi_credential'))
-def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                notification_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_notification_hub_pns_credentials_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                notification_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
     Lists the PNS Credentials associated with a notification hub.
@@ -268,7 +267,6 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str namespace_name: Namespace name
     :param _builtins.str notification_hub_name: Notification Hub name

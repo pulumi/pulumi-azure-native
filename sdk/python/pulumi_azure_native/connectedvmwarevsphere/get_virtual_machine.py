@@ -445,7 +445,6 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str virtual_machine_name: Name of the virtual machine resource.
     """
@@ -489,8 +488,8 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements virtual machine GET method.
@@ -498,7 +497,6 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str virtual_machine_name: Name of the virtual machine resource.

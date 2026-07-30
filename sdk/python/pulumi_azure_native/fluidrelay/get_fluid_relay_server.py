@@ -204,7 +204,6 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[_builtins.str] = No
 
     Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str resource_group: The resource group containing the resource.
     """
@@ -228,8 +227,8 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fluid_relay_server_output(fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayServerResult]:
     """
     A FluidRelay Server.
@@ -237,7 +236,6 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str resource_group: The resource group containing the resource.

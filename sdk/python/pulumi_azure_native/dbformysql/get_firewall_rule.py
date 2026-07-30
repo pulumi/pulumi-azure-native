@@ -133,7 +133,6 @@ def get_firewall_rule(firewall_rule_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str firewall_rule_name: The name of the server firewall rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.
@@ -153,9 +152,9 @@ def get_firewall_rule(firewall_rule_name: Optional[_builtins.str] = None,
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             server_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets information about a server firewall rule.
@@ -163,7 +162,6 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2023-12-30.
 
     Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str firewall_rule_name: The name of the server firewall rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -228,7 +228,6 @@ def get_private_store_collection(collection_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str collection_id: The collection ID
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
     """
@@ -254,8 +253,8 @@ def get_private_store_collection(collection_id: Optional[_builtins.str] = None,
         subscriptions_list=pulumi.get(__ret__, 'subscriptions_list'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_store_collection_output(collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_store_collection_output(collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     Gets private store collection
@@ -263,7 +262,6 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str collection_id: The collection ID
     :param _builtins.str private_store_id: The store ID - must use the tenant ID

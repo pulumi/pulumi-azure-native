@@ -196,27 +196,27 @@ export interface WebTestArgs {
     /**
      * An XML configuration specification for a WebTest.
      */
-    configuration?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesConfigurationArgs | undefined>;
     /**
      * User defined description for this WebTest.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the test actively being monitored.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
      */
-    kind?: pulumi.Input<enums.applicationinsights.WebTestKind>;
+    kind?: pulumi.Input<enums.applicationinsights.WebTestKind | undefined>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
@@ -224,7 +224,7 @@ export interface WebTestArgs {
     /**
      * The collection of request properties
      */
-    request?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesRequestArgs>;
+    request?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesRequestArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -232,7 +232,7 @@ export interface WebTestArgs {
     /**
      * Allow for retries should this WebTest fail.
      */
-    retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
@@ -240,15 +240,15 @@ export interface WebTestArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default value is 30.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The collection of validation rule properties
      */
-    validationRules?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesValidationRulesArgs>;
+    validationRules?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesValidationRulesArgs | undefined>;
     /**
      * The kind of web test this is, valid choices are ping, multistep and standard.
      */
@@ -256,5 +256,5 @@ export interface WebTestArgs {
     /**
      * User defined name if this WebTest.
      */
-    webTestName?: pulumi.Input<string>;
+    webTestName?: pulumi.Input<string | undefined>;
 }

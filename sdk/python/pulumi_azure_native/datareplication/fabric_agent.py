@@ -23,8 +23,8 @@ class FabricAgentArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FabricAgentModelPropertiesArgs']] = None):
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FabricAgentModelPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FabricAgent resource.
 
@@ -66,26 +66,26 @@ class FabricAgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricAgentName")
-    def fabric_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric agent name.
         """
         return pulumi.get(self, "fabric_agent_name")
 
     @fabric_agent_name.setter
-    def fabric_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_agent_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FabricAgentModelPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FabricAgentModelPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FabricAgentModelPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FabricAgentModelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class FabricAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FabricAgentModelPropertiesArgs', 'FabricAgentModelPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FabricAgentModelPropertiesArgs', 'FabricAgentModelPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Fabric agent model.
@@ -106,7 +106,6 @@ class FabricAgent(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01.
 
         Other available API versions: 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class FabricAgent(pulumi.CustomResource):
 
         Other available API versions: 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FabricAgentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class FabricAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FabricAgentModelPropertiesArgs', 'FabricAgentModelPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FabricAgentModelPropertiesArgs', 'FabricAgentModelPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -16,10 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs',
-    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict',
     'CustomerManagedKeyEncryptionArgs',
     'CustomerManagedKeyEncryptionArgsDict',
+    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs',
+    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict',
     'DevCenterProjectCatalogSettingsArgs',
     'DevCenterProjectCatalogSettingsArgsDict',
     'EncryptionArgs',
@@ -44,19 +44,73 @@ __all__ = [
     'UserRoleAssignmentArgsDict',
 ]
 
+class CustomerManagedKeyEncryptionArgsDict(TypedDict):
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
+    key_encryption_key_identity: NotRequired[pulumi.Input[Optional['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict']]]
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+    """
+
+@pulumi.input_type
+class CustomerManagedKeyEncryptionArgs:
+    def __init__(__self__, *,
+                 key_encryption_key_identity: pulumi.Input[Optional['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        All Customer-managed key encryption properties for the resource.
+
+        :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[_builtins.str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> pulumi.Input[Optional['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @key_encryption_key_identity.setter
+    def key_encryption_key_identity(self, value: pulumi.Input[Optional['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]):
+        pulumi.set(self, "key_encryption_key_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
+
+
 class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    delegated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    delegated_identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
     """
-    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    identity_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]]
     """
     Values can be systemAssignedIdentity or userAssignedIdentity
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
     """
@@ -64,9 +118,9 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
     def __init__(__self__, *,
-                 delegated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 delegated_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]] = None,
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
 
@@ -83,100 +137,46 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedIdentityClientId")
-    def delegated_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
         """
         return pulumi.get(self, "delegated_identity_client_id")
 
     @delegated_identity_client_id.setter
-    def delegated_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]:
+    def identity_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]:
         """
         Values can be systemAssignedIdentity or userAssignedIdentity
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]):
+    def identity_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
-
-
-class CustomerManagedKeyEncryptionArgsDict(TypedDict):
-    """
-    All Customer-managed key encryption properties for the resource.
-    """
-    key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict']]
-    """
-    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-    """
-    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-    """
-
-@pulumi.input_type
-class CustomerManagedKeyEncryptionArgs:
-    def __init__(__self__, *,
-                 key_encryption_key_identity: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']] = None,
-                 key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        All Customer-managed key encryption properties for the resource.
-
-        :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        :param pulumi.Input[_builtins.str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-        """
-        if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
-        if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
-
-    @_builtins.property
-    @pulumi.getter(name="keyEncryptionKeyIdentity")
-    def key_encryption_key_identity(self) -> Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]:
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        return pulumi.get(self, "key_encryption_key_identity")
-
-    @key_encryption_key_identity.setter
-    def key_encryption_key_identity(self, value: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]):
-        pulumi.set(self, "key_encryption_key_identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyEncryptionKeyUrl")
-    def key_encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-        """
-        return pulumi.get(self, "key_encryption_key_url")
-
-    @key_encryption_key_url.setter
-    def key_encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key_encryption_key_url", value)
 
 
 class DevCenterProjectCatalogSettingsArgsDict(TypedDict):
     """
     Project catalog settings for project catalogs under a project associated to this dev center.
     """
-    catalog_item_sync_enable_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]
+    catalog_item_sync_enable_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]]
     """
     Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
     """
@@ -184,7 +184,7 @@ class DevCenterProjectCatalogSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DevCenterProjectCatalogSettingsArgs:
     def __init__(__self__, *,
-                 catalog_item_sync_enable_status: Optional[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]] = None):
+                 catalog_item_sync_enable_status: pulumi.Input[Optional[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]] = None):
         """
         Project catalog settings for project catalogs under a project associated to this dev center.
 
@@ -195,19 +195,19 @@ class DevCenterProjectCatalogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogItemSyncEnableStatus")
-    def catalog_item_sync_enable_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]:
+    def catalog_item_sync_enable_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]:
         """
         Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
         """
         return pulumi.get(self, "catalog_item_sync_enable_status")
 
     @catalog_item_sync_enable_status.setter
-    def catalog_item_sync_enable_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]):
+    def catalog_item_sync_enable_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]):
         pulumi.set(self, "catalog_item_sync_enable_status", value)
 
 
 class EncryptionArgsDict(TypedDict):
-    customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
+    customer_managed_key_encryption: NotRequired[pulumi.Input[Optional['CustomerManagedKeyEncryptionArgsDict']]]
     """
     All Customer-managed key encryption properties for the resource.
     """
@@ -215,7 +215,7 @@ class EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None):
+                 customer_managed_key_encryption: pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']] = None):
         """
         :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
@@ -224,14 +224,14 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]:
+    def customer_managed_key_encryption(self) -> pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']]:
         """
         All Customer-managed key encryption properties for the resource.
         """
         return pulumi.get(self, "customer_managed_key_encryption")
 
     @customer_managed_key_encryption.setter
-    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]):
+    def customer_managed_key_encryption(self, value: pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']]):
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 
@@ -239,19 +239,19 @@ class GitCatalogArgsDict(TypedDict):
     """
     Properties for a Git repository catalog.
     """
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Git branch.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder where the catalog items can be found inside the repository.
     """
-    secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    secret_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Git URI.
     """
@@ -259,10 +259,10 @@ class GitCatalogArgsDict(TypedDict):
 @pulumi.input_type
 class GitCatalogArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for a Git repository catalog.
 
@@ -282,50 +282,50 @@ class GitCatalogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder where the catalog items can be found inside the repository.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="secretIdentifier")
-    def secret_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
         """
         return pulumi.get(self, "secret_identifier")
 
     @secret_identifier.setter
-    def secret_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git URI.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -333,7 +333,7 @@ class ImageReferenceArgsDict(TypedDict):
     """
     Image reference information
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
     """
@@ -341,7 +341,7 @@ class ImageReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image reference information
 
@@ -352,14 +352,14 @@ class ImageReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -371,7 +371,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -380,7 +380,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -405,14 +405,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -420,7 +420,7 @@ class ProjectCatalogSettingsArgsDict(TypedDict):
     """
     Settings to be used when associating a project with a catalog.
     """
-    catalog_item_sync_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]
+    catalog_item_sync_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]]
     """
     Indicates catalog item types that can be synced.
     """
@@ -428,7 +428,7 @@ class ProjectCatalogSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectCatalogSettingsArgs:
     def __init__(__self__, *,
-                 catalog_item_sync_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]] = None):
+                 catalog_item_sync_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]] = None):
         """
         Settings to be used when associating a project with a catalog.
 
@@ -439,14 +439,14 @@ class ProjectCatalogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogItemSyncTypes")
-    def catalog_item_sync_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]:
+    def catalog_item_sync_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]:
         """
         Indicates catalog item types that can be synced.
         """
         return pulumi.get(self, "catalog_item_sync_types")
 
     @catalog_item_sync_types.setter
-    def catalog_item_sync_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]):
+    def catalog_item_sync_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]):
         pulumi.set(self, "catalog_item_sync_types", value)
 
 
@@ -454,7 +454,7 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict(TypedD
     """
     The role definition assigned to the environment creator on backing resources.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A map of roles to assign to the environment creator.
     """
@@ -462,7 +462,7 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict(TypedD
 @pulumi.input_type
 class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The role definition assigned to the environment creator on backing resources.
 
@@ -473,14 +473,14 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A map of roles to assign to the environment creator.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -488,11 +488,11 @@ class ResourcePolicyArgsDict(TypedDict):
     """
     A resource policy.
     """
-    filter: NotRequired[pulumi.Input[_builtins.str]]
+    filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. When specified, this expression is used to filter the resources.
     """
-    resources: NotRequired[pulumi.Input[_builtins.str]]
+    resources: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resources that are included and shared as a part of a project policy.
     """
@@ -500,8 +500,8 @@ class ResourcePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ResourcePolicyArgs:
     def __init__(__self__, *,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A resource policy.
 
@@ -515,26 +515,26 @@ class ResourcePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. When specified, this expression is used to filter the resources.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resources(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resources that are included and shared as a part of a project policy.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resources(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resources", value)
 
 
@@ -546,19 +546,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU. E.g. P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -567,17 +567,17 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -604,50 +604,50 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -655,11 +655,11 @@ class StopOnDisconnectConfigurationArgsDict(TypedDict):
     """
     Stop on disconnect configuration settings for Dev Boxes created in this pool.
     """
-    grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    grace_period_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]]
     """
     Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
     """
@@ -667,8 +667,8 @@ class StopOnDisconnectConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StopOnDisconnectConfigurationArgs:
     def __init__(__self__, *,
-                 grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]] = None):
+                 grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]] = None):
         """
         Stop on disconnect configuration settings for Dev Boxes created in this pool.
 
@@ -682,26 +682,26 @@ class StopOnDisconnectConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gracePeriodMinutes")
-    def grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def grace_period_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
         """
         return pulumi.get(self, "grace_period_minutes")
 
     @grace_period_minutes.setter
-    def grace_period_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def grace_period_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "grace_period_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]:
         """
         Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -709,7 +709,7 @@ class UserRoleAssignmentArgsDict(TypedDict):
     """
     Mapping of user object ID to role assignments.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A map of roles to assign to the parent user.
     """
@@ -717,7 +717,7 @@ class UserRoleAssignmentArgsDict(TypedDict):
 @pulumi.input_type
 class UserRoleAssignmentArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Mapping of user object ID to role assignments.
 
@@ -728,14 +728,14 @@ class UserRoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A map of roles to assign to the parent user.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
 

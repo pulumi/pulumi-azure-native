@@ -132,7 +132,6 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -150,8 +149,8 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets the endpoint to the resource.
@@ -159,7 +158,6 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2024-12-01.
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

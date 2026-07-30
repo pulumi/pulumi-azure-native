@@ -314,9 +314,9 @@ class GetDatabaseResult:
     def free_limit_exhaustion_behavior(self) -> Optional[_builtins.str]:
         """
         Specifies the behavior when monthly free limits are exhausted for the free database.
-        
+
         AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
-        
+
         BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
         """
         return pulumi.get(self, "free_limit_exhaustion_behavior")
@@ -414,11 +414,11 @@ class GetDatabaseResult:
     def manual_cutover(self) -> Optional[_builtins.bool]:
         """
         Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
-        
+
         When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
-        
+
         To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
         """
         return pulumi.get(self, "manual_cutover")
@@ -468,11 +468,11 @@ class GetDatabaseResult:
     def perform_cutover(self) -> Optional[_builtins.bool]:
         """
         To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
-        
+
         This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
-        
+
         When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
         """
         return pulumi.get(self, "perform_cutover")
@@ -530,16 +530,16 @@ class GetDatabaseResult:
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The database SKU.
-        
+
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        
+
         ```azurecli
         az sql db list-editions -l <location> -o table
-        ````
-        
+        ```
+
         ```powershell
         Get-AzSqlServerServiceObjective -Location <location>
-        ````
+        ```
         """
         return pulumi.get(self, "sku")
 
@@ -653,7 +653,6 @@ def get_database(database_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str filter: An OData filter expression that filters elements in the collection.
@@ -718,11 +717,11 @@ def get_database(database_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_free_limit=pulumi.get(__ret__, 'use_free_limit'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        server_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets a database.
@@ -730,7 +729,6 @@ def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str expand: The child resources to include in the response.

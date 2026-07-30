@@ -145,7 +145,6 @@ def get_curation_profile(curation_profile_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str curation_profile_name: The name of the curation profile.
     :param _builtins.str dev_center_name: The name of the devcenter.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_curation_profile(curation_profile_name: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_curation_profile_output(curation_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurationProfileResult]:
     """
     Gets a specific curation profile.
@@ -176,7 +175,6 @@ def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str curation_profile_name: The name of the curation profile.
     :param _builtins.str dev_center_name: The name of the devcenter.

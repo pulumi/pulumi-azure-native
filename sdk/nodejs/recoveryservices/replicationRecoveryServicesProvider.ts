@@ -123,7 +123,7 @@ export interface ReplicationRecoveryServicesProviderArgs {
     /**
      * Recovery services provider name.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

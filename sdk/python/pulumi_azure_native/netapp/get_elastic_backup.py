@@ -122,7 +122,6 @@ def get_elastic_backup(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-12-15-preview, 2026-01-15-preview, 2026-03-15-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the ElasticAccount
     :param _builtins.str backup_name: The name of the ElasticBackup
     :param _builtins.str backup_vault_name: The name of the ElasticBackupVault
@@ -143,10 +142,10 @@ def get_elastic_backup(account_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_elastic_backup_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_elastic_backup_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticBackupResult]:
     """
     Get the specified Elastic Backup under Elastic Backup Vault.
@@ -154,7 +153,6 @@ def get_elastic_backup_output(account_name: Optional[pulumi.Input[_builtins.str]
     Uses Azure REST API version 2025-09-01-preview.
 
     Other available API versions: 2025-12-15-preview, 2026-01-15-preview, 2026-03-15-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the ElasticAccount
     :param _builtins.str backup_name: The name of the ElasticBackup

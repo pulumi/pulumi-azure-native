@@ -286,7 +286,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["sku"] = args?.sku;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["upgradeDescription"] = args ? (args.upgradeDescription ? pulumi.output(args.upgradeDescription).apply(inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["upgradeDescription"] = args ? pulumi.output(args.upgradeDescription).apply(v => v === undefined ? undefined : inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults(v)) : undefined;
             resourceInputs["useCustomVnet"] = args?.useCustomVnet;
             resourceInputs["zonalResiliency"] = (args?.zonalResiliency) ?? false;
             resourceInputs["zonalUpdateMode"] = args?.zonalUpdateMode;
@@ -365,11 +365,11 @@ export interface ManagedClusterArgs {
     /**
      * List of add-on features to enable on the cluster.
      */
-    addonFeatures?: pulumi.Input<pulumi.Input<string | enums.servicefabric.ManagedClusterAddOnFeature>[]>;
+    addonFeatures?: pulumi.Input<pulumi.Input<string | enums.servicefabric.ManagedClusterAddOnFeature>[] | undefined>;
     /**
      * VM admin user password.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * VM admin user name.
      */
@@ -377,47 +377,47 @@ export interface ManagedClusterArgs {
     /**
      * Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
      */
-    allowRdpAccess?: pulumi.Input<boolean>;
+    allowRdpAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The policy used to clean up unused versions.
      */
-    applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicyArgs>;
+    applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicyArgs | undefined>;
     /**
      * Auxiliary subnets for the cluster.
      */
-    auxiliarySubnets?: pulumi.Input<pulumi.Input<inputs.servicefabric.SubnetArgs>[]>;
+    auxiliarySubnets?: pulumi.Input<pulumi.Input<inputs.servicefabric.SubnetArgs>[] | undefined>;
     /**
      * The AAD authentication settings of the cluster.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryArgs>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryArgs | undefined>;
     /**
      * The port used for client connections to the cluster.
      */
-    clientConnectionPort?: pulumi.Input<number>;
+    clientConnectionPort?: pulumi.Input<number | undefined>;
     /**
      * Client certificates that are allowed to manage the cluster.
      */
-    clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateArgs>[]>;
+    clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateArgs>[] | undefined>;
     /**
      * The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
-    clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster resource.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
      */
-    clusterUpgradeCadence?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeCadence>;
+    clusterUpgradeCadence?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeCadence | undefined>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
      */
-    clusterUpgradeMode?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeMode>;
+    clusterUpgradeMode?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeMode | undefined>;
     /**
      * Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
      */
-    ddosProtectionPlanId?: pulumi.Input<string>;
+    ddosProtectionPlanId?: pulumi.Input<string | undefined>;
     /**
      * The cluster dns name.
      */
@@ -425,55 +425,55 @@ export interface ManagedClusterArgs {
     /**
      * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
      */
-    enableAutoOSUpgrade?: pulumi.Input<boolean>;
+    enableAutoOSUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
      */
-    enableHttpGatewayExclusiveAuthMode?: pulumi.Input<boolean>;
+    enableHttpGatewayExclusiveAuthMode?: pulumi.Input<boolean | undefined>;
     /**
      * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
      */
-    enableIpv6?: pulumi.Input<boolean>;
+    enableIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
      */
-    enableServicePublicIP?: pulumi.Input<boolean>;
+    enableServicePublicIP?: pulumi.Input<boolean | undefined>;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[] | undefined>;
     /**
      * The port used for HTTP connections to the cluster.
      */
-    httpGatewayConnectionPort?: pulumi.Input<number>;
+    httpGatewayConnectionPort?: pulumi.Input<number | undefined>;
     /**
      * The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
      */
-    httpGatewayTokenAuthConnectionPort?: pulumi.Input<number>;
+    httpGatewayTokenAuthConnectionPort?: pulumi.Input<number | undefined>;
     /**
      * The list of IP tags associated with the default public IP address of the cluster.
      */
-    ipTags?: pulumi.Input<pulumi.Input<inputs.servicefabric.IpTagArgs>[]>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.servicefabric.IpTagArgs>[] | undefined>;
     /**
      * Load balancing rules that are applied to the public load balancer of the cluster.
      */
-    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.LoadBalancingRuleArgs>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.LoadBalancingRuleArgs>[] | undefined>;
     /**
      * Azure resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
      */
-    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
+    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[] | undefined>;
     /**
      * Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
      */
-    publicIPPrefixId?: pulumi.Input<string>;
+    publicIPPrefixId?: pulumi.Input<string | undefined>;
     /**
      * Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
      */
-    publicIPv6PrefixId?: pulumi.Input<string>;
+    publicIPv6PrefixId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -481,7 +481,7 @@ export interface ManagedClusterArgs {
     /**
      * Service endpoints for subnets in the cluster.
      */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServiceEndpointArgs>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServiceEndpointArgs>[] | undefined>;
     /**
      * The sku of the managed cluster
      */
@@ -489,25 +489,25 @@ export interface ManagedClusterArgs {
     /**
      * If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The policy to use when upgrading the cluster.
      */
-    upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyArgs>;
+    upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyArgs | undefined>;
     /**
      * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
      */
-    useCustomVnet?: pulumi.Input<boolean>;
+    useCustomVnet?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if the cluster has zone resiliency.
      */
-    zonalResiliency?: pulumi.Input<boolean>;
+    zonalResiliency?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the update mode for Cross Az clusters.
      */
-    zonalUpdateMode?: pulumi.Input<string | enums.servicefabric.ZonalUpdateMode>;
+    zonalUpdateMode?: pulumi.Input<string | enums.servicefabric.ZonalUpdateMode | undefined>;
 }

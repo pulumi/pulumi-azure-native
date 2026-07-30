@@ -23,10 +23,10 @@ class ShareArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_kind: Optional[pulumi.Input[Union[_builtins.str, 'ShareKind']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_kind: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
 
@@ -74,50 +74,50 @@ class ShareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Share description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="shareKind")
-    def share_kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ShareKind']]]:
+    def share_kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]]:
         """
         Share kind.
         """
         return pulumi.get(self, "share_kind")
 
     @share_kind.setter
-    def share_kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ShareKind']]]):
+    def share_kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]]):
         pulumi.set(self, "share_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the share.
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Share terms.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
@@ -127,18 +127,17 @@ class Share(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_kind: Optional[pulumi.Input[Union[_builtins.str, 'ShareKind']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_kind: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A share data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class Share(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class Share(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_kind: Optional[pulumi.Input[Union[_builtins.str, 'ShareKind']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_kind: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

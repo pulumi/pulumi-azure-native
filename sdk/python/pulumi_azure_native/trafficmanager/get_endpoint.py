@@ -266,7 +266,6 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str endpoint_name: The name of the Traffic Manager endpoint.
     :param _builtins.str endpoint_type: The type of the Traffic Manager endpoint.
     :param _builtins.str profile_name: The name of the Traffic Manager profile.
@@ -299,10 +298,10 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
-def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                        profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                        profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets a Traffic Manager endpoint.
@@ -310,7 +309,6 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str endpoint_name: The name of the Traffic Manager endpoint.
     :param _builtins.str endpoint_type: The type of the Traffic Manager endpoint.

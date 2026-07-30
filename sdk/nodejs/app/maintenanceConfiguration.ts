@@ -111,7 +111,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    configName?: pulumi.Input<string>;
+    configName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Managed Environment.
      */

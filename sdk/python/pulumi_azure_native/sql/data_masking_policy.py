@@ -24,8 +24,8 @@ class DataMaskingPolicyArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 data_masking_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exempt_principals: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_masking_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exempt_principals: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataMaskingPolicy resource.
 
@@ -95,26 +95,26 @@ class DataMaskingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataMaskingPolicyName")
-    def data_masking_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_masking_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database for which the data masking policy applies.
         """
         return pulumi.get(self, "data_masking_policy_name")
 
     @data_masking_policy_name.setter
-    def data_masking_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_masking_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_masking_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="exemptPrincipals")
-    def exempt_principals(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exempt_principals(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
         """
         return pulumi.get(self, "exempt_principals")
 
     @exempt_principals.setter
-    def exempt_principals(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exempt_principals(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exempt_principals", value)
 
 
@@ -124,12 +124,12 @@ class DataMaskingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_masking_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_masking_state: Optional[pulumi.Input['DataMaskingState']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exempt_principals: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_masking_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_masking_state: pulumi.Input[Optional['DataMaskingState']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exempt_principals: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A database data masking policy.
@@ -137,7 +137,6 @@ class DataMaskingPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class DataMaskingPolicy(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DataMaskingPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class DataMaskingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_masking_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_masking_state: Optional[pulumi.Input['DataMaskingState']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exempt_principals: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_masking_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_masking_state: pulumi.Input[Optional['DataMaskingState']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exempt_principals: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

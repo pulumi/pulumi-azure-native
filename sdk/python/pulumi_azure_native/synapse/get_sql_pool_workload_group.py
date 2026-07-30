@@ -169,7 +169,6 @@ def get_sql_pool_workload_group(resource_group_name: Optional[_builtins.str] = N
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_pool_name: SQL pool name
     :param _builtins.str workload_group_name: The name of the workload group.
@@ -194,10 +193,10 @@ def get_sql_pool_workload_group(resource_group_name: Optional[_builtins.str] = N
         name=pulumi.get(__ret__, 'name'),
         query_execution_timeout=pulumi.get(__ret__, 'query_execution_timeout'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_pool_workload_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
     """
     Get a Sql pool's workload group.
@@ -205,7 +204,6 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_pool_name: SQL pool name

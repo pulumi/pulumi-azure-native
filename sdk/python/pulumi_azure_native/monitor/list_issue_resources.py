@@ -74,7 +74,6 @@ def list_issue_resources(azure_monitor_workspace_name: Optional[_builtins.str] =
 
     Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'". Note: this property is currently a placeholder and is not in use.
     :param _builtins.str issue_name: The name of the IssueResource
@@ -91,10 +90,10 @@ def list_issue_resources(azure_monitor_workspace_name: Optional[_builtins.str] =
     return AwaitableListIssueResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_issue_resources_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_issue_resources_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIssueResourcesResult]:
     """
     List all resources in the issue - this method uses pagination to return all resources
@@ -102,7 +101,6 @@ def list_issue_resources_output(azure_monitor_workspace_name: Optional[pulumi.In
     Uses Azure REST API version 2025-05-03-preview.
 
     Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'". Note: this property is currently a placeholder and is not in use.

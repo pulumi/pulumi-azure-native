@@ -26,14 +26,14 @@ __all__ = [
     'CertificateConfigurationArgsDict',
     'DataPointArgs',
     'DataPointArgsDict',
+    'DatasetArgs',
+    'DatasetArgsDict',
     'DatasetBrokerStateStoreDestinationArgs',
     'DatasetBrokerStateStoreDestinationArgsDict',
     'DatasetMqttDestinationArgs',
     'DatasetMqttDestinationArgsDict',
     'DatasetStorageDestinationArgs',
     'DatasetStorageDestinationArgsDict',
-    'DatasetArgs',
-    'DatasetArgsDict',
     'DeviceMessagingEndpointArgs',
     'DeviceMessagingEndpointArgsDict',
     'DeviceRefArgs',
@@ -50,12 +50,12 @@ __all__ = [
     'DiscoveredMessagingEndpointsArgsDict',
     'DiscoveredOutboundEndpointsArgs',
     'DiscoveredOutboundEndpointsArgsDict',
+    'EventArgs',
+    'EventArgsDict',
     'EventMqttDestinationArgs',
     'EventMqttDestinationArgsDict',
     'EventStorageDestinationArgs',
     'EventStorageDestinationArgsDict',
-    'EventArgs',
-    'EventArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
     'HostAuthenticationArgs',
@@ -68,36 +68,36 @@ __all__ = [
     'ManagementActionArgsDict',
     'ManagementGroupArgs',
     'ManagementGroupArgsDict',
-    'MessagingEndpointsArgs',
-    'MessagingEndpointsArgsDict',
-    'MessagingEndpointArgs',
-    'MessagingEndpointArgsDict',
     'MessagingArgs',
     'MessagingArgsDict',
+    'MessagingEndpointArgs',
+    'MessagingEndpointArgsDict',
+    'MessagingEndpointsArgs',
+    'MessagingEndpointsArgsDict',
     'MqttDestinationConfigurationArgs',
     'MqttDestinationConfigurationArgsDict',
-    'NamespaceDatasetDataPointArgs',
-    'NamespaceDatasetDataPointArgsDict',
     'NamespaceDatasetArgs',
     'NamespaceDatasetArgsDict',
-    'NamespaceDiscoveredDatasetDataPointArgs',
-    'NamespaceDiscoveredDatasetDataPointArgsDict',
+    'NamespaceDatasetDataPointArgs',
+    'NamespaceDatasetDataPointArgsDict',
     'NamespaceDiscoveredDatasetArgs',
     'NamespaceDiscoveredDatasetArgsDict',
-    'NamespaceDiscoveredEventDataPointArgs',
-    'NamespaceDiscoveredEventDataPointArgsDict',
+    'NamespaceDiscoveredDatasetDataPointArgs',
+    'NamespaceDiscoveredDatasetDataPointArgsDict',
     'NamespaceDiscoveredEventArgs',
     'NamespaceDiscoveredEventArgsDict',
+    'NamespaceDiscoveredEventDataPointArgs',
+    'NamespaceDiscoveredEventDataPointArgsDict',
     'NamespaceDiscoveredManagementActionArgs',
     'NamespaceDiscoveredManagementActionArgsDict',
     'NamespaceDiscoveredManagementGroupArgs',
     'NamespaceDiscoveredManagementGroupArgsDict',
     'NamespaceDiscoveredStreamArgs',
     'NamespaceDiscoveredStreamArgsDict',
-    'NamespaceEventDataPointArgs',
-    'NamespaceEventDataPointArgsDict',
     'NamespaceEventArgs',
     'NamespaceEventArgsDict',
+    'NamespaceEventDataPointArgs',
+    'NamespaceEventDataPointArgsDict',
     'NamespaceStreamArgs',
     'NamespaceStreamArgsDict',
     'OutboundEndpointsArgs',
@@ -130,11 +130,11 @@ class AuthenticationArgsDict(TypedDict):
     """
     Defines the method to authenticate the user of the client at the server.
     """
-    username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+    username_password_credentials: NotRequired[pulumi.Input[Optional['UsernamePasswordCredentialsArgsDict']]]
     """
     Defines the username and password references when UsernamePassword user authentication mode is selected.
     """
-    x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+    x509_credentials: NotRequired[pulumi.Input[Optional['X509CredentialsArgsDict']]]
     """
     Defines the certificate reference when Certificate user authentication mode is selected.
     """
@@ -142,9 +142,9 @@ class AuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class AuthenticationArgs:
     def __init__(__self__, *,
-                 method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
-                 username_password_credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
-                 x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
+                 method: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMethod']]] = None,
+                 username_password_credentials: pulumi.Input[Optional['UsernamePasswordCredentialsArgs']] = None,
+                 x509_credentials: pulumi.Input[Optional['X509CredentialsArgs']] = None):
         """
         Definition of the client authentication mechanism to the server.
 
@@ -174,26 +174,26 @@ class AuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordCredentials")
-    def username_password_credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
+    def username_password_credentials(self) -> pulumi.Input[Optional['UsernamePasswordCredentialsArgs']]:
         """
         Defines the username and password references when UsernamePassword user authentication mode is selected.
         """
         return pulumi.get(self, "username_password_credentials")
 
     @username_password_credentials.setter
-    def username_password_credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
+    def username_password_credentials(self, value: pulumi.Input[Optional['UsernamePasswordCredentialsArgs']]):
         pulumi.set(self, "username_password_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional[pulumi.Input['X509CredentialsArgs']]:
+    def x509_credentials(self) -> pulumi.Input[Optional['X509CredentialsArgs']]:
         """
         Defines the certificate reference when Certificate user authentication mode is selected.
         """
         return pulumi.get(self, "x509_credentials")
 
     @x509_credentials.setter
-    def x509_credentials(self, value: Optional[pulumi.Input['X509CredentialsArgs']]):
+    def x509_credentials(self, value: pulumi.Input[Optional['X509CredentialsArgs']]):
         pulumi.set(self, "x509_credentials", value)
 
 
@@ -327,11 +327,11 @@ class DataPointArgsDict(TypedDict):
     """
     The name of the data point.
     """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]]
+    observability_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataPointObservabilityMode']]]]
     """
     An indication of how the data point should be mapped to OpenTelemetry.
     """
@@ -341,8 +341,8 @@ class DataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 observability_mode: Optional[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]] = None):
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 observability_mode: pulumi.Input[Optional[Union[_builtins.str, 'DataPointObservabilityMode']]] = None):
         """
         Defines the data point properties.
 
@@ -386,27 +386,120 @@ class DataPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
     @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="observabilityMode")
-    def observability_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]]:
+    def observability_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataPointObservabilityMode']]]:
         """
         An indication of how the data point should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
 
     @observability_mode.setter
-    def observability_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]]):
+    def observability_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataPointObservabilityMode']]]):
         pulumi.set(self, "observability_mode", value)
+
+
+class DatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataPointArgsDict']]]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+    """
+    topic: NotRequired[pulumi.Input[Optional['TopicArgsDict']]]
+    """
+    Object that describes the topic information for the specific dataset.
+    """
+
+@pulumi.input_type
+class DatasetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['DataPointArgs']]]] = None,
+                 dataset_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional['TopicArgs']] = None):
+        """
+        Defines the dataset properties.
+
+        :param pulumi.Input[_builtins.str] name: Name of the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if data_points is not None:
+            pulumi.set(__self__, "data_points", data_points)
+        if dataset_configuration is not None:
+            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPoints")
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataPointArgs']]]]:
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        return pulumi.get(self, "data_points")
+
+    @data_points.setter
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataPointArgs']]]]):
+        pulumi.set(self, "data_points", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @dataset_configuration.setter
+    def dataset_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dataset_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[Optional['TopicArgs']]:
+        """
+        Object that describes the topic information for the specific dataset.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[Optional['TopicArgs']]):
+        pulumi.set(self, "topic", value)
 
 
 class DatasetBrokerStateStoreDestinationArgsDict(TypedDict):
@@ -574,99 +667,6 @@ class DatasetStorageDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-class DatasetArgsDict(TypedDict):
-    """
-    Defines the dataset properties.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of the dataset.
-    """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPointArgsDict']]]]
-    """
-    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-    """
-    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
-    """
-    topic: NotRequired[pulumi.Input['TopicArgsDict']]
-    """
-    Object that describes the topic information for the specific dataset.
-    """
-
-@pulumi.input_type
-class DatasetArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]] = None,
-                 dataset_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input['TopicArgs']] = None):
-        """
-        Defines the dataset properties.
-
-        :param pulumi.Input[_builtins.str] name: Name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
-        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific dataset.
-        """
-        pulumi.set(__self__, "name", name)
-        if data_points is not None:
-            pulumi.set(__self__, "data_points", data_points)
-        if dataset_configuration is not None:
-            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
-        if topic is not None:
-            pulumi.set(__self__, "topic", topic)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dataset.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]:
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        return pulumi.get(self, "data_points")
-
-    @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]):
-        pulumi.set(self, "data_points", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datasetConfiguration")
-    def dataset_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
-        """
-        return pulumi.get(self, "dataset_configuration")
-
-    @dataset_configuration.setter
-    def dataset_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "dataset_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
-        """
-        Object that describes the topic information for the specific dataset.
-        """
-        return pulumi.get(self, "topic")
-
-    @topic.setter
-    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
-        pulumi.set(self, "topic", value)
-
-
 class DeviceMessagingEndpointArgsDict(TypedDict):
     """
     Device messaging endpoint model.
@@ -675,7 +675,7 @@ class DeviceMessagingEndpointArgsDict(TypedDict):
     """
     The endpoint address to connect to.
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of connection used for the messaging endpoint.
     """
@@ -684,7 +684,7 @@ class DeviceMessagingEndpointArgsDict(TypedDict):
 class DeviceMessagingEndpointArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Device messaging endpoint model.
 
@@ -709,14 +709,14 @@ class DeviceMessagingEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of connection used for the messaging endpoint.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
 
@@ -784,11 +784,11 @@ class DiscoveredDataPointArgsDict(TypedDict):
     """
     The name of the data point.
     """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UTC timestamp indicating when the data point was added or modified.
     """
@@ -798,8 +798,8 @@ class DiscoveredDataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the data point properties.
 
@@ -841,26 +841,26 @@ class DiscoveredDataPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
     @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UTC timestamp indicating when the data point was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
 
@@ -872,15 +872,15 @@ class DiscoveredDatasetArgsDict(TypedDict):
     """
     Name of the dataset.
     """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgsDict']]]]
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDataPointArgsDict']]]]]
     """
     Array of data points that are part of the dataset. Each data point can have per-data point configuration.
     """
-    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
     """
-    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    topic: NotRequired[pulumi.Input[Optional['TopicArgsDict']]]
     """
     Object that describes the topic information for the specific dataset.
     """
@@ -889,9 +889,9 @@ class DiscoveredDatasetArgsDict(TypedDict):
 class DiscoveredDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]] = None,
-                 dataset_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input['TopicArgs']] = None):
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]] = None,
+                 dataset_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional['TopicArgs']] = None):
         """
         Defines the dataset properties.
 
@@ -922,38 +922,38 @@ class DiscoveredDatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]]:
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]]:
         """
         Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
     @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]]):
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDataPointArgs']]]]):
         pulumi.set(self, "data_points", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetConfiguration")
-    def dataset_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
         """
         return pulumi.get(self, "dataset_configuration")
 
     @dataset_configuration.setter
-    def dataset_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+    def topic(self) -> pulumi.Input[Optional['TopicArgs']]:
         """
         Object that describes the topic information for the specific dataset.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+    def topic(self, value: pulumi.Input[Optional['TopicArgs']]):
         pulumi.set(self, "topic", value)
 
 
@@ -969,15 +969,15 @@ class DiscoveredEventArgsDict(TypedDict):
     """
     The name of the event.
     """
-    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    event_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UTC timestamp indicating when the event was added or modified.
     """
-    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    topic: NotRequired[pulumi.Input[Optional['TopicArgsDict']]]
     """
     Object that describes the topic information for the specific event.
     """
@@ -987,9 +987,9 @@ class DiscoveredEventArgs:
     def __init__(__self__, *,
                  event_notifier: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 event_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input['TopicArgs']] = None):
+                 event_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional['TopicArgs']] = None):
         """
         Defines the event properties.
 
@@ -1034,38 +1034,38 @@ class DiscoveredEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventConfiguration")
-    def event_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "event_configuration")
 
     @event_configuration.setter
-    def event_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UTC timestamp indicating when the event was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+    def topic(self) -> pulumi.Input[Optional['TopicArgs']]:
         """
         Object that describes the topic information for the specific event.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+    def topic(self, value: pulumi.Input[Optional['TopicArgs']]):
         pulumi.set(self, "topic", value)
 
 
@@ -1081,19 +1081,19 @@ class DiscoveredInboundEndpointsArgsDict(TypedDict):
     """
     Type of connection endpoint.
     """
-    additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    additional_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp (in UTC) when the endpoint was discovered.
     """
-    supported_authentication_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]
+    supported_authentication_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]]
     """
     List of supported authentication methods supported by device for Inbound connections.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
     """
@@ -1103,10 +1103,10 @@ class DiscoveredInboundEndpointsArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An endpoint to connect to the device.
 
@@ -1154,50 +1154,50 @@ class DiscoveredInboundEndpointsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
     @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp (in UTC) when the endpoint was discovered.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedAuthenticationMethods")
-    def supported_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]:
+    def supported_authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]:
         """
         List of supported authentication methods supported by device for Inbound connections.
         """
         return pulumi.get(self, "supported_authentication_methods")
 
     @supported_authentication_methods.setter
-    def supported_authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]):
+    def supported_authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]):
         pulumi.set(self, "supported_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1205,11 +1205,11 @@ class DiscoveredMessagingEndpointsArgsDict(TypedDict):
     """
     Connection endpoint URL a device can use to connect to a service.
     """
-    inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgsDict']]]]
+    inbound: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgsDict']]]]]
     """
     Set of endpoints to connect to the device.
     """
-    outbound: NotRequired[pulumi.Input['DiscoveredOutboundEndpointsArgsDict']]
+    outbound: NotRequired[pulumi.Input[Optional['DiscoveredOutboundEndpointsArgsDict']]]
     """
     Set of endpoints a device can connect to.
     """
@@ -1217,8 +1217,8 @@ class DiscoveredMessagingEndpointsArgsDict(TypedDict):
 @pulumi.input_type
 class DiscoveredMessagingEndpointsArgs:
     def __init__(__self__, *,
-                 inbound: Optional[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]] = None,
-                 outbound: Optional[pulumi.Input['DiscoveredOutboundEndpointsArgs']] = None):
+                 inbound: pulumi.Input[Optional[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]] = None,
+                 outbound: pulumi.Input[Optional['DiscoveredOutboundEndpointsArgs']] = None):
         """
         Connection endpoint URL a device can use to connect to a service.
 
@@ -1232,26 +1232,26 @@ class DiscoveredMessagingEndpointsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def inbound(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]]:
+    def inbound(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]]:
         """
         Set of endpoints to connect to the device.
         """
         return pulumi.get(self, "inbound")
 
     @inbound.setter
-    def inbound(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]]):
+    def inbound(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]]]):
         pulumi.set(self, "inbound", value)
 
     @_builtins.property
     @pulumi.getter
-    def outbound(self) -> Optional[pulumi.Input['DiscoveredOutboundEndpointsArgs']]:
+    def outbound(self) -> pulumi.Input[Optional['DiscoveredOutboundEndpointsArgs']]:
         """
         Set of endpoints a device can connect to.
         """
         return pulumi.get(self, "outbound")
 
     @outbound.setter
-    def outbound(self, value: Optional[pulumi.Input['DiscoveredOutboundEndpointsArgs']]):
+    def outbound(self, value: pulumi.Input[Optional['DiscoveredOutboundEndpointsArgs']]):
         pulumi.set(self, "outbound", value)
 
 
@@ -1286,6 +1286,120 @@ class DiscoveredOutboundEndpointsArgs:
     @assigned.setter
     def assigned(self, value: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]):
         pulumi.set(self, "assigned", value)
+
+
+class EventArgsDict(TypedDict):
+    """
+    Defines the event properties.
+    """
+    event_notifier: pulumi.Input[_builtins.str]
+    """
+    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the event.
+    """
+    event_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    observability_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EventObservabilityMode']]]]
+    """
+    An indication of how the event should be mapped to OpenTelemetry.
+    """
+    topic: NotRequired[pulumi.Input[Optional['TopicArgsDict']]]
+    """
+    Object that describes the topic information for the specific event.
+    """
+
+@pulumi.input_type
+class EventArgs:
+    def __init__(__self__, *,
+                 event_notifier: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 event_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 observability_mode: pulumi.Input[Optional[Union[_builtins.str, 'EventObservabilityMode']]] = None,
+                 topic: pulumi.Input[Optional['TopicArgs']] = None):
+        """
+        Defines the event properties.
+
+        :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+        :param pulumi.Input[_builtins.str] name: The name of the event.
+        :param pulumi.Input[_builtins.str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']] observability_mode: An indication of how the event should be mapped to OpenTelemetry.
+        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific event.
+        """
+        pulumi.set(__self__, "event_notifier", event_notifier)
+        pulumi.set(__self__, "name", name)
+        if event_configuration is not None:
+            pulumi.set(__self__, "event_configuration", event_configuration)
+        if observability_mode is None:
+            observability_mode = 'None'
+        if observability_mode is not None:
+            pulumi.set(__self__, "observability_mode", observability_mode)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @_builtins.property
+    @pulumi.getter(name="eventNotifier")
+    def event_notifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+        """
+        return pulumi.get(self, "event_notifier")
+
+    @event_notifier.setter
+    def event_notifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_notifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the event.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventConfiguration")
+    def event_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        return pulumi.get(self, "event_configuration")
+
+    @event_configuration.setter
+    def event_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "event_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="observabilityMode")
+    def observability_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EventObservabilityMode']]]:
+        """
+        An indication of how the event should be mapped to OpenTelemetry.
+        """
+        return pulumi.get(self, "observability_mode")
+
+    @observability_mode.setter
+    def observability_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EventObservabilityMode']]]):
+        pulumi.set(self, "observability_mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[Optional['TopicArgs']]:
+        """
+        Object that describes the topic information for the specific event.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[Optional['TopicArgs']]):
+        pulumi.set(self, "topic", value)
 
 
 class EventMqttDestinationArgsDict(TypedDict):
@@ -1398,120 +1512,6 @@ class EventStorageDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-class EventArgsDict(TypedDict):
-    """
-    Defines the event properties.
-    """
-    event_notifier: pulumi.Input[_builtins.str]
-    """
-    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the event.
-    """
-    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-    """
-    observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]]
-    """
-    An indication of how the event should be mapped to OpenTelemetry.
-    """
-    topic: NotRequired[pulumi.Input['TopicArgsDict']]
-    """
-    Object that describes the topic information for the specific event.
-    """
-
-@pulumi.input_type
-class EventArgs:
-    def __init__(__self__, *,
-                 event_notifier: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 event_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 observability_mode: Optional[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]] = None,
-                 topic: Optional[pulumi.Input['TopicArgs']] = None):
-        """
-        Defines the event properties.
-
-        :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        :param pulumi.Input[_builtins.str] name: The name of the event.
-        :param pulumi.Input[_builtins.str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        :param pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']] observability_mode: An indication of how the event should be mapped to OpenTelemetry.
-        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific event.
-        """
-        pulumi.set(__self__, "event_notifier", event_notifier)
-        pulumi.set(__self__, "name", name)
-        if event_configuration is not None:
-            pulumi.set(__self__, "event_configuration", event_configuration)
-        if observability_mode is None:
-            observability_mode = 'None'
-        if observability_mode is not None:
-            pulumi.set(__self__, "observability_mode", observability_mode)
-        if topic is not None:
-            pulumi.set(__self__, "topic", topic)
-
-    @_builtins.property
-    @pulumi.getter(name="eventNotifier")
-    def event_notifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        """
-        return pulumi.get(self, "event_notifier")
-
-    @event_notifier.setter
-    def event_notifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "event_notifier", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the event.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventConfiguration")
-    def event_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        return pulumi.get(self, "event_configuration")
-
-    @event_configuration.setter
-    def event_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "event_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="observabilityMode")
-    def observability_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]]:
-        """
-        An indication of how the event should be mapped to OpenTelemetry.
-        """
-        return pulumi.get(self, "observability_mode")
-
-    @observability_mode.setter
-    def observability_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]]):
-        pulumi.set(self, "observability_mode", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
-        """
-        Object that describes the topic information for the specific event.
-        """
-        return pulumi.get(self, "topic")
-
-    @topic.setter
-    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
-        pulumi.set(self, "topic", value)
-
-
 class ExtendedLocationArgsDict(TypedDict):
     """
     The extended location.
@@ -1572,11 +1572,11 @@ class HostAuthenticationArgsDict(TypedDict):
     """
     Defines the method to authenticate the user of the client at the server.
     """
-    username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+    username_password_credentials: NotRequired[pulumi.Input[Optional['UsernamePasswordCredentialsArgsDict']]]
     """
     Defines the username and password references when UsernamePassword user authentication mode is selected.
     """
-    x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+    x509_credentials: NotRequired[pulumi.Input[Optional['X509CredentialsArgsDict']]]
     """
     Defines the certificate reference when Certificate user authentication mode is selected.
     """
@@ -1584,9 +1584,9 @@ class HostAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class HostAuthenticationArgs:
     def __init__(__self__, *,
-                 method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
-                 username_password_credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
-                 x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
+                 method: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMethod']]] = None,
+                 username_password_credentials: pulumi.Input[Optional['UsernamePasswordCredentialsArgs']] = None,
+                 x509_credentials: pulumi.Input[Optional['X509CredentialsArgs']] = None):
         """
         Definition of the client authentication mechanism to the host.
 
@@ -1616,26 +1616,26 @@ class HostAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordCredentials")
-    def username_password_credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
+    def username_password_credentials(self) -> pulumi.Input[Optional['UsernamePasswordCredentialsArgs']]:
         """
         Defines the username and password references when UsernamePassword user authentication mode is selected.
         """
         return pulumi.get(self, "username_password_credentials")
 
     @username_password_credentials.setter
-    def username_password_credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
+    def username_password_credentials(self, value: pulumi.Input[Optional['UsernamePasswordCredentialsArgs']]):
         pulumi.set(self, "username_password_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional[pulumi.Input['X509CredentialsArgs']]:
+    def x509_credentials(self) -> pulumi.Input[Optional['X509CredentialsArgs']]:
         """
         Defines the certificate reference when Certificate user authentication mode is selected.
         """
         return pulumi.get(self, "x509_credentials")
 
     @x509_credentials.setter
-    def x509_credentials(self, value: Optional[pulumi.Input['X509CredentialsArgs']]):
+    def x509_credentials(self, value: pulumi.Input[Optional['X509CredentialsArgs']]):
         pulumi.set(self, "x509_credentials", value)
 
 
@@ -1651,19 +1651,19 @@ class InboundEndpointsArgsDict(TypedDict):
     """
     Type of connection endpoint.
     """
-    additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    additional_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
     """
-    authentication: NotRequired[pulumi.Input['HostAuthenticationArgsDict']]
+    authentication: NotRequired[pulumi.Input[Optional['HostAuthenticationArgsDict']]]
     """
     Defines the client authentication mechanism to the server.
     """
-    trust_settings: NotRequired[pulumi.Input['TrustSettingsArgsDict']]
+    trust_settings: NotRequired[pulumi.Input[Optional['TrustSettingsArgsDict']]]
     """
     Defines server trust settings for the endpoint.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
     """
@@ -1673,10 +1673,10 @@ class InboundEndpointsArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input['HostAuthenticationArgs']] = None,
-                 trust_settings: Optional[pulumi.Input['TrustSettingsArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional['HostAuthenticationArgs']] = None,
+                 trust_settings: pulumi.Input[Optional['TrustSettingsArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An endpoint to connect to the device.
 
@@ -1724,50 +1724,50 @@ class InboundEndpointsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
     @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['HostAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['HostAuthenticationArgs']]:
         """
         Defines the client authentication mechanism to the server.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['HostAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['HostAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="trustSettings")
-    def trust_settings(self) -> Optional[pulumi.Input['TrustSettingsArgs']]:
+    def trust_settings(self) -> pulumi.Input[Optional['TrustSettingsArgs']]:
         """
         Defines server trust settings for the endpoint.
         """
         return pulumi.get(self, "trust_settings")
 
     @trust_settings.setter
-    def trust_settings(self, value: Optional[pulumi.Input['TrustSettingsArgs']]):
+    def trust_settings(self, value: pulumi.Input[Optional['TrustSettingsArgs']]):
         pulumi.set(self, "trust_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1816,23 +1816,23 @@ class ManagementActionArgsDict(TypedDict):
     """
     The target URI on which a client can invoke the specific action.
     """
-    action_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    action_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the action.
     """
-    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]]
+    action_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagementActionType']]]]
     """
     The type of the action.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Response timeout for the action.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MQTT topic path on which a client will receive the request for the action.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -1842,11 +1842,11 @@ class ManagementActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  target_uri: pulumi.Input[_builtins.str],
-                 action_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_type: Optional[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_type: pulumi.Input[Optional[Union[_builtins.str, 'ManagementActionType']]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the action properties.
 
@@ -1899,62 +1899,62 @@ class ManagementActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionConfiguration")
-    def action_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the action.
         """
         return pulumi.get(self, "action_configuration")
 
     @action_configuration.setter
-    def action_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]]:
+    def action_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagementActionType']]]:
         """
         The type of the action.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]]):
+    def action_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagementActionType']]]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Response timeout for the action.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MQTT topic path on which a client will receive the request for the action.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
@@ -1966,23 +1966,23 @@ class ManagementGroupArgsDict(TypedDict):
     """
     Name of the management group.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagementActionArgsDict']]]]]
     """
     Array of actions that are part of the management group. Each action can have an individual configuration.
     """
-    default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    default_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Default response timeout for all actions that are part of the management group.
     """
-    default_topic: NotRequired[pulumi.Input[_builtins.str]]
+    default_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
     """
-    management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    management_group_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the management group.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -1991,11 +1991,11 @@ class ManagementGroupArgsDict(TypedDict):
 class ManagementGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgs']]]] = None,
-                 default_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementActionArgs']]]] = None,
+                 default_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the management group properties.
 
@@ -2034,117 +2034,97 @@ class ManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementActionArgs']]]]:
         """
         Array of actions that are part of the management group. Each action can have an individual configuration.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeoutInSeconds")
-    def default_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default response timeout for all actions that are part of the management group.
         """
         return pulumi.get(self, "default_timeout_in_seconds")
 
     @default_timeout_in_seconds.setter
-    def default_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTopic")
-    def default_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
         """
         return pulumi.get(self, "default_topic")
 
     @default_topic.setter
-    def default_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupConfiguration")
-    def management_group_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the management group.
         """
         return pulumi.get(self, "management_group_configuration")
 
     @management_group_configuration.setter
-    def management_group_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
-class MessagingEndpointsArgsDict(TypedDict):
+class MessagingArgsDict(TypedDict):
     """
-    Connection endpoint URL a device can use to connect to a service.
+    The namespace messaging endpoints model.
     """
-    inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgsDict']]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['MessagingEndpointArgsDict']]]]]
     """
-    Set of endpoints to connect to the device.
-    """
-    outbound: NotRequired[pulumi.Input['OutboundEndpointsArgsDict']]
-    """
-    Set of endpoints a device can connect to.
+    Dictionary of messaging endpoints.
     """
 
 @pulumi.input_type
-class MessagingEndpointsArgs:
+class MessagingArgs:
     def __init__(__self__, *,
-                 inbound: Optional[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]] = None,
-                 outbound: Optional[pulumi.Input['OutboundEndpointsArgs']] = None):
+                 endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]] = None):
         """
-        Connection endpoint URL a device can use to connect to a service.
+        The namespace messaging endpoints model.
 
-        :param pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]] inbound: Set of endpoints to connect to the device.
-        :param pulumi.Input['OutboundEndpointsArgs'] outbound: Set of endpoints a device can connect to.
+        :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]] endpoints: Dictionary of messaging endpoints.
         """
-        if inbound is not None:
-            pulumi.set(__self__, "inbound", inbound)
-        if outbound is not None:
-            pulumi.set(__self__, "outbound", outbound)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
 
     @_builtins.property
     @pulumi.getter
-    def inbound(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]]:
         """
-        Set of endpoints to connect to the device.
+        Dictionary of messaging endpoints.
         """
-        return pulumi.get(self, "inbound")
+        return pulumi.get(self, "endpoints")
 
-    @inbound.setter
-    def inbound(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]]):
-        pulumi.set(self, "inbound", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def outbound(self) -> Optional[pulumi.Input['OutboundEndpointsArgs']]:
-        """
-        Set of endpoints a device can connect to.
-        """
-        return pulumi.get(self, "outbound")
-
-    @outbound.setter
-    def outbound(self, value: Optional[pulumi.Input['OutboundEndpointsArgs']]):
-        pulumi.set(self, "outbound", value)
+    @endpoints.setter
+    def endpoints(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
 
 
 class MessagingEndpointArgsDict(TypedDict):
@@ -2155,11 +2135,11 @@ class MessagingEndpointArgsDict(TypedDict):
     """
     The endpoint address to connect to.
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of connection used for messaging endpoint.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The messaging endpoint Azure resource Id.
     """
@@ -2168,8 +2148,8 @@ class MessagingEndpointArgsDict(TypedDict):
 class MessagingEndpointArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Namespace messaging endpoint model used by a device to connect to a service.
 
@@ -2197,61 +2177,81 @@ class MessagingEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of connection used for messaging endpoint.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The messaging endpoint Azure resource Id.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
-class MessagingArgsDict(TypedDict):
+class MessagingEndpointsArgsDict(TypedDict):
     """
-    The namespace messaging endpoints model.
+    Connection endpoint URL a device can use to connect to a service.
     """
-    endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgsDict']]]]
+    inbound: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['InboundEndpointsArgsDict']]]]]
     """
-    Dictionary of messaging endpoints.
+    Set of endpoints to connect to the device.
+    """
+    outbound: NotRequired[pulumi.Input[Optional['OutboundEndpointsArgsDict']]]
+    """
+    Set of endpoints a device can connect to.
     """
 
 @pulumi.input_type
-class MessagingArgs:
+class MessagingEndpointsArgs:
     def __init__(__self__, *,
-                 endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]] = None):
+                 inbound: pulumi.Input[Optional[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]] = None,
+                 outbound: pulumi.Input[Optional['OutboundEndpointsArgs']] = None):
         """
-        The namespace messaging endpoints model.
+        Connection endpoint URL a device can use to connect to a service.
 
-        :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]] endpoints: Dictionary of messaging endpoints.
+        :param pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]] inbound: Set of endpoints to connect to the device.
+        :param pulumi.Input['OutboundEndpointsArgs'] outbound: Set of endpoints a device can connect to.
         """
-        if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+        if inbound is not None:
+            pulumi.set(__self__, "inbound", inbound)
+        if outbound is not None:
+            pulumi.set(__self__, "outbound", outbound)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]]:
+    def inbound(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]]:
         """
-        Dictionary of messaging endpoints.
+        Set of endpoints to connect to the device.
         """
-        return pulumi.get(self, "endpoints")
+        return pulumi.get(self, "inbound")
 
-    @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]]):
-        pulumi.set(self, "endpoints", value)
+    @inbound.setter
+    def inbound(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['InboundEndpointsArgs']]]]):
+        pulumi.set(self, "inbound", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def outbound(self) -> pulumi.Input[Optional['OutboundEndpointsArgs']]:
+        """
+        Set of endpoints a device can connect to.
+        """
+        return pulumi.get(self, "outbound")
+
+    @outbound.setter
+    def outbound(self, value: pulumi.Input[Optional['OutboundEndpointsArgs']]):
+        pulumi.set(self, "outbound", value)
 
 
 class MqttDestinationConfigurationArgsDict(TypedDict):
@@ -2262,15 +2262,15 @@ class MqttDestinationConfigurationArgsDict(TypedDict):
     """
     The MQTT topic.
     """
-    qos: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]]
+    qos: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MqttDestinationQos']]]]
     """
     The MQTT QoS setting. Defaults to QoS 1.
     """
-    retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
+    retain: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]]
     """
     When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.float]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The MQTT TTL setting.
     """
@@ -2279,9 +2279,9 @@ class MqttDestinationConfigurationArgsDict(TypedDict):
 class MqttDestinationConfigurationArgs:
     def __init__(__self__, *,
                  topic: pulumi.Input[_builtins.str],
-                 qos: Optional[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]] = None,
-                 retain: Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.float]] = None):
+                 qos: pulumi.Input[Optional[Union[_builtins.str, 'MqttDestinationQos']]] = None,
+                 retain: pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The configuration for a MQTT destination.
 
@@ -2316,39 +2316,172 @@ class MqttDestinationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]]:
+    def qos(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MqttDestinationQos']]]:
         """
         The MQTT QoS setting. Defaults to QoS 1.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]]):
+    def qos(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MqttDestinationQos']]]):
         pulumi.set(self, "qos", value)
 
     @_builtins.property
     @pulumi.getter
-    def retain(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]:
+    def retain(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]:
         """
         When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
         """
         return pulumi.get(self, "retain")
 
     @retain.setter
-    def retain(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]):
+    def retain(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]):
         pulumi.set(self, "retain", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The MQTT TTL setting.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "ttl", value)
+
+
+class NamespaceDatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDatasetDataPointArgsDict']]]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Reference to a data source for a given dataset.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+    """
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]]
+    """
+    Destinations for a dataset.
+    """
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    URI or type definition ID.
+    """
+
+@pulumi.input_type
+class NamespaceDatasetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Defines the dataset properties.
+
+        :param pulumi.Input[_builtins.str] name: Name of the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param pulumi.Input[_builtins.str] data_source: Reference to a data source for a given dataset.
+        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]] destinations: Destinations for a dataset.
+        :param pulumi.Input[_builtins.str] type_ref: URI or type definition ID.
+        """
+        pulumi.set(__self__, "name", name)
+        if data_points is not None:
+            pulumi.set(__self__, "data_points", data_points)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if dataset_configuration is not None:
+            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if type_ref is not None:
+            pulumi.set(__self__, "type_ref", type_ref)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPoints")
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]]:
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        return pulumi.get(self, "data_points")
+
+    @data_points.setter
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]]):
+        pulumi.set(self, "data_points", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Reference to a data source for a given dataset.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @dataset_configuration.setter
+    def dataset_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dataset_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]:
+        """
+        Destinations for a dataset.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]):
+        pulumi.set(self, "destinations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="typeRef")
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        URI or type definition ID.
+        """
+        return pulumi.get(self, "type_ref")
+
+    @type_ref.setter
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type_ref", value)
 
 
 class NamespaceDatasetDataPointArgsDict(TypedDict):
@@ -2363,11 +2496,11 @@ class NamespaceDatasetDataPointArgsDict(TypedDict):
     """
     The name of the data point.
     """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -2377,8 +2510,8 @@ class NamespaceDatasetDataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the dataset data point properties.
 
@@ -2420,30 +2553,30 @@ class NamespaceDatasetDataPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
     @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
-class NamespaceDatasetArgsDict(TypedDict):
+class NamespaceDiscoveredDatasetArgsDict(TypedDict):
     """
     Defines the dataset properties.
     """
@@ -2451,44 +2584,50 @@ class NamespaceDatasetArgsDict(TypedDict):
     """
     Name of the dataset.
     """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgsDict']]]]
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgsDict']]]]]
     """
     Array of data points that are part of the dataset. Each data point can have per-data point configuration.
     """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reference to a data source for a given dataset.
     """
-    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+    Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]]
     """
     Destinations for a dataset.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Timestamp (in UTC) indicating when the dataset was added or modified.
+    """
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
 
 @pulumi.input_type
-class NamespaceDatasetArgs:
+class NamespaceDiscoveredDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the dataset properties.
 
         :param pulumi.Input[_builtins.str] name: Name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param pulumi.Input[_builtins.str] data_source: Reference to a data source for a given dataset.
-        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]] destinations: Destinations for a dataset.
+        :param pulumi.Input[_builtins.str] last_updated_on: Timestamp (in UTC) indicating when the dataset was added or modified.
         :param pulumi.Input[_builtins.str] type_ref: URI or type definition ID.
         """
         pulumi.set(__self__, "name", name)
@@ -2500,6 +2639,8 @@ class NamespaceDatasetArgs:
             pulumi.set(__self__, "dataset_configuration", dataset_configuration)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
+        if last_updated_on is not None:
+            pulumi.set(__self__, "last_updated_on", last_updated_on)
         if type_ref is not None:
             pulumi.set(__self__, "type_ref", type_ref)
 
@@ -2517,62 +2658,74 @@ class NamespaceDatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]]:
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]]:
         """
         Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
     @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]]]):
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]]):
         pulumi.set(self, "data_points", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference to a data source for a given dataset.
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetConfiguration")
-    def dataset_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
         """
         return pulumi.get(self, "dataset_configuration")
 
     @dataset_configuration.setter
-    def dataset_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]:
         """
         Destinations for a dataset.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Timestamp (in UTC) indicating when the dataset was added or modified.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+    @last_updated_on.setter
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_on", value)
+
+    @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
@@ -2588,15 +2741,15 @@ class NamespaceDiscoveredDatasetDataPointArgsDict(TypedDict):
     """
     The name of the data point.
     """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UTC timestamp indicating when the data point was added or modified.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -2606,9 +2759,9 @@ class NamespaceDiscoveredDatasetDataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the discovered dataset data point properties.
 
@@ -2653,284 +2806,39 @@ class NamespaceDiscoveredDatasetDataPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
     @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UTC timestamp indicating when the data point was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
-
-
-class NamespaceDiscoveredDatasetArgsDict(TypedDict):
-    """
-    Defines the dataset properties.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of the dataset.
-    """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgsDict']]]]
-    """
-    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-    """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Reference to a data source for a given dataset.
-    """
-    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
-    """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
-    """
-    Destinations for a dataset.
-    """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Timestamp (in UTC) indicating when the dataset was added or modified.
-    """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    URI or type definition ID.
-    """
-
-@pulumi.input_type
-class NamespaceDiscoveredDatasetArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Defines the dataset properties.
-
-        :param pulumi.Input[_builtins.str] name: Name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        :param pulumi.Input[_builtins.str] data_source: Reference to a data source for a given dataset.
-        :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]] destinations: Destinations for a dataset.
-        :param pulumi.Input[_builtins.str] last_updated_on: Timestamp (in UTC) indicating when the dataset was added or modified.
-        :param pulumi.Input[_builtins.str] type_ref: URI or type definition ID.
-        """
-        pulumi.set(__self__, "name", name)
-        if data_points is not None:
-            pulumi.set(__self__, "data_points", data_points)
-        if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
-        if dataset_configuration is not None:
-            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
-        if last_updated_on is not None:
-            pulumi.set(__self__, "last_updated_on", last_updated_on)
-        if type_ref is not None:
-            pulumi.set(__self__, "type_ref", type_ref)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dataset.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]]:
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        return pulumi.get(self, "data_points")
-
-    @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]]]):
-        pulumi.set(self, "data_points", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reference to a data source for a given dataset.
-        """
-        return pulumi.get(self, "data_source")
-
-    @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "data_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datasetConfiguration")
-    def dataset_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
-        """
-        return pulumi.get(self, "dataset_configuration")
-
-    @dataset_configuration.setter
-    def dataset_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "dataset_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]:
-        """
-        Destinations for a dataset.
-        """
-        return pulumi.get(self, "destinations")
-
-    @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgs', 'DatasetMqttDestinationArgs', 'DatasetStorageDestinationArgs']]]]]):
-        pulumi.set(self, "destinations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp (in UTC) indicating when the dataset was added or modified.
-        """
-        return pulumi.get(self, "last_updated_on")
-
-    @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_updated_on", value)
-
-    @_builtins.property
-    @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI or type definition ID.
-        """
-        return pulumi.get(self, "type_ref")
-
-    @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type_ref", value)
-
-
-class NamespaceDiscoveredEventDataPointArgsDict(TypedDict):
-    """
-    Defines the discovered event data point properties.
-    """
-    data_source: pulumi.Input[_builtins.str]
-    """
-    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the data point.
-    """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-    """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    UTC timestamp indicating when the data point was added or modified.
-    """
-
-@pulumi.input_type
-class NamespaceDiscoveredEventDataPointArgs:
-    def __init__(__self__, *,
-                 data_source: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Defines the discovered event data point properties.
-
-        :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        :param pulumi.Input[_builtins.str] name: The name of the data point.
-        :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        :param pulumi.Input[_builtins.str] last_updated_on: UTC timestamp indicating when the data point was added or modified.
-        """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "name", name)
-        if data_point_configuration is not None:
-            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
-        if last_updated_on is not None:
-            pulumi.set(__self__, "last_updated_on", last_updated_on)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> pulumi.Input[_builtins.str]:
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        return pulumi.get(self, "data_source")
-
-    @data_source.setter
-    def data_source(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_source", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the data point.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        return pulumi.get(self, "data_point_configuration")
-
-    @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "data_point_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        UTC timestamp indicating when the data point was added or modified.
-        """
-        return pulumi.get(self, "last_updated_on")
-
-    @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_updated_on", value)
 
 
 class NamespaceDiscoveredEventArgsDict(TypedDict):
@@ -2945,23 +2853,23 @@ class NamespaceDiscoveredEventArgsDict(TypedDict):
     """
     The name of the event.
     """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgsDict']]]]
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgsDict']]]]]
     """
     Array of data points that are part of the event. Each data point can have a per-data point configuration.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]]
     """
     Destinations for an event.
     """
-    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    event_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UTC timestamp indicating when the event was added or modified.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -2971,11 +2879,11 @@ class NamespaceDiscoveredEventArgs:
     def __init__(__self__, *,
                  event_notifier: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]] = None,
-                 event_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]] = None,
+                 event_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the event properties.
 
@@ -3026,63 +2934,155 @@ class NamespaceDiscoveredEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]]:
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]]:
         """
         Array of data points that are part of the event. Each data point can have a per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
     @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]]):
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]]]):
         pulumi.set(self, "data_points", value)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]:
         """
         Destinations for an event.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="eventConfiguration")
-    def event_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "event_configuration")
 
     @event_configuration.setter
-    def event_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UTC timestamp indicating when the event was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
+
+
+class NamespaceDiscoveredEventDataPointArgsDict(TypedDict):
+    """
+    Defines the discovered event data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    UTC timestamp indicating when the data point was added or modified.
+    """
+
+@pulumi.input_type
+class NamespaceDiscoveredEventDataPointArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Defines the discovered event data point properties.
+
+        :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        :param pulumi.Input[_builtins.str] name: The name of the data point.
+        :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param pulumi.Input[_builtins.str] last_updated_on: UTC timestamp indicating when the data point was added or modified.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if data_point_configuration is not None:
+            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
+        if last_updated_on is not None:
+            pulumi.set(__self__, "last_updated_on", last_updated_on)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data point.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPointConfiguration")
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        return pulumi.get(self, "data_point_configuration")
+
+    @data_point_configuration.setter
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_point_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        UTC timestamp indicating when the data point was added or modified.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+    @last_updated_on.setter
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_on", value)
 
 
 class NamespaceDiscoveredManagementActionArgsDict(TypedDict):
@@ -3097,27 +3097,27 @@ class NamespaceDiscoveredManagementActionArgsDict(TypedDict):
     """
     The target URI on which a client can invoke the specific action.
     """
-    action_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    action_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the action.
     """
-    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]
+    action_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]]
     """
     The type of the action.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp (in UTC) indicating when the management action was added or modified.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Response timeout for the action.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MQTT topic path on which a client will receive the request for the action.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -3127,12 +3127,12 @@ class NamespaceDiscoveredManagementActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  target_uri: pulumi.Input[_builtins.str],
-                 action_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_type: Optional[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_type: pulumi.Input[Optional[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the action properties.
 
@@ -3188,74 +3188,74 @@ class NamespaceDiscoveredManagementActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionConfiguration")
-    def action_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the action.
         """
         return pulumi.get(self, "action_configuration")
 
     @action_configuration.setter
-    def action_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]:
+    def action_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]:
         """
         The type of the action.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]):
+    def action_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp (in UTC) indicating when the management action was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Response timeout for the action.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MQTT topic path on which a client will receive the request for the action.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
@@ -3267,27 +3267,27 @@ class NamespaceDiscoveredManagementGroupArgsDict(TypedDict):
     """
     Name of the management group.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgsDict']]]]]
     """
     Array of actions that are part of the management group. Each action can have an individual configuration.
     """
-    default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    default_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Default response timeout for all actions that are part of the management group.
     """
-    default_topic: NotRequired[pulumi.Input[_builtins.str]]
+    default_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp (in UTC) indicating when the management group was added or modified.
     """
-    management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    management_group_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the management group.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -3296,12 +3296,12 @@ class NamespaceDiscoveredManagementGroupArgsDict(TypedDict):
 class NamespaceDiscoveredManagementGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]] = None,
-                 default_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]] = None,
+                 default_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the management group properties.
 
@@ -3343,74 +3343,74 @@ class NamespaceDiscoveredManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]]:
         """
         Array of actions that are part of the management group. Each action can have an individual configuration.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeoutInSeconds")
-    def default_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default response timeout for all actions that are part of the management group.
         """
         return pulumi.get(self, "default_timeout_in_seconds")
 
     @default_timeout_in_seconds.setter
-    def default_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTopic")
-    def default_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
         """
         return pulumi.get(self, "default_topic")
 
     @default_topic.setter
-    def default_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp (in UTC) indicating when the management group was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupConfiguration")
-    def management_group_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the management group.
         """
         return pulumi.get(self, "management_group_configuration")
 
     @management_group_configuration.setter
-    def management_group_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
@@ -3422,19 +3422,19 @@ class NamespaceDiscoveredStreamArgsDict(TypedDict):
     """
     Name of the stream definition.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]]
     """
     Destinations for a stream.
     """
-    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timestamp (in UTC) indicating when the stream was added or modified.
     """
-    stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    stream_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the specific stream.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -3443,10 +3443,10 @@ class NamespaceDiscoveredStreamArgsDict(TypedDict):
 class NamespaceDiscoveredStreamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]] = None,
-                 last_updated_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]] = None,
+                 last_updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the stream properties.
 
@@ -3480,123 +3480,51 @@ class NamespaceDiscoveredStreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]:
         """
         Destinations for a stream.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp (in UTC) indicating when the stream was added or modified.
         """
         return pulumi.get(self, "last_updated_on")
 
     @last_updated_on.setter
-    def last_updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_on", value)
 
     @_builtins.property
     @pulumi.getter(name="streamConfiguration")
-    def stream_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the specific stream.
         """
         return pulumi.get(self, "stream_configuration")
 
     @stream_configuration.setter
-    def stream_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
-
-
-class NamespaceEventDataPointArgsDict(TypedDict):
-    """
-    Defines the event data point properties.
-    """
-    data_source: pulumi.Input[_builtins.str]
-    """
-    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the data point.
-    """
-    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-    """
-
-@pulumi.input_type
-class NamespaceEventDataPointArgs:
-    def __init__(__self__, *,
-                 data_source: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Defines the event data point properties.
-
-        :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        :param pulumi.Input[_builtins.str] name: The name of the data point.
-        :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "name", name)
-        if data_point_configuration is not None:
-            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> pulumi.Input[_builtins.str]:
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        return pulumi.get(self, "data_source")
-
-    @data_source.setter
-    def data_source(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_source", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the data point.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataPointConfiguration")
-    def data_point_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        return pulumi.get(self, "data_point_configuration")
-
-    @data_point_configuration.setter
-    def data_point_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "data_point_configuration", value)
 
 
 class NamespaceEventArgsDict(TypedDict):
@@ -3611,19 +3539,19 @@ class NamespaceEventArgsDict(TypedDict):
     """
     The name of the event.
     """
-    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgsDict']]]]
+    data_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceEventDataPointArgsDict']]]]]
     """
     Array of data points that are part of the event. Each data point can have a per-data point configuration.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]]
     """
     Destinations for an event.
     """
-    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    event_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -3633,10 +3561,10 @@ class NamespaceEventArgs:
     def __init__(__self__, *,
                  event_notifier: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]] = None,
-                 event_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_points: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]] = None,
+                 event_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the event properties.
 
@@ -3684,51 +3612,123 @@ class NamespaceEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]]:
+    def data_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]]:
         """
         Array of data points that are part of the event. Each data point can have a per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
     @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]]):
+    def data_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]]]):
         pulumi.set(self, "data_points", value)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]:
         """
         Destinations for an event.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventMqttDestinationArgs', 'EventStorageDestinationArgs']]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="eventConfiguration")
-    def event_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "event_configuration")
 
     @event_configuration.setter
-    def event_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
+
+
+class NamespaceEventDataPointArgsDict(TypedDict):
+    """
+    Defines the event data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+
+@pulumi.input_type
+class NamespaceEventDataPointArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 data_point_configuration: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Defines the event data point properties.
+
+        :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        :param pulumi.Input[_builtins.str] name: The name of the data point.
+        :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if data_point_configuration is not None:
+            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the data point.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPointConfiguration")
+    def data_point_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        return pulumi.get(self, "data_point_configuration")
+
+    @data_point_configuration.setter
+    def data_point_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_point_configuration", value)
 
 
 class NamespaceStreamArgsDict(TypedDict):
@@ -3739,15 +3739,15 @@ class NamespaceStreamArgsDict(TypedDict):
     """
     Name of the stream definition.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]]
     """
     Destinations for a stream.
     """
-    stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    stream_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stringified JSON that contains connector-specific configuration for the specific stream.
     """
-    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    type_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI or type definition ID.
     """
@@ -3756,9 +3756,9 @@ class NamespaceStreamArgsDict(TypedDict):
 class NamespaceStreamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]] = None,
-                 stream_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]] = None,
+                 stream_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the stream properties.
 
@@ -3789,38 +3789,38 @@ class NamespaceStreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]:
         """
         Destinations for a stream.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="streamConfiguration")
-    def stream_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific configuration for the specific stream.
         """
         return pulumi.get(self, "stream_configuration")
 
     @stream_configuration.setter
-    def stream_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRef")
-    def type_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI or type definition ID.
         """
         return pulumi.get(self, "type_ref")
 
     @type_ref.setter
-    def type_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_ref", value)
 
 
@@ -3832,7 +3832,7 @@ class OutboundEndpointsArgsDict(TypedDict):
     """
     Endpoints the device can connect to.
     """
-    unassigned: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]]
+    unassigned: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]]]
     """
     Set of most recently removed endpoints.
     """
@@ -3841,7 +3841,7 @@ class OutboundEndpointsArgsDict(TypedDict):
 class OutboundEndpointsArgs:
     def __init__(__self__, *,
                  assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]],
-                 unassigned: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]] = None):
+                 unassigned: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]] = None):
         """
         Property bag contains the device's outbound endpoints
 
@@ -3866,14 +3866,14 @@ class OutboundEndpointsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def unassigned(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]]:
+    def unassigned(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]]:
         """
         Set of most recently removed endpoints.
         """
         return pulumi.get(self, "unassigned")
 
     @unassigned.setter
-    def unassigned(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]]):
+    def unassigned(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]]):
         pulumi.set(self, "unassigned", value)
 
 
@@ -3881,7 +3881,7 @@ class PolicyPropertiesArgsDict(TypedDict):
     """
     Details of the Credential Policy.
     """
-    certificate: NotRequired[pulumi.Input['CertificateConfigurationArgsDict']]
+    certificate: NotRequired[pulumi.Input[Optional['CertificateConfigurationArgsDict']]]
     """
     The certificate configuration.
     """
@@ -3889,7 +3889,7 @@ class PolicyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyPropertiesArgs:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input['CertificateConfigurationArgs']] = None):
+                 certificate: pulumi.Input[Optional['CertificateConfigurationArgs']] = None):
         """
         Details of the Credential Policy.
 
@@ -3900,14 +3900,14 @@ class PolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertificateConfigurationArgs']]:
+    def certificate(self) -> pulumi.Input[Optional['CertificateConfigurationArgs']]:
         """
         The certificate configuration.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertificateConfigurationArgs']]):
+    def certificate(self, value: pulumi.Input[Optional['CertificateConfigurationArgs']]):
         pulumi.set(self, "certificate", value)
 
 
@@ -4095,7 +4095,7 @@ class TopicArgsDict(TypedDict):
     """
     The topic path for messages published to an MQTT broker.
     """
-    retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
+    retain: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]]
     """
     When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
     """
@@ -4104,7 +4104,7 @@ class TopicArgsDict(TypedDict):
 class TopicArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 retain: Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]] = None):
+                 retain: pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]] = None):
         """
         Object that describes the topic information.
 
@@ -4131,14 +4131,14 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def retain(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]:
+    def retain(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]:
         """
         When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
         """
         return pulumi.get(self, "retain")
 
     @retain.setter
-    def retain(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]):
+    def retain(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TopicRetainType']]]):
         pulumi.set(self, "retain", value)
 
 
@@ -4146,7 +4146,7 @@ class TrustSettingsArgsDict(TypedDict):
     """
     Defines server trust settings for an endpoint.
     """
-    trust_list: NotRequired[pulumi.Input[_builtins.str]]
+    trust_list: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Defines a secret reference for certificates to trust.
     """
@@ -4154,7 +4154,7 @@ class TrustSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class TrustSettingsArgs:
     def __init__(__self__, *,
-                 trust_list: Optional[pulumi.Input[_builtins.str]] = None):
+                 trust_list: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines server trust settings for an endpoint.
 
@@ -4165,14 +4165,14 @@ class TrustSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustList")
-    def trust_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines a secret reference for certificates to trust.
         """
         return pulumi.get(self, "trust_list")
 
     @trust_list.setter
-    def trust_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_list", value)
 
 

@@ -106,7 +106,7 @@ export interface TableServicePropertiesArgs {
     /**
      * Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
      */
-    cors?: pulumi.Input<inputs.storage.CorsRulesArgs>;
+    cors?: pulumi.Input<inputs.storage.CorsRulesArgs | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -114,5 +114,5 @@ export interface TableServicePropertiesArgs {
     /**
      * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
      */
-    tableServiceName?: pulumi.Input<string>;
+    tableServiceName?: pulumi.Input<string | undefined>;
 }

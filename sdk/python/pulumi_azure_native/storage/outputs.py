@@ -1138,7 +1138,7 @@ class CorsRuleResponse(dict):
 @pulumi.output_type
 class CorsRulesResponse(dict):
     """
-    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+    Sets the CORS rules. You can include up to five CorsRule elements in the request.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1160,9 +1160,9 @@ class CorsRulesResponse(dict):
     def __init__(__self__, *,
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        Sets the CORS rules. You can include up to five CorsRule elements in the request.
 
-        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -1171,7 +1171,7 @@ class CorsRulesResponse(dict):
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Optional[Sequence['outputs.CorsRuleResponse']]:
         """
-        The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        The List of CORS rules. You can include up to five CorsRule elements in the request.
         """
         return pulumi.get(self, "cors_rules")
 
@@ -3247,7 +3247,7 @@ class ManagementPolicyDefinitionResponse(dict):
 @pulumi.output_type
 class ManagementPolicyFilterResponse(dict):
     """
-    Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+    Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3275,7 +3275,7 @@ class ManagementPolicyFilterResponse(dict):
                  blob_index_match: Optional[Sequence['outputs.TagFilterResponse']] = None,
                  prefix_match: Optional[Sequence[_builtins.str]] = None):
         """
-        Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+        Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters.
 
         :param Sequence[_builtins.str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param Sequence['TagFilterResponse'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
@@ -5516,7 +5516,7 @@ class StorageTaskReportPropertiesResponse(dict):
         :param _builtins.str run_status_error: Well known Azure Storage error code that represents the error encountered during execution of the run instance.
         :param _builtins.str start_time: Start time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
         :param _builtins.str storage_account_id: Represents the Storage Account Id where the storage task definition was applied and executed.
-        :param _builtins.str summary_report_path: Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account. 
+        :param _builtins.str summary_report_path: Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account.
         :param _builtins.str task_assignment_id: Represents the Storage Task Assignment Id associated with the storage task that provided an execution context.
         :param _builtins.str task_id: Storage Task Arm Id.
         :param _builtins.str task_version: Storage Task Version
@@ -5620,7 +5620,7 @@ class StorageTaskReportPropertiesResponse(dict):
     @pulumi.getter(name="summaryReportPath")
     def summary_report_path(self) -> _builtins.str:
         """
-        Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account. 
+        Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account.
         """
         return pulumi.get(self, "summary_report_path")
 

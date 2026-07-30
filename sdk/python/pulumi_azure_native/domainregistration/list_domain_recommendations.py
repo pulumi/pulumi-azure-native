@@ -72,7 +72,6 @@ def list_domain_recommendations(keywords: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str keywords: Keywords to be used for generating domain recommendations.
     :param _builtins.int max_domain_recommendations: Maximum number of recommendations.
     """
@@ -85,8 +84,8 @@ def list_domain_recommendations(keywords: Optional[_builtins.str] = None,
     return AwaitableListDomainRecommendationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       max_domain_recommendations: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_domain_recommendations_output(keywords: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       max_domain_recommendations: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
     Description for Get domain name recommendations based on keywords.
@@ -94,7 +93,6 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str keywords: Keywords to be used for generating domain recommendations.
     :param _builtins.int max_domain_recommendations: Maximum number of recommendations.

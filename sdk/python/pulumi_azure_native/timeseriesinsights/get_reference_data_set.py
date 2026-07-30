@@ -169,7 +169,6 @@ def get_reference_data_set(environment_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param _builtins.str resource_group_name: Name of an Azure Resource group.
@@ -192,9 +191,9 @@ def get_reference_data_set(environment_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_reference_data_set_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  reference_data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_reference_data_set_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  reference_data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceDataSetResult]:
     """
     Gets the reference data set with the specified name in the specified environment.
@@ -202,7 +201,6 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2020-05-15.
 
     Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.

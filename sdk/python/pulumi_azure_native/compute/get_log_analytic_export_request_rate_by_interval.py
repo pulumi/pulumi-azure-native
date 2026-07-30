@@ -69,7 +69,6 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param _builtins.str from_time: From time of the query
     :param _builtins.bool group_by_client_application_id: Group query result by Client Application ID.
@@ -97,16 +96,16 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
 
     return AwaitableGetLogAnalyticExportRequestRateByIntervalResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            from_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            group_by_client_application_id: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            group_by_operation_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            group_by_resource_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            group_by_throttle_policy: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            group_by_user_agent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            interval_length: Optional[pulumi.Input['IntervalInMins']] = None,
-                                                            location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            to_time: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            from_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            group_by_client_application_id: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            group_by_operation_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            group_by_resource_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            group_by_throttle_policy: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            group_by_user_agent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            interval_length: pulumi.Input[Optional['IntervalInMins']] = None,
+                                                            location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            to_time: pulumi.Input[Optional[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
     """
     Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
@@ -114,7 +113,6 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param _builtins.str from_time: From time of the query

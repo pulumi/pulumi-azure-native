@@ -155,7 +155,6 @@ def get_sql_server(expand: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-07-24-preview.
 
-
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str sql_server_name: Name of the SQL Server.
@@ -179,16 +178,15 @@ def get_sql_server(expand: Optional[_builtins.str] = None,
         registration_id=pulumi.get(__ret__, 'registration_id'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_sql_server_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          sql_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          sql_server_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_server_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerResult]:
     """
     Gets a SQL Server.
 
     Uses Azure REST API version 2019-07-24-preview.
-
 
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

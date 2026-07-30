@@ -155,7 +155,6 @@ def get_machine_learning_datastore(datastore_name: Optional[_builtins.str] = Non
 
     Uses Azure REST API version 2020-05-01-preview.
 
-
     :param _builtins.str datastore_name: The Datastore name.
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.
     :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
@@ -177,15 +176,14 @@ def get_machine_learning_datastore(datastore_name: Optional[_builtins.str] = Non
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_machine_learning_datastore_output(datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_machine_learning_datastore_output(datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineLearningDatastoreResult]:
     """
     Get a Datastore by name.
 
     Uses Azure REST API version 2020-05-01-preview.
-
 
     :param _builtins.str datastore_name: The Datastore name.
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.

@@ -103,7 +103,7 @@ export function getLocalRuleCountersOutput(args: GetLocalRuleCountersOutputArgs,
 }
 
 export interface GetLocalRuleCountersOutputArgs {
-    firewallName?: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * LocalRulestack resource name
      */

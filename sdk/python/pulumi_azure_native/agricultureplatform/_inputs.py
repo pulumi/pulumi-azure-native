@@ -36,11 +36,11 @@ class AgriServiceResourcePropertiesArgsDict(TypedDict):
     """
     Details of the Agriculture AgriDataManager.
     """
-    data_connector_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgsDict']]]]
+    data_connector_credentials: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataConnectorCredentialMapArgsDict']]]]]
     """
     Data connector credentials of AgriService instance.
     """
-    installed_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgsDict']]]]
+    installed_solutions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstalledSolutionMapArgsDict']]]]]
     """
     AgriService installed solutions.
     """
@@ -48,8 +48,8 @@ class AgriServiceResourcePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AgriServiceResourcePropertiesArgs:
     def __init__(__self__, *,
-                 data_connector_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]] = None,
-                 installed_solutions: Optional[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]] = None):
+                 data_connector_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]] = None,
+                 installed_solutions: pulumi.Input[Optional[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]] = None):
         """
         Details of the Agriculture AgriDataManager.
 
@@ -63,26 +63,26 @@ class AgriServiceResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorCredentials")
-    def data_connector_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]]:
+    def data_connector_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]]:
         """
         Data connector credentials of AgriService instance.
         """
         return pulumi.get(self, "data_connector_credentials")
 
     @data_connector_credentials.setter
-    def data_connector_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]]):
+    def data_connector_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataConnectorCredentialMapArgs']]]]):
         pulumi.set(self, "data_connector_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="installedSolutions")
-    def installed_solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]]:
+    def installed_solutions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]]:
         """
         AgriService installed solutions.
         """
         return pulumi.get(self, "installed_solutions")
 
     @installed_solutions.setter
-    def installed_solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]]):
+    def installed_solutions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstalledSolutionMapArgs']]]]):
         pulumi.set(self, "installed_solutions", value)
 
 
@@ -142,23 +142,23 @@ class DataConnectorCredentialsArgsDict(TypedDict):
     """
     The properties related to an AgriService data connector.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client Id associated with the provider, if type of credentials is OAuthClientCredentials.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the key vault key.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of the key vault
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the key vault key.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthCredentialsKind']]]]
     """
     Type of credential.
     """
@@ -166,11 +166,11 @@ class DataConnectorCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class DataConnectorCredentialsArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'AuthCredentialsKind']]] = None):
         """
         The properties related to an AgriService data connector.
 
@@ -193,62 +193,62 @@ class DataConnectorCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Id associated with the provider, if type of credentials is OAuthClientCredentials.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the key vault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of the key vault
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the key vault key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthCredentialsKind']]]:
         """
         Type of credential.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthCredentialsKind']]]):
         pulumi.set(self, "kind", value)
 
 
@@ -312,7 +312,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -321,7 +321,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -346,14 +346,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -365,19 +365,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU. E.g. P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -386,17 +386,17 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -423,50 +423,50 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -474,27 +474,27 @@ class SolutionArgsDict(TypedDict):
     """
     Installed data manager for Agriculture solution detail.
     """
-    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    application_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application name of the solution.
     """
-    market_place_publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    market_place_publisher_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Marketplace publisher Id.
     """
-    partner_id: NotRequired[pulumi.Input[_builtins.str]]
+    partner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Partner Id.
     """
-    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    plan_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan Id.
     """
-    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    saas_subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Saas subscription Id.
     """
-    saas_subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    saas_subscription_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Saas subscription name.
     """
@@ -502,12 +502,12 @@ class SolutionArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionArgs:
     def __init__(__self__, *,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 market_place_publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 market_place_publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Installed data manager for Agriculture solution detail.
 
@@ -533,74 +533,74 @@ class SolutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application name of the solution.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="marketPlacePublisherId")
-    def market_place_publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def market_place_publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Marketplace publisher Id.
         """
         return pulumi.get(self, "market_place_publisher_id")
 
     @market_place_publisher_id.setter
-    def market_place_publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def market_place_publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "market_place_publisher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerId")
-    def partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partner Id.
         """
         return pulumi.get(self, "partner_id")
 
     @partner_id.setter
-    def partner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan Id.
         """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="saasSubscriptionId")
-    def saas_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Saas subscription Id.
         """
         return pulumi.get(self, "saas_subscription_id")
 
     @saas_subscription_id.setter
-    def saas_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="saasSubscriptionName")
-    def saas_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Saas subscription name.
         """
         return pulumi.get(self, "saas_subscription_name")
 
     @saas_subscription_name.setter
-    def saas_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_subscription_name", value)
 
 

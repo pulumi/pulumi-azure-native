@@ -71,7 +71,6 @@ def get_adoo_auth_info(location: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str location: The name of the Azure region.
     :param _builtins.str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
     """
@@ -84,8 +83,8 @@ def get_adoo_auth_info(location: Optional[_builtins.str] = None,
     return AwaitableGetADOOAuthInfoResult(
         auth_url=pulumi.get(__ret__, 'auth_url'),
         token=pulumi.get(__ret__, 'token'))
-def get_adoo_auth_info_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                              redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_adoo_auth_info_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                              redirect_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
     """
     Gets ADOOAuth info used to authenticate users with ADO.
@@ -93,7 +92,6 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str location: The name of the Azure region.
     :param _builtins.str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.

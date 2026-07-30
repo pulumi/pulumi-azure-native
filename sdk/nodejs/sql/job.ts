@@ -90,7 +90,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["jobAgentName"] = args?.jobAgentName;
             resourceInputs["jobName"] = args?.jobName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["schedule"] = args ? (args.schedule ? pulumi.output(args.schedule).apply(inputs.sql.jobScheduleArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["schedule"] = args ? pulumi.output(args.schedule).apply(v => v === undefined ? undefined : inputs.sql.jobScheduleArgsProvideDefaults(v)) : undefined;
             resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,7 +118,7 @@ export interface JobArgs {
     /**
      * User-defined description of the job.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the job agent.
      */
@@ -126,7 +126,7 @@ export interface JobArgs {
     /**
      * The name of the job to get.
      */
-    jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -134,7 +134,7 @@ export interface JobArgs {
     /**
      * Schedule properties of the job.
      */
-    schedule?: pulumi.Input<inputs.sql.JobScheduleArgs>;
+    schedule?: pulumi.Input<inputs.sql.JobScheduleArgs | undefined>;
     /**
      * The name of the server.
      */

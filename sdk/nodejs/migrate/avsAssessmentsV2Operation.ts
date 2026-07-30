@@ -106,7 +106,7 @@ export interface AvsAssessmentsV2OperationArgs {
     /**
      * AVS Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface AvsAssessmentsV2OperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.AvsAssessmentPropertiesV2Args>;
+    properties?: pulumi.Input<inputs.migrate.AvsAssessmentPropertiesV2Args | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

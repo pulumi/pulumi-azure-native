@@ -106,7 +106,6 @@ def get_virtual_network_rule(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-11-01.
 
-
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
     :param _builtins.str virtual_network_rule_name: The name of the virtual network rule to retrieve.
@@ -124,15 +123,14 @@ def get_virtual_network_rule(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_network_rule_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_rule_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets the specified Data Lake Store virtual network rule.
 
     Uses Azure REST API version 2016-11-01.
-
 
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.

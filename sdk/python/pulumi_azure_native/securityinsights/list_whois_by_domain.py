@@ -122,7 +122,6 @@ def list_whois_by_domain(domain: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str domain: The domain name
     :param _builtins.str enrichment_type: Enrichment type
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -143,10 +142,10 @@ def list_whois_by_domain(domain: Optional[_builtins.str] = None,
         parsed_whois=pulumi.get(__ret__, 'parsed_whois'),
         server=pulumi.get(__ret__, 'server'),
         updated=pulumi.get(__ret__, 'updated'))
-def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                enrichment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_whois_by_domain_output(domain: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                enrichment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWhoisByDomainResult]:
     """
     Get whois information for a single domain name
@@ -154,7 +153,6 @@ def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[_builtins
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str domain: The domain name
     :param _builtins.str enrichment_type: Enrichment type

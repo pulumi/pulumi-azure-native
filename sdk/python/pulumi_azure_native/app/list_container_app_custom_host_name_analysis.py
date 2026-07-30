@@ -193,7 +193,6 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[_b
 
     Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str container_app_name: Name of the Container App.
     :param _builtins.str custom_hostname: Custom hostname.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -218,9 +217,9 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[_b
         host_name=pulumi.get(__ret__, 'host_name'),
         is_hostname_already_verified=pulumi.get(__ret__, 'is_hostname_already_verified'),
         txt_records=pulumi.get(__ret__, 'txt_records'))
-def list_container_app_custom_host_name_analysis_output(container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        custom_hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_container_app_custom_host_name_analysis_output(container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        custom_hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListContainerAppCustomHostNameAnalysisResult]:
     """
     Custom domain analysis.
@@ -228,7 +227,6 @@ def list_container_app_custom_host_name_analysis_output(container_app_name: Opti
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str container_app_name: Name of the Container App.
     :param _builtins.str custom_hostname: Custom hostname.

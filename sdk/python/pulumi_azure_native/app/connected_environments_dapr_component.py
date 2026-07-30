@@ -23,16 +23,16 @@ class ConnectedEnvironmentsDaprComponentArgs:
     def __init__(__self__, *,
                  connected_environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_store_component: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
-                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_store_component: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['SecretArgs']]]] = None,
+                 service_component_bind: pulumi.Input[Optional[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectedEnvironmentsDaprComponent resource.
 
@@ -100,122 +100,122 @@ class ConnectedEnvironmentsDaprComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dapr Component.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Component type
         """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
-    def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean describing if the component errors are ignores
         """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
-    def ignore_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="initTimeout")
-    def init_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def init_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Initialization timeout
         """
         return pulumi.get(self, "init_timeout")
 
     @init_timeout.setter
-    def init_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def init_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "init_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]:
+    def metadata(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DaprMetadataArgs']]]]:
         """
         Component metadata
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]):
+    def metadata(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DaprMetadataArgs']]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Names of container apps that can use this Dapr component
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStoreComponent")
-    def secret_store_component(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_store_component(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Dapr component to retrieve component secrets from
         """
         return pulumi.get(self, "secret_store_component")
 
     @secret_store_component.setter
-    def secret_store_component(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_store_component(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_store_component", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecretArgs']]]]:
         """
         Collection of secrets used by a Dapr component
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceComponentBind")
-    def service_component_bind(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]:
+    def service_component_bind(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]:
         """
         List of container app services that are bound to the Dapr component
         """
         return pulumi.get(self, "service_component_bind")
 
     @service_component_bind.setter
-    def service_component_bind(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]):
+    def service_component_bind(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]):
         pulumi.set(self, "service_component_bind", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Component version
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -225,18 +225,18 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_store_component: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
-                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_store_component: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Dapr Component.
@@ -244,7 +244,6 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +273,6 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsDaprComponentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,18 +288,18 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_store_component: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
-                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_store_component: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

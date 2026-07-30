@@ -25,11 +25,11 @@ class AFDCustomDomainArgs:
                  host_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_dns_zone: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 tls_settings: Optional[pulumi.Input['AFDDomainHttpsParametersArgs']] = None):
+                 azure_dns_zone: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pre_validated_custom_domain_resource_id: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 tls_settings: pulumi.Input[Optional['AFDDomainHttpsParametersArgs']] = None):
         """
         The set of arguments for constructing a AFDCustomDomain resource.
 
@@ -94,62 +94,62 @@ class AFDCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureDnsZone")
-    def azure_dns_zone(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def azure_dns_zone(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         Resource reference to the Azure DNS zone
         """
         return pulumi.get(self, "azure_dns_zone")
 
     @azure_dns_zone.setter
-    def azure_dns_zone(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def azure_dns_zone(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "azure_dns_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the domain under the profile which is unique globally.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
-    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def extended_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-Value pair representing migration properties for domains.
         """
         return pulumi.get(self, "extended_properties")
 
     @extended_properties.setter
-    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def extended_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="preValidatedCustomDomainResourceId")
-    def pre_validated_custom_domain_resource_id(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def pre_validated_custom_domain_resource_id(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         Resource reference to the Azure resource where custom domain ownership was prevalidated
         """
         return pulumi.get(self, "pre_validated_custom_domain_resource_id")
 
     @pre_validated_custom_domain_resource_id.setter
-    def pre_validated_custom_domain_resource_id(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def pre_validated_custom_domain_resource_id(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "pre_validated_custom_domain_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsSettings")
-    def tls_settings(self) -> Optional[pulumi.Input['AFDDomainHttpsParametersArgs']]:
+    def tls_settings(self) -> pulumi.Input[Optional['AFDDomainHttpsParametersArgs']]:
         """
         The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
         return pulumi.get(self, "tls_settings")
 
     @tls_settings.setter
-    def tls_settings(self, value: Optional[pulumi.Input['AFDDomainHttpsParametersArgs']]):
+    def tls_settings(self, value: pulumi.Input[Optional['AFDDomainHttpsParametersArgs']]):
         pulumi.set(self, "tls_settings", value)
 
 
@@ -159,14 +159,14 @@ class AFDCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_dns_zone: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_settings: Optional[pulumi.Input[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
+                 azure_dns_zone: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_validated_custom_domain_resource_id: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_settings: pulumi.Input[Optional[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
@@ -174,7 +174,6 @@ class AFDCustomDomain(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class AFDCustomDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AFDCustomDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class AFDCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_dns_zone: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_settings: Optional[pulumi.Input[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
+                 azure_dns_zone: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_validated_custom_domain_resource_id: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_settings: pulumi.Input[Optional[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

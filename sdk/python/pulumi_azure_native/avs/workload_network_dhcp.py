@@ -23,8 +23,8 @@ class WorkloadNetworkDhcpArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]] = None):
+                 dhcp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDhcp resource.
 
@@ -66,26 +66,26 @@ class WorkloadNetworkDhcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="dhcpId")
-    def dhcp_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dhcp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the DHCP configuration
         """
         return pulumi.get(self, "dhcp_id")
 
     @dhcp_id.setter
-    def dhcp_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dhcp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dhcp_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dhcp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         NSX DHCP
@@ -106,7 +106,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDhcpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dhcp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

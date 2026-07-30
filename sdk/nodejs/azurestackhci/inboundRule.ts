@@ -112,11 +112,11 @@ export interface InboundRuleArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * Name of the inbound rule
      */
-    inboundRuleName?: pulumi.Input<string>;
+    inboundRuleName?: pulumi.Input<string | undefined>;
     /**
      * Name of the nat gateway
      */
@@ -124,7 +124,7 @@ export interface InboundRuleArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.InboundRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurestackhci.InboundRulePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -123,7 +123,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["duration"] = args?.duration;
             resourceInputs["expirationDateTime"] = args?.expirationDateTime;
             resourceInputs["extensionProperties"] = args?.extensionProperties;
-            resourceInputs["installPatches"] = args ? (args.installPatches ? pulumi.output(args.installPatches).apply(inputs.maintenance.inputPatchConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["installPatches"] = args ? pulumi.output(args.installPatches).apply(v => v === undefined ? undefined : inputs.maintenance.inputPatchConfigurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceScope"] = args?.maintenanceScope;
             resourceInputs["namespace"] = args?.namespace;
@@ -170,35 +170,35 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
      */
-    duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
     /**
      * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
      */
-    expirationDateTime?: pulumi.Input<string>;
+    expirationDateTime?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets extensionProperties of the maintenanceConfiguration
      */
-    extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The input parameters to be passed to the patch run operation.
      */
-    installPatches?: pulumi.Input<inputs.maintenance.InputPatchConfigurationArgs>;
+    installPatches?: pulumi.Input<inputs.maintenance.InputPatchConfigurationArgs | undefined>;
     /**
      * Gets or sets location of the resource
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
-    maintenanceScope?: pulumi.Input<string | enums.maintenance.MaintenanceScope>;
+    maintenanceScope?: pulumi.Input<string | enums.maintenance.MaintenanceScope | undefined>;
     /**
      * Gets or sets namespace of the resource
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
      */
-    recurEvery?: pulumi.Input<string>;
+    recurEvery?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -206,21 +206,21 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the MaintenanceConfiguration
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
      */
-    startDateTime?: pulumi.Input<string>;
+    startDateTime?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets tags of the resource
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the visibility of the configuration. The default value is 'Custom'
      */
-    visibility?: pulumi.Input<string | enums.maintenance.Visibility>;
+    visibility?: pulumi.Input<string | enums.maintenance.Visibility | undefined>;
 }

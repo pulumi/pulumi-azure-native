@@ -50,10 +50,10 @@ __all__ = [
     'StreamSourceAddressesArgsDict',
     'SubscriberArgs',
     'SubscriberArgsDict',
-    'TextMatchingRulesetArgs',
-    'TextMatchingRulesetArgsDict',
     'TextMatchArgs',
     'TextMatchArgsDict',
+    'TextMatchingRulesetArgs',
+    'TextMatchingRulesetArgsDict',
     'XmlFilterRulesetArgs',
     'XmlFilterRulesetArgsDict',
 ]
@@ -62,7 +62,7 @@ class AntivirusRulesetArgsDict(TypedDict):
     """
     Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
     """
-    av_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]
+    av_solutions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]]
     """
     Optional. The list of antiviruses to be used as a scanning solution for replicating data.
     """
@@ -70,7 +70,7 @@ class AntivirusRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class AntivirusRulesetArgs:
     def __init__(__self__, *,
-                 av_solutions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]] = None):
+                 av_solutions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]] = None):
         """
         Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
 
@@ -81,14 +81,14 @@ class AntivirusRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="avSolutions")
-    def av_solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]:
+    def av_solutions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]:
         """
         Optional. The list of antiviruses to be used as a scanning solution for replicating data.
         """
         return pulumi.get(self, "av_solutions")
 
     @av_solutions.setter
-    def av_solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]):
+    def av_solutions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]):
         pulumi.set(self, "av_solutions", value)
 
 
@@ -96,19 +96,19 @@ class ArchiveRulesetArgsDict(TypedDict):
     """
     Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
     """
-    maximum_compression_ratio_limit: NotRequired[pulumi.Input[_builtins.float]]
+    maximum_compression_ratio_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
     """
-    maximum_depth_limit: NotRequired[pulumi.Input[_builtins.float]]
+    maximum_depth_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
     """
-    maximum_expansion_size_limit: NotRequired[pulumi.Input[_builtins.float]]
+    maximum_expansion_size_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
     """
-    minimum_size_for_expansion: NotRequired[pulumi.Input[_builtins.float]]
+    minimum_size_for_expansion: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
     """
@@ -116,10 +116,10 @@ class ArchiveRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class ArchiveRulesetArgs:
     def __init__(__self__, *,
-                 maximum_compression_ratio_limit: Optional[pulumi.Input[_builtins.float]] = None,
-                 maximum_depth_limit: Optional[pulumi.Input[_builtins.float]] = None,
-                 maximum_expansion_size_limit: Optional[pulumi.Input[_builtins.float]] = None,
-                 minimum_size_for_expansion: Optional[pulumi.Input[_builtins.float]] = None):
+                 maximum_compression_ratio_limit: pulumi.Input[Optional[_builtins.float]] = None,
+                 maximum_depth_limit: pulumi.Input[Optional[_builtins.float]] = None,
+                 maximum_expansion_size_limit: pulumi.Input[Optional[_builtins.float]] = None,
+                 minimum_size_for_expansion: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
 
@@ -141,50 +141,50 @@ class ArchiveRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumCompressionRatioLimit")
-    def maximum_compression_ratio_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def maximum_compression_ratio_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
         """
         return pulumi.get(self, "maximum_compression_ratio_limit")
 
     @maximum_compression_ratio_limit.setter
-    def maximum_compression_ratio_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def maximum_compression_ratio_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "maximum_compression_ratio_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumDepthLimit")
-    def maximum_depth_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def maximum_depth_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
         """
         return pulumi.get(self, "maximum_depth_limit")
 
     @maximum_depth_limit.setter
-    def maximum_depth_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def maximum_depth_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "maximum_depth_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumExpansionSizeLimit")
-    def maximum_expansion_size_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def maximum_expansion_size_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
         """
         return pulumi.get(self, "maximum_expansion_size_limit")
 
     @maximum_expansion_size_limit.setter
-    def maximum_expansion_size_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def maximum_expansion_size_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "maximum_expansion_size_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumSizeForExpansion")
-    def minimum_size_for_expansion(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def minimum_size_for_expansion(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
         """
         return pulumi.get(self, "minimum_size_for_expansion")
 
     @minimum_size_for_expansion.setter
-    def minimum_size_for_expansion(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def minimum_size_for_expansion(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "minimum_size_for_expansion", value)
 
 
@@ -196,47 +196,47 @@ class ConnectionPropertiesArgsDict(TypedDict):
     """
     Pipeline to use to transfer data
     """
-    direction: NotRequired[pulumi.Input[Union[_builtins.str, 'Direction']]]
+    direction: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Direction']]]]
     """
     Direction of data movement
     """
-    flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
+    flow_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]]
     """
     The flow types being requested for this connection
     """
-    justification: NotRequired[pulumi.Input[_builtins.str]]
+    justification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Justification for the connection request
     """
-    pin: NotRequired[pulumi.Input[_builtins.str]]
+    pin: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     PIN to link requests together
     """
-    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The policies for this connection
     """
-    primary_contact: NotRequired[pulumi.Input[_builtins.str]]
+    primary_contact: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The primary contact for this connection request
     """
-    remote_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    remote_subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription ID to link cloud subscriptions together
     """
-    requirement_id: NotRequired[pulumi.Input[_builtins.str]]
+    requirement_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Requirement ID of the connection
     """
-    schema_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    schema_uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The schema URIs for this connection
     """
-    schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaArgsDict']]]]
+    schemas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaArgsDict']]]]]
     """
     The schemas for this connection
     """
-    secondary_contacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    secondary_contacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The secondary contacts for this connection request
     """
@@ -245,17 +245,17 @@ class ConnectionPropertiesArgsDict(TypedDict):
 class ConnectionPropertiesArgs:
     def __init__(__self__, *,
                  pipeline: pulumi.Input[_builtins.str],
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'Direction']]] = None,
-                 flow_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 schemas: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]]] = None,
-                 secondary_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'Direction']]] = None,
+                 flow_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 schemas: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaArgs']]]] = None,
+                 secondary_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of connection
 
@@ -310,134 +310,134 @@ class ConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Direction']]]:
+    def direction(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Direction']]]:
         """
         Direction of data movement
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Direction']]]):
+    def direction(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Direction']]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter(name="flowTypes")
-    def flow_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]:
+    def flow_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]:
         """
         The flow types being requested for this connection
         """
         return pulumi.get(self, "flow_types")
 
     @flow_types.setter
-    def flow_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]):
+    def flow_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]):
         pulumi.set(self, "flow_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Justification for the connection request
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter
-    def pin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PIN to link requests together
         """
         return pulumi.get(self, "pin")
 
     @pin.setter
-    def pin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pin", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policies for this connection
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryContact")
-    def primary_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary contact for this connection request
         """
         return pulumi.get(self, "primary_contact")
 
     @primary_contact.setter
-    def primary_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteSubscriptionId")
-    def remote_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription ID to link cloud subscriptions together
         """
         return pulumi.get(self, "remote_subscription_id")
 
     @remote_subscription_id.setter
-    def remote_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requirementId")
-    def requirement_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requirement_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requirement ID of the connection
         """
         return pulumi.get(self, "requirement_id")
 
     @requirement_id.setter
-    def requirement_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requirement_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirement_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaUris")
-    def schema_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def schema_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The schema URIs for this connection
         """
         return pulumi.get(self, "schema_uris")
 
     @schema_uris.setter
-    def schema_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def schema_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "schema_uris", value)
 
     @_builtins.property
     @pulumi.getter
-    def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]]]:
+    def schemas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaArgs']]]]:
         """
         The schemas for this connection
         """
         return pulumi.get(self, "schemas")
 
     @schemas.setter
-    def schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]]]):
+    def schemas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaArgs']]]]):
         pulumi.set(self, "schemas", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryContacts")
-    def secondary_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secondary_contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The secondary contacts for this connection request
         """
         return pulumi.get(self, "secondary_contacts")
 
     @secondary_contacts.setter
-    def secondary_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secondary_contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secondary_contacts", value)
 
 
@@ -445,11 +445,11 @@ class DataSizeRulesetArgsDict(TypedDict):
     """
     Defines rules that enforce minimum and maximum file size limits for data replication.
     """
-    maximum: NotRequired[pulumi.Input[_builtins.float]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.float]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
     """
@@ -457,8 +457,8 @@ class DataSizeRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class DataSizeRulesetArgs:
     def __init__(__self__, *,
-                 maximum: Optional[pulumi.Input[_builtins.float]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.float]] = None):
+                 maximum: pulumi.Input[Optional[_builtins.float]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Defines rules that enforce minimum and maximum file size limits for data replication.
 
@@ -474,26 +474,26 @@ class DataSizeRulesetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "minimum", value)
 
 
@@ -513,7 +513,7 @@ class FlowProfilePropertiesArgsDict(TypedDict):
     """
     The operational status of the FlowProfile.
     """
-    rulesets: NotRequired[pulumi.Input['FlowProfileRulesetsArgsDict']]
+    rulesets: NotRequired[pulumi.Input[Optional['FlowProfileRulesetsArgsDict']]]
     """
     A set of configurable rulesets applied to this FlowProfile.
     """
@@ -524,7 +524,7 @@ class FlowProfilePropertiesArgs:
                  description: pulumi.Input[_builtins.str],
                  replication_scenario: pulumi.Input[Union[_builtins.str, 'DataClassType']],
                  status: pulumi.Input[Union[_builtins.str, 'FlowProfileStatus']],
-                 rulesets: Optional[pulumi.Input['FlowProfileRulesetsArgs']] = None):
+                 rulesets: pulumi.Input[Optional['FlowProfileRulesetsArgs']] = None):
         """
         Defines the full set of properties for a FlowProfile resource.
 
@@ -577,14 +577,14 @@ class FlowProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rulesets(self) -> Optional[pulumi.Input['FlowProfileRulesetsArgs']]:
+    def rulesets(self) -> pulumi.Input[Optional['FlowProfileRulesetsArgs']]:
         """
         A set of configurable rulesets applied to this FlowProfile.
         """
         return pulumi.get(self, "rulesets")
 
     @rulesets.setter
-    def rulesets(self, value: Optional[pulumi.Input['FlowProfileRulesetsArgs']]):
+    def rulesets(self, value: pulumi.Input[Optional['FlowProfileRulesetsArgs']]):
         pulumi.set(self, "rulesets", value)
 
 
@@ -592,27 +592,27 @@ class FlowProfileRulesetsArgsDict(TypedDict):
     """
     The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
     """
-    antivirus: NotRequired[pulumi.Input['AntivirusRulesetArgsDict']]
+    antivirus: NotRequired[pulumi.Input[Optional['AntivirusRulesetArgsDict']]]
     """
     Antivirus scanning rules for replicated data.
     """
-    archives: NotRequired[pulumi.Input['ArchiveRulesetArgsDict']]
+    archives: NotRequired[pulumi.Input[Optional['ArchiveRulesetArgsDict']]]
     """
     Rules for handling archive files during replication.
     """
-    data_size: NotRequired[pulumi.Input['DataSizeRulesetArgsDict']]
+    data_size: NotRequired[pulumi.Input[Optional['DataSizeRulesetArgsDict']]]
     """
     Rules that enforce minimum and maximum data size limits.
     """
-    mime_filters: NotRequired[pulumi.Input['MimeFilterRulesetArgsDict']]
+    mime_filters: NotRequired[pulumi.Input[Optional['MimeFilterRulesetArgsDict']]]
     """
     Rules for filtering files based on MIME types.
     """
-    text_matching: NotRequired[pulumi.Input['TextMatchingRulesetArgsDict']]
+    text_matching: NotRequired[pulumi.Input[Optional['TextMatchingRulesetArgsDict']]]
     """
     Rules for detecting and blocking specific text patterns.
     """
-    xml_filters: NotRequired[pulumi.Input['XmlFilterRulesetArgsDict']]
+    xml_filters: NotRequired[pulumi.Input[Optional['XmlFilterRulesetArgsDict']]]
     """
     Rules for filtering XML content using XSD schemas.
     """
@@ -620,12 +620,12 @@ class FlowProfileRulesetsArgsDict(TypedDict):
 @pulumi.input_type
 class FlowProfileRulesetsArgs:
     def __init__(__self__, *,
-                 antivirus: Optional[pulumi.Input['AntivirusRulesetArgs']] = None,
-                 archives: Optional[pulumi.Input['ArchiveRulesetArgs']] = None,
-                 data_size: Optional[pulumi.Input['DataSizeRulesetArgs']] = None,
-                 mime_filters: Optional[pulumi.Input['MimeFilterRulesetArgs']] = None,
-                 text_matching: Optional[pulumi.Input['TextMatchingRulesetArgs']] = None,
-                 xml_filters: Optional[pulumi.Input['XmlFilterRulesetArgs']] = None):
+                 antivirus: pulumi.Input[Optional['AntivirusRulesetArgs']] = None,
+                 archives: pulumi.Input[Optional['ArchiveRulesetArgs']] = None,
+                 data_size: pulumi.Input[Optional['DataSizeRulesetArgs']] = None,
+                 mime_filters: pulumi.Input[Optional['MimeFilterRulesetArgs']] = None,
+                 text_matching: pulumi.Input[Optional['TextMatchingRulesetArgs']] = None,
+                 xml_filters: pulumi.Input[Optional['XmlFilterRulesetArgs']] = None):
         """
         The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
 
@@ -651,74 +651,74 @@ class FlowProfileRulesetsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def antivirus(self) -> Optional[pulumi.Input['AntivirusRulesetArgs']]:
+    def antivirus(self) -> pulumi.Input[Optional['AntivirusRulesetArgs']]:
         """
         Antivirus scanning rules for replicated data.
         """
         return pulumi.get(self, "antivirus")
 
     @antivirus.setter
-    def antivirus(self, value: Optional[pulumi.Input['AntivirusRulesetArgs']]):
+    def antivirus(self, value: pulumi.Input[Optional['AntivirusRulesetArgs']]):
         pulumi.set(self, "antivirus", value)
 
     @_builtins.property
     @pulumi.getter
-    def archives(self) -> Optional[pulumi.Input['ArchiveRulesetArgs']]:
+    def archives(self) -> pulumi.Input[Optional['ArchiveRulesetArgs']]:
         """
         Rules for handling archive files during replication.
         """
         return pulumi.get(self, "archives")
 
     @archives.setter
-    def archives(self, value: Optional[pulumi.Input['ArchiveRulesetArgs']]):
+    def archives(self, value: pulumi.Input[Optional['ArchiveRulesetArgs']]):
         pulumi.set(self, "archives", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSize")
-    def data_size(self) -> Optional[pulumi.Input['DataSizeRulesetArgs']]:
+    def data_size(self) -> pulumi.Input[Optional['DataSizeRulesetArgs']]:
         """
         Rules that enforce minimum and maximum data size limits.
         """
         return pulumi.get(self, "data_size")
 
     @data_size.setter
-    def data_size(self, value: Optional[pulumi.Input['DataSizeRulesetArgs']]):
+    def data_size(self, value: pulumi.Input[Optional['DataSizeRulesetArgs']]):
         pulumi.set(self, "data_size", value)
 
     @_builtins.property
     @pulumi.getter(name="mimeFilters")
-    def mime_filters(self) -> Optional[pulumi.Input['MimeFilterRulesetArgs']]:
+    def mime_filters(self) -> pulumi.Input[Optional['MimeFilterRulesetArgs']]:
         """
         Rules for filtering files based on MIME types.
         """
         return pulumi.get(self, "mime_filters")
 
     @mime_filters.setter
-    def mime_filters(self, value: Optional[pulumi.Input['MimeFilterRulesetArgs']]):
+    def mime_filters(self, value: pulumi.Input[Optional['MimeFilterRulesetArgs']]):
         pulumi.set(self, "mime_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="textMatching")
-    def text_matching(self) -> Optional[pulumi.Input['TextMatchingRulesetArgs']]:
+    def text_matching(self) -> pulumi.Input[Optional['TextMatchingRulesetArgs']]:
         """
         Rules for detecting and blocking specific text patterns.
         """
         return pulumi.get(self, "text_matching")
 
     @text_matching.setter
-    def text_matching(self, value: Optional[pulumi.Input['TextMatchingRulesetArgs']]):
+    def text_matching(self, value: pulumi.Input[Optional['TextMatchingRulesetArgs']]):
         pulumi.set(self, "text_matching", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlFilters")
-    def xml_filters(self) -> Optional[pulumi.Input['XmlFilterRulesetArgs']]:
+    def xml_filters(self) -> pulumi.Input[Optional['XmlFilterRulesetArgs']]:
         """
         Rules for filtering XML content using XSD schemas.
         """
         return pulumi.get(self, "xml_filters")
 
     @xml_filters.setter
-    def xml_filters(self, value: Optional[pulumi.Input['XmlFilterRulesetArgs']]):
+    def xml_filters(self, value: pulumi.Input[Optional['XmlFilterRulesetArgs']]):
         pulumi.set(self, "xml_filters", value)
 
 
@@ -726,83 +726,83 @@ class FlowPropertiesArgsDict(TypedDict):
     """
     Properties of flow
     """
-    connection: NotRequired[pulumi.Input['SelectedResourceArgsDict']]
+    connection: NotRequired[pulumi.Input[Optional['SelectedResourceArgsDict']]]
     """
     The connection associated with this flow
     """
-    customer_managed_key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    customer_managed_key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI to the customer managed key for this flow
     """
-    data_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataType']]]
+    data_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataType']]]]
     """
     Transfer Storage Blobs or Tables
     """
-    destination_endpoint_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    destination_endpoint_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]]
     """
     The destination endpoint ports of the stream
     """
-    destination_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The destination endpoints of the stream
     """
-    flow_type: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowType']]]
+    flow_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]]]
     """
     The flow type for this flow
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AME, PME, or TORUS only! AKV Chain Containing SAS Token
     """
-    messaging_options: NotRequired[pulumi.Input['MessagingOptionsArgsDict']]
+    messaging_options: NotRequired[pulumi.Input[Optional['MessagingOptionsArgsDict']]]
     """
     The messaging options for this flow
     """
-    passphrase: NotRequired[pulumi.Input[_builtins.str]]
+    passphrase: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The passphrase used for SRT streams
     """
-    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The policies for this flow
     """
-    schema: NotRequired[pulumi.Input['SchemaArgsDict']]
+    schema: NotRequired[pulumi.Input[Optional['SchemaArgsDict']]]
     """
     The selected schema for this flow
     """
-    service_bus_queue_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_bus_queue_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Service Bus Queue ID
     """
-    source_addresses: NotRequired[pulumi.Input['StreamSourceAddressesArgsDict']]
+    source_addresses: NotRequired[pulumi.Input[Optional['StreamSourceAddressesArgsDict']]]
     """
     The source IP address and CIDR ranges of the stream
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FlowStatus']]]]
     """
     Status of the current flow
     """
-    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage Account ID
     """
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage Account
     """
-    storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage Container Name
     """
-    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The flow stream identifier
     """
-    stream_latency: NotRequired[pulumi.Input[_builtins.float]]
+    stream_latency: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The latency of the stream in milliseconds
     """
-    stream_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]]
+    stream_protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StreamProtocol']]]]
     """
     The protocol of the stream
     """
@@ -810,26 +810,26 @@ class FlowPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowPropertiesArgs:
     def __init__(__self__, *,
-                 connection: Optional[pulumi.Input['SelectedResourceArgs']] = None,
-                 customer_managed_key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[Union[_builtins.str, 'DataType']]] = None,
-                 destination_endpoint_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None,
-                 destination_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_type: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 messaging_options: Optional[pulumi.Input['MessagingOptionsArgs']] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 schema: Optional[pulumi.Input['SchemaArgs']] = None,
-                 service_bus_queue_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input['StreamSourceAddressesArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'FlowStatus']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_latency: Optional[pulumi.Input[_builtins.float]] = None,
-                 stream_protocol: Optional[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]] = None):
+                 connection: pulumi.Input[Optional['SelectedResourceArgs']] = None,
+                 customer_managed_key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[Union[_builtins.str, 'DataType']]] = None,
+                 destination_endpoint_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None,
+                 destination_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 flow_type: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 messaging_options: pulumi.Input[Optional['MessagingOptionsArgs']] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 schema: pulumi.Input[Optional['SchemaArgs']] = None,
+                 service_bus_queue_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional['StreamSourceAddressesArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'FlowStatus']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_latency: pulumi.Input[Optional[_builtins.float]] = None,
+                 stream_protocol: pulumi.Input[Optional[Union[_builtins.str, 'StreamProtocol']]] = None):
         """
         Properties of flow
 
@@ -897,242 +897,242 @@ class FlowPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connection(self) -> Optional[pulumi.Input['SelectedResourceArgs']]:
+    def connection(self) -> pulumi.Input[Optional['SelectedResourceArgs']]:
         """
         The connection associated with this flow
         """
         return pulumi.get(self, "connection")
 
     @connection.setter
-    def connection(self, value: Optional[pulumi.Input['SelectedResourceArgs']]):
+    def connection(self, value: pulumi.Input[Optional['SelectedResourceArgs']]):
         pulumi.set(self, "connection", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyVaultUri")
-    def customer_managed_key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI to the customer managed key for this flow
         """
         return pulumi.get(self, "customer_managed_key_vault_uri")
 
     @customer_managed_key_vault_uri.setter
-    def customer_managed_key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataType']]]:
+    def data_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataType']]]:
         """
         Transfer Storage Blobs or Tables
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataType']]]):
+    def data_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataType']]]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationEndpointPorts")
-    def destination_endpoint_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]:
+    def destination_endpoint_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]:
         """
         The destination endpoint ports of the stream
         """
         return pulumi.get(self, "destination_endpoint_ports")
 
     @destination_endpoint_ports.setter
-    def destination_endpoint_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]):
+    def destination_endpoint_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]):
         pulumi.set(self, "destination_endpoint_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationEndpoints")
-    def destination_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The destination endpoints of the stream
         """
         return pulumi.get(self, "destination_endpoints")
 
     @destination_endpoints.setter
-    def destination_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="flowType")
-    def flow_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]]:
+    def flow_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]]:
         """
         The flow type for this flow
         """
         return pulumi.get(self, "flow_type")
 
     @flow_type.setter
-    def flow_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]]):
+    def flow_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]]):
         pulumi.set(self, "flow_type", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AME, PME, or TORUS only! AKV Chain Containing SAS Token
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="messagingOptions")
-    def messaging_options(self) -> Optional[pulumi.Input['MessagingOptionsArgs']]:
+    def messaging_options(self) -> pulumi.Input[Optional['MessagingOptionsArgs']]:
         """
         The messaging options for this flow
         """
         return pulumi.get(self, "messaging_options")
 
     @messaging_options.setter
-    def messaging_options(self, value: Optional[pulumi.Input['MessagingOptionsArgs']]):
+    def messaging_options(self, value: pulumi.Input[Optional['MessagingOptionsArgs']]):
         pulumi.set(self, "messaging_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The passphrase used for SRT streams
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policies for this flow
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['SchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['SchemaArgs']]:
         """
         The selected schema for this flow
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['SchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['SchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusQueueId")
-    def service_bus_queue_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_queue_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service Bus Queue ID
         """
         return pulumi.get(self, "service_bus_queue_id")
 
     @service_bus_queue_id.setter
-    def service_bus_queue_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_queue_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_queue_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input['StreamSourceAddressesArgs']]:
+    def source_addresses(self) -> pulumi.Input[Optional['StreamSourceAddressesArgs']]:
         """
         The source IP address and CIDR ranges of the stream
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input['StreamSourceAddressesArgs']]):
+    def source_addresses(self, value: pulumi.Input[Optional['StreamSourceAddressesArgs']]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FlowStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FlowStatus']]]:
         """
         Status of the current flow
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FlowStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FlowStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account ID
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Container Name
         """
         return pulumi.get(self, "storage_container_name")
 
     @storage_container_name.setter
-    def storage_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamId")
-    def stream_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The flow stream identifier
         """
         return pulumi.get(self, "stream_id")
 
     @stream_id.setter
-    def stream_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_id", value)
 
     @_builtins.property
     @pulumi.getter(name="streamLatency")
-    def stream_latency(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def stream_latency(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The latency of the stream in milliseconds
         """
         return pulumi.get(self, "stream_latency")
 
     @stream_latency.setter
-    def stream_latency(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def stream_latency(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "stream_latency", value)
 
     @_builtins.property
     @pulumi.getter(name="streamProtocol")
-    def stream_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]]:
+    def stream_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StreamProtocol']]]:
         """
         The protocol of the stream
         """
         return pulumi.get(self, "stream_protocol")
 
     @stream_protocol.setter
-    def stream_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]]):
+    def stream_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StreamProtocol']]]):
         pulumi.set(self, "stream_protocol", value)
 
 
@@ -1144,7 +1144,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -1153,7 +1153,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -1178,14 +1178,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1193,7 +1193,7 @@ class MessagingOptionsArgsDict(TypedDict):
     """
     The option associated with messaging flows.
     """
-    billing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]]
+    billing_tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FlowBillingTier']]]]
     """
     Billing tier for this messaging flow
     """
@@ -1201,7 +1201,7 @@ class MessagingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class MessagingOptionsArgs:
     def __init__(__self__, *,
-                 billing_tier: Optional[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]] = None):
+                 billing_tier: pulumi.Input[Optional[Union[_builtins.str, 'FlowBillingTier']]] = None):
         """
         The option associated with messaging flows.
 
@@ -1212,14 +1212,14 @@ class MessagingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingTier")
-    def billing_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]]:
+    def billing_tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FlowBillingTier']]]:
         """
         Billing tier for this messaging flow
         """
         return pulumi.get(self, "billing_tier")
 
     @billing_tier.setter
-    def billing_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]]):
+    def billing_tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FlowBillingTier']]]):
         pulumi.set(self, "billing_tier", value)
 
 
@@ -1227,11 +1227,11 @@ class MimeFilterRulesetArgsDict(TypedDict):
     """
     Rules for filtering files based on Media types (f.k.a MIME types).
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MimeTypeFilterArgsDict']]]]]
     """
     Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FilterType']]]]
     """
     Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
     """
@@ -1239,8 +1239,8 @@ class MimeFilterRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class MimeFilterRulesetArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'FilterType']]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['MimeTypeFilterArgs']]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'FilterType']]] = None):
         """
         Rules for filtering files based on Media types (f.k.a MIME types).
 
@@ -1254,26 +1254,26 @@ class MimeFilterRulesetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]:
         """
         Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FilterType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FilterType']]]:
         """
         Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FilterType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FilterType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1281,11 +1281,11 @@ class MimeTypeFilterArgsDict(TypedDict):
     """
     Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
     """
-    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
     """
-    media: NotRequired[pulumi.Input[_builtins.str]]
+    media: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
     """
@@ -1293,8 +1293,8 @@ class MimeTypeFilterArgsDict(TypedDict):
 @pulumi.input_type
 class MimeTypeFilterArgs:
     def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media: Optional[pulumi.Input[_builtins.str]] = None):
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 media: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
 
@@ -1308,26 +1308,26 @@ class MimeTypeFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def media(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
         """
         return pulumi.get(self, "media")
 
     @media.setter
-    def media(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media", value)
 
 
@@ -1339,19 +1339,19 @@ class PipelinePropertiesArgsDict(TypedDict):
     """
     Remote cloud of the data to be transferred or received
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name of this pipeline
     """
-    flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
+    flow_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]]
     """
     The flow types allowed for this pipeline
     """
-    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The policies for this pipeline
     """
-    subscribers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberArgsDict']]]]
+    subscribers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberArgsDict']]]]]
     """
     Subscribers of this resource
     """
@@ -1360,10 +1360,10 @@ class PipelinePropertiesArgsDict(TypedDict):
 class PipelinePropertiesArgs:
     def __init__(__self__, *,
                  remote_cloud: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberArgs']]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberArgs']]]] = None):
         """
         Properties of pipeline
 
@@ -1397,50 +1397,50 @@ class PipelinePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of this pipeline
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="flowTypes")
-    def flow_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]:
+    def flow_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]:
         """
         The flow types allowed for this pipeline
         """
         return pulumi.get(self, "flow_types")
 
     @flow_types.setter
-    def flow_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]):
+    def flow_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]):
         pulumi.set(self, "flow_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policies for this pipeline
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberArgs']]]]:
+    def subscribers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberArgs']]]]:
         """
         Subscribers of this resource
         """
         return pulumi.get(self, "subscribers")
 
     @subscribers.setter
-    def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberArgs']]]]):
+    def subscribers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberArgs']]]]):
         pulumi.set(self, "subscribers", value)
 
 
@@ -1454,17 +1454,17 @@ class PlanArgsDict(TypedDict):
     """
     product: pulumi.Input[_builtins.str]
     """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
     """
     publisher: pulumi.Input[_builtins.str]
     """
     The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the desired product/artifact.
     """
@@ -1475,13 +1475,13 @@ class PlanArgs:
                  name: pulumi.Input[_builtins.str],
                  product: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan for the resource.
 
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -1510,7 +1510,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -1532,26 +1532,26 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the desired product/artifact.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1559,35 +1559,35 @@ class SchemaArgsDict(TypedDict):
     """
     The schema object.
     """
-    connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connection ID associated with this schema
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Content of the schema
     """
-    direction: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]]
+    direction: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]]]
     """
     The direction of the schema.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID associated with this schema
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the schema
     """
-    schema_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaType']]]
+    schema_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]]
     """
     The Schema Type
     """
-    schema_uri: NotRequired[pulumi.Input[_builtins.str]]
+    schema_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri containing SAS token for the zipped schema
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]]]
     """
     Status of the schema
     """
@@ -1595,14 +1595,14 @@ class SchemaArgsDict(TypedDict):
 @pulumi.input_type
 class SchemaArgs:
     def __init__(__self__, *,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
-                 schema_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]] = None):
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
+                 schema_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]] = None):
         """
         The schema object.
 
@@ -1634,98 +1634,98 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connection ID associated with this schema
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content of the schema
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]]:
+    def direction(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]]:
         """
         The direction of the schema.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]]):
+    def direction(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID associated with this schema
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the schema
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
-    def schema_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]]:
+    def schema_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]:
         """
         The Schema Type
         """
         return pulumi.get(self, "schema_type")
 
     @schema_type.setter
-    def schema_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]]):
+    def schema_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]):
         pulumi.set(self, "schema_type", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaUri")
-    def schema_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri containing SAS token for the zipped schema
         """
         return pulumi.get(self, "schema_uri")
 
     @schema_uri.setter
-    def schema_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]]:
         """
         Status of the schema
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1737,15 +1737,15 @@ class SelectedResourceArgsDict(TypedDict):
     """
     Id of the connection
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of the connection
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the connection
     """
-    subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subscription with the connection
     """
@@ -1754,9 +1754,9 @@ class SelectedResourceArgsDict(TypedDict):
 class SelectedResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A resource selected from ARM
 
@@ -1787,38 +1787,38 @@ class SelectedResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the connection
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connection
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subscription with the connection
         """
         return pulumi.get(self, "subscription_name")
 
     @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_name", value)
 
 
@@ -1826,7 +1826,7 @@ class StreamSourceAddressesArgsDict(TypedDict):
     """
     The source IP address and CIDR ranges of the stream
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A source IP address or CIDR range
     """
@@ -1834,7 +1834,7 @@ class StreamSourceAddressesArgsDict(TypedDict):
 @pulumi.input_type
 class StreamSourceAddressesArgs:
     def __init__(__self__, *,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The source IP address and CIDR ranges of the stream
 
@@ -1845,23 +1845,23 @@ class StreamSourceAddressesArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A source IP address or CIDR range
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
 
 class SubscriberArgsDict(TypedDict):
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email of the subscriber
     """
-    notifications: NotRequired[pulumi.Input[_builtins.float]]
+    notifications: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Number specifying what notifications to receive
     """
@@ -1869,8 +1869,8 @@ class SubscriberArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriberArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[_builtins.float]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] email: Email of the subscriber
         :param pulumi.Input[_builtins.float] notifications: Number specifying what notifications to receive
@@ -1882,61 +1882,27 @@ class SubscriberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email of the subscriber
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def notifications(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number specifying what notifications to receive
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def notifications(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "notifications", value)
-
-
-class TextMatchingRulesetArgsDict(TypedDict):
-    """
-    Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
-    """
-    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input['TextMatchArgsDict']]]]
-    """
-    A list of text patterns to block, each with matching rules and case sensitivity options.
-    """
-
-@pulumi.input_type
-class TextMatchingRulesetArgs:
-    def __init__(__self__, *,
-                 deny: Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]] = None):
-        """
-        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
-
-        :param pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]] deny: A list of text patterns to block, each with matching rules and case sensitivity options.
-        """
-        if deny is not None:
-            pulumi.set(__self__, "deny", deny)
-
-    @_builtins.property
-    @pulumi.getter
-    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]]:
-        """
-        A list of text patterns to block, each with matching rules and case sensitivity options.
-        """
-        return pulumi.get(self, "deny")
-
-    @deny.setter
-    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]]):
-        pulumi.set(self, "deny", value)
 
 
 class TextMatchArgsDict(TypedDict):
@@ -1959,8 +1925,8 @@ class TextMatchArgsDict(TypedDict):
 @pulumi.input_type
 class TextMatchArgs:
     def __init__(__self__, *,
-                 case_sensitivity: Optional[pulumi.Input[Union[_builtins.str, 'Casing']]] = None,
-                 match_type: Optional[pulumi.Input[Union[_builtins.str, 'MatchType']]] = None,
+                 case_sensitivity: pulumi.Input[Optional[Union[_builtins.str, 'Casing']]] = None,
+                 match_type: pulumi.Input[Optional[Union[_builtins.str, 'MatchType']]] = None,
                  text: pulumi.Input[_builtins.str]):
         """
         Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
@@ -2014,19 +1980,53 @@ class TextMatchArgs:
         pulumi.set(self, "text", value)
 
 
+class TextMatchingRulesetArgsDict(TypedDict):
+    """
+    Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+    """
+    deny: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TextMatchArgsDict']]]]]
+    """
+    A list of text patterns to block, each with matching rules and case sensitivity options.
+    """
+
+@pulumi.input_type
+class TextMatchingRulesetArgs:
+    def __init__(__self__, *,
+                 deny: pulumi.Input[Optional[Sequence[pulumi.Input['TextMatchArgs']]]] = None):
+        """
+        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+
+        :param pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]] deny: A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        if deny is not None:
+            pulumi.set(__self__, "deny", deny)
+
+    @_builtins.property
+    @pulumi.getter
+    def deny(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TextMatchArgs']]]]:
+        """
+        A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        return pulumi.get(self, "deny")
+
+    @deny.setter
+    def deny(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TextMatchArgs']]]]):
+        pulumi.set(self, "deny", value)
+
+
 class XmlFilterRulesetArgsDict(TypedDict):
     """
     Rules for filtering XML content using XSD schemas.
     """
-    default_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    default_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default XML namespace used for schema validation.
     """
-    reference: NotRequired[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]]
+    reference: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'XmlReferenceType']]]]
     """
     Defines the method for referencing the xml schema.
     """
-    schema: NotRequired[pulumi.Input[_builtins.str]]
+    schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The inline XSD schema to be used for validation.
     """
@@ -2034,9 +2034,9 @@ class XmlFilterRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class XmlFilterRulesetArgs:
     def __init__(__self__, *,
-                 default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[Union[_builtins.str, 'XmlReferenceType']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Rules for filtering XML content using XSD schemas.
 
@@ -2053,38 +2053,38 @@ class XmlFilterRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultNamespace")
-    def default_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default XML namespace used for schema validation.
         """
         return pulumi.get(self, "default_namespace")
 
     @default_namespace.setter
-    def default_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def reference(self) -> Optional[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]]:
+    def reference(self) -> pulumi.Input[Optional[Union[_builtins.str, 'XmlReferenceType']]]:
         """
         Defines the method for referencing the xml schema.
         """
         return pulumi.get(self, "reference")
 
     @reference.setter
-    def reference(self, value: Optional[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]]):
+    def reference(self, value: pulumi.Input[Optional[Union[_builtins.str, 'XmlReferenceType']]]):
         pulumi.set(self, "reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The inline XSD schema to be used for validation.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
 

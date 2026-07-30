@@ -113,15 +113,15 @@ export interface Route53ResourceRecordSetArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of Route53ResourceRecordSet
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.Route53ResourceRecordSetPropertiesArgs>;
+    properties?: pulumi.Input<inputs.awsconnector.Route53ResourceRecordSetPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface Route53ResourceRecordSetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

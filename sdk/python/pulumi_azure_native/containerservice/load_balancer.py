@@ -26,11 +26,11 @@ class LoadBalancerArgs:
                  primary_agent_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 allow_service_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_selector: Optional[pulumi.Input['LabelSelectorArgs']] = None,
-                 service_label_selector: Optional[pulumi.Input['LabelSelectorArgs']] = None,
-                 service_namespace_selector: Optional[pulumi.Input['LabelSelectorArgs']] = None):
+                 allow_service_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_selector: pulumi.Input[Optional['LabelSelectorArgs']] = None,
+                 service_label_selector: pulumi.Input[Optional['LabelSelectorArgs']] = None,
+                 service_namespace_selector: pulumi.Input[Optional['LabelSelectorArgs']] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -109,62 +109,62 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowServicePlacement")
-    def allow_service_placement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_service_placement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
         """
         return pulumi.get(self, "allow_service_placement")
 
     @allow_service_placement.setter
-    def allow_service_placement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_service_placement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_service_placement", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the load balancer.
         """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
-    def load_balancer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input['LabelSelectorArgs']]:
+    def node_selector(self) -> pulumi.Input[Optional['LabelSelectorArgs']]:
         """
         Nodes that match this selector will be possible members of this load balancer.
         """
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input['LabelSelectorArgs']]):
+    def node_selector(self, value: pulumi.Input[Optional['LabelSelectorArgs']]):
         pulumi.set(self, "node_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLabelSelector")
-    def service_label_selector(self) -> Optional[pulumi.Input['LabelSelectorArgs']]:
+    def service_label_selector(self) -> pulumi.Input[Optional['LabelSelectorArgs']]:
         """
         Only services that must match this selector can be placed on this load balancer.
         """
         return pulumi.get(self, "service_label_selector")
 
     @service_label_selector.setter
-    def service_label_selector(self, value: Optional[pulumi.Input['LabelSelectorArgs']]):
+    def service_label_selector(self, value: pulumi.Input[Optional['LabelSelectorArgs']]):
         pulumi.set(self, "service_label_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNamespaceSelector")
-    def service_namespace_selector(self) -> Optional[pulumi.Input['LabelSelectorArgs']]:
+    def service_namespace_selector(self) -> pulumi.Input[Optional['LabelSelectorArgs']]:
         """
         Services created in namespaces that match the selector can be placed on this load balancer.
         """
         return pulumi.get(self, "service_namespace_selector")
 
     @service_namespace_selector.setter
-    def service_namespace_selector(self, value: Optional[pulumi.Input['LabelSelectorArgs']]):
+    def service_namespace_selector(self, value: pulumi.Input[Optional['LabelSelectorArgs']]):
         pulumi.set(self, "service_namespace_selector", value)
 
 
@@ -174,15 +174,15 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_service_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
-                 primary_agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_label_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
-                 service_namespace_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 allow_service_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 primary_agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_label_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 service_namespace_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  __props__=None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
@@ -190,7 +190,6 @@ class LoadBalancer(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-02-preview.
 
         Other available API versions: 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2025-01-02-preview, 2025-02-02-preview, 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Other available API versions: 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2025-01-02-preview, 2025-02-02-preview, 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_service_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
-                 primary_agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_label_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
-                 service_namespace_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 allow_service_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 primary_agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_label_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 service_namespace_selector: pulumi.Input[Optional[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

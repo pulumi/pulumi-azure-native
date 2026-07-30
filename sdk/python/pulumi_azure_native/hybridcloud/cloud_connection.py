@@ -22,13 +22,13 @@ __all__ = ['CloudConnectionArgs', 'CloudConnection']
 class CloudConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cloud_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input['ResourceReferenceArgs']] = None):
+                 cloud_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional['ResourceReferenceArgs']] = None):
         """
         The set of arguments for constructing a CloudConnection resource.
 
@@ -71,86 +71,86 @@ class CloudConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudConnectionName")
-    def cloud_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cloud connection resource
         """
         return pulumi.get(self, "cloud_connection_name")
 
     @cloud_connection_name.setter
-    def cloud_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudConnector")
-    def cloud_connector(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def cloud_connector(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         The cloud connector which discovered the remote resource.
         """
         return pulumi.get(self, "cloud_connector")
 
     @cloud_connector.setter
-    def cloud_connector(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def cloud_connector(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "cloud_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteResourceId")
-    def remote_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the remote cloud resource
         """
         return pulumi.get(self, "remote_resource_id")
 
     @remote_resource_id.setter
-    def remote_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared key of the cloud connection.
         """
         return pulumi.get(self, "shared_key")
 
     @shared_key.setter
-    def shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def virtual_hub(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         The virtualHub to which the cloud connection belongs.
         """
         return pulumi.get(self, "virtual_hub")
 
     @virtual_hub.setter
-    def virtual_hub(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def virtual_hub(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "virtual_hub", value)
 
 
@@ -160,20 +160,19 @@ class CloudConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 cloud_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  __props__=None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class CloudConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param CloudConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,14 +211,14 @@ class CloudConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_connector: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 cloud_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

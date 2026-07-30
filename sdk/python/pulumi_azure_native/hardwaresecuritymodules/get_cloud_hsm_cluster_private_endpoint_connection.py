@@ -169,7 +169,6 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
 
     Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
     :param _builtins.str pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -192,9 +191,9 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudHsmClusterPrivateEndpointConnectionResult]:
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
@@ -202,7 +201,6 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
     Uses Azure REST API version 2024-06-30-preview.
 
     Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
     :param _builtins.str pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.

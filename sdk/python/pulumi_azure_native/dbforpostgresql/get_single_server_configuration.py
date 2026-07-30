@@ -166,7 +166,6 @@ def get_single_server_configuration(configuration_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2017-12-01.
 
-
     :param _builtins.str configuration_name: The name of the server configuration.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.
@@ -189,15 +188,14 @@ def get_single_server_configuration(configuration_name: Optional[_builtins.str] 
         source=pulumi.get(__ret__, 'source'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_single_server_configuration_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_single_server_configuration_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSingleServerConfigurationResult]:
     """
     Gets information about a configuration of server.
 
     Uses Azure REST API version 2017-12-01.
-
 
     :param _builtins.str configuration_name: The name of the server configuration.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

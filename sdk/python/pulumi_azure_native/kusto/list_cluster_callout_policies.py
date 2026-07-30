@@ -69,7 +69,6 @@ def list_cluster_callout_policies(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -82,8 +81,8 @@ def list_cluster_callout_policies(cluster_name: Optional[_builtins.str] = None,
     return AwaitableListClusterCalloutPoliciesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_cluster_callout_policies_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterCalloutPoliciesResult]:
     """
     Returns the allowed callout policies for the specified service.
@@ -91,7 +90,6 @@ def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2024-04-13.
 
     Other available API versions: 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

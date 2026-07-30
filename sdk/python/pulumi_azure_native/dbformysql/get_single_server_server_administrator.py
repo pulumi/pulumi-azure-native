@@ -141,7 +141,6 @@ def get_single_server_server_administrator(resource_group_name: Optional[_builti
 
     Uses Azure REST API version 2017-12-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.
     """
@@ -160,14 +159,13 @@ def get_single_server_server_administrator(resource_group_name: Optional[_builti
         sid=pulumi.get(__ret__, 'sid'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_single_server_server_administrator_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_single_server_server_administrator_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSingleServerServerAdministratorResult]:
     """
     Gets information about a AAD server administrator.
 
     Uses Azure REST API version 2017-12-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.

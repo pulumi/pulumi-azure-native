@@ -369,7 +369,6 @@ def get_storage_appliance(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_appliance_name: The name of the storage appliance.
     """
@@ -407,8 +406,8 @@ def get_storage_appliance(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 storage_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_appliance_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 storage_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
     Get properties of the provided storage appliance.
@@ -416,7 +415,6 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_appliance_name: The name of the storage appliance.

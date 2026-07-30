@@ -22,13 +22,13 @@ __all__ = ['MasterSitesControllerArgs', 'MasterSitesController']
 class MasterSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_multiple_sites: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_storage_account_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_multiple_sites: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_storage_account_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MasterSitesController resource.
 
@@ -74,7 +74,7 @@ class MasterSitesControllerArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowMultipleSites")
-    def allow_multiple_sites(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_multiple_sites(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether multiple sites per site type are
         allowed.
@@ -82,60 +82,60 @@ class MasterSitesControllerArgs:
         return pulumi.get(self, "allow_multiple_sites")
 
     @allow_multiple_sites.setter
-    def allow_multiple_sites(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_multiple_sites(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_multiple_sites", value)
 
     @_builtins.property
     @pulumi.getter(name="customerStorageAccountArmId")
-    def customer_storage_account_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_storage_account_arm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a value for customer storage account ARM id.
         """
         return pulumi.get(self, "customer_storage_account_arm_id")
 
     @customer_storage_account_arm_id.setter
-    def customer_storage_account_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_storage_account_arm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_storage_account_arm_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]]:
         """
         Gets or sets the state of public network access.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Site name
         """
         return pulumi.get(self, "site_name")
 
     @site_name.setter
-    def site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the sites that are a part of Master Site.
                     The key
@@ -144,19 +144,19 @@ class MasterSitesControllerArgs:
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sites", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -166,14 +166,14 @@ class MasterSitesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_multiple_sites: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_storage_account_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_multiple_sites: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_storage_account_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A MasterSite
@@ -181,7 +181,6 @@ class MasterSitesController(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +209,6 @@ class MasterSitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MasterSitesControllerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,14 +224,14 @@ class MasterSitesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_multiple_sites: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_storage_account_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_multiple_sites: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_storage_account_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'MasterSitePropertiesPublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

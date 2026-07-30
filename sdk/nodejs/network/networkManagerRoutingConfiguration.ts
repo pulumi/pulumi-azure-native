@@ -126,11 +126,11 @@ export interface NetworkManagerRoutingConfigurationArgs {
     /**
      * The name of the network manager Routing Configuration.
      */
-    configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * A description of the routing configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */

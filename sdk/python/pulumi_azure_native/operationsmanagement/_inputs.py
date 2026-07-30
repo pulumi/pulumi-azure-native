@@ -31,25 +31,25 @@ class ArmTemplateParameterArgsDict(TypedDict):
     """
     Parameter to pass to ARM template
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    value for the parameter. In Jtoken 
+    value for the parameter. In Jtoken
     """
 
 @pulumi.input_type
 class ArmTemplateParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameter to pass to ARM template
 
         :param pulumi.Input[_builtins.str] name: name of the parameter.
-        :param pulumi.Input[_builtins.str] value: value for the parameter. In Jtoken 
+        :param pulumi.Input[_builtins.str] value: value for the parameter. In Jtoken
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -58,26 +58,26 @@ class ArmTemplateParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        value for the parameter. In Jtoken 
+        value for the parameter. In Jtoken
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -130,7 +130,7 @@ class ManagementConfigurationPropertiesArgsDict(TypedDict):
     """
     The Json object containing the ARM template to deploy
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The applicationId of the appliance for this Management.
     """
@@ -141,7 +141,7 @@ class ManagementConfigurationPropertiesArgs:
                  parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]],
                  parent_resource_type: pulumi.Input[_builtins.str],
                  template: Any,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
 
@@ -194,14 +194,14 @@ class ManagementConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The applicationId of the appliance for this Management.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
 
@@ -209,19 +209,19 @@ class SolutionPlanArgsDict(TypedDict):
     """
     Plan for solution object supported by the OperationsManagement resource provider.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
     """
-    product: NotRequired[pulumi.Input[_builtins.str]]
+    product: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     promotionCode, Not really used now, can you left as empty
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Publisher name. For gallery solution, it is Microsoft.
     """
@@ -229,10 +229,10 @@ class SolutionPlanArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionPlanArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan for solution object supported by the OperationsManagement resource provider.
 
@@ -252,50 +252,50 @@ class SolutionPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product", value)
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         promotionCode, Not really used now, can you left as empty
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publisher name. For gallery solution, it is Microsoft.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
 
@@ -307,11 +307,11 @@ class SolutionPropertiesArgsDict(TypedDict):
     """
     The azure resourceId for the workspace where the solution will be deployed/enabled.
     """
-    contained_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contained_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
     """
-    referenced_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    referenced_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
     """
@@ -320,8 +320,8 @@ class SolutionPropertiesArgsDict(TypedDict):
 class SolutionPropertiesArgs:
     def __init__(__self__, *,
                  workspace_resource_id: pulumi.Input[_builtins.str],
-                 contained_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 referenced_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 contained_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 referenced_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Solution properties supported by the OperationsManagement resource provider.
 
@@ -349,26 +349,26 @@ class SolutionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="containedResources")
-    def contained_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contained_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
         """
         return pulumi.get(self, "contained_resources")
 
     @contained_resources.setter
-    def contained_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contained_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contained_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="referencedResources")
-    def referenced_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def referenced_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """
         return pulumi.get(self, "referenced_resources")
 
     @referenced_resources.setter
-    def referenced_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def referenced_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "referenced_resources", value)
 
 

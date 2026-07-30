@@ -23,8 +23,8 @@ __all__ = ['IssueArgs', 'Issue']
 class IssueArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['IssuePropertiesArgs']] = None):
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['IssuePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Issue resource.
 
@@ -52,26 +52,26 @@ class IssueArgs:
 
     @_builtins.property
     @pulumi.getter(name="issueName")
-    def issue_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IssueResource
         """
         return pulumi.get(self, "issue_name")
 
     @issue_name.setter
-    def issue_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issue_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IssuePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['IssuePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IssuePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['IssuePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -81,15 +81,14 @@ class Issue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Issue resource
 
         Uses Azure REST API version 2025-03-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,7 +107,6 @@ class Issue(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +122,9 @@ class Issue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

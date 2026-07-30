@@ -117,7 +117,6 @@ def get_ec2_instance(resource_uri: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-12-01.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
@@ -132,13 +131,12 @@ def get_ec2_instance(resource_uri: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_ec2_instance_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ec2_instance_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2InstanceResult]:
     """
     Get a Ec2Instance
 
     Uses Azure REST API version 2024-12-01.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """

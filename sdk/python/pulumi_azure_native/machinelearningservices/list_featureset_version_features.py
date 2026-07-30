@@ -74,7 +74,6 @@ def list_featureset_version_features(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-02-01-preview.
 
-
     :param _builtins.str name: Featureset name. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str skip: Continuation token for pagination.
@@ -95,18 +94,17 @@ def list_featureset_version_features(name: Optional[_builtins.str] = None,
     return AwaitableListFeaturesetVersionFeaturesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_featureset_version_features_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            skip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            tags: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            version: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_featureset_version_features_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            skip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            tags: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            version: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeaturesetVersionFeaturesResult]:
     """
     A paginated list of Feature entities.
 
     Uses Azure REST API version 2023-02-01-preview.
-
 
     :param _builtins.str name: Featureset name. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

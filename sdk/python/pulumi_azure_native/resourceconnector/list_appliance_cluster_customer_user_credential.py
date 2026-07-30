@@ -70,7 +70,6 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
 
     Uses Azure REST API version 2022-04-15-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Appliances name.
     """
@@ -83,14 +82,13 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
     return AwaitableListApplianceClusterCustomerUserCredentialResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-def list_appliance_cluster_customer_user_credential_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_appliance_cluster_customer_user_credential_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
     """
     Returns the cluster customer user credentials for the dedicated appliance.
 
     Uses Azure REST API version 2022-04-15-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Appliances name.

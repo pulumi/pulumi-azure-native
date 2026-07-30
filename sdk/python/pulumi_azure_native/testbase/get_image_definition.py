@@ -152,7 +152,6 @@ def get_image_definition(image_definition_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-01-preview.
 
-
     :param _builtins.str image_definition_name: The resource name of the test base image definition.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
@@ -174,15 +173,14 @@ def get_image_definition(image_definition_name: Optional[_builtins.str] = None,
         security_type=pulumi.get(__ret__, 'security_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_image_definition_output(image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_definition_output(image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageDefinitionResult]:
     """
     Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
 
     Uses Azure REST API version 2023-11-01-preview.
-
 
     :param _builtins.str image_definition_name: The resource name of the test base image definition.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

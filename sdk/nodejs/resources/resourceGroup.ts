@@ -112,17 +112,17 @@ export interface ResourceGroupArgs {
     /**
      * The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource that manages this resource group.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The tags attached to the resource group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

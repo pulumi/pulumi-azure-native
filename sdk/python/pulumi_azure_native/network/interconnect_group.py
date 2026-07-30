@@ -24,11 +24,11 @@ class InterconnectGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  subgroup_profile: pulumi.Input['SubgroupProfileArgs'],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interconnect_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interconnect_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InterconnectGroup resource.
 
@@ -79,62 +79,62 @@ class InterconnectGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="interconnectGroupName")
-    def interconnect_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interconnect_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the interconnect group.
         """
         return pulumi.get(self, "interconnect_group_name")
 
     @interconnect_group_name.setter
-    def interconnect_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interconnect_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interconnect_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InterconnectGroupScope']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InterconnectGroupScope']]]:
         """
         Scope of interconnect group resource.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InterconnectGroupScope']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InterconnectGroupScope']]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,19 +144,18 @@ class InterconnectGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interconnect_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
-                 subgroup_profile: Optional[pulumi.Input[Union['SubgroupProfileArgs', 'SubgroupProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interconnect_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
+                 subgroup_profile: pulumi.Input[Optional[Union['SubgroupProfileArgs', 'SubgroupProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An interconnect group resource.
 
         Uses Azure REST API version 2025-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class InterconnectGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param InterconnectGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class InterconnectGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interconnect_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
-                 subgroup_profile: Optional[pulumi.Input[Union['SubgroupProfileArgs', 'SubgroupProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interconnect_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'InterconnectGroupScope']]] = None,
+                 subgroup_profile: pulumi.Input[Optional[Union['SubgroupProfileArgs', 'SubgroupProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -263,31 +263,31 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server Agent Version
      */
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Server ServicePrincipal Id
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Registered Server clusterId
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Registered Server clusterName
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Friendly Name
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Apply server with newly discovered ApplicationId if available.
      */
-    identity?: pulumi.Input<boolean>;
+    identity?: pulumi.Input<boolean | undefined>;
     /**
      * Registered Server last heart beat
      */
-    lastHeartBeat?: pulumi.Input<string>;
+    lastHeartBeat?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -295,19 +295,19 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server Certificate
      */
-    serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string | undefined>;
     /**
      * Registered Server serverId
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * Registered Server OS Version
      */
-    serverOSVersion?: pulumi.Input<string>;
+    serverOSVersion?: pulumi.Input<string | undefined>;
     /**
      * Registered Server serverRole
      */
-    serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string | undefined>;
     /**
      * Name of Storage Sync Service resource.
      */

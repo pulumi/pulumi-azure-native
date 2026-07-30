@@ -24,8 +24,8 @@ class InventoryItemArgs:
                  inventory_type: pulumi.Input[Union[_builtins.str, 'InventoryType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vmm_server_name: pulumi.Input[_builtins.str],
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InventoryItem resource.
 
@@ -81,26 +81,26 @@ class InventoryItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inventory_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the inventoryItem.
         """
         return pulumi.get(self, "inventory_item_name")
 
     @inventory_item_name.setter
-    def inventory_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inventory_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -110,11 +110,11 @@ class InventoryItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[_builtins.str, 'InventoryType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmm_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inventory_type: pulumi.Input[Optional[Union[_builtins.str, 'InventoryType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmm_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the inventory item.
@@ -122,7 +122,6 @@ class InventoryItem(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class InventoryItem(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class InventoryItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[_builtins.str, 'InventoryType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmm_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inventory_type: pulumi.Input[Optional[Union[_builtins.str, 'InventoryType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmm_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

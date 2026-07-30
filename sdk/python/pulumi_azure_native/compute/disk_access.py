@@ -23,10 +23,10 @@ __all__ = ['DiskAccessArgs', 'DiskAccess']
 class DiskAccessArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 disk_access_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 disk_access_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskAccess resource.
 
@@ -60,50 +60,50 @@ class DiskAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskAccessName")
-    def disk_access_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_access_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         """
         return pulumi.get(self, "disk_access_name")
 
     @disk_access_name.setter
-    def disk_access_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_access_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_access_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location where the disk access will be created. Extended location cannot be changed.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class DiskAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_access_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 disk_access_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         disk access resource.
@@ -125,7 +125,6 @@ class DiskAccess(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
         Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +147,6 @@ class DiskAccess(pulumi.CustomResource):
 
         Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DiskAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,11 +162,11 @@ class DiskAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_access_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 disk_access_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

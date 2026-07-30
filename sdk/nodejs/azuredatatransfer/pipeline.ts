@@ -116,15 +116,15 @@ export interface PipelineArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name for the pipeline that is to be requested.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * Properties of pipeline
      */
-    properties?: pulumi.Input<inputs.azuredatatransfer.PipelinePropertiesArgs>;
+    properties?: pulumi.Input<inputs.azuredatatransfer.PipelinePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface PipelineArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

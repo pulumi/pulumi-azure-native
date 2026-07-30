@@ -29,25 +29,25 @@ class ContentPackageArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
-                 categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
-                 content_schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deprecated: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_featured: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_new: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_preview: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 last_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
-                 support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
-                 threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 author: pulumi.Input[Optional['MetadataAuthorArgs']] = None,
+                 categories: pulumi.Input[Optional['MetadataCategoriesArgs']] = None,
+                 content_schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependencies: pulumi.Input[Optional['MetadataDependenciesArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deprecated: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_featured: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_new: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_preview: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['MetadataSourceArgs']] = None,
+                 support: pulumi.Input[Optional['MetadataSupportArgs']] = None,
+                 threat_analysis_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_analysis_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContentPackage resource.
 
@@ -210,230 +210,230 @@ class ContentPackageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input['MetadataAuthorArgs']]:
+    def author(self) -> pulumi.Input[Optional['MetadataAuthorArgs']]:
         """
         The author of the package
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input['MetadataAuthorArgs']]):
+    def author(self, value: pulumi.Input[Optional['MetadataAuthorArgs']]):
         pulumi.set(self, "author", value)
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input['MetadataCategoriesArgs']]:
+    def categories(self) -> pulumi.Input[Optional['MetadataCategoriesArgs']]:
         """
         The categories of the package
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input['MetadataCategoriesArgs']]):
+    def categories(self, value: pulumi.Input[Optional['MetadataCategoriesArgs']]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter(name="contentSchemaVersion")
-    def content_schema_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the content schema.
         """
         return pulumi.get(self, "content_schema_version")
 
     @content_schema_version.setter
-    def content_schema_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_schema_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_schema_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input['MetadataDependenciesArgs']]:
+    def dependencies(self) -> pulumi.Input[Optional['MetadataDependenciesArgs']]:
         """
         The support tier of the package
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input['MetadataDependenciesArgs']]):
+    def dependencies(self, value: pulumi.Input[Optional['MetadataDependenciesArgs']]):
         pulumi.set(self, "dependencies", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the package
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="firstPublishDate")
-    def first_publish_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_publish_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         first publish date package item
         """
         return pulumi.get(self, "first_publish_date")
 
     @first_publish_date.setter
-    def first_publish_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_publish_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_publish_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def icon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the icon identifier. this id can later be fetched from the content metadata
         """
         return pulumi.get(self, "icon")
 
     @icon.setter
-    def icon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon", value)
 
     @_builtins.property
     @pulumi.getter(name="isDeprecated")
-    def is_deprecated(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]:
+    def is_deprecated(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]:
         """
         Flag indicates if this template is deprecated
         """
         return pulumi.get(self, "is_deprecated")
 
     @is_deprecated.setter
-    def is_deprecated(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]):
+    def is_deprecated(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]):
         pulumi.set(self, "is_deprecated", value)
 
     @_builtins.property
     @pulumi.getter(name="isFeatured")
-    def is_featured(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]:
+    def is_featured(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]:
         """
         Flag indicates if this package is among the featured list.
         """
         return pulumi.get(self, "is_featured")
 
     @is_featured.setter
-    def is_featured(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]):
+    def is_featured(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]):
         pulumi.set(self, "is_featured", value)
 
     @_builtins.property
     @pulumi.getter(name="isNew")
-    def is_new(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]:
+    def is_new(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]:
         """
         Flag indicates if this is a newly published package.
         """
         return pulumi.get(self, "is_new")
 
     @is_new.setter
-    def is_new(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]):
+    def is_new(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]):
         pulumi.set(self, "is_new", value)
 
     @_builtins.property
     @pulumi.getter(name="isPreview")
-    def is_preview(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]:
+    def is_preview(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]:
         """
         Flag indicates if this package is in preview.
         """
         return pulumi.get(self, "is_preview")
 
     @is_preview.setter
-    def is_preview(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]]):
+    def is_preview(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]]):
         pulumi.set(self, "is_preview", value)
 
     @_builtins.property
     @pulumi.getter(name="lastPublishDate")
-    def last_publish_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_publish_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         last publish date for the package item
         """
         return pulumi.get(self, "last_publish_date")
 
     @last_publish_date.setter
-    def last_publish_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_publish_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_publish_date", value)
 
     @_builtins.property
     @pulumi.getter(name="packageId")
-    def package_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         package Id
         """
         return pulumi.get(self, "package_id")
 
     @package_id.setter
-    def package_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Providers for the package item
         """
         return pulumi.get(self, "providers")
 
     @providers.setter
-    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "providers", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherDisplayName")
-    def publisher_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher display name of the package
         """
         return pulumi.get(self, "publisher_display_name")
 
     @publisher_display_name.setter
-    def publisher_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['MetadataSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['MetadataSourceArgs']]:
         """
         The source of the package
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['MetadataSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['MetadataSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['MetadataSupportArgs']]:
+    def support(self) -> pulumi.Input[Optional['MetadataSupportArgs']]:
         """
         The support tier of the package
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['MetadataSupportArgs']]):
+    def support(self, value: pulumi.Input[Optional['MetadataSupportArgs']]):
         pulumi.set(self, "support", value)
 
     @_builtins.property
     @pulumi.getter(name="threatAnalysisTactics")
-    def threat_analysis_tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threat_analysis_tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the tactics the resource covers
         """
         return pulumi.get(self, "threat_analysis_tactics")
 
     @threat_analysis_tactics.setter
-    def threat_analysis_tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threat_analysis_tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threat_analysis_tactics", value)
 
     @_builtins.property
     @pulumi.getter(name="threatAnalysisTechniques")
-    def threat_analysis_techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threat_analysis_techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the techniques the resource covers, these have to be aligned with the tactics being used
         """
         return pulumi.get(self, "threat_analysis_techniques")
 
     @threat_analysis_techniques.setter
-    def threat_analysis_techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threat_analysis_techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threat_analysis_techniques", value)
 
 
@@ -443,32 +443,32 @@ class ContentPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
-                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
-                 content_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_kind: Optional[pulumi.Input[Union[_builtins.str, 'PackageKind']]] = None,
-                 content_product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deprecated: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_featured: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_new: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_preview: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 last_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
-                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
-                 threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 author: pulumi.Input[Optional[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: pulumi.Input[Optional[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
+                 content_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_kind: pulumi.Input[Optional[Union[_builtins.str, 'PackageKind']]] = None,
+                 content_product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependencies: pulumi.Input[Optional[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deprecated: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_featured: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_new: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_preview: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: pulumi.Input[Optional[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
+                 threat_analysis_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_analysis_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Package in Azure Security Insights.
@@ -476,7 +476,6 @@ class ContentPackage(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -520,7 +519,6 @@ class ContentPackage(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ContentPackageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -536,32 +534,32 @@ class ContentPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
-                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
-                 content_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_kind: Optional[pulumi.Input[Union[_builtins.str, 'PackageKind']]] = None,
-                 content_product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deprecated: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_featured: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_new: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 is_preview: Optional[pulumi.Input[Union[_builtins.str, 'Flag']]] = None,
-                 last_publish_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
-                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
-                 threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 author: pulumi.Input[Optional[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: pulumi.Input[Optional[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
+                 content_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_kind: pulumi.Input[Optional[Union[_builtins.str, 'PackageKind']]] = None,
+                 content_product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependencies: pulumi.Input[Optional[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deprecated: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_featured: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_new: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 is_preview: pulumi.Input[Optional[Union[_builtins.str, 'Flag']]] = None,
+                 last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: pulumi.Input[Optional[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
+                 threat_analysis_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_analysis_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

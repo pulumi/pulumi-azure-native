@@ -72,7 +72,6 @@ def list_virtual_network_gateway_radius_secrets(resource_group_name: Optional[_b
 
     Other available API versions: 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_gateway_name: The name of the virtual network gateway.
     """
@@ -85,8 +84,8 @@ def list_virtual_network_gateway_radius_secrets(resource_group_name: Optional[_b
     return AwaitableListVirtualNetworkGatewayRadiusSecretsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_virtual_network_gateway_radius_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_virtual_network_gateway_radius_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVirtualNetworkGatewayRadiusSecretsResult]:
     """
     List all Radius servers with respective radius secrets from virtual network gateway VpnClientConfiguration.
@@ -94,7 +93,6 @@ def list_virtual_network_gateway_radius_secrets_output(resource_group_name: Opti
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_gateway_name: The name of the virtual network gateway.

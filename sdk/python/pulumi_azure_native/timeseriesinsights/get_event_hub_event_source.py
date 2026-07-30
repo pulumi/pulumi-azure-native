@@ -252,7 +252,6 @@ def get_event_hub_event_source(environment_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-05-15.
 
-
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param _builtins.str resource_group_name: Name of an Azure Resource group.
@@ -282,15 +281,14 @@ def get_event_hub_event_source(environment_name: Optional[_builtins.str] = None,
         time=pulumi.get(__ret__, 'time'),
         timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      event_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_hub_event_source_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
     """
     Gets the event source with the specified name in the specified environment.
 
     Uses Azure REST API version 2020-05-15.
-
 
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str event_source_name: The name of the Time Series Insights event source associated with the specified environment.

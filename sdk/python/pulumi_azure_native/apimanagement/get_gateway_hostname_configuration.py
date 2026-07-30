@@ -169,7 +169,6 @@ def get_gateway_hostname_configuration(gateway_id: Optional[_builtins.str] = Non
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param _builtins.str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -194,10 +193,10 @@ def get_gateway_hostname_configuration(gateway_id: Optional[_builtins.str] = Non
         tls10_enabled=pulumi.get(__ret__, 'tls10_enabled'),
         tls11_enabled=pulumi.get(__ret__, 'tls11_enabled'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              hc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_hostname_configuration_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              hc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
     Get details of a hostname configuration
@@ -205,7 +204,6 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param _builtins.str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.

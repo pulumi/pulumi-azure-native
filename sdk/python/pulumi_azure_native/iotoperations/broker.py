@@ -25,8 +25,8 @@ class BrokerArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BrokerPropertiesArgs']] = None):
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BrokerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Broker resource.
 
@@ -82,26 +82,26 @@ class BrokerArgs:
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of broker.
         """
         return pulumi.get(self, "broker_name")
 
     @broker_name.setter
-    def broker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BrokerPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BrokerPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BrokerPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BrokerPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class Broker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BrokerPropertiesArgs', 'BrokerPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BrokerPropertiesArgs', 'BrokerPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Instance broker resource
@@ -123,7 +123,6 @@ class Broker(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class Broker(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BrokerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class Broker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BrokerPropertiesArgs', 'BrokerPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BrokerPropertiesArgs', 'BrokerPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

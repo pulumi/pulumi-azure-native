@@ -107,7 +107,7 @@ class GetApiGatewayConfigConnectionResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        The current provisioning state of the API Management gateway config connection 
+        The current provisioning state of the API Management gateway config connection
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -156,7 +156,6 @@ def get_api_gateway_config_connection(config_connection_name: Optional[_builtins
 
     Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str config_connection_name: The name of the API Management gateway config connection.
     :param _builtins.str gateway_name: The name of the API Management gateway.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -178,9 +177,9 @@ def get_api_gateway_config_connection(config_connection_name: Optional[_builtins
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source_id=pulumi.get(__ret__, 'source_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_gateway_config_connection_output(config_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_gateway_config_connection_output(config_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
     """
     Gets an API Management gateway config connection resource description.
@@ -188,7 +187,6 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str config_connection_name: The name of the API Management gateway config connection.
     :param _builtins.str gateway_name: The name of the API Management gateway.

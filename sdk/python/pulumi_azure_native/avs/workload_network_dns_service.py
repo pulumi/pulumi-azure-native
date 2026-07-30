@@ -23,13 +23,13 @@ class WorkloadNetworkDnsServiceArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 default_dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_level: Optional[pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None):
+                 default_dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_level: pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDnsService resource.
 
@@ -86,86 +86,86 @@ class WorkloadNetworkDnsServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultDnsZone")
-    def default_dns_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_dns_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default DNS zone of the DNS Service.
         """
         return pulumi.get(self, "default_dns_zone")
 
     @default_dns_zone.setter
-    def default_dns_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_dns_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_dns_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the DNS Service.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceId")
-    def dns_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the DNS service.
         """
         return pulumi.get(self, "dns_service_id")
 
     @dns_service_id.setter
-    def dns_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceIp")
-    def dns_service_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_service_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS service IP of the DNS Service.
         """
         return pulumi.get(self, "dns_service_ip")
 
     @dns_service_ip.setter
-    def dns_service_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_service_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_service_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="fqdnZones")
-    def fqdn_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdn_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         FQDN zones of the DNS Service.
         """
         return pulumi.get(self, "fqdn_zones")
 
     @fqdn_zones.setter
-    def fqdn_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdn_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdn_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']]]:
+    def log_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]]:
         """
         DNS Service log level.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']]]):
+    def log_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         NSX revision number.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "revision", value)
 
 
@@ -175,15 +175,15 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_level: Optional[pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 default_dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_level: pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         NSX DNS Service
@@ -191,7 +191,6 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDnsServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,15 +232,15 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_level: Optional[pulumi.Input[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 default_dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_level: pulumi.Input[Optional[Union[_builtins.str, 'DnsServiceLogLevelEnum']]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

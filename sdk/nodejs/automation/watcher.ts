@@ -178,15 +178,15 @@ export interface WatcherArgs {
     /**
      * Gets or sets the description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the frequency at which the watcher is invoked.
      */
-    executionFrequencyInSeconds?: pulumi.Input<number>;
+    executionFrequencyInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,21 +194,21 @@ export interface WatcherArgs {
     /**
      * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
      */
-    scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the parameters of the script.
      */
-    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the name of the hybrid worker group the watcher will run on.
      */
-    scriptRunOn?: pulumi.Input<string>;
+    scriptRunOn?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The watcher name.
      */
-    watcherName?: pulumi.Input<string>;
+    watcherName?: pulumi.Input<string | undefined>;
 }

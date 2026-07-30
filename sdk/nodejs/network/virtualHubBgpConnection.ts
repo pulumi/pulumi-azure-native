@@ -133,27 +133,27 @@ export interface VirtualHubBgpConnectionArgs {
     /**
      * The name of the connection.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The reference to the HubVirtualNetworkConnection resource.
      */
-    hubVirtualNetworkConnection?: pulumi.Input<inputs.network.SubResourceArgs>;
+    hubVirtualNetworkConnection?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Peer ASN.
      */
-    peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number | undefined>;
     /**
      * Peer IP.
      */
-    peerIp?: pulumi.Input<string>;
+    peerIp?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the VirtualHub.
      */

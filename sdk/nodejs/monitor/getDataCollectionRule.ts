@@ -50,7 +50,7 @@ export interface GetDataCollectionRuleResult {
      */
     readonly dataFlows?: outputs.monitor.DataFlowResponse[];
     /**
-     * The specification of data sources. 
+     * The specification of data sources.
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
     readonly dataSources?: outputs.monitor.DataCollectionRuleResponseDataSources;

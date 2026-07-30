@@ -167,35 +167,35 @@ export interface NspAccessRuleArgs {
     /**
      * The name of the NSP access rule.
      */
-    accessRuleName?: pulumi.Input<string>;
+    accessRuleName?: pulumi.Input<string | undefined>;
     /**
      * Inbound address prefixes (IPv4/IPv6)
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Direction that specifies whether the access rules is inbound/outbound.
      */
-    direction?: pulumi.Input<string | enums.network.AccessRuleDirection>;
+    direction?: pulumi.Input<string | enums.network.AccessRuleDirection | undefined>;
     /**
      * Outbound rules email address format.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Outbound rules fully qualified domain name format.
      */
-    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the access rule that is unique within a profile. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */
@@ -203,7 +203,7 @@ export interface NspAccessRuleArgs {
     /**
      * Outbound rules phone number format.
      */
-    phoneNumbers?: pulumi.Input<pulumi.Input<string>[]>;
+    phoneNumbers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the NSP profile.
      */
@@ -215,13 +215,13 @@ export interface NspAccessRuleArgs {
     /**
      * Inbound rules service tag names.
      */
-    serviceTags?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of subscription ids
      */
-    subscriptions?: pulumi.Input<pulumi.Input<inputs.network.SubscriptionIdArgs>[]>;
+    subscriptions?: pulumi.Input<pulumi.Input<inputs.network.SubscriptionIdArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

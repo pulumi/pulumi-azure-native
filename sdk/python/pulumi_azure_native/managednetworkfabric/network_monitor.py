@@ -23,11 +23,11 @@ __all__ = ['NetworkMonitorArgs', 'NetworkMonitor']
 class NetworkMonitorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmp_configuration: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 bmp_configuration: pulumi.Input[Optional['BmpConfigurationPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkMonitor resource.
 
@@ -64,62 +64,62 @@ class NetworkMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="bmpConfiguration")
-    def bmp_configuration(self) -> Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]:
+    def bmp_configuration(self) -> pulumi.Input[Optional['BmpConfigurationPropertiesArgs']]:
         """
         BMP Configurations for the Network Fabric.
         """
         return pulumi.get(self, "bmp_configuration")
 
     @bmp_configuration.setter
-    def bmp_configuration(self, value: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]):
+    def bmp_configuration(self, value: pulumi.Input[Optional['BmpConfigurationPropertiesArgs']]):
         pulumi.set(self, "bmp_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkMonitorName")
-    def network_monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Monitor.
         """
         return pulumi.get(self, "network_monitor_name")
 
     @network_monitor_name.setter
-    def network_monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -129,12 +129,12 @@ class NetworkMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmp_configuration: Optional[pulumi.Input[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 bmp_configuration: pulumi.Input[Optional[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The NetworkMonitor resource definition.
@@ -142,7 +142,6 @@ class NetworkMonitor(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-15-preview.
 
         Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +165,6 @@ class NetworkMonitor(pulumi.CustomResource):
 
         Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkMonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,12 +180,12 @@ class NetworkMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmp_configuration: Optional[pulumi.Input[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 bmp_configuration: pulumi.Input[Optional[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

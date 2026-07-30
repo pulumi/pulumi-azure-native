@@ -86,7 +86,7 @@ class AccessPolicyEntryArgsDict(TypedDict):
     """
     The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
      Application ID of the client making request on behalf of a principal
     """
@@ -97,7 +97,7 @@ class AccessPolicyEntryArgs:
                  object_id: pulumi.Input[_builtins.str],
                  permissions: pulumi.Input['PermissionsArgs'],
                  tenant_id: pulumi.Input[_builtins.str],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 
@@ -150,19 +150,19 @@ class AccessPolicyEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
          Application ID of the client making request on behalf of a principal
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
 
 class ActionArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['KeyRotationPolicyActionType']]
+    type: NotRequired[pulumi.Input[Optional['KeyRotationPolicyActionType']]]
     """
     The type of action.
     """
@@ -170,7 +170,7 @@ class ActionArgsDict(TypedDict):
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None):
+                 type: pulumi.Input[Optional['KeyRotationPolicyActionType']] = None):
         """
         :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of action.
         """
@@ -179,14 +179,14 @@ class ActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['KeyRotationPolicyActionType']]:
+    def type(self) -> pulumi.Input[Optional['KeyRotationPolicyActionType']]:
         """
         The type of action.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['KeyRotationPolicyActionType']]):
+    def type(self, value: pulumi.Input[Optional['KeyRotationPolicyActionType']]):
         pulumi.set(self, "type", value)
 
 
@@ -227,19 +227,19 @@ class KeyAttributesArgsDict(TypedDict):
     """
     The object attributes managed by the Azure Key Vault service.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether or not the object is enabled.
     """
-    expires: NotRequired[pulumi.Input[_builtins.float]]
+    expires: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Expiry date in seconds since 1970-01-01T00:00:00Z.
     """
-    exportable: NotRequired[pulumi.Input[_builtins.bool]]
+    exportable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the private key can be exported.
     """
-    not_before: NotRequired[pulumi.Input[_builtins.float]]
+    not_before: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Not before date in seconds since 1970-01-01T00:00:00Z.
     """
@@ -247,10 +247,10 @@ class KeyAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyAttributesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expires: Optional[pulumi.Input[_builtins.float]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.float]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires: pulumi.Input[Optional[_builtins.float]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The object attributes managed by the Azure Key Vault service.
 
@@ -272,50 +272,50 @@ class KeyAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether or not the object is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Expiry date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter
-    def exportable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exportable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the private key can be exported.
         """
         return pulumi.get(self, "exportable")
 
     @exportable.setter
-    def exportable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exportable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exportable", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "not_before", value)
 
 
@@ -323,28 +323,28 @@ class KeyPropertiesArgsDict(TypedDict):
     """
     The properties of the key.
     """
-    attributes: NotRequired[pulumi.Input['KeyAttributesArgsDict']]
+    attributes: NotRequired[pulumi.Input[Optional['KeyAttributesArgsDict']]]
     """
     The attributes of the key.
     """
-    curve_name: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonWebKeyCurveName']]]
+    curve_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyCurveName']]]]
     """
     The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
     """
-    key_ops: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]
-    key_size: NotRequired[pulumi.Input[_builtins.int]]
+    key_ops: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]]
+    key_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
     """
-    kty: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonWebKeyType']]]
+    kty: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyType']]]]
     """
     The type of the key. For valid values, see JsonWebKeyType.
     """
-    release_policy: NotRequired[pulumi.Input['KeyReleasePolicyArgsDict']]
+    release_policy: NotRequired[pulumi.Input[Optional['KeyReleasePolicyArgsDict']]]
     """
     Key release policy in response. It will be used for both output and input. Omitted if empty
     """
-    rotation_policy: NotRequired[pulumi.Input['RotationPolicyArgsDict']]
+    rotation_policy: NotRequired[pulumi.Input[Optional['RotationPolicyArgsDict']]]
     """
     Key rotation policy in response. It will be used for both output and input. Omitted if empty
     """
@@ -352,13 +352,13 @@ class KeyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyPropertiesArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input['KeyAttributesArgs']] = None,
-                 curve_name: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyCurveName']]] = None,
-                 key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kty: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyType']]] = None,
-                 release_policy: Optional[pulumi.Input['KeyReleasePolicyArgs']] = None,
-                 rotation_policy: Optional[pulumi.Input['RotationPolicyArgs']] = None):
+                 attributes: pulumi.Input[Optional['KeyAttributesArgs']] = None,
+                 curve_name: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyCurveName']]] = None,
+                 key_ops: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kty: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyType']]] = None,
+                 release_policy: pulumi.Input[Optional['KeyReleasePolicyArgs']] = None,
+                 rotation_policy: pulumi.Input[Optional['RotationPolicyArgs']] = None):
         """
         The properties of the key.
 
@@ -386,92 +386,92 @@ class KeyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['KeyAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['KeyAttributesArgs']]:
         """
         The attributes of the key.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['KeyAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['KeyAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="curveName")
-    def curve_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyCurveName']]]:
+    def curve_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyCurveName']]]:
         """
         The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         return pulumi.get(self, "curve_name")
 
     @curve_name.setter
-    def curve_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyCurveName']]]):
+    def curve_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyCurveName']]]):
         pulumi.set(self, "curve_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyOps")
-    def key_ops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]:
+    def key_ops(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]:
         return pulumi.get(self, "key_ops")
 
     @key_ops.setter
-    def key_ops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]):
+    def key_ops(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'JsonWebKeyOperation']]]]]):
         pulumi.set(self, "key_ops", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def kty(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyType']]]:
+    def kty(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyType']]]:
         """
         The type of the key. For valid values, see JsonWebKeyType.
         """
         return pulumi.get(self, "kty")
 
     @kty.setter
-    def kty(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JsonWebKeyType']]]):
+    def kty(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JsonWebKeyType']]]):
         pulumi.set(self, "kty", value)
 
     @_builtins.property
     @pulumi.getter(name="releasePolicy")
-    def release_policy(self) -> Optional[pulumi.Input['KeyReleasePolicyArgs']]:
+    def release_policy(self) -> pulumi.Input[Optional['KeyReleasePolicyArgs']]:
         """
         Key release policy in response. It will be used for both output and input. Omitted if empty
         """
         return pulumi.get(self, "release_policy")
 
     @release_policy.setter
-    def release_policy(self, value: Optional[pulumi.Input['KeyReleasePolicyArgs']]):
+    def release_policy(self, value: pulumi.Input[Optional['KeyReleasePolicyArgs']]):
         pulumi.set(self, "release_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional[pulumi.Input['RotationPolicyArgs']]:
+    def rotation_policy(self) -> pulumi.Input[Optional['RotationPolicyArgs']]:
         """
         Key rotation policy in response. It will be used for both output and input. Omitted if empty
         """
         return pulumi.get(self, "rotation_policy")
 
     @rotation_policy.setter
-    def rotation_policy(self, value: Optional[pulumi.Input['RotationPolicyArgs']]):
+    def rotation_policy(self, value: pulumi.Input[Optional['RotationPolicyArgs']]):
         pulumi.set(self, "rotation_policy", value)
 
 
 class KeyReleasePolicyArgsDict(TypedDict):
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Content type and version of key release policy
     """
-    data: NotRequired[pulumi.Input[_builtins.str]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Blob encoding the policy rules under which the key can be released.
     """
@@ -479,8 +479,8 @@ class KeyReleasePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class KeyReleasePolicyArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content_type: Content type and version of key release policy
         :param pulumi.Input[_builtins.str] data: Blob encoding the policy rules under which the key can be released.
@@ -494,31 +494,31 @@ class KeyReleasePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content type and version of key release policy
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blob encoding the policy rules under which the key can be released.
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
 
 class KeyRotationPolicyAttributesArgsDict(TypedDict):
-    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
     """
@@ -526,7 +526,7 @@ class KeyRotationPolicyAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyRotationPolicyAttributesArgs:
     def __init__(__self__, *,
-                 expiry_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiry_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expiry_time: The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
         """
@@ -535,23 +535,23 @@ class KeyRotationPolicyAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
         """
         return pulumi.get(self, "expiry_time")
 
     @expiry_time.setter
-    def expiry_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry_time", value)
 
 
 class LifetimeActionArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input['ActionArgsDict']]
+    action: NotRequired[pulumi.Input[Optional['ActionArgsDict']]]
     """
     The action of key rotation policy lifetimeAction.
     """
-    trigger: NotRequired[pulumi.Input['TriggerArgsDict']]
+    trigger: NotRequired[pulumi.Input[Optional['TriggerArgsDict']]]
     """
     The trigger of key rotation policy lifetimeAction.
     """
@@ -559,8 +559,8 @@ class LifetimeActionArgsDict(TypedDict):
 @pulumi.input_type
 class LifetimeActionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['ActionArgs']] = None,
-                 trigger: Optional[pulumi.Input['TriggerArgs']] = None):
+                 action: pulumi.Input[Optional['ActionArgs']] = None,
+                 trigger: pulumi.Input[Optional['TriggerArgs']] = None):
         """
         :param pulumi.Input['ActionArgs'] action: The action of key rotation policy lifetimeAction.
         :param pulumi.Input['TriggerArgs'] trigger: The trigger of key rotation policy lifetimeAction.
@@ -572,26 +572,26 @@ class LifetimeActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['ActionArgs']]:
         """
         The action of key rotation policy lifetimeAction.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['ActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['TriggerArgs']]:
+    def trigger(self) -> pulumi.Input[Optional['TriggerArgs']]:
         """
         The trigger of key rotation policy lifetimeAction.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['TriggerArgs']]):
+    def trigger(self, value: pulumi.Input[Optional['TriggerArgs']]):
         pulumi.set(self, "trigger", value)
 
 
@@ -599,11 +599,11 @@ class MHSMGeoReplicatedRegionArgsDict(TypedDict):
     """
     A region that this managed HSM Pool has been extended to.
     """
-    is_primary: NotRequired[pulumi.Input[_builtins.bool]]
+    is_primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value that indicates whether the region is the primary region or a secondary region.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the geo replicated region.
     """
@@ -611,8 +611,8 @@ class MHSMGeoReplicatedRegionArgsDict(TypedDict):
 @pulumi.input_type
 class MHSMGeoReplicatedRegionArgs:
     def __init__(__self__, *,
-                 is_primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A region that this managed HSM Pool has been extended to.
 
@@ -626,26 +626,26 @@ class MHSMGeoReplicatedRegionArgs:
 
     @_builtins.property
     @pulumi.getter(name="isPrimary")
-    def is_primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether the region is the primary region or a secondary region.
         """
         return pulumi.get(self, "is_primary")
 
     @is_primary.setter
-    def is_primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the geo replicated region.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -686,19 +686,19 @@ class MHSMNetworkRuleSetArgsDict(TypedDict):
     """
     A set of rules governing the network accessibility of a managed hsm pool.
     """
-    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]
+    bypass: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]]
     """
     Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
     """
-    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]
+    default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]]
     """
     The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MHSMIPRuleArgsDict']]]]]
     """
     The list of IP address rules.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgsDict']]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgsDict']]]]]
     """
     The list of virtual network rules.
     """
@@ -706,10 +706,10 @@ class MHSMNetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class MHSMNetworkRuleSetArgs:
     def __init__(__self__, *,
-                 bypass: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]] = None):
+                 bypass: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMIPRuleArgs']]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility of a managed hsm pool.
 
@@ -729,50 +729,50 @@ class MHSMNetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
+    def bypass(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
         """
         Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
+    def bypass(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
         pulumi.set(self, "bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]:
         """
         The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]:
         """
         The list of IP address rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]:
         """
         The list of virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -780,15 +780,15 @@ class MHSMPrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     An object that represents the approval state of the private link connection.
     """
-    actions_required: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]
+    actions_required: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval or rejection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been approved, rejected or removed by the key vault owner.
     """
@@ -796,9 +796,9 @@ class MHSMPrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class MHSMPrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
 
@@ -815,38 +815,38 @@ class MHSMPrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]:
+    def actions_required(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]):
+    def actions_required(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval or rejection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -887,39 +887,39 @@ class ManagedHsmPropertiesArgsDict(TypedDict):
     """
     Properties of the managed HSM Pool
     """
-    create_mode: NotRequired[pulumi.Input['CreateMode']]
+    create_mode: NotRequired[pulumi.Input[Optional['CreateMode']]]
     """
     The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
     """
-    enable_purge_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_purge_protection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
     """
-    enable_soft_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_soft_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
     """
-    initial_admin_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    initial_admin_object_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of initial administrators object ids for this managed hsm pool.
     """
-    network_acls: NotRequired[pulumi.Input['MHSMNetworkRuleSetArgsDict']]
+    network_acls: NotRequired[pulumi.Input[Optional['MHSMNetworkRuleSetArgsDict']]]
     """
     Rules governing the accessibility of the key vault from specific network locations.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Control permission to the managed HSM from public networks.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgsDict']]]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgsDict']]]]]
     """
     List of all regions associated with the managed hsm pool.
     """
-    soft_delete_retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    soft_delete_retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
     """
@@ -927,15 +927,15 @@ class ManagedHsmPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedHsmPropertiesArgs:
     def __init__(__self__, *,
-                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
-                 enable_purge_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_soft_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_acls: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_mode: pulumi.Input[Optional['CreateMode']] = None,
+                 enable_purge_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_soft_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_acls: pulumi.Input[Optional['MHSMNetworkRuleSetArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]] = None,
+                 soft_delete_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the managed HSM Pool
 
@@ -978,110 +978,110 @@ class ManagedHsmPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
+    def create_mode(self) -> pulumi.Input[Optional['CreateMode']]:
         """
         The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
+    def create_mode(self, value: pulumi.Input[Optional['CreateMode']]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePurgeProtection")
-    def enable_purge_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_purge_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
         """
         return pulumi.get(self, "enable_purge_protection")
 
     @enable_purge_protection.setter
-    def enable_purge_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_purge_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_purge_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSoftDelete")
-    def enable_soft_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_soft_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         """
         return pulumi.get(self, "enable_soft_delete")
 
     @enable_soft_delete.setter
-    def enable_soft_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_soft_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_soft_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="initialAdminObjectIds")
-    def initial_admin_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def initial_admin_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of initial administrators object ids for this managed hsm pool.
         """
         return pulumi.get(self, "initial_admin_object_ids")
 
     @initial_admin_object_ids.setter
-    def initial_admin_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def initial_admin_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "initial_admin_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['MHSMNetworkRuleSetArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['MHSMNetworkRuleSetArgs']]:
         """
         Rules governing the accessibility of the key vault from specific network locations.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['MHSMNetworkRuleSetArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Control permission to the managed HSM from public networks.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]:
         """
         List of all regions associated with the managed hsm pool.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionInDays")
-    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
 
     @soft_delete_retention_in_days.setter
-    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1145,7 +1145,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -1154,7 +1154,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -1179,14 +1179,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1194,19 +1194,19 @@ class NetworkRuleSetArgsDict(TypedDict):
     """
     A set of rules governing the network accessibility of a vault.
     """
-    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]
+    bypass: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]]
     """
     Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
     """
-    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]
+    default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]]
     """
     The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgsDict']]]]]
     """
     The list of IP address rules.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]]
     """
     The list of virtual network rules.
     """
@@ -1214,10 +1214,10 @@ class NetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 bypass: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 bypass: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility of a vault.
 
@@ -1237,50 +1237,50 @@ class NetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
+    def bypass(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
         """
         Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
+    def bypass(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
         pulumi.set(self, "bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]:
         """
         The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleAction']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         The list of IP address rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         The list of virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -1288,19 +1288,19 @@ class PermissionsArgsDict(TypedDict):
     """
     Permissions the identity has for keys, secrets, certificates and storage.
     """
-    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]
+    certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]]
     """
     Permissions to certificates
     """
-    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]
+    keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]]
     """
     Permissions to keys
     """
-    secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]
+    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]]
     """
     Permissions to secrets
     """
-    storage: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]
+    storage: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]]
     """
     Permissions to storage accounts
     """
@@ -1308,10 +1308,10 @@ class PermissionsArgsDict(TypedDict):
 @pulumi.input_type
 class PermissionsArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]] = None,
-                 storage: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]] = None):
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]] = None,
+                 storage: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
 
@@ -1331,50 +1331,50 @@ class PermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]:
         """
         Permissions to certificates
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'CertificatePermissions']]]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]:
         """
         Permissions to keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KeyPermissions']]]]]):
         pulumi.set(self, "keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]:
         """
         Permissions to secrets
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SecretPermissions']]]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]:
+    def storage(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]:
         """
         Permissions to storage accounts
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]):
+    def storage(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StoragePermissions']]]]]):
         pulumi.set(self, "storage", value)
 
 
@@ -1382,15 +1382,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     An object that represents the approval state of the private link connection.
     """
-    actions_required: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]
+    actions_required: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval or rejection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been approved, rejected or removed by the key vault owner.
     """
@@ -1398,9 +1398,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
 
@@ -1417,47 +1417,47 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]:
+    def actions_required(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActionsRequired']]]):
+    def actions_required(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActionsRequired']]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval or rejection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
 class RotationPolicyArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input['KeyRotationPolicyAttributesArgsDict']]
+    attributes: NotRequired[pulumi.Input[Optional['KeyRotationPolicyAttributesArgsDict']]]
     """
     The attributes of key rotation policy.
     """
-    lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgsDict']]]]
+    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifetimeActionArgsDict']]]]]
     """
     The lifetimeActions for key rotation action.
     """
@@ -1465,8 +1465,8 @@ class RotationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RotationPolicyArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']] = None,
-                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]] = None):
+                 attributes: pulumi.Input[Optional['KeyRotationPolicyAttributesArgs']] = None,
+                 lifetime_actions: pulumi.Input[Optional[Sequence[pulumi.Input['LifetimeActionArgs']]]] = None):
         """
         :param pulumi.Input['KeyRotationPolicyAttributesArgs'] attributes: The attributes of key rotation policy.
         :param pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]] lifetime_actions: The lifetimeActions for key rotation action.
@@ -1478,26 +1478,26 @@ class RotationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['KeyRotationPolicyAttributesArgs']]:
         """
         The attributes of key rotation policy.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['KeyRotationPolicyAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LifetimeActionArgs']]]]:
         """
         The lifetimeActions for key rotation action.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
 
@@ -1505,15 +1505,15 @@ class SecretAttributesArgsDict(TypedDict):
     """
     The secret management attributes.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether the object is enabled.
     """
-    expires: NotRequired[pulumi.Input[_builtins.int]]
+    expires: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Expiry date in seconds since 1970-01-01T00:00:00Z.
     """
-    not_before: NotRequired[pulumi.Input[_builtins.int]]
+    not_before: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Not before date in seconds since 1970-01-01T00:00:00Z.
     """
@@ -1521,9 +1521,9 @@ class SecretAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class SecretAttributesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expires: Optional[pulumi.Input[_builtins.int]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires: pulumi.Input[Optional[_builtins.int]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The secret management attributes.
 
@@ -1540,38 +1540,38 @@ class SecretAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the object is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Expiry date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "not_before", value)
 
 
@@ -1579,15 +1579,15 @@ class SecretPropertiesArgsDict(TypedDict):
     """
     Properties of the secret
     """
-    attributes: NotRequired[pulumi.Input['SecretAttributesArgsDict']]
+    attributes: NotRequired[pulumi.Input[Optional['SecretAttributesArgsDict']]]
     """
     The attributes of the secret.
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content type of the secret.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
     """
@@ -1595,9 +1595,9 @@ class SecretPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SecretPropertiesArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input['SecretAttributesArgs']] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes: pulumi.Input[Optional['SecretAttributesArgs']] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the secret
 
@@ -1614,38 +1614,38 @@ class SecretPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['SecretAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['SecretAttributesArgs']]:
         """
         The attributes of the secret.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['SecretAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['SecretAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type of the secret.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1702,11 +1702,11 @@ class SkuArgs:
 
 
 class TriggerArgsDict(TypedDict):
-    time_after_create: NotRequired[pulumi.Input[_builtins.str]]
+    time_after_create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
     """
-    time_before_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    time_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
     """
@@ -1714,8 +1714,8 @@ class TriggerArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerArgs:
     def __init__(__self__, *,
-                 time_after_create: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_after_create: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] time_after_create: The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         :param pulumi.Input[_builtins.str] time_before_expiry: The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
@@ -1727,26 +1727,26 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeAfterCreate")
-    def time_after_create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_after_create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
         return pulumi.get(self, "time_after_create")
 
     @time_after_create.setter
-    def time_after_create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_after_create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_after_create", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBeforeExpiry")
-    def time_before_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_before_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
         return pulumi.get(self, "time_before_expiry")
 
     @time_before_expiry.setter
-    def time_before_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_before_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_before_expiry", value)
 
 
@@ -1762,48 +1762,48 @@ class VaultPropertiesArgsDict(TypedDict):
     """
     The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
     """
-    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgsDict']]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessPolicyEntryArgsDict']]]]]
     """
     An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
     These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
     """
-    create_mode: NotRequired[pulumi.Input['CreateMode']]
+    create_mode: NotRequired[pulumi.Input[Optional['CreateMode']]]
     """
     The vault's create mode to indicate whether the vault need to be recovered or not.
     """
-    enable_purge_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_purge_protection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
     """
-    enable_rbac_authorization: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_rbac_authorization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
     """
-    enable_soft_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_soft_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
     """
-    enabled_for_deployment: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled_for_deployment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
     """
-    enabled_for_disk_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled_for_disk_encryption: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
     """
-    enabled_for_template_deployment: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled_for_template_deployment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
     """
-    network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
+    network_acls: NotRequired[pulumi.Input[Optional['NetworkRuleSetArgsDict']]]
     """
     Rules governing the accessibility of the key vault from specific network locations.
     """
-    public_network_access: NotRequired[pulumi.Input[_builtins.str]]
+    public_network_access: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
     """
-    soft_delete_retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    soft_delete_retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     softDelete data retention days. It accepts >=7 and <=90.
     """
@@ -1813,17 +1813,17 @@ class VaultPropertiesArgs:
     def __init__(__self__, *,
                  sku: pulumi.Input['SkuArgs'],
                  tenant_id: pulumi.Input[_builtins.str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]] = None,
-                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
-                 enable_purge_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_soft_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]] = None,
+                 create_mode: pulumi.Input[Optional['CreateMode']] = None,
+                 enable_purge_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_soft_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_acls: pulumi.Input[Optional['NetworkRuleSetArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Properties of the vault
 
@@ -1907,7 +1907,7 @@ class VaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]]:
         """
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -1915,127 +1915,127 @@ class VaultPropertiesArgs:
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
+    def create_mode(self) -> pulumi.Input[Optional['CreateMode']]:
         """
         The vault's create mode to indicate whether the vault need to be recovered or not.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
+    def create_mode(self, value: pulumi.Input[Optional['CreateMode']]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePurgeProtection")
-    def enable_purge_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_purge_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         """
         return pulumi.get(self, "enable_purge_protection")
 
     @enable_purge_protection.setter
-    def enable_purge_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_purge_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_purge_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
-    def enable_rbac_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_rbac_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         """
         return pulumi.get(self, "enable_rbac_authorization")
 
     @enable_rbac_authorization.setter
-    def enable_rbac_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_rbac_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_rbac_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSoftDelete")
-    def enable_soft_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_soft_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
         """
         return pulumi.get(self, "enable_soft_delete")
 
     @enable_soft_delete.setter
-    def enable_soft_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_soft_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_soft_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDeployment")
-    def enabled_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
     @enabled_for_deployment.setter
-    def enabled_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDiskEncryption")
-    def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_disk_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
     @enabled_for_disk_encryption.setter
-    def enabled_for_disk_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_disk_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_disk_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForTemplateDeployment")
-    def enabled_for_template_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_template_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
     @enabled_for_template_deployment.setter
-    def enabled_for_template_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_template_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_template_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['NetworkRuleSetArgs']]:
         """
         Rules governing the accessibility of the key vault from specific network locations.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionInDays")
-    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         softDelete data retention days. It accepts >=7 and <=90.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
 
     @soft_delete_retention_in_days.setter
-    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_in_days", value)
 
 
@@ -2047,7 +2047,7 @@ class VirtualNetworkRuleArgsDict(TypedDict):
     """
     Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
     """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
     """
@@ -2056,7 +2056,7 @@ class VirtualNetworkRuleArgsDict(TypedDict):
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A rule governing the accessibility of a vault from a specific virtual network.
 
@@ -2081,14 +2081,14 @@ class VirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 

@@ -108,7 +108,6 @@ def get_cost_allocation_rule(billing_account_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str billing_account_id: BillingAccount ID
     :param _builtins.str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
     """
@@ -124,8 +123,8 @@ def get_cost_allocation_rule(billing_account_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cost_allocation_rule_output(billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
@@ -133,7 +132,6 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[_b
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str billing_account_id: BillingAccount ID
     :param _builtins.str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.

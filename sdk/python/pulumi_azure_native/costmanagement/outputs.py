@@ -141,7 +141,7 @@ class BudgetFilterPropertiesResponse(dict):
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
                
-               Supported dimension names for **CategoryType: ReservationUtilization** 
+               Supported dimension names for **CategoryType: ReservationUtilization**
                - ReservationId
                - ReservedResourceType
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag.
@@ -161,7 +161,7 @@ class BudgetFilterPropertiesResponse(dict):
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
 
-        Supported dimension names for **CategoryType: ReservationUtilization** 
+        Supported dimension names for **CategoryType: ReservationUtilization**
         - ReservationId
         - ReservedResourceType
         """
@@ -218,7 +218,7 @@ class BudgetFilterResponse(dict):
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
                
-               Supported dimension names for **CategoryType: ReservationUtilization** 
+               Supported dimension names for **CategoryType: ReservationUtilization**
                - ReservationId
                - ReservedResourceType
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag.
@@ -250,7 +250,7 @@ class BudgetFilterResponse(dict):
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
 
-        Supported dimension names for **CategoryType: ReservationUtilization** 
+        Supported dimension names for **CategoryType: ReservationUtilization**
         - ReservationId
         - ReservedResourceType
         """
@@ -1983,7 +1983,7 @@ class NotificationResponse(dict):
         :param _builtins.str frequency: Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
                
                 Supported for CategoryType(s): ReservationUtilization.
-        :param _builtins.str locale: Language in which the recipient will receive the notification, 
+        :param _builtins.str locale: Language in which the recipient will receive the notification,
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
         :param _builtins.str threshold_type: The type of threshold.
@@ -2092,7 +2092,7 @@ class NotificationResponse(dict):
     @pulumi.getter
     def locale(self) -> Optional[_builtins.str]:
         """
-        Language in which the recipient will receive the notification, 
+        Language in which the recipient will receive the notification,
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
         """

@@ -141,11 +141,11 @@ export interface JobScheduleArgs {
     /**
      * The job schedule name.
      */
-    jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets a list of job properties.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,7 +153,7 @@ export interface JobScheduleArgs {
     /**
      * Gets or sets the hybrid worker group that the scheduled job should run on.
      */
-    runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the runbook.
      */

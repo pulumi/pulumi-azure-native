@@ -36,11 +36,11 @@ class DataPlaneProxyPropertiesArgsDict(TypedDict):
     """
     The data plane proxy settings for a configuration store.
     """
-    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    authentication_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMode']]]]
     """
     The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
     """
-    private_link_delegation: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]]
+    private_link_delegation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkDelegation']]]]
     """
     The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
     """
@@ -48,8 +48,8 @@ class DataPlaneProxyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DataPlaneProxyPropertiesArgs:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]] = None,
-                 private_link_delegation: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]] = None):
+                 authentication_mode: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMode']]] = None,
+                 private_link_delegation: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkDelegation']]] = None):
         """
         The data plane proxy settings for a configuration store.
 
@@ -63,26 +63,26 @@ class DataPlaneProxyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMode']]]:
         """
         The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkDelegation")
-    def private_link_delegation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]]:
+    def private_link_delegation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkDelegation']]]:
         """
         The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
         """
         return pulumi.get(self, "private_link_delegation")
 
     @private_link_delegation.setter
-    def private_link_delegation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]]):
+    def private_link_delegation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkDelegation']]]):
         pulumi.set(self, "private_link_delegation", value)
 
 
@@ -90,7 +90,7 @@ class EncryptionPropertiesArgsDict(TypedDict):
     """
     The encryption settings for a configuration store.
     """
-    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     Key vault properties.
     """
@@ -98,7 +98,7 @@ class EncryptionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionPropertiesArgs:
     def __init__(__self__, *,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None):
         """
         The encryption settings for a configuration store.
 
@@ -109,14 +109,14 @@ class EncryptionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         Key vault properties.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
 
@@ -124,11 +124,11 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     Settings concerning key vault encryption for a configuration store.
     """
-    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client id of the identity which will be used to access key vault.
     """
-    key_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    key_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the key vault key used to encrypt data.
     """
@@ -136,8 +136,8 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings concerning key vault encryption for a configuration store.
 
@@ -151,26 +151,26 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyIdentifier")
-    def key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the key vault key used to encrypt data.
         """
         return pulumi.get(self, "key_identifier")
 
     @key_identifier.setter
-    def key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_identifier", value)
 
 
@@ -178,7 +178,7 @@ class PrivateEndpointArgsDict(TypedDict):
     """
     Private endpoint which a connection belongs to.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id for private endpoint
     """
@@ -186,7 +186,7 @@ class PrivateEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Private endpoint which a connection belongs to.
 
@@ -197,14 +197,14 @@ class PrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id for private endpoint
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -212,11 +212,11 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The state of a private link service connection.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection description.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]]
     """
     The private link service connection status.
     """
@@ -224,8 +224,8 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]] = None):
         """
         The state of a private link service connection.
 
@@ -239,26 +239,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -266,11 +266,11 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     An identity that can be associated with a resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]]
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -278,8 +278,8 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An identity that can be associated with a resource.
 
@@ -293,26 +293,26 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]:
         """
         The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

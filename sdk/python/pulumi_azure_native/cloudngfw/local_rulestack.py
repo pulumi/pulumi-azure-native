@@ -23,18 +23,18 @@ __all__ = ['LocalRulestackArgs', 'LocalRulestack']
 class LocalRulestackArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 associated_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_mode: Optional[pulumi.Input[Union[_builtins.str, 'DefaultMode']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
-                 local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_app_id_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input['SecurityServicesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 associated_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_mode: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
+                 local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_app_id_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 security_services: pulumi.Input[Optional['SecurityServicesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalRulestack resource.
 
@@ -92,146 +92,146 @@ class LocalRulestackArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedSubscriptions")
-    def associated_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         subscription scope of global rulestack
         """
         return pulumi.get(self, "associated_subscriptions")
 
     @associated_subscriptions.setter
-    def associated_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_subscriptions", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMode")
-    def default_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultMode']]]:
+    def default_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]]:
         """
         Mode for default rules creation
         """
         return pulumi.get(self, "default_mode")
 
     @default_mode.setter
-    def default_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultMode']]]):
+    def default_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]]):
         pulumi.set(self, "default_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         rulestack description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localRulestackName")
-    def local_rulestack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_rulestack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         LocalRulestack resource name
         """
         return pulumi.get(self, "local_rulestack_name")
 
     @local_rulestack_name.setter
-    def local_rulestack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_rulestack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_rulestack_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minAppIdVersion")
-    def min_app_id_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_app_id_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         minimum version
         """
         return pulumi.get(self, "min_app_id_version")
 
     @min_app_id_version.setter
-    def min_app_id_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_app_id_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_app_id_version", value)
 
     @_builtins.property
     @pulumi.getter(name="panEtag")
-    def pan_etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pan_etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PanEtag info
         """
         return pulumi.get(self, "pan_etag")
 
     @pan_etag.setter
-    def pan_etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pan_etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pan_etag", value)
 
     @_builtins.property
     @pulumi.getter(name="panLocation")
-    def pan_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pan_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rulestack Location, Required for GlobalRulestacks, Not for LocalRulestacks
         """
         return pulumi.get(self, "pan_location")
 
     @pan_location.setter
-    def pan_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pan_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pan_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]]:
         """
         Rulestack Type
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="securityServices")
-    def security_services(self) -> Optional[pulumi.Input['SecurityServicesArgs']]:
+    def security_services(self) -> pulumi.Input[Optional['SecurityServicesArgs']]:
         """
         Security Profile
         """
         return pulumi.get(self, "security_services")
 
     @security_services.setter
-    def security_services(self, value: Optional[pulumi.Input['SecurityServicesArgs']]):
+    def security_services(self, value: pulumi.Input[Optional['SecurityServicesArgs']]):
         pulumi.set(self, "security_services", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -241,19 +241,19 @@ class LocalRulestack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_mode: Optional[pulumi.Input[Union[_builtins.str, 'DefaultMode']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
-                 local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_app_id_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_mode: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
+                 local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_app_id_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 security_services: pulumi.Input[Optional[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         PaloAltoNetworks LocalRulestack
@@ -261,7 +261,6 @@ class LocalRulestack(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,7 +291,6 @@ class LocalRulestack(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LocalRulestackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,19 +306,19 @@ class LocalRulestack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_mode: Optional[pulumi.Input[Union[_builtins.str, 'DefaultMode']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
-                 local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_app_id_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_mode: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
+                 local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_app_id_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 security_services: pulumi.Input[Optional[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

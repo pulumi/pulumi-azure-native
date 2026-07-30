@@ -23,11 +23,11 @@ __all__ = ['EnterpriseKnowledgeGraphArgs', 'EnterpriseKnowledgeGraph']
 class EnterpriseKnowledgeGraphArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['EnterpriseKnowledgeGraphPropertiesArgs']] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['EnterpriseKnowledgeGraphPropertiesArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseKnowledgeGraph resource.
 
@@ -64,62 +64,62 @@ class EnterpriseKnowledgeGraphArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EnterpriseKnowledgeGraphPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['EnterpriseKnowledgeGraphPropertiesArgs']]:
         """
         The set of properties specific to EnterpriseKnowledgeGraph resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EnterpriseKnowledgeGraphPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['EnterpriseKnowledgeGraphPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the EnterpriseKnowledgeGraph resource.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         Gets or sets the SKU of the resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -129,18 +129,17 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnterpriseKnowledgeGraphPropertiesArgs', 'EnterpriseKnowledgeGraphPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnterpriseKnowledgeGraphPropertiesArgs', 'EnterpriseKnowledgeGraphPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         EnterpriseKnowledgeGraph resource definition
 
         Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
 
-
         :param str resource_name: The name of the resource.
         :param EnterpriseKnowledgeGraphArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +176,12 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnterpriseKnowledgeGraphPropertiesArgs', 'EnterpriseKnowledgeGraphPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnterpriseKnowledgeGraphPropertiesArgs', 'EnterpriseKnowledgeGraphPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

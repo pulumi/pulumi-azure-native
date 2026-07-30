@@ -30,13 +30,13 @@ class PredictionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_expression: pulumi.Input[_builtins.str],
                  score_label: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 grades: Optional[pulumi.Input[Sequence[pulumi.Input['PredictionGradesArgs']]]] = None,
-                 involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prediction_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 grades: pulumi.Input[Optional[Sequence[pulumi.Input['PredictionGradesArgs']]]] = None,
+                 involved_interaction_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_kpi_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_relationships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prediction_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Prediction resource.
 
@@ -191,86 +191,86 @@ class PredictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Description of the prediction.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Display name of the prediction.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def grades(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PredictionGradesArgs']]]]:
+    def grades(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PredictionGradesArgs']]]]:
         """
         The prediction grades.
         """
         return pulumi.get(self, "grades")
 
     @grades.setter
-    def grades(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PredictionGradesArgs']]]]):
+    def grades(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PredictionGradesArgs']]]]):
         pulumi.set(self, "grades", value)
 
     @_builtins.property
     @pulumi.getter(name="involvedInteractionTypes")
-    def involved_interaction_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def involved_interaction_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Interaction types involved in the prediction.
         """
         return pulumi.get(self, "involved_interaction_types")
 
     @involved_interaction_types.setter
-    def involved_interaction_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def involved_interaction_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "involved_interaction_types", value)
 
     @_builtins.property
     @pulumi.getter(name="involvedKpiTypes")
-    def involved_kpi_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def involved_kpi_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         KPI types involved in the prediction.
         """
         return pulumi.get(self, "involved_kpi_types")
 
     @involved_kpi_types.setter
-    def involved_kpi_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def involved_kpi_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "involved_kpi_types", value)
 
     @_builtins.property
     @pulumi.getter(name="involvedRelationships")
-    def involved_relationships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def involved_relationships(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Relationships involved in the prediction.
         """
         return pulumi.get(self, "involved_relationships")
 
     @involved_relationships.setter
-    def involved_relationships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def involved_relationships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "involved_relationships", value)
 
     @_builtins.property
     @pulumi.getter(name="predictionName")
-    def prediction_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prediction_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the prediction.
         """
         return pulumi.get(self, "prediction_name")
 
     @prediction_name.setter
-    def prediction_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prediction_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prediction_name", value)
 
 
@@ -280,28 +280,27 @@ class Prediction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_analyze: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mappings: Optional[pulumi.Input[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
-                 negative_outcome_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 positive_outcome_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 prediction_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 score_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_analyze: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 grades: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 involved_interaction_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_kpi_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_relationships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mappings: pulumi.Input[Optional[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
+                 negative_outcome_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 positive_outcome_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 prediction_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 score_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The prediction resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,7 +332,6 @@ class Prediction(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param PredictionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,22 +347,22 @@ class Prediction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_analyze: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mappings: Optional[pulumi.Input[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
-                 negative_outcome_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 positive_outcome_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 prediction_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 score_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_analyze: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 grades: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 involved_interaction_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_kpi_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 involved_relationships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mappings: pulumi.Input[Optional[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
+                 negative_outcome_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 positive_outcome_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 prediction_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 score_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

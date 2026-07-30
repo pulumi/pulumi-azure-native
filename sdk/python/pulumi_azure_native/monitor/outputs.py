@@ -605,9 +605,9 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
     Each condition can be of one of the following types:
     __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
        * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-      _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+           _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
       * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-      _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
     """
     @staticmethod
     def __key_warning(key: str):
@@ -638,9 +638,9 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
         Each condition can be of one of the following types:
         __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
            * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-          _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+               _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+              _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 
 
         :param Sequence['AlertRuleLeafConditionResponse'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
@@ -3349,7 +3349,7 @@ class DataCollectionRuleResourceResponseSystemData(dict):
 @pulumi.output_type
 class DataCollectionRuleResponseDataSources(dict):
     """
-    The specification of data sources. 
+    The specification of data sources.
     This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
     """
     @staticmethod
@@ -3395,7 +3395,7 @@ class DataCollectionRuleResponseDataSources(dict):
                  windows_event_logs: Optional[Sequence['outputs.WindowsEventLogDataSourceResponse']] = None,
                  windows_firewall_logs: Optional[Sequence['outputs.WindowsFirewallLogsDataSourceResponse']] = None):
         """
-        The specification of data sources. 
+        The specification of data sources.
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 
         :param 'DataSourcesSpecResponseDataImports' data_imports: Specifications of pull based data sources
@@ -3826,7 +3826,7 @@ class DataImportSourcesResponseEventHub(dict):
         Definition of Event Hub configuration.
 
         :param _builtins.str consumer_group: Event Hub consumer group name
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param _builtins.str stream: The stream to collect from EventHub
         """
@@ -3849,7 +3849,7 @@ class DataImportSourcesResponseEventHub(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -3984,7 +3984,7 @@ class DestinationsSpecResponseAzureMonitorMetrics(dict):
         """
         Azure Monitor Metrics destination.
 
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if name is not None:
@@ -3994,7 +3994,7 @@ class DestinationsSpecResponseAzureMonitorMetrics(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -4973,7 +4973,7 @@ class EventHubDestinationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         :param _builtins.str event_hub_resource_id: The resource ID of the event hub.
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if event_hub_resource_id is not None:
@@ -4993,7 +4993,7 @@ class EventHubDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -5023,7 +5023,7 @@ class EventHubDirectDestinationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         :param _builtins.str event_hub_resource_id: The resource ID of the event hub.
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if event_hub_resource_id is not None:
@@ -5043,7 +5043,7 @@ class EventHubDirectDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -5354,7 +5354,7 @@ class ExtensionDataSourceResponse(dict):
         :param _builtins.str extension_name: The name of the VM extension.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         :param Sequence[_builtins.str] input_data_sources: The list of data sources this extension needs data from.
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -5397,7 +5397,7 @@ class ExtensionDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -5640,7 +5640,7 @@ class IisLogsDataSourceResponse(dict):
 
         :param Sequence[_builtins.str] streams: IIS streams
         :param Sequence[_builtins.str] log_directories: Absolute paths file location
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -5669,7 +5669,7 @@ class IisLogsDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -6397,7 +6397,7 @@ class LogAnalyticsDestinationResponse(dict):
         Log Analytics destination.
 
         :param _builtins.str workspace_id: The Customer ID of the Log Analytics workspace.
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param _builtins.str workspace_resource_id: The resource ID of the Log Analytics workspace.
         """
@@ -6419,7 +6419,7 @@ class LogAnalyticsDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -6753,7 +6753,7 @@ class LogFilesDataSourceResponse(dict):
         :param _builtins.str format: The data format of the log files
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data source
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param 'LogFilesDataSourceResponseSettings' settings: The log files specific settings.
         """
@@ -6794,7 +6794,7 @@ class LogFilesDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -7315,7 +7315,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
 
         :param _builtins.str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-        :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -7334,7 +7334,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
     @pulumi.getter(name="allOf")
     def all_of(self) -> Optional[Sequence[Any]]:
         """
-        the list of multiple metric criteria for this 'all of' operation. 
+        the list of multiple metric criteria for this 'all of' operation.
         """
         return pulumi.get(self, "all_of")
 
@@ -7371,7 +7371,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
 
         :param _builtins.str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-        :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -7390,7 +7390,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
     @pulumi.getter(name="allOf")
     def all_of(self) -> Optional[Sequence['outputs.MetricCriteriaResponse']]:
         """
-        The list of metric criteria for this 'all of' operation. 
+        The list of metric criteria for this 'all of' operation.
         """
         return pulumi.get(self, "all_of")
 
@@ -7987,7 +7987,7 @@ class MonitoringAccountDestinationResponse(dict):
 
         :param _builtins.str account_id: The immutable ID  of the account.
         :param _builtins.str account_resource_id: The resource ID of the monitoring account.
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -8016,7 +8016,7 @@ class MonitoringAccountDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -8257,7 +8257,7 @@ class PerfCounterDataSourceResponse(dict):
         :param Sequence[_builtins.str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param _builtins.int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
@@ -8286,7 +8286,7 @@ class PerfCounterDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -8539,7 +8539,7 @@ class PlatformTelemetryDataSourceResponse(dict):
         Definition of platform telemetry data source configuration
 
         :param Sequence[_builtins.str] streams: List of platform telemetry streams to collect
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -8558,7 +8558,7 @@ class PlatformTelemetryDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -9073,7 +9073,7 @@ class PrometheusForwarderDataSourceResponse(dict):
         :param Mapping[str, _builtins.str] label_include_filter: The list of label inclusion filters in the form of label "name-value" pairs.
                Currently only one label is supported: 'microsoft_metrics_include_label'.
                Label values are matched case-insensitively.
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
         """
@@ -9098,7 +9098,7 @@ class PrometheusForwarderDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -11444,7 +11444,7 @@ class StorageBlobDestinationResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str container_name: The container name of the Storage Blob.
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param _builtins.str storage_account_resource_id: The resource ID of the storage account.
         """
@@ -11467,7 +11467,7 @@ class StorageBlobDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -11507,7 +11507,7 @@ class StorageTableDestinationResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None,
                  table_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: A friendly name for the destination. 
+        :param _builtins.str name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param _builtins.str storage_account_resource_id: The resource ID of the storage account.
         :param _builtins.str table_name: The name of the Storage Table.
@@ -11523,7 +11523,7 @@ class StorageTableDestinationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -11669,7 +11669,7 @@ class SyslogDataSourceResponse(dict):
 
         :param Sequence[_builtins.str] facility_names: The list of facility names.
         :param Sequence[_builtins.str] log_levels: The log levels to collect.
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -11703,7 +11703,7 @@ class SyslogDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -12753,7 +12753,7 @@ class WindowsEventLogDataSourceResponse(dict):
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
 
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -12770,7 +12770,7 @@ class WindowsEventLogDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -12805,7 +12805,7 @@ class WindowsFirewallLogsDataSourceResponse(dict):
         Enables Firewall logs to be collected by this data collection rule.
 
         :param Sequence[_builtins.str] streams: Firewall logs streams
-        :param _builtins.str name: A friendly name for the data source. 
+        :param _builtins.str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -12824,7 +12824,7 @@ class WindowsFirewallLogsDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")

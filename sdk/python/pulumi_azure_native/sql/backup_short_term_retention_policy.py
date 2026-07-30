@@ -22,9 +22,9 @@ class BackupShortTermRetentionPolicyArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 diff_backup_interval_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 diff_backup_interval_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a BackupShortTermRetentionPolicy resource.
 
@@ -83,38 +83,38 @@ class BackupShortTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="diffBackupIntervalInHours")
-    def diff_backup_interval_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def diff_backup_interval_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
         """
         return pulumi.get(self, "diff_backup_interval_in_hours")
 
     @diff_backup_interval_in_hours.setter
-    def diff_backup_interval_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def diff_backup_interval_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "diff_backup_interval_in_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy name. Should always be "default".
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
 
@@ -124,12 +124,12 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 diff_backup_interval_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 diff_backup_interval_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A short term retention policy.
@@ -137,7 +137,6 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
 
         Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BackupShortTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 diff_backup_interval_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 diff_backup_interval_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

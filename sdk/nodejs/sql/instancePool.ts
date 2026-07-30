@@ -149,7 +149,7 @@ export interface InstancePoolArgs {
     /**
      * The name of the instance pool to be created or updated.
      */
-    instancePoolName?: pulumi.Input<string>;
+    instancePoolName?: pulumi.Input<string | undefined>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
@@ -157,11 +157,11 @@ export interface InstancePoolArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */
-    maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -169,7 +169,7 @@ export interface InstancePoolArgs {
     /**
      * The name and tier of the SKU.
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
     /**
      * Resource ID of the subnet to place this instance pool in.
      */
@@ -177,7 +177,7 @@ export interface InstancePoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Count of vCores belonging to this instance pool.
      */

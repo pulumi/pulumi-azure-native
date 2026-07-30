@@ -168,7 +168,7 @@ export interface BudgetArgs {
     /**
      * Budget Name.
      */
-    budgetName?: pulumi.Input<string>;
+    budgetName?: pulumi.Input<string | undefined>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
@@ -176,15 +176,15 @@ export interface BudgetArgs {
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * May be used to filter budgets by user-specified dimensions and/or tags.
      */
-    filter?: pulumi.Input<inputs.consumption.BudgetFilterArgs>;
+    filter?: pulumi.Input<inputs.consumption.BudgetFilterArgs | undefined>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.NotificationArgs>}>;
+    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.NotificationArgs>} | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

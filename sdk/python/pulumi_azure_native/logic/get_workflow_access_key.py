@@ -115,7 +115,6 @@ def get_workflow_access_key(access_key_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-02-01-preview.
 
-
     :param _builtins.str access_key_name: The workflow access key name.
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str workflow_name: The workflow name.
@@ -134,15 +133,14 @@ def get_workflow_access_key(access_key_name: Optional[_builtins.str] = None,
         not_after=pulumi.get(__ret__, 'not_after'),
         not_before=pulumi.get(__ret__, 'not_before'),
         type=pulumi.get(__ret__, 'type'))
-def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_access_key_output(access_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowAccessKeyResult]:
     """
     Gets a workflow access key.
 
     Uses Azure REST API version 2015-02-01-preview.
-
 
     :param _builtins.str access_key_name: The workflow access key name.
     :param _builtins.str resource_group_name: The resource group name.

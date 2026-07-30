@@ -105,11 +105,11 @@ export interface GetSqlServerInstanceTelemetryOutputArgs {
     /**
      * The aggregation type to use for the numerical columns in the dataset.
      */
-    aggregationType?: pulumi.Input<string | enums.azurearcdata.AggregationType>;
+    aggregationType?: pulumi.Input<string | enums.azurearcdata.AggregationType | undefined>;
     /**
      * The list of database names to return telemetry for. If not specified, telemetry for all databases will be aggregated and returned.
      */
-    databaseNames?: pulumi.Input<pulumi.Input<string>[]>;
+    databaseNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the telemetry dataset to retrieve.
      */
@@ -117,11 +117,11 @@ export interface GetSqlServerInstanceTelemetryOutputArgs {
     /**
      * The end time for the time range to fetch telemetry for. If not specified, the current time is used.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The time granularity to fetch telemetry for. This is an ISO8601 duration. Examples: PT15M, PT1H, P1D
      */
-    interval?: pulumi.Input<string>;
+    interval?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group
      */
@@ -133,5 +133,5 @@ export interface GetSqlServerInstanceTelemetryOutputArgs {
     /**
      * The start time for the time range to fetch telemetry for. If not specified, the current time minus 1 hour is used.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
 }

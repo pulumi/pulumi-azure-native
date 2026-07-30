@@ -26,18 +26,18 @@ class FluxConfigurationArgs:
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_blob: Optional[pulumi.Input['AzureBlobDefinitionArgs']] = None,
-                 bucket: Optional[pulumi.Input['BucketDefinitionArgs']] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 flux_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_repository: Optional[pulumi.Input['GitRepositoryDefinitionArgs']] = None,
-                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 source_kind: Optional[pulumi.Input[Union[_builtins.str, 'SourceKindType']]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait_for_reconciliation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 azure_blob: pulumi.Input[Optional['AzureBlobDefinitionArgs']] = None,
+                 bucket: pulumi.Input[Optional['BucketDefinitionArgs']] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flux_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_repository: pulumi.Input[Optional['GitRepositoryDefinitionArgs']] = None,
+                 kustomizations: pulumi.Input[Optional[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 source_kind: pulumi.Input[Optional[Union[_builtins.str, 'SourceKindType']]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_for_reconciliation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FluxConfiguration resource.
 
@@ -143,146 +143,146 @@ class FluxConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBlob")
-    def azure_blob(self) -> Optional[pulumi.Input['AzureBlobDefinitionArgs']]:
+    def azure_blob(self) -> pulumi.Input[Optional['AzureBlobDefinitionArgs']]:
         """
         Parameters to reconcile to the AzureBlob source kind type.
         """
         return pulumi.get(self, "azure_blob")
 
     @azure_blob.setter
-    def azure_blob(self, value: Optional[pulumi.Input['AzureBlobDefinitionArgs']]):
+    def azure_blob(self, value: pulumi.Input[Optional['AzureBlobDefinitionArgs']]):
         pulumi.set(self, "azure_blob", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input['BucketDefinitionArgs']]:
+    def bucket(self) -> pulumi.Input[Optional['BucketDefinitionArgs']]:
         """
         Parameters to reconcile to the Bucket source kind type.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input['BucketDefinitionArgs']]):
+    def bucket(self, value: pulumi.Input[Optional['BucketDefinitionArgs']]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
-    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_protected_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of protected configuration settings for the configuration
         """
         return pulumi.get(self, "configuration_protected_settings")
 
     @configuration_protected_settings.setter
-    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="fluxConfigurationName")
-    def flux_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flux_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Flux Configuration.
         """
         return pulumi.get(self, "flux_configuration_name")
 
     @flux_configuration_name.setter
-    def flux_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flux_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flux_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitRepository")
-    def git_repository(self) -> Optional[pulumi.Input['GitRepositoryDefinitionArgs']]:
+    def git_repository(self) -> pulumi.Input[Optional['GitRepositoryDefinitionArgs']]:
         """
         Parameters to reconcile to the GitRepository source kind type.
         """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
-    def git_repository(self, value: Optional[pulumi.Input['GitRepositoryDefinitionArgs']]):
+    def git_repository(self, value: pulumi.Input[Optional['GitRepositoryDefinitionArgs']]):
         pulumi.set(self, "git_repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def kustomizations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]]:
+    def kustomizations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]]:
         """
         Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         """
         return pulumi.get(self, "kustomizations")
 
     @kustomizations.setter
-    def kustomizations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]]):
+    def kustomizations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]]):
         pulumi.set(self, "kustomizations", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="reconciliationWaitDuration")
-    def reconciliation_wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reconciliation_wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
         """
         return pulumi.get(self, "reconciliation_wait_duration")
 
     @reconciliation_wait_duration.setter
-    def reconciliation_wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reconciliation_wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reconciliation_wait_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]]:
         """
         Scope at which the operator will be installed.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceKind")
-    def source_kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SourceKindType']]]:
+    def source_kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SourceKindType']]]:
         """
         Source Kind to pull the configuration data from.
         """
         return pulumi.get(self, "source_kind")
 
     @source_kind.setter
-    def source_kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SourceKindType']]]):
+    def source_kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SourceKindType']]]):
         pulumi.set(self, "source_kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def suspend(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suspend(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this configuration should suspend its reconciliation of its kustomizations and sources.
         """
         return pulumi.get(self, "suspend")
 
     @suspend.setter
-    def suspend(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suspend(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suspend", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForReconciliation")
-    def wait_for_reconciliation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_reconciliation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
         """
         return pulumi.get(self, "wait_for_reconciliation")
 
     @wait_for_reconciliation.setter
-    def wait_for_reconciliation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_reconciliation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_reconciliation", value)
 
 
@@ -292,22 +292,22 @@ class FluxConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_blob: Optional[pulumi.Input[Union['AzureBlobDefinitionArgs', 'AzureBlobDefinitionArgsDict']]] = None,
-                 bucket: Optional[pulumi.Input[Union['BucketDefinitionArgs', 'BucketDefinitionArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 flux_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_repository: Optional[pulumi.Input[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
-                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 source_kind: Optional[pulumi.Input[Union[_builtins.str, 'SourceKindType']]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait_for_reconciliation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 azure_blob: pulumi.Input[Optional[Union['AzureBlobDefinitionArgs', 'AzureBlobDefinitionArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[Union['BucketDefinitionArgs', 'BucketDefinitionArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flux_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_repository: pulumi.Input[Optional[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
+                 kustomizations: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 source_kind: pulumi.Input[Optional[Union[_builtins.str, 'SourceKindType']]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_for_reconciliation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The Flux Configuration object returned in Get & Put response.
@@ -315,7 +315,6 @@ class FluxConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,7 +348,6 @@ class FluxConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -365,22 +363,22 @@ class FluxConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_blob: Optional[pulumi.Input[Union['AzureBlobDefinitionArgs', 'AzureBlobDefinitionArgsDict']]] = None,
-                 bucket: Optional[pulumi.Input[Union['BucketDefinitionArgs', 'BucketDefinitionArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 flux_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_repository: Optional[pulumi.Input[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
-                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ScopeType']]] = None,
-                 source_kind: Optional[pulumi.Input[Union[_builtins.str, 'SourceKindType']]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait_for_reconciliation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 azure_blob: pulumi.Input[Optional[Union['AzureBlobDefinitionArgs', 'AzureBlobDefinitionArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[Union['BucketDefinitionArgs', 'BucketDefinitionArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flux_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_repository: pulumi.Input[Optional[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
+                 kustomizations: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ScopeType']]] = None,
+                 source_kind: pulumi.Input[Optional[Union[_builtins.str, 'SourceKindType']]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_for_reconciliation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

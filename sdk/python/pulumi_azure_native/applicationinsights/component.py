@@ -21,25 +21,25 @@ __all__ = ['ComponentArgs', 'Component']
 @pulumi.input_type
 class ComponentArgs:
     def __init__(__self__, *,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]] = None,
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 flow_type: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hockey_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 immediate_purge_data_on30_days: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ingestion_mode: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 request_source: Optional[pulumi.Input[Union[_builtins.str, 'RequestSource']]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 flow_type: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hockey_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 immediate_purge_data_on30_days: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ingestion_mode: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 request_source: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Component resource.
 
@@ -149,194 +149,194 @@ class ComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableIpMasking")
-    def disable_ip_masking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable IP masking.
         """
         return pulumi.get(self, "disable_ip_masking")
 
     @disable_ip_masking.setter
-    def disable_ip_masking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_ip_masking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_ip_masking", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable Non-AAD based Auth.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="flowType")
-    def flow_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]]:
+    def flow_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]]:
         """
         Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         """
         return pulumi.get(self, "flow_type")
 
     @flow_type.setter
-    def flow_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]]):
+    def flow_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]]):
         pulumi.set(self, "flow_type", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
-    def force_customer_storage_for_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_customer_storage_for_profiler(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Force users to create their own storage account for profiler and debugger.
         """
         return pulumi.get(self, "force_customer_storage_for_profiler")
 
     @force_customer_storage_for_profiler.setter
-    def force_customer_storage_for_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_customer_storage_for_profiler(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_customer_storage_for_profiler", value)
 
     @_builtins.property
     @pulumi.getter(name="hockeyAppId")
-    def hockey_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hockey_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         """
         return pulumi.get(self, "hockey_app_id")
 
     @hockey_app_id.setter
-    def hockey_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hockey_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hockey_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="immediatePurgeDataOn30Days")
-    def immediate_purge_data_on30_days(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immediate_purge_data_on30_days(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Purge data immediately after 30 days.
         """
         return pulumi.get(self, "immediate_purge_data_on30_days")
 
     @immediate_purge_data_on30_days.setter
-    def immediate_purge_data_on30_days(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immediate_purge_data_on30_days(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immediate_purge_data_on30_days", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionMode")
-    def ingestion_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]]:
+    def ingestion_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]]:
         """
         Indicates the flow of the ingestion.
         """
         return pulumi.get(self, "ingestion_mode")
 
     @ingestion_mode.setter
-    def ingestion_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]]):
+    def ingestion_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]]):
         pulumi.set(self, "ingestion_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessForIngestion")
-    def public_network_access_for_ingestion(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access_for_ingestion(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         The network access type for accessing Application Insights ingestion.
         """
         return pulumi.get(self, "public_network_access_for_ingestion")
 
     @public_network_access_for_ingestion.setter
-    def public_network_access_for_ingestion(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access_for_ingestion(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access_for_ingestion", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessForQuery")
-    def public_network_access_for_query(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access_for_query(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         The network access type for accessing Application Insights query.
         """
         return pulumi.get(self, "public_network_access_for_query")
 
     @public_network_access_for_query.setter
-    def public_network_access_for_query(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access_for_query(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access_for_query", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSource")
-    def request_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RequestSource']]]:
+    def request_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]]:
         """
         Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         """
         return pulumi.get(self, "request_source")
 
     @request_source.setter
-    def request_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RequestSource']]]):
+    def request_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]]):
         pulumi.set(self, "request_source", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Application Insights component resource.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention period in days.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 
@@ -346,25 +346,25 @@ class Component(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 flow_type: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hockey_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 immediate_purge_data_on30_days: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ingestion_mode: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 request_source: Optional[pulumi.Input[Union[_builtins.str, 'RequestSource']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 flow_type: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hockey_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 immediate_purge_data_on30_days: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ingestion_mode: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 request_source: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Application Insights component definition.
@@ -372,7 +372,6 @@ class Component(pulumi.CustomResource):
         Uses Azure REST API version 2020-02-02.
 
         Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -409,7 +408,6 @@ class Component(pulumi.CustomResource):
 
         Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -425,25 +423,25 @@ class Component(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 flow_type: Optional[pulumi.Input[Union[_builtins.str, 'FlowType']]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hockey_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 immediate_purge_data_on30_days: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ingestion_mode: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 request_source: Optional[pulumi.Input[Union[_builtins.str, 'RequestSource']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 flow_type: pulumi.Input[Optional[Union[_builtins.str, 'FlowType']]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hockey_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 immediate_purge_data_on30_days: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ingestion_mode: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 request_source: pulumi.Input[Optional[Union[_builtins.str, 'RequestSource']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

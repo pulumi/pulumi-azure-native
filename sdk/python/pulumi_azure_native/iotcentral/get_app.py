@@ -264,7 +264,6 @@ def get_app(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param _builtins.str resource_name: The ARM resource name of the IoT Central application.
     """
@@ -293,8 +292,8 @@ def get_app(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-def get_app_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Get the metadata of an IoT Central application.
@@ -302,7 +301,6 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2021-11-01-preview.
 
     Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param _builtins.str resource_name: The ARM resource name of the IoT Central application.

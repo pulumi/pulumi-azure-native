@@ -72,7 +72,6 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[_builtins.st
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
     :param _builtins.str metadata_path: Metadata path.
@@ -89,16 +88,15 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[_builtins.st
     return AwaitableGetIntegrationRuntimeObjectMetadatumResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def get_integration_runtime_object_metadatum_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    metadata_path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_runtime_object_metadatum_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    metadata_path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
     """
     Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.

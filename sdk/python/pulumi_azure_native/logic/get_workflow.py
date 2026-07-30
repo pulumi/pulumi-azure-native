@@ -288,7 +288,6 @@ def get_workflow(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str workflow_name: The workflow name.
     """
@@ -319,8 +318,8 @@ def get_workflow(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_workflow_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Gets a workflow.
@@ -328,7 +327,6 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str workflow_name: The workflow name.

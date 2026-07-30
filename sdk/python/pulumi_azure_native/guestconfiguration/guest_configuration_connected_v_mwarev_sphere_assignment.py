@@ -25,9 +25,9 @@ class GuestConfigurationConnectedVMwarevSphereAssignmentArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_name: pulumi.Input[_builtins.str],
-                 guest_configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']] = None):
+                 guest_configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationConnectedVMwarevSphereAssignment resource.
 
@@ -86,38 +86,38 @@ class GuestConfigurationConnectedVMwarevSphereAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="guestConfigurationAssignmentName")
-    def guest_configuration_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guest_configuration_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The guest configuration assignment name.
         """
         return pulumi.get(self, "guest_configuration_assignment_name")
 
     @guest_configuration_assignment_name.setter
-    def guest_configuration_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guest_configuration_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guest_configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where the VM is located.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['GuestConfigurationAssignmentPropertiesArgs']]:
         """
         Properties of the Guest configuration assignment.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['GuestConfigurationAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -127,12 +127,12 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
@@ -140,7 +140,6 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +163,6 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GuestConfigurationConnectedVMwarevSphereAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,12 +178,12 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

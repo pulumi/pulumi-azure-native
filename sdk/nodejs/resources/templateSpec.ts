@@ -134,19 +134,19 @@ export interface TemplateSpecArgs {
     /**
      * Template Spec description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Template Spec display name.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
      */
-    metadata?: any;
+    metadata?: any | undefined;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,9 +154,9 @@ export interface TemplateSpecArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Template Spec.
      */
-    templateSpecName?: pulumi.Input<string>;
+    templateSpecName?: pulumi.Input<string | undefined>;
 }

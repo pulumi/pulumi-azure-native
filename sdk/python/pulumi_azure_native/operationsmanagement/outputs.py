@@ -35,7 +35,7 @@ class ArmTemplateParameterResponse(dict):
         Parameter to pass to ARM template
 
         :param _builtins.str name: name of the parameter.
-        :param _builtins.str value: value for the parameter. In Jtoken 
+        :param _builtins.str value: value for the parameter. In Jtoken
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -54,7 +54,7 @@ class ArmTemplateParameterResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         """
-        value for the parameter. In Jtoken 
+        value for the parameter. In Jtoken
         """
         return pulumi.get(self, "value")
 

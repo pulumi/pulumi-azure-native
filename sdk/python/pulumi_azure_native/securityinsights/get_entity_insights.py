@@ -77,7 +77,6 @@ def get_entity_insights(add_default_extended_time_range: Optional[_builtins.bool
 
     Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
     :param _builtins.str end_time: The end timeline date, so the results returned are before this date.
     :param _builtins.str entity_id: entity ID
@@ -100,13 +99,13 @@ def get_entity_insights(add_default_extended_time_range: Optional[_builtins.bool
     return AwaitableGetEntityInsightsResult(
         meta_data=pulumi.get(__ret__, 'meta_data'),
         value=pulumi.get(__ret__, 'value'))
-def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                               end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                               entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               insight_query_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_entity_insights_output(add_default_extended_time_range: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                               end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                               entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               insight_query_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
     Execute Insights for an entity.
@@ -114,7 +113,6 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
     :param _builtins.str end_time: The end timeline date, so the results returned are before this date.

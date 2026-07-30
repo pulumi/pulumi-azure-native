@@ -216,7 +216,6 @@ def get_enclave_connection(enclave_connection_name: Optional[_builtins.str] = No
 
     Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str enclave_connection_name: The name of the Enclave Connection Resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -241,8 +240,8 @@ def get_enclave_connection(enclave_connection_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_enclave_connection_output(enclave_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enclave_connection_output(enclave_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnclaveConnectionResult]:
     """
     Get a EnclaveConnectionResource
@@ -250,7 +249,6 @@ def get_enclave_connection_output(enclave_connection_name: Optional[pulumi.Input
     Uses Azure REST API version 2025-05-01-preview.
 
     Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str enclave_connection_name: The name of the Enclave Connection Resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

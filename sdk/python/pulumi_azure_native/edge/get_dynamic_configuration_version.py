@@ -122,7 +122,6 @@ def get_dynamic_configuration_version(configuration_name: Optional[_builtins.str
 
     Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_name: Name of the Configuration
     :param _builtins.str dynamic_configuration_name: Name of the dynamic configuration
     :param _builtins.str dynamic_configuration_version_name: The name of the DynamicConfigurationVersion
@@ -143,10 +142,10 @@ def get_dynamic_configuration_version(configuration_name: Optional[_builtins.str
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dynamic_configuration_version_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             dynamic_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             dynamic_configuration_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dynamic_configuration_version_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             dynamic_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             dynamic_configuration_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamicConfigurationVersionResult]:
     """
     Get a Dynamic Configuration Version Resource
@@ -154,7 +153,6 @@ def get_dynamic_configuration_version_output(configuration_name: Optional[pulumi
     Uses Azure REST API version 2025-06-01.
 
     Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_name: Name of the Configuration
     :param _builtins.str dynamic_configuration_name: Name of the dynamic configuration

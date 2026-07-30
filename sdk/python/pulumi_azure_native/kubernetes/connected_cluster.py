@@ -25,19 +25,19 @@ class ConnectedClusterArgs:
                  agent_public_key_certificate: pulumi.Input[_builtins.str],
                  identity: pulumi.Input['ConnectedClusterIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 aad_profile: Optional[pulumi.Input['AadProfileArgs']] = None,
-                 arc_agent_profile: Optional[pulumi.Input['ArcAgentProfileArgs']] = None,
-                 azure_hybrid_benefit: Optional[pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_state: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkState']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 aad_profile: pulumi.Input[Optional['AadProfileArgs']] = None,
+                 arc_agent_profile: pulumi.Input[Optional['ArcAgentProfileArgs']] = None,
+                 azure_hybrid_benefit: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_state: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkState']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedCluster resource.
 
@@ -130,158 +130,158 @@ class ConnectedClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> Optional[pulumi.Input['AadProfileArgs']]:
+    def aad_profile(self) -> pulumi.Input[Optional['AadProfileArgs']]:
         """
         AAD profile for the connected cluster.
         """
         return pulumi.get(self, "aad_profile")
 
     @aad_profile.setter
-    def aad_profile(self, value: Optional[pulumi.Input['AadProfileArgs']]):
+    def aad_profile(self, value: pulumi.Input[Optional['AadProfileArgs']]):
         pulumi.set(self, "aad_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="arcAgentProfile")
-    def arc_agent_profile(self) -> Optional[pulumi.Input['ArcAgentProfileArgs']]:
+    def arc_agent_profile(self) -> pulumi.Input[Optional['ArcAgentProfileArgs']]:
         """
         Arc agentry configuration for the provisioned cluster.
         """
         return pulumi.get(self, "arc_agent_profile")
 
     @arc_agent_profile.setter
-    def arc_agent_profile(self, value: Optional[pulumi.Input['ArcAgentProfileArgs']]):
+    def arc_agent_profile(self, value: pulumi.Input[Optional['ArcAgentProfileArgs']]):
         pulumi.set(self, "arc_agent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="azureHybridBenefit")
-    def azure_hybrid_benefit(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']]]:
+    def azure_hybrid_benefit(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]]:
         """
         Indicates whether Azure Hybrid Benefit is opted in
         """
         return pulumi.get(self, "azure_hybrid_benefit")
 
     @azure_hybrid_benefit.setter
-    def azure_hybrid_benefit(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']]]):
+    def azure_hybrid_benefit(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]]):
         pulumi.set(self, "azure_hybrid_benefit", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kubernetes cluster on which get is called.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes distribution running on this connected cluster.
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="distributionVersion")
-    def distribution_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes distribution version on this connected cluster.
         """
         return pulumi.get(self, "distribution_version")
 
     @distribution_version.setter
-    def distribution_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def infrastructure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         """
         return pulumi.get(self, "infrastructure")
 
     @infrastructure.setter
-    def infrastructure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConnectedClusterKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConnectedClusterKind']]]:
         """
         The kind of connected cluster.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedClusterKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedClusterKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkScopeResourceId")
-    def private_link_scope_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_scope_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the private link scope this connected cluster is assigned to, if any.
         """
         return pulumi.get(self, "private_link_scope_resource_id")
 
     @private_link_scope_resource_id.setter
-    def private_link_scope_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_scope_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_scope_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkState")
-    def private_link_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkState']]]:
+    def private_link_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkState']]]:
         """
         Property which describes the state of private link on a connected cluster resource.
         """
         return pulumi.get(self, "private_link_state")
 
     @private_link_state.setter
-    def private_link_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkState']]]):
+    def private_link_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkState']]]):
         pulumi.set(self, "private_link_state", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Provisioning state of the connected cluster resource.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -291,22 +291,22 @@ class ConnectedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_profile: Optional[pulumi.Input[Union['AadProfileArgs', 'AadProfileArgsDict']]] = None,
-                 agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_agent_profile: Optional[pulumi.Input[Union['ArcAgentProfileArgs', 'ArcAgentProfileArgsDict']]] = None,
-                 azure_hybrid_benefit: Optional[pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
-                 infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_state: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkState']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aad_profile: pulumi.Input[Optional[Union['AadProfileArgs', 'AadProfileArgsDict']]] = None,
+                 agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_agent_profile: pulumi.Input[Optional[Union['ArcAgentProfileArgs', 'ArcAgentProfileArgsDict']]] = None,
+                 azure_hybrid_benefit: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
+                 infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_state: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkState']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a connected cluster.
@@ -314,7 +314,6 @@ class ConnectedCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,7 +347,6 @@ class ConnectedCluster(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,22 +362,22 @@ class ConnectedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_profile: Optional[pulumi.Input[Union['AadProfileArgs', 'AadProfileArgsDict']]] = None,
-                 agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_agent_profile: Optional[pulumi.Input[Union['ArcAgentProfileArgs', 'ArcAgentProfileArgsDict']]] = None,
-                 azure_hybrid_benefit: Optional[pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
-                 infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_state: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkState']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aad_profile: pulumi.Input[Optional[Union['AadProfileArgs', 'AadProfileArgsDict']]] = None,
+                 agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_agent_profile: pulumi.Input[Optional[Union['ArcAgentProfileArgs', 'ArcAgentProfileArgsDict']]] = None,
+                 azure_hybrid_benefit: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
+                 infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedClusterKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_state: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkState']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

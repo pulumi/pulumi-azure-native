@@ -25,7 +25,7 @@ class SmtpUsernameArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 smtp_username: Optional[pulumi.Input[_builtins.str]] = None):
+                 smtp_username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmtpUsername resource.
 
@@ -106,14 +106,14 @@ class SmtpUsernameArgs:
 
     @_builtins.property
     @pulumi.getter(name="smtpUsername")
-    def smtp_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smtp_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SmtpUsernameResource.
         """
         return pulumi.get(self, "smtp_username")
 
     @smtp_username.setter
-    def smtp_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smtp_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smtp_username", value)
 
 
@@ -123,12 +123,12 @@ class SmtpUsername(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entra_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 smtp_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entra_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 smtp_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The object describing the smtp username resource.
@@ -136,7 +136,6 @@ class SmtpUsername(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01-preview.
 
         Other available API versions: 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class SmtpUsername(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SmtpUsernameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class SmtpUsername(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entra_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 smtp_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entra_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 smtp_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

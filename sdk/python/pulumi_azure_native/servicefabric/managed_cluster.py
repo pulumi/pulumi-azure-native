@@ -26,39 +26,39 @@ class ManagedClusterArgs:
                  dns_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_rdp_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']] = None,
-                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
-                 azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]] = None,
-                 cluster_code_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
-                 cluster_upgrade_mode: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_os_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
-                 http_gateway_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_i_pv6_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
-                 use_custom_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_resiliency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_update_mode: Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]] = None):
+                 addon_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_rdp_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_type_versions_cleanup_policy: pulumi.Input[Optional['ApplicationTypeVersionsCleanupPolicyArgs']] = None,
+                 auxiliary_subnets: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 azure_active_directory: pulumi.Input[Optional['AzureActiveDirectoryArgs']] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input['ClientCertificateArgs']]]] = None,
+                 cluster_code_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_upgrade_cadence: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
+                 cluster_upgrade_mode: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_os_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
+                 http_gateway_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_gateway_token_auth_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_i_pv6_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEndpointArgs']]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_description: pulumi.Input[Optional['ClusterUpgradePolicyArgs']] = None,
+                 use_custom_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_resiliency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_update_mode: pulumi.Input[Optional[Union[_builtins.str, 'ZonalUpdateMode']]] = None):
         """
         The set of arguments for constructing a ManagedCluster resource.
 
@@ -227,398 +227,398 @@ class ManagedClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonFeatures")
-    def addon_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]]:
+    def addon_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]]:
         """
         List of add-on features to enable on the cluster.
         """
         return pulumi.get(self, "addon_features")
 
     @addon_features.setter
-    def addon_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]]):
+    def addon_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]]):
         pulumi.set(self, "addon_features", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VM admin user password.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRdpAccess")
-    def allow_rdp_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_rdp_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
         """
         return pulumi.get(self, "allow_rdp_access")
 
     @allow_rdp_access.setter
-    def allow_rdp_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_rdp_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_rdp_access", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationTypeVersionsCleanupPolicy")
-    def application_type_versions_cleanup_policy(self) -> Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']]:
+    def application_type_versions_cleanup_policy(self) -> pulumi.Input[Optional['ApplicationTypeVersionsCleanupPolicyArgs']]:
         """
         The policy used to clean up unused versions.
         """
         return pulumi.get(self, "application_type_versions_cleanup_policy")
 
     @application_type_versions_cleanup_policy.setter
-    def application_type_versions_cleanup_policy(self, value: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']]):
+    def application_type_versions_cleanup_policy(self, value: pulumi.Input[Optional['ApplicationTypeVersionsCleanupPolicyArgs']]):
         pulumi.set(self, "application_type_versions_cleanup_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliarySubnets")
-    def auxiliary_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+    def auxiliary_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]:
         """
         Auxiliary subnets for the cluster.
         """
         return pulumi.get(self, "auxiliary_subnets")
 
     @auxiliary_subnets.setter
-    def auxiliary_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+    def auxiliary_subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]):
         pulumi.set(self, "auxiliary_subnets", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
+    def azure_active_directory(self) -> pulumi.Input[Optional['AzureActiveDirectoryArgs']]:
         """
         The AAD authentication settings of the cluster.
         """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
-    def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
+    def azure_active_directory(self, value: pulumi.Input[Optional['AzureActiveDirectoryArgs']]):
         pulumi.set(self, "azure_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="clientConnectionPort")
-    def client_connection_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_connection_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port used for client connections to the cluster.
         """
         return pulumi.get(self, "client_connection_port")
 
     @client_connection_port.setter
-    def client_connection_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_connection_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_connection_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]]:
+    def clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClientCertificateArgs']]]]:
         """
         Client certificates that are allowed to manage the cluster.
         """
         return pulumi.get(self, "clients")
 
     @clients.setter
-    def clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]]):
+    def clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClientCertificateArgs']]]]):
         pulumi.set(self, "clients", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterCodeVersion")
-    def cluster_code_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_code_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         """
         return pulumi.get(self, "cluster_code_version")
 
     @cluster_code_version.setter
-    def cluster_code_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_code_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_code_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster resource.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterUpgradeCadence")
-    def cluster_upgrade_cadence(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']]]:
+    def cluster_upgrade_cadence(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]]:
         """
         Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
         """
         return pulumi.get(self, "cluster_upgrade_cadence")
 
     @cluster_upgrade_cadence.setter
-    def cluster_upgrade_cadence(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']]]):
+    def cluster_upgrade_cadence(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]]):
         pulumi.set(self, "cluster_upgrade_cadence", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterUpgradeMode")
-    def cluster_upgrade_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']]]:
+    def cluster_upgrade_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
         """
         return pulumi.get(self, "cluster_upgrade_mode")
 
     @cluster_upgrade_mode.setter
-    def cluster_upgrade_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']]]):
+    def cluster_upgrade_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]]):
         pulumi.set(self, "cluster_upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ddosProtectionPlanId")
-    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddos_protection_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
         """
         return pulumi.get(self, "ddos_protection_plan_id")
 
     @ddos_protection_plan_id.setter
-    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddos_protection_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddos_protection_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoOSUpgrade")
-    def enable_auto_os_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_os_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
         """
         return pulumi.get(self, "enable_auto_os_upgrade")
 
     @enable_auto_os_upgrade.setter
-    def enable_auto_os_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_os_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_os_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHttpGatewayExclusiveAuthMode")
-    def enable_http_gateway_exclusive_auth_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_http_gateway_exclusive_auth_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
         """
         return pulumi.get(self, "enable_http_gateway_exclusive_auth_mode")
 
     @enable_http_gateway_exclusive_auth_mode.setter
-    def enable_http_gateway_exclusive_auth_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_http_gateway_exclusive_auth_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http_gateway_exclusive_auth_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIpv6")
-    def enable_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ipv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
         """
         return pulumi.get(self, "enable_ipv6")
 
     @enable_ipv6.setter
-    def enable_ipv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ipv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="enableServicePublicIP")
-    def enable_service_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_service_public_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
         """
         return pulumi.get(self, "enable_service_public_ip")
 
     @enable_service_public_ip.setter
-    def enable_service_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_service_public_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_service_public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]]:
+    def fabric_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]]:
         """
         The list of custom fabric settings to configure the cluster.
         """
         return pulumi.get(self, "fabric_settings")
 
     @fabric_settings.setter
-    def fabric_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]]):
+    def fabric_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]]):
         pulumi.set(self, "fabric_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="httpGatewayConnectionPort")
-    def http_gateway_connection_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_gateway_connection_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port used for HTTP connections to the cluster.
         """
         return pulumi.get(self, "http_gateway_connection_port")
 
     @http_gateway_connection_port.setter
-    def http_gateway_connection_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_gateway_connection_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_gateway_connection_port", value)
 
     @_builtins.property
     @pulumi.getter(name="httpGatewayTokenAuthConnectionPort")
-    def http_gateway_token_auth_connection_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_gateway_token_auth_connection_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
         """
         return pulumi.get(self, "http_gateway_token_auth_connection_port")
 
     @http_gateway_token_auth_connection_port.setter
-    def http_gateway_token_auth_connection_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_gateway_token_auth_connection_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_gateway_token_auth_connection_port", value)
 
     @_builtins.property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
+    def ip_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]]:
         """
         The list of IP tags associated with the default public IP address of the cluster.
         """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
+    def ip_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]]):
         pulumi.set(self, "ip_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]:
+    def load_balancing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]:
         """
         Load balancing rules that are applied to the public load balancer of the cluster.
         """
         return pulumi.get(self, "load_balancing_rules")
 
     @load_balancing_rules.setter
-    def load_balancing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]):
+    def load_balancing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]):
         pulumi.set(self, "load_balancing_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityRules")
-    def network_security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
+    def network_security_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
         """
         Custom Network Security Rules that are applied to the Virtual Network of the cluster.
         """
         return pulumi.get(self, "network_security_rules")
 
     @network_security_rules.setter
-    def network_security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
+    def network_security_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
         pulumi.set(self, "network_security_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIPPrefixId")
-    def public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
-    def public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIPv6PrefixId")
-    def public_i_pv6_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_i_pv6_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "public_i_pv6_prefix_id")
 
     @public_i_pv6_prefix_id.setter
-    def public_i_pv6_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_i_pv6_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_i_pv6_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEndpointArgs']]]]:
         """
         Service endpoints for subnets in the cluster.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEndpointArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Azure resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeDescription")
-    def upgrade_description(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+    def upgrade_description(self) -> pulumi.Input[Optional['ClusterUpgradePolicyArgs']]:
         """
         The policy to use when upgrading the cluster.
         """
         return pulumi.get(self, "upgrade_description")
 
     @upgrade_description.setter
-    def upgrade_description(self, value: Optional[pulumi.Input['ClusterUpgradePolicyArgs']]):
+    def upgrade_description(self, value: pulumi.Input[Optional['ClusterUpgradePolicyArgs']]):
         pulumi.set(self, "upgrade_description", value)
 
     @_builtins.property
     @pulumi.getter(name="useCustomVnet")
-    def use_custom_vnet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_custom_vnet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         """
         return pulumi.get(self, "use_custom_vnet")
 
     @use_custom_vnet.setter
-    def use_custom_vnet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_custom_vnet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_custom_vnet", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalResiliency")
-    def zonal_resiliency(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zonal_resiliency(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the cluster has zone resiliency.
         """
         return pulumi.get(self, "zonal_resiliency")
 
     @zonal_resiliency.setter
-    def zonal_resiliency(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zonal_resiliency(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zonal_resiliency", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalUpdateMode")
-    def zonal_update_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]]:
+    def zonal_update_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZonalUpdateMode']]]:
         """
         Indicates the update mode for Cross Az clusters.
         """
         return pulumi.get(self, "zonal_update_mode")
 
     @zonal_update_mode.setter
-    def zonal_update_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]]):
+    def zonal_update_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZonalUpdateMode']]]):
         pulumi.set(self, "zonal_update_mode", value)
 
 
@@ -628,43 +628,43 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_rdp_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
-                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
-                 cluster_code_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
-                 cluster_upgrade_mode: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_os_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
-                 http_gateway_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_i_pv6_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
-                 use_custom_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_resiliency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_update_mode: Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]] = None,
+                 addon_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_rdp_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_type_versions_cleanup_policy: pulumi.Input[Optional[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 auxiliary_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
+                 cluster_code_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_upgrade_cadence: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
+                 cluster_upgrade_mode: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_os_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
+                 http_gateway_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_gateway_token_auth_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
+                 load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_i_pv6_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_description: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
+                 use_custom_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_resiliency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_update_mode: pulumi.Input[Optional[Union[_builtins.str, 'ZonalUpdateMode']]] = None,
                  __props__=None):
         """
         The managed cluster resource
@@ -672,7 +672,6 @@ class ManagedCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -727,7 +726,6 @@ class ManagedCluster(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -743,43 +741,43 @@ class ManagedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_rdp_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
-                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
-                 cluster_code_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
-                 cluster_upgrade_mode: Optional[pulumi.Input[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_os_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
-                 http_gateway_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_i_pv6_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
-                 use_custom_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_resiliency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zonal_update_mode: Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]] = None,
+                 addon_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_rdp_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_type_versions_cleanup_policy: pulumi.Input[Optional[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 auxiliary_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
+                 cluster_code_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_upgrade_cadence: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeCadence']]] = None,
+                 cluster_upgrade_mode: pulumi.Input[Optional[Union[_builtins.str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_os_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
+                 http_gateway_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_gateway_token_auth_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
+                 load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_i_pv6_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_description: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
+                 use_custom_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_resiliency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zonal_update_mode: pulumi.Input[Optional[Union[_builtins.str, 'ZonalUpdateMode']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

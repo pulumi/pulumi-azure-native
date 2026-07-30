@@ -729,12 +729,12 @@ export const SoapApiType = {
 } as const;
 
 /**
- * Type of API to create. 
- *  * `http` creates a REST API 
- *  * `soap` creates a SOAP pass-through API  
- *  * `websocket` creates websocket API 
- *  * `graphql` creates GraphQL API. 
- *  New types can be added in the future.
+ * Type of API to create.
+ *  * `http` creates a REST API
+ *  * `soap` creates a SOAP pass-through API
+ *  * `websocket` creates websocket API
+ *  * `graphql` creates GraphQL API.
+ *     New types can be added in the future.
  */
 export type SoapApiType = (typeof SoapApiType)[keyof typeof SoapApiType];
 

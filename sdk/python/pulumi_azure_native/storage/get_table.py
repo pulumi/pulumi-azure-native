@@ -121,7 +121,6 @@ def get_table(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param _builtins.str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
@@ -140,9 +139,9 @@ def get_table(account_name: Optional[_builtins.str] = None,
         signed_identifiers=pulumi.get(__ret__, 'signed_identifiers'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_table_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets the table with the specified table name, under the specified account if it exists.
@@ -150,7 +149,6 @@ def get_table_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

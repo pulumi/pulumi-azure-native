@@ -24,10 +24,10 @@ class NetworkInterfaceTapConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_tap: Optional[pulumi.Input['VirtualNetworkTapArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_tap: pulumi.Input[Optional['VirtualNetworkTapArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceTapConfiguration resource.
 
@@ -75,50 +75,50 @@ class NetworkInterfaceTapConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tapConfigurationName")
-    def tap_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tap_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tap configuration.
         """
         return pulumi.get(self, "tap_configuration_name")
 
     @tap_configuration_name.setter
-    def tap_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tap_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tap_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkTap")
-    def virtual_network_tap(self) -> Optional[pulumi.Input['VirtualNetworkTapArgs']]:
+    def virtual_network_tap(self) -> pulumi.Input[Optional['VirtualNetworkTapArgs']]:
         """
         The reference to the Virtual Network Tap resource.
         """
         return pulumi.get(self, "virtual_network_tap")
 
     @virtual_network_tap.setter
-    def virtual_network_tap(self, value: Optional[pulumi.Input['VirtualNetworkTapArgs']]):
+    def virtual_network_tap(self, value: pulumi.Input[Optional['VirtualNetworkTapArgs']]):
         pulumi.set(self, "virtual_network_tap", value)
 
 
@@ -128,12 +128,12 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_tap: Optional[pulumi.Input[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_tap: pulumi.Input[Optional[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
                  __props__=None):
         """
         Tap configuration in a Network Interface.
@@ -141,7 +141,6 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceTapConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_tap: Optional[pulumi.Input[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_tap: pulumi.Input[Optional[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

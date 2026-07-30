@@ -24,11 +24,11 @@ class NamespaceNetworkRuleSetArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
-                 trusted_service_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]] = None):
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
+                 trusted_service_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]] = None):
         """
         The set of arguments for constructing a NamespaceNetworkRuleSet resource.
 
@@ -81,62 +81,62 @@ class NamespaceNetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]:
         """
         Default Action for Network Rule Set
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]]:
         """
         List of IpRules
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessFlag']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessFlag']]]:
         """
         This determines if traffic is allowed over public network. By default it is enabled.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessFlag']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessFlag']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedServiceAccessEnabled")
-    def trusted_service_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_service_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether Trusted Service Access is Enabled or not.
         """
         return pulumi.get(self, "trusted_service_access_enabled")
 
     @trusted_service_access_enabled.setter
-    def trusted_service_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_service_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_service_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]]:
         """
         List VirtualNetwork Rules
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -146,13 +146,13 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_service_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_service_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
                  __props__=None):
         """
         Description of NetworkRuleSet resource.
@@ -160,7 +160,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +184,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,13 +199,13 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_service_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'DefaultAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessFlag']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_service_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

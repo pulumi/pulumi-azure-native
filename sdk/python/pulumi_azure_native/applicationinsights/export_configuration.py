@@ -21,16 +21,16 @@ class ExportConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 destination_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_types: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_types: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExportConfiguration resource.
 
@@ -96,122 +96,122 @@ class ExportConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationAccountId")
-    def destination_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of destination storage account.
         """
         return pulumi.get(self, "destination_account_id")
 
     @destination_account_id.setter
-    def destination_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddress")
-    def destination_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS URL for the destination storage container. It must grant write permission.
         """
         return pulumi.get(self, "destination_address")
 
     @destination_address.setter
-    def destination_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationStorageLocationId")
-    def destination_storage_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_storage_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location ID of the destination storage container.
         """
         return pulumi.get(self, "destination_storage_location_id")
 
     @destination_storage_location_id.setter
-    def destination_storage_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_storage_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_storage_location_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationStorageSubscriptionId")
-    def destination_storage_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_storage_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription ID of the destination storage container.
         """
         return pulumi.get(self, "destination_storage_subscription_id")
 
     @destination_storage_subscription_id.setter
-    def destination_storage_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_storage_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_storage_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Continuous Export destination type. This has to be 'Blob'.
         """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
-    def destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="exportId")
-    def export_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Continuous Export configuration ID. This is unique within a Application Insights component.
         """
         return pulumi.get(self, "export_id")
 
     @export_id.setter
-    def export_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationQueueEnabled")
-    def notification_queue_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_queue_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecated
         """
         return pulumi.get(self, "notification_queue_enabled")
 
     @notification_queue_enabled.setter
-    def notification_queue_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_queue_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_queue_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationQueueUri")
-    def notification_queue_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_queue_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecated
         """
         return pulumi.get(self, "notification_queue_uri")
 
     @notification_queue_uri.setter
-    def notification_queue_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_queue_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_queue_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="recordTypes")
-    def record_types(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_types(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
         """
         return pulumi.get(self, "record_types")
 
     @record_types.setter
-    def record_types(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_types(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_types", value)
 
 
@@ -221,24 +221,23 @@ class ExportConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Properties that define a Continuous Export configuration.
 
         Uses Azure REST API version 2015-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,7 +265,6 @@ class ExportConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param ExportConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,18 +280,18 @@ class ExportConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_queue_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_queue_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

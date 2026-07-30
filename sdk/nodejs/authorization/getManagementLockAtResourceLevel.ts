@@ -39,7 +39,7 @@ export interface GetManagementLockAtResourceLevelArgs {
      */
     parentResourcePath: string;
     /**
-     * The name of the resource group. 
+     * The name of the resource group.
      */
     resourceGroupName: string;
     /**
@@ -125,7 +125,7 @@ export interface GetManagementLockAtResourceLevelOutputArgs {
      */
     parentResourcePath: pulumi.Input<string>;
     /**
-     * The name of the resource group. 
+     * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

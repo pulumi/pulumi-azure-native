@@ -140,19 +140,19 @@ export interface PlaywrightWorkspaceArgs {
     /**
      * Enables the workspace to use local authentication through service access tokens for operations.
      */
-    localAuth?: pulumi.Input<string | enums.loadtestservice.EnablementStatus>;
+    localAuth?: pulumi.Input<string | enums.loadtestservice.EnablementStatus | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the PlaywrightWorkspace
      */
-    playwrightWorkspaceName?: pulumi.Input<string>;
+    playwrightWorkspaceName?: pulumi.Input<string | undefined>;
     /**
      * Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
      */
-    regionalAffinity?: pulumi.Input<string | enums.loadtestservice.EnablementStatus>;
+    regionalAffinity?: pulumi.Input<string | enums.loadtestservice.EnablementStatus | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,5 +160,5 @@ export interface PlaywrightWorkspaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

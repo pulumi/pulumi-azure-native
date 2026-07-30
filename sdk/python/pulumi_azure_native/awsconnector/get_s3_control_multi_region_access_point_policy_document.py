@@ -142,7 +142,6 @@ def get_s3_control_multi_region_access_point_policy_document(name: Optional[_bui
 
     Uses Azure REST API version 2024-12-01.
 
-
     :param _builtins.str name: Name of S3ControlMultiRegionAccessPointPolicyDocument
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -161,14 +160,13 @@ def get_s3_control_multi_region_access_point_policy_document(name: Optional[_bui
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_s3_control_multi_region_access_point_policy_document_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_s3_control_multi_region_access_point_policy_document_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3ControlMultiRegionAccessPointPolicyDocumentResult]:
     """
     Get a S3ControlMultiRegionAccessPointPolicyDocument
 
     Uses Azure REST API version 2024-12-01.
-
 
     :param _builtins.str name: Name of S3ControlMultiRegionAccessPointPolicyDocument
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

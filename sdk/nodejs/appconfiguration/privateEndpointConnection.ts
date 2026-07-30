@@ -121,11 +121,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The resource of private endpoint.
      */
-    privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpointArgs | undefined>;
     /**
      * Private endpoint connection name
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

@@ -793,9 +793,9 @@ class CustomRegistryCredentialsResponse(dict):
         :param _builtins.str identity: Indicates the managed identity assigned to the custom credential. If a user-assigned identity
                this value is the Client ID. If a system-assigned identity, the value will be `system`. In
                the case of a system-assigned identity, the Client ID will be determined by the runner. This
-               identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+               identity may be used to authenticate to key vault to retrieve credentials or it may be the only
                source of authentication used for accessing the registry.
-        :param 'SecretObjectResponse' password: The password for logging into the custom registry. The password is a secret 
+        :param 'SecretObjectResponse' password: The password for logging into the custom registry. The password is a secret
                object that allows multiple ways of providing the value for it.
         :param 'SecretObjectResponse' user_name: The username for logging into the custom registry.
         """
@@ -813,7 +813,7 @@ class CustomRegistryCredentialsResponse(dict):
         Indicates the managed identity assigned to the custom credential. If a user-assigned identity
         this value is the Client ID. If a system-assigned identity, the value will be `system`. In
         the case of a system-assigned identity, the Client ID will be determined by the runner. This
-        identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+        identity may be used to authenticate to key vault to retrieve credentials or it may be the only
         source of authentication used for accessing the registry.
         """
         return pulumi.get(self, "identity")
@@ -822,7 +822,7 @@ class CustomRegistryCredentialsResponse(dict):
     @pulumi.getter
     def password(self) -> Optional['outputs.SecretObjectResponse']:
         """
-        The password for logging into the custom registry. The password is a secret 
+        The password for logging into the custom registry. The password is a secret
         object that allows multiple ways of providing the value for it.
         """
         return pulumi.get(self, "password")
@@ -2411,8 +2411,8 @@ class IdentityPropertiesResponse(dict):
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
-        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
-               dictionary key references will be ARM resource ids in the form: 
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity
+               dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -2453,8 +2453,8 @@ class IdentityPropertiesResponse(dict):
     @pulumi.getter(name="userAssignedIdentities")
     def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
         """
-        The list of user identities associated with the resource. The user identity 
-        dictionary key references will be ARM resource ids in the form: 
+        The list of user identities associated with the resource. The user identity
+        dictionary key references will be ARM resource ids in the form:
         '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
             providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -3060,7 +3060,7 @@ class PipelineRunRequestResponse(dict):
         """
         The request properties provided for a pipeline run.
 
-        :param Sequence[_builtins.str] artifacts: List of source artifacts to be transferred by the pipeline. 
+        :param Sequence[_builtins.str] artifacts: List of source artifacts to be transferred by the pipeline.
                Specify an image by repository ('hello-world'). This will use the 'latest' tag.
                Specify an image by tag ('hello-world:latest').
                Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
@@ -3084,7 +3084,7 @@ class PipelineRunRequestResponse(dict):
     @pulumi.getter
     def artifacts(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of source artifacts to be transferred by the pipeline. 
+        List of source artifacts to be transferred by the pipeline.
         Specify an image by repository ('hello-world'). This will use the 'latest' tag.
         Specify an image by tag ('hello-world:latest').
         Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').

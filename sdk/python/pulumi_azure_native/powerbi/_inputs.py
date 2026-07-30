@@ -20,10 +20,10 @@ __all__ = [
     'AzureSkuArgsDict',
     'ConnectionStateArgs',
     'ConnectionStateArgsDict',
-    'PrivateEndpointConnectionArgs',
-    'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
+    'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
 ]
 
 class AzureSkuArgsDict(TypedDict):
@@ -77,15 +77,15 @@ class ConnectionStateArgsDict(TypedDict):
     """
     ConnectionState information.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Actions required (if any).
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the connection state.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PersistedConnectionStatus']]]]
     """
     Status of the connection.
     """
@@ -93,9 +93,9 @@ class ConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PersistedConnectionStatus']]] = None):
         """
         ConnectionState information.
 
@@ -112,51 +112,80 @@ class ConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Actions required (if any).
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the connection state.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PersistedConnectionStatus']]]:
         """
         Status of the connection.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PersistedConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
+class PrivateEndpointArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the id of private endpoint.
+    """
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Specifies the id of private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the id of private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
 class PrivateEndpointConnectionArgsDict(TypedDict):
-    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    private_endpoint: NotRequired[pulumi.Input[Optional['PrivateEndpointArgsDict']]]
     """
     Specifies the private endpoint.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['ConnectionStateArgsDict']]]
     """
     Specifies the connection state.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]]]
     """
     Provisioning state of the Private Endpoint Connection.
     """
@@ -164,9 +193,9 @@ class PrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]] = None):
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['ConnectionStateArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]] = None):
         """
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Specifies the private endpoint.
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Specifies the connection state.
@@ -181,67 +210,38 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointArgs']]:
         """
         Specifies the private endpoint.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['ConnectionStateArgs']]:
         """
         Specifies the connection state.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['ConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]]:
         """
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-
-class PrivateEndpointArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the id of private endpoint.
-    """
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Specifies the id of private endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the id of private endpoint.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 

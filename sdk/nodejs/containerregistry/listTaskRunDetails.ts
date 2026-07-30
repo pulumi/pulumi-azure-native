@@ -39,7 +39,7 @@ export interface ListTaskRunDetailsArgs {
 }
 
 /**
- * The task run that has the ARM resource and properties. 
+ * The task run that has the ARM resource and properties.
  * The task run will have the information of request and result of a run.
  */
 export interface ListTaskRunDetailsResult {

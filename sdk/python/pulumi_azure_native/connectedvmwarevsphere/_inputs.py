@@ -36,14 +36,14 @@ __all__ = [
     'NetworkProfileArgsDict',
     'NicIPSettingsArgs',
     'NicIPSettingsArgsDict',
+    'OsProfileArgs',
+    'OsProfileArgsDict',
     'OsProfileForVMInstanceArgs',
     'OsProfileForVMInstanceArgsDict',
     'OsProfileLinuxConfigurationArgs',
     'OsProfileLinuxConfigurationArgsDict',
     'OsProfileWindowsConfigurationArgs',
     'OsProfileWindowsConfigurationArgsDict',
-    'OsProfileArgs',
-    'OsProfileArgsDict',
     'PlacementProfileArgs',
     'PlacementProfileArgsDict',
     'SecurityProfileArgs',
@@ -64,11 +64,11 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     The extended location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended location name.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended location type.
     """
@@ -76,8 +76,8 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The extended location.
 
@@ -91,26 +91,26 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended location name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended location type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -118,7 +118,7 @@ class GuestAgentProfileArgsDict(TypedDict):
     """
     Specifies the guest agent settings for the virtual machine.
     """
-    client_public_key: NotRequired[pulumi.Input[_builtins.str]]
+    client_public_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the Public Key provided by the client for enabling guest management.
     """
@@ -126,7 +126,7 @@ class GuestAgentProfileArgsDict(TypedDict):
 @pulumi.input_type
 class GuestAgentProfileArgs:
     def __init__(__self__, *,
-                 client_public_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_public_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the guest agent settings for the virtual machine.
 
@@ -137,14 +137,14 @@ class GuestAgentProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientPublicKey")
-    def client_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Public Key provided by the client for enabling guest management.
         """
         return pulumi.get(self, "client_public_key")
 
     @client_public_key.setter
-    def client_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_public_key", value)
 
 
@@ -152,15 +152,15 @@ class GuestCredentialArgsDict(TypedDict):
     """
     Username / Password Credentials to connect to guest.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the password to connect with the guest.
     """
-    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    private_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private key used to authenticate to a virtual machine through ssh.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets username to connect with the guest.
     """
@@ -168,9 +168,9 @@ class GuestCredentialArgsDict(TypedDict):
 @pulumi.input_type
 class GuestCredentialArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Username / Password Credentials to connect to guest.
 
@@ -187,38 +187,38 @@ class GuestCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the password to connect with the guest.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private key used to authenticate to a virtual machine through ssh.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets username to connect with the guest.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -226,15 +226,15 @@ class HardwareProfileArgsDict(TypedDict):
     """
     Specifies the hardware settings for the virtual machine.
     """
-    memory_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets memory size in MBs for the vm.
     """
-    num_cpus: NotRequired[pulumi.Input[_builtins.int]]
+    num_cpus: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the number of vCPUs for the vm.
     """
-    num_cores_per_socket: NotRequired[pulumi.Input[_builtins.int]]
+    num_cores_per_socket: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the number of cores per socket for the vm. Defaults to 1 if unspecified.
     """
@@ -242,9 +242,9 @@ class HardwareProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
-                 memory_size_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_cpus: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_cores_per_socket: Optional[pulumi.Input[_builtins.int]] = None):
+                 memory_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_cpus: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_cores_per_socket: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies the hardware settings for the virtual machine.
 
@@ -261,38 +261,38 @@ class HardwareProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="memorySizeMB")
-    def memory_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets memory size in MBs for the vm.
         """
         return pulumi.get(self, "memory_size_mb")
 
     @memory_size_mb.setter
-    def memory_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_size_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="numCPUs")
-    def num_cpus(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_cpus(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the number of vCPUs for the vm.
         """
         return pulumi.get(self, "num_cpus")
 
     @num_cpus.setter
-    def num_cpus(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_cpus(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_cpus", value)
 
     @_builtins.property
     @pulumi.getter(name="numCoresPerSocket")
-    def num_cores_per_socket(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_cores_per_socket(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the number of cores per socket for the vm. Defaults to 1 if unspecified.
         """
         return pulumi.get(self, "num_cores_per_socket")
 
     @num_cores_per_socket.setter
-    def num_cores_per_socket(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_cores_per_socket(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_cores_per_socket", value)
 
 
@@ -300,7 +300,7 @@ class HttpProxyConfigurationArgsDict(TypedDict):
     """
     HTTP Proxy configuration for the VM.
     """
-    https_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    https_proxy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets httpsProxy url.
     """
@@ -308,7 +308,7 @@ class HttpProxyConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class HttpProxyConfigurationArgs:
     def __init__(__self__, *,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None):
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         HTTP Proxy configuration for the VM.
 
@@ -319,14 +319,14 @@ class HttpProxyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets httpsProxy url.
         """
         return pulumi.get(self, "https_proxy")
 
     @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_proxy", value)
 
 
@@ -367,23 +367,23 @@ class InfrastructureProfileArgsDict(TypedDict):
     """
     Specifies the vCenter infrastructure specific settings for the virtual machine.
     """
-    firmware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'FirmwareType']]]
+    firmware_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FirmwareType']]]]
     """
     Firmware type
     """
-    inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
+    inventory_item_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the inventory Item ID for the virtual machine.
     """
-    smbios_uuid: NotRequired[pulumi.Input[_builtins.str]]
+    smbios_uuid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the SMBIOS UUID of the vm.
     """
-    template_id: NotRequired[pulumi.Input[_builtins.str]]
+    template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the template resource to deploy the virtual machine.
     """
-    v_center_id: NotRequired[pulumi.Input[_builtins.str]]
+    v_center_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
     """
@@ -391,11 +391,11 @@ class InfrastructureProfileArgsDict(TypedDict):
 @pulumi.input_type
 class InfrastructureProfileArgs:
     def __init__(__self__, *,
-                 firmware_type: Optional[pulumi.Input[Union[_builtins.str, 'FirmwareType']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 smbios_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 v_center_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 firmware_type: pulumi.Input[Optional[Union[_builtins.str, 'FirmwareType']]] = None,
+                 inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 smbios_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 v_center_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the vCenter infrastructure specific settings for the virtual machine.
 
@@ -418,62 +418,62 @@ class InfrastructureProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="firmwareType")
-    def firmware_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FirmwareType']]]:
+    def firmware_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FirmwareType']]]:
         """
         Firmware type
         """
         return pulumi.get(self, "firmware_type")
 
     @firmware_type.setter
-    def firmware_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FirmwareType']]]):
+    def firmware_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FirmwareType']]]):
         pulumi.set(self, "firmware_type", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inventory_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the inventory Item ID for the virtual machine.
         """
         return pulumi.get(self, "inventory_item_id")
 
     @inventory_item_id.setter
-    def inventory_item_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inventory_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inventory_item_id", value)
 
     @_builtins.property
     @pulumi.getter(name="smbiosUuid")
-    def smbios_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smbios_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the SMBIOS UUID of the vm.
         """
         return pulumi.get(self, "smbios_uuid")
 
     @smbios_uuid.setter
-    def smbios_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smbios_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smbios_uuid", value)
 
     @_builtins.property
     @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the template resource to deploy the virtual machine.
         """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
-    def template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def v_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
         return pulumi.get(self, "v_center_id")
 
     @v_center_id.setter
-    def v_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def v_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "v_center_id", value)
 
 
@@ -481,27 +481,27 @@ class NetworkInterfaceArgsDict(TypedDict):
     """
     Network Interface model
     """
-    device_key: NotRequired[pulumi.Input[_builtins.int]]
+    device_key: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the device key value.
     """
-    ip_settings: NotRequired[pulumi.Input['NicIPSettingsArgsDict']]
+    ip_settings: NotRequired[pulumi.Input[Optional['NicIPSettingsArgsDict']]]
     """
     Gets or sets the ipsettings.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the name of the network interface.
     """
-    network_id: NotRequired[pulumi.Input[_builtins.str]]
+    network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the network resource to connect the virtual machine.
     """
-    nic_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NICType']]]
+    nic_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NICType']]]]
     """
     NIC type
     """
-    power_on_boot: NotRequired[pulumi.Input[Union[_builtins.str, 'PowerOnBootOption']]]
+    power_on_boot: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PowerOnBootOption']]]]
     """
     Gets or sets the power on boot.
     """
@@ -509,12 +509,12 @@ class NetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
-                 device_key: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_settings: Optional[pulumi.Input['NicIPSettingsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nic_type: Optional[pulumi.Input[Union[_builtins.str, 'NICType']]] = None,
-                 power_on_boot: Optional[pulumi.Input[Union[_builtins.str, 'PowerOnBootOption']]] = None):
+                 device_key: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_settings: pulumi.Input[Optional['NicIPSettingsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nic_type: pulumi.Input[Optional[Union[_builtins.str, 'NICType']]] = None,
+                 power_on_boot: pulumi.Input[Optional[Union[_builtins.str, 'PowerOnBootOption']]] = None):
         """
         Network Interface model
 
@@ -540,74 +540,74 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceKey")
-    def device_key(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def device_key(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the device key value.
         """
         return pulumi.get(self, "device_key")
 
     @device_key.setter
-    def device_key(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def device_key(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "device_key", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSettings")
-    def ip_settings(self) -> Optional[pulumi.Input['NicIPSettingsArgs']]:
+    def ip_settings(self) -> pulumi.Input[Optional['NicIPSettingsArgs']]:
         """
         Gets or sets the ipsettings.
         """
         return pulumi.get(self, "ip_settings")
 
     @ip_settings.setter
-    def ip_settings(self, value: Optional[pulumi.Input['NicIPSettingsArgs']]):
+    def ip_settings(self, value: pulumi.Input[Optional['NicIPSettingsArgs']]):
         pulumi.set(self, "ip_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the name of the network interface.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the network resource to connect the virtual machine.
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nicType")
-    def nic_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NICType']]]:
+    def nic_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NICType']]]:
         """
         NIC type
         """
         return pulumi.get(self, "nic_type")
 
     @nic_type.setter
-    def nic_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NICType']]]):
+    def nic_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NICType']]]):
         pulumi.set(self, "nic_type", value)
 
     @_builtins.property
     @pulumi.getter(name="powerOnBoot")
-    def power_on_boot(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PowerOnBootOption']]]:
+    def power_on_boot(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PowerOnBootOption']]]:
         """
         Gets or sets the power on boot.
         """
         return pulumi.get(self, "power_on_boot")
 
     @power_on_boot.setter
-    def power_on_boot(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PowerOnBootOption']]]):
+    def power_on_boot(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PowerOnBootOption']]]):
         pulumi.set(self, "power_on_boot", value)
 
 
@@ -615,7 +615,7 @@ class NetworkProfileArgsDict(TypedDict):
     """
     Specifies the network interfaces of the virtual machine.
     """
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]]
     """
     Gets or sets the list of network interfaces associated with the virtual machine.
     """
@@ -623,7 +623,7 @@ class NetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None):
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None):
         """
         Specifies the network interfaces of the virtual machine.
 
@@ -634,14 +634,14 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         Gets or sets the list of network interfaces associated with the virtual machine.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
 
@@ -649,23 +649,23 @@ class NicIPSettingsArgsDict(TypedDict):
     """
     Defines the network interface ip settings.
     """
-    allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressAllocationMethod']]]
+    allocation_method: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAddressAllocationMethod']]]]
     """
     Gets or sets the nic allocation method.
     """
-    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Gets or sets the dns servers.
     """
-    gateway: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    gateway: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Gets or sets the gateway.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ip address for the nic.
     """
-    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_mask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the mask.
     """
@@ -673,11 +673,11 @@ class NicIPSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class NicIPSettingsArgs:
     def __init__(__self__, *,
-                 allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressAllocationMethod']]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressAllocationMethod']]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the network interface ip settings.
 
@@ -700,336 +700,94 @@ class NicIPSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationMethod")
-    def allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAddressAllocationMethod']]]:
+    def allocation_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAddressAllocationMethod']]]:
         """
         Gets or sets the nic allocation method.
         """
         return pulumi.get(self, "allocation_method")
 
     @allocation_method.setter
-    def allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressAllocationMethod']]]):
+    def allocation_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressAllocationMethod']]]):
         pulumi.set(self, "allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the dns servers.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateway(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the gateway.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateway(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ip address for the nic.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the mask.
         """
         return pulumi.get(self, "subnet_mask")
 
     @subnet_mask.setter
-    def subnet_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_mask", value)
-
-
-class OsProfileForVMInstanceArgsDict(TypedDict):
-    """
-    Specifies the operating system settings for the virtual machine.
-    """
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Sets administrator password.
-    """
-    admin_username: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Gets or sets administrator username.
-    """
-    computer_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Gets or sets computer name.
-    """
-    guest_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Gets or sets the guestId.
-    """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsType']]]
-    """
-    Gets or sets the type of the os.
-    """
-    windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
-    """
-    Windows Configuration.
-    """
-
-@pulumi.input_type
-class OsProfileForVMInstanceArgs:
-    def __init__(__self__, *,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guest_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
-        """
-        Specifies the operating system settings for the virtual machine.
-
-        :param pulumi.Input[_builtins.str] admin_password: Sets administrator password.
-        :param pulumi.Input[_builtins.str] admin_username: Gets or sets administrator username.
-        :param pulumi.Input[_builtins.str] computer_name: Gets or sets computer name.
-        :param pulumi.Input[_builtins.str] guest_id: Gets or sets the guestId.
-        :param pulumi.Input[Union[_builtins.str, 'OsType']] os_type: Gets or sets the type of the os.
-        :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Windows Configuration.
-        """
-        if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
-        if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
-        if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
-        if guest_id is not None:
-            pulumi.set(__self__, "guest_id", guest_id)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if windows_configuration is not None:
-            pulumi.set(__self__, "windows_configuration", windows_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets administrator password.
-        """
-        return pulumi.get(self, "admin_password")
-
-    @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "admin_password", value)
-
-    @_builtins.property
-    @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Gets or sets administrator username.
-        """
-        return pulumi.get(self, "admin_username")
-
-    @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "admin_username", value)
-
-    @_builtins.property
-    @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Gets or sets computer name.
-        """
-        return pulumi.get(self, "computer_name")
-
-    @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "computer_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="guestId")
-    def guest_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Gets or sets the guestId.
-        """
-        return pulumi.get(self, "guest_id")
-
-    @guest_id.setter
-    def guest_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "guest_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]:
-        """
-        Gets or sets the type of the os.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]):
-        pulumi.set(self, "os_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="windowsConfiguration")
-    def windows_configuration(self) -> Optional[pulumi.Input['WindowsConfigurationArgs']]:
-        """
-        Windows Configuration.
-        """
-        return pulumi.get(self, "windows_configuration")
-
-    @windows_configuration.setter
-    def windows_configuration(self, value: Optional[pulumi.Input['WindowsConfigurationArgs']]):
-        pulumi.set(self, "windows_configuration", value)
-
-
-class OsProfileLinuxConfigurationArgsDict(TypedDict):
-    """
-    Specifies the linux configuration for update management.
-    """
-    assessment_mode: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the assessment mode.
-    """
-    patch_mode: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the patch mode.
-    """
-
-@pulumi.input_type
-class OsProfileLinuxConfigurationArgs:
-    def __init__(__self__, *,
-                 assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specifies the linux configuration for update management.
-
-        :param pulumi.Input[_builtins.str] assessment_mode: Specifies the assessment mode.
-        :param pulumi.Input[_builtins.str] patch_mode: Specifies the patch mode.
-        """
-        if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
-        if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentMode")
-    def assessment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the assessment mode.
-        """
-        return pulumi.get(self, "assessment_mode")
-
-    @assessment_mode.setter
-    def assessment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "assessment_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the patch mode.
-        """
-        return pulumi.get(self, "patch_mode")
-
-    @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "patch_mode", value)
-
-
-class OsProfileWindowsConfigurationArgsDict(TypedDict):
-    """
-    Specifies the windows configuration for update management.
-    """
-    assessment_mode: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the assessment mode.
-    """
-    patch_mode: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the patch mode.
-    """
-
-@pulumi.input_type
-class OsProfileWindowsConfigurationArgs:
-    def __init__(__self__, *,
-                 assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specifies the windows configuration for update management.
-
-        :param pulumi.Input[_builtins.str] assessment_mode: Specifies the assessment mode.
-        :param pulumi.Input[_builtins.str] patch_mode: Specifies the patch mode.
-        """
-        if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
-        if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentMode")
-    def assessment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the assessment mode.
-        """
-        return pulumi.get(self, "assessment_mode")
-
-    @assessment_mode.setter
-    def assessment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "assessment_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the patch mode.
-        """
-        return pulumi.get(self, "patch_mode")
-
-    @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "patch_mode", value)
 
 
 class OsProfileArgsDict(TypedDict):
     """
     Specifies the operating system settings for the virtual machine.
     """
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets administrator password.
     """
-    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    admin_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets administrator username.
     """
-    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    computer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets computer name.
     """
-    guest_id: NotRequired[pulumi.Input[_builtins.str]]
+    guest_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the guestId.
     """
-    linux_configuration: NotRequired[pulumi.Input['OsProfileLinuxConfigurationArgsDict']]
+    linux_configuration: NotRequired[pulumi.Input[Optional['OsProfileLinuxConfigurationArgsDict']]]
     """
     Specifies the linux configuration for update management.
     """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsType']]]
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]]
     """
     Gets or sets the type of the os.
     """
-    windows_configuration: NotRequired[pulumi.Input['OsProfileWindowsConfigurationArgsDict']]
+    windows_configuration: NotRequired[pulumi.Input[Optional['OsProfileWindowsConfigurationArgsDict']]]
     """
     Specifies the windows configuration for update management.
     """
@@ -1037,13 +795,13 @@ class OsProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guest_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linux_configuration: Optional[pulumi.Input['OsProfileLinuxConfigurationArgs']] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 windows_configuration: Optional[pulumi.Input['OsProfileWindowsConfigurationArgs']] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guest_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linux_configuration: pulumi.Input[Optional['OsProfileLinuxConfigurationArgs']] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 windows_configuration: pulumi.Input[Optional['OsProfileWindowsConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the virtual machine.
 
@@ -1072,106 +830,348 @@ class OsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets administrator password.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets administrator username.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets computer name.
         """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="guestId")
-    def guest_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guest_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the guestId.
         """
         return pulumi.get(self, "guest_id")
 
     @guest_id.setter
-    def guest_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guest_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guest_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxConfiguration")
-    def linux_configuration(self) -> Optional[pulumi.Input['OsProfileLinuxConfigurationArgs']]:
+    def linux_configuration(self) -> pulumi.Input[Optional['OsProfileLinuxConfigurationArgs']]:
         """
         Specifies the linux configuration for update management.
         """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
-    def linux_configuration(self, value: Optional[pulumi.Input['OsProfileLinuxConfigurationArgs']]):
+    def linux_configuration(self, value: pulumi.Input[Optional['OsProfileLinuxConfigurationArgs']]):
         pulumi.set(self, "linux_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]:
         """
         Gets or sets the type of the os.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsConfiguration")
-    def windows_configuration(self) -> Optional[pulumi.Input['OsProfileWindowsConfigurationArgs']]:
+    def windows_configuration(self) -> pulumi.Input[Optional['OsProfileWindowsConfigurationArgs']]:
         """
         Specifies the windows configuration for update management.
         """
         return pulumi.get(self, "windows_configuration")
 
     @windows_configuration.setter
-    def windows_configuration(self, value: Optional[pulumi.Input['OsProfileWindowsConfigurationArgs']]):
+    def windows_configuration(self, value: pulumi.Input[Optional['OsProfileWindowsConfigurationArgs']]):
         pulumi.set(self, "windows_configuration", value)
+
+
+class OsProfileForVMInstanceArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the virtual machine.
+    """
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Sets administrator password.
+    """
+    admin_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Gets or sets administrator username.
+    """
+    computer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Gets or sets computer name.
+    """
+    guest_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Gets or sets the guestId.
+    """
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]]
+    """
+    Gets or sets the type of the os.
+    """
+    windows_configuration: NotRequired[pulumi.Input[Optional['WindowsConfigurationArgsDict']]]
+    """
+    Windows Configuration.
+    """
+
+@pulumi.input_type
+class OsProfileForVMInstanceArgs:
+    def __init__(__self__, *,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guest_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 windows_configuration: pulumi.Input[Optional['WindowsConfigurationArgs']] = None):
+        """
+        Specifies the operating system settings for the virtual machine.
+
+        :param pulumi.Input[_builtins.str] admin_password: Sets administrator password.
+        :param pulumi.Input[_builtins.str] admin_username: Gets or sets administrator username.
+        :param pulumi.Input[_builtins.str] computer_name: Gets or sets computer name.
+        :param pulumi.Input[_builtins.str] guest_id: Gets or sets the guestId.
+        :param pulumi.Input[Union[_builtins.str, 'OsType']] os_type: Gets or sets the type of the os.
+        :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Windows Configuration.
+        """
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+        if guest_id is not None:
+            pulumi.set(__self__, "guest_id", guest_id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets administrator password.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "admin_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets or sets administrator username.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets or sets computer name.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @computer_name.setter
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "computer_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="guestId")
+    def guest_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets or sets the guestId.
+        """
+        return pulumi.get(self, "guest_id")
+
+    @guest_id.setter
+    def guest_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "guest_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> pulumi.Input[Optional['WindowsConfigurationArgs']]:
+        """
+        Windows Configuration.
+        """
+        return pulumi.get(self, "windows_configuration")
+
+    @windows_configuration.setter
+    def windows_configuration(self, value: pulumi.Input[Optional['WindowsConfigurationArgs']]):
+        pulumi.set(self, "windows_configuration", value)
+
+
+class OsProfileLinuxConfigurationArgsDict(TypedDict):
+    """
+    Specifies the linux configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the assessment mode.
+    """
+    patch_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the patch mode.
+    """
+
+@pulumi.input_type
+class OsProfileLinuxConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies the linux configuration for update management.
+
+        :param pulumi.Input[_builtins.str] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[_builtins.str] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "patch_mode", value)
+
+
+class OsProfileWindowsConfigurationArgsDict(TypedDict):
+    """
+    Specifies the windows configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the assessment mode.
+    """
+    patch_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the patch mode.
+    """
+
+@pulumi.input_type
+class OsProfileWindowsConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies the windows configuration for update management.
+
+        :param pulumi.Input[_builtins.str] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[_builtins.str] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "patch_mode", value)
 
 
 class PlacementProfileArgsDict(TypedDict):
     """
     Specifies the compute and storage placement settings for the virtual machine.
     """
-    cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the cluster resource on which this virtual machine will deploy.
     """
-    datastore_id: NotRequired[pulumi.Input[_builtins.str]]
+    datastore_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the datastore resource on which the data for the virtual machine will be kept.
     """
-    host_id: NotRequired[pulumi.Input[_builtins.str]]
+    host_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
     """
-    resource_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will deploy.
     """
@@ -1179,10 +1179,10 @@ class PlacementProfileArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementProfileArgs:
     def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_pool_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the compute and storage placement settings for the virtual machine.
 
@@ -1202,50 +1202,50 @@ class PlacementProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the cluster resource on which this virtual machine will deploy.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="datastoreId")
-    def datastore_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datastore_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the datastore resource on which the data for the virtual machine will be kept.
         """
         return pulumi.get(self, "datastore_id")
 
     @datastore_id.setter
-    def datastore_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datastore_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datastore_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
         """
         return pulumi.get(self, "host_id")
 
     @host_id.setter
-    def host_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePoolId")
-    def resource_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will deploy.
         """
         return pulumi.get(self, "resource_pool_id")
 
     @resource_pool_id.setter
-    def resource_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_pool_id", value)
 
 
@@ -1253,7 +1253,7 @@ class SecurityProfileArgsDict(TypedDict):
     """
     Specifies the Security profile settings for the virtual machine.
     """
-    uefi_settings: NotRequired[pulumi.Input['UefiSettingsArgsDict']]
+    uefi_settings: NotRequired[pulumi.Input[Optional['UefiSettingsArgsDict']]]
     """
     Specifies the security settings like secure boot used while creating the virtual machine.
     """
@@ -1261,7 +1261,7 @@ class SecurityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileArgs:
     def __init__(__self__, *,
-                 uefi_settings: Optional[pulumi.Input['UefiSettingsArgs']] = None):
+                 uefi_settings: pulumi.Input[Optional['UefiSettingsArgs']] = None):
         """
         Specifies the Security profile settings for the virtual machine.
 
@@ -1272,14 +1272,14 @@ class SecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="uefiSettings")
-    def uefi_settings(self) -> Optional[pulumi.Input['UefiSettingsArgs']]:
+    def uefi_settings(self) -> pulumi.Input[Optional['UefiSettingsArgs']]:
         """
         Specifies the security settings like secure boot used while creating the virtual machine.
         """
         return pulumi.get(self, "uefi_settings")
 
     @uefi_settings.setter
-    def uefi_settings(self, value: Optional[pulumi.Input['UefiSettingsArgs']]):
+    def uefi_settings(self, value: pulumi.Input[Optional['UefiSettingsArgs']]):
         pulumi.set(self, "uefi_settings", value)
 
 
@@ -1287,7 +1287,7 @@ class StorageProfileArgsDict(TypedDict):
     """
     Specifies the storage settings for the virtual machine disks.
     """
-    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgsDict']]]]
+    disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDiskArgsDict']]]]]
     """
     Gets or sets the list of virtual disks associated with the virtual machine.
     """
@@ -1295,7 +1295,7 @@ class StorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None):
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None):
         """
         Specifies the storage settings for the virtual machine disks.
 
@@ -1306,14 +1306,14 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]]:
+    def disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDiskArgs']]]]:
         """
         Gets or sets the list of virtual disks associated with the virtual machine.
         """
         return pulumi.get(self, "disks")
 
     @disks.setter
-    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]]):
+    def disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDiskArgs']]]]):
         pulumi.set(self, "disks", value)
 
 
@@ -1321,7 +1321,7 @@ class UefiSettingsArgsDict(TypedDict):
     """
     Specifies the security settings like secure boot used while creating the virtual machine.
     """
-    secure_boot_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    secure_boot_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether secure boot should be enabled on the virtual machine.
     """
@@ -1329,7 +1329,7 @@ class UefiSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class UefiSettingsArgs:
     def __init__(__self__, *,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies the security settings like secure boot used while creating the virtual machine.
 
@@ -1340,14 +1340,14 @@ class UefiSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether secure boot should be enabled on the virtual machine.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
 
@@ -1355,11 +1355,11 @@ class VICredentialArgsDict(TypedDict):
     """
     Username / Password Credentials to connect to vcenter.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the password to connect with the vCenter.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets username to connect with the vCenter.
     """
@@ -1367,8 +1367,8 @@ class VICredentialArgsDict(TypedDict):
 @pulumi.input_type
 class VICredentialArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Username / Password Credentials to connect to vcenter.
 
@@ -1382,26 +1382,26 @@ class VICredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the password to connect with the vCenter.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets username to connect with the vCenter.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -1409,35 +1409,35 @@ class VirtualDiskArgsDict(TypedDict):
     """
     Virtual disk model
     """
-    controller_key: NotRequired[pulumi.Input[_builtins.int]]
+    controller_key: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the controller id.
     """
-    device_key: NotRequired[pulumi.Input[_builtins.int]]
+    device_key: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the device key value.
     """
-    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    device_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the device name.
     """
-    disk_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskMode']]]
+    disk_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DiskMode']]]]
     """
     Gets or sets the disk mode.
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the disk total size.
     """
-    disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskType']]]
+    disk_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]]]
     """
     Gets or sets the disk backing type.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the name of the virtual disk.
     """
-    unit_number: NotRequired[pulumi.Input[_builtins.int]]
+    unit_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the unit number of the disk on the controller.
     """
@@ -1445,14 +1445,14 @@ class VirtualDiskArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualDiskArgs:
     def __init__(__self__, *,
-                 controller_key: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_key: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_mode: Optional[pulumi.Input[Union[_builtins.str, 'DiskMode']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_type: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_number: Optional[pulumi.Input[_builtins.int]] = None):
+                 controller_key: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_key: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_mode: pulumi.Input[Optional[Union[_builtins.str, 'DiskMode']]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_type: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Virtual disk model
 
@@ -1484,98 +1484,98 @@ class VirtualDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="controllerKey")
-    def controller_key(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def controller_key(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the controller id.
         """
         return pulumi.get(self, "controller_key")
 
     @controller_key.setter
-    def controller_key(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def controller_key(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "controller_key", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceKey")
-    def device_key(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def device_key(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the device key value.
         """
         return pulumi.get(self, "device_key")
 
     @device_key.setter
-    def device_key(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def device_key(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "device_key", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the device name.
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskMode")
-    def disk_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DiskMode']]]:
+    def disk_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DiskMode']]]:
         """
         Gets or sets the disk mode.
         """
         return pulumi.get(self, "disk_mode")
 
     @disk_mode.setter
-    def disk_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DiskMode']]]):
+    def disk_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DiskMode']]]):
         pulumi.set(self, "disk_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the disk total size.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]]:
+    def disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]]:
         """
         Gets or sets the disk backing type.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]]):
+    def disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]]):
         pulumi.set(self, "disk_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the name of the virtual disk.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="unitNumber")
-    def unit_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unit_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the unit number of the disk on the controller.
         """
         return pulumi.get(self, "unit_number")
 
     @unit_number.setter
-    def unit_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unit_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unit_number", value)
 
 
@@ -1583,47 +1583,47 @@ class WindowsConfigurationArgsDict(TypedDict):
     """
     Specifies the Windows Configuration settings for the virtual machine.
     """
-    auto_logon: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_logon: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets a value indicating whether auto logon is enabled.
     """
-    auto_logon_count: NotRequired[pulumi.Input[_builtins.int]]
+    auto_logon_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets auto logon count.
     """
-    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets domain name that vm should join.
     """
-    domain_user_password: NotRequired[pulumi.Input[_builtins.str]]
+    domain_user_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets domain user password.
     """
-    domain_username: NotRequired[pulumi.Input[_builtins.str]]
+    domain_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets domain username.
     """
-    first_logon_commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    first_logon_commands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Sets first logon commands
     """
-    full_name: NotRequired[pulumi.Input[_builtins.str]]
+    full_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets full name of the owner of the vm.
     """
-    org_name: NotRequired[pulumi.Input[_builtins.str]]
+    org_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets org name to which the owner of the vm belongs.
     """
-    product_id: NotRequired[pulumi.Input[_builtins.str]]
+    product_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets product id of the vm.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Time zone name correspond to time zones listed at Microsoft Time Zone name values(https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
     """
-    work_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    work_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets work group name that vm should join.
     """
@@ -1631,17 +1631,17 @@ class WindowsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WindowsConfigurationArgs:
     def __init__(__self__, *,
-                 auto_logon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_logon_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_logon_commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_logon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_logon_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_logon_commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the Windows Configuration settings for the virtual machine.
 
@@ -1682,134 +1682,134 @@ class WindowsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoLogon")
-    def auto_logon(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_logon(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets a value indicating whether auto logon is enabled.
         """
         return pulumi.get(self, "auto_logon")
 
     @auto_logon.setter
-    def auto_logon(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_logon(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_logon", value)
 
     @_builtins.property
     @pulumi.getter(name="autoLogonCount")
-    def auto_logon_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_logon_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets auto logon count.
         """
         return pulumi.get(self, "auto_logon_count")
 
     @auto_logon_count.setter
-    def auto_logon_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_logon_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_logon_count", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets domain name that vm should join.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUserPassword")
-    def domain_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_user_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets domain user password.
         """
         return pulumi.get(self, "domain_user_password")
 
     @domain_user_password.setter
-    def domain_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_user_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUsername")
-    def domain_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets domain username.
         """
         return pulumi.get(self, "domain_username")
 
     @domain_username.setter
-    def domain_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_username", value)
 
     @_builtins.property
     @pulumi.getter(name="firstLogonCommands")
-    def first_logon_commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def first_logon_commands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Sets first logon commands
         """
         return pulumi.get(self, "first_logon_commands")
 
     @first_logon_commands.setter
-    def first_logon_commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def first_logon_commands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "first_logon_commands", value)
 
     @_builtins.property
     @pulumi.getter(name="fullName")
-    def full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets full name of the owner of the vm.
         """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
-    def full_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="orgName")
-    def org_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets org name to which the owner of the vm belongs.
         """
         return pulumi.get(self, "org_name")
 
     @org_name.setter
-    def org_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets product id of the vm.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Time zone name correspond to time zones listed at Microsoft Time Zone name values(https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="workGroupName")
-    def work_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets work group name that vm should join.
         """
         return pulumi.get(self, "work_group_name")
 
     @work_group_name.setter
-    def work_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_group_name", value)
 
 

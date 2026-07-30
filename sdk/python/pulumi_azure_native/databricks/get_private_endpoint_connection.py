@@ -121,7 +121,6 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
 
     Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -140,9 +139,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a private endpoint connection properties for a workspace
@@ -150,7 +149,6 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     Uses Azure REST API version 2026-01-01.
 
     Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

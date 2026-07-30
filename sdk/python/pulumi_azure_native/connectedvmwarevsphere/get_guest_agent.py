@@ -217,7 +217,6 @@ def get_guest_agent(name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: Name of the GuestAgent.
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str virtual_machine_name: Name of the vm.
@@ -244,9 +243,9 @@ def get_guest_agent(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_guest_agent_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_agent_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
@@ -254,7 +253,6 @@ def get_guest_agent_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: Name of the GuestAgent.
     :param _builtins.str resource_group_name: The Resource Group Name.

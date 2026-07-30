@@ -131,7 +131,6 @@ def get_data_flow(data_flow_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str data_flow_name: The data flow name.
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,15 +150,14 @@ def get_data_flow(data_flow_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_flow_output(data_flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_flow_output(data_flow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataFlowResult]:
     """
     Gets a data flow.
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str data_flow_name: The data flow name.
     :param _builtins.str factory_name: The factory name.

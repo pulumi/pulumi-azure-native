@@ -119,7 +119,6 @@ def get_tag_inheritance_setting(scope: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-08-01.
 
-
     :param _builtins.str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param _builtins.str type: Setting type.
     """
@@ -136,14 +135,13 @@ def get_tag_inheritance_setting(scope: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                       type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_inheritance_setting_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                       type: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
     """
     Get the setting from the given scope by name.
 
     Uses Azure REST API version 2024-08-01.
-
 
     :param _builtins.str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param _builtins.str type: Setting type.

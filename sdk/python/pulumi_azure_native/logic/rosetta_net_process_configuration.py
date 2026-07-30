@@ -30,11 +30,11 @@ class RosettaNetProcessConfigurationArgs:
                  process_version: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  responder_role_settings: pulumi.Input['RosettaNetPipRoleSettingsArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rosetta_net_process_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rosetta_net_process_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RosettaNetProcessConfiguration resource.
 
@@ -169,62 +169,62 @@ class RosettaNetProcessConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account RosettaNet ProcessConfiguration properties.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="rosettaNetProcessConfigurationName")
-    def rosetta_net_process_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rosetta_net_process_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account RosettaNet ProcessConfiguration name.
         """
         return pulumi.get(self, "rosetta_net_process_configuration_name")
 
     @rosetta_net_process_configuration_name.setter
-    def rosetta_net_process_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rosetta_net_process_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rosetta_net_process_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -234,25 +234,24 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activity_settings: Optional[pulumi.Input[Union['RosettaNetPipActivitySettingsArgs', 'RosettaNetPipActivitySettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initiator_role_settings: Optional[pulumi.Input[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 process_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_role_settings: Optional[pulumi.Input[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
-                 rosetta_net_process_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activity_settings: pulumi.Input[Optional[Union['RosettaNetPipActivitySettingsArgs', 'RosettaNetPipActivitySettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initiator_role_settings: pulumi.Input[Optional[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 process_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_role_settings: pulumi.Input[Optional[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
+                 rosetta_net_process_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The integration account RosettaNet process configuration.
 
         Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,7 +280,6 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param RosettaNetProcessConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,19 +295,19 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activity_settings: Optional[pulumi.Input[Union['RosettaNetPipActivitySettingsArgs', 'RosettaNetPipActivitySettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initiator_role_settings: Optional[pulumi.Input[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 process_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_role_settings: Optional[pulumi.Input[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
-                 rosetta_net_process_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activity_settings: pulumi.Input[Optional[Union['RosettaNetPipActivitySettingsArgs', 'RosettaNetPipActivitySettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initiator_role_settings: pulumi.Input[Optional[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 process_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_role_settings: pulumi.Input[Optional[Union['RosettaNetPipRoleSettingsArgs', 'RosettaNetPipRoleSettingsArgsDict']]] = None,
+                 rosetta_net_process_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

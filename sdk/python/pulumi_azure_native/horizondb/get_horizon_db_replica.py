@@ -120,7 +120,6 @@ def get_horizon_db_replica(cluster_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-01-20-preview.
 
-
     :param _builtins.str cluster_name: The name of the HorizonDB cluster.
     :param _builtins.str pool_name: The name of the HorizonDB pool.
     :param _builtins.str replica_name: The name of the HorizonDB replica.
@@ -141,16 +140,15 @@ def get_horizon_db_replica(cluster_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_horizon_db_replica_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_horizon_db_replica_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHorizonDbReplicaResult]:
     """
     Gets information about a HorizonDB replica.
 
     Uses Azure REST API version 2026-01-20-preview.
-
 
     :param _builtins.str cluster_name: The name of the HorizonDB cluster.
     :param _builtins.str pool_name: The name of the HorizonDB pool.

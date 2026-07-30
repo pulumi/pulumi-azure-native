@@ -111,10 +111,10 @@ export class OrderItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressDetails"] = args?.addressDetails;
-            resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.edgeorder.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? pulumi.output(args.identity).apply(v => v === undefined ? undefined : inputs.edgeorder.resourceIdentityArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["orderId"] = args?.orderId;
-            resourceInputs["orderItemDetails"] = args ? (args.orderItemDetails ? pulumi.output(args.orderItemDetails).apply(inputs.edgeorder.orderItemDetailsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["orderItemDetails"] = args ? pulumi.output(args.orderItemDetails).apply(inputs.edgeorder.orderItemDetailsArgsProvideDefaults) : undefined;
             resourceInputs["orderItemName"] = args?.orderItemName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
@@ -152,15 +152,15 @@ export interface OrderItemArgs {
     /**
      * Represents shipping and return address for order item.
      */
-    addressDetails?: pulumi.Input<inputs.edgeorder.AddressDetailsArgs>;
+    addressDetails?: pulumi.Input<inputs.edgeorder.AddressDetailsArgs | undefined>;
     /**
      * Msi identity of the resource
      */
-    identity?: pulumi.Input<inputs.edgeorder.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.edgeorder.ResourceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Id of the order to which order item belongs to.
      */
@@ -172,7 +172,7 @@ export interface OrderItemArgs {
     /**
      * The name of the order item.
      */
-    orderItemName?: pulumi.Input<string>;
+    orderItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,5 +180,5 @@ export interface OrderItemArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

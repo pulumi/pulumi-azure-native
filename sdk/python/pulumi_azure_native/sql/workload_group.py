@@ -25,10 +25,10 @@ class WorkloadGroupArgs:
                  min_resource_percent_per_request: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 query_execution_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 workload_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 query_execution_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 workload_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadGroup resource.
 
@@ -132,50 +132,50 @@ class WorkloadGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload group importance level.
         """
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter(name="maxResourcePercentPerRequest")
-    def max_resource_percent_per_request(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_resource_percent_per_request(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workload group request maximum grant percentage.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 
     @max_resource_percent_per_request.setter
-    def max_resource_percent_per_request(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_resource_percent_per_request(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_resource_percent_per_request", value)
 
     @_builtins.property
     @pulumi.getter(name="queryExecutionTimeout")
-    def query_execution_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_execution_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workload group query execution timeout.
         """
         return pulumi.get(self, "query_execution_timeout")
 
     @query_execution_timeout.setter
-    def query_execution_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_execution_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_execution_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadGroupName")
-    def workload_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workload group.
         """
         return pulumi.get(self, "workload_group_name")
 
     @workload_group_name.setter
-    def workload_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_group_name", value)
 
 
@@ -185,16 +185,16 @@ class WorkloadGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 query_execution_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 query_execution_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Workload group operations for a data warehouse
@@ -202,7 +202,6 @@ class WorkloadGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +229,6 @@ class WorkloadGroup(pulumi.CustomResource):
 
         Other available API versions: 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkloadGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,16 +244,16 @@ class WorkloadGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 query_execution_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 query_execution_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

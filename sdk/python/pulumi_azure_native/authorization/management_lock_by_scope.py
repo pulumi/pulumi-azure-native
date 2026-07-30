@@ -24,9 +24,9 @@ class ManagementLockByScopeArgs:
     def __init__(__self__, *,
                  level: pulumi.Input[Union[_builtins.str, 'LockLevel']],
                  scope: pulumi.Input[_builtins.str],
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockByScope resource.
 
@@ -71,38 +71,38 @@ class ManagementLockByScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="lockName")
-    def lock_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of lock.
         """
         return pulumi.get(self, "lock_name")
 
     @lock_name.setter
-    def lock_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notes about the lock. Maximum of 512 characters.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
+    def owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
         """
         The owners of the lock.
         """
         return pulumi.get(self, "owners")
 
     @owners.setter
-    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
+    def owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
         pulumi.set(self, "owners", value)
 
 
@@ -112,17 +112,16 @@ class ManagementLockByScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'LockLevel']]] = None,
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'LockLevel']]] = None,
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class ManagementLockByScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param ManagementLockByScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class ManagementLockByScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'LockLevel']]] = None,
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'LockLevel']]] = None,
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

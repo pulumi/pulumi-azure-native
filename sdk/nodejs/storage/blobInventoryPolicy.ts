@@ -121,7 +121,7 @@ export interface BlobInventoryPolicyArgs {
     /**
      * The name of the storage account blob inventory policy. It should always be 'default'
      */
-    blobInventoryPolicyName?: pulumi.Input<string>;
+    blobInventoryPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The storage account blob inventory policy object. It is composed of policy rules.
      */

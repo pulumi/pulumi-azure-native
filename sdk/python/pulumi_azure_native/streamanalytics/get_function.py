@@ -109,7 +109,6 @@ def get_function(function_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str function_name: The name of the function.
     :param _builtins.str job_name: The name of the streaming job.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -127,9 +126,9 @@ def get_function(function_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Gets details about the specified function.
@@ -137,7 +136,6 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str function_name: The name of the function.
     :param _builtins.str job_name: The name of the streaming job.

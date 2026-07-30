@@ -217,7 +217,6 @@ def get_firmware(firmware_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str firmware_id: The id of the firmware.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the firmware analysis workspace.
@@ -244,9 +243,9 @@ def get_firmware(firmware_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'),
         version=pulumi.get(__ret__, 'version'))
-def get_firmware_output(firmware_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firmware_output(firmware_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirmwareResult]:
     """
     Get firmware.
@@ -254,7 +253,6 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2024-01-10.
 
     Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str firmware_id: The id of the firmware.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

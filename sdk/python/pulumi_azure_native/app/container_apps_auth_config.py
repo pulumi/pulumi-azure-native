@@ -24,13 +24,13 @@ class ContainerAppsAuthConfigArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auth_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input['EncryptionSettingsArgs']] = None,
-                 global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
-                 http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
-                 identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
-                 login: Optional[pulumi.Input['LoginArgs']] = None,
-                 platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
+                 auth_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional['EncryptionSettingsArgs']] = None,
+                 global_validation: pulumi.Input[Optional['GlobalValidationArgs']] = None,
+                 http_settings: pulumi.Input[Optional['HttpSettingsArgs']] = None,
+                 identity_providers: pulumi.Input[Optional['IdentityProvidersArgs']] = None,
+                 login: pulumi.Input[Optional['LoginArgs']] = None,
+                 platform: pulumi.Input[Optional['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a ContainerAppsAuthConfig resource.
 
@@ -87,86 +87,86 @@ class ContainerAppsAuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authConfigName")
-    def auth_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Container App AuthConfig.
         """
         return pulumi.get(self, "auth_config_name")
 
     @auth_config_name.setter
-    def auth_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['EncryptionSettingsArgs']]:
+    def encryption_settings(self) -> pulumi.Input[Optional['EncryptionSettingsArgs']]:
         """
         The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['EncryptionSettingsArgs']]):
+    def encryption_settings(self, value: pulumi.Input[Optional['EncryptionSettingsArgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="globalValidation")
-    def global_validation(self) -> Optional[pulumi.Input['GlobalValidationArgs']]:
+    def global_validation(self) -> pulumi.Input[Optional['GlobalValidationArgs']]:
         """
         The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         """
         return pulumi.get(self, "global_validation")
 
     @global_validation.setter
-    def global_validation(self, value: Optional[pulumi.Input['GlobalValidationArgs']]):
+    def global_validation(self, value: pulumi.Input[Optional['GlobalValidationArgs']]):
         pulumi.set(self, "global_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSettings")
-    def http_settings(self) -> Optional[pulumi.Input['HttpSettingsArgs']]:
+    def http_settings(self) -> pulumi.Input[Optional['HttpSettingsArgs']]:
         """
         The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "http_settings")
 
     @http_settings.setter
-    def http_settings(self, value: Optional[pulumi.Input['HttpSettingsArgs']]):
+    def http_settings(self, value: pulumi.Input[Optional['HttpSettingsArgs']]):
         pulumi.set(self, "http_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
+    def identity_providers(self) -> pulumi.Input[Optional['IdentityProvidersArgs']]:
         """
         The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersArgs']]):
+    def identity_providers(self, value: pulumi.Input[Optional['IdentityProvidersArgs']]):
         pulumi.set(self, "identity_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginArgs']]:
         """
         The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
+    def platform(self) -> pulumi.Input[Optional['AuthPlatformArgs']]:
         """
         The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input['AuthPlatformArgs']]):
+    def platform(self, value: pulumi.Input[Optional['AuthPlatformArgs']]):
         pulumi.set(self, "platform", value)
 
 
@@ -176,15 +176,15 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
-                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
-                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
-                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
-                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
+                 global_validation: pulumi.Input[Optional[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: pulumi.Input[Optional[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: pulumi.Input[Optional[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 login: pulumi.Input[Optional[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 platform: pulumi.Input[Optional[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
@@ -192,7 +192,6 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +218,6 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ContainerAppsAuthConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,15 +233,15 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
-                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
-                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
-                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
-                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
+                 global_validation: pulumi.Input[Optional[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: pulumi.Input[Optional[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: pulumi.Input[Optional[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 login: pulumi.Input[Optional[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 platform: pulumi.Input[Optional[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

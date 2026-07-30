@@ -226,7 +226,6 @@ def get_key(key_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01, 2026-02-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str key_name: The name of the key to be retrieved.
     :param _builtins.str resource_group_name: The name of the resource group which contains the specified key vault.
     :param _builtins.str vault_name: The name of the vault which contains the key to be retrieved.
@@ -254,9 +253,9 @@ def get_key(key_name: Optional[_builtins.str] = None,
         rotation_policy=pulumi.get(__ret__, 'rotation_policy'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets the current version of the specified key from the specified key vault.
@@ -264,7 +263,6 @@ def get_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01, 2026-02-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str key_name: The name of the key to be retrieved.
     :param _builtins.str resource_group_name: The name of the resource group which contains the specified key vault.

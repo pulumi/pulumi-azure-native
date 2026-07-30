@@ -25,10 +25,10 @@ class ReferenceDataSetArgs:
                  environment_name: pulumi.Input[_builtins.str],
                  key_properties: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_string_comparison_behavior: Optional[pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_string_comparison_behavior: pulumi.Input[Optional[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReferenceDataSet resource.
 
@@ -90,50 +90,50 @@ class ReferenceDataSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStringComparisonBehavior")
-    def data_string_comparison_behavior(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']]]:
+    def data_string_comparison_behavior(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataStringComparisonBehavior']]]:
         """
         The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         """
         return pulumi.get(self, "data_string_comparison_behavior")
 
     @data_string_comparison_behavior.setter
-    def data_string_comparison_behavior(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']]]):
+    def data_string_comparison_behavior(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataStringComparisonBehavior']]]):
         pulumi.set(self, "data_string_comparison_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceDataSetName")
-    def reference_data_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the reference data set.
         """
         return pulumi.get(self, "reference_data_set_name")
 
     @reference_data_set_name.setter
-    def reference_data_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_data_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of additional properties for the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class ReferenceDataSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_string_comparison_behavior: Optional[pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_string_comparison_behavior: pulumi.Input[Optional[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
@@ -157,7 +157,6 @@ class ReferenceDataSet(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class ReferenceDataSet(pulumi.CustomResource):
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ReferenceDataSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class ReferenceDataSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_string_comparison_behavior: Optional[pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_string_comparison_behavior: pulumi.Input[Optional[Union[_builtins.str, 'DataStringComparisonBehavior']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

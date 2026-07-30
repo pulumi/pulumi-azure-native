@@ -55,7 +55,6 @@ def list_private_store_subscriptions_context(private_store_id: Optional[_builtin
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
     """
     __args__ = dict()
@@ -65,7 +64,7 @@ def list_private_store_subscriptions_context(private_store_id: Optional[_builtin
 
     return AwaitableListPrivateStoreSubscriptionsContextResult(
         subscriptions_ids=pulumi.get(__ret__, 'subscriptions_ids'))
-def list_private_store_subscriptions_context_output(private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def list_private_store_subscriptions_context_output(private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreSubscriptionsContextResult]:
     """
     List all the subscriptions in the private store context
@@ -73,7 +72,6 @@ def list_private_store_subscriptions_context_output(private_store_id: Optional[p
     Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
     """

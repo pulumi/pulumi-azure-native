@@ -27,24 +27,24 @@ class WatchlistArgs:
                  provider: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
-                 default_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_lines_to_skip: Optional[pulumi.Input[_builtins.int]] = None,
-                 raw_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
-                 upload_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional['WatchlistUserInfoArgs']] = None,
+                 default_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_lines_to_skip: pulumi.Input[Optional[_builtins.int]] = None,
+                 raw_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional['WatchlistUserInfoArgs']] = None,
+                 upload_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Watchlist resource.
 
@@ -176,218 +176,218 @@ class WatchlistArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type of the raw content. Example : text/csv or text/tsv
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time the watchlist was created
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['WatchlistUserInfoArgs']]:
+    def created_by(self) -> pulumi.Input[Optional['WatchlistUserInfoArgs']]:
         """
         Describes a user that created the watchlist
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['WatchlistUserInfoArgs']]):
+    def created_by(self, value: pulumi.Input[Optional['WatchlistUserInfoArgs']]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDuration")
-    def default_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default duration of a watchlist (in ISO 8601 duration format)
         """
         return pulumi.get(self, "default_duration")
 
     @default_duration.setter
-    def default_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the watchlist
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isDeleted")
-    def is_deleted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_deleted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that indicates if the watchlist is deleted or not
         """
         return pulumi.get(self, "is_deleted")
 
     @is_deleted.setter
-    def is_deleted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_deleted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_deleted", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels relevant to this watchlist
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfLinesToSkip")
-    def number_of_lines_to_skip(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_lines_to_skip(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of lines in a csv/tsv content to skip before the header
         """
         return pulumi.get(self, "number_of_lines_to_skip")
 
     @number_of_lines_to_skip.setter
-    def number_of_lines_to_skip(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_lines_to_skip(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_lines_to_skip", value)
 
     @_builtins.property
     @pulumi.getter(name="rawContent")
-    def raw_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def raw_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         """
         return pulumi.get(self, "raw_content")
 
     @raw_content.setter
-    def raw_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def raw_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "raw_content", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the watchlist, called 'source'
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]:
+    def source_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]:
         """
         The sourceType of the watchlist
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]):
+    def source_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenantId where the watchlist belongs to
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last time the watchlist was updated
         """
         return pulumi.get(self, "updated")
 
     @updated.setter
-    def updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional[pulumi.Input['WatchlistUserInfoArgs']]:
+    def updated_by(self) -> pulumi.Input[Optional['WatchlistUserInfoArgs']]:
         """
         Describes a user that updated the watchlist
         """
         return pulumi.get(self, "updated_by")
 
     @updated_by.setter
-    def updated_by(self, value: Optional[pulumi.Input['WatchlistUserInfoArgs']]):
+    def updated_by(self, value: pulumi.Input[Optional['WatchlistUserInfoArgs']]):
         pulumi.set(self, "updated_by", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadStatus")
-    def upload_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upload_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         """
         return pulumi.get(self, "upload_status")
 
     @upload_status.setter
-    def upload_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upload_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upload_status", value)
 
     @_builtins.property
     @pulumi.getter(name="watchlistAlias")
-    def watchlist_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watchlist_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias of the watchlist
         """
         return pulumi.get(self, "watchlist_alias")
 
     @watchlist_alias.setter
-    def watchlist_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watchlist_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watchlist_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="watchlistId")
-    def watchlist_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watchlist_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id (a Guid) of the watchlist
         """
         return pulumi.get(self, "watchlist_id")
 
     @watchlist_id.setter
-    def watchlist_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watchlist_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watchlist_id", value)
 
     @_builtins.property
     @pulumi.getter(name="watchlistType")
-    def watchlist_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watchlist_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the watchlist
         """
         return pulumi.get(self, "watchlist_type")
 
     @watchlist_type.setter
-    def watchlist_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watchlist_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watchlist_type", value)
 
 
@@ -397,29 +397,29 @@ class Watchlist(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
-                 default_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 items_search_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_lines_to_skip: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
-                 upload_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
+                 default_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 items_search_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_lines_to_skip: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
+                 upload_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Watchlist in Azure Security Insights.
@@ -427,7 +427,6 @@ class Watchlist(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -468,7 +467,6 @@ class Watchlist(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -484,29 +482,29 @@ class Watchlist(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
-                 default_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 items_search_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_lines_to_skip: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
-                 upload_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 watchlist_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
+                 default_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 items_search_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_lines_to_skip: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
+                 upload_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

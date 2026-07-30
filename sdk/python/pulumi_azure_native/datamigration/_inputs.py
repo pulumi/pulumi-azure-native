@@ -200,10 +200,10 @@ __all__ = [
     'ServiceSkuArgsDict',
     'SourceLocationArgs',
     'SourceLocationArgsDict',
-    'SqlConnectionInformationArgs',
-    'SqlConnectionInformationArgsDict',
     'SqlConnectionInfoArgs',
     'SqlConnectionInfoArgsDict',
+    'SqlConnectionInformationArgs',
+    'SqlConnectionInformationArgsDict',
     'SqlFileShareArgs',
     'SqlFileShareArgsDict',
     'SsisMigrationInfoArgs',
@@ -232,19 +232,19 @@ class AzureActiveDirectoryAppArgsDict(TypedDict):
     """
     Azure Active Directory Application
     """
-    app_key: NotRequired[pulumi.Input[_builtins.str]]
+    app_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key used to authenticate to the Azure Active Directory Application
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application ID of the Azure Active Directory Application
     """
-    ignore_azure_permissions: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_azure_permissions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Ignore checking azure permissions on the AAD app
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant id of the customer
     """
@@ -252,10 +252,10 @@ class AzureActiveDirectoryAppArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryAppArgs:
     def __init__(__self__, *,
-                 app_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_azure_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_azure_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Active Directory Application
 
@@ -275,50 +275,50 @@ class AzureActiveDirectoryAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="appKey")
-    def app_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key used to authenticate to the Azure Active Directory Application
         """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
-    def app_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_key", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application ID of the Azure Active Directory Application
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreAzurePermissions")
-    def ignore_azure_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_azure_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Ignore checking azure permissions on the AAD app
         """
         return pulumi.get(self, "ignore_azure_permissions")
 
     @ignore_azure_permissions.setter
-    def ignore_azure_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_azure_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_azure_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant id of the customer
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -326,23 +326,23 @@ class AzureBlobArgsDict(TypedDict):
     """
     Azure Blob Details
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage Account Key.
     """
-    auth_type: NotRequired[pulumi.Input['AuthType']]
+    auth_type: NotRequired[pulumi.Input[Optional['AuthType']]]
     """
     Authentication type used for accessing Azure Blob Storage.
     """
-    blob_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    blob_container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Blob container name where backups are stored.
     """
-    identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['ManagedServiceIdentityArgsDict']]]
     """
     Identity details for authentication using a Managed Identity.
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the storage account where backups are stored.
     """
@@ -350,11 +350,11 @@ class AzureBlobArgsDict(TypedDict):
 @pulumi.input_type
 class AzureBlobArgs:
     def __init__(__self__, *,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_type: Optional[pulumi.Input['AuthType']] = None,
-                 blob_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional['AuthType']] = None,
+                 blob_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Blob Details
 
@@ -377,62 +377,62 @@ class AzureBlobArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account Key.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input['AuthType']]:
+    def auth_type(self) -> pulumi.Input[Optional['AuthType']]:
         """
         Authentication type used for accessing Azure Blob Storage.
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input['AuthType']]):
+    def auth_type(self, value: pulumi.Input[Optional['AuthType']]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blobContainerName")
-    def blob_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blob container name where backups are stored.
         """
         return pulumi.get(self, "blob_container_name")
 
     @blob_container_name.setter
-    def blob_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Identity details for authentication using a Managed Identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the storage account where backups are stored.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
 
@@ -440,11 +440,11 @@ class BackupConfigurationArgsDict(TypedDict):
     """
     Backup Configuration
     """
-    source_location: NotRequired[pulumi.Input['SourceLocationArgsDict']]
+    source_location: NotRequired[pulumi.Input[Optional['SourceLocationArgsDict']]]
     """
     Source location of backups.
     """
-    target_location: NotRequired[pulumi.Input['TargetLocationArgsDict']]
+    target_location: NotRequired[pulumi.Input[Optional['TargetLocationArgsDict']]]
     """
     Target location for copying backups.
     """
@@ -452,8 +452,8 @@ class BackupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class BackupConfigurationArgs:
     def __init__(__self__, *,
-                 source_location: Optional[pulumi.Input['SourceLocationArgs']] = None,
-                 target_location: Optional[pulumi.Input['TargetLocationArgs']] = None):
+                 source_location: pulumi.Input[Optional['SourceLocationArgs']] = None,
+                 target_location: pulumi.Input[Optional['TargetLocationArgs']] = None):
         """
         Backup Configuration
 
@@ -467,26 +467,26 @@ class BackupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> Optional[pulumi.Input['SourceLocationArgs']]:
+    def source_location(self) -> pulumi.Input[Optional['SourceLocationArgs']]:
         """
         Source location of backups.
         """
         return pulumi.get(self, "source_location")
 
     @source_location.setter
-    def source_location(self, value: Optional[pulumi.Input['SourceLocationArgs']]):
+    def source_location(self, value: pulumi.Input[Optional['SourceLocationArgs']]):
         pulumi.set(self, "source_location", value)
 
     @_builtins.property
     @pulumi.getter(name="targetLocation")
-    def target_location(self) -> Optional[pulumi.Input['TargetLocationArgs']]:
+    def target_location(self) -> pulumi.Input[Optional['TargetLocationArgs']]:
         """
         Target location for copying backups.
         """
         return pulumi.get(self, "target_location")
 
     @target_location.setter
-    def target_location(self, value: Optional[pulumi.Input['TargetLocationArgs']]):
+    def target_location(self, value: pulumi.Input[Optional['TargetLocationArgs']]):
         pulumi.set(self, "target_location", value)
 
 
@@ -494,7 +494,7 @@ class BlobShareArgsDict(TypedDict):
     """
     Blob container storage information.
     """
-    sas_uri: NotRequired[pulumi.Input[_builtins.str]]
+    sas_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAS URI of Azure Storage Account Container.
     """
@@ -502,7 +502,7 @@ class BlobShareArgsDict(TypedDict):
 @pulumi.input_type
 class BlobShareArgs:
     def __init__(__self__, *,
-                 sas_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 sas_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Blob container storage information.
 
@@ -513,14 +513,14 @@ class BlobShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="sasUri")
-    def sas_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAS URI of Azure Storage Account Container.
         """
         return pulumi.get(self, "sas_uri")
 
     @sas_uri.setter
-    def sas_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_uri", value)
 
 
@@ -533,11 +533,11 @@ class ConnectToMongoDbTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Connect.MongoDb'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MongoDbConnectionInfoArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MongoDbConnectionInfoArgsDict']]]
     """
     Describes a connection to a MongoDB data source
     """
@@ -546,8 +546,8 @@ class ConnectToMongoDbTaskPropertiesArgsDict(TypedDict):
 class ConnectToMongoDbTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MongoDbConnectionInfoArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MongoDbConnectionInfoArgs']] = None):
         """
         Properties for the task that validates the connection to and provides information about a MongoDB server
 
@@ -577,26 +577,26 @@ class ConnectToMongoDbTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MongoDbConnectionInfoArgs']]:
+    def input(self) -> pulumi.Input[Optional['MongoDbConnectionInfoArgs']]:
         """
         Describes a connection to a MongoDB data source
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MongoDbConnectionInfoArgs']]):
+    def input(self, value: pulumi.Input[Optional['MongoDbConnectionInfoArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -608,15 +608,15 @@ class ConnectToSourceMySqlTaskInputArgsDict(TypedDict):
     """
     Information for connecting to MySQL source
     """
-    check_permissions_group: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]
+    check_permissions_group: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]]
     """
     Permission group for validations
     """
-    is_offline_migration: NotRequired[pulumi.Input[_builtins.bool]]
+    is_offline_migration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether or not the migration is offline
     """
-    target_platform: NotRequired[pulumi.Input[Union[_builtins.str, 'MySqlTargetPlatformType']]]
+    target_platform: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MySqlTargetPlatformType']]]]
     """
     Target Platform for the migration
     """
@@ -625,9 +625,9 @@ class ConnectToSourceMySqlTaskInputArgsDict(TypedDict):
 class ConnectToSourceMySqlTaskInputArgs:
     def __init__(__self__, *,
                  source_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
-                 check_permissions_group: Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]] = None,
-                 is_offline_migration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_platform: Optional[pulumi.Input[Union[_builtins.str, 'MySqlTargetPlatformType']]] = None):
+                 check_permissions_group: pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]] = None,
+                 is_offline_migration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_platform: pulumi.Input[Optional[Union[_builtins.str, 'MySqlTargetPlatformType']]] = None):
         """
         Input for the task that validates MySQL database connection
 
@@ -660,38 +660,38 @@ class ConnectToSourceMySqlTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkPermissionsGroup")
-    def check_permissions_group(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]:
+    def check_permissions_group(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]:
         """
         Permission group for validations
         """
         return pulumi.get(self, "check_permissions_group")
 
     @check_permissions_group.setter
-    def check_permissions_group(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]):
+    def check_permissions_group(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]):
         pulumi.set(self, "check_permissions_group", value)
 
     @_builtins.property
     @pulumi.getter(name="isOfflineMigration")
-    def is_offline_migration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_offline_migration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether or not the migration is offline
         """
         return pulumi.get(self, "is_offline_migration")
 
     @is_offline_migration.setter
-    def is_offline_migration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_offline_migration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_offline_migration", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPlatform")
-    def target_platform(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MySqlTargetPlatformType']]]:
+    def target_platform(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MySqlTargetPlatformType']]]:
         """
         Target Platform for the migration
         """
         return pulumi.get(self, "target_platform")
 
     @target_platform.setter
-    def target_platform(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MySqlTargetPlatformType']]]):
+    def target_platform(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MySqlTargetPlatformType']]]):
         pulumi.set(self, "target_platform", value)
 
 
@@ -704,11 +704,11 @@ class ConnectToSourceMySqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToSource.MySql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToSourceMySqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToSourceMySqlTaskInputArgsDict']]]
     """
     Task input
     """
@@ -717,8 +717,8 @@ class ConnectToSourceMySqlTaskPropertiesArgsDict(TypedDict):
 class ConnectToSourceMySqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToSourceMySqlTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToSourceMySqlTaskInputArgs']] = None):
         """
         Properties for the task that validates MySQL database connection
 
@@ -748,26 +748,26 @@ class ConnectToSourceMySqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToSourceMySqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToSourceMySqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToSourceMySqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToSourceMySqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -813,11 +813,11 @@ class ConnectToSourceOracleSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToSource.Oracle.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToSourceOracleSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -826,8 +826,8 @@ class ConnectToSourceOracleSyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToSourceOracleSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToSourceOracleSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates Oracle database connection
 
@@ -857,26 +857,26 @@ class ConnectToSourceOracleSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToSourceOracleSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToSourceOracleSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -922,11 +922,11 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToSource.PostgreSql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToSourcePostgreSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -935,8 +935,8 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToSourcePostgreSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
 
@@ -966,26 +966,26 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToSourcePostgreSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToSourcePostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -998,11 +998,11 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToSource.SqlServer.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToSourceSqlServerTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1011,8 +1011,8 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to SQL Server and source server requirements for online migration
 
@@ -1042,26 +1042,26 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -1073,31 +1073,31 @@ class ConnectToSourceSqlServerTaskInputArgsDict(TypedDict):
     """
     Connection information for Source SQL Server
     """
-    check_permissions_group: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]
+    check_permissions_group: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]]
     """
     Permission group for validations
     """
-    collect_agent_jobs: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_agent_jobs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect agent jobs from source server.
     """
-    collect_databases: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_databases: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect databases from source server.
     """
-    collect_logins: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_logins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect logins from source server.
     """
-    collect_tde_certificate_info: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_tde_certificate_info: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect TDE Certificate names from source server.
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
-    validate_ssis_catalog_only: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_ssis_catalog_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to validate SSIS catalog is reachable on the source server.
     """
@@ -1106,13 +1106,13 @@ class ConnectToSourceSqlServerTaskInputArgsDict(TypedDict):
 class ConnectToSourceSqlServerTaskInputArgs:
     def __init__(__self__, *,
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 check_permissions_group: Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]] = None,
-                 collect_agent_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 collect_databases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 collect_logins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 collect_tde_certificate_info: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_ssis_catalog_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 check_permissions_group: pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]] = None,
+                 collect_agent_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collect_databases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collect_logins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collect_tde_certificate_info: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_ssis_catalog_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
 
@@ -1165,86 +1165,86 @@ class ConnectToSourceSqlServerTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkPermissionsGroup")
-    def check_permissions_group(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]:
+    def check_permissions_group(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]:
         """
         Permission group for validations
         """
         return pulumi.get(self, "check_permissions_group")
 
     @check_permissions_group.setter
-    def check_permissions_group(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]):
+    def check_permissions_group(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerLevelPermissionsGroup']]]):
         pulumi.set(self, "check_permissions_group", value)
 
     @_builtins.property
     @pulumi.getter(name="collectAgentJobs")
-    def collect_agent_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_agent_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect agent jobs from source server.
         """
         return pulumi.get(self, "collect_agent_jobs")
 
     @collect_agent_jobs.setter
-    def collect_agent_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_agent_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_agent_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="collectDatabases")
-    def collect_databases(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_databases(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect databases from source server.
         """
         return pulumi.get(self, "collect_databases")
 
     @collect_databases.setter
-    def collect_databases(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_databases(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_databases", value)
 
     @_builtins.property
     @pulumi.getter(name="collectLogins")
-    def collect_logins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_logins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect logins from source server.
         """
         return pulumi.get(self, "collect_logins")
 
     @collect_logins.setter
-    def collect_logins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_logins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_logins", value)
 
     @_builtins.property
     @pulumi.getter(name="collectTdeCertificateInfo")
-    def collect_tde_certificate_info(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_tde_certificate_info(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect TDE Certificate names from source server.
         """
         return pulumi.get(self, "collect_tde_certificate_info")
 
     @collect_tde_certificate_info.setter
-    def collect_tde_certificate_info(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_tde_certificate_info(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_tde_certificate_info", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="validateSsisCatalogOnly")
-    def validate_ssis_catalog_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_ssis_catalog_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to validate SSIS catalog is reachable on the source server.
         """
         return pulumi.get(self, "validate_ssis_catalog_only")
 
     @validate_ssis_catalog_only.setter
-    def validate_ssis_catalog_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_ssis_catalog_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_ssis_catalog_only", value)
 
 
@@ -1257,26 +1257,26 @@ class ConnectToSourceSqlServerTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToSource.SqlServer'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToSourceSqlServerTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgsDict']]]
     """
     Task input
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Task id 
+    Task id
     """
 
 @pulumi.input_type
 class ConnectToSourceSqlServerTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
 
@@ -1284,7 +1284,7 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
                Expected value is 'ConnectToSource.SqlServer'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
-        :param pulumi.Input[_builtins.str] task_id: Task id 
+        :param pulumi.Input[_builtins.str] task_id: Task id
         """
         pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
         if client_data is not None:
@@ -1309,38 +1309,38 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToSourceSqlServerTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -1356,7 +1356,7 @@ class ConnectToTargetAzureDbForMySqlTaskInputArgsDict(TypedDict):
     """
     Connection information for target Azure Database for MySQL server
     """
-    is_offline_migration: NotRequired[pulumi.Input[_builtins.bool]]
+    is_offline_migration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether or not the migration is offline
     """
@@ -1366,7 +1366,7 @@ class ConnectToTargetAzureDbForMySqlTaskInputArgs:
     def __init__(__self__, *,
                  source_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
-                 is_offline_migration: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_offline_migration: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input for the task that validates connection to Azure Database for MySQL and target server requirements
 
@@ -1407,14 +1407,14 @@ class ConnectToTargetAzureDbForMySqlTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="isOfflineMigration")
-    def is_offline_migration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_offline_migration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether or not the migration is offline
         """
         return pulumi.get(self, "is_offline_migration")
 
     @is_offline_migration.setter
-    def is_offline_migration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_offline_migration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_offline_migration", value)
 
 
@@ -1427,11 +1427,11 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.AzureDbForMySql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetAzureDbForMySqlTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1440,8 +1440,8 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetAzureDbForMySqlTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to Azure Database for MySQL and target server requirements
 
@@ -1471,26 +1471,26 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetAzureDbForMySqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetAzureDbForMySqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -1555,11 +1555,11 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1568,8 +1568,8 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
 
@@ -1599,26 +1599,26 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -1664,11 +1664,11 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedD
     Task type.
     Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1677,8 +1677,8 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedD
 class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
 
@@ -1708,26 +1708,26 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -1739,7 +1739,7 @@ class ConnectToTargetSqlDbTaskInputArgsDict(TypedDict):
     """
     Connection information for target SQL DB
     """
-    query_object_counts: NotRequired[pulumi.Input[_builtins.bool]]
+    query_object_counts: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag indicating whether to query object counts for each database on the target server
     """
@@ -1748,7 +1748,7 @@ class ConnectToTargetSqlDbTaskInputArgsDict(TypedDict):
 class ConnectToTargetSqlDbTaskInputArgs:
     def __init__(__self__, *,
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 query_object_counts: Optional[pulumi.Input[_builtins.bool]] = None):
+                 query_object_counts: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input for the task that validates connection to SQL DB and target server requirements
 
@@ -1773,14 +1773,14 @@ class ConnectToTargetSqlDbTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryObjectCounts")
-    def query_object_counts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_object_counts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag indicating whether to query object counts for each database on the target server
         """
         return pulumi.get(self, "query_object_counts")
 
     @query_object_counts.setter
-    def query_object_counts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_object_counts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_object_counts", value)
 
 
@@ -1793,15 +1793,15 @@ class ConnectToTargetSqlDbTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.SqlDb'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateTime in UTC when the task was created
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetSqlDbTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetSqlDbTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1810,9 +1810,9 @@ class ConnectToTargetSqlDbTaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetSqlDbTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetSqlDbTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetSqlDbTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements
 
@@ -1845,38 +1845,38 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateTime in UTC when the task was created
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetSqlDbTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetSqlDbTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetSqlDbTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetSqlDbTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -1941,11 +1941,11 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetSqlMISyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -1954,8 +1954,8 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetSqlMISyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetSqlMISyncTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
 
@@ -1985,26 +1985,26 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetSqlMISyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -2016,15 +2016,15 @@ class ConnectToTargetSqlMITaskInputArgsDict(TypedDict):
     """
     Connection information for target SQL Server
     """
-    collect_agent_jobs: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_agent_jobs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect agent jobs from target SQL MI server.
     """
-    collect_logins: NotRequired[pulumi.Input[_builtins.bool]]
+    collect_logins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to collect logins from target SQL MI server.
     """
-    validate_ssis_catalog_only: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_ssis_catalog_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
     """
@@ -2033,9 +2033,9 @@ class ConnectToTargetSqlMITaskInputArgsDict(TypedDict):
 class ConnectToTargetSqlMITaskInputArgs:
     def __init__(__self__, *,
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 collect_agent_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 collect_logins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_ssis_catalog_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 collect_agent_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collect_logins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_ssis_catalog_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance.
 
@@ -2072,38 +2072,38 @@ class ConnectToTargetSqlMITaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectAgentJobs")
-    def collect_agent_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_agent_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect agent jobs from target SQL MI server.
         """
         return pulumi.get(self, "collect_agent_jobs")
 
     @collect_agent_jobs.setter
-    def collect_agent_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_agent_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_agent_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="collectLogins")
-    def collect_logins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def collect_logins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to collect logins from target SQL MI server.
         """
         return pulumi.get(self, "collect_logins")
 
     @collect_logins.setter
-    def collect_logins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def collect_logins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_logins", value)
 
     @_builtins.property
     @pulumi.getter(name="validateSsisCatalogOnly")
-    def validate_ssis_catalog_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_ssis_catalog_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
         """
         return pulumi.get(self, "validate_ssis_catalog_only")
 
     @validate_ssis_catalog_only.setter
-    def validate_ssis_catalog_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_ssis_catalog_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_ssis_catalog_only", value)
 
 
@@ -2116,11 +2116,11 @@ class ConnectToTargetSqlMITaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.AzureSqlDbMI'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetSqlMITaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetSqlMITaskInputArgsDict']]]
     """
     Task input
     """
@@ -2129,8 +2129,8 @@ class ConnectToTargetSqlMITaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetSqlMITaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetSqlMITaskInputArgs']] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
 
@@ -2160,26 +2160,26 @@ class ConnectToTargetSqlMITaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetSqlMITaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetSqlMITaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetSqlMITaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetSqlMITaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -2244,11 +2244,11 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ConnectToTarget.SqlDb.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ConnectToTargetSqlSqlDbSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -2257,8 +2257,8 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgsDict(TypedDict):
 class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ConnectToTargetSqlSqlDbSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements for online migration
 
@@ -2288,26 +2288,26 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ConnectToTargetSqlSqlDbSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ConnectToTargetSqlSqlDbSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -2350,42 +2350,41 @@ class DatabaseMigrationPropertiesSqlDbArgsDict(TypedDict):
     """
     kind: pulumi.Input[_builtins.str]
     """
-
     Expected value is 'SqlDb'.
     """
-    migration_operation_id: NotRequired[pulumi.Input[_builtins.str]]
+    migration_operation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for current migration operation.
     """
-    migration_service: NotRequired[pulumi.Input[_builtins.str]]
+    migration_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the Migration Service.
     """
-    provisioning_error: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message for migration provisioning failure, if any.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the target resource.
     """
-    source_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the source database.
     """
-    source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+    source_sql_connection: NotRequired[pulumi.Input[Optional['SqlConnectionInformationArgsDict']]]
     """
     Source SQL Server connection details.
     """
-    table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    table_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to copy.
     """
-    target_database_collation: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database collation to be used for the target database.
     """
-    target_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+    target_sql_connection: NotRequired[pulumi.Input[Optional['SqlConnectionInformationArgsDict']]]
     """
     Target SQL DB connection details.
     """
@@ -2394,20 +2393,19 @@ class DatabaseMigrationPropertiesSqlDbArgsDict(TypedDict):
 class DatabaseMigrationPropertiesSqlDbArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
-                 table_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_database_collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None):
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sql_connection: pulumi.Input[Optional['SqlConnectionInformationArgs']] = None,
+                 table_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_database_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_sql_connection: pulumi.Input[Optional['SqlConnectionInformationArgs']] = None):
         """
         Database Migration Resource properties for SQL database.
 
-        :param pulumi.Input[_builtins.str] kind: 
-               Expected value is 'SqlDb'.
+        :param pulumi.Input[_builtins.str] kind: Expected value is 'SqlDb'.
         :param pulumi.Input[_builtins.str] migration_operation_id: ID for current migration operation.
         :param pulumi.Input[_builtins.str] migration_service: Resource Id of the Migration Service.
         :param pulumi.Input[_builtins.str] provisioning_error: Error message for migration provisioning failure, if any.
@@ -2442,7 +2440,6 @@ class DatabaseMigrationPropertiesSqlDbArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[_builtins.str]:
         """
-
         Expected value is 'SqlDb'.
         """
         return pulumi.get(self, "kind")
@@ -2453,110 +2450,110 @@ class DatabaseMigrationPropertiesSqlDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="migrationOperationId")
-    def migration_operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for current migration operation.
         """
         return pulumi.get(self, "migration_operation_id")
 
     @migration_operation_id.setter
-    def migration_operation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_operation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationService")
-    def migration_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the Migration Service.
         """
         return pulumi.get(self, "migration_service")
 
     @migration_service.setter
-    def migration_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_service", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for migration provisioning failure, if any.
         """
         return pulumi.get(self, "provisioning_error")
 
     @provisioning_error.setter
-    def provisioning_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the target resource.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseName")
-    def source_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source database.
         """
         return pulumi.get(self, "source_database_name")
 
     @source_database_name.setter
-    def source_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSqlConnection")
-    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+    def source_sql_connection(self) -> pulumi.Input[Optional['SqlConnectionInformationArgs']]:
         """
         Source SQL Server connection details.
         """
         return pulumi.get(self, "source_sql_connection")
 
     @source_sql_connection.setter
-    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+    def source_sql_connection(self, value: pulumi.Input[Optional['SqlConnectionInformationArgs']]):
         pulumi.set(self, "source_sql_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="tableList")
-    def table_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def table_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to copy.
         """
         return pulumi.get(self, "table_list")
 
     @table_list.setter
-    def table_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def table_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_list", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseCollation")
-    def target_database_collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database collation to be used for the target database.
         """
         return pulumi.get(self, "target_database_collation")
 
     @target_database_collation.setter
-    def target_database_collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_collation", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSqlConnection")
-    def target_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+    def target_sql_connection(self) -> pulumi.Input[Optional['SqlConnectionInformationArgs']]:
         """
         Target SQL DB connection details.
         """
         return pulumi.get(self, "target_sql_connection")
 
     @target_sql_connection.setter
-    def target_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+    def target_sql_connection(self, value: pulumi.Input[Optional['SqlConnectionInformationArgs']]):
         pulumi.set(self, "target_sql_connection", value)
 
 
@@ -2566,42 +2563,41 @@ class DatabaseMigrationPropertiesSqlMiArgsDict(TypedDict):
     """
     kind: pulumi.Input[_builtins.str]
     """
-
     Expected value is 'SqlMi'.
     """
-    backup_configuration: NotRequired[pulumi.Input['BackupConfigurationArgsDict']]
+    backup_configuration: NotRequired[pulumi.Input[Optional['BackupConfigurationArgsDict']]]
     """
     Backup configuration info.
     """
-    migration_operation_id: NotRequired[pulumi.Input[_builtins.str]]
+    migration_operation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for current migration operation.
     """
-    migration_service: NotRequired[pulumi.Input[_builtins.str]]
+    migration_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the Migration Service.
     """
-    offline_configuration: NotRequired[pulumi.Input['OfflineConfigurationArgsDict']]
+    offline_configuration: NotRequired[pulumi.Input[Optional['OfflineConfigurationArgsDict']]]
     """
     Offline configuration.
     """
-    provisioning_error: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message for migration provisioning failure, if any.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the target resource.
     """
-    source_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the source database.
     """
-    source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+    source_sql_connection: NotRequired[pulumi.Input[Optional['SqlConnectionInformationArgsDict']]]
     """
     Source SQL Server connection details.
     """
-    target_database_collation: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database collation to be used for the target database.
     """
@@ -2610,20 +2606,19 @@ class DatabaseMigrationPropertiesSqlMiArgsDict(TypedDict):
 class DatabaseMigrationPropertiesSqlMiArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 backup_configuration: Optional[pulumi.Input['BackupConfigurationArgs']] = None,
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_configuration: Optional[pulumi.Input['OfflineConfigurationArgs']] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
-                 target_database_collation: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_configuration: pulumi.Input[Optional['BackupConfigurationArgs']] = None,
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_configuration: pulumi.Input[Optional['OfflineConfigurationArgs']] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sql_connection: pulumi.Input[Optional['SqlConnectionInformationArgs']] = None,
+                 target_database_collation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database Migration Resource properties for SQL Managed Instance.
 
-        :param pulumi.Input[_builtins.str] kind: 
-               Expected value is 'SqlMi'.
+        :param pulumi.Input[_builtins.str] kind: Expected value is 'SqlMi'.
         :param pulumi.Input['BackupConfigurationArgs'] backup_configuration: Backup configuration info.
         :param pulumi.Input[_builtins.str] migration_operation_id: ID for current migration operation.
         :param pulumi.Input[_builtins.str] migration_service: Resource Id of the Migration Service.
@@ -2658,7 +2653,6 @@ class DatabaseMigrationPropertiesSqlMiArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[_builtins.str]:
         """
-
         Expected value is 'SqlMi'.
         """
         return pulumi.get(self, "kind")
@@ -2669,110 +2663,110 @@ class DatabaseMigrationPropertiesSqlMiArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
-    def backup_configuration(self) -> Optional[pulumi.Input['BackupConfigurationArgs']]:
+    def backup_configuration(self) -> pulumi.Input[Optional['BackupConfigurationArgs']]:
         """
         Backup configuration info.
         """
         return pulumi.get(self, "backup_configuration")
 
     @backup_configuration.setter
-    def backup_configuration(self, value: Optional[pulumi.Input['BackupConfigurationArgs']]):
+    def backup_configuration(self, value: pulumi.Input[Optional['BackupConfigurationArgs']]):
         pulumi.set(self, "backup_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationOperationId")
-    def migration_operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for current migration operation.
         """
         return pulumi.get(self, "migration_operation_id")
 
     @migration_operation_id.setter
-    def migration_operation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_operation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationService")
-    def migration_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the Migration Service.
         """
         return pulumi.get(self, "migration_service")
 
     @migration_service.setter
-    def migration_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_service", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineConfiguration")
-    def offline_configuration(self) -> Optional[pulumi.Input['OfflineConfigurationArgs']]:
+    def offline_configuration(self) -> pulumi.Input[Optional['OfflineConfigurationArgs']]:
         """
         Offline configuration.
         """
         return pulumi.get(self, "offline_configuration")
 
     @offline_configuration.setter
-    def offline_configuration(self, value: Optional[pulumi.Input['OfflineConfigurationArgs']]):
+    def offline_configuration(self, value: pulumi.Input[Optional['OfflineConfigurationArgs']]):
         pulumi.set(self, "offline_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for migration provisioning failure, if any.
         """
         return pulumi.get(self, "provisioning_error")
 
     @provisioning_error.setter
-    def provisioning_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the target resource.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseName")
-    def source_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source database.
         """
         return pulumi.get(self, "source_database_name")
 
     @source_database_name.setter
-    def source_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSqlConnection")
-    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+    def source_sql_connection(self) -> pulumi.Input[Optional['SqlConnectionInformationArgs']]:
         """
         Source SQL Server connection details.
         """
         return pulumi.get(self, "source_sql_connection")
 
     @source_sql_connection.setter
-    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+    def source_sql_connection(self, value: pulumi.Input[Optional['SqlConnectionInformationArgs']]):
         pulumi.set(self, "source_sql_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseCollation")
-    def target_database_collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database collation to be used for the target database.
         """
         return pulumi.get(self, "target_database_collation")
 
     @target_database_collation.setter
-    def target_database_collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_collation", value)
 
 
@@ -2782,42 +2776,41 @@ class DatabaseMigrationPropertiesSqlVmArgsDict(TypedDict):
     """
     kind: pulumi.Input[_builtins.str]
     """
-
     Expected value is 'SqlVm'.
     """
-    backup_configuration: NotRequired[pulumi.Input['BackupConfigurationArgsDict']]
+    backup_configuration: NotRequired[pulumi.Input[Optional['BackupConfigurationArgsDict']]]
     """
     Backup configuration info.
     """
-    migration_operation_id: NotRequired[pulumi.Input[_builtins.str]]
+    migration_operation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for current migration operation.
     """
-    migration_service: NotRequired[pulumi.Input[_builtins.str]]
+    migration_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the Migration Service.
     """
-    offline_configuration: NotRequired[pulumi.Input['OfflineConfigurationArgsDict']]
+    offline_configuration: NotRequired[pulumi.Input[Optional['OfflineConfigurationArgsDict']]]
     """
     Offline configuration.
     """
-    provisioning_error: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message for migration provisioning failure, if any.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the target resource.
     """
-    source_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the source database.
     """
-    source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+    source_sql_connection: NotRequired[pulumi.Input[Optional['SqlConnectionInformationArgsDict']]]
     """
     Source SQL Server connection details.
     """
-    target_database_collation: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database collation to be used for the target database.
     """
@@ -2826,20 +2819,19 @@ class DatabaseMigrationPropertiesSqlVmArgsDict(TypedDict):
 class DatabaseMigrationPropertiesSqlVmArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 backup_configuration: Optional[pulumi.Input['BackupConfigurationArgs']] = None,
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_configuration: Optional[pulumi.Input['OfflineConfigurationArgs']] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
-                 target_database_collation: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_configuration: pulumi.Input[Optional['BackupConfigurationArgs']] = None,
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_configuration: pulumi.Input[Optional['OfflineConfigurationArgs']] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sql_connection: pulumi.Input[Optional['SqlConnectionInformationArgs']] = None,
+                 target_database_collation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database Migration Resource properties for SQL Virtual Machine.
 
-        :param pulumi.Input[_builtins.str] kind: 
-               Expected value is 'SqlVm'.
+        :param pulumi.Input[_builtins.str] kind: Expected value is 'SqlVm'.
         :param pulumi.Input['BackupConfigurationArgs'] backup_configuration: Backup configuration info.
         :param pulumi.Input[_builtins.str] migration_operation_id: ID for current migration operation.
         :param pulumi.Input[_builtins.str] migration_service: Resource Id of the Migration Service.
@@ -2874,7 +2866,6 @@ class DatabaseMigrationPropertiesSqlVmArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[_builtins.str]:
         """
-
         Expected value is 'SqlVm'.
         """
         return pulumi.get(self, "kind")
@@ -2885,110 +2876,110 @@ class DatabaseMigrationPropertiesSqlVmArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
-    def backup_configuration(self) -> Optional[pulumi.Input['BackupConfigurationArgs']]:
+    def backup_configuration(self) -> pulumi.Input[Optional['BackupConfigurationArgs']]:
         """
         Backup configuration info.
         """
         return pulumi.get(self, "backup_configuration")
 
     @backup_configuration.setter
-    def backup_configuration(self, value: Optional[pulumi.Input['BackupConfigurationArgs']]):
+    def backup_configuration(self, value: pulumi.Input[Optional['BackupConfigurationArgs']]):
         pulumi.set(self, "backup_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationOperationId")
-    def migration_operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for current migration operation.
         """
         return pulumi.get(self, "migration_operation_id")
 
     @migration_operation_id.setter
-    def migration_operation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_operation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationService")
-    def migration_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the Migration Service.
         """
         return pulumi.get(self, "migration_service")
 
     @migration_service.setter
-    def migration_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_service", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineConfiguration")
-    def offline_configuration(self) -> Optional[pulumi.Input['OfflineConfigurationArgs']]:
+    def offline_configuration(self) -> pulumi.Input[Optional['OfflineConfigurationArgs']]:
         """
         Offline configuration.
         """
         return pulumi.get(self, "offline_configuration")
 
     @offline_configuration.setter
-    def offline_configuration(self, value: Optional[pulumi.Input['OfflineConfigurationArgs']]):
+    def offline_configuration(self, value: pulumi.Input[Optional['OfflineConfigurationArgs']]):
         pulumi.set(self, "offline_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for migration provisioning failure, if any.
         """
         return pulumi.get(self, "provisioning_error")
 
     @provisioning_error.setter
-    def provisioning_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the target resource.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseName")
-    def source_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source database.
         """
         return pulumi.get(self, "source_database_name")
 
     @source_database_name.setter
-    def source_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSqlConnection")
-    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+    def source_sql_connection(self) -> pulumi.Input[Optional['SqlConnectionInformationArgs']]:
         """
         Source SQL Server connection details.
         """
         return pulumi.get(self, "source_sql_connection")
 
     @source_sql_connection.setter
-    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+    def source_sql_connection(self, value: pulumi.Input[Optional['SqlConnectionInformationArgs']]):
         pulumi.set(self, "source_sql_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseCollation")
-    def target_database_collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database collation to be used for the target database.
         """
         return pulumi.get(self, "target_database_collation")
 
     @target_database_collation.setter
-    def target_database_collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_collation", value)
 
 
@@ -3000,11 +2991,11 @@ class FileShareArgsDict(TypedDict):
     """
     The folder path for this share.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential used to connect to the share location.
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name credential to connect to the share location
     """
@@ -3013,8 +3004,8 @@ class FileShareArgsDict(TypedDict):
 class FileShareArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         File share information with Path, Username, and Password.
 
@@ -3042,26 +3033,26 @@ class FileShareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential used to connect to the share location.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name credential to connect to the share location
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -3145,11 +3136,11 @@ class GetTdeCertificatesSqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetTDECertificates.Sql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetTdeCertificatesSqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetTdeCertificatesSqlTaskInputArgsDict']]]
     """
     Task input
     """
@@ -3158,8 +3149,8 @@ class GetTdeCertificatesSqlTaskPropertiesArgsDict(TypedDict):
 class GetTdeCertificatesSqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetTdeCertificatesSqlTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetTdeCertificatesSqlTaskInputArgs']] = None):
         """
         Properties for the task that gets TDE certificates in Base64 encoded format.
 
@@ -3189,26 +3180,26 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetTdeCertificatesSqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetTdeCertificatesSqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetTdeCertificatesSqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetTdeCertificatesSqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -3273,11 +3264,11 @@ class GetUserTablesMySqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetUserTablesMySql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetUserTablesMySqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetUserTablesMySqlTaskInputArgsDict']]]
     """
     Task input
     """
@@ -3286,8 +3277,8 @@ class GetUserTablesMySqlTaskPropertiesArgsDict(TypedDict):
 class GetUserTablesMySqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetUserTablesMySqlTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetUserTablesMySqlTaskInputArgs']] = None):
         """
         Properties for the task that collects user tables for the given list of databases
 
@@ -3317,26 +3308,26 @@ class GetUserTablesMySqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetUserTablesMySqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetUserTablesMySqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetUserTablesMySqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetUserTablesMySqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -3401,11 +3392,11 @@ class GetUserTablesOracleTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetUserTablesOracle'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetUserTablesOracleTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetUserTablesOracleTaskInputArgsDict']]]
     """
     Task input
     """
@@ -3414,8 +3405,8 @@ class GetUserTablesOracleTaskPropertiesArgsDict(TypedDict):
 class GetUserTablesOracleTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetUserTablesOracleTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetUserTablesOracleTaskInputArgs']] = None):
         """
         Properties for the task that collects user tables for the given list of Oracle schemas
 
@@ -3445,26 +3436,26 @@ class GetUserTablesOracleTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetUserTablesOracleTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetUserTablesOracleTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetUserTablesOracleTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetUserTablesOracleTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -3529,11 +3520,11 @@ class GetUserTablesPostgreSqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetUserTablesPostgreSql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetUserTablesPostgreSqlTaskInputArgsDict']]]
     """
     Task input
     """
@@ -3542,8 +3533,8 @@ class GetUserTablesPostgreSqlTaskPropertiesArgsDict(TypedDict):
 class GetUserTablesPostgreSqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetUserTablesPostgreSqlTaskInputArgs']] = None):
         """
         Properties for the task that collects user tables for the given list of databases
 
@@ -3573,26 +3564,26 @@ class GetUserTablesPostgreSqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetUserTablesPostgreSqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetUserTablesPostgreSqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -3695,11 +3686,11 @@ class GetUserTablesSqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetUserTables.AzureSqlDb.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetUserTablesSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetUserTablesSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -3708,8 +3699,8 @@ class GetUserTablesSqlSyncTaskPropertiesArgsDict(TypedDict):
 class GetUserTablesSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetUserTablesSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetUserTablesSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that collects user tables for the given list of databases
 
@@ -3739,26 +3730,26 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetUserTablesSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetUserTablesSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetUserTablesSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetUserTablesSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -3774,7 +3765,7 @@ class GetUserTablesSqlTaskInputArgsDict(TypedDict):
     """
     List of database names to collect tables for
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
@@ -3784,7 +3775,7 @@ class GetUserTablesSqlTaskInputArgs:
     def __init__(__self__, *,
                  connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  selected_databases: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input for the task that collects user tables for the given list of databases
 
@@ -3823,14 +3814,14 @@ class GetUserTablesSqlTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
 
@@ -3843,26 +3834,26 @@ class GetUserTablesSqlTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'GetUserTables.Sql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['GetUserTablesSqlTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['GetUserTablesSqlTaskInputArgsDict']]]
     """
     Task input
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Task id 
+    Task id
     """
 
 @pulumi.input_type
 class GetUserTablesSqlTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['GetUserTablesSqlTaskInputArgs']] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['GetUserTablesSqlTaskInputArgs']] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for the task that collects user tables for the given list of databases
 
@@ -3870,7 +3861,7 @@ class GetUserTablesSqlTaskPropertiesArgs:
                Expected value is 'GetUserTables.Sql'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesSqlTaskInputArgs'] input: Task input
-        :param pulumi.Input[_builtins.str] task_id: Task id 
+        :param pulumi.Input[_builtins.str] task_id: Task id
         """
         pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
         if client_data is not None:
@@ -3895,38 +3886,38 @@ class GetUserTablesSqlTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['GetUserTablesSqlTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['GetUserTablesSqlTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['GetUserTablesSqlTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['GetUserTablesSqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -3938,7 +3929,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -3947,7 +3938,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -3972,14 +3963,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3996,11 +3987,11 @@ class MiSqlConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'MiSqlConnectionInfo'.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -4010,8 +4001,8 @@ class MiSqlConnectionInfoArgs:
     def __init__(__self__, *,
                  managed_instance_resource_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties required to create a connection to Azure SQL database Managed instance
 
@@ -4055,26 +4046,26 @@ class MiSqlConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -4087,11 +4078,11 @@ class MigrateMongoDbTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.MongoDb'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MongoDbMigrationSettingsArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MongoDbMigrationSettingsArgsDict']]]
     """
     Describes how a MongoDB data migration should be performed
     """
@@ -4100,8 +4091,8 @@ class MigrateMongoDbTaskPropertiesArgsDict(TypedDict):
 class MigrateMongoDbTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MongoDbMigrationSettingsArgs']] = None):
         """
         Properties for the task that migrates data between MongoDB data sources
 
@@ -4131,26 +4122,26 @@ class MigrateMongoDbTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MongoDbMigrationSettingsArgs']]:
+    def input(self) -> pulumi.Input[Optional['MongoDbMigrationSettingsArgs']]:
         """
         Describes how a MongoDB data migration should be performed
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']]):
+    def input(self, value: pulumi.Input[Optional['MongoDbMigrationSettingsArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -4158,15 +4149,15 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict(TypedDict):
     """
     Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the database
     """
-    table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    table_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Mapping of source to target tables
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of target database. Note: Target database will be truncated before starting migration.
     """
@@ -4174,9 +4165,9 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict(TypedDict):
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
 
@@ -4193,38 +4184,38 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableMap")
-    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Mapping of source to target tables
         """
         return pulumi.get(self, "table_map")
 
     @table_map.setter
-    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_map", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target database. Note: Target database will be truncated before starting migration.
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
 
@@ -4244,19 +4235,19 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict(TypedDict):
     """
     Connection information for target Azure Database for MySQL
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
-    make_source_server_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    make_source_server_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Setting to set the source server read only
     """
-    optional_agent_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    optional_agent_settings: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional parameters for fine tuning the data transfer rate during migration
     """
-    started_on: NotRequired[pulumi.Input[_builtins.str]]
+    started_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Parameter to specify when the migration started
     """
@@ -4267,10 +4258,10 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None,
-                 make_source_server_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optional_agent_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 started_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 make_source_server_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optional_agent_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 started_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
 
@@ -4334,50 +4325,50 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="makeSourceServerReadOnly")
-    def make_source_server_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def make_source_server_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting to set the source server read only
         """
         return pulumi.get(self, "make_source_server_read_only")
 
     @make_source_server_read_only.setter
-    def make_source_server_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def make_source_server_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "make_source_server_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalAgentSettings")
-    def optional_agent_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def optional_agent_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional parameters for fine tuning the data transfer rate during migration
         """
         return pulumi.get(self, "optional_agent_settings")
 
     @optional_agent_settings.setter
-    def optional_agent_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def optional_agent_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "optional_agent_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="startedOn")
-    def started_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def started_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter to specify when the migration started
         """
         return pulumi.get(self, "started_on")
 
     @started_on.setter
-    def started_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def started_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "started_on", value)
 
 
@@ -4390,31 +4381,31 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.MySql.AzureDbForMySql'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict']]]
     """
     Task input
     """
-    is_cloneable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_cloneable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the task can be cloned or not
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Task id 
+    Task id
     """
 
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']] = None,
-                 is_cloneable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']] = None,
+                 is_cloneable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
 
@@ -4423,7 +4414,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs'] input: Task input
         :param pulumi.Input[_builtins.bool] is_cloneable: whether the task can be cloned or not
-        :param pulumi.Input[_builtins.str] task_id: Task id 
+        :param pulumi.Input[_builtins.str] task_id: Task id
         """
         pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql')
         if client_data is not None:
@@ -4450,50 +4441,50 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="isCloneable")
-    def is_cloneable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_cloneable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the task can be cloned or not
         """
         return pulumi.get(self, "is_cloneable")
 
     @is_cloneable.setter
-    def is_cloneable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_cloneable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_cloneable", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -4501,27 +4492,27 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict(TypedDict):
     """
     Database specific information for MySQL to Azure Database for MySQL migration task inputs
     """
-    migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    migration_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Migration settings which tune the migration behavior
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the database
     """
-    source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    source_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Source settings to tune source endpoint migration behavior
     """
-    table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    table_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Mapping of source to target tables
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of target database. Note: Target database will be truncated before starting migration.
     """
-    target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    target_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Target settings to tune target endpoint migration behavior
     """
@@ -4529,12 +4520,12 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict(TypedDict):
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
     def __init__(__self__, *,
-                 migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 migration_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 table_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Database specific information for MySQL to Azure Database for MySQL migration task inputs
 
@@ -4560,74 +4551,74 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="migrationSetting")
-    def migration_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def migration_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Migration settings which tune the migration behavior
         """
         return pulumi.get(self, "migration_setting")
 
     @migration_setting.setter
-    def migration_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def migration_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "migration_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSetting")
-    def source_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def source_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Source settings to tune source endpoint migration behavior
         """
         return pulumi.get(self, "source_setting")
 
     @source_setting.setter
-    def source_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def source_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="tableMap")
-    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Mapping of source to target tables
         """
         return pulumi.get(self, "table_map")
 
     @table_map.setter
-    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_map", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target database. Note: Target database will be truncated before starting migration.
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSetting")
-    def target_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def target_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Target settings to tune target endpoint migration behavior
         """
         return pulumi.get(self, "target_setting")
 
     @target_setting.setter
-    def target_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def target_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_setting", value)
 
 
@@ -4711,11 +4702,11 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -4724,8 +4715,8 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgsDict(TypedDict):
 class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 
@@ -4755,26 +4746,26 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -4787,11 +4778,11 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -4800,8 +4791,8 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
 class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
 
@@ -4831,26 +4822,26 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -4858,35 +4849,35 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
     """
     Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
     """
-    case_manipulation: NotRequired[pulumi.Input[_builtins.str]]
+    case_manipulation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How to handle object name casing: either Preserve or ToLower
     """
-    migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    migration_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Migration settings which tune the migration behavior
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the migration pipeline
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the source schema
     """
-    source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    source_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Source settings to tune source endpoint migration behavior
     """
-    table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    table_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Mapping of source to target tables
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of target database. Note: Target database will be truncated before starting migration.
     """
-    target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    target_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Target settings to tune target endpoint migration behavior
     """
@@ -4894,14 +4885,14 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
 @pulumi.input_type
 class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs:
     def __init__(__self__, *,
-                 case_manipulation: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 case_manipulation: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 table_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
 
@@ -4933,98 +4924,98 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="caseManipulation")
-    def case_manipulation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_manipulation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to handle object name casing: either Preserve or ToLower
         """
         return pulumi.get(self, "case_manipulation")
 
     @case_manipulation.setter
-    def case_manipulation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_manipulation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_manipulation", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationSetting")
-    def migration_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def migration_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Migration settings which tune the migration behavior
         """
         return pulumi.get(self, "migration_setting")
 
     @migration_setting.setter
-    def migration_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def migration_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "migration_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the migration pipeline
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source schema
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSetting")
-    def source_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def source_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Source settings to tune source endpoint migration behavior
         """
         return pulumi.get(self, "source_setting")
 
     @source_setting.setter
-    def source_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def source_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="tableMap")
-    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Mapping of source to target tables
         """
         return pulumi.get(self, "table_map")
 
     @table_map.setter
-    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_map", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target database. Note: Target database will be truncated before starting migration.
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSetting")
-    def target_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def target_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Target settings to tune target endpoint migration behavior
         """
         return pulumi.get(self, "target_setting")
 
     @target_setting.setter
-    def target_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def target_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_setting", value)
 
 
@@ -5107,23 +5098,23 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
     """
     Migration settings which tune the migration behavior
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the database
     """
-    selected_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict']]]]
+    selected_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict']]]]]
     """
     Tables selected for migration
     """
-    source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    source_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Source settings to tune source endpoint migration behavior
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of target database. Note: Target database will be truncated before starting migration.
     """
-    target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    target_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Target settings to tune target endpoint migration behavior
     """
@@ -5132,11 +5123,11 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
 class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
     def __init__(__self__, *,
                  migration_setting: Optional[Any] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]] = None,
-                 source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_tables: pulumi.Input[Optional[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]] = None,
+                 source_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
 
@@ -5174,62 +5165,62 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedTables")
-    def selected_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]:
+    def selected_tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]:
         """
         Tables selected for migration
         """
         return pulumi.get(self, "selected_tables")
 
     @selected_tables.setter
-    def selected_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]):
+    def selected_tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]):
         pulumi.set(self, "selected_tables", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSetting")
-    def source_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def source_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Source settings to tune source endpoint migration behavior
         """
         return pulumi.get(self, "source_setting")
 
     @source_setting.setter
-    def source_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def source_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target database. Note: Target database will be truncated before starting migration.
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSetting")
-    def target_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def target_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Target settings to tune target endpoint migration behavior
         """
         return pulumi.get(self, "target_setting")
 
     @target_setting.setter
-    def target_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def target_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_setting", value)
 
 
@@ -5237,7 +5228,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict(TypedD
     """
     Selected tables for the migration
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the table to migrate
     """
@@ -5245,7 +5236,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict(TypedD
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Selected tables for the migration
 
@@ -5256,14 +5247,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the table to migrate
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -5283,7 +5274,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict(TypedDict):
     """
     Connection information for target Azure Database for PostgreSQL
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
@@ -5294,7 +5285,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgs'],
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 
@@ -5347,14 +5338,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
 
@@ -5367,23 +5358,23 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict)
     Task type.
     Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateTime in UTC when the task was created
     """
-    input: NotRequired[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict']]]
     """
     Task input
     """
-    is_cloneable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_cloneable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the task can be cloned or not
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     task id
     """
@@ -5392,11 +5383,11 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict)
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']] = None,
-                 is_cloneable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']] = None,
+                 is_cloneable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 
@@ -5435,62 +5426,62 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateTime in UTC when the task was created
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="isCloneable")
-    def is_cloneable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_cloneable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the task can be cloned or not
         """
         return pulumi.get(self, "is_cloneable")
 
     @is_cloneable.setter
-    def is_cloneable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_cloneable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_cloneable", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -5498,15 +5489,15 @@ class MigrateSqlServerSqlDbDatabaseInputArgsDict(TypedDict):
     """
     Database specific information for SQL to Azure SQL DB migration task inputs
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     id of the database
     """
-    make_source_db_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    make_source_db_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to set database read only before migration
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the database
     """
@@ -5514,11 +5505,11 @@ class MigrateSqlServerSqlDbDatabaseInputArgsDict(TypedDict):
     """
     Settings selected for DB schema migration.
     """
-    table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    table_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Mapping of source to target tables
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of target database. Note: Target database will be truncated before starting migration.
     """
@@ -5526,12 +5517,12 @@ class MigrateSqlServerSqlDbDatabaseInputArgsDict(TypedDict):
 @pulumi.input_type
 class MigrateSqlServerSqlDbDatabaseInputArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 make_source_db_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 make_source_db_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_setting: Optional[Any] = None,
-                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 table_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database specific information for SQL to Azure SQL DB migration task inputs
 
@@ -5557,38 +5548,38 @@ class MigrateSqlServerSqlDbDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         id of the database
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="makeSourceDbReadOnly")
-    def make_source_db_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def make_source_db_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to set database read only before migration
         """
         return pulumi.get(self, "make_source_db_read_only")
 
     @make_source_db_read_only.setter
-    def make_source_db_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def make_source_db_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "make_source_db_read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
@@ -5605,26 +5596,26 @@ class MigrateSqlServerSqlDbDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableMap")
-    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Mapping of source to target tables
         """
         return pulumi.get(self, "table_map")
 
     @table_map.setter
-    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_map", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target database. Note: Target database will be truncated before starting migration.
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
 
@@ -5632,35 +5623,35 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgsDict(TypedDict):
     """
     Database specific information for SQL to Azure SQL DB sync migration task inputs
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for database
     """
-    migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    migration_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Migration settings which tune the migration behavior
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of database
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schema name to be migrated
     """
-    source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    source_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Source settings to tune source endpoint migration behavior
     """
-    table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    table_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Mapping of source to target tables
     """
-    target_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target database name
     """
-    target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    target_setting: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Target settings to tune target endpoint migration behavior
     """
@@ -5668,14 +5659,14 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgsDict(TypedDict):
 @pulumi.input_type
 class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 table_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_setting: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Database specific information for SQL to Azure SQL DB sync migration task inputs
 
@@ -5707,98 +5698,98 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for database
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationSetting")
-    def migration_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def migration_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Migration settings which tune the migration behavior
         """
         return pulumi.get(self, "migration_setting")
 
     @migration_setting.setter
-    def migration_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def migration_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "migration_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of database
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schema name to be migrated
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSetting")
-    def source_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def source_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Source settings to tune source endpoint migration behavior
         """
         return pulumi.get(self, "source_setting")
 
     @source_setting.setter
-    def source_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def source_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="tableMap")
-    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Mapping of source to target tables
         """
         return pulumi.get(self, "table_map")
 
     @table_map.setter
-    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_map", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabaseName")
-    def target_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target database name
         """
         return pulumi.get(self, "target_database_name")
 
     @target_database_name.setter
-    def target_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSetting")
-    def target_setting(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def target_setting(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Target settings to tune target endpoint migration behavior
         """
         return pulumi.get(self, "target_setting")
 
     @target_setting.setter
-    def target_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def target_setting(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_setting", value)
 
 
@@ -5818,7 +5809,7 @@ class MigrateSqlServerSqlDbSyncTaskInputArgsDict(TypedDict):
     """
     Information for connecting to target
     """
-    validation_options: NotRequired[pulumi.Input['MigrationValidationOptionsArgsDict']]
+    validation_options: NotRequired[pulumi.Input[Optional['MigrationValidationOptionsArgsDict']]]
     """
     Validation options
     """
@@ -5829,7 +5820,7 @@ class MigrateSqlServerSqlDbSyncTaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None):
+                 validation_options: pulumi.Input[Optional['MigrationValidationOptionsArgs']] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 
@@ -5882,14 +5873,14 @@ class MigrateSqlServerSqlDbSyncTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional[pulumi.Input['MigrationValidationOptionsArgs']]:
+    def validation_options(self) -> pulumi.Input[Optional['MigrationValidationOptionsArgs']]:
         """
         Validation options
         """
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
-    def validation_options(self, value: Optional[pulumi.Input['MigrationValidationOptionsArgs']]):
+    def validation_options(self, value: pulumi.Input[Optional['MigrationValidationOptionsArgs']]):
         pulumi.set(self, "validation_options", value)
 
 
@@ -5902,11 +5893,11 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateSqlServerSqlDbSyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -5915,8 +5906,8 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
 class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateSqlServerSqlDbSyncTaskInputArgs']] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 
@@ -5946,26 +5937,26 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateSqlServerSqlDbSyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateSqlServerSqlDbSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -5985,18 +5976,18 @@ class MigrateSqlServerSqlDbTaskInputArgsDict(TypedDict):
     """
     Information for connecting to target
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
-    started_on: NotRequired[pulumi.Input[_builtins.str]]
+    started_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time relative to UTC when the migration was started on
     """
-    validation_options: NotRequired[pulumi.Input['MigrationValidationOptionsArgsDict']]
+    validation_options: NotRequired[pulumi.Input[Optional['MigrationValidationOptionsArgsDict']]]
     """
-    Options for enabling various post migration validations. Available options, 
-     1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+    Options for enabling various post migration validations. Available options,
+     1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
      2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
     """
 
@@ -6006,9 +5997,9 @@ class MigrateSqlServerSqlDbTaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None,
-                 started_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None):
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 started_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_options: pulumi.Input[Optional['MigrationValidationOptionsArgs']] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
 
@@ -6017,8 +6008,8 @@ class MigrateSqlServerSqlDbTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input[_builtins.str] encrypted_key_for_secure_fields: encrypted key for secure fields
         :param pulumi.Input[_builtins.str] started_on: Date and time relative to UTC when the migration was started on
-        :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Options for enabling various post migration validations. Available options, 
-                1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+        :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Options for enabling various post migration validations. Available options,
+                1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -6069,40 +6060,40 @@ class MigrateSqlServerSqlDbTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="startedOn")
-    def started_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def started_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time relative to UTC when the migration was started on
         """
         return pulumi.get(self, "started_on")
 
     @started_on.setter
-    def started_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def started_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "started_on", value)
 
     @_builtins.property
     @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional[pulumi.Input['MigrationValidationOptionsArgs']]:
+    def validation_options(self) -> pulumi.Input[Optional['MigrationValidationOptionsArgs']]:
         """
-        Options for enabling various post migration validations. Available options, 
-         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+        Options for enabling various post migration validations. Available options,
+         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
          2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
-    def validation_options(self, value: Optional[pulumi.Input['MigrationValidationOptionsArgs']]):
+    def validation_options(self, value: pulumi.Input[Optional['MigrationValidationOptionsArgs']]):
         pulumi.set(self, "validation_options", value)
 
 
@@ -6115,23 +6106,23 @@ class MigrateSqlServerSqlDbTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.SqlServer.SqlDb'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateTime in UTC when the task was created
     """
-    input: NotRequired[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateSqlServerSqlDbTaskInputArgsDict']]]
     """
     Task input
     """
-    is_cloneable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_cloneable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the task can be cloned or not
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     task id
     """
@@ -6140,11 +6131,11 @@ class MigrateSqlServerSqlDbTaskPropertiesArgsDict(TypedDict):
 class MigrateSqlServerSqlDbTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs']] = None,
-                 is_cloneable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['MigrateSqlServerSqlDbTaskInputArgs']] = None,
+                 is_cloneable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
 
@@ -6183,62 +6174,62 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateTime in UTC when the task was created
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateSqlServerSqlDbTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateSqlServerSqlDbTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="isCloneable")
-    def is_cloneable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_cloneable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the task can be cloned or not
         """
         return pulumi.get(self, "is_cloneable")
 
     @is_cloneable.setter
-    def is_cloneable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_cloneable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_cloneable", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -6254,15 +6245,15 @@ class MigrateSqlServerSqlMIDatabaseInputArgsDict(TypedDict):
     """
     Name of the database at destination
     """
-    backup_file_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backup_file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of backup files to be used in case of existing backups.
     """
-    backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+    backup_file_share: NotRequired[pulumi.Input[Optional['FileShareArgsDict']]]
     """
     Backup file share information for backing up this database.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     id of the database
     """
@@ -6272,9 +6263,9 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  restore_database_name: pulumi.Input[_builtins.str],
-                 backup_file_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_file_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_file_share: pulumi.Input[Optional['FileShareArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
 
@@ -6319,38 +6310,38 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupFilePaths")
-    def backup_file_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_file_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of backup files to be used in case of existing backups.
         """
         return pulumi.get(self, "backup_file_paths")
 
     @backup_file_paths.setter
-    def backup_file_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_file_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_file_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="backupFileShare")
-    def backup_file_share(self) -> Optional[pulumi.Input['FileShareArgs']]:
+    def backup_file_share(self) -> pulumi.Input[Optional['FileShareArgs']]:
         """
         Backup file share information for backing up this database.
         """
         return pulumi.get(self, "backup_file_share")
 
     @backup_file_share.setter
-    def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
+    def backup_file_share(self, value: pulumi.Input[Optional['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         id of the database
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -6378,11 +6369,11 @@ class MigrateSqlServerSqlMISyncTaskInputArgsDict(TypedDict):
     """
     Connection information for Azure SQL Database Managed Instance
     """
-    backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+    backup_file_share: NotRequired[pulumi.Input[Optional['FileShareArgsDict']]]
     """
     Backup file share information for all selected databases.
     """
-    number_of_parallel_database_migrations: NotRequired[pulumi.Input[_builtins.float]]
+    number_of_parallel_database_migrations: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Number of database migrations to start in parallel
     """
@@ -6395,8 +6386,8 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  storage_resource_id: pulumi.Input[_builtins.str],
                  target_connection_info: pulumi.Input['MiSqlConnectionInfoArgs'],
-                 backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 number_of_parallel_database_migrations: Optional[pulumi.Input[_builtins.float]] = None):
+                 backup_file_share: pulumi.Input[Optional['FileShareArgs']] = None,
+                 number_of_parallel_database_migrations: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
 
@@ -6480,26 +6471,26 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupFileShare")
-    def backup_file_share(self) -> Optional[pulumi.Input['FileShareArgs']]:
+    def backup_file_share(self) -> pulumi.Input[Optional['FileShareArgs']]:
         """
         Backup file share information for all selected databases.
         """
         return pulumi.get(self, "backup_file_share")
 
     @backup_file_share.setter
-    def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
+    def backup_file_share(self, value: pulumi.Input[Optional['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfParallelDatabaseMigrations")
-    def number_of_parallel_database_migrations(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_parallel_database_migrations(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number of database migrations to start in parallel
         """
         return pulumi.get(self, "number_of_parallel_database_migrations")
 
     @number_of_parallel_database_migrations.setter
-    def number_of_parallel_database_migrations(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_parallel_database_migrations(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_parallel_database_migrations", value)
 
 
@@ -6512,15 +6503,15 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateTime in UTC when the task was created
     """
-    input: NotRequired[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateSqlServerSqlMISyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -6529,9 +6520,9 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
 class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['MigrateSqlServerSqlMISyncTaskInputArgs']] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
 
@@ -6564,38 +6555,38 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateTime in UTC when the task was created
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateSqlServerSqlMISyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateSqlServerSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -6619,31 +6610,31 @@ class MigrateSqlServerSqlMITaskInputArgsDict(TypedDict):
     """
     Information for connecting to target
     """
-    aad_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    aad_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
     """
-    backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+    backup_file_share: NotRequired[pulumi.Input[Optional['FileShareArgsDict']]]
     """
     Backup file share information for all selected databases.
     """
-    backup_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'BackupMode']]]
+    backup_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]]
     """
     Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
     """
-    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key_for_secure_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     encrypted key for secure fields
     """
-    selected_agent_jobs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    selected_agent_jobs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Agent Jobs to migrate.
     """
-    selected_logins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    selected_logins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Logins to migrate.
     """
-    started_on: NotRequired[pulumi.Input[_builtins.str]]
+    started_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time relative to UTC when the migration was started on
     """
@@ -6655,13 +6646,13 @@ class MigrateSqlServerSqlMITaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 aad_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 backup_mode: Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]] = None,
-                 encrypted_key_for_secure_fields: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_agent_jobs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 started_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 aad_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_file_share: pulumi.Input[Optional['FileShareArgs']] = None,
+                 backup_mode: pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]] = None,
+                 encrypted_key_for_secure_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_agent_jobs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 selected_logins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 started_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
 
@@ -6746,86 +6737,86 @@ class MigrateSqlServerSqlMITaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadDomainName")
-    def aad_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
         """
         return pulumi.get(self, "aad_domain_name")
 
     @aad_domain_name.setter
-    def aad_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupFileShare")
-    def backup_file_share(self) -> Optional[pulumi.Input['FileShareArgs']]:
+    def backup_file_share(self) -> pulumi.Input[Optional['FileShareArgs']]:
         """
         Backup file share information for all selected databases.
         """
         return pulumi.get(self, "backup_file_share")
 
     @backup_file_share.setter
-    def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
+    def backup_file_share(self, value: pulumi.Input[Optional['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
     @_builtins.property
     @pulumi.getter(name="backupMode")
-    def backup_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]]:
+    def backup_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]:
         """
         Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
         """
         return pulumi.get(self, "backup_mode")
 
     @backup_mode.setter
-    def backup_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]]):
+    def backup_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]):
         pulumi.set(self, "backup_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyForSecureFields")
-    def encrypted_key_for_secure_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_for_secure_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         encrypted key for secure fields
         """
         return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @encrypted_key_for_secure_fields.setter
-    def encrypted_key_for_secure_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_for_secure_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_for_secure_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedAgentJobs")
-    def selected_agent_jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_agent_jobs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Agent Jobs to migrate.
         """
         return pulumi.get(self, "selected_agent_jobs")
 
     @selected_agent_jobs.setter
-    def selected_agent_jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_agent_jobs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_agent_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedLogins")
-    def selected_logins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_logins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Logins to migrate.
         """
         return pulumi.get(self, "selected_logins")
 
     @selected_logins.setter
-    def selected_logins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_logins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_logins", value)
 
     @_builtins.property
     @pulumi.getter(name="startedOn")
-    def started_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def started_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time relative to UTC when the migration was started on
         """
         return pulumi.get(self, "started_on")
 
     @started_on.setter
-    def started_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def started_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "started_on", value)
 
 
@@ -6838,27 +6829,27 @@ class MigrateSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateTime in UTC when the task was created
     """
-    input: NotRequired[pulumi.Input['MigrateSqlServerSqlMITaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateSqlServerSqlMITaskInputArgsDict']]]
     """
     Task input
     """
-    is_cloneable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_cloneable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the task can be cloned or not
     """
-    parent_task_id: NotRequired[pulumi.Input[_builtins.str]]
+    parent_task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     parent task id
     """
-    task_id: NotRequired[pulumi.Input[_builtins.str]]
+    task_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     task id
     """
@@ -6867,12 +6858,12 @@ class MigrateSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
 class MigrateSqlServerSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['MigrateSqlServerSqlMITaskInputArgs']] = None,
-                 is_cloneable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 parent_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['MigrateSqlServerSqlMITaskInputArgs']] = None,
+                 is_cloneable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 parent_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
 
@@ -6914,74 +6905,74 @@ class MigrateSqlServerSqlMITaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateTime in UTC when the task was created
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateSqlServerSqlMITaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateSqlServerSqlMITaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlMITaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateSqlServerSqlMITaskInputArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="isCloneable")
-    def is_cloneable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_cloneable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the task can be cloned or not
         """
         return pulumi.get(self, "is_cloneable")
 
     @is_cloneable.setter
-    def is_cloneable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_cloneable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_cloneable", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTaskId")
-    def parent_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         parent task id
         """
         return pulumi.get(self, "parent_task_id")
 
     @parent_task_id.setter
-    def parent_task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         task id
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
 
@@ -7065,11 +7056,11 @@ class MigrateSsisTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Migrate.Ssis'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateSsisTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateSsisTaskInputArgsDict']]]
     """
     Task input
     """
@@ -7078,8 +7069,8 @@ class MigrateSsisTaskPropertiesArgsDict(TypedDict):
 class MigrateSsisTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateSsisTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateSsisTaskInputArgs']] = None):
         """
         Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
 
@@ -7109,26 +7100,26 @@ class MigrateSsisTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateSsisTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateSsisTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateSsisTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateSsisTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -7136,15 +7127,15 @@ class MigrationValidationOptionsArgsDict(TypedDict):
     """
     Types of validations to run after the migration
     """
-    enable_data_integrity_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_data_integrity_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
     """
-    enable_query_analysis_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_query_analysis_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
     """
-    enable_schema_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_schema_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows to compare the schema information between source and target.
     """
@@ -7152,9 +7143,9 @@ class MigrationValidationOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class MigrationValidationOptionsArgs:
     def __init__(__self__, *,
-                 enable_data_integrity_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_query_analysis_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_schema_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_data_integrity_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_query_analysis_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_schema_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Types of validations to run after the migration
 
@@ -7171,38 +7162,38 @@ class MigrationValidationOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableDataIntegrityValidation")
-    def enable_data_integrity_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_data_integrity_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
         """
         return pulumi.get(self, "enable_data_integrity_validation")
 
     @enable_data_integrity_validation.setter
-    def enable_data_integrity_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_data_integrity_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_data_integrity_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableQueryAnalysisValidation")
-    def enable_query_analysis_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_query_analysis_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
         """
         return pulumi.get(self, "enable_query_analysis_validation")
 
     @enable_query_analysis_validation.setter
-    def enable_query_analysis_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_query_analysis_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_query_analysis_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSchemaValidation")
-    def enable_schema_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_schema_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows to compare the schema information between source and target.
         """
         return pulumi.get(self, "enable_schema_validation")
 
     @enable_schema_validation.setter
-    def enable_schema_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_schema_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_schema_validation", value)
 
 
@@ -7210,27 +7201,27 @@ class MongoConnectionInformationArgsDict(TypedDict):
     """
     Mongo Connection
     """
-    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ConnectionString to connect to Mongo.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Host of mongo connection.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password to connect to Mongo.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port of mongo connection.
     """
-    use_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    use_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to UseSsl or UseTls to connect to Mongo. Default is true.
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name to connect to Mongo.
     """
@@ -7238,12 +7229,12 @@ class MongoConnectionInformationArgsDict(TypedDict):
 @pulumi.input_type
 class MongoConnectionInformationArgs:
     def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Mongo Connection
 
@@ -7269,74 +7260,74 @@ class MongoConnectionInformationArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ConnectionString to connect to Mongo.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host of mongo connection.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to connect to Mongo.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port of mongo connection.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="useSsl")
-    def use_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to UseSsl or UseTls to connect to Mongo. Default is true.
         """
         return pulumi.get(self, "use_ssl")
 
     @use_ssl.setter
-    def use_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name to connect to Mongo.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -7344,15 +7335,15 @@ class MongoDbCollectionSettingsArgsDict(TypedDict):
     """
     Describes how an individual MongoDB collection should be migrated
     """
-    can_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    can_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
     """
-    shard_key: NotRequired[pulumi.Input['MongoDbShardKeySettingArgsDict']]
+    shard_key: NotRequired[pulumi.Input[Optional['MongoDbShardKeySettingArgsDict']]]
     """
     Describes a MongoDB shard key
     """
-    target_rus: NotRequired[pulumi.Input[_builtins.int]]
+    target_rus: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
     """
@@ -7360,9 +7351,9 @@ class MongoDbCollectionSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class MongoDbCollectionSettingsArgs:
     def __init__(__self__, *,
-                 can_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shard_key: Optional[pulumi.Input['MongoDbShardKeySettingArgs']] = None,
-                 target_rus: Optional[pulumi.Input[_builtins.int]] = None):
+                 can_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shard_key: pulumi.Input[Optional['MongoDbShardKeySettingArgs']] = None,
+                 target_rus: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes how an individual MongoDB collection should be migrated
 
@@ -7379,38 +7370,38 @@ class MongoDbCollectionSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="canDelete")
-    def can_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def can_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
         """
         return pulumi.get(self, "can_delete")
 
     @can_delete.setter
-    def can_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def can_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "can_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="shardKey")
-    def shard_key(self) -> Optional[pulumi.Input['MongoDbShardKeySettingArgs']]:
+    def shard_key(self) -> pulumi.Input[Optional['MongoDbShardKeySettingArgs']]:
         """
         Describes a MongoDB shard key
         """
         return pulumi.get(self, "shard_key")
 
     @shard_key.setter
-    def shard_key(self, value: Optional[pulumi.Input['MongoDbShardKeySettingArgs']]):
+    def shard_key(self, value: pulumi.Input[Optional['MongoDbShardKeySettingArgs']]):
         pulumi.set(self, "shard_key", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRUs")
-    def target_rus(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_rus(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
         """
         return pulumi.get(self, "target_rus")
 
     @target_rus.setter
-    def target_rus(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_rus(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_rus", value)
 
 
@@ -7427,48 +7418,48 @@ class MongoDbConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'MongoDbConnectionInfo'.
     """
-    additional_settings: NotRequired[pulumi.Input[_builtins.str]]
+    additional_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional connection settings
     """
-    authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    authentication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Authentication type to use for connection
     """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Data source 
+    Data source
     """
-    encrypt_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to encrypt the connection
     """
-    enforce_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    enforce_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port for server
     """
-    server_brand_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_brand_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server brand version
     """
-    server_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the server
     """
-    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server version
     """
-    trust_server_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    trust_server_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to trust the server certificate
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -7478,18 +7469,18 @@ class MongoDbConnectionInfoArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 additional_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_brand_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_server_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_brand_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_server_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a connection to a MongoDB data source
 
@@ -7498,7 +7489,7 @@ class MongoDbConnectionInfoArgs:
                Expected value is 'MongoDbConnectionInfo'.
         :param pulumi.Input[_builtins.str] additional_settings: Additional connection settings
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationType']] authentication: Authentication type to use for connection
-        :param pulumi.Input[_builtins.str] data_source: Data source 
+        :param pulumi.Input[_builtins.str] data_source: Data source
         :param pulumi.Input[_builtins.bool] encrypt_connection: Whether to encrypt the connection
         :param pulumi.Input[_builtins.str] password: Password credential.
         :param pulumi.Input[_builtins.int] port: port for server
@@ -7564,143 +7555,143 @@ class MongoDbConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalSettings")
-    def additional_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional connection settings
         """
         return pulumi.get(self, "additional_settings")
 
     @additional_settings.setter
-    def additional_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptConnection")
-    def encrypt_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt the connection
         """
         return pulumi.get(self, "encrypt_connection")
 
     @encrypt_connection.setter
-    def encrypt_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSSL")
-    def enforce_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enforce_ssl")
 
     @enforce_ssl.setter
-    def enforce_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port for server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="serverBrandVersion")
-    def server_brand_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_brand_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server brand version
         """
         return pulumi.get(self, "server_brand_version")
 
     @server_brand_version.setter
-    def server_brand_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_brand_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_brand_version", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the server
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server version
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="trustServerCertificate")
-    def trust_server_certificate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_server_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to trust the server certificate
         """
         return pulumi.get(self, "trust_server_certificate")
 
     @trust_server_certificate.setter
-    def trust_server_certificate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_server_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_server_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -7712,7 +7703,7 @@ class MongoDbDatabaseSettingsArgsDict(TypedDict):
     """
     The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
     """
-    target_rus: NotRequired[pulumi.Input[_builtins.int]]
+    target_rus: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
     """
@@ -7721,7 +7712,7 @@ class MongoDbDatabaseSettingsArgsDict(TypedDict):
 class MongoDbDatabaseSettingsArgs:
     def __init__(__self__, *,
                  collections: pulumi.Input[Mapping[str, pulumi.Input['MongoDbCollectionSettingsArgs']]],
-                 target_rus: Optional[pulumi.Input[_builtins.int]] = None):
+                 target_rus: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes how an individual MongoDB database should be migrated
 
@@ -7746,14 +7737,14 @@ class MongoDbDatabaseSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetRUs")
-    def target_rus(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_rus(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
         return pulumi.get(self, "target_rus")
 
     @target_rus.setter
-    def target_rus(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_rus(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_rus", value)
 
 
@@ -7773,15 +7764,15 @@ class MongoDbMigrationSettingsArgsDict(TypedDict):
     """
     Settings used to connect to the target cluster
     """
-    boost_rus: NotRequired[pulumi.Input[_builtins.int]]
+    boost_rus: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
     """
-    replication: NotRequired[pulumi.Input[Union[_builtins.str, 'MongoDbReplication']]]
+    replication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MongoDbReplication']]]]
     """
     Describes how changes will be replicated from the source to the target. The default is OneTime.
     """
-    throttling: NotRequired[pulumi.Input['MongoDbThrottlingSettingsArgsDict']]
+    throttling: NotRequired[pulumi.Input[Optional['MongoDbThrottlingSettingsArgsDict']]]
     """
     Settings used to limit the resource usage of the migration
     """
@@ -7792,9 +7783,9 @@ class MongoDbMigrationSettingsArgs:
                  databases: pulumi.Input[Mapping[str, pulumi.Input['MongoDbDatabaseSettingsArgs']]],
                  source: pulumi.Input['MongoDbConnectionInfoArgs'],
                  target: pulumi.Input['MongoDbConnectionInfoArgs'],
-                 boost_rus: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication: Optional[pulumi.Input[Union[_builtins.str, 'MongoDbReplication']]] = None,
-                 throttling: Optional[pulumi.Input['MongoDbThrottlingSettingsArgs']] = None):
+                 boost_rus: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication: pulumi.Input[Optional[Union[_builtins.str, 'MongoDbReplication']]] = None,
+                 throttling: pulumi.Input[Optional['MongoDbThrottlingSettingsArgs']] = None):
         """
         Describes how a MongoDB data migration should be performed
 
@@ -7853,38 +7844,38 @@ class MongoDbMigrationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="boostRUs")
-    def boost_rus(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def boost_rus(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
         """
         return pulumi.get(self, "boost_rus")
 
     @boost_rus.setter
-    def boost_rus(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def boost_rus(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "boost_rus", value)
 
     @_builtins.property
     @pulumi.getter
-    def replication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MongoDbReplication']]]:
+    def replication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MongoDbReplication']]]:
         """
         Describes how changes will be replicated from the source to the target. The default is OneTime.
         """
         return pulumi.get(self, "replication")
 
     @replication.setter
-    def replication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MongoDbReplication']]]):
+    def replication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MongoDbReplication']]]):
         pulumi.set(self, "replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def throttling(self) -> Optional[pulumi.Input['MongoDbThrottlingSettingsArgs']]:
+    def throttling(self) -> pulumi.Input[Optional['MongoDbThrottlingSettingsArgs']]:
         """
         Settings used to limit the resource usage of the migration
         """
         return pulumi.get(self, "throttling")
 
     @throttling.setter
-    def throttling(self, value: Optional[pulumi.Input['MongoDbThrottlingSettingsArgs']]):
+    def throttling(self, value: pulumi.Input[Optional['MongoDbThrottlingSettingsArgs']]):
         pulumi.set(self, "throttling", value)
 
 
@@ -7948,7 +7939,7 @@ class MongoDbShardKeySettingArgsDict(TypedDict):
     """
     The fields within the shard key
     """
-    is_unique: NotRequired[pulumi.Input[_builtins.bool]]
+    is_unique: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the shard key is unique
     """
@@ -7957,7 +7948,7 @@ class MongoDbShardKeySettingArgsDict(TypedDict):
 class MongoDbShardKeySettingArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['MongoDbShardKeyFieldArgs']]],
-                 is_unique: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_unique: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Describes a MongoDB shard key
 
@@ -7982,14 +7973,14 @@ class MongoDbShardKeySettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="isUnique")
-    def is_unique(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_unique(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the shard key is unique
         """
         return pulumi.get(self, "is_unique")
 
     @is_unique.setter
-    def is_unique(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_unique(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_unique", value)
 
 
@@ -7997,15 +7988,15 @@ class MongoDbThrottlingSettingsArgsDict(TypedDict):
     """
     Specifies resource limits for the migration
     """
-    max_parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    max_parallelism: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of work items (e.g. collection copies) that will be processed in parallel
     """
-    min_free_cpu: NotRequired[pulumi.Input[_builtins.int]]
+    min_free_cpu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
     """
-    min_free_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    min_free_memory_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of megabytes of RAM that the migrator will try to avoid using
     """
@@ -8013,9 +8004,9 @@ class MongoDbThrottlingSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class MongoDbThrottlingSettingsArgs:
     def __init__(__self__, *,
-                 max_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_free_cpu: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_free_memory_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_free_cpu: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_free_memory_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies resource limits for the migration
 
@@ -8032,38 +8023,38 @@ class MongoDbThrottlingSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxParallelism")
-    def max_parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallelism(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of work items (e.g. collection copies) that will be processed in parallel
         """
         return pulumi.get(self, "max_parallelism")
 
     @max_parallelism.setter
-    def max_parallelism(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallelism(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallelism", value)
 
     @_builtins.property
     @pulumi.getter(name="minFreeCpu")
-    def min_free_cpu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_free_cpu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
         """
         return pulumi.get(self, "min_free_cpu")
 
     @min_free_cpu.setter
-    def min_free_cpu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_free_cpu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_free_cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="minFreeMemoryMb")
-    def min_free_memory_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_free_memory_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of megabytes of RAM that the migrator will try to avoid using
         """
         return pulumi.get(self, "min_free_memory_mb")
 
     @min_free_memory_mb.setter
-    def min_free_memory_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_free_memory_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_free_memory_mb", value)
 
 
@@ -8071,19 +8062,19 @@ class MongoMigrationCollectionArgsDict(TypedDict):
     """
     Mongo source and target database and collection details.
     """
-    source_collection: NotRequired[pulumi.Input[_builtins.str]]
+    source_collection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source collection name.
     """
-    source_database: NotRequired[pulumi.Input[_builtins.str]]
+    source_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source database name.
     """
-    target_collection: NotRequired[pulumi.Input[_builtins.str]]
+    target_collection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target collection name.
     """
-    target_database: NotRequired[pulumi.Input[_builtins.str]]
+    target_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target database name.
     """
@@ -8091,10 +8082,10 @@ class MongoMigrationCollectionArgsDict(TypedDict):
 @pulumi.input_type
 class MongoMigrationCollectionArgs:
     def __init__(__self__, *,
-                 source_collection: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_collection: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_database: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_collection: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_collection: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_database: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Mongo source and target database and collection details.
 
@@ -8114,50 +8105,50 @@ class MongoMigrationCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceCollection")
-    def source_collection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_collection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source collection name.
         """
         return pulumi.get(self, "source_collection")
 
     @source_collection.setter
-    def source_collection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_collection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabase")
-    def source_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source database name.
         """
         return pulumi.get(self, "source_database")
 
     @source_database.setter
-    def source_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCollection")
-    def target_collection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_collection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target collection name.
         """
         return pulumi.get(self, "target_collection")
 
     @target_collection.setter
-    def target_collection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_collection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDatabase")
-    def target_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target database name.
         """
         return pulumi.get(self, "target_database")
 
     @target_database.setter
-    def target_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_database", value)
 
 
@@ -8178,27 +8169,27 @@ class MySqlConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'MySqlConnectionInfo'.
     """
-    additional_settings: NotRequired[pulumi.Input[_builtins.str]]
+    additional_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional connection settings
     """
-    authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    authentication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Authentication type to use for connection
     """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Data source 
+    Data source
     """
-    encrypt_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to encrypt the connection
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -8209,12 +8200,12 @@ class MySqlConnectionInfoArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 additional_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information for connecting to MySQL server
 
@@ -8224,7 +8215,7 @@ class MySqlConnectionInfoArgs:
                Expected value is 'MySqlConnectionInfo'.
         :param pulumi.Input[_builtins.str] additional_settings: Additional connection settings
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationType']] authentication: Authentication type to use for connection
-        :param pulumi.Input[_builtins.str] data_source: Data source 
+        :param pulumi.Input[_builtins.str] data_source: Data source
         :param pulumi.Input[_builtins.bool] encrypt_connection: Whether to encrypt the connection
         :param pulumi.Input[_builtins.str] password: Password credential.
         :param pulumi.Input[_builtins.str] user_name: User name
@@ -8286,74 +8277,74 @@ class MySqlConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalSettings")
-    def additional_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional connection settings
         """
         return pulumi.get(self, "additional_settings")
 
     @additional_settings.setter
-    def additional_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptConnection")
-    def encrypt_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt the connection
         """
         return pulumi.get(self, "encrypt_connection")
 
     @encrypt_connection.setter
-    def encrypt_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -8361,11 +8352,11 @@ class OfflineConfigurationArgsDict(TypedDict):
     """
     Offline configuration
     """
-    last_backup_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_backup_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
     """
-    offline: NotRequired[pulumi.Input[_builtins.bool]]
+    offline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Offline migration
     """
@@ -8373,8 +8364,8 @@ class OfflineConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class OfflineConfigurationArgs:
     def __init__(__self__, *,
-                 last_backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline: Optional[pulumi.Input[_builtins.bool]] = None):
+                 last_backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Offline configuration
 
@@ -8388,26 +8379,26 @@ class OfflineConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastBackupName")
-    def last_backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
         """
         return pulumi.get(self, "last_backup_name")
 
     @last_backup_name.setter
-    def last_backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_backup_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def offline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def offline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Offline migration
         """
         return pulumi.get(self, "offline")
 
     @offline.setter
-    def offline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def offline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "offline", value)
 
 
@@ -8424,27 +8415,27 @@ class OracleConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'OracleConnectionInfo'.
     """
-    authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    authentication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Authentication type to use for connection
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port for server
     """
-    server_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the server
     """
-    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server version
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -8454,12 +8445,12 @@ class OracleConnectionInfoArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 authentication: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information for connecting to Oracle server
 
@@ -8515,74 +8506,74 @@ class OracleConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port for server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the server
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server version
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -8603,43 +8594,43 @@ class PostgreSqlConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'PostgreSqlConnectionInfo'.
     """
-    additional_settings: NotRequired[pulumi.Input[_builtins.str]]
+    additional_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional connection settings
     """
-    authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    authentication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Authentication type to use for connection
     """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Data source 
+    Data source
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the database
     """
-    encrypt_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to encrypt the connection
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    server_brand_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_brand_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server brand version
     """
-    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server version
     """
-    trust_server_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    trust_server_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to trust the server certificate
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -8650,16 +8641,16 @@ class PostgreSqlConnectionInfoArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 additional_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_brand_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_server_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_brand_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_server_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information for connecting to PostgreSQL server
 
@@ -8669,7 +8660,7 @@ class PostgreSqlConnectionInfoArgs:
                Expected value is 'PostgreSqlConnectionInfo'.
         :param pulumi.Input[_builtins.str] additional_settings: Additional connection settings
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationType']] authentication: Authentication type to use for connection
-        :param pulumi.Input[_builtins.str] data_source: Data source 
+        :param pulumi.Input[_builtins.str] data_source: Data source
         :param pulumi.Input[_builtins.str] database_name: Name of the database
         :param pulumi.Input[_builtins.bool] encrypt_connection: Whether to encrypt the connection
         :param pulumi.Input[_builtins.str] password: Password credential.
@@ -8745,122 +8736,122 @@ class PostgreSqlConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalSettings")
-    def additional_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional connection settings
         """
         return pulumi.get(self, "additional_settings")
 
     @additional_settings.setter
-    def additional_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptConnection")
-    def encrypt_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt the connection
         """
         return pulumi.get(self, "encrypt_connection")
 
     @encrypt_connection.setter
-    def encrypt_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="serverBrandVersion")
-    def server_brand_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_brand_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server brand version
         """
         return pulumi.get(self, "server_brand_version")
 
     @server_brand_version.setter
-    def server_brand_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_brand_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_brand_version", value)
 
     @_builtins.property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server version
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="trustServerCertificate")
-    def trust_server_certificate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_server_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to trust the server certificate
         """
         return pulumi.get(self, "trust_server_certificate")
 
     @trust_server_certificate.setter
-    def trust_server_certificate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_server_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_server_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -8868,15 +8859,15 @@ class ProjectFilePropertiesArgsDict(TypedDict):
     """
     Base class for file properties.
     """
-    extension: NotRequired[pulumi.Input[_builtins.str]]
+    extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional File extension. If submitted it should not have a leading period and must match the extension from filePath.
     """
-    file_path: NotRequired[pulumi.Input[_builtins.str]]
+    file_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Relative path of this file resource. This property can be set when creating or updating the file resource.
     """
-    media_type: NotRequired[pulumi.Input[_builtins.str]]
+    media_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     File content type. This property can be modified to reflect the file content type.
     """
@@ -8884,9 +8875,9 @@ class ProjectFilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectFilePropertiesArgs:
     def __init__(__self__, *,
-                 extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Base class for file properties.
 
@@ -8903,38 +8894,38 @@ class ProjectFilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional File extension. If submitted it should not have a leading period and must match the extension from filePath.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Relative path of this file resource. This property can be set when creating or updating the file resource.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaType")
-    def media_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File content type. This property can be modified to reflect the file content type.
         """
         return pulumi.get(self, "media_type")
 
     @media_type.setter
-    def media_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media_type", value)
 
 
@@ -8994,23 +8985,23 @@ class ServiceSkuArgsDict(TypedDict):
     """
     An Azure SKU instance
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The capacity of the SKU, if it supports scaling
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique name of the SKU, such as 'P3'
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
     """
@@ -9018,11 +9009,11 @@ class ServiceSkuArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Azure SKU instance
 
@@ -9045,62 +9036,62 @@ class ServiceSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity of the SKU, if it supports scaling
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the SKU, such as 'P3'
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -9108,11 +9099,11 @@ class SourceLocationArgsDict(TypedDict):
     """
     Source Location details of backups.
     """
-    azure_blob: NotRequired[pulumi.Input['AzureBlobArgsDict']]
+    azure_blob: NotRequired[pulumi.Input[Optional['AzureBlobArgsDict']]]
     """
     Source Azure Blob.
     """
-    file_share: NotRequired[pulumi.Input['SqlFileShareArgsDict']]
+    file_share: NotRequired[pulumi.Input[Optional['SqlFileShareArgsDict']]]
     """
     Source File share.
     """
@@ -9120,8 +9111,8 @@ class SourceLocationArgsDict(TypedDict):
 @pulumi.input_type
 class SourceLocationArgs:
     def __init__(__self__, *,
-                 azure_blob: Optional[pulumi.Input['AzureBlobArgs']] = None,
-                 file_share: Optional[pulumi.Input['SqlFileShareArgs']] = None):
+                 azure_blob: pulumi.Input[Optional['AzureBlobArgs']] = None,
+                 file_share: pulumi.Input[Optional['SqlFileShareArgs']] = None):
         """
         Source Location details of backups.
 
@@ -9135,161 +9126,27 @@ class SourceLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBlob")
-    def azure_blob(self) -> Optional[pulumi.Input['AzureBlobArgs']]:
+    def azure_blob(self) -> pulumi.Input[Optional['AzureBlobArgs']]:
         """
         Source Azure Blob.
         """
         return pulumi.get(self, "azure_blob")
 
     @azure_blob.setter
-    def azure_blob(self, value: Optional[pulumi.Input['AzureBlobArgs']]):
+    def azure_blob(self, value: pulumi.Input[Optional['AzureBlobArgs']]):
         pulumi.set(self, "azure_blob", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShare")
-    def file_share(self) -> Optional[pulumi.Input['SqlFileShareArgs']]:
+    def file_share(self) -> pulumi.Input[Optional['SqlFileShareArgs']]:
         """
         Source File share.
         """
         return pulumi.get(self, "file_share")
 
     @file_share.setter
-    def file_share(self, value: Optional[pulumi.Input['SqlFileShareArgs']]):
+    def file_share(self, value: pulumi.Input[Optional['SqlFileShareArgs']]):
         pulumi.set(self, "file_share", value)
-
-
-class SqlConnectionInformationArgsDict(TypedDict):
-    """
-    Source SQL Connection
-    """
-    authentication: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Authentication type.
-    """
-    data_source: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Data source.
-    """
-    encrypt_connection: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to encrypt connection or not.
-    """
-    password: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Password to connect to source SQL.
-    """
-    trust_server_certificate: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to trust server certificate or not.
-    """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    User name to connect to source SQL.
-    """
-
-@pulumi.input_type
-class SqlConnectionInformationArgs:
-    def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_server_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Source SQL Connection
-
-        :param pulumi.Input[_builtins.str] authentication: Authentication type.
-        :param pulumi.Input[_builtins.str] data_source: Data source.
-        :param pulumi.Input[_builtins.bool] encrypt_connection: Whether to encrypt connection or not.
-        :param pulumi.Input[_builtins.str] password: Password to connect to source SQL.
-        :param pulumi.Input[_builtins.bool] trust_server_certificate: Whether to trust server certificate or not.
-        :param pulumi.Input[_builtins.str] user_name: User name to connect to source SQL.
-        """
-        if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
-        if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
-        if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
-        if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type.
-        """
-        return pulumi.get(self, "authentication")
-
-    @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "authentication", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data source.
-        """
-        return pulumi.get(self, "data_source")
-
-    @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "data_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptConnection")
-    def encrypt_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to encrypt connection or not.
-        """
-        return pulumi.get(self, "encrypt_connection")
-
-    @encrypt_connection.setter
-    def encrypt_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "encrypt_connection", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password to connect to source SQL.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "password", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trustServerCertificate")
-    def trust_server_certificate(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to trust server certificate or not.
-        """
-        return pulumi.get(self, "trust_server_certificate")
-
-    @trust_server_certificate.setter
-    def trust_server_certificate(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "trust_server_certificate", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User name to connect to source SQL.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "user_name", value)
 
 
 class SqlConnectionInfoArgsDict(TypedDict):
@@ -9305,51 +9162,51 @@ class SqlConnectionInfoArgsDict(TypedDict):
     Type of connection info
     Expected value is 'SqlConnectionInfo'.
     """
-    additional_settings: NotRequired[pulumi.Input[_builtins.str]]
+    additional_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional connection settings
     """
-    authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    authentication: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]]
     """
     Authentication type to use for connection
     """
-    encrypt_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to encrypt the connection
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password credential.
     """
-    platform: NotRequired[pulumi.Input[Union[_builtins.str, 'SqlSourcePlatform']]]
+    platform: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SqlSourcePlatform']]]]
     """
     Server platform type for connection
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port for Server
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents the ID of an HTTP resource represented by an Azure resource provider.
     """
-    server_brand_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_brand_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server brand version
     """
-    server_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of the server
     """
-    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    server_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     server version
     """
-    trust_server_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    trust_server_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to trust the server certificate
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User name
     """
@@ -9359,18 +9216,18 @@ class SqlConnectionInfoArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 additional_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
-                 encrypt_connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[Union[_builtins.str, 'SqlSourcePlatform']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_brand_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_server_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]] = None,
+                 encrypt_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[Union[_builtins.str, 'SqlSourcePlatform']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_brand_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_server_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information for connecting to SQL database server
 
@@ -9448,146 +9305,280 @@ class SqlConnectionInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalSettings")
-    def additional_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional connection settings
         """
         return pulumi.get(self, "additional_settings")
 
     @additional_settings.setter
-    def additional_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]:
+    def authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]):
+    def authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptConnection")
-    def encrypt_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt the connection
         """
         return pulumi.get(self, "encrypt_connection")
 
     @encrypt_connection.setter
-    def encrypt_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SqlSourcePlatform']]]:
+    def platform(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlSourcePlatform']]]:
         """
         Server platform type for connection
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SqlSourcePlatform']]]):
+    def platform(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlSourcePlatform']]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port for Server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents the ID of an HTTP resource represented by an Azure resource provider.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverBrandVersion")
-    def server_brand_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_brand_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server brand version
         """
         return pulumi.get(self, "server_brand_version")
 
     @server_brand_version.setter
-    def server_brand_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_brand_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_brand_version", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the server
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         server version
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="trustServerCertificate")
-    def trust_server_certificate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_server_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to trust the server certificate
         """
         return pulumi.get(self, "trust_server_certificate")
 
     @trust_server_certificate.setter
-    def trust_server_certificate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_server_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_server_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
+
+
+class SqlConnectionInformationArgsDict(TypedDict):
+    """
+    Source SQL Connection
+    """
+    authentication: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authentication type.
+    """
+    data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Data source.
+    """
+    encrypt_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to encrypt connection or not.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Password to connect to source SQL.
+    """
+    trust_server_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to trust server certificate or not.
+    """
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User name to connect to source SQL.
+    """
+
+@pulumi.input_type
+class SqlConnectionInformationArgs:
+    def __init__(__self__, *,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_server_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Source SQL Connection
+
+        :param pulumi.Input[_builtins.str] authentication: Authentication type.
+        :param pulumi.Input[_builtins.str] data_source: Data source.
+        :param pulumi.Input[_builtins.bool] encrypt_connection: Whether to encrypt connection or not.
+        :param pulumi.Input[_builtins.str] password: Password to connect to source SQL.
+        :param pulumi.Input[_builtins.bool] trust_server_certificate: Whether to trust server certificate or not.
+        :param pulumi.Input[_builtins.str] user_name: User name to connect to source SQL.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if encrypt_connection is not None:
+            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authentication type.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Data source.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptConnection")
+    def encrypt_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to encrypt connection or not.
+        """
+        return pulumi.get(self, "encrypt_connection")
+
+    @encrypt_connection.setter
+    def encrypt_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "encrypt_connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Password to connect to source SQL.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to trust server certificate or not.
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "trust_server_certificate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User name to connect to source SQL.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -9595,15 +9586,15 @@ class SqlFileShareArgsDict(TypedDict):
     """
     File share
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for username to access file share location.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location as SMB share or local drive where backups are placed.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Username to access the file share location for backups.
     """
@@ -9611,9 +9602,9 @@ class SqlFileShareArgsDict(TypedDict):
 @pulumi.input_type
 class SqlFileShareArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         File share
 
@@ -9630,38 +9621,38 @@ class SqlFileShareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for username to access file share location.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location as SMB share or local drive where backups are placed.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username to access the file share location for backups.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -9669,15 +9660,15 @@ class SsisMigrationInfoArgsDict(TypedDict):
     """
     SSIS migration info with SSIS store type, overwrite policy.
     """
-    environment_overwrite_option: NotRequired[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]
+    environment_overwrite_option: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]]
     """
     The overwrite option for the SSIS environment migration
     """
-    project_overwrite_option: NotRequired[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]
+    project_overwrite_option: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]]
     """
     The overwrite option for the SSIS project migration
     """
-    ssis_store_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SsisStoreType']]]
+    ssis_store_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SsisStoreType']]]]
     """
     The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
     """
@@ -9685,9 +9676,9 @@ class SsisMigrationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class SsisMigrationInfoArgs:
     def __init__(__self__, *,
-                 environment_overwrite_option: Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]] = None,
-                 project_overwrite_option: Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]] = None,
-                 ssis_store_type: Optional[pulumi.Input[Union[_builtins.str, 'SsisStoreType']]] = None):
+                 environment_overwrite_option: pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]] = None,
+                 project_overwrite_option: pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]] = None,
+                 ssis_store_type: pulumi.Input[Optional[Union[_builtins.str, 'SsisStoreType']]] = None):
         """
         SSIS migration info with SSIS store type, overwrite policy.
 
@@ -9704,38 +9695,38 @@ class SsisMigrationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentOverwriteOption")
-    def environment_overwrite_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]:
+    def environment_overwrite_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]:
         """
         The overwrite option for the SSIS environment migration
         """
         return pulumi.get(self, "environment_overwrite_option")
 
     @environment_overwrite_option.setter
-    def environment_overwrite_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]):
+    def environment_overwrite_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]):
         pulumi.set(self, "environment_overwrite_option", value)
 
     @_builtins.property
     @pulumi.getter(name="projectOverwriteOption")
-    def project_overwrite_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]:
+    def project_overwrite_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]:
         """
         The overwrite option for the SSIS project migration
         """
         return pulumi.get(self, "project_overwrite_option")
 
     @project_overwrite_option.setter
-    def project_overwrite_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]):
+    def project_overwrite_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SsisMigrationOverwriteOption']]]):
         pulumi.set(self, "project_overwrite_option", value)
 
     @_builtins.property
     @pulumi.getter(name="ssisStoreType")
-    def ssis_store_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SsisStoreType']]]:
+    def ssis_store_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SsisStoreType']]]:
         """
         The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
         return pulumi.get(self, "ssis_store_type")
 
     @ssis_store_type.setter
-    def ssis_store_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SsisStoreType']]]):
+    def ssis_store_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SsisStoreType']]]):
         pulumi.set(self, "ssis_store_type", value)
 
 
@@ -9743,11 +9734,11 @@ class TargetLocationArgsDict(TypedDict):
     """
     Target Location details for optional copy of backups
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage Account Key.
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the storage account copying backups.
     """
@@ -9755,8 +9746,8 @@ class TargetLocationArgsDict(TypedDict):
 @pulumi.input_type
 class TargetLocationArgs:
     def __init__(__self__, *,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Target Location details for optional copy of backups
 
@@ -9770,26 +9761,26 @@ class TargetLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account Key.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the storage account copying backups.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
 
@@ -9802,11 +9793,11 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ValidateSyncMigrationInputSqlServerTaskInputArgsDict']]]
     """
     Task input
     """
@@ -9815,8 +9806,8 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
 class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ValidateSyncMigrationInputSqlServerTaskInputArgs']] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
 
@@ -9846,26 +9837,26 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ValidateSyncMigrationInputSqlServerTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ValidateSyncMigrationInputSqlServerTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -9893,7 +9884,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict(TypedDict):
     """
     Connection information for Azure SQL Database Managed Instance
     """
-    backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+    backup_file_share: NotRequired[pulumi.Input[Optional['FileShareArgsDict']]]
     """
     Backup file share information for all selected databases.
     """
@@ -9906,7 +9897,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  storage_resource_id: pulumi.Input[_builtins.str],
                  target_connection_info: pulumi.Input['MiSqlConnectionInfoArgs'],
-                 backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None):
+                 backup_file_share: pulumi.Input[Optional['FileShareArgs']] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
 
@@ -9987,14 +9978,14 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupFileShare")
-    def backup_file_share(self) -> Optional[pulumi.Input['FileShareArgs']]:
+    def backup_file_share(self) -> pulumi.Input[Optional['FileShareArgs']]:
         """
         Backup file share information for all selected databases.
         """
         return pulumi.get(self, "backup_file_share")
 
     @backup_file_share.setter
-    def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
+    def backup_file_share(self, value: pulumi.Input[Optional['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
 
@@ -10007,11 +9998,11 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict']]]
     """
     Task input
     """
@@ -10020,8 +10011,8 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
 class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
 
@@ -10051,26 +10042,26 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -10094,15 +10085,15 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgsDict(TypedDict):
     """
     Information for connecting to target
     """
-    backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+    backup_file_share: NotRequired[pulumi.Input[Optional['FileShareArgsDict']]]
     """
     Backup file share information for all selected databases.
     """
-    backup_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'BackupMode']]]
+    backup_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]]
     """
     Backup Mode to specify whether to use existing backup or create new backup.
     """
-    selected_logins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    selected_logins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Logins to migrate
     """
@@ -10114,9 +10105,9 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
                  selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 backup_mode: Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]] = None,
-                 selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 backup_file_share: pulumi.Input[Optional['FileShareArgs']] = None,
+                 backup_mode: pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]] = None,
+                 selected_logins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
 
@@ -10189,38 +10180,38 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupFileShare")
-    def backup_file_share(self) -> Optional[pulumi.Input['FileShareArgs']]:
+    def backup_file_share(self) -> pulumi.Input[Optional['FileShareArgs']]:
         """
         Backup file share information for all selected databases.
         """
         return pulumi.get(self, "backup_file_share")
 
     @backup_file_share.setter
-    def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
+    def backup_file_share(self, value: pulumi.Input[Optional['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
     @_builtins.property
     @pulumi.getter(name="backupMode")
-    def backup_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]]:
+    def backup_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]:
         """
         Backup Mode to specify whether to use existing backup or create new backup.
         """
         return pulumi.get(self, "backup_mode")
 
     @backup_mode.setter
-    def backup_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackupMode']]]):
+    def backup_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackupMode']]]):
         pulumi.set(self, "backup_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedLogins")
-    def selected_logins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_logins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Logins to migrate
         """
         return pulumi.get(self, "selected_logins")
 
     @selected_logins.setter
-    def selected_logins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_logins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_logins", value)
 
 
@@ -10233,11 +10224,11 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMITaskInputArgsDict']]]
     """
     Task input
     """
@@ -10246,8 +10237,8 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
 class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMITaskInputArgs']] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
 
@@ -10277,26 +10268,26 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMITaskInputArgs']]:
         """
         Task input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['ValidateMigrationInputSqlServerSqlMITaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -10309,11 +10300,11 @@ class ValidateMongoDbTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Validate.MongoDb'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MongoDbMigrationSettingsArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MongoDbMigrationSettingsArgsDict']]]
     """
     Describes how a MongoDB data migration should be performed
     """
@@ -10322,8 +10313,8 @@ class ValidateMongoDbTaskPropertiesArgsDict(TypedDict):
 class ValidateMongoDbTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MongoDbMigrationSettingsArgs']] = None):
         """
         Properties for the task that validates a migration between MongoDB data sources
 
@@ -10353,26 +10344,26 @@ class ValidateMongoDbTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MongoDbMigrationSettingsArgs']]:
+    def input(self) -> pulumi.Input[Optional['MongoDbMigrationSettingsArgs']]:
         """
         Describes how a MongoDB data migration should be performed
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']]):
+    def input(self, value: pulumi.Input[Optional['MongoDbMigrationSettingsArgs']]):
         pulumi.set(self, "input", value)
 
 
@@ -10385,11 +10376,11 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
     Task type.
     Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
     """
-    client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_data: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key value pairs of client data to attach meta data information to task
     """
-    input: NotRequired[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]
+    input: NotRequired[pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]]
     """
     Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
     """
@@ -10398,8 +10389,8 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
 class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
                  task_type: pulumi.Input[_builtins.str],
-                 client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 input: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None):
+                 client_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 input: pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None):
         """
         Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
 
@@ -10429,26 +10420,26 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key value pairs of client data to attach meta data information to task
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]:
+    def input(self) -> pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]:
         """
         Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
+    def input(self, value: pulumi.Input[Optional['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
 

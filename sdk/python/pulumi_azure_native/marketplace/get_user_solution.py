@@ -123,7 +123,6 @@ def get_user_solution(solution_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-03-01-preview.
 
-
     :param _builtins.str solution_id: The solution id
     """
     __args__ = dict()
@@ -139,13 +138,12 @@ def get_user_solution(solution_id: Optional[_builtins.str] = None,
         products=pulumi.get(__ret__, 'products'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_solution_output(solution_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_solution_output(solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSolutionResult]:
     """
     Get information about the user solution
 
     Uses Azure REST API version 2023-03-01-preview.
-
 
     :param _builtins.str solution_id: The solution id
     """

@@ -40,7 +40,7 @@ class ARecordArgsDict(TypedDict):
     """
     An A record.
     """
-    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    ipv4_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 address of this A record.
     """
@@ -48,7 +48,7 @@ class ARecordArgsDict(TypedDict):
 @pulumi.input_type
 class ARecordArgs:
     def __init__(__self__, *,
-                 ipv4_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv4_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An A record.
 
@@ -59,14 +59,14 @@ class ARecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address of this A record.
         """
         return pulumi.get(self, "ipv4_address")
 
     @ipv4_address.setter
-    def ipv4_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_address", value)
 
 
@@ -74,7 +74,7 @@ class AaaaRecordArgsDict(TypedDict):
     """
     An AAAA record.
     """
-    ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv6 address of this AAAA record.
     """
@@ -82,7 +82,7 @@ class AaaaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class AaaaRecordArgs:
     def __init__(__self__, *,
-                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv6_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An AAAA record.
 
@@ -93,14 +93,14 @@ class AaaaRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address of this AAAA record.
         """
         return pulumi.get(self, "ipv6_address")
 
     @ipv6_address.setter
-    def ipv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_address", value)
 
 
@@ -108,7 +108,7 @@ class CnameRecordArgsDict(TypedDict):
     """
     A CNAME record.
     """
-    cname: NotRequired[pulumi.Input[_builtins.str]]
+    cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The canonical name for this CNAME record.
     """
@@ -116,7 +116,7 @@ class CnameRecordArgsDict(TypedDict):
 @pulumi.input_type
 class CnameRecordArgs:
     def __init__(__self__, *,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None):
+                 cname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A CNAME record.
 
@@ -127,14 +127,14 @@ class CnameRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The canonical name for this CNAME record.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
 
@@ -142,11 +142,11 @@ class MxRecordArgsDict(TypedDict):
     """
     An MX record.
     """
-    exchange: NotRequired[pulumi.Input[_builtins.str]]
+    exchange: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the mail host for this MX record.
     """
-    preference: NotRequired[pulumi.Input[_builtins.int]]
+    preference: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The preference value for this MX record.
     """
@@ -154,8 +154,8 @@ class MxRecordArgsDict(TypedDict):
 @pulumi.input_type
 class MxRecordArgs:
     def __init__(__self__, *,
-                 exchange: Optional[pulumi.Input[_builtins.str]] = None,
-                 preference: Optional[pulumi.Input[_builtins.int]] = None):
+                 exchange: pulumi.Input[Optional[_builtins.str]] = None,
+                 preference: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An MX record.
 
@@ -169,26 +169,26 @@ class MxRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exchange(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exchange(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the mail host for this MX record.
         """
         return pulumi.get(self, "exchange")
 
     @exchange.setter
-    def exchange(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exchange(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exchange", value)
 
     @_builtins.property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preference(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The preference value for this MX record.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preference(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preference", value)
 
 
@@ -196,7 +196,7 @@ class PtrRecordArgsDict(TypedDict):
     """
     A PTR record.
     """
-    ptrdname: NotRequired[pulumi.Input[_builtins.str]]
+    ptrdname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The PTR target domain name for this PTR record.
     """
@@ -204,7 +204,7 @@ class PtrRecordArgsDict(TypedDict):
 @pulumi.input_type
 class PtrRecordArgs:
     def __init__(__self__, *,
-                 ptrdname: Optional[pulumi.Input[_builtins.str]] = None):
+                 ptrdname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A PTR record.
 
@@ -215,14 +215,14 @@ class PtrRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ptrdname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ptrdname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The PTR target domain name for this PTR record.
         """
         return pulumi.get(self, "ptrdname")
 
     @ptrdname.setter
-    def ptrdname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ptrdname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ptrdname", value)
 
 
@@ -230,31 +230,31 @@ class SoaRecordArgsDict(TypedDict):
     """
     An SOA record.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email contact for this SOA record.
     """
-    expire_time: NotRequired[pulumi.Input[_builtins.float]]
+    expire_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The expire time for this SOA record.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the authoritative name server for this SOA record.
     """
-    minimum_ttl: NotRequired[pulumi.Input[_builtins.float]]
+    minimum_ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
     """
-    refresh_time: NotRequired[pulumi.Input[_builtins.float]]
+    refresh_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The refresh value for this SOA record.
     """
-    retry_time: NotRequired[pulumi.Input[_builtins.float]]
+    retry_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The retry time for this SOA record.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.float]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The serial number for this SOA record.
     """
@@ -262,13 +262,13 @@ class SoaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class SoaRecordArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[_builtins.float]] = None,
-                 refresh_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 retry_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.float]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_ttl: pulumi.Input[Optional[_builtins.float]] = None,
+                 refresh_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 retry_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.float]] = None):
         """
         An SOA record.
 
@@ -297,86 +297,86 @@ class SoaRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email contact for this SOA record.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def expire_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The expire time for this SOA record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def expire_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "expire_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the authoritative name server for this SOA record.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def minimum_ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def minimum_ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def refresh_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The refresh value for this SOA record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def refresh_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "refresh_time", value)
 
     @_builtins.property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The retry time for this SOA record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The serial number for this SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "serial_number", value)
 
 
@@ -384,19 +384,19 @@ class SrvRecordArgsDict(TypedDict):
     """
     An SRV record.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port value for this SRV record.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority value for this SRV record.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target domain name for this SRV record.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight value for this SRV record.
     """
@@ -404,10 +404,10 @@ class SrvRecordArgsDict(TypedDict):
 @pulumi.input_type
 class SrvRecordArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An SRV record.
 
@@ -427,50 +427,50 @@ class SrvRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port value for this SRV record.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority value for this SRV record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target domain name for this SRV record.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight value for this SRV record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -478,7 +478,7 @@ class SubResourceArgsDict(TypedDict):
     """
     Reference to another subresource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
     An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -489,7 +489,7 @@ class SubResourceArgsDict(TypedDict):
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Reference to another subresource.
 
@@ -503,7 +503,7 @@ class SubResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
         An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -513,7 +513,7 @@ class SubResourceArgs:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -521,7 +521,7 @@ class TxtRecordArgsDict(TypedDict):
     """
     A TXT record.
     """
-    value: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The text value of this TXT record.
     """
@@ -529,7 +529,7 @@ class TxtRecordArgsDict(TypedDict):
 @pulumi.input_type
 class TxtRecordArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A TXT record.
 
@@ -540,14 +540,14 @@ class TxtRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The text value of this TXT record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "value", value)
 
 

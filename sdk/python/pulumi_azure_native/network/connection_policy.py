@@ -24,9 +24,9 @@ class ConnectionPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
-                 connection_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ConnectionPolicyPropertiesArgs']] = None):
+                 connection_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ConnectionPolicyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConnectionPolicy resource.
 
@@ -71,38 +71,38 @@ class ConnectionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionPolicyName")
-    def connection_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ConnectionPolicy that is unique within a VirtualHub. This name can be used to access the resource.
         """
         return pulumi.get(self, "connection_policy_name")
 
     @connection_policy_name.setter
-    def connection_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConnectionPolicyPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConnectionPolicyPropertiesArgs']]:
         """
         Properties of the ConnectionPolicy resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConnectionPolicyPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConnectionPolicyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -112,17 +112,16 @@ class ConnectionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConnectionPolicyPropertiesArgs', 'ConnectionPolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConnectionPolicyPropertiesArgs', 'ConnectionPolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ConnectionPolicy resource defined for VirtualHub.
 
         Uses Azure REST API version 2025-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class ConnectionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class ConnectionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConnectionPolicyPropertiesArgs', 'ConnectionPolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConnectionPolicyPropertiesArgs', 'ConnectionPolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

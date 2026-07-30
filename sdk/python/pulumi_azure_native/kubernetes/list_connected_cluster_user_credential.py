@@ -75,7 +75,6 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
 
     Other available API versions: 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union[_builtins.str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param _builtins.bool client_proxy: Boolean value to indicate whether the request is for client side proxy or not
     :param _builtins.str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -92,10 +91,10 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
     return AwaitableListConnectedClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_connected_cluster_user_credential_output(authentication_method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
-                                                  client_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                                                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_connected_cluster_user_credential_output(authentication_method: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMethod']]] = None,
+                                                  client_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                                                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedClusterUserCredentialResult]:
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
@@ -103,7 +102,6 @@ def list_connected_cluster_user_credential_output(authentication_method: Optiona
     Uses Azure REST API version 2024-02-01-preview.
 
     Other available API versions: 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union[_builtins.str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param _builtins.bool client_proxy: Boolean value to indicate whether the request is for client side proxy or not

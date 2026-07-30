@@ -137,7 +137,7 @@ export class CommunityTraining extends pulumi.CustomResource {
             }
             resourceInputs["communityTrainingName"] = args?.communityTrainingName;
             resourceInputs["disasterRecoveryEnabled"] = args?.disasterRecoveryEnabled;
-            resourceInputs["identityConfiguration"] = args ? (args.identityConfiguration ? pulumi.output(args.identityConfiguration).apply(inputs.community.identityConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identityConfiguration"] = args ? pulumi.output(args.identityConfiguration).apply(inputs.community.identityConfigurationPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["portalAdminEmailAddress"] = args?.portalAdminEmailAddress;
             resourceInputs["portalName"] = args?.portalName;
@@ -183,7 +183,7 @@ export interface CommunityTrainingArgs {
     /**
      * The name of the Community Training Resource
      */
-    communityTrainingName?: pulumi.Input<string>;
+    communityTrainingName?: pulumi.Input<string | undefined>;
     /**
      * To indicate whether the Community Training instance has Disaster Recovery enabled
      */
@@ -195,7 +195,7 @@ export interface CommunityTrainingArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The email address of the portal admin
      */
@@ -219,11 +219,11 @@ export interface CommunityTrainingArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.community.SkuArgs>;
+    sku?: pulumi.Input<inputs.community.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * To indicate whether the Community Training instance has Zone Redundancy enabled
      */

@@ -124,15 +124,15 @@ export interface MongoDBResourceMongoRoleDefinitionArgs {
     /**
      * The database name for which access is being granted for this Role Definition.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The ID for the Role Definition {dbName.roleName}.
      */
-    mongoRoleDefinitionId?: pulumi.Input<string>;
+    mongoRoleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
      */
-    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PrivilegeArgs>[]>;
+    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PrivilegeArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,13 +140,13 @@ export interface MongoDBResourceMongoRoleDefinitionArgs {
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * The set of roles inherited by this Role Definition.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.cosmosdb.RoleArgs>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.cosmosdb.RoleArgs>[] | undefined>;
     /**
      * Indicates whether the Role Definition was built-in or user created.
      */
-    type?: pulumi.Input<enums.cosmosdb.MongoRoleDefinitionType>;
+    type?: pulumi.Input<enums.cosmosdb.MongoRoleDefinitionType | undefined>;
 }

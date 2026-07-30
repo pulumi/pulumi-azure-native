@@ -232,7 +232,7 @@ class GetDomainResult:
     @pulumi.getter(name="readyForDnsRecordManagement")
     def ready_for_dns_record_management(self) -> _builtins.bool:
         """
-        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
          it is hosted on name servers Azure has programmatic access to.
         """
         return pulumi.get(self, "ready_for_dns_record_management")
@@ -310,7 +310,6 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str domain_name: Name of the domain.
     :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
     """
@@ -343,8 +342,8 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_dns_type=pulumi.get(__ret__, 'target_dns_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Description for Get a domain.
@@ -352,7 +351,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str domain_name: Name of the domain.
     :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.

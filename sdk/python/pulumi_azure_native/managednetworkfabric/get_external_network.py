@@ -253,7 +253,6 @@ def get_external_network(external_network_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str external_network_name: Name of the External Network.
     :param _builtins.str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -283,9 +282,9 @@ def get_external_network(external_network_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_external_network_output(external_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                l3_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_external_network_output(external_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                l3_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalNetworkResult]:
     """
     Implements ExternalNetworks GET method.
@@ -293,7 +292,6 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-06-15.
 
     Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str external_network_name: Name of the External Network.
     :param _builtins.str l3_isolation_domain_name: Name of the L3 Isolation Domain.

@@ -58,7 +58,6 @@ def list_energy_service_partitions(resource_group_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2022-04-04-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The resource name.
     """
@@ -70,14 +69,13 @@ def list_energy_service_partitions(resource_group_name: Optional[_builtins.str] 
 
     return AwaitableListEnergyServicePartitionsResult(
         data_partition_info=pulumi.get(__ret__, 'data_partition_info'))
-def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_energy_service_partitions_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
     """
     Method that gets called when list of partitions is requested.
 
     Uses Azure REST API version 2022-04-04-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The resource name.

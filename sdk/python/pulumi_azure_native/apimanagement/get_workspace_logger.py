@@ -158,7 +158,6 @@ def get_workspace_logger(logger_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str logger_id: Logger identifier. Must be unique in the API Management service instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -182,10 +181,10 @@ def get_workspace_logger(logger_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_logger_output(logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_logger_output(logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceLoggerResult]:
     """
     Gets the details of the logger specified by its identifier.
@@ -193,7 +192,6 @@ def get_workspace_logger_output(logger_id: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str logger_id: Logger identifier. Must be unique in the API Management service instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

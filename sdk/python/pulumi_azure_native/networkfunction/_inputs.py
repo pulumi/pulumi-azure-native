@@ -30,11 +30,11 @@ class EmissionPoliciesPropertiesFormatArgsDict(TypedDict):
     """
     Emission policy properties.
     """
-    emission_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgsDict']]]]
+    emission_destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPolicyDestinationArgsDict']]]]]
     """
     Emission policy destinations.
     """
-    emission_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EmissionType']]]
+    emission_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EmissionType']]]]
     """
     Emission format type.
     """
@@ -42,8 +42,8 @@ class EmissionPoliciesPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class EmissionPoliciesPropertiesFormatArgs:
     def __init__(__self__, *,
-                 emission_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]] = None,
-                 emission_type: Optional[pulumi.Input[Union[_builtins.str, 'EmissionType']]] = None):
+                 emission_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]] = None,
+                 emission_type: pulumi.Input[Optional[Union[_builtins.str, 'EmissionType']]] = None):
         """
         Emission policy properties.
 
@@ -57,26 +57,26 @@ class EmissionPoliciesPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="emissionDestinations")
-    def emission_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]]:
+    def emission_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]]:
         """
         Emission policy destinations.
         """
         return pulumi.get(self, "emission_destinations")
 
     @emission_destinations.setter
-    def emission_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]]):
+    def emission_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]]):
         pulumi.set(self, "emission_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="emissionType")
-    def emission_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EmissionType']]]:
+    def emission_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EmissionType']]]:
         """
         Emission format type.
         """
         return pulumi.get(self, "emission_type")
 
     @emission_type.setter
-    def emission_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EmissionType']]]):
+    def emission_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EmissionType']]]):
         pulumi.set(self, "emission_type", value)
 
 
@@ -84,7 +84,7 @@ class EmissionPolicyDestinationArgsDict(TypedDict):
     """
     Emission policy destination properties.
     """
-    destination_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DestinationType']]]
+    destination_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DestinationType']]]]
     """
     Emission destination type.
     """
@@ -92,7 +92,7 @@ class EmissionPolicyDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class EmissionPolicyDestinationArgs:
     def __init__(__self__, *,
-                 destination_type: Optional[pulumi.Input[Union[_builtins.str, 'DestinationType']]] = None):
+                 destination_type: pulumi.Input[Optional[Union[_builtins.str, 'DestinationType']]] = None):
         """
         Emission policy destination properties.
 
@@ -103,14 +103,14 @@ class EmissionPolicyDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DestinationType']]]:
+    def destination_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DestinationType']]]:
         """
         Emission destination type.
         """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
-    def destination_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DestinationType']]]):
+    def destination_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DestinationType']]]):
         pulumi.set(self, "destination_type", value)
 
 
@@ -118,11 +118,11 @@ class IngestionPolicyPropertiesFormatArgsDict(TypedDict):
     """
     Ingestion Policy properties.
     """
-    ingestion_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgsDict']]]]
+    ingestion_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgsDict']]]]]
     """
     Ingestion Sources.
     """
-    ingestion_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IngestionType']]]
+    ingestion_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IngestionType']]]]
     """
     The ingestion type.
     """
@@ -130,8 +130,8 @@ class IngestionPolicyPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class IngestionPolicyPropertiesFormatArgs:
     def __init__(__self__, *,
-                 ingestion_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]] = None,
-                 ingestion_type: Optional[pulumi.Input[Union[_builtins.str, 'IngestionType']]] = None):
+                 ingestion_sources: pulumi.Input[Optional[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]] = None,
+                 ingestion_type: pulumi.Input[Optional[Union[_builtins.str, 'IngestionType']]] = None):
         """
         Ingestion Policy properties.
 
@@ -145,26 +145,26 @@ class IngestionPolicyPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="ingestionSources")
-    def ingestion_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]]:
+    def ingestion_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]]:
         """
         Ingestion Sources.
         """
         return pulumi.get(self, "ingestion_sources")
 
     @ingestion_sources.setter
-    def ingestion_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]]):
+    def ingestion_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]]):
         pulumi.set(self, "ingestion_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionType")
-    def ingestion_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IngestionType']]]:
+    def ingestion_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IngestionType']]]:
         """
         The ingestion type.
         """
         return pulumi.get(self, "ingestion_type")
 
     @ingestion_type.setter
-    def ingestion_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IngestionType']]]):
+    def ingestion_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IngestionType']]]):
         pulumi.set(self, "ingestion_type", value)
 
 
@@ -172,11 +172,11 @@ class IngestionSourcesPropertiesFormatArgsDict(TypedDict):
     """
     Ingestion policy properties.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID.
     """
-    source_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SourceType']]]
+    source_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]]
     """
     Ingestion source type.
     """
@@ -184,8 +184,8 @@ class IngestionSourcesPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class IngestionSourcesPropertiesFormatArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None):
         """
         Ingestion policy properties.
 
@@ -199,26 +199,26 @@ class IngestionSourcesPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]:
+    def source_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]:
         """
         Ingestion source type.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]]):
+    def source_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]]):
         pulumi.set(self, "source_type", value)
 
 

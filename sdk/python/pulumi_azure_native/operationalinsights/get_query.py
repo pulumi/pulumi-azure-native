@@ -217,7 +217,6 @@ def get_query(id: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str id: The id of a specific query defined in the Log Analytics QueryPack
     :param _builtins.str query_pack_name: The name of the Log Analytics QueryPack resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -244,9 +243,9 @@ def get_query(id: Optional[_builtins.str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
-def get_query_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                     query_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_query_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                     query_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
@@ -254,7 +253,6 @@ def get_query_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str id: The id of a specific query defined in the Log Analytics QueryPack
     :param _builtins.str query_pack_name: The name of the Log Analytics QueryPack resource.

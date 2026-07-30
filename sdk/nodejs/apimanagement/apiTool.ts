@@ -128,15 +128,15 @@ export interface ApiToolArgs {
     /**
      * Description of the tool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Tool Name. MCP tool name must contain only letters, numbers, underscores, and hyphens.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the operation this MCP tool is associated with in the form of /apis/{apiId}/operations/{operationId}.
      */
-    operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -148,5 +148,5 @@ export interface ApiToolArgs {
     /**
      * Tool identifier within an API. Must be unique in the current API Management service instance.
      */
-    toolId?: pulumi.Input<string>;
+    toolId?: pulumi.Input<string | undefined>;
 }

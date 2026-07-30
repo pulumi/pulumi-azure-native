@@ -24,8 +24,8 @@ class BackupPolicyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BackupPolicyArgs']] = None):
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
 
@@ -67,26 +67,26 @@ class BackupPolicyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyName")
-    def backup_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the policy
         """
         return pulumi.get(self, "backup_policy_name")
 
     @backup_policy_name.setter
-    def backup_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BackupPolicyArgs']]:
         """
         BaseBackupPolicyResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BackupPolicyArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         BaseBackupPolicy resource
@@ -107,7 +107,6 @@ class BackupPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01, 2026-03-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class BackupPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01, 2026-03-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BackupPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BackupPolicyArgs', 'BackupPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,8 +25,8 @@ class PlacementPolicyArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PlacementPolicy resource.
 
@@ -82,26 +82,26 @@ class PlacementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="placementPolicyName")
-    def placement_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the placement policy.
         """
         return pulumi.get(self, "placement_policy_name")
 
     @placement_policy_name.setter
-    def placement_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class PlacementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A vSphere Distributed Resource Scheduler (DRS) placement policy
@@ -123,7 +123,6 @@ class PlacementPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class PlacementPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PlacementPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class PlacementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

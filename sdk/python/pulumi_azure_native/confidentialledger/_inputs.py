@@ -36,15 +36,15 @@ class AADBasedSecurityPrincipalArgsDict(TypedDict):
     """
     AAD based security principal with associated Ledger RoleName
     """
-    ledger_role_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]
+    ledger_role_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]]
     """
     LedgerRole associated with the Security Principal of Ledger
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UUID/GUID based Principal Id of the Security Principal
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UUID/GUID based Tenant Id of the Security Principal
     """
@@ -52,9 +52,9 @@ class AADBasedSecurityPrincipalArgsDict(TypedDict):
 @pulumi.input_type
 class AADBasedSecurityPrincipalArgs:
     def __init__(__self__, *,
-                 ledger_role_name: Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ledger_role_name: pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         AAD based security principal with associated Ledger RoleName
 
@@ -71,38 +71,38 @@ class AADBasedSecurityPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="ledgerRoleName")
-    def ledger_role_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]:
+    def ledger_role_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]:
         """
         LedgerRole associated with the Security Principal of Ledger
         """
         return pulumi.get(self, "ledger_role_name")
 
     @ledger_role_name.setter
-    def ledger_role_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]):
+    def ledger_role_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]):
         pulumi.set(self, "ledger_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID/GUID based Principal Id of the Security Principal
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID/GUID based Tenant Id of the Security Principal
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -110,11 +110,11 @@ class CertBasedSecurityPrincipalArgsDict(TypedDict):
     """
     Cert based security principal with Ledger RoleName
     """
-    cert: NotRequired[pulumi.Input[_builtins.str]]
+    cert: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Public key of the user cert (.pem or .cer)
     """
-    ledger_role_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]
+    ledger_role_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]]
     """
     LedgerRole associated with the Security Principal of Ledger
     """
@@ -122,8 +122,8 @@ class CertBasedSecurityPrincipalArgsDict(TypedDict):
 @pulumi.input_type
 class CertBasedSecurityPrincipalArgs:
     def __init__(__self__, *,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 ledger_role_name: Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]] = None):
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 ledger_role_name: pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]] = None):
         """
         Cert based security principal with Ledger RoleName
 
@@ -137,26 +137,26 @@ class CertBasedSecurityPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public key of the user cert (.pem or .cer)
         """
         return pulumi.get(self, "cert")
 
     @cert.setter
-    def cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerRoleName")
-    def ledger_role_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]:
+    def ledger_role_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]:
         """
         LedgerRole associated with the Security Principal of Ledger
         """
         return pulumi.get(self, "ledger_role_name")
 
     @ledger_role_name.setter
-    def ledger_role_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LedgerRoleName']]]):
+    def ledger_role_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LedgerRoleName']]]):
         pulumi.set(self, "ledger_role_name", value)
 
 
@@ -164,7 +164,7 @@ class CertificateTagsArgsDict(TypedDict):
     """
     Tags for Managed CCF Certificates
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Additional tags for Managed CCF Certificates
     """
@@ -172,7 +172,7 @@ class CertificateTagsArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateTagsArgs:
     def __init__(__self__, *,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Tags for Managed CCF Certificates
 
@@ -183,14 +183,14 @@ class CertificateTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional tags for Managed CCF Certificates
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -198,11 +198,11 @@ class DeploymentTypeArgsDict(TypedDict):
     """
     Object representing DeploymentType for Managed CCF.
     """
-    app_source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    app_source_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source Uri containing ManagedCCF code
     """
-    language_runtime: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageRuntime']]]
+    language_runtime: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LanguageRuntime']]]]
     """
     Unique name for the Managed CCF.
     """
@@ -210,8 +210,8 @@ class DeploymentTypeArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentTypeArgs:
     def __init__(__self__, *,
-                 app_source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 language_runtime: Optional[pulumi.Input[Union[_builtins.str, 'LanguageRuntime']]] = None):
+                 app_source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 language_runtime: pulumi.Input[Optional[Union[_builtins.str, 'LanguageRuntime']]] = None):
         """
         Object representing DeploymentType for Managed CCF.
 
@@ -225,26 +225,26 @@ class DeploymentTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSourceUri")
-    def app_source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source Uri containing ManagedCCF code
         """
         return pulumi.get(self, "app_source_uri")
 
     @app_source_uri.setter
-    def app_source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_source_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="languageRuntime")
-    def language_runtime(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LanguageRuntime']]]:
+    def language_runtime(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LanguageRuntime']]]:
         """
         Unique name for the Managed CCF.
         """
         return pulumi.get(self, "language_runtime")
 
     @language_runtime.setter
-    def language_runtime(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LanguageRuntime']]]):
+    def language_runtime(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LanguageRuntime']]]):
         pulumi.set(self, "language_runtime", value)
 
 
@@ -252,23 +252,23 @@ class LedgerPropertiesArgsDict(TypedDict):
     """
     Additional Confidential Ledger properties.
     """
-    aad_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgsDict']]]]
+    aad_based_security_principals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgsDict']]]]]
     """
     Array of all AAD based Security Principals.
     """
-    cert_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgsDict']]]]
+    cert_based_security_principals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgsDict']]]]]
     """
     Array of all cert based Security Principals.
     """
-    ledger_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'LedgerSku']]]
+    ledger_sku: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LedgerSku']]]]
     """
     SKU associated with the ledger
     """
-    ledger_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LedgerType']]]
+    ledger_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LedgerType']]]]
     """
     Type of Confidential Ledger
     """
-    running_state: NotRequired[pulumi.Input[Union[_builtins.str, 'RunningState']]]
+    running_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]]
     """
     Object representing RunningState for Ledger.
     """
@@ -276,11 +276,11 @@ class LedgerPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class LedgerPropertiesArgs:
     def __init__(__self__, *,
-                 aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
-                 cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
-                 ledger_sku: Optional[pulumi.Input[Union[_builtins.str, 'LedgerSku']]] = None,
-                 ledger_type: Optional[pulumi.Input[Union[_builtins.str, 'LedgerType']]] = None,
-                 running_state: Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]] = None):
+                 aad_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
+                 cert_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
+                 ledger_sku: pulumi.Input[Optional[Union[_builtins.str, 'LedgerSku']]] = None,
+                 ledger_type: pulumi.Input[Optional[Union[_builtins.str, 'LedgerType']]] = None,
+                 running_state: pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]] = None):
         """
         Additional Confidential Ledger properties.
 
@@ -303,62 +303,62 @@ class LedgerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadBasedSecurityPrincipals")
-    def aad_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]]:
+    def aad_based_security_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]]:
         """
         Array of all AAD based Security Principals.
         """
         return pulumi.get(self, "aad_based_security_principals")
 
     @aad_based_security_principals.setter
-    def aad_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]]):
+    def aad_based_security_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "aad_based_security_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="certBasedSecurityPrincipals")
-    def cert_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]:
+    def cert_based_security_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]:
         """
         Array of all cert based Security Principals.
         """
         return pulumi.get(self, "cert_based_security_principals")
 
     @cert_based_security_principals.setter
-    def cert_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]):
+    def cert_based_security_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "cert_based_security_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerSku")
-    def ledger_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LedgerSku']]]:
+    def ledger_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LedgerSku']]]:
         """
         SKU associated with the ledger
         """
         return pulumi.get(self, "ledger_sku")
 
     @ledger_sku.setter
-    def ledger_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LedgerSku']]]):
+    def ledger_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LedgerSku']]]):
         pulumi.set(self, "ledger_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerType")
-    def ledger_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LedgerType']]]:
+    def ledger_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LedgerType']]]:
         """
         Type of Confidential Ledger
         """
         return pulumi.get(self, "ledger_type")
 
     @ledger_type.setter
-    def ledger_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LedgerType']]]):
+    def ledger_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LedgerType']]]):
         pulumi.set(self, "ledger_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runningState")
-    def running_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]]:
+    def running_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]:
         """
         Object representing RunningState for Ledger.
         """
         return pulumi.get(self, "running_state")
 
     @running_state.setter
-    def running_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]]):
+    def running_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]):
         pulumi.set(self, "running_state", value)
 
 
@@ -366,19 +366,19 @@ class ManagedCCFPropertiesArgsDict(TypedDict):
     """
     Additional Managed CCF properties.
     """
-    deployment_type: NotRequired[pulumi.Input['DeploymentTypeArgsDict']]
+    deployment_type: NotRequired[pulumi.Input[Optional['DeploymentTypeArgsDict']]]
     """
     Deployment Type of Managed CCF
     """
-    member_identity_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgsDict']]]]
+    member_identity_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MemberIdentityCertificateArgsDict']]]]]
     """
     List of member identity certificates for  Managed CCF
     """
-    node_count: NotRequired[pulumi.Input[_builtins.int]]
+    node_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of CCF nodes in the Managed CCF.
     """
-    running_state: NotRequired[pulumi.Input[Union[_builtins.str, 'RunningState']]]
+    running_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]]
     """
     Object representing RunningState for Managed CCF.
     """
@@ -386,10 +386,10 @@ class ManagedCCFPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedCCFPropertiesArgs:
     def __init__(__self__, *,
-                 deployment_type: Optional[pulumi.Input['DeploymentTypeArgs']] = None,
-                 member_identity_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 running_state: Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]] = None):
+                 deployment_type: pulumi.Input[Optional['DeploymentTypeArgs']] = None,
+                 member_identity_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 running_state: pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]] = None):
         """
         Additional Managed CCF properties.
 
@@ -409,50 +409,50 @@ class ManagedCCFPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input['DeploymentTypeArgs']]:
+    def deployment_type(self) -> pulumi.Input[Optional['DeploymentTypeArgs']]:
         """
         Deployment Type of Managed CCF
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input['DeploymentTypeArgs']]):
+    def deployment_type(self, value: pulumi.Input[Optional['DeploymentTypeArgs']]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="memberIdentityCertificates")
-    def member_identity_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]:
+    def member_identity_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]:
         """
         List of member identity certificates for  Managed CCF
         """
         return pulumi.get(self, "member_identity_certificates")
 
     @member_identity_certificates.setter
-    def member_identity_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]):
+    def member_identity_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]):
         pulumi.set(self, "member_identity_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of CCF nodes in the Managed CCF.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="runningState")
-    def running_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]]:
+    def running_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]:
         """
         Object representing RunningState for Managed CCF.
         """
         return pulumi.get(self, "running_state")
 
     @running_state.setter
-    def running_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RunningState']]]):
+    def running_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RunningState']]]):
         pulumi.set(self, "running_state", value)
 
 
@@ -460,22 +460,22 @@ class MemberIdentityCertificateArgsDict(TypedDict):
     """
     Object representing MemberIdentityCertificate for Managed CCF.
     """
-    certificate: NotRequired[pulumi.Input[_builtins.str]]
+    certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Member Identity Certificate
     """
-    encryptionkey: NotRequired[pulumi.Input[_builtins.str]]
+    encryptionkey: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Member Identity Certificate Encryption Key
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateTagsArgsDict']]]]]
 
 @pulumi.input_type
 class MemberIdentityCertificateArgs:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryptionkey: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryptionkey: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateTagsArgs']]]] = None):
         """
         Object representing MemberIdentityCertificate for Managed CCF.
 
@@ -491,35 +491,35 @@ class MemberIdentityCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Member Identity Certificate
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryptionkey(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryptionkey(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Member Identity Certificate Encryption Key
         """
         return pulumi.get(self, "encryptionkey")
 
     @encryptionkey.setter
-    def encryptionkey(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryptionkey(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryptionkey", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateTagsArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateTagsArgs']]]]):
         pulumi.set(self, "tags", value)
 
 

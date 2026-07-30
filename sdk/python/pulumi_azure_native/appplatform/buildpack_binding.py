@@ -26,8 +26,8 @@ class BuildpackBindingArgs:
                  builder_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 buildpack_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BuildpackBindingPropertiesArgs']] = None):
+                 buildpack_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BuildpackBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildpackBinding resource.
 
@@ -97,26 +97,26 @@ class BuildpackBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildpackBindingName")
-    def buildpack_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def buildpack_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Buildpack Binding Name
         """
         return pulumi.get(self, "buildpack_binding_name")
 
     @buildpack_binding_name.setter
-    def buildpack_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def buildpack_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "buildpack_binding_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BuildpackBindingPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BuildpackBindingPropertiesArgs']]:
         """
         Properties of a buildpack binding
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BuildpackBindingPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BuildpackBindingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class BuildpackBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 buildpack_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BuildpackBindingPropertiesArgs', 'BuildpackBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 buildpack_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BuildpackBindingPropertiesArgs', 'BuildpackBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Buildpack Binding Resource object
@@ -139,7 +139,6 @@ class BuildpackBinding(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class BuildpackBinding(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BuildpackBindingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class BuildpackBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 buildpack_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BuildpackBindingPropertiesArgs', 'BuildpackBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 buildpack_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BuildpackBindingPropertiesArgs', 'BuildpackBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

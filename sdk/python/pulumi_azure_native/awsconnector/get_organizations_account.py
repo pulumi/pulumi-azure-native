@@ -142,7 +142,6 @@ def get_organizations_account(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-12-01.
 
-
     :param _builtins.str name: Name of OrganizationsAccount
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -161,14 +160,13 @@ def get_organizations_account(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_organizations_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organizations_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationsAccountResult]:
     """
     Get a OrganizationsAccount
 
     Uses Azure REST API version 2024-12-01.
-
 
     :param _builtins.str name: Name of OrganizationsAccount
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

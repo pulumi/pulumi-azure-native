@@ -32,10 +32,10 @@ __all__ = [
     'WebTestPropertiesConfigurationArgsDict',
     'WebTestPropertiesRequestArgs',
     'WebTestPropertiesRequestArgsDict',
-    'WebTestPropertiesValidationRulesContentValidationArgs',
-    'WebTestPropertiesValidationRulesContentValidationArgsDict',
     'WebTestPropertiesValidationRulesArgs',
     'WebTestPropertiesValidationRulesArgsDict',
+    'WebTestPropertiesValidationRulesContentValidationArgs',
+    'WebTestPropertiesValidationRulesContentValidationArgsDict',
     'WorkbookResourceIdentityArgs',
     'WorkbookResourceIdentityArgsDict',
     'WorkbookTemplateGalleryArgs',
@@ -48,7 +48,7 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict(TypedDict):
     """
     A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
     """
-    function_alias: NotRequired[pulumi.Input[_builtins.str]]
+    function_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A function alias, used when the type of the item is Function
     """
@@ -56,7 +56,7 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
     def __init__(__self__, *,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 
@@ -67,14 +67,14 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A function alias, used when the type of the item is Function
         """
         return pulumi.get(self, "function_alias")
 
     @function_alias.setter
-    def function_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_alias", value)
 
 
@@ -82,19 +82,19 @@ class ApplicationInsightsComponentDataVolumeCapArgsDict(TypedDict):
     """
     An Application Insights component daily data volume cap
     """
-    cap: NotRequired[pulumi.Input[_builtins.float]]
+    cap: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Daily data volume cap in GB.
     """
-    stop_send_notification_when_hit_cap: NotRequired[pulumi.Input[_builtins.bool]]
+    stop_send_notification_when_hit_cap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Do not send a notification email when the daily data volume cap is met.
     """
-    stop_send_notification_when_hit_threshold: NotRequired[pulumi.Input[_builtins.bool]]
+    stop_send_notification_when_hit_threshold: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Reserved, not used for now.
     """
-    warning_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    warning_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Reserved, not used for now.
     """
@@ -102,10 +102,10 @@ class ApplicationInsightsComponentDataVolumeCapArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationInsightsComponentDataVolumeCapArgs:
     def __init__(__self__, *,
-                 cap: Optional[pulumi.Input[_builtins.float]] = None,
-                 stop_send_notification_when_hit_cap: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stop_send_notification_when_hit_threshold: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 cap: pulumi.Input[Optional[_builtins.float]] = None,
+                 stop_send_notification_when_hit_cap: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stop_send_notification_when_hit_threshold: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An Application Insights component daily data volume cap
 
@@ -125,50 +125,50 @@ class ApplicationInsightsComponentDataVolumeCapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cap(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def cap(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Daily data volume cap in GB.
         """
         return pulumi.get(self, "cap")
 
     @cap.setter
-    def cap(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def cap(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "cap", value)
 
     @_builtins.property
     @pulumi.getter(name="stopSendNotificationWhenHitCap")
-    def stop_send_notification_when_hit_cap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stop_send_notification_when_hit_cap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not send a notification email when the daily data volume cap is met.
         """
         return pulumi.get(self, "stop_send_notification_when_hit_cap")
 
     @stop_send_notification_when_hit_cap.setter
-    def stop_send_notification_when_hit_cap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stop_send_notification_when_hit_cap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stop_send_notification_when_hit_cap", value)
 
     @_builtins.property
     @pulumi.getter(name="stopSendNotificationWhenHitThreshold")
-    def stop_send_notification_when_hit_threshold(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stop_send_notification_when_hit_threshold(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Reserved, not used for now.
         """
         return pulumi.get(self, "stop_send_notification_when_hit_threshold")
 
     @stop_send_notification_when_hit_threshold.setter
-    def stop_send_notification_when_hit_threshold(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stop_send_notification_when_hit_threshold(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stop_send_notification_when_hit_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Reserved, not used for now.
         """
         return pulumi.get(self, "warning_threshold")
 
     @warning_threshold.setter
-    def warning_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warning_threshold", value)
 
 
@@ -176,35 +176,35 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleD
     """
     Static definitions of the ProactiveDetection configuration rule (same values for all components).
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule description
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule name as it is displayed in UI
     """
-    help_url: NotRequired[pulumi.Input[_builtins.str]]
+    help_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL which displays additional info about the proactive detection rule
     """
-    is_enabled_by_default: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled_by_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag indicating whether the rule is enabled by default
     """
-    is_hidden: NotRequired[pulumi.Input[_builtins.bool]]
+    is_hidden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag indicating whether the rule is hidden (from the UI)
     """
-    is_in_preview: NotRequired[pulumi.Input[_builtins.bool]]
+    is_in_preview: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag indicating whether the rule is in preview
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule name
     """
-    supports_email_notifications: NotRequired[pulumi.Input[_builtins.bool]]
+    supports_email_notifications: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag indicating whether email notifications are supported for detections for this rule
     """
@@ -212,14 +212,14 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleD
 @pulumi.input_type
 class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 help_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_hidden: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_in_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supports_email_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 help_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_hidden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_in_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supports_email_notifications: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
 
@@ -251,98 +251,98 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleD
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule name as it is displayed in UI
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="helpUrl")
-    def help_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def help_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL which displays additional info about the proactive detection rule
         """
         return pulumi.get(self, "help_url")
 
     @help_url.setter
-    def help_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def help_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "help_url", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabledByDefault")
-    def is_enabled_by_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled_by_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether the rule is enabled by default
         """
         return pulumi.get(self, "is_enabled_by_default")
 
     @is_enabled_by_default.setter
-    def is_enabled_by_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled_by_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled_by_default", value)
 
     @_builtins.property
     @pulumi.getter(name="isHidden")
-    def is_hidden(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_hidden(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether the rule is hidden (from the UI)
         """
         return pulumi.get(self, "is_hidden")
 
     @is_hidden.setter
-    def is_hidden(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_hidden(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_hidden", value)
 
     @_builtins.property
     @pulumi.getter(name="isInPreview")
-    def is_in_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_in_preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether the rule is in preview
         """
         return pulumi.get(self, "is_in_preview")
 
     @is_in_preview.setter
-    def is_in_preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_in_preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_in_preview", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportsEmailNotifications")
-    def supports_email_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports_email_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether email notifications are supported for detections for this rule
         """
         return pulumi.get(self, "supports_email_notifications")
 
     @supports_email_notifications.setter
-    def supports_email_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports_email_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports_email_notifications", value)
 
 
@@ -350,11 +350,11 @@ class HeaderFieldArgsDict(TypedDict):
     """
     A header to add to the WebTest.
     """
-    header_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    header_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the header.
     """
-    header_field_value: NotRequired[pulumi.Input[_builtins.str]]
+    header_field_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the header.
     """
@@ -362,8 +362,8 @@ class HeaderFieldArgsDict(TypedDict):
 @pulumi.input_type
 class HeaderFieldArgs:
     def __init__(__self__, *,
-                 header_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 header_field_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 header_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 header_field_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A header to add to the WebTest.
 
@@ -377,26 +377,26 @@ class HeaderFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="headerFieldName")
-    def header_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def header_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the header.
         """
         return pulumi.get(self, "header_field_name")
 
     @header_field_name.setter
-    def header_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def header_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "header_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="headerFieldValue")
-    def header_field_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def header_field_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the header.
         """
         return pulumi.get(self, "header_field_value")
 
     @header_field_value.setter
-    def header_field_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def header_field_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "header_field_value", value)
 
 
@@ -404,7 +404,7 @@ class MyWorkbookManagedIdentityArgsDict(TypedDict):
     """
     Customer Managed Identity
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identity type.
     """
@@ -412,7 +412,7 @@ class MyWorkbookManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class MyWorkbookManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Customer Managed Identity
 
@@ -423,14 +423,14 @@ class MyWorkbookManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -438,7 +438,7 @@ class WebTestGeolocationArgsDict(TypedDict):
     """
     Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location ID for the WebTest to run from.
     """
@@ -446,7 +446,7 @@ class WebTestGeolocationArgsDict(TypedDict):
 @pulumi.input_type
 class WebTestGeolocationArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 
@@ -457,14 +457,14 @@ class WebTestGeolocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location ID for the WebTest to run from.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
@@ -472,7 +472,7 @@ class WebTestPropertiesConfigurationArgsDict(TypedDict):
     """
     An XML configuration specification for a WebTest.
     """
-    web_test: NotRequired[pulumi.Input[_builtins.str]]
+    web_test: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The XML specification of a WebTest to run against an application.
     """
@@ -480,7 +480,7 @@ class WebTestPropertiesConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WebTestPropertiesConfigurationArgs:
     def __init__(__self__, *,
-                 web_test: Optional[pulumi.Input[_builtins.str]] = None):
+                 web_test: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An XML configuration specification for a WebTest.
 
@@ -491,14 +491,14 @@ class WebTestPropertiesConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="webTest")
-    def web_test(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_test(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML specification of a WebTest to run against an application.
         """
         return pulumi.get(self, "web_test")
 
     @web_test.setter
-    def web_test(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_test(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_test", value)
 
 
@@ -506,27 +506,27 @@ class WebTestPropertiesRequestArgsDict(TypedDict):
     """
     The collection of request properties
     """
-    follow_redirects: NotRequired[pulumi.Input[_builtins.bool]]
+    follow_redirects: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Follow redirects for this web test.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HeaderFieldArgsDict']]]]]
     """
     List of headers and their values to add to the WebTest call.
     """
-    http_verb: NotRequired[pulumi.Input[_builtins.str]]
+    http_verb: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Http verb to use for this web test.
     """
-    parse_dependent_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    parse_dependent_requests: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Parse Dependent request for this WebTest.
     """
-    request_body: NotRequired[pulumi.Input[_builtins.str]]
+    request_body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64 encoded string body to send with this web test.
     """
-    request_url: NotRequired[pulumi.Input[_builtins.str]]
+    request_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Url location to test.
     """
@@ -534,12 +534,12 @@ class WebTestPropertiesRequestArgsDict(TypedDict):
 @pulumi.input_type
 class WebTestPropertiesRequestArgs:
     def __init__(__self__, *,
-                 follow_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgs']]]] = None,
-                 http_verb: Optional[pulumi.Input[_builtins.str]] = None,
-                 parse_dependent_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 follow_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['HeaderFieldArgs']]]] = None,
+                 http_verb: pulumi.Input[Optional[_builtins.str]] = None,
+                 parse_dependent_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The collection of request properties
 
@@ -565,172 +565,98 @@ class WebTestPropertiesRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="followRedirects")
-    def follow_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def follow_redirects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Follow redirects for this web test.
         """
         return pulumi.get(self, "follow_redirects")
 
     @follow_redirects.setter
-    def follow_redirects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def follow_redirects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "follow_redirects", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HeaderFieldArgs']]]]:
         """
         List of headers and their values to add to the WebTest call.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HeaderFieldArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="httpVerb")
-    def http_verb(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_verb(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Http verb to use for this web test.
         """
         return pulumi.get(self, "http_verb")
 
     @http_verb.setter
-    def http_verb(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_verb(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_verb", value)
 
     @_builtins.property
     @pulumi.getter(name="parseDependentRequests")
-    def parse_dependent_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def parse_dependent_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Parse Dependent request for this WebTest.
         """
         return pulumi.get(self, "parse_dependent_requests")
 
     @parse_dependent_requests.setter
-    def parse_dependent_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def parse_dependent_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "parse_dependent_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded string body to send with this web test.
         """
         return pulumi.get(self, "request_body")
 
     @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="requestUrl")
-    def request_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url location to test.
         """
         return pulumi.get(self, "request_url")
 
     @request_url.setter
-    def request_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_url", value)
-
-
-class WebTestPropertiesValidationRulesContentValidationArgsDict(TypedDict):
-    """
-    The collection of content validation properties
-    """
-    content_match: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Content to look for in the return of the WebTest.  Must not be null or empty.
-    """
-    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    When set, this value makes the ContentMatch validation case insensitive.
-    """
-    pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-    """
-
-@pulumi.input_type
-class WebTestPropertiesValidationRulesContentValidationArgs:
-    def __init__(__self__, *,
-                 content_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pass_if_text_found: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The collection of content validation properties
-
-        :param pulumi.Input[_builtins.str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
-        :param pulumi.Input[_builtins.bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
-        :param pulumi.Input[_builtins.bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        if content_match is not None:
-            pulumi.set(__self__, "content_match", content_match)
-        if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
-        if pass_if_text_found is not None:
-            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
-
-    @_builtins.property
-    @pulumi.getter(name="contentMatch")
-    def content_match(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Content to look for in the return of the WebTest.  Must not be null or empty.
-        """
-        return pulumi.get(self, "content_match")
-
-    @content_match.setter
-    def content_match(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "content_match", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ignoreCase")
-    def ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set, this value makes the ContentMatch validation case insensitive.
-        """
-        return pulumi.get(self, "ignore_case")
-
-    @ignore_case.setter
-    def ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "ignore_case", value)
-
-    @_builtins.property
-    @pulumi.getter(name="passIfTextFound")
-    def pass_if_text_found(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        return pulumi.get(self, "pass_if_text_found")
-
-    @pass_if_text_found.setter
-    def pass_if_text_found(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "pass_if_text_found", value)
 
 
 class WebTestPropertiesValidationRulesArgsDict(TypedDict):
     """
     The collection of validation rule properties
     """
-    content_validation: NotRequired[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgsDict']]
+    content_validation: NotRequired[pulumi.Input[Optional['WebTestPropertiesValidationRulesContentValidationArgsDict']]]
     """
     The collection of content validation properties
     """
-    expected_http_status_code: NotRequired[pulumi.Input[_builtins.int]]
+    expected_http_status_code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Validate that the WebTest returns the http status code provided.
     """
-    ignore_http_status_code: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_http_status_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set, validation will ignore the status code.
     """
-    s_sl_cert_remaining_lifetime_check: NotRequired[pulumi.Input[_builtins.int]]
+    s_sl_cert_remaining_lifetime_check: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
     """
-    s_sl_check: NotRequired[pulumi.Input[_builtins.bool]]
+    s_sl_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Checks to see if the SSL cert is still valid.
     """
@@ -738,11 +664,11 @@ class WebTestPropertiesValidationRulesArgsDict(TypedDict):
 @pulumi.input_type
 class WebTestPropertiesValidationRulesArgs:
     def __init__(__self__, *,
-                 content_validation: Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']] = None,
-                 expected_http_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 ignore_http_status_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[_builtins.int]] = None,
-                 s_sl_check: Optional[pulumi.Input[_builtins.bool]] = None):
+                 content_validation: pulumi.Input[Optional['WebTestPropertiesValidationRulesContentValidationArgs']] = None,
+                 expected_http_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 ignore_http_status_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s_sl_cert_remaining_lifetime_check: pulumi.Input[Optional[_builtins.int]] = None,
+                 s_sl_check: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The collection of validation rule properties
 
@@ -765,63 +691,137 @@ class WebTestPropertiesValidationRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentValidation")
-    def content_validation(self) -> Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']]:
+    def content_validation(self) -> pulumi.Input[Optional['WebTestPropertiesValidationRulesContentValidationArgs']]:
         """
         The collection of content validation properties
         """
         return pulumi.get(self, "content_validation")
 
     @content_validation.setter
-    def content_validation(self, value: Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']]):
+    def content_validation(self, value: pulumi.Input[Optional['WebTestPropertiesValidationRulesContentValidationArgs']]):
         pulumi.set(self, "content_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedHttpStatusCode")
-    def expected_http_status_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_http_status_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Validate that the WebTest returns the http status code provided.
         """
         return pulumi.get(self, "expected_http_status_code")
 
     @expected_http_status_code.setter
-    def expected_http_status_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_http_status_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_http_status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreHttpStatusCode")
-    def ignore_http_status_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_http_status_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, validation will ignore the status code.
         """
         return pulumi.get(self, "ignore_http_status_code")
 
     @ignore_http_status_code.setter
-    def ignore_http_status_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_http_status_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_http_status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="sSLCertRemainingLifetimeCheck")
-    def s_sl_cert_remaining_lifetime_check(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def s_sl_cert_remaining_lifetime_check(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
         """
         return pulumi.get(self, "s_sl_cert_remaining_lifetime_check")
 
     @s_sl_cert_remaining_lifetime_check.setter
-    def s_sl_cert_remaining_lifetime_check(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def s_sl_cert_remaining_lifetime_check(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "s_sl_cert_remaining_lifetime_check", value)
 
     @_builtins.property
     @pulumi.getter(name="sSLCheck")
-    def s_sl_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def s_sl_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Checks to see if the SSL cert is still valid.
         """
         return pulumi.get(self, "s_sl_check")
 
     @s_sl_check.setter
-    def s_sl_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def s_sl_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "s_sl_check", value)
+
+
+class WebTestPropertiesValidationRulesContentValidationArgsDict(TypedDict):
+    """
+    The collection of content validation properties
+    """
+    content_match: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Content to look for in the return of the WebTest.  Must not be null or empty.
+    """
+    ignore_case: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set, this value makes the ContentMatch validation case insensitive.
+    """
+    pass_if_text_found: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+    """
+
+@pulumi.input_type
+class WebTestPropertiesValidationRulesContentValidationArgs:
+    def __init__(__self__, *,
+                 content_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pass_if_text_found: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The collection of content validation properties
+
+        :param pulumi.Input[_builtins.str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
+        :param pulumi.Input[_builtins.bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
+        :param pulumi.Input[_builtins.bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        if content_match is not None:
+            pulumi.set(__self__, "content_match", content_match)
+        if ignore_case is not None:
+            pulumi.set(__self__, "ignore_case", ignore_case)
+        if pass_if_text_found is not None:
+            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+
+    @_builtins.property
+    @pulumi.getter(name="contentMatch")
+    def content_match(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Content to look for in the return of the WebTest.  Must not be null or empty.
+        """
+        return pulumi.get(self, "content_match")
+
+    @content_match.setter
+    def content_match(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_match", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCase")
+    def ignore_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set, this value makes the ContentMatch validation case insensitive.
+        """
+        return pulumi.get(self, "ignore_case")
+
+    @ignore_case.setter
+    def ignore_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ignore_case", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passIfTextFound")
+    def pass_if_text_found(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        return pulumi.get(self, "pass_if_text_found")
+
+    @pass_if_text_found.setter
+    def pass_if_text_found(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "pass_if_text_found", value)
 
 
 class WorkbookResourceIdentityArgsDict(TypedDict):
@@ -832,7 +832,7 @@ class WorkbookResourceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -841,7 +841,7 @@ class WorkbookResourceIdentityArgsDict(TypedDict):
 class WorkbookResourceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity used for BYOS
 
@@ -866,14 +866,14 @@ class WorkbookResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -881,23 +881,23 @@ class WorkbookTemplateGalleryArgsDict(TypedDict):
     """
     Gallery information for a workbook template.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Category for the gallery.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the workbook template in the gallery.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order of the template within the gallery.
     """
-    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure resource type supported by the gallery.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of workbook supported by the workbook template.
     """
@@ -905,11 +905,11 @@ class WorkbookTemplateGalleryArgsDict(TypedDict):
 @pulumi.input_type
 class WorkbookTemplateGalleryArgs:
     def __init__(__self__, *,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Gallery information for a workbook template.
 
@@ -932,62 +932,62 @@ class WorkbookTemplateGalleryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Category for the gallery.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workbook template in the gallery.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order of the template within the gallery.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource type supported by the gallery.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of workbook supported by the workbook template.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -995,7 +995,7 @@ class WorkbookTemplateLocalizedGalleryArgsDict(TypedDict):
     """
     Localized template data and gallery information.
     """
-    galleries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgsDict']]]]
+    galleries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgsDict']]]]]
     """
     Workbook galleries supported by the template.
     """
@@ -1007,7 +1007,7 @@ class WorkbookTemplateLocalizedGalleryArgsDict(TypedDict):
 @pulumi.input_type
 class WorkbookTemplateLocalizedGalleryArgs:
     def __init__(__self__, *,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
                  template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
@@ -1022,14 +1022,14 @@ class WorkbookTemplateLocalizedGalleryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def galleries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
+    def galleries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
         """
         Workbook galleries supported by the template.
         """
         return pulumi.get(self, "galleries")
 
     @galleries.setter
-    def galleries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
+    def galleries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
         pulumi.set(self, "galleries", value)
 
     @_builtins.property

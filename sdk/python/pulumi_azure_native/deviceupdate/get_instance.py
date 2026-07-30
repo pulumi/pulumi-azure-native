@@ -191,7 +191,6 @@ def get_instance(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-07-01.
 
-
     :param _builtins.str account_name: Account name.
     :param _builtins.str instance_name: Instance name.
     :param _builtins.str resource_group_name: The resource group name.
@@ -216,15 +215,14 @@ def get_instance(account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_instance_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Returns instance details for the given instance and account name.
 
     Uses Azure REST API version 2023-07-01.
-
 
     :param _builtins.str account_name: Account name.
     :param _builtins.str instance_name: Instance name.

@@ -23,26 +23,26 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup: Optional[pulumi.Input['BackupArgs']] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
-                 high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['MySQLServerIdentityArgs']] = None,
-                 import_source_properties: Optional[pulumi.Input['ImportSourcePropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
-                 network: Optional[pulumi.Input['NetworkArgs']] = None,
-                 replication_role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['MySQLServerSkuArgs']] = None,
-                 source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input['StorageArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup: pulumi.Input[Optional['BackupArgs']] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 data_encryption: pulumi.Input[Optional['DataEncryptionArgs']] = None,
+                 high_availability: pulumi.Input[Optional['HighAvailabilityArgs']] = None,
+                 identity: pulumi.Input[Optional['MySQLServerIdentityArgs']] = None,
+                 import_source_properties: pulumi.Input[Optional['ImportSourcePropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['MaintenanceWindowArgs']] = None,
+                 network: pulumi.Input[Optional['NetworkArgs']] = None,
+                 replication_role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['MySQLServerSkuArgs']] = None,
+                 source_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional['StorageArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'ServerVersion']]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -124,242 +124,242 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the administrator login (required for server creation).
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         availability Zone information of the server.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['BackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['BackupArgs']]:
         """
         Backup related properties of a server.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['BackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['BackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]:
         """
         The mode to create a new MySQL server.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncryption")
-    def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
+    def data_encryption(self) -> pulumi.Input[Optional['DataEncryptionArgs']]:
         """
         The Data Encryption for CMK.
         """
         return pulumi.get(self, "data_encryption")
 
     @data_encryption.setter
-    def data_encryption(self, value: Optional[pulumi.Input['DataEncryptionArgs']]):
+    def data_encryption(self, value: pulumi.Input[Optional['DataEncryptionArgs']]):
         pulumi.set(self, "data_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailability")
-    def high_availability(self) -> Optional[pulumi.Input['HighAvailabilityArgs']]:
+    def high_availability(self) -> pulumi.Input[Optional['HighAvailabilityArgs']]:
         """
         High availability related properties of a server.
         """
         return pulumi.get(self, "high_availability")
 
     @high_availability.setter
-    def high_availability(self, value: Optional[pulumi.Input['HighAvailabilityArgs']]):
+    def high_availability(self, value: pulumi.Input[Optional['HighAvailabilityArgs']]):
         pulumi.set(self, "high_availability", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MySQLServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MySQLServerIdentityArgs']]:
         """
         The cmk identity for the server.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MySQLServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MySQLServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="importSourceProperties")
-    def import_source_properties(self) -> Optional[pulumi.Input['ImportSourcePropertiesArgs']]:
+    def import_source_properties(self) -> pulumi.Input[Optional['ImportSourcePropertiesArgs']]:
         """
         Source properties for import from storage.
         """
         return pulumi.get(self, "import_source_properties")
 
     @import_source_properties.setter
-    def import_source_properties(self, value: Optional[pulumi.Input['ImportSourcePropertiesArgs']]):
+    def import_source_properties(self, value: pulumi.Input[Optional['ImportSourcePropertiesArgs']]):
         pulumi.set(self, "import_source_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['MaintenanceWindowArgs']]:
         """
         Maintenance window of a server.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['MaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['MaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['NetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['NetworkArgs']]:
         """
         Network related properties of a server.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['NetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['NetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationRole")
-    def replication_role(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]:
+    def replication_role(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]]:
         """
         The replication role.
         """
         return pulumi.get(self, "replication_role")
 
     @replication_role.setter
-    def replication_role(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]):
+    def replication_role(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]]):
         pulumi.set(self, "replication_role", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Restore point creation time (ISO8601 format), specifying the time to restore from.
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the server.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['MySQLServerSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['MySQLServerSkuArgs']]:
         """
         The SKU (pricing tier) of the server.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['MySQLServerSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['MySQLServerSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerResourceId")
-    def source_server_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source MySQL server id.
         """
         return pulumi.get(self, "source_server_resource_id")
 
     @source_server_resource_id.setter
-    def source_server_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['StorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['StorageArgs']]:
         """
         Storage related properties of a server.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['StorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['StorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]]:
+    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]]):
+    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -369,27 +369,27 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
-                 high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
-                 import_source_properties: Optional[pulumi.Input[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
-                 replication_role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
-                 source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup: pulumi.Input[Optional[Union['BackupArgs', 'BackupArgsDict']]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 data_encryption: pulumi.Input[Optional[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
+                 import_source_properties: pulumi.Input[Optional[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
+                 replication_role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
+                 source_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional[Union['StorageArgs', 'StorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'ServerVersion']]] = None,
                  __props__=None):
         """
         Represents a server.
@@ -397,7 +397,6 @@ class Server(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
         Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,7 +435,6 @@ class Server(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -452,27 +450,27 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
-                 high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
-                 import_source_properties: Optional[pulumi.Input[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
-                 replication_role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
-                 source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup: pulumi.Input[Optional[Union['BackupArgs', 'BackupArgsDict']]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 data_encryption: pulumi.Input[Optional[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
+                 import_source_properties: pulumi.Input[Optional[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
+                 replication_role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationRole']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
+                 source_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional[Union['StorageArgs', 'StorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[Union[_builtins.str, 'ServerVersion']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

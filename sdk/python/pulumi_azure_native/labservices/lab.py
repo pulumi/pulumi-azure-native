@@ -27,14 +27,14 @@ class LabArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_profile: pulumi.Input['SecurityProfileArgs'],
                  virtual_machine_profile: pulumi.Input['VirtualMachineProfileArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['LabNetworkProfileArgs']] = None,
-                 roster_profile: Optional[pulumi.Input['RosterProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['LabNetworkProfileArgs']] = None,
+                 roster_profile: pulumi.Input[Optional['RosterProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Lab resource.
 
@@ -136,98 +136,98 @@ class LabArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the lab.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         """
         return pulumi.get(self, "lab_name")
 
     @lab_name.setter
-    def lab_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labPlanId")
-    def lab_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         """
         return pulumi.get(self, "lab_plan_id")
 
     @lab_plan_id.setter
-    def lab_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_plan_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['LabNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['LabNetworkProfileArgs']]:
         """
         The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['LabNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['LabNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="rosterProfile")
-    def roster_profile(self) -> Optional[pulumi.Input['RosterProfileArgs']]:
+    def roster_profile(self) -> pulumi.Input[Optional['RosterProfileArgs']]:
         """
         The lab user list management profile.
         """
         return pulumi.get(self, "roster_profile")
 
     @roster_profile.setter
-    def roster_profile(self, value: Optional[pulumi.Input['RosterProfileArgs']]):
+    def roster_profile(self, value: pulumi.Input[Optional['RosterProfileArgs']]):
         pulumi.set(self, "roster_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the lab.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -237,19 +237,19 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
-                 connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roster_profile: Optional[pulumi.Input[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
+                 auto_shutdown_profile: pulumi.Input[Optional[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 connection_profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roster_profile: pulumi.Input[Optional[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_profile: pulumi.Input[Optional[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
                  __props__=None):
         """
         The lab resource.
@@ -257,7 +257,6 @@ class Lab(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,7 +287,6 @@ class Lab(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,19 +302,19 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
-                 connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roster_profile: Optional[pulumi.Input[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
+                 auto_shutdown_profile: pulumi.Input[Optional[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 connection_profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roster_profile: pulumi.Input[Optional[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_profile: pulumi.Input[Optional[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

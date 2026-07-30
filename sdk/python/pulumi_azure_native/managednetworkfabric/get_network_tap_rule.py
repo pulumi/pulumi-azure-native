@@ -264,7 +264,6 @@ def get_network_tap_rule(network_tap_rule_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_tap_rule_name: Name of the Network Tap Rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -293,8 +292,8 @@ def get_network_tap_rule(network_tap_rule_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tap_rules_url=pulumi.get(__ret__, 'tap_rules_url'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_tap_rule_output(network_tap_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
     """
     Get Network Tap Rule resource details.
@@ -302,7 +301,6 @@ def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-06-15.
 
     Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_tap_rule_name: Name of the Network Tap Rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

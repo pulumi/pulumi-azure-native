@@ -196,7 +196,6 @@ def get_key_value(config_store_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str config_store_name: The name of the configuration store.
     :param _builtins.str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -221,9 +220,9 @@ def get_key_value(config_store_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_key_value_output(config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         key_value_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_value_output(config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         key_value_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueResult]:
     """
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
@@ -231,7 +230,6 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[_builtins.str]
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str config_store_name: The name of the configuration store.
     :param _builtins.str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.

@@ -16,77 +16,23 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'EncryptionPropertiesIdentityArgs',
-    'EncryptionPropertiesIdentityArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
+    'EncryptionPropertiesIdentityArgs',
+    'EncryptionPropertiesIdentityArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
 ]
-
-class EncryptionPropertiesIdentityArgsDict(TypedDict):
-    """
-    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-    """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
-    """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-    """
-    Managed identity type to use for accessing encryption key Url.
-    """
-
-@pulumi.input_type
-class EncryptionPropertiesIdentityArgs:
-    def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-
-        :param pulumi.Input[_builtins.str] resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
-        :param pulumi.Input[Union[_builtins.str, 'Type']] type: Managed identity type to use for accessing encryption key Url.
-        """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
-        """
-        Managed identity type to use for accessing encryption key Url.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
-        pulumi.set(self, "type", value)
-
 
 class EncryptionPropertiesArgsDict(TypedDict):
     """
     Key and identity details for Customer Managed Key encryption of load test resource.
     """
-    identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['EncryptionPropertiesIdentityArgsDict']]]
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    key_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
     """
@@ -94,8 +40,8 @@ class EncryptionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionPropertiesArgs:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']] = None,
-                 key_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional['EncryptionPropertiesIdentityArgs']] = None,
+                 key_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Key and identity details for Customer Managed Key encryption of load test resource.
 
@@ -109,27 +55,81 @@ class EncryptionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EncryptionPropertiesIdentityArgs']]:
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EncryptionPropertiesIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUrl")
-    def key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
         return pulumi.get(self, "key_url")
 
     @key_url.setter
-    def key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_url", value)
+
+
+class EncryptionPropertiesIdentityArgsDict(TypedDict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+    """
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Type']]]]
+    """
+    Managed identity type to use for accessing encryption key Url.
+    """
+
+@pulumi.input_type
+class EncryptionPropertiesIdentityArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
+        :param pulumi.Input[_builtins.str] resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        :param pulumi.Input[Union[_builtins.str, 'Type']] type: Managed identity type to use for accessing encryption key Url.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Type']]]:
+        """
+        Managed identity type to use for accessing encryption key Url.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Type']]]):
+        pulumi.set(self, "type", value)
 
 
 class ManagedServiceIdentityArgsDict(TypedDict):
@@ -140,7 +140,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -149,7 +149,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -174,14 +174,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

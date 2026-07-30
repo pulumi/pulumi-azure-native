@@ -25,11 +25,11 @@ class ApiSourceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 api_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_api_management_source: Optional[pulumi.Input['AzureApiManagementSourceArgs']] = None,
-                 import_specification: Optional[pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
-                 target_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None):
+                 api_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_api_management_source: pulumi.Input[Optional['AzureApiManagementSourceArgs']] = None,
+                 import_specification: pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
+                 target_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lifecycle_stage: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]] = None):
         """
         The set of arguments for constructing a ApiSource resource.
 
@@ -96,62 +96,62 @@ class ApiSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiSourceName")
-    def api_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API.
         """
         return pulumi.get(self, "api_source_name")
 
     @api_source_name.setter
-    def api_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureApiManagementSource")
-    def azure_api_management_source(self) -> Optional[pulumi.Input['AzureApiManagementSourceArgs']]:
+    def azure_api_management_source(self) -> pulumi.Input[Optional['AzureApiManagementSourceArgs']]:
         """
         API source configuration for Azure API Management.
         """
         return pulumi.get(self, "azure_api_management_source")
 
     @azure_api_management_source.setter
-    def azure_api_management_source(self, value: Optional[pulumi.Input['AzureApiManagementSourceArgs']]):
+    def azure_api_management_source(self, value: pulumi.Input[Optional['AzureApiManagementSourceArgs']]):
         pulumi.set(self, "azure_api_management_source", value)
 
     @_builtins.property
     @pulumi.getter(name="importSpecification")
-    def import_specification(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']]]:
+    def import_specification(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]]:
         """
         Indicates if the specification should be imported along with metadata.
         """
         return pulumi.get(self, "import_specification")
 
     @import_specification.setter
-    def import_specification(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']]]):
+    def import_specification(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]]):
         pulumi.set(self, "import_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEnvironmentId")
-    def target_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target environment resource ID.
         """
         return pulumi.get(self, "target_environment_id")
 
     @target_environment_id.setter
-    def target_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetLifecycleStage")
-    def target_lifecycle_stage(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]]:
+    def target_lifecycle_stage(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]]:
         """
         The target lifecycle stage.
         """
         return pulumi.get(self, "target_lifecycle_stage")
 
     @target_lifecycle_stage.setter
-    def target_lifecycle_stage(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]]):
+    def target_lifecycle_stage(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]]):
         pulumi.set(self, "target_lifecycle_stage", value)
 
 
@@ -161,20 +161,19 @@ class ApiSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_api_management_source: Optional[pulumi.Input[Union['AzureApiManagementSourceArgs', 'AzureApiManagementSourceArgsDict']]] = None,
-                 import_specification: Optional[pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_api_management_source: pulumi.Input[Optional[Union['AzureApiManagementSourceArgs', 'AzureApiManagementSourceArgsDict']]] = None,
+                 import_specification: pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lifecycle_stage: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         API source entity.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class ApiSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ApiSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class ApiSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_api_management_source: Optional[pulumi.Input[Union['AzureApiManagementSourceArgs', 'AzureApiManagementSourceArgsDict']]] = None,
-                 import_specification: Optional[pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_api_management_source: pulumi.Input[Optional[Union['AzureApiManagementSourceArgs', 'AzureApiManagementSourceArgsDict']]] = None,
+                 import_specification: pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lifecycle_stage: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

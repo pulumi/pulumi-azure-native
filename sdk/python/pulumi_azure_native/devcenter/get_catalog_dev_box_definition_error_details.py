@@ -62,7 +62,6 @@ def get_catalog_dev_box_definition_error_details(catalog_name: Optional[_builtin
 
     Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str catalog_name: The name of the Catalog.
     :param _builtins.str dev_box_definition_name: The name of the Dev Box definition.
     :param _builtins.str dev_center_name: The name of the devcenter.
@@ -78,10 +77,10 @@ def get_catalog_dev_box_definition_error_details(catalog_name: Optional[_builtin
 
     return AwaitableGetCatalogDevBoxDefinitionErrorDetailsResult(
         errors=pulumi.get(__ret__, 'errors'))
-def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_catalog_dev_box_definition_error_details_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogDevBoxDefinitionErrorDetailsResult]:
     """
     Gets Catalog Devbox Definition error details
@@ -89,7 +88,6 @@ def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[p
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str catalog_name: The name of the Catalog.
     :param _builtins.str dev_box_definition_name: The name of the Dev Box definition.

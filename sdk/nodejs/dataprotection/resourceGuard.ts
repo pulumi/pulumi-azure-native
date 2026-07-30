@@ -120,15 +120,15 @@ export interface ResourceGuardArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ResourceGuardResource properties
      */
-    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardArgs>;
+    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,9 +136,9 @@ export interface ResourceGuardArgs {
     /**
      * The name of ResourceGuard
      */
-    resourceGuardsName?: pulumi.Input<string>;
+    resourceGuardsName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -24,11 +24,11 @@ class NamedValueArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
-                 named_value_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']] = None,
+                 named_value_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamedValue resource.
 
@@ -93,62 +93,62 @@ class NamedValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]:
+    def key_vault(self) -> pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]:
         """
         KeyVault location details of the namedValue.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]):
+    def key_vault(self, value: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="namedValueId")
-    def named_value_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def named_value_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the NamedValue.
         """
         return pulumi.get(self, "named_value_id")
 
     @named_value_id.setter
-    def named_value_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def named_value_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "named_value_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the value is a secret and should be encrypted or not. Default value is false.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional tags that when provided can be used to filter the NamedValue list.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -158,14 +158,14 @@ class NamedValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 named_value_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 named_value_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         NamedValue details.
@@ -173,7 +173,6 @@ class NamedValue(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +198,6 @@ class NamedValue(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamedValueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,14 +213,14 @@ class NamedValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 named_value_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 named_value_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

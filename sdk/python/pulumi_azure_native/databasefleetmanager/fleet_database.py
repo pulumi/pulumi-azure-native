@@ -25,8 +25,8 @@ class FleetDatabaseArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FleetDatabasePropertiesArgs']] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FleetDatabasePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FleetDatabase resource.
 
@@ -82,26 +82,26 @@ class FleetDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FleetDatabasePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FleetDatabasePropertiesArgs']]:
         """
         Fleet database properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FleetDatabasePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FleetDatabasePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,17 +111,16 @@ class FleetDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetDatabasePropertiesArgs', 'FleetDatabasePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetDatabasePropertiesArgs', 'FleetDatabasePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A fleet database.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class FleetDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param FleetDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class FleetDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetDatabasePropertiesArgs', 'FleetDatabasePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetDatabasePropertiesArgs', 'FleetDatabasePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

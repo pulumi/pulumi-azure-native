@@ -134,7 +134,6 @@ def get_dataflow_graph(dataflow_graph_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str dataflow_graph_name: Name of Instance dataflowEndpoint resource.
     :param _builtins.str dataflow_profile_name: Name of Instance dataflowProfile resource
     :param _builtins.str instance_name: Name of instance.
@@ -156,10 +155,10 @@ def get_dataflow_graph(dataflow_graph_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dataflow_graph_output(dataflow_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              dataflow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataflow_graph_output(dataflow_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              dataflow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataflowGraphResult]:
     """
     Get a DataflowGraphResource
@@ -167,7 +166,6 @@ def get_dataflow_graph_output(dataflow_graph_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2025-07-01-preview.
 
     Other available API versions: 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str dataflow_graph_name: Name of Instance dataflowEndpoint resource.
     :param _builtins.str dataflow_profile_name: Name of Instance dataflowProfile resource

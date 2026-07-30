@@ -23,12 +23,12 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 resolution_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_type: Optional[pulumi.Input['ZoneType']] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 resolution_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_type: pulumi.Input[Optional['ZoneType']] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -70,74 +70,74 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationVirtualNetworks")
-    def registration_virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def registration_virtual_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         """
         return pulumi.get(self, "registration_virtual_networks")
 
     @registration_virtual_networks.setter
-    def registration_virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def registration_virtual_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "registration_virtual_networks", value)
 
     @_builtins.property
     @pulumi.getter(name="resolutionVirtualNetworks")
-    def resolution_virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def resolution_virtual_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """
         return pulumi.get(self, "resolution_virtual_networks")
 
     @resolution_virtual_networks.setter
-    def resolution_virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def resolution_virtual_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "resolution_virtual_networks", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneName")
-    def zone_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS zone (without a terminating dot).
         """
         return pulumi.get(self, "zone_name")
 
     @zone_name.setter
-    def zone_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_name", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneType")
-    def zone_type(self) -> Optional[pulumi.Input['ZoneType']]:
+    def zone_type(self) -> pulumi.Input[Optional['ZoneType']]:
         """
         The type of this DNS zone (Public or Private).
         """
         return pulumi.get(self, "zone_type")
 
     @zone_type.setter
-    def zone_type(self, value: Optional[pulumi.Input['ZoneType']]):
+    def zone_type(self, value: pulumi.Input[Optional['ZoneType']]):
         pulumi.set(self, "zone_type", value)
 
 
@@ -147,13 +147,13 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 resolution_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_type: Optional[pulumi.Input['ZoneType']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 resolution_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_type: pulumi.Input[Optional['ZoneType']] = None,
                  __props__=None):
         """
         Describes a DNS zone.
@@ -161,7 +161,6 @@ class Zone(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,7 +185,6 @@ class Zone(pulumi.CustomResource):
 
         Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,13 +200,13 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 resolution_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_type: Optional[pulumi.Input['ZoneType']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 resolution_virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_type: pulumi.Input[Optional['ZoneType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

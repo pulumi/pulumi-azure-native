@@ -25,8 +25,8 @@ class ConnectionTypeArgs:
                  field_definitions: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connection_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ConnectionType resource.
 
@@ -96,26 +96,26 @@ class ConnectionTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionTypeName")
-    def connection_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of connection type.
         """
         return pulumi.get(self, "connection_type_name")
 
     @connection_type_name.setter
-    def connection_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_global(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a Boolean value to indicate if the connection type is global.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_global(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_global", value)
 
 
@@ -125,12 +125,12 @@ class ConnectionType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the connection type.
@@ -138,7 +138,6 @@ class ConnectionType(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class ConnectionType(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectionTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +176,12 @@ class ConnectionType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

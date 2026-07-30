@@ -159,10 +159,10 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["configDiagnostics"] = args?.configDiagnostics;
             resourceInputs["domainConfigurationType"] = args?.domainConfigurationType;
             resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["domainSecuritySettings"] = args ? pulumi.output(args.domainSecuritySettings).apply(v => v === undefined ? undefined : inputs.aad.domainSecuritySettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["domainServiceName"] = args?.domainServiceName;
             resourceInputs["filteredSync"] = args?.filteredSync;
-            resourceInputs["ldapsSettings"] = args ? (args.ldapsSettings ? pulumi.output(args.ldapsSettings).apply(inputs.aad.ldapsSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["ldapsSettings"] = args ? pulumi.output(args.ldapsSettings).apply(v => v === undefined ? undefined : inputs.aad.ldapsSettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["notificationSettings"] = args?.notificationSettings;
             resourceInputs["replicaSets"] = args?.replicaSets;
@@ -224,47 +224,47 @@ export interface DomainServiceArgs {
     /**
      * Configuration diagnostics data containing latest execution from client.
      */
-    configDiagnostics?: pulumi.Input<inputs.aad.ConfigDiagnosticsArgs>;
+    configDiagnostics?: pulumi.Input<inputs.aad.ConfigDiagnosticsArgs | undefined>;
     /**
      * Domain Configuration Type
      */
-    domainConfigurationType?: pulumi.Input<string>;
+    domainConfigurationType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * DomainSecurity Settings
      */
-    domainSecuritySettings?: pulumi.Input<inputs.aad.DomainSecuritySettingsArgs>;
+    domainSecuritySettings?: pulumi.Input<inputs.aad.DomainSecuritySettingsArgs | undefined>;
     /**
      * The name of the domain service.
      */
-    domainServiceName?: pulumi.Input<string>;
+    domainServiceName?: pulumi.Input<string | undefined>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    filteredSync?: pulumi.Input<string | enums.aad.FilteredSync>;
+    filteredSync?: pulumi.Input<string | enums.aad.FilteredSync | undefined>;
     /**
      * Secure LDAP Settings
      */
-    ldapsSettings?: pulumi.Input<inputs.aad.LdapsSettingsArgs>;
+    ldapsSettings?: pulumi.Input<inputs.aad.LdapsSettingsArgs | undefined>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Notification Settings
      */
-    notificationSettings?: pulumi.Input<inputs.aad.NotificationSettingsArgs>;
+    notificationSettings?: pulumi.Input<inputs.aad.NotificationSettingsArgs | undefined>;
     /**
      * List of ReplicaSets
      */
-    replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.ReplicaSetArgs>[]>;
+    replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.ReplicaSetArgs>[] | undefined>;
     /**
      * Resource Forest Settings
      */
-    resourceForestSettings?: pulumi.Input<inputs.aad.ResourceForestSettingsArgs>;
+    resourceForestSettings?: pulumi.Input<inputs.aad.ResourceForestSettingsArgs | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -272,13 +272,13 @@ export interface DomainServiceArgs {
     /**
      * Sku Type
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
      */
-    syncScope?: pulumi.Input<string | enums.aad.SyncScope>;
+    syncScope?: pulumi.Input<string | enums.aad.SyncScope | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -170,23 +170,23 @@ export interface VirtualNetworkArgs {
     /**
      * Gets or sets the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs | undefined>;
     /**
      * Gets or sets the inventory Item ID for the virtual network.
      */
-    inventoryItemId?: pulumi.Input<string>;
+    inventoryItemId?: pulumi.Input<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
      */
-    moRefId?: pulumi.Input<string>;
+    moRefId?: pulumi.Input<string | undefined>;
     /**
      * The Resource Group Name.
      */
@@ -194,13 +194,13 @@ export interface VirtualNetworkArgs {
     /**
      * Gets or sets the Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the ARM Id of the vCenter resource in which this template resides.
      */
-    vCenterId?: pulumi.Input<string>;
+    vCenterId?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual network resource.
      */
-    virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
 }

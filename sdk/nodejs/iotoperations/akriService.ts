@@ -114,11 +114,11 @@ export interface AkriServiceArgs {
     /**
      * Name of AkriService resource.
      */
-    akriServiceName?: pulumi.Input<string>;
+    akriServiceName?: pulumi.Input<string | undefined>;
     /**
      * Edge location of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs | undefined>;
     /**
      * Name of instance.
      */

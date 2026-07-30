@@ -142,7 +142,6 @@ def get_horizon_db_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-01-20-preview.
 
-
     :param _builtins.str cluster_name: The name of the HorizonDB cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -161,14 +160,13 @@ def get_horizon_db_cluster(cluster_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_horizon_db_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_horizon_db_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHorizonDbClusterResult]:
     """
     Gets information about a HorizonDB cluster.
 
     Uses Azure REST API version 2026-01-20-preview.
-
 
     :param _builtins.str cluster_name: The name of the HorizonDB cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

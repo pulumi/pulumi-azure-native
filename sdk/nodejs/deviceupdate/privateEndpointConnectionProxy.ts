@@ -128,11 +128,11 @@ export interface PrivateEndpointConnectionProxyArgs {
     /**
      * The ID of the private endpoint connection proxy object.
      */
-    privateEndpointConnectionProxyId?: pulumi.Input<string>;
+    privateEndpointConnectionProxyId?: pulumi.Input<string | undefined>;
     /**
      * Remote private endpoint details.
      */
-    remotePrivateEndpoint?: pulumi.Input<inputs.deviceupdate.RemotePrivateEndpointArgs>;
+    remotePrivateEndpoint?: pulumi.Input<inputs.deviceupdate.RemotePrivateEndpointArgs | undefined>;
     /**
      * The resource group name.
      */
@@ -140,5 +140,5 @@ export interface PrivateEndpointConnectionProxyArgs {
     /**
      * Operation status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

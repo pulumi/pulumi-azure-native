@@ -54,11 +54,11 @@ class ClusterSkuArgsDict(TypedDict):
     """
     The cluster sku definition.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The capacity reservation level in Gigabytes for this cluster.
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ClusterSkuNameEnum']]]]
     """
     The SKU (tier) of a cluster.
     """
@@ -66,8 +66,8 @@ class ClusterSkuArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'ClusterSkuNameEnum']]] = None):
         """
         The cluster sku definition.
 
@@ -81,26 +81,26 @@ class ClusterSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The capacity reservation level in Gigabytes for this cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClusterSkuNameEnum']]]:
         """
         The SKU (tier) of a cluster.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusterSkuNameEnum']]]):
         pulumi.set(self, "name", value)
 
 
@@ -108,23 +108,23 @@ class ColumnArgsDict(TypedDict):
     """
     Table column.
     """
-    data_type_hint: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]
+    data_type_hint: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]]
     """
     Column data type logical hint.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Column description.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Column display name.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Column name.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ColumnTypeEnum']]]]
     """
     Column data type.
     """
@@ -132,11 +132,11 @@ class ColumnArgsDict(TypedDict):
 @pulumi.input_type
 class ColumnArgs:
     def __init__(__self__, *,
-                 data_type_hint: Optional[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]] = None):
+                 data_type_hint: pulumi.Input[Optional[Union[_builtins.str, 'ColumnDataTypeHintEnum']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ColumnTypeEnum']]] = None):
         """
         Table column.
 
@@ -159,62 +159,62 @@ class ColumnArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTypeHint")
-    def data_type_hint(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]:
+    def data_type_hint(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]:
         """
         Column data type logical hint.
         """
         return pulumi.get(self, "data_type_hint")
 
     @data_type_hint.setter
-    def data_type_hint(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]):
+    def data_type_hint(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]):
         pulumi.set(self, "data_type_hint", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Column description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Column display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Column name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ColumnTypeEnum']]]:
         """
         Column data type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ColumnTypeEnum']]]):
         pulumi.set(self, "type", value)
 
 
@@ -226,7 +226,7 @@ class IdentityArgsDict(TypedDict):
     """
     Type of managed service identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -235,7 +235,7 @@ class IdentityArgsDict(TypedDict):
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['IdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -260,14 +260,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -275,19 +275,19 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     The key vault properties.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the key associated with the Log Analytics cluster.
     """
-    key_rsa_size: NotRequired[pulumi.Input[_builtins.int]]
+    key_rsa_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Selected key minimum required size.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Key Vault uri which holds they key associated with the Log Analytics cluster.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the key associated with the Log Analytics cluster.
     """
@@ -295,10 +295,10 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_rsa_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_rsa_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The key vault properties.
 
@@ -318,50 +318,50 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyRsaSize")
-    def key_rsa_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_rsa_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Selected key minimum required size.
         """
         return pulumi.get(self, "key_rsa_size")
 
     @key_rsa_size.setter
-    def key_rsa_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_rsa_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_rsa_size", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Key Vault uri which holds they key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -369,15 +369,15 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
     """
     The related metadata items for the function.
     """
-    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The related categories for the function.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The related resource types for the function.
     """
-    solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    solutions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The related Log Analytics solutions for the function.
     """
@@ -385,9 +385,9 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
 @pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     def __init__(__self__, *,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 solutions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The related metadata items for the function.
 
@@ -404,38 +404,38 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The related categories for the function.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The related resource types for the function.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def solutions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The related Log Analytics solutions for the function.
         """
         return pulumi.get(self, "solutions")
 
     @solutions.setter
-    def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def solutions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "solutions", value)
 
 
@@ -502,7 +502,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -511,7 +511,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -536,14 +536,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -551,15 +551,15 @@ class RestoredLogsArgsDict(TypedDict):
     """
     Restore parameters.
     """
-    end_restore_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_restore_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp to end the restore by (UTC).
     """
-    source_table: NotRequired[pulumi.Input[_builtins.str]]
+    source_table: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The table to restore data from.
     """
-    start_restore_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_restore_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp to start the restore from (UTC).
     """
@@ -567,9 +567,9 @@ class RestoredLogsArgsDict(TypedDict):
 @pulumi.input_type
 class RestoredLogsArgs:
     def __init__(__self__, *,
-                 end_restore_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_restore_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_restore_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_restore_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Restore parameters.
 
@@ -586,38 +586,38 @@ class RestoredLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="endRestoreTime")
-    def end_restore_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_restore_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp to end the restore by (UTC).
         """
         return pulumi.get(self, "end_restore_time")
 
     @end_restore_time.setter
-    def end_restore_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_restore_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_restore_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceTable")
-    def source_table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The table to restore data from.
         """
         return pulumi.get(self, "source_table")
 
     @source_table.setter
-    def source_table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_table", value)
 
     @_builtins.property
     @pulumi.getter(name="startRestoreTime")
-    def start_restore_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_restore_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp to start the restore from (UTC).
         """
         return pulumi.get(self, "start_restore_time")
 
     @start_restore_time.setter
-    def start_restore_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_restore_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_restore_time", value)
 
 
@@ -625,27 +625,27 @@ class RuleDefinitionArgsDict(TypedDict):
     """
     Rule definition parameters.
     """
-    bin_delay: NotRequired[pulumi.Input[_builtins.int]]
+    bin_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum delay in seconds before bin processing.
     """
-    bin_size: NotRequired[pulumi.Input[_builtins.int]]
+    bin_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
     """
-    bin_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    bin_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The start time (UTC) when Summary rule execution starts.
     """
-    destination_table: NotRequired[pulumi.Input[_builtins.str]]
+    destination_table: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination table used for the Summary rule results.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Summary rule query.
     """
-    time_selector: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]
+    time_selector: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TimeSelectorEnum']]]]
     """
     The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
     """
@@ -653,12 +653,12 @@ class RuleDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class RuleDefinitionArgs:
     def __init__(__self__, *,
-                 bin_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 bin_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 bin_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_selector: Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]] = None):
+                 bin_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 bin_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 bin_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_selector: pulumi.Input[Optional[Union[_builtins.str, 'TimeSelectorEnum']]] = None):
         """
         Rule definition parameters.
 
@@ -684,74 +684,74 @@ class RuleDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="binDelay")
-    def bin_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bin_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum delay in seconds before bin processing.
         """
         return pulumi.get(self, "bin_delay")
 
     @bin_delay.setter
-    def bin_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bin_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bin_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="binSize")
-    def bin_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bin_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
         """
         return pulumi.get(self, "bin_size")
 
     @bin_size.setter
-    def bin_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bin_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bin_size", value)
 
     @_builtins.property
     @pulumi.getter(name="binStartTime")
-    def bin_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bin_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time (UTC) when Summary rule execution starts.
         """
         return pulumi.get(self, "bin_start_time")
 
     @bin_start_time.setter
-    def bin_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bin_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bin_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationTable")
-    def destination_table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination table used for the Summary rule results.
         """
         return pulumi.get(self, "destination_table")
 
     @destination_table.setter
-    def destination_table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_table", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Summary rule query.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="timeSelector")
-    def time_selector(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]:
+    def time_selector(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TimeSelectorEnum']]]:
         """
         The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
         """
         return pulumi.get(self, "time_selector")
 
     @time_selector.setter
-    def time_selector(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]):
+    def time_selector(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TimeSelectorEnum']]]):
         pulumi.set(self, "time_selector", value)
 
 
@@ -759,19 +759,19 @@ class SchemaArgsDict(TypedDict):
     """
     Table's schema.
     """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnArgsDict']]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ColumnArgsDict']]]]]
     """
     A list of table custom columns.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Table description.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Table display name.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Table name.
     """
@@ -779,10 +779,10 @@ class SchemaArgsDict(TypedDict):
 @pulumi.input_type
 class SchemaArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['ColumnArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Table's schema.
 
@@ -802,50 +802,50 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ColumnArgs']]]]:
         """
         A list of table custom columns.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Table description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Table display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Table name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -853,23 +853,23 @@ class SearchResultsArgsDict(TypedDict):
     """
     Parameters of the search job that initiated this table.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Search job Description.
     """
-    end_search_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_search_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp to end the search by (UTC)
     """
-    limit: NotRequired[pulumi.Input[_builtins.int]]
+    limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Limit the search job to return up to specified number of rows.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Search job query.
     """
-    start_search_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_search_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp to start the search from (UTC)
     """
@@ -877,11 +877,11 @@ class SearchResultsArgsDict(TypedDict):
 @pulumi.input_type
 class SearchResultsArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_search_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_search_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_search_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_search_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters of the search job that initiated this table.
 
@@ -904,62 +904,62 @@ class SearchResultsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Search job Description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="endSearchTime")
-    def end_search_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_search_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp to end the search by (UTC)
         """
         return pulumi.get(self, "end_search_time")
 
     @end_search_time.setter
-    def end_search_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_search_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_search_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limit the search job to return up to specified number of rows.
         """
         return pulumi.get(self, "limit")
 
     @limit.setter
-    def limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Search job query.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="startSearchTime")
-    def start_search_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_search_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp to start the search from (UTC)
         """
         return pulumi.get(self, "start_search_time")
 
     @start_search_time.setter
-    def start_search_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_search_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_search_time", value)
 
 
@@ -1071,7 +1071,7 @@ class WorkspaceCappingArgsDict(TypedDict):
     """
     The daily volume cap for ingestion.
     """
-    daily_quota_gb: NotRequired[pulumi.Input[_builtins.float]]
+    daily_quota_gb: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The workspace daily quota for ingestion.
     """
@@ -1079,7 +1079,7 @@ class WorkspaceCappingArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceCappingArgs:
     def __init__(__self__, *,
-                 daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None):
+                 daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The daily volume cap for ingestion.
 
@@ -1090,14 +1090,14 @@ class WorkspaceCappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyQuotaGb")
-    def daily_quota_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_quota_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workspace daily quota for ingestion.
         """
         return pulumi.get(self, "daily_quota_gb")
 
     @daily_quota_gb.setter
-    def daily_quota_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_quota_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_quota_gb", value)
 
 
@@ -1105,23 +1105,23 @@ class WorkspaceFeaturesArgsDict(TypedDict):
     """
     Workspace features.
     """
-    cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dedicated LA cluster resourceId that is linked to the workspaces.
     """
-    disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_local_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Disable Non-AAD based Auth.
     """
-    enable_data_export: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_data_export: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag that indicate if data should be exported.
     """
-    enable_log_access_using_only_resource_permissions: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_log_access_using_only_resource_permissions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag that indicate which permission to use - resource or workspace or both.
     """
-    immediate_purge_data_on30_days: NotRequired[pulumi.Input[_builtins.bool]]
+    immediate_purge_data_on30_days: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag that describes if we want to remove the data after 30 days.
     """
@@ -1129,11 +1129,11 @@ class WorkspaceFeaturesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceFeaturesArgs:
     def __init__(__self__, *,
-                 cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_data_export: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_log_access_using_only_resource_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immediate_purge_data_on30_days: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_data_export: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_log_access_using_only_resource_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immediate_purge_data_on30_days: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Workspace features.
 
@@ -1156,62 +1156,62 @@ class WorkspaceFeaturesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dedicated LA cluster resourceId that is linked to the workspaces.
         """
         return pulumi.get(self, "cluster_resource_id")
 
     @cluster_resource_id.setter
-    def cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable Non-AAD based Auth.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDataExport")
-    def enable_data_export(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_data_export(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicate if data should be exported.
         """
         return pulumi.get(self, "enable_data_export")
 
     @enable_data_export.setter
-    def enable_data_export(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_data_export(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_data_export", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLogAccessUsingOnlyResourcePermissions")
-    def enable_log_access_using_only_resource_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_log_access_using_only_resource_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicate which permission to use - resource or workspace or both.
         """
         return pulumi.get(self, "enable_log_access_using_only_resource_permissions")
 
     @enable_log_access_using_only_resource_permissions.setter
-    def enable_log_access_using_only_resource_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_log_access_using_only_resource_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_log_access_using_only_resource_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="immediatePurgeDataOn30Days")
-    def immediate_purge_data_on30_days(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immediate_purge_data_on30_days(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that describes if we want to remove the data after 30 days.
         """
         return pulumi.get(self, "immediate_purge_data_on30_days")
 
     @immediate_purge_data_on30_days.setter
-    def immediate_purge_data_on30_days(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immediate_purge_data_on30_days(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immediate_purge_data_on30_days", value)
 
 
@@ -1223,7 +1223,7 @@ class WorkspaceSkuArgsDict(TypedDict):
     """
     The name of the SKU.
     """
-    capacity_reservation_level: NotRequired[pulumi.Input[_builtins.int]]
+    capacity_reservation_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
     """
@@ -1232,7 +1232,7 @@ class WorkspaceSkuArgsDict(TypedDict):
 class WorkspaceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'WorkspaceSkuNameEnum']],
-                 capacity_reservation_level: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity_reservation_level: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The SKU (tier) of a workspace.
 
@@ -1257,14 +1257,14 @@ class WorkspaceSkuArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationLevel")
-    def capacity_reservation_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity_reservation_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 
     @capacity_reservation_level.setter
-    def capacity_reservation_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity_reservation_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity_reservation_level", value)
 
 

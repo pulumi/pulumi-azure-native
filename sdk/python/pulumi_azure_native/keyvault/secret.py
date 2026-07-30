@@ -24,8 +24,8 @@ class SecretArgs:
                  properties: pulumi.Input['SecretPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
 
@@ -33,7 +33,7 @@ class SecretArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the vault belongs.
         :param pulumi.Input[_builtins.str] vault_name: Name of the vault
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the secret. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the secret.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -81,26 +81,26 @@ class SecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags that will be assigned to the secret. 
+        The tags that will be assigned to the secret.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,11 +110,11 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource information with extended details.
@@ -123,13 +123,12 @@ class Secret(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01, 2026-02-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']] properties: Properties of the secret
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the vault belongs.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the secret. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that will be assigned to the secret.
         :param pulumi.Input[_builtins.str] vault_name: Name of the vault
         """
         ...
@@ -144,7 +143,6 @@ class Secret(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01, 2026-02-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.
@@ -161,11 +159,11 @@ class Secret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

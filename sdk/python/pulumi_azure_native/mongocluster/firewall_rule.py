@@ -23,8 +23,8 @@ class FirewallRuleArgs:
     def __init__(__self__, *,
                  mongo_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FirewallRulePropertiesArgs']] = None):
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FirewallRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -66,26 +66,26 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the mongo cluster firewall rule.
         """
         return pulumi.get(self, "firewall_rule_name")
 
     @firewall_rule_name.setter
-    def firewall_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FirewallRulePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FirewallRulePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FirewallRulePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FirewallRulePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a mongo cluster firewall rule.
@@ -106,7 +106,6 @@ class FirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01.
 
         Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01, 2026-02-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01, 2026-02-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

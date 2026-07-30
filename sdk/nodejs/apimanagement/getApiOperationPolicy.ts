@@ -106,7 +106,7 @@ export interface GetApiOperationPolicyOutputArgs {
     /**
      * Policy Export Format.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */

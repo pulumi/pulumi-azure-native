@@ -277,7 +277,6 @@ def get_module(automation_account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str module_name: The module name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -309,9 +308,9 @@ def get_module(automation_account_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_module_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      module_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_module_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      module_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModuleResult]:
     """
     Retrieve the module identified by module name.
@@ -319,7 +318,6 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str module_name: The module name.

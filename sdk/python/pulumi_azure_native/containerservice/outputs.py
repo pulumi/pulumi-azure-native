@@ -5990,8 +5990,8 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
         """
         Desired managed outbound IPs for the cluster load balancer.
 
-        :param _builtins.int count: The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        :param _builtins.int count_i_pv6: The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
+        :param _builtins.int count: The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        :param _builtins.int count_i_pv6: The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
         """
         if count is None:
             count = 1
@@ -6006,7 +6006,7 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
     @pulumi.getter
     def count(self) -> Optional[_builtins.int]:
         """
-        The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
         """
         return pulumi.get(self, "count")
 
@@ -6014,7 +6014,7 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
     @pulumi.getter(name="countIPv6")
     def count_i_pv6(self) -> Optional[_builtins.int]:
         """
-        The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
+        The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
         """
         return pulumi.get(self, "count_i_pv6")
 
@@ -6111,7 +6111,7 @@ class ManagedClusterManagedOutboundIPProfileResponse(dict):
         """
         Profile of the managed outbound IP resources of the managed cluster.
 
-        :param _builtins.int count: The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+        :param _builtins.int count: The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
         """
         if count is None:
             count = 1
@@ -6122,7 +6122,7 @@ class ManagedClusterManagedOutboundIPProfileResponse(dict):
     @pulumi.getter
     def count(self) -> Optional[_builtins.int]:
         """
-        The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+        The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
         """
         return pulumi.get(self, "count")
 
@@ -10377,7 +10377,7 @@ class UpdateGroupResponse(dict):
         A group to be updated.
 
         :param _builtins.str name: Name of the group.
-               It must match a group name of an existing fleet member. 
+               It must match a group name of an existing fleet member.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10386,7 +10386,7 @@ class UpdateGroupResponse(dict):
     def name(self) -> _builtins.str:
         """
         Name of the group.
-        It must match a group name of an existing fleet member. 
+        It must match a group name of an existing fleet member.
         """
         return pulumi.get(self, "name")
 

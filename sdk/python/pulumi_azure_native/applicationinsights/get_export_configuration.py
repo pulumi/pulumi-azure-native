@@ -286,7 +286,6 @@ def get_export_configuration(export_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-05-01.
 
-
     :param _builtins.str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Application Insights component resource.
@@ -319,15 +318,14 @@ def get_export_configuration(export_id: Optional[_builtins.str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         storage_name=pulumi.get(__ret__, 'storage_name'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'))
-def get_export_configuration_output(export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_export_configuration_output(export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportConfigurationResult]:
     """
     Get the Continuous Export configuration for this export id.
 
     Uses Azure REST API version 2015-05-01.
-
 
     :param _builtins.str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

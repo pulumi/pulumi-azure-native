@@ -140,7 +140,7 @@ Object.defineProperty(exports, "oidcRequestToken", {
 });
 
 /**
- * The URL to initiate the OIDC token exchange. 
+ * The URL to initiate the OIDC token exchange.
  */
 export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {

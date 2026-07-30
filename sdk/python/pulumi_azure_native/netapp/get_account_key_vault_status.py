@@ -94,7 +94,6 @@ def get_account_key_vault_status(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-01-preview.
 
-
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -109,14 +108,13 @@ def get_account_key_vault_status(account_name: Optional[_builtins.str] = None,
         key_vault_private_endpoints=pulumi.get(__ret__, 'key_vault_private_endpoints'),
         key_vault_resource_id=pulumi.get(__ret__, 'key_vault_resource_id'),
         key_vault_uri=pulumi.get(__ret__, 'key_vault_uri'))
-def get_account_key_vault_status_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_key_vault_status_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountKeyVaultStatusResult]:
     """
     Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
 
     Uses Azure REST API version 2024-09-01-preview.
-
 
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

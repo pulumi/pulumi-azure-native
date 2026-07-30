@@ -229,7 +229,6 @@ def get_storage_target(cache_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_target_name: Name of Storage Target.
@@ -257,9 +256,9 @@ def get_storage_target(cache_name: Optional[_builtins.str] = None,
         target_type=pulumi.get(__ret__, 'target_type'),
         type=pulumi.get(__ret__, 'type'),
         unknown=pulumi.get(__ret__, 'unknown'))
-def get_storage_target_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              storage_target_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_target_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
     Returns a Storage Target from a cache.
@@ -267,7 +266,6 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[_builtins.str]] 
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

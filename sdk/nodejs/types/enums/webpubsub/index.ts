@@ -87,8 +87,8 @@ export const WebPubSubSkuTier = {
 } as const;
 
 /**
- * Optional tier of this particular SKU. 'Standard' or 'Free'. 
- * 
+ * Optional tier of this particular SKU. 'Standard' or 'Free'.
+ *
  * `Basic` is deprecated, use `Standard` instead.
  */
 export type WebPubSubSkuTier = (typeof WebPubSubSkuTier)[keyof typeof WebPubSubSkuTier];

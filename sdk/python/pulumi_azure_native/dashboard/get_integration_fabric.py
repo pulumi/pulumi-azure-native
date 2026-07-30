@@ -142,7 +142,6 @@ def get_integration_fabric(integration_fabric_name: Optional[_builtins.str] = No
 
     Other available API versions: 2023-10-01-preview, 2024-11-01-preview, 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_fabric_name: The integration fabric name of Azure Managed Grafana.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The workspace name of Azure Managed Grafana.
@@ -163,9 +162,9 @@ def get_integration_fabric(integration_fabric_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_fabric_output(integration_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_fabric_output(integration_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationFabricResult]:
     """
     The integration fabric resource type.
@@ -173,7 +172,6 @@ def get_integration_fabric_output(integration_fabric_name: Optional[pulumi.Input
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2023-10-01-preview, 2024-11-01-preview, 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_fabric_name: The integration fabric name of Azure Managed Grafana.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -59,7 +59,6 @@ def list_job_env_secrets(job_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-05-01-preview.
 
-
     :param _builtins.str job_name: The name of the Job resource.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str service_name: The name of the Service resource.
@@ -73,15 +72,14 @@ def list_job_env_secrets(job_name: Optional[_builtins.str] = None,
 
     return AwaitableListJobEnvSecretsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_job_env_secrets_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_job_env_secrets_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobEnvSecretsResult]:
     """
     List sensitive environment variables of the Job.
 
     Uses Azure REST API version 2024-05-01-preview.
-
 
     :param _builtins.str job_name: The name of the Job resource.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

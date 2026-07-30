@@ -108,7 +108,7 @@ export interface SpringbootserverArgs {
     /**
      * The springbootservers resource definition.
      */
-    properties?: pulumi.Input<inputs.offazurespringboot.SpringbootserversPropertiesArgs>;
+    properties?: pulumi.Input<inputs.offazurespringboot.SpringbootserversPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SpringbootserverArgs {
     /**
      * The springbootservers name.
      */
-    springbootserversName?: pulumi.Input<string>;
+    springbootserversName?: pulumi.Input<string | undefined>;
 }

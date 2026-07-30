@@ -98,7 +98,7 @@ export interface GetCGProfileResult {
      */
     readonly registeredRevisions: number[];
     /**
-     * Restart policy for all containers within the container group. 
+     * Restart policy for all containers within the container group.
      * - `Always` Always restart
      * - `OnFailure` Restart on failure
      * - `Never` Never restart

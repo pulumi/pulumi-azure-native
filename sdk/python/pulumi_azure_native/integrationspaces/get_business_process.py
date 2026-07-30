@@ -204,7 +204,6 @@ def get_business_process(application_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-14-preview.
 
-
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str business_process_name: The name of the business process
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -232,16 +231,15 @@ def get_business_process(application_name: Optional[_builtins.str] = None,
         tracking_data_store_reference_name=pulumi.get(__ret__, 'tracking_data_store_reference_name'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_business_process_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                business_process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                space_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_business_process_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                business_process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                space_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessProcessResult]:
     """
     Get a BusinessProcess
 
     Uses Azure REST API version 2023-11-14-preview.
-
 
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str business_process_name: The name of the business process

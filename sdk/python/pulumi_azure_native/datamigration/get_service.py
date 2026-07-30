@@ -222,7 +222,6 @@ def get_service(group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str group_name: Name of the resource group
     :param _builtins.str service_name: Name of the service
     """
@@ -249,8 +248,8 @@ def get_service(group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_nic_id=pulumi.get(__ret__, 'virtual_nic_id'),
         virtual_subnet_id=pulumi.get(__ret__, 'virtual_subnet_id'))
-def get_service_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
@@ -258,7 +257,6 @@ def get_service_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2023-07-15-preview.
 
     Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str group_name: Name of the resource group
     :param _builtins.str service_name: Name of the service

@@ -111,11 +111,11 @@ export interface GetAnalyticsItemOutputArgs {
     /**
      * The Id of a specific item defined in the Application Insights component
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of a specific item defined in the Application Insights component
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

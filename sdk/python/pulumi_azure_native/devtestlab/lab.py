@@ -23,17 +23,17 @@ __all__ = ['LabArgs', 'Lab']
 class LabArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 announcement: Optional[pulumi.Input['LabAnnouncementPropertiesArgs']] = None,
-                 environment_permission: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 lab_storage_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 premium_data_disks: Optional[pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']]] = None,
-                 support: Optional[pulumi.Input['LabSupportPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 announcement: pulumi.Input[Optional['LabAnnouncementPropertiesArgs']] = None,
+                 environment_permission: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lab_storage_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_artifacts_resource_ids_linux: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mandatory_artifacts_resource_ids_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 premium_data_disks: pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]] = None,
+                 support: pulumi.Input[Optional['LabSupportPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
 
@@ -92,103 +92,103 @@ class LabArgs:
 
     @_builtins.property
     @pulumi.getter
-    def announcement(self) -> Optional[pulumi.Input['LabAnnouncementPropertiesArgs']]:
+    def announcement(self) -> pulumi.Input[Optional['LabAnnouncementPropertiesArgs']]:
         """
         The properties of any lab announcement associated with this lab
         """
         return pulumi.get(self, "announcement")
 
     @announcement.setter
-    def announcement(self, value: Optional[pulumi.Input['LabAnnouncementPropertiesArgs']]):
+    def announcement(self, value: pulumi.Input[Optional['LabAnnouncementPropertiesArgs']]):
         pulumi.set(self, "announcement", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentPermission")
-    def environment_permission(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']]]:
+    def environment_permission(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]]:
         """
         The access rights to be granted to the user when provisioning an environment
         """
         return pulumi.get(self, "environment_permission")
 
     @environment_permission.setter
-    def environment_permission(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']]]):
+    def environment_permission(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]]):
         pulumi.set(self, "environment_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def extended_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Extended properties of the lab used for experimental features
         """
         return pulumi.get(self, "extended_properties")
 
     @extended_properties.setter
-    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def extended_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="labStorageType")
-    def lab_storage_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
+    def lab_storage_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]:
         """
         Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         """
         return pulumi.get(self, "lab_storage_type")
 
     @lab_storage_type.setter
-    def lab_storage_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]):
+    def lab_storage_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]):
         pulumi.set(self, "lab_storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsLinux")
-    def mandatory_artifacts_resource_ids_linux(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mandatory_artifacts_resource_ids_linux(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         """
         return pulumi.get(self, "mandatory_artifacts_resource_ids_linux")
 
     @mandatory_artifacts_resource_ids_linux.setter
-    def mandatory_artifacts_resource_ids_linux(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mandatory_artifacts_resource_ids_linux(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mandatory_artifacts_resource_ids_linux", value)
 
     @_builtins.property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsWindows")
-    def mandatory_artifacts_resource_ids_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mandatory_artifacts_resource_ids_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         """
         return pulumi.get(self, "mandatory_artifacts_resource_ids_windows")
 
     @mandatory_artifacts_resource_ids_windows.setter
-    def mandatory_artifacts_resource_ids_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mandatory_artifacts_resource_ids_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mandatory_artifacts_resource_ids_windows", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the lab.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumDataDisks")
-    def premium_data_disks(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']]]:
+    def premium_data_disks(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]]:
         """
         The setting to enable usage of premium data disks.
         When its value is 'Enabled', creation of standard or premium data disks is allowed.
@@ -197,31 +197,31 @@ class LabArgs:
         return pulumi.get(self, "premium_data_disks")
 
     @premium_data_disks.setter
-    def premium_data_disks(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']]]):
+    def premium_data_disks(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]]):
         pulumi.set(self, "premium_data_disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['LabSupportPropertiesArgs']]:
+    def support(self) -> pulumi.Input[Optional['LabSupportPropertiesArgs']]:
         """
         The properties of any lab support message associated with this lab
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['LabSupportPropertiesArgs']]):
+    def support(self, value: pulumi.Input[Optional['LabSupportPropertiesArgs']]):
         pulumi.set(self, "support", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -231,24 +231,23 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 announcement: Optional[pulumi.Input[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
-                 environment_permission: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 lab_storage_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 premium_data_disks: Optional[pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support: Optional[pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 announcement: pulumi.Input[Optional[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
+                 environment_permission: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lab_storage_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_artifacts_resource_ids_linux: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mandatory_artifacts_resource_ids_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 premium_data_disks: pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support: pulumi.Input[Optional[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A lab.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +277,6 @@ class Lab(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,18 +292,18 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 announcement: Optional[pulumi.Input[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
-                 environment_permission: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 lab_storage_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 premium_data_disks: Optional[pulumi.Input[Union[_builtins.str, 'PremiumDataDisk']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support: Optional[pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 announcement: pulumi.Input[Optional[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
+                 environment_permission: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentPermission']]] = None,
+                 extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lab_storage_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_artifacts_resource_ids_linux: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mandatory_artifacts_resource_ids_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 premium_data_disks: pulumi.Input[Optional[Union[_builtins.str, 'PremiumDataDisk']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support: pulumi.Input[Optional[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

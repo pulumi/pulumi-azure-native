@@ -36,7 +36,7 @@ class CustomRPActionRouteDefinitionArgsDict(TypedDict):
     """
     The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
     """
-    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRouting']]]
+    routing_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActionRouting']]]]
     """
     The routing types that are supported for action requests.
     """
@@ -46,7 +46,7 @@ class CustomRPActionRouteDefinitionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 routing_type: Optional[pulumi.Input[Union[_builtins.str, 'ActionRouting']]] = None):
+                 routing_type: pulumi.Input[Optional[Union[_builtins.str, 'ActionRouting']]] = None):
         """
         The route definition for an action implemented by the custom resource provider.
 
@@ -85,14 +85,14 @@ class CustomRPActionRouteDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActionRouting']]]:
+    def routing_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActionRouting']]]:
         """
         The routing types that are supported for action requests.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActionRouting']]]):
+    def routing_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActionRouting']]]):
         pulumi.set(self, "routing_type", value)
 
 
@@ -108,7 +108,7 @@ class CustomRPResourceTypeRouteDefinitionArgsDict(TypedDict):
     """
     The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
     """
-    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]]
+    routing_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRouting']]]]
     """
     The routing types that are supported for resource requests.
     """
@@ -118,7 +118,7 @@ class CustomRPResourceTypeRouteDefinitionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 routing_type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]] = None):
+                 routing_type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRouting']]] = None):
         """
         The route definition for a resource implemented by the custom resource provider.
 
@@ -157,14 +157,14 @@ class CustomRPResourceTypeRouteDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]]:
+    def routing_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRouting']]]:
         """
         The routing types that are supported for resource requests.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]]):
+    def routing_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRouting']]]):
         pulumi.set(self, "routing_type", value)
 
 
@@ -176,7 +176,7 @@ class CustomRPValidationsArgsDict(TypedDict):
     """
     A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
     """
-    validation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationType']]]
+    validation_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ValidationType']]]]
     """
     The type of validation to run against a matching request.
     """
@@ -185,7 +185,7 @@ class CustomRPValidationsArgsDict(TypedDict):
 class CustomRPValidationsArgs:
     def __init__(__self__, *,
                  specification: pulumi.Input[_builtins.str],
-                 validation_type: Optional[pulumi.Input[Union[_builtins.str, 'ValidationType']]] = None):
+                 validation_type: pulumi.Input[Optional[Union[_builtins.str, 'ValidationType']]] = None):
         """
         A validation to apply on custom resource provider requests.
 
@@ -210,14 +210,14 @@ class CustomRPValidationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValidationType']]]:
+    def validation_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ValidationType']]]:
         """
         The type of validation to run against a matching request.
         """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
-    def validation_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValidationType']]]):
+    def validation_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ValidationType']]]):
         pulumi.set(self, "validation_type", value)
 
 

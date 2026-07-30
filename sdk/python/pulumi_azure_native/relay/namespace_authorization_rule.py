@@ -24,7 +24,7 @@ class NamespaceAuthorizationRuleArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]],
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
 
@@ -77,14 +77,14 @@ class NamespaceAuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization rule name.
         """
         return pulumi.get(self, "authorization_rule_name")
 
     @authorization_rule_name.setter
-    def authorization_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_rule_name", value)
 
 
@@ -94,10 +94,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
@@ -105,7 +105,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

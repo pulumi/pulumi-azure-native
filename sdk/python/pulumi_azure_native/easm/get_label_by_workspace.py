@@ -143,7 +143,6 @@ def get_label_by_workspace(label_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-04-01-preview.
 
-
     :param _builtins.str label_name: The name of the Label.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the Workspace.
@@ -164,15 +163,14 @@ def get_label_by_workspace(label_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_label_by_workspace_output(label_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_label_by_workspace_output(label_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelByWorkspaceResult]:
     """
     Returns a label in the given workspace.
 
     Uses Azure REST API version 2023-04-01-preview.
-
 
     :param _builtins.str label_name: The name of the Label.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

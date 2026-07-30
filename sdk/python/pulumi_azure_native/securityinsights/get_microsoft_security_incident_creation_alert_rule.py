@@ -240,7 +240,6 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_id: Alert rule ID
     :param _builtins.str workspace_name: The name of the workspace.
@@ -269,15 +268,14 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
         severities_filter=pulumi.get(__ret__, 'severities_filter'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_microsoft_security_incident_creation_alert_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_microsoft_security_incident_creation_alert_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                               rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
     Gets the alert rule.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_id: Alert rule ID

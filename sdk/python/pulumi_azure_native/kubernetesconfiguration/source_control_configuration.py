@@ -26,17 +26,17 @@ class SourceControlConfigurationArgs:
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 enable_helm_operator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 helm_operator_properties: Optional[pulumi.Input['HelmOperatorPropertiesArgs']] = None,
-                 operator_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_scope: Optional[pulumi.Input[Union[_builtins.str, 'OperatorScopeType']]] = None,
-                 operator_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatorType']]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_known_hosts_contents: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 enable_helm_operator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 helm_operator_properties: pulumi.Input[Optional['HelmOperatorPropertiesArgs']] = None,
+                 operator_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_scope: pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]] = None,
+                 operator_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_known_hosts_contents: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceControlConfiguration resource.
 
@@ -135,134 +135,134 @@ class SourceControlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
-    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_protected_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Name-value pairs of protected configuration settings for the configuration
         """
         return pulumi.get(self, "configuration_protected_settings")
 
     @configuration_protected_settings.setter
-    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHelmOperator")
-    def enable_helm_operator(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_helm_operator(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Option to enable Helm Operator for this git configuration.
         """
         return pulumi.get(self, "enable_helm_operator")
 
     @enable_helm_operator.setter
-    def enable_helm_operator(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_helm_operator(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_helm_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="helmOperatorProperties")
-    def helm_operator_properties(self) -> Optional[pulumi.Input['HelmOperatorPropertiesArgs']]:
+    def helm_operator_properties(self) -> pulumi.Input[Optional['HelmOperatorPropertiesArgs']]:
         """
         Properties for Helm operator.
         """
         return pulumi.get(self, "helm_operator_properties")
 
     @helm_operator_properties.setter
-    def helm_operator_properties(self, value: Optional[pulumi.Input['HelmOperatorPropertiesArgs']]):
+    def helm_operator_properties(self, value: pulumi.Input[Optional['HelmOperatorPropertiesArgs']]):
         pulumi.set(self, "helm_operator_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorInstanceName")
-    def operator_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance name of the operator - identifying the specific configuration.
         """
         return pulumi.get(self, "operator_instance_name")
 
     @operator_instance_name.setter
-    def operator_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorNamespace")
-    def operator_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
         """
         return pulumi.get(self, "operator_namespace")
 
     @operator_namespace.setter
-    def operator_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorParams")
-    def operator_params(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator_params(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any Parameters for the Operator instance in string format.
         """
         return pulumi.get(self, "operator_params")
 
     @operator_params.setter
-    def operator_params(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator_params(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator_params", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorScope")
-    def operator_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperatorScopeType']]]:
+    def operator_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]]:
         """
         Scope at which the operator will be installed.
         """
         return pulumi.get(self, "operator_scope")
 
     @operator_scope.setter
-    def operator_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OperatorScopeType']]]):
+    def operator_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]]):
         pulumi.set(self, "operator_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorType")
-    def operator_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperatorType']]]:
+    def operator_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]]:
         """
         Type of the operator
         """
         return pulumi.get(self, "operator_type")
 
     @operator_type.setter
-    def operator_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OperatorType']]]):
+    def operator_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]]):
         pulumi.set(self, "operator_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
-    def repository_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url of the SourceControl Repository.
         """
         return pulumi.get(self, "repository_url")
 
     @repository_url.setter
-    def repository_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_url", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlConfigurationName")
-    def source_control_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_control_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Source Control Configuration.
         """
         return pulumi.get(self, "source_control_configuration_name")
 
     @source_control_configuration_name.setter
-    def source_control_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_control_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_control_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKnownHostsContents")
-    def ssh_known_hosts_contents(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_known_hosts_contents(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
         """
         return pulumi.get(self, "ssh_known_hosts_contents")
 
     @ssh_known_hosts_contents.setter
-    def ssh_known_hosts_contents(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_known_hosts_contents(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_known_hosts_contents", value)
 
 
@@ -272,21 +272,21 @@ class SourceControlConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 enable_helm_operator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 helm_operator_properties: Optional[pulumi.Input[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
-                 operator_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_scope: Optional[pulumi.Input[Union[_builtins.str, 'OperatorScopeType']]] = None,
-                 operator_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatorType']]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_known_hosts_contents: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 enable_helm_operator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 helm_operator_properties: pulumi.Input[Optional[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
+                 operator_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_scope: pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]] = None,
+                 operator_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_known_hosts_contents: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The SourceControl Configuration object returned in Get & Put response.
@@ -294,7 +294,6 @@ class SourceControlConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,7 +326,6 @@ class SourceControlConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SourceControlConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,21 +341,21 @@ class SourceControlConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 enable_helm_operator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 helm_operator_properties: Optional[pulumi.Input[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
-                 operator_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_scope: Optional[pulumi.Input[Union[_builtins.str, 'OperatorScopeType']]] = None,
-                 operator_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatorType']]] = None,
-                 repository_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_known_hosts_contents: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 enable_helm_operator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 helm_operator_properties: pulumi.Input[Optional[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
+                 operator_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_scope: pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]] = None,
+                 operator_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]] = None,
+                 repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_known_hosts_contents: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

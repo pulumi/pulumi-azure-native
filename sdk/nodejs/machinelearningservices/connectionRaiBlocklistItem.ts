@@ -126,11 +126,11 @@ export interface ConnectionRaiBlocklistItemArgs {
     /**
      * Api version used by proxy call
      */
-    proxyApiVersion?: pulumi.Input<string>;
+    proxyApiVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the RaiBlocklist Item
      */
-    raiBlocklistItemName?: pulumi.Input<string>;
+    raiBlocklistItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the RaiBlocklist.
      */

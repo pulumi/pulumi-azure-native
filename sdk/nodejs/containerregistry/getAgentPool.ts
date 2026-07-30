@@ -39,7 +39,7 @@ export interface GetAgentPoolArgs {
 }
 
 /**
- * The agentpool that has the ARM resource and properties. 
+ * The agentpool that has the ARM resource and properties.
  * The agentpool will have all information to create an agent pool.
  */
 export interface GetAgentPoolResult {

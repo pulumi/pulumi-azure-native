@@ -23,18 +23,18 @@ __all__ = ['AzureBareMetalInstanceArgs', 'AzureBareMetalInstance']
 class AzureBareMetalInstanceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_bare_metal_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_bare_metal_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 hw_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
-                 partner_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_state: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 azure_bare_metal_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_bare_metal_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
+                 hw_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 os_profile: pulumi.Input[Optional['OSProfileArgs']] = None,
+                 partner_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_state: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureBareMetalInstance resource.
 
@@ -92,146 +92,146 @@ class AzureBareMetalInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBareMetalInstanceId")
-    def azure_bare_metal_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_bare_metal_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Bare Metal Instance unique ID.
         """
         return pulumi.get(self, "azure_bare_metal_instance_id")
 
     @azure_bare_metal_instance_id.setter
-    def azure_bare_metal_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_bare_metal_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_bare_metal_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azureBareMetalInstanceName")
-    def azure_bare_metal_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_bare_metal_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Azure Bare Metal Instance, also known as the ResourceName.
         """
         return pulumi.get(self, "azure_bare_metal_instance_name")
 
     @azure_bare_metal_instance_name.setter
-    def azure_bare_metal_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_bare_metal_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_bare_metal_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['HardwareProfileArgs']]:
         """
         Specifies the hardware settings for the Azure Bare Metal Instance.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="hwRevision")
-    def hw_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hw_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hardware revision of an Azure Bare Metal Instance
         """
         return pulumi.get(self, "hw_revision")
 
     @hw_revision.setter
-    def hw_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hw_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hw_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
         """
         Specifies the network settings for the Azure Bare Metal Instance.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OSProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OSProfileArgs']]:
         """
         Specifies the operating system settings for the Azure Bare Metal Instance.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OSProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OSProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerNodeId")
-    def partner_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM ID of another AzureBareMetalInstance that will share a network with this AzureBareMetalInstance
         """
         return pulumi.get(self, "partner_node_id")
 
     @partner_node_id.setter
-    def partner_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]]:
+    def power_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]]:
         """
         Resource power state
         """
         return pulumi.get(self, "power_state")
 
     @power_state.setter
-    def power_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]]):
+    def power_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]]):
         pulumi.set(self, "power_state", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource proximity placement group
         """
         return pulumi.get(self, "proximity_placement_group")
 
     @proximity_placement_group.setter
-    def proximity_placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Specifies the storage settings for the Azure Bare Metal Instance disks.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -241,25 +241,24 @@ class AzureBareMetalInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_bare_metal_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_bare_metal_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 hw_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 partner_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_state: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_bare_metal_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_bare_metal_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 hw_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 partner_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_state: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,7 +287,6 @@ class AzureBareMetalInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AzureBareMetalInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,19 +302,19 @@ class AzureBareMetalInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_bare_metal_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_bare_metal_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 hw_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 partner_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_state: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_bare_metal_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_bare_metal_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 hw_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 partner_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_state: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstancePowerStateEnum']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

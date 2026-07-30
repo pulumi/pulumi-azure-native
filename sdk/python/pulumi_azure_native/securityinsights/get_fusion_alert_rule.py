@@ -228,7 +228,6 @@ def get_fusion_alert_rule(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_id: Alert rule ID
     :param _builtins.str workspace_name: The name of the workspace.
@@ -256,15 +255,14 @@ def get_fusion_alert_rule(resource_group_name: Optional[_builtins.str] = None,
         tactics=pulumi.get(__ret__, 'tactics'),
         techniques=pulumi.get(__ret__, 'techniques'),
         type=pulumi.get(__ret__, 'type'))
-def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fusion_alert_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """
     Gets the alert rule.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_id: Alert rule ID

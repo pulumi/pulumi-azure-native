@@ -169,27 +169,27 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Gets or sets the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs | undefined>;
     /**
      * Hardware properties.
      */
-    hardwareProfile?: pulumi.Input<inputs.connectedvmwarevsphere.HardwareProfileArgs>;
+    hardwareProfile?: pulumi.Input<inputs.connectedvmwarevsphere.HardwareProfileArgs | undefined>;
     /**
      * Gets the infrastructure profile.
      */
-    infrastructureProfile?: pulumi.Input<inputs.connectedvmwarevsphere.InfrastructureProfileArgs>;
+    infrastructureProfile?: pulumi.Input<inputs.connectedvmwarevsphere.InfrastructureProfileArgs | undefined>;
     /**
      * Network properties.
      */
-    networkProfile?: pulumi.Input<inputs.connectedvmwarevsphere.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.connectedvmwarevsphere.NetworkProfileArgs | undefined>;
     /**
      * OS properties.
      */
-    osProfile?: pulumi.Input<inputs.connectedvmwarevsphere.OsProfileForVMInstanceArgs>;
+    osProfile?: pulumi.Input<inputs.connectedvmwarevsphere.OsProfileForVMInstanceArgs | undefined>;
     /**
      * Placement properties.
      */
-    placementProfile?: pulumi.Input<inputs.connectedvmwarevsphere.PlacementProfileArgs>;
+    placementProfile?: pulumi.Input<inputs.connectedvmwarevsphere.PlacementProfileArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
      */
@@ -197,9 +197,9 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Gets the security profile.
      */
-    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.SecurityProfileArgs>;
+    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.SecurityProfileArgs | undefined>;
     /**
      * Storage properties.
      */
-    storageProfile?: pulumi.Input<inputs.connectedvmwarevsphere.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.connectedvmwarevsphere.StorageProfileArgs | undefined>;
 }

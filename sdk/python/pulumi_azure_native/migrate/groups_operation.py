@@ -23,10 +23,10 @@ class GroupsOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 supported_assessment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 supported_assessment_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None):
         """
         The set of arguments for constructing a GroupsOperation resource.
 
@@ -74,50 +74,50 @@ class GroupsOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Group ARM name
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]]:
+    def group_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]]:
         """
         The type of group.
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]]):
+    def group_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]]):
         pulumi.set(self, "group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedAssessmentTypes")
-    def supported_assessment_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]]:
+    def supported_assessment_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]]:
         """
         List of assessment types supported on this group.
         """
         return pulumi.get(self, "supported_assessment_types")
 
     @supported_assessment_types.setter
-    def supported_assessment_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]]):
+    def supported_assessment_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]]):
         pulumi.set(self, "supported_assessment_types", value)
 
 
@@ -127,12 +127,12 @@ class GroupsOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_assessment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_assessment_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None,
                  __props__=None):
         """
         Group resource.
@@ -140,7 +140,6 @@ class GroupsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +163,6 @@ class GroupsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GroupsOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,12 +178,12 @@ class GroupsOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_assessment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_assessment_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

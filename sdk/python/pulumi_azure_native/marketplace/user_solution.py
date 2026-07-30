@@ -21,9 +21,9 @@ __all__ = ['UserSolutionArgs', 'UserSolution']
 @pulumi.input_type
 class UserSolutionArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 products: Optional[pulumi.Input[Sequence[pulumi.Input['ProductArgs']]]] = None,
-                 solution_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 products: pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]] = None,
+                 solution_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSolution resource.
 
@@ -38,32 +38,32 @@ class UserSolutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def products(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProductArgs']]]]:
+    def products(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]]:
         return pulumi.get(self, "products")
 
     @products.setter
-    def products(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProductArgs']]]]):
+    def products(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProductArgs']]]]):
         pulumi.set(self, "products", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionId")
-    def solution_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The solution id
         """
         return pulumi.get(self, "solution_id")
 
     @solution_id.setter
-    def solution_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_id", value)
 
 
@@ -73,15 +73,14 @@ class UserSolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 products: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductArgs', 'ProductArgsDict']]]]] = None,
-                 solution_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 products: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProductArgs', 'ProductArgsDict']]]]] = None,
+                 solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Solution data structure
 
         Uses Azure REST API version 2023-03-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +97,6 @@ class UserSolution(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-03-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param UserSolutionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,9 +112,9 @@ class UserSolution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 products: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductArgs', 'ProductArgsDict']]]]] = None,
-                 solution_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 products: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProductArgs', 'ProductArgsDict']]]]] = None,
+                 solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

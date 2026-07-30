@@ -118,7 +118,6 @@ def get_saas_subscription_level(resource_group_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2018-03-01-beta.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the resource.
     """
@@ -135,14 +134,13 @@ def get_saas_subscription_level(resource_group_name: Optional[_builtins.str] = N
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_saas_subscription_level_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level SaaS.
 
     Uses Azure REST API version 2018-03-01-beta.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the resource.

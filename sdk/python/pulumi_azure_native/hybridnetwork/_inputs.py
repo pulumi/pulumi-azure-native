@@ -16,20 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ArmResourceDefinitionResourceElementTemplateDetailsArgs',
-    'ArmResourceDefinitionResourceElementTemplateDetailsArgsDict',
     'ArmResourceDefinitionResourceElementTemplateArgs',
     'ArmResourceDefinitionResourceElementTemplateArgsDict',
+    'ArmResourceDefinitionResourceElementTemplateDetailsArgs',
+    'ArmResourceDefinitionResourceElementTemplateDetailsArgsDict',
     'ArmTemplateArtifactProfileArgs',
     'ArmTemplateArtifactProfileArgsDict',
     'ArmTemplateMappingRuleProfileArgs',
     'ArmTemplateMappingRuleProfileArgsDict',
     'ArtifactManifestPropertiesFormatArgs',
     'ArtifactManifestPropertiesFormatArgsDict',
-    'ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs',
-    'ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict',
     'ArtifactStorePropertiesFormatArgs',
     'ArtifactStorePropertiesFormatArgsDict',
+    'ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs',
+    'ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict',
     'AzureArcK8sClusterNFVIDetailsArgs',
     'AzureArcK8sClusterNFVIDetailsArgsDict',
     'AzureArcKubernetesArtifactProfileArgs',
@@ -90,10 +90,10 @@ __all__ = [
     'HelmArtifactProfileArgsDict',
     'HelmInstallOptionsArgs',
     'HelmInstallOptionsArgsDict',
-    'HelmMappingRuleProfileOptionsArgs',
-    'HelmMappingRuleProfileOptionsArgsDict',
     'HelmMappingRuleProfileArgs',
     'HelmMappingRuleProfileArgsDict',
+    'HelmMappingRuleProfileOptionsArgs',
+    'HelmMappingRuleProfileOptionsArgsDict',
     'HelmUpgradeOptionsArgs',
     'HelmUpgradeOptionsArgsDict',
     'ImageArtifactProfileArgs',
@@ -124,10 +124,10 @@ __all__ = [
     'NetworkFunctionValueWithSecretsArgsDict',
     'NetworkFunctionValueWithoutSecretsArgs',
     'NetworkFunctionValueWithoutSecretsArgsDict',
-    'NetworkInterfaceIPConfigurationArgs',
-    'NetworkInterfaceIPConfigurationArgsDict',
     'NetworkInterfaceArgs',
     'NetworkInterfaceArgsDict',
+    'NetworkInterfaceIPConfigurationArgs',
+    'NetworkInterfaceIPConfigurationArgsDict',
     'NetworkServiceDesignGroupPropertiesFormatArgs',
     'NetworkServiceDesignGroupPropertiesFormatArgsDict',
     'NetworkServiceDesignVersionPropertiesFormatArgs',
@@ -168,6 +168,80 @@ __all__ = [
     'VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict',
 ]
 
+class ArmResourceDefinitionResourceElementTemplateArgsDict(TypedDict):
+    """
+    The arm template RE.
+    """
+    artifact_profile: NotRequired[pulumi.Input[Optional['NSDArtifactProfileArgsDict']]]
+    """
+    Artifact profile properties.
+    """
+    parameter_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
+    """
+    template_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TemplateType']]]]
+    """
+    The template type.
+    """
+
+@pulumi.input_type
+class ArmResourceDefinitionResourceElementTemplateArgs:
+    def __init__(__self__, *,
+                 artifact_profile: pulumi.Input[Optional['NSDArtifactProfileArgs']] = None,
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional[Union[_builtins.str, 'TemplateType']]] = None):
+        """
+        The arm template RE.
+
+        :param pulumi.Input['NSDArtifactProfileArgs'] artifact_profile: Artifact profile properties.
+        :param pulumi.Input[_builtins.str] parameter_values: Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
+        :param pulumi.Input[Union[_builtins.str, 'TemplateType']] template_type: The template type.
+        """
+        if artifact_profile is not None:
+            pulumi.set(__self__, "artifact_profile", artifact_profile)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
+        if template_type is not None:
+            pulumi.set(__self__, "template_type", template_type)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactProfile")
+    def artifact_profile(self) -> pulumi.Input[Optional['NSDArtifactProfileArgs']]:
+        """
+        Artifact profile properties.
+        """
+        return pulumi.get(self, "artifact_profile")
+
+    @artifact_profile.setter
+    def artifact_profile(self, value: pulumi.Input[Optional['NSDArtifactProfileArgs']]):
+        pulumi.set(self, "artifact_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @parameter_values.setter
+    def parameter_values(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "parameter_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TemplateType']]]:
+        """
+        The template type.
+        """
+        return pulumi.get(self, "template_type")
+
+    @template_type.setter
+    def template_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TemplateType']]]):
+        pulumi.set(self, "template_type", value)
+
+
 class ArmResourceDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
     """
     The arm resource definition resource element template details.
@@ -177,15 +251,15 @@ class ArmResourceDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
     The resource element template type.
     Expected value is 'ArmResourceDefinition'.
     """
-    configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgsDict']]]
     """
     The resource element template type.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     The depends on profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the resource element template.
     """
@@ -194,9 +268,9 @@ class ArmResourceDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
 class ArmResourceDefinitionResourceElementTemplateDetailsArgs:
     def __init__(__self__, *,
                  resource_element_type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The arm resource definition resource element template details.
 
@@ -229,124 +303,50 @@ class ArmResourceDefinitionResourceElementTemplateDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']]:
         """
         The resource element template type.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         The depends on profile.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource element template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-
-class ArmResourceDefinitionResourceElementTemplateArgsDict(TypedDict):
-    """
-    The arm template RE.
-    """
-    artifact_profile: NotRequired[pulumi.Input['NSDArtifactProfileArgsDict']]
-    """
-    Artifact profile properties.
-    """
-    parameter_values: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
-    """
-    template_type: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateType']]]
-    """
-    The template type.
-    """
-
-@pulumi.input_type
-class ArmResourceDefinitionResourceElementTemplateArgs:
-    def __init__(__self__, *,
-                 artifact_profile: Optional[pulumi.Input['NSDArtifactProfileArgs']] = None,
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input[Union[_builtins.str, 'TemplateType']]] = None):
-        """
-        The arm template RE.
-
-        :param pulumi.Input['NSDArtifactProfileArgs'] artifact_profile: Artifact profile properties.
-        :param pulumi.Input[_builtins.str] parameter_values: Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
-        :param pulumi.Input[Union[_builtins.str, 'TemplateType']] template_type: The template type.
-        """
-        if artifact_profile is not None:
-            pulumi.set(__self__, "artifact_profile", artifact_profile)
-        if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
-        if template_type is not None:
-            pulumi.set(__self__, "template_type", template_type)
-
-    @_builtins.property
-    @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['NSDArtifactProfileArgs']]:
-        """
-        Artifact profile properties.
-        """
-        return pulumi.get(self, "artifact_profile")
-
-    @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['NSDArtifactProfileArgs']]):
-        pulumi.set(self, "artifact_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
-        """
-        return pulumi.get(self, "parameter_values")
-
-    @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "parameter_values", value)
-
-    @_builtins.property
-    @pulumi.getter(name="templateType")
-    def template_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TemplateType']]]:
-        """
-        The template type.
-        """
-        return pulumi.get(self, "template_type")
-
-    @template_type.setter
-    def template_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TemplateType']]]):
-        pulumi.set(self, "template_type", value)
 
 
 class ArmTemplateArtifactProfileArgsDict(TypedDict):
     """
     Template artifact profile.
     """
-    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    template_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Template name.
     """
-    template_version: NotRequired[pulumi.Input[_builtins.str]]
+    template_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Template version.
     """
@@ -354,8 +354,8 @@ class ArmTemplateArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ArmTemplateArtifactProfileArgs:
     def __init__(__self__, *,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Template artifact profile.
 
@@ -369,26 +369,26 @@ class ArmTemplateArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template name.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="templateVersion")
-    def template_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template version.
         """
         return pulumi.get(self, "template_version")
 
     @template_version.setter
-    def template_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_version", value)
 
 
@@ -396,7 +396,7 @@ class ArmTemplateMappingRuleProfileArgsDict(TypedDict):
     """
     Template mapping rule profile
     """
-    template_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    template_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     List of template parameters.
     """
@@ -404,7 +404,7 @@ class ArmTemplateMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ArmTemplateMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 template_parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Template mapping rule profile
 
@@ -415,14 +415,14 @@ class ArmTemplateMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of template parameters.
         """
         return pulumi.get(self, "template_parameters")
 
     @template_parameters.setter
-    def template_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_parameters", value)
 
 
@@ -430,7 +430,7 @@ class ArtifactManifestPropertiesFormatArgsDict(TypedDict):
     """
     Artifact manifest properties.
     """
-    artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgsDict']]]]
+    artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManifestArtifactFormatArgsDict']]]]]
     """
     The artifacts list.
     """
@@ -438,7 +438,7 @@ class ArtifactManifestPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class ArtifactManifestPropertiesFormatArgs:
     def __init__(__self__, *,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]] = None):
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]] = None):
         """
         Artifact manifest properties.
 
@@ -449,80 +449,31 @@ class ArtifactManifestPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]]:
+    def artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]]:
         """
         The artifacts list.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]]):
+    def artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManifestArtifactFormatArgs']]]]):
         pulumi.set(self, "artifacts", value)
-
-
-class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict(TypedDict):
-    location: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The managed resource group location.
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The managed resource group name.
-    """
-
-@pulumi.input_type
-class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs:
-    def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] location: The managed resource group location.
-        :param pulumi.Input[_builtins.str] name: The managed resource group name.
-        """
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The managed resource group location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The managed resource group name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 class ArtifactStorePropertiesFormatArgsDict(TypedDict):
     """
     Artifact store properties.
     """
-    backing_resource_public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]
+    backing_resource_public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]]
     """
     The artifact store backing resource network access type
     """
-    managed_resource_group_configuration: NotRequired[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict']]
-    replication_strategy: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]]
+    managed_resource_group_configuration: NotRequired[pulumi.Input[Optional['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict']]]
+    replication_strategy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ArtifactReplicationStrategy']]]]
     """
     The replication strategy.
     """
-    store_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]]
+    store_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ArtifactStoreType']]]]
     """
     The artifact store type.
     """
@@ -530,10 +481,10 @@ class ArtifactStorePropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class ArtifactStorePropertiesFormatArgs:
     def __init__(__self__, *,
-                 backing_resource_public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']] = None,
-                 replication_strategy: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]] = None,
-                 store_type: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]] = None):
+                 backing_resource_public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']] = None,
+                 replication_strategy: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactReplicationStrategy']]] = None,
+                 store_type: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactStoreType']]] = None):
         """
         Artifact store properties.
 
@@ -552,48 +503,97 @@ class ArtifactStorePropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="backingResourcePublicNetworkAccess")
-    def backing_resource_public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]:
+    def backing_resource_public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]:
         """
         The artifact store backing resource network access type
         """
         return pulumi.get(self, "backing_resource_public_network_access")
 
     @backing_resource_public_network_access.setter
-    def backing_resource_public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]):
+    def backing_resource_public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]):
         pulumi.set(self, "backing_resource_public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> pulumi.Input[Optional['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']]:
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationStrategy")
-    def replication_strategy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]]:
+    def replication_strategy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ArtifactReplicationStrategy']]]:
         """
         The replication strategy.
         """
         return pulumi.get(self, "replication_strategy")
 
     @replication_strategy.setter
-    def replication_strategy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]]):
+    def replication_strategy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactReplicationStrategy']]]):
         pulumi.set(self, "replication_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="storeType")
-    def store_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]]:
+    def store_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ArtifactStoreType']]]:
         """
         The artifact store type.
         """
         return pulumi.get(self, "store_type")
 
     @store_type.setter
-    def store_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]]):
+    def store_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactStoreType']]]):
         pulumi.set(self, "store_type", value)
+
+
+class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict(TypedDict):
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The managed resource group location.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The managed resource group name.
+    """
+
+@pulumi.input_type
+class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] location: The managed resource group location.
+        :param pulumi.Input[_builtins.str] name: The managed resource group name.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The managed resource group location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The managed resource group name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 class AzureArcK8sClusterNFVIDetailsArgsDict(TypedDict):
@@ -605,11 +605,11 @@ class AzureArcK8sClusterNFVIDetailsArgsDict(TypedDict):
     The NFVI type.
     Expected value is 'AzureArcKubernetes'.
     """
-    custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    custom_location_reference: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to the custom location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the nfvi.
     """
@@ -618,8 +618,8 @@ class AzureArcK8sClusterNFVIDetailsArgsDict(TypedDict):
 class AzureArcK8sClusterNFVIDetailsArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 custom_location_reference: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_location_reference: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The AzureArcK8sCluster NFVI detail.
 
@@ -649,26 +649,26 @@ class AzureArcK8sClusterNFVIDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="customLocationReference")
-    def custom_location_reference(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def custom_location_reference(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to the custom location.
         """
         return pulumi.get(self, "custom_location_reference")
 
     @custom_location_reference.setter
-    def custom_location_reference(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def custom_location_reference(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "custom_location_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the nfvi.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -676,11 +676,11 @@ class AzureArcKubernetesArtifactProfileArgsDict(TypedDict):
     """
     Azure arc kubernetes artifact profile properties.
     """
-    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to artifact store.
     """
-    helm_artifact_profile: NotRequired[pulumi.Input['HelmArtifactProfileArgsDict']]
+    helm_artifact_profile: NotRequired[pulumi.Input[Optional['HelmArtifactProfileArgsDict']]]
     """
     Helm artifact profile.
     """
@@ -688,8 +688,8 @@ class AzureArcKubernetesArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureArcKubernetesArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_store: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 helm_artifact_profile: Optional[pulumi.Input['HelmArtifactProfileArgs']] = None):
+                 artifact_store: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 helm_artifact_profile: pulumi.Input[Optional['HelmArtifactProfileArgs']] = None):
         """
         Azure arc kubernetes artifact profile properties.
 
@@ -703,26 +703,26 @@ class AzureArcKubernetesArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to artifact store.
         """
         return pulumi.get(self, "artifact_store")
 
     @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store", value)
 
     @_builtins.property
     @pulumi.getter(name="helmArtifactProfile")
-    def helm_artifact_profile(self) -> Optional[pulumi.Input['HelmArtifactProfileArgs']]:
+    def helm_artifact_profile(self) -> pulumi.Input[Optional['HelmArtifactProfileArgs']]:
         """
         Helm artifact profile.
         """
         return pulumi.get(self, "helm_artifact_profile")
 
     @helm_artifact_profile.setter
-    def helm_artifact_profile(self, value: Optional[pulumi.Input['HelmArtifactProfileArgs']]):
+    def helm_artifact_profile(self, value: pulumi.Input[Optional['HelmArtifactProfileArgs']]):
         pulumi.set(self, "helm_artifact_profile", value)
 
 
@@ -730,11 +730,11 @@ class AzureArcKubernetesDeployMappingRuleProfileArgsDict(TypedDict):
     """
     Azure arc kubernetes deploy mapping rule profile.
     """
-    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    application_enablement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]]
     """
     The application enablement.
     """
-    helm_mapping_rule_profile: NotRequired[pulumi.Input['HelmMappingRuleProfileArgsDict']]
+    helm_mapping_rule_profile: NotRequired[pulumi.Input[Optional['HelmMappingRuleProfileArgsDict']]]
     """
     The helm mapping rule profile.
     """
@@ -742,8 +742,8 @@ class AzureArcKubernetesDeployMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureArcKubernetesDeployMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 application_enablement: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]] = None,
-                 helm_mapping_rule_profile: Optional[pulumi.Input['HelmMappingRuleProfileArgs']] = None):
+                 application_enablement: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]] = None,
+                 helm_mapping_rule_profile: pulumi.Input[Optional['HelmMappingRuleProfileArgs']] = None):
         """
         Azure arc kubernetes deploy mapping rule profile.
 
@@ -757,26 +757,26 @@ class AzureArcKubernetesDeployMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationEnablement")
-    def application_enablement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]:
+    def application_enablement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]:
         """
         The application enablement.
         """
         return pulumi.get(self, "application_enablement")
 
     @application_enablement.setter
-    def application_enablement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]):
+    def application_enablement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]):
         pulumi.set(self, "application_enablement", value)
 
     @_builtins.property
     @pulumi.getter(name="helmMappingRuleProfile")
-    def helm_mapping_rule_profile(self) -> Optional[pulumi.Input['HelmMappingRuleProfileArgs']]:
+    def helm_mapping_rule_profile(self) -> pulumi.Input[Optional['HelmMappingRuleProfileArgs']]:
         """
         The helm mapping rule profile.
         """
         return pulumi.get(self, "helm_mapping_rule_profile")
 
     @helm_mapping_rule_profile.setter
-    def helm_mapping_rule_profile(self, value: Optional[pulumi.Input['HelmMappingRuleProfileArgs']]):
+    def helm_mapping_rule_profile(self, value: pulumi.Input[Optional['HelmMappingRuleProfileArgs']]):
         pulumi.set(self, "helm_mapping_rule_profile", value)
 
 
@@ -789,19 +789,19 @@ class AzureArcKubernetesHelmApplicationArgsDict(TypedDict):
     The artifact type.
     Expected value is 'HelmPackage'.
     """
-    artifact_profile: NotRequired[pulumi.Input['AzureArcKubernetesArtifactProfileArgsDict']]
+    artifact_profile: NotRequired[pulumi.Input[Optional['AzureArcKubernetesArtifactProfileArgsDict']]]
     """
     Azure arc kubernetes artifact profile.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     Depends on profile definition.
     """
-    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgsDict']]
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input[Optional['AzureArcKubernetesDeployMappingRuleProfileArgsDict']]]
     """
     Deploy mapping rule profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function application.
     """
@@ -810,10 +810,10 @@ class AzureArcKubernetesHelmApplicationArgsDict(TypedDict):
 class AzureArcKubernetesHelmApplicationArgs:
     def __init__(__self__, *,
                  artifact_type: pulumi.Input[_builtins.str],
-                 artifact_profile: Optional[pulumi.Input['AzureArcKubernetesArtifactProfileArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 deploy_parameters_mapping_rule_profile: Optional[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_profile: pulumi.Input[Optional['AzureArcKubernetesArtifactProfileArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 deploy_parameters_mapping_rule_profile: pulumi.Input[Optional['AzureArcKubernetesDeployMappingRuleProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure arc kubernetes helm application configurations.
 
@@ -849,50 +849,50 @@ class AzureArcKubernetesHelmApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['AzureArcKubernetesArtifactProfileArgs']]:
+    def artifact_profile(self) -> pulumi.Input[Optional['AzureArcKubernetesArtifactProfileArgs']]:
         """
         Azure arc kubernetes artifact profile.
         """
         return pulumi.get(self, "artifact_profile")
 
     @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['AzureArcKubernetesArtifactProfileArgs']]):
+    def artifact_profile(self, value: pulumi.Input[Optional['AzureArcKubernetesArtifactProfileArgs']]):
         pulumi.set(self, "artifact_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         Depends on profile definition.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="deployParametersMappingRuleProfile")
-    def deploy_parameters_mapping_rule_profile(self) -> Optional[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgs']]:
+    def deploy_parameters_mapping_rule_profile(self) -> pulumi.Input[Optional['AzureArcKubernetesDeployMappingRuleProfileArgs']]:
         """
         Deploy mapping rule profile.
         """
         return pulumi.get(self, "deploy_parameters_mapping_rule_profile")
 
     @deploy_parameters_mapping_rule_profile.setter
-    def deploy_parameters_mapping_rule_profile(self, value: Optional[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgs']]):
+    def deploy_parameters_mapping_rule_profile(self, value: pulumi.Input[Optional['AzureArcKubernetesDeployMappingRuleProfileArgs']]):
         pulumi.set(self, "deploy_parameters_mapping_rule_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -905,7 +905,7 @@ class AzureArcKubernetesNetworkFunctionTemplateArgsDict(TypedDict):
     The network function type.
     Expected value is 'AzureArcKubernetes'.
     """
-    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgsDict']]]]
+    network_function_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgsDict']]]]]
     """
     Network function applications.
     """
@@ -914,7 +914,7 @@ class AzureArcKubernetesNetworkFunctionTemplateArgsDict(TypedDict):
 class AzureArcKubernetesNetworkFunctionTemplateArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 network_function_applications: Optional[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]] = None):
+                 network_function_applications: pulumi.Input[Optional[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]] = None):
         """
         Azure Arc kubernetes network function template.
 
@@ -941,14 +941,14 @@ class AzureArcKubernetesNetworkFunctionTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionApplications")
-    def network_function_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]]:
+    def network_function_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]]:
         """
         Network function applications.
         """
         return pulumi.get(self, "network_function_applications")
 
     @network_function_applications.setter
-    def network_function_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]]):
+    def network_function_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgs']]]]):
         pulumi.set(self, "network_function_applications", value)
 
 
@@ -956,11 +956,11 @@ class AzureCoreArmTemplateArtifactProfileArgsDict(TypedDict):
     """
     Azure template artifact profile properties.
     """
-    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to artifact store.
     """
-    template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
+    template_artifact_profile: NotRequired[pulumi.Input[Optional['ArmTemplateArtifactProfileArgsDict']]]
     """
     Template artifact profile.
     """
@@ -968,8 +968,8 @@ class AzureCoreArmTemplateArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureCoreArmTemplateArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_store: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 template_artifact_profile: Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']] = None):
+                 artifact_store: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 template_artifact_profile: pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']] = None):
         """
         Azure template artifact profile properties.
 
@@ -983,26 +983,26 @@ class AzureCoreArmTemplateArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to artifact store.
         """
         return pulumi.get(self, "artifact_store")
 
     @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArtifactProfile")
-    def template_artifact_profile(self) -> Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']]:
+    def template_artifact_profile(self) -> pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']]:
         """
         Template artifact profile.
         """
         return pulumi.get(self, "template_artifact_profile")
 
     @template_artifact_profile.setter
-    def template_artifact_profile(self, value: Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']]):
+    def template_artifact_profile(self, value: pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']]):
         pulumi.set(self, "template_artifact_profile", value)
 
 
@@ -1010,11 +1010,11 @@ class AzureCoreArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
     """
     Azure template deploy mapping rule profile.
     """
-    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    application_enablement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]]
     """
     The application enablement.
     """
-    template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
+    template_mapping_rule_profile: NotRequired[pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgsDict']]]
     """
     The template mapping rule profile.
     """
@@ -1022,8 +1022,8 @@ class AzureCoreArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureCoreArmTemplateDeployMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 application_enablement: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]] = None,
-                 template_mapping_rule_profile: Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']] = None):
+                 application_enablement: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]] = None,
+                 template_mapping_rule_profile: pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']] = None):
         """
         Azure template deploy mapping rule profile.
 
@@ -1037,26 +1037,26 @@ class AzureCoreArmTemplateDeployMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationEnablement")
-    def application_enablement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]:
+    def application_enablement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]:
         """
         The application enablement.
         """
         return pulumi.get(self, "application_enablement")
 
     @application_enablement.setter
-    def application_enablement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]):
+    def application_enablement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]):
         pulumi.set(self, "application_enablement", value)
 
     @_builtins.property
     @pulumi.getter(name="templateMappingRuleProfile")
-    def template_mapping_rule_profile(self) -> Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']]:
+    def template_mapping_rule_profile(self) -> pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']]:
         """
         The template mapping rule profile.
         """
         return pulumi.get(self, "template_mapping_rule_profile")
 
     @template_mapping_rule_profile.setter
-    def template_mapping_rule_profile(self, value: Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']]):
+    def template_mapping_rule_profile(self, value: pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']]):
         pulumi.set(self, "template_mapping_rule_profile", value)
 
 
@@ -1069,11 +1069,11 @@ class AzureCoreNFVIDetailsArgsDict(TypedDict):
     The NFVI type.
     Expected value is 'AzureCore'.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of the Azure core.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the nfvi.
     """
@@ -1082,8 +1082,8 @@ class AzureCoreNFVIDetailsArgsDict(TypedDict):
 class AzureCoreNFVIDetailsArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Azure Core NFVI detail.
 
@@ -1113,26 +1113,26 @@ class AzureCoreNFVIDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the Azure core.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the nfvi.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1145,19 +1145,19 @@ class AzureCoreNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
     The artifact type.
     Expected value is 'ArmTemplate'.
     """
-    artifact_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgsDict']]
+    artifact_profile: NotRequired[pulumi.Input[Optional['AzureCoreArmTemplateArtifactProfileArgsDict']]]
     """
     Azure template artifact profile.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     Depends on profile definition.
     """
-    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgsDict']]
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input[Optional['AzureCoreArmTemplateDeployMappingRuleProfileArgsDict']]]
     """
     Deploy mapping rule profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function application.
     """
@@ -1166,10 +1166,10 @@ class AzureCoreNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
 class AzureCoreNetworkFunctionArmTemplateApplicationArgs:
     def __init__(__self__, *,
                  artifact_type: pulumi.Input[_builtins.str],
-                 artifact_profile: Optional[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 deploy_parameters_mapping_rule_profile: Optional[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_profile: pulumi.Input[Optional['AzureCoreArmTemplateArtifactProfileArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 deploy_parameters_mapping_rule_profile: pulumi.Input[Optional['AzureCoreArmTemplateDeployMappingRuleProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure core network function Template application definition.
 
@@ -1205,50 +1205,50 @@ class AzureCoreNetworkFunctionArmTemplateApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgs']]:
+    def artifact_profile(self) -> pulumi.Input[Optional['AzureCoreArmTemplateArtifactProfileArgs']]:
         """
         Azure template artifact profile.
         """
         return pulumi.get(self, "artifact_profile")
 
     @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgs']]):
+    def artifact_profile(self, value: pulumi.Input[Optional['AzureCoreArmTemplateArtifactProfileArgs']]):
         pulumi.set(self, "artifact_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         Depends on profile definition.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="deployParametersMappingRuleProfile")
-    def deploy_parameters_mapping_rule_profile(self) -> Optional[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgs']]:
+    def deploy_parameters_mapping_rule_profile(self) -> pulumi.Input[Optional['AzureCoreArmTemplateDeployMappingRuleProfileArgs']]:
         """
         Deploy mapping rule profile.
         """
         return pulumi.get(self, "deploy_parameters_mapping_rule_profile")
 
     @deploy_parameters_mapping_rule_profile.setter
-    def deploy_parameters_mapping_rule_profile(self, value: Optional[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgs']]):
+    def deploy_parameters_mapping_rule_profile(self, value: pulumi.Input[Optional['AzureCoreArmTemplateDeployMappingRuleProfileArgs']]):
         pulumi.set(self, "deploy_parameters_mapping_rule_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1261,7 +1261,7 @@ class AzureCoreNetworkFunctionTemplateArgsDict(TypedDict):
     The network function type.
     Expected value is 'AzureCore'.
     """
-    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgsDict', 'AzureCoreNetworkFunctionVhdApplicationArgsDict']]]]]
+    network_function_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgsDict', 'AzureCoreNetworkFunctionVhdApplicationArgsDict']]]]]]
     """
     Network function applications.
     """
@@ -1270,7 +1270,7 @@ class AzureCoreNetworkFunctionTemplateArgsDict(TypedDict):
 class AzureCoreNetworkFunctionTemplateArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 network_function_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]] = None):
+                 network_function_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]] = None):
         """
         Azure virtual network function template.
 
@@ -1297,14 +1297,14 @@ class AzureCoreNetworkFunctionTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionApplications")
-    def network_function_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]]:
+    def network_function_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]]:
         """
         Network function applications.
         """
         return pulumi.get(self, "network_function_applications")
 
     @network_function_applications.setter
-    def network_function_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]]):
+    def network_function_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgs', 'AzureCoreNetworkFunctionVhdApplicationArgs']]]]]):
         pulumi.set(self, "network_function_applications", value)
 
 
@@ -1317,19 +1317,19 @@ class AzureCoreNetworkFunctionVhdApplicationArgsDict(TypedDict):
     The artifact type.
     Expected value is 'VhdImageFile'.
     """
-    artifact_profile: NotRequired[pulumi.Input['AzureCoreVhdImageArtifactProfileArgsDict']]
+    artifact_profile: NotRequired[pulumi.Input[Optional['AzureCoreVhdImageArtifactProfileArgsDict']]]
     """
     Azure vhd image artifact profile.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     Depends on profile definition.
     """
-    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgsDict']]
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input[Optional['AzureCoreVhdImageDeployMappingRuleProfileArgsDict']]]
     """
     Deploy mapping rule profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function application.
     """
@@ -1338,10 +1338,10 @@ class AzureCoreNetworkFunctionVhdApplicationArgsDict(TypedDict):
 class AzureCoreNetworkFunctionVhdApplicationArgs:
     def __init__(__self__, *,
                  artifact_type: pulumi.Input[_builtins.str],
-                 artifact_profile: Optional[pulumi.Input['AzureCoreVhdImageArtifactProfileArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 deploy_parameters_mapping_rule_profile: Optional[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_profile: pulumi.Input[Optional['AzureCoreVhdImageArtifactProfileArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 deploy_parameters_mapping_rule_profile: pulumi.Input[Optional['AzureCoreVhdImageDeployMappingRuleProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure core network function vhd application definition.
 
@@ -1377,50 +1377,50 @@ class AzureCoreNetworkFunctionVhdApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['AzureCoreVhdImageArtifactProfileArgs']]:
+    def artifact_profile(self) -> pulumi.Input[Optional['AzureCoreVhdImageArtifactProfileArgs']]:
         """
         Azure vhd image artifact profile.
         """
         return pulumi.get(self, "artifact_profile")
 
     @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['AzureCoreVhdImageArtifactProfileArgs']]):
+    def artifact_profile(self, value: pulumi.Input[Optional['AzureCoreVhdImageArtifactProfileArgs']]):
         pulumi.set(self, "artifact_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         Depends on profile definition.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="deployParametersMappingRuleProfile")
-    def deploy_parameters_mapping_rule_profile(self) -> Optional[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgs']]:
+    def deploy_parameters_mapping_rule_profile(self) -> pulumi.Input[Optional['AzureCoreVhdImageDeployMappingRuleProfileArgs']]:
         """
         Deploy mapping rule profile.
         """
         return pulumi.get(self, "deploy_parameters_mapping_rule_profile")
 
     @deploy_parameters_mapping_rule_profile.setter
-    def deploy_parameters_mapping_rule_profile(self, value: Optional[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgs']]):
+    def deploy_parameters_mapping_rule_profile(self, value: pulumi.Input[Optional['AzureCoreVhdImageDeployMappingRuleProfileArgs']]):
         pulumi.set(self, "deploy_parameters_mapping_rule_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1428,11 +1428,11 @@ class AzureCoreVhdImageArtifactProfileArgsDict(TypedDict):
     """
     Azure vhd artifact profile properties.
     """
-    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to artifact store.
     """
-    vhd_artifact_profile: NotRequired[pulumi.Input['VhdImageArtifactProfileArgsDict']]
+    vhd_artifact_profile: NotRequired[pulumi.Input[Optional['VhdImageArtifactProfileArgsDict']]]
     """
     Vhd artifact profile.
     """
@@ -1440,8 +1440,8 @@ class AzureCoreVhdImageArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureCoreVhdImageArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_store: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 vhd_artifact_profile: Optional[pulumi.Input['VhdImageArtifactProfileArgs']] = None):
+                 artifact_store: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 vhd_artifact_profile: pulumi.Input[Optional['VhdImageArtifactProfileArgs']] = None):
         """
         Azure vhd artifact profile properties.
 
@@ -1455,26 +1455,26 @@ class AzureCoreVhdImageArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to artifact store.
         """
         return pulumi.get(self, "artifact_store")
 
     @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store", value)
 
     @_builtins.property
     @pulumi.getter(name="vhdArtifactProfile")
-    def vhd_artifact_profile(self) -> Optional[pulumi.Input['VhdImageArtifactProfileArgs']]:
+    def vhd_artifact_profile(self) -> pulumi.Input[Optional['VhdImageArtifactProfileArgs']]:
         """
         Vhd artifact profile.
         """
         return pulumi.get(self, "vhd_artifact_profile")
 
     @vhd_artifact_profile.setter
-    def vhd_artifact_profile(self, value: Optional[pulumi.Input['VhdImageArtifactProfileArgs']]):
+    def vhd_artifact_profile(self, value: pulumi.Input[Optional['VhdImageArtifactProfileArgs']]):
         pulumi.set(self, "vhd_artifact_profile", value)
 
 
@@ -1482,11 +1482,11 @@ class AzureCoreVhdImageDeployMappingRuleProfileArgsDict(TypedDict):
     """
     Azure vhd deploy mapping rule profile.
     """
-    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    application_enablement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]]
     """
     The application enablement.
     """
-    vhd_image_mapping_rule_profile: NotRequired[pulumi.Input['VhdImageMappingRuleProfileArgsDict']]
+    vhd_image_mapping_rule_profile: NotRequired[pulumi.Input[Optional['VhdImageMappingRuleProfileArgsDict']]]
     """
     The vhd mapping rule profile.
     """
@@ -1494,8 +1494,8 @@ class AzureCoreVhdImageDeployMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureCoreVhdImageDeployMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 application_enablement: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]] = None,
-                 vhd_image_mapping_rule_profile: Optional[pulumi.Input['VhdImageMappingRuleProfileArgs']] = None):
+                 application_enablement: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]] = None,
+                 vhd_image_mapping_rule_profile: pulumi.Input[Optional['VhdImageMappingRuleProfileArgs']] = None):
         """
         Azure vhd deploy mapping rule profile.
 
@@ -1509,26 +1509,26 @@ class AzureCoreVhdImageDeployMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationEnablement")
-    def application_enablement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]:
+    def application_enablement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]:
         """
         The application enablement.
         """
         return pulumi.get(self, "application_enablement")
 
     @application_enablement.setter
-    def application_enablement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]):
+    def application_enablement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]):
         pulumi.set(self, "application_enablement", value)
 
     @_builtins.property
     @pulumi.getter(name="vhdImageMappingRuleProfile")
-    def vhd_image_mapping_rule_profile(self) -> Optional[pulumi.Input['VhdImageMappingRuleProfileArgs']]:
+    def vhd_image_mapping_rule_profile(self) -> pulumi.Input[Optional['VhdImageMappingRuleProfileArgs']]:
         """
         The vhd mapping rule profile.
         """
         return pulumi.get(self, "vhd_image_mapping_rule_profile")
 
     @vhd_image_mapping_rule_profile.setter
-    def vhd_image_mapping_rule_profile(self, value: Optional[pulumi.Input['VhdImageMappingRuleProfileArgs']]):
+    def vhd_image_mapping_rule_profile(self, value: pulumi.Input[Optional['VhdImageMappingRuleProfileArgs']]):
         pulumi.set(self, "vhd_image_mapping_rule_profile", value)
 
 
@@ -1536,11 +1536,11 @@ class AzureOperatorNexusArmTemplateArtifactProfileArgsDict(TypedDict):
     """
     Azure Operator Distributed Services vhd artifact profile properties.
     """
-    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to artifact store.
     """
-    template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
+    template_artifact_profile: NotRequired[pulumi.Input[Optional['ArmTemplateArtifactProfileArgsDict']]]
     """
     Template artifact profile.
     """
@@ -1548,8 +1548,8 @@ class AzureOperatorNexusArmTemplateArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureOperatorNexusArmTemplateArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_store: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 template_artifact_profile: Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']] = None):
+                 artifact_store: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 template_artifact_profile: pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']] = None):
         """
         Azure Operator Distributed Services vhd artifact profile properties.
 
@@ -1563,26 +1563,26 @@ class AzureOperatorNexusArmTemplateArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to artifact store.
         """
         return pulumi.get(self, "artifact_store")
 
     @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArtifactProfile")
-    def template_artifact_profile(self) -> Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']]:
+    def template_artifact_profile(self) -> pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']]:
         """
         Template artifact profile.
         """
         return pulumi.get(self, "template_artifact_profile")
 
     @template_artifact_profile.setter
-    def template_artifact_profile(self, value: Optional[pulumi.Input['ArmTemplateArtifactProfileArgs']]):
+    def template_artifact_profile(self, value: pulumi.Input[Optional['ArmTemplateArtifactProfileArgs']]):
         pulumi.set(self, "template_artifact_profile", value)
 
 
@@ -1590,11 +1590,11 @@ class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
     """
     Azure Operator Distributed Services template deploy mapping rule profile.
     """
-    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    application_enablement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]]
     """
     The application enablement.
     """
-    template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
+    template_mapping_rule_profile: NotRequired[pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgsDict']]]
     """
     The template mapping rule profile.
     """
@@ -1602,8 +1602,8 @@ class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 application_enablement: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]] = None,
-                 template_mapping_rule_profile: Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']] = None):
+                 application_enablement: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]] = None,
+                 template_mapping_rule_profile: pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']] = None):
         """
         Azure Operator Distributed Services template deploy mapping rule profile.
 
@@ -1617,26 +1617,26 @@ class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationEnablement")
-    def application_enablement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]:
+    def application_enablement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]:
         """
         The application enablement.
         """
         return pulumi.get(self, "application_enablement")
 
     @application_enablement.setter
-    def application_enablement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]):
+    def application_enablement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]):
         pulumi.set(self, "application_enablement", value)
 
     @_builtins.property
     @pulumi.getter(name="templateMappingRuleProfile")
-    def template_mapping_rule_profile(self) -> Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']]:
+    def template_mapping_rule_profile(self) -> pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']]:
         """
         The template mapping rule profile.
         """
         return pulumi.get(self, "template_mapping_rule_profile")
 
     @template_mapping_rule_profile.setter
-    def template_mapping_rule_profile(self, value: Optional[pulumi.Input['ArmTemplateMappingRuleProfileArgs']]):
+    def template_mapping_rule_profile(self, value: pulumi.Input[Optional['ArmTemplateMappingRuleProfileArgs']]):
         pulumi.set(self, "template_mapping_rule_profile", value)
 
 
@@ -1649,11 +1649,11 @@ class AzureOperatorNexusClusterNFVIDetailsArgsDict(TypedDict):
     The NFVI type.
     Expected value is 'AzureOperatorNexus'.
     """
-    custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    custom_location_reference: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to the custom location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the nfvi.
     """
@@ -1662,8 +1662,8 @@ class AzureOperatorNexusClusterNFVIDetailsArgsDict(TypedDict):
 class AzureOperatorNexusClusterNFVIDetailsArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 custom_location_reference: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_location_reference: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The AzureOperatorNexusCluster NFVI detail.
 
@@ -1693,26 +1693,26 @@ class AzureOperatorNexusClusterNFVIDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="customLocationReference")
-    def custom_location_reference(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def custom_location_reference(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to the custom location.
         """
         return pulumi.get(self, "custom_location_reference")
 
     @custom_location_reference.setter
-    def custom_location_reference(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def custom_location_reference(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "custom_location_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the nfvi.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1720,11 +1720,11 @@ class AzureOperatorNexusImageArtifactProfileArgsDict(TypedDict):
     """
     Azure Operator Distributed Services image artifact profile properties.
     """
-    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The reference to artifact store.
     """
-    image_artifact_profile: NotRequired[pulumi.Input['ImageArtifactProfileArgsDict']]
+    image_artifact_profile: NotRequired[pulumi.Input[Optional['ImageArtifactProfileArgsDict']]]
     """
     Image artifact profile.
     """
@@ -1732,8 +1732,8 @@ class AzureOperatorNexusImageArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureOperatorNexusImageArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_store: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 image_artifact_profile: Optional[pulumi.Input['ImageArtifactProfileArgs']] = None):
+                 artifact_store: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 image_artifact_profile: pulumi.Input[Optional['ImageArtifactProfileArgs']] = None):
         """
         Azure Operator Distributed Services image artifact profile properties.
 
@@ -1747,26 +1747,26 @@ class AzureOperatorNexusImageArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The reference to artifact store.
         """
         return pulumi.get(self, "artifact_store")
 
     @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store", value)
 
     @_builtins.property
     @pulumi.getter(name="imageArtifactProfile")
-    def image_artifact_profile(self) -> Optional[pulumi.Input['ImageArtifactProfileArgs']]:
+    def image_artifact_profile(self) -> pulumi.Input[Optional['ImageArtifactProfileArgs']]:
         """
         Image artifact profile.
         """
         return pulumi.get(self, "image_artifact_profile")
 
     @image_artifact_profile.setter
-    def image_artifact_profile(self, value: Optional[pulumi.Input['ImageArtifactProfileArgs']]):
+    def image_artifact_profile(self, value: pulumi.Input[Optional['ImageArtifactProfileArgs']]):
         pulumi.set(self, "image_artifact_profile", value)
 
 
@@ -1774,11 +1774,11 @@ class AzureOperatorNexusImageDeployMappingRuleProfileArgsDict(TypedDict):
     """
     Azure Operator Distributed Services image deploy mapping rule profile.
     """
-    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    application_enablement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]]
     """
     The application enablement.
     """
-    image_mapping_rule_profile: NotRequired[pulumi.Input['ImageMappingRuleProfileArgsDict']]
+    image_mapping_rule_profile: NotRequired[pulumi.Input[Optional['ImageMappingRuleProfileArgsDict']]]
     """
     The vhd mapping rule profile.
     """
@@ -1786,8 +1786,8 @@ class AzureOperatorNexusImageDeployMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AzureOperatorNexusImageDeployMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 application_enablement: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]] = None,
-                 image_mapping_rule_profile: Optional[pulumi.Input['ImageMappingRuleProfileArgs']] = None):
+                 application_enablement: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]] = None,
+                 image_mapping_rule_profile: pulumi.Input[Optional['ImageMappingRuleProfileArgs']] = None):
         """
         Azure Operator Distributed Services image deploy mapping rule profile.
 
@@ -1801,26 +1801,26 @@ class AzureOperatorNexusImageDeployMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationEnablement")
-    def application_enablement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]:
+    def application_enablement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]:
         """
         The application enablement.
         """
         return pulumi.get(self, "application_enablement")
 
     @application_enablement.setter
-    def application_enablement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]):
+    def application_enablement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationEnablement']]]):
         pulumi.set(self, "application_enablement", value)
 
     @_builtins.property
     @pulumi.getter(name="imageMappingRuleProfile")
-    def image_mapping_rule_profile(self) -> Optional[pulumi.Input['ImageMappingRuleProfileArgs']]:
+    def image_mapping_rule_profile(self) -> pulumi.Input[Optional['ImageMappingRuleProfileArgs']]:
         """
         The vhd mapping rule profile.
         """
         return pulumi.get(self, "image_mapping_rule_profile")
 
     @image_mapping_rule_profile.setter
-    def image_mapping_rule_profile(self, value: Optional[pulumi.Input['ImageMappingRuleProfileArgs']]):
+    def image_mapping_rule_profile(self, value: pulumi.Input[Optional['ImageMappingRuleProfileArgs']]):
         pulumi.set(self, "image_mapping_rule_profile", value)
 
 
@@ -1833,19 +1833,19 @@ class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict(TypedDict)
     The artifact type.
     Expected value is 'ArmTemplate'.
     """
-    artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgsDict']]
+    artifact_profile: NotRequired[pulumi.Input[Optional['AzureOperatorNexusArmTemplateArtifactProfileArgsDict']]]
     """
     Azure Operator Distributed Services Template artifact profile.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     Depends on profile definition.
     """
-    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict']]
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input[Optional['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict']]]
     """
     Deploy mapping rule profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function application.
     """
@@ -1854,10 +1854,10 @@ class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict(TypedDict)
 class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs:
     def __init__(__self__, *,
                  artifact_type: pulumi.Input[_builtins.str],
-                 artifact_profile: Optional[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 deploy_parameters_mapping_rule_profile: Optional[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_profile: pulumi.Input[Optional['AzureOperatorNexusArmTemplateArtifactProfileArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 deploy_parameters_mapping_rule_profile: pulumi.Input[Optional['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Operator Distributed Services network function Template application definition.
 
@@ -1893,50 +1893,50 @@ class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgs']]:
+    def artifact_profile(self) -> pulumi.Input[Optional['AzureOperatorNexusArmTemplateArtifactProfileArgs']]:
         """
         Azure Operator Distributed Services Template artifact profile.
         """
         return pulumi.get(self, "artifact_profile")
 
     @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgs']]):
+    def artifact_profile(self, value: pulumi.Input[Optional['AzureOperatorNexusArmTemplateArtifactProfileArgs']]):
         pulumi.set(self, "artifact_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         Depends on profile definition.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="deployParametersMappingRuleProfile")
-    def deploy_parameters_mapping_rule_profile(self) -> Optional[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']]:
+    def deploy_parameters_mapping_rule_profile(self) -> pulumi.Input[Optional['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']]:
         """
         Deploy mapping rule profile.
         """
         return pulumi.get(self, "deploy_parameters_mapping_rule_profile")
 
     @deploy_parameters_mapping_rule_profile.setter
-    def deploy_parameters_mapping_rule_profile(self, value: Optional[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']]):
+    def deploy_parameters_mapping_rule_profile(self, value: pulumi.Input[Optional['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs']]):
         pulumi.set(self, "deploy_parameters_mapping_rule_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1949,19 +1949,19 @@ class AzureOperatorNexusNetworkFunctionImageApplicationArgsDict(TypedDict):
     The artifact type.
     Expected value is 'ImageFile'.
     """
-    artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgsDict']]
+    artifact_profile: NotRequired[pulumi.Input[Optional['AzureOperatorNexusImageArtifactProfileArgsDict']]]
     """
     Azure Operator Distributed Services image artifact profile.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     Depends on profile definition.
     """
-    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgsDict']]
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input[Optional['AzureOperatorNexusImageDeployMappingRuleProfileArgsDict']]]
     """
     Deploy mapping rule profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function application.
     """
@@ -1970,10 +1970,10 @@ class AzureOperatorNexusNetworkFunctionImageApplicationArgsDict(TypedDict):
 class AzureOperatorNexusNetworkFunctionImageApplicationArgs:
     def __init__(__self__, *,
                  artifact_type: pulumi.Input[_builtins.str],
-                 artifact_profile: Optional[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 deploy_parameters_mapping_rule_profile: Optional[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_profile: pulumi.Input[Optional['AzureOperatorNexusImageArtifactProfileArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 deploy_parameters_mapping_rule_profile: pulumi.Input[Optional['AzureOperatorNexusImageDeployMappingRuleProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Operator Distributed Services network function image application definition.
 
@@ -2009,50 +2009,50 @@ class AzureOperatorNexusNetworkFunctionImageApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactProfile")
-    def artifact_profile(self) -> Optional[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgs']]:
+    def artifact_profile(self) -> pulumi.Input[Optional['AzureOperatorNexusImageArtifactProfileArgs']]:
         """
         Azure Operator Distributed Services image artifact profile.
         """
         return pulumi.get(self, "artifact_profile")
 
     @artifact_profile.setter
-    def artifact_profile(self, value: Optional[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgs']]):
+    def artifact_profile(self, value: pulumi.Input[Optional['AzureOperatorNexusImageArtifactProfileArgs']]):
         pulumi.set(self, "artifact_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         Depends on profile definition.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="deployParametersMappingRuleProfile")
-    def deploy_parameters_mapping_rule_profile(self) -> Optional[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgs']]:
+    def deploy_parameters_mapping_rule_profile(self) -> pulumi.Input[Optional['AzureOperatorNexusImageDeployMappingRuleProfileArgs']]:
         """
         Deploy mapping rule profile.
         """
         return pulumi.get(self, "deploy_parameters_mapping_rule_profile")
 
     @deploy_parameters_mapping_rule_profile.setter
-    def deploy_parameters_mapping_rule_profile(self, value: Optional[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgs']]):
+    def deploy_parameters_mapping_rule_profile(self, value: pulumi.Input[Optional['AzureOperatorNexusImageDeployMappingRuleProfileArgs']]):
         pulumi.set(self, "deploy_parameters_mapping_rule_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2065,7 +2065,7 @@ class AzureOperatorNexusNetworkFunctionTemplateArgsDict(TypedDict):
     The network function type.
     Expected value is 'AzureOperatorNexus'.
     """
-    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict', 'AzureOperatorNexusNetworkFunctionImageApplicationArgsDict']]]]]
+    network_function_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict', 'AzureOperatorNexusNetworkFunctionImageApplicationArgsDict']]]]]]
     """
     Network function applications.
     """
@@ -2074,7 +2074,7 @@ class AzureOperatorNexusNetworkFunctionTemplateArgsDict(TypedDict):
 class AzureOperatorNexusNetworkFunctionTemplateArgs:
     def __init__(__self__, *,
                  nfvi_type: pulumi.Input[_builtins.str],
-                 network_function_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]] = None):
+                 network_function_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]] = None):
         """
         Azure Operator Distributed Services network function template.
 
@@ -2101,14 +2101,14 @@ class AzureOperatorNexusNetworkFunctionTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionApplications")
-    def network_function_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]]:
+    def network_function_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]]:
         """
         Network function applications.
         """
         return pulumi.get(self, "network_function_applications")
 
     @network_function_applications.setter
-    def network_function_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]]):
+    def network_function_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs', 'AzureOperatorNexusNetworkFunctionImageApplicationArgs']]]]]):
         pulumi.set(self, "network_function_applications", value)
 
 
@@ -2116,11 +2116,11 @@ class ConfigurationGroupSchemaPropertiesFormatArgsDict(TypedDict):
     """
     Configuration group schema properties.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of what schema can contain.
     """
-    schema_definition: NotRequired[pulumi.Input[_builtins.str]]
+    schema_definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
     """
@@ -2128,8 +2128,8 @@ class ConfigurationGroupSchemaPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationGroupSchemaPropertiesFormatArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration group schema properties.
 
@@ -2143,26 +2143,26 @@ class ConfigurationGroupSchemaPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of what schema can contain.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
         """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
-    def schema_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_definition", value)
 
 
@@ -2175,11 +2175,11 @@ class ConfigurationValueWithSecretsArgsDict(TypedDict):
     The secret type which indicates if secret or not.
     Expected value is 'Secret'.
     """
-    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]]
     """
     The configuration group schema resource reference.
     """
-    secret_configuration_value: NotRequired[pulumi.Input[_builtins.str]]
+    secret_configuration_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name and value pairs that define the configuration value secrets. It can be a well formed escaped JSON string.
     """
@@ -2188,8 +2188,8 @@ class ConfigurationValueWithSecretsArgsDict(TypedDict):
 class ConfigurationValueWithSecretsArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[_builtins.str],
-                 configuration_group_schema_resource_reference: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
-                 secret_configuration_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_group_schema_resource_reference: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
+                 secret_configuration_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ConfigurationValue with secrets.
 
@@ -2219,26 +2219,26 @@ class ConfigurationValueWithSecretsArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationGroupSchemaResourceReference")
-    def configuration_group_schema_resource_reference(self) -> Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
+    def configuration_group_schema_resource_reference(self) -> pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
         """
         The configuration group schema resource reference.
         """
         return pulumi.get(self, "configuration_group_schema_resource_reference")
 
     @configuration_group_schema_resource_reference.setter
-    def configuration_group_schema_resource_reference(self, value: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
+    def configuration_group_schema_resource_reference(self, value: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
         pulumi.set(self, "configuration_group_schema_resource_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="secretConfigurationValue")
-    def secret_configuration_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_configuration_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name and value pairs that define the configuration value secrets. It can be a well formed escaped JSON string.
         """
         return pulumi.get(self, "secret_configuration_value")
 
     @secret_configuration_value.setter
-    def secret_configuration_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_configuration_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_configuration_value", value)
 
 
@@ -2251,11 +2251,11 @@ class ConfigurationValueWithoutSecretsArgsDict(TypedDict):
     The secret type which indicates if secret or not.
     Expected value is 'Open'.
     """
-    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]]
     """
     The configuration group schema resource reference.
     """
-    configuration_value: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
     """
@@ -2264,8 +2264,8 @@ class ConfigurationValueWithoutSecretsArgsDict(TypedDict):
 class ConfigurationValueWithoutSecretsArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[_builtins.str],
-                 configuration_group_schema_resource_reference: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
-                 configuration_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_group_schema_resource_reference: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
+                 configuration_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ConfigurationValue with no secrets.
 
@@ -2295,26 +2295,26 @@ class ConfigurationValueWithoutSecretsArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationGroupSchemaResourceReference")
-    def configuration_group_schema_resource_reference(self) -> Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
+    def configuration_group_schema_resource_reference(self) -> pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
         """
         The configuration group schema resource reference.
         """
         return pulumi.get(self, "configuration_group_schema_resource_reference")
 
     @configuration_group_schema_resource_reference.setter
-    def configuration_group_schema_resource_reference(self, value: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
+    def configuration_group_schema_resource_reference(self, value: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
         pulumi.set(self, "configuration_group_schema_resource_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationValue")
-    def configuration_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
         """
         return pulumi.get(self, "configuration_value")
 
     @configuration_value.setter
-    def configuration_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_value", value)
 
 
@@ -2327,15 +2327,15 @@ class ContainerizedNetworkFunctionDefinitionVersionArgsDict(TypedDict):
     The network function type.
     Expected value is 'ContainerizedNetworkFunction'.
     """
-    deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    deploy_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deployment parameters of the network function definition version.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition version description.
     """
-    network_function_template: NotRequired[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgsDict']]
+    network_function_template: NotRequired[pulumi.Input[Optional['AzureArcKubernetesNetworkFunctionTemplateArgsDict']]]
     """
     Containerized network function template.
     """
@@ -2344,9 +2344,9 @@ class ContainerizedNetworkFunctionDefinitionVersionArgsDict(TypedDict):
 class ContainerizedNetworkFunctionDefinitionVersionArgs:
     def __init__(__self__, *,
                  network_function_type: pulumi.Input[_builtins.str],
-                 deploy_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_template: Optional[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgs']] = None):
+                 deploy_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_template: pulumi.Input[Optional['AzureArcKubernetesNetworkFunctionTemplateArgs']] = None):
         """
         Containerized network function network function definition version properties.
 
@@ -2379,38 +2379,38 @@ class ContainerizedNetworkFunctionDefinitionVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="deployParameters")
-    def deploy_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deploy_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment parameters of the network function definition version.
         """
         return pulumi.get(self, "deploy_parameters")
 
     @deploy_parameters.setter
-    def deploy_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deploy_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deploy_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition version description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionTemplate")
-    def network_function_template(self) -> Optional[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgs']]:
+    def network_function_template(self) -> pulumi.Input[Optional['AzureArcKubernetesNetworkFunctionTemplateArgs']]:
         """
         Containerized network function template.
         """
         return pulumi.get(self, "network_function_template")
 
     @network_function_template.setter
-    def network_function_template(self, value: Optional[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgs']]):
+    def network_function_template(self, value: pulumi.Input[Optional['AzureArcKubernetesNetworkFunctionTemplateArgs']]):
         pulumi.set(self, "network_function_template", value)
 
 
@@ -2418,7 +2418,7 @@ class CustomProfileArgsDict(TypedDict):
     """
     Specifies the custom settings for the virtual machine.
     """
-    metadata_configuration_path: NotRequired[pulumi.Input[_builtins.str]]
+    metadata_configuration_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path for metadata configuration.
     """
@@ -2426,7 +2426,7 @@ class CustomProfileArgsDict(TypedDict):
 @pulumi.input_type
 class CustomProfileArgs:
     def __init__(__self__, *,
-                 metadata_configuration_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata_configuration_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the custom settings for the virtual machine.
 
@@ -2437,14 +2437,14 @@ class CustomProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="metadataConfigurationPath")
-    def metadata_configuration_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_configuration_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path for metadata configuration.
         """
         return pulumi.get(self, "metadata_configuration_path")
 
     @metadata_configuration_path.setter
-    def metadata_configuration_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_configuration_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_configuration_path", value)
 
 
@@ -2452,15 +2452,15 @@ class DataDiskArgsDict(TypedDict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     """
-    create_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]]
+    create_option: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DiskCreateOptionTypes']]]]
     """
     Specifies how the virtual machine should be created.
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of data disk.
     """
@@ -2468,9 +2468,9 @@ class DataDiskArgsDict(TypedDict):
 @pulumi.input_type
 class DataDiskArgs:
     def __init__(__self__, *,
-                 create_option: Optional[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_option: pulumi.Input[Optional[Union[_builtins.str, 'DiskCreateOptionTypes']]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -2487,38 +2487,38 @@ class DataDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]]:
+    def create_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DiskCreateOptionTypes']]]:
         """
         Specifies how the virtual machine should be created.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]]):
+    def create_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DiskCreateOptionTypes']]]):
         pulumi.set(self, "create_option", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of data disk.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2526,15 +2526,15 @@ class DependsOnProfileArgsDict(TypedDict):
     """
     Depends on profile definition.
     """
-    install_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    install_depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Application installation operation dependency.
     """
-    uninstall_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    uninstall_depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Application deletion operation dependency.
     """
-    update_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    update_depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Application update operation dependency.
     """
@@ -2542,9 +2542,9 @@ class DependsOnProfileArgsDict(TypedDict):
 @pulumi.input_type
 class DependsOnProfileArgs:
     def __init__(__self__, *,
-                 install_depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 uninstall_depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 update_depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 install_depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uninstall_depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 update_depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Depends on profile definition.
 
@@ -2561,38 +2561,38 @@ class DependsOnProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="installDependsOn")
-    def install_depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def install_depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Application installation operation dependency.
         """
         return pulumi.get(self, "install_depends_on")
 
     @install_depends_on.setter
-    def install_depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def install_depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "install_depends_on", value)
 
     @_builtins.property
     @pulumi.getter(name="uninstallDependsOn")
-    def uninstall_depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uninstall_depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Application deletion operation dependency.
         """
         return pulumi.get(self, "uninstall_depends_on")
 
     @uninstall_depends_on.setter
-    def uninstall_depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uninstall_depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uninstall_depends_on", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDependsOn")
-    def update_depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def update_depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Application update operation dependency.
         """
         return pulumi.get(self, "update_depends_on")
 
     @update_depends_on.setter
-    def update_depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def update_depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "update_depends_on", value)
 
 
@@ -2600,19 +2600,19 @@ class HelmArtifactProfileArgsDict(TypedDict):
     """
     Helm artifact profile.
     """
-    helm_package_name: NotRequired[pulumi.Input[_builtins.str]]
+    helm_package_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm package name.
     """
-    helm_package_version_range: NotRequired[pulumi.Input[_builtins.str]]
+    helm_package_version_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm package version range.
     """
-    image_pull_secrets_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    image_pull_secrets_values_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The image pull secrets values path list.
     """
-    registry_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    registry_values_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The registry values path list.
     """
@@ -2620,10 +2620,10 @@ class HelmArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HelmArtifactProfileArgs:
     def __init__(__self__, *,
-                 helm_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 helm_package_version_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_pull_secrets_values_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 registry_values_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 helm_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 helm_package_version_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_pull_secrets_values_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 registry_values_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Helm artifact profile.
 
@@ -2643,50 +2643,50 @@ class HelmArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="helmPackageName")
-    def helm_package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def helm_package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm package name.
         """
         return pulumi.get(self, "helm_package_name")
 
     @helm_package_name.setter
-    def helm_package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def helm_package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "helm_package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="helmPackageVersionRange")
-    def helm_package_version_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def helm_package_version_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm package version range.
         """
         return pulumi.get(self, "helm_package_version_range")
 
     @helm_package_version_range.setter
-    def helm_package_version_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def helm_package_version_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "helm_package_version_range", value)
 
     @_builtins.property
     @pulumi.getter(name="imagePullSecretsValuesPaths")
-    def image_pull_secrets_values_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def image_pull_secrets_values_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The image pull secrets values path list.
         """
         return pulumi.get(self, "image_pull_secrets_values_paths")
 
     @image_pull_secrets_values_paths.setter
-    def image_pull_secrets_values_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def image_pull_secrets_values_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "image_pull_secrets_values_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="registryValuesPaths")
-    def registry_values_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def registry_values_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The registry values path list.
         """
         return pulumi.get(self, "registry_values_paths")
 
     @registry_values_paths.setter
-    def registry_values_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def registry_values_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "registry_values_paths", value)
 
 
@@ -2694,15 +2694,15 @@ class HelmInstallOptionsArgsDict(TypedDict):
     """
     The helm deployment install options
     """
-    atomic: NotRequired[pulumi.Input[_builtins.str]]
+    atomic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment atomic options
     """
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment timeout options
     """
-    wait: NotRequired[pulumi.Input[_builtins.str]]
+    wait: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment wait options
     """
@@ -2710,9 +2710,9 @@ class HelmInstallOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class HelmInstallOptionsArgs:
     def __init__(__self__, *,
-                 atomic: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait: Optional[pulumi.Input[_builtins.str]] = None):
+                 atomic: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The helm deployment install options
 
@@ -2729,116 +2729,62 @@ class HelmInstallOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def atomic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def atomic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment atomic options
         """
         return pulumi.get(self, "atomic")
 
     @atomic.setter
-    def atomic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def atomic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "atomic", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment timeout options
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def wait(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment wait options
         """
         return pulumi.get(self, "wait")
 
     @wait.setter
-    def wait(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait", value)
-
-
-class HelmMappingRuleProfileOptionsArgsDict(TypedDict):
-    """
-    The helm deployment options
-    """
-    install_options: NotRequired[pulumi.Input['HelmInstallOptionsArgsDict']]
-    """
-    The helm deployment install options
-    """
-    upgrade_options: NotRequired[pulumi.Input['HelmUpgradeOptionsArgsDict']]
-    """
-    The helm deployment upgrade options
-    """
-
-@pulumi.input_type
-class HelmMappingRuleProfileOptionsArgs:
-    def __init__(__self__, *,
-                 install_options: Optional[pulumi.Input['HelmInstallOptionsArgs']] = None,
-                 upgrade_options: Optional[pulumi.Input['HelmUpgradeOptionsArgs']] = None):
-        """
-        The helm deployment options
-
-        :param pulumi.Input['HelmInstallOptionsArgs'] install_options: The helm deployment install options
-        :param pulumi.Input['HelmUpgradeOptionsArgs'] upgrade_options: The helm deployment upgrade options
-        """
-        if install_options is not None:
-            pulumi.set(__self__, "install_options", install_options)
-        if upgrade_options is not None:
-            pulumi.set(__self__, "upgrade_options", upgrade_options)
-
-    @_builtins.property
-    @pulumi.getter(name="installOptions")
-    def install_options(self) -> Optional[pulumi.Input['HelmInstallOptionsArgs']]:
-        """
-        The helm deployment install options
-        """
-        return pulumi.get(self, "install_options")
-
-    @install_options.setter
-    def install_options(self, value: Optional[pulumi.Input['HelmInstallOptionsArgs']]):
-        pulumi.set(self, "install_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="upgradeOptions")
-    def upgrade_options(self) -> Optional[pulumi.Input['HelmUpgradeOptionsArgs']]:
-        """
-        The helm deployment upgrade options
-        """
-        return pulumi.get(self, "upgrade_options")
-
-    @upgrade_options.setter
-    def upgrade_options(self, value: Optional[pulumi.Input['HelmUpgradeOptionsArgs']]):
-        pulumi.set(self, "upgrade_options", value)
 
 
 class HelmMappingRuleProfileArgsDict(TypedDict):
     """
     Helm mapping rule profile
     """
-    helm_package_version: NotRequired[pulumi.Input[_builtins.str]]
+    helm_package_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm package version.
     """
-    options: NotRequired[pulumi.Input['HelmMappingRuleProfileOptionsArgsDict']]
+    options: NotRequired[pulumi.Input[Optional['HelmMappingRuleProfileOptionsArgsDict']]]
     """
     The helm deployment options
     """
-    release_name: NotRequired[pulumi.Input[_builtins.str]]
+    release_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm release name.
     """
-    release_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    release_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm release namespace.
     """
-    values: NotRequired[pulumi.Input[_builtins.str]]
+    values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Helm release values.
     """
@@ -2846,11 +2792,11 @@ class HelmMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HelmMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 helm_package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['HelmMappingRuleProfileOptionsArgs']] = None,
-                 release_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[_builtins.str]] = None):
+                 helm_package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['HelmMappingRuleProfileOptionsArgs']] = None,
+                 release_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Helm mapping rule profile
 
@@ -2873,78 +2819,132 @@ class HelmMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="helmPackageVersion")
-    def helm_package_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def helm_package_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm package version.
         """
         return pulumi.get(self, "helm_package_version")
 
     @helm_package_version.setter
-    def helm_package_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def helm_package_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "helm_package_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['HelmMappingRuleProfileOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['HelmMappingRuleProfileOptionsArgs']]:
         """
         The helm deployment options
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['HelmMappingRuleProfileOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['HelmMappingRuleProfileOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseName")
-    def release_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm release name.
         """
         return pulumi.get(self, "release_name")
 
     @release_name.setter
-    def release_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_name", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNamespace")
-    def release_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm release namespace.
         """
         return pulumi.get(self, "release_namespace")
 
     @release_namespace.setter
-    def release_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Helm release values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "values", value)
+
+
+class HelmMappingRuleProfileOptionsArgsDict(TypedDict):
+    """
+    The helm deployment options
+    """
+    install_options: NotRequired[pulumi.Input[Optional['HelmInstallOptionsArgsDict']]]
+    """
+    The helm deployment install options
+    """
+    upgrade_options: NotRequired[pulumi.Input[Optional['HelmUpgradeOptionsArgsDict']]]
+    """
+    The helm deployment upgrade options
+    """
+
+@pulumi.input_type
+class HelmMappingRuleProfileOptionsArgs:
+    def __init__(__self__, *,
+                 install_options: pulumi.Input[Optional['HelmInstallOptionsArgs']] = None,
+                 upgrade_options: pulumi.Input[Optional['HelmUpgradeOptionsArgs']] = None):
+        """
+        The helm deployment options
+
+        :param pulumi.Input['HelmInstallOptionsArgs'] install_options: The helm deployment install options
+        :param pulumi.Input['HelmUpgradeOptionsArgs'] upgrade_options: The helm deployment upgrade options
+        """
+        if install_options is not None:
+            pulumi.set(__self__, "install_options", install_options)
+        if upgrade_options is not None:
+            pulumi.set(__self__, "upgrade_options", upgrade_options)
+
+    @_builtins.property
+    @pulumi.getter(name="installOptions")
+    def install_options(self) -> pulumi.Input[Optional['HelmInstallOptionsArgs']]:
+        """
+        The helm deployment install options
+        """
+        return pulumi.get(self, "install_options")
+
+    @install_options.setter
+    def install_options(self, value: pulumi.Input[Optional['HelmInstallOptionsArgs']]):
+        pulumi.set(self, "install_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeOptions")
+    def upgrade_options(self) -> pulumi.Input[Optional['HelmUpgradeOptionsArgs']]:
+        """
+        The helm deployment upgrade options
+        """
+        return pulumi.get(self, "upgrade_options")
+
+    @upgrade_options.setter
+    def upgrade_options(self, value: pulumi.Input[Optional['HelmUpgradeOptionsArgs']]):
+        pulumi.set(self, "upgrade_options", value)
 
 
 class HelmUpgradeOptionsArgsDict(TypedDict):
     """
     The helm deployment install options
     """
-    atomic: NotRequired[pulumi.Input[_builtins.str]]
+    atomic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment atomic options
     """
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment timeout options
     """
-    wait: NotRequired[pulumi.Input[_builtins.str]]
+    wait: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The helm deployment wait options
     """
@@ -2952,9 +2952,9 @@ class HelmUpgradeOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class HelmUpgradeOptionsArgs:
     def __init__(__self__, *,
-                 atomic: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait: Optional[pulumi.Input[_builtins.str]] = None):
+                 atomic: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The helm deployment install options
 
@@ -2971,38 +2971,38 @@ class HelmUpgradeOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def atomic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def atomic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment atomic options
         """
         return pulumi.get(self, "atomic")
 
     @atomic.setter
-    def atomic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def atomic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "atomic", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment timeout options
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def wait(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The helm deployment wait options
         """
         return pulumi.get(self, "wait")
 
     @wait.setter
-    def wait(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait", value)
 
 
@@ -3010,11 +3010,11 @@ class ImageArtifactProfileArgsDict(TypedDict):
     """
     Image artifact profile.
     """
-    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Image name.
     """
-    image_version: NotRequired[pulumi.Input[_builtins.str]]
+    image_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Image version.
     """
@@ -3022,8 +3022,8 @@ class ImageArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ImageArtifactProfileArgs:
     def __init__(__self__, *,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image artifact profile.
 
@@ -3037,26 +3037,26 @@ class ImageArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image name.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="imageVersion")
-    def image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image version.
         """
         return pulumi.get(self, "image_version")
 
     @image_version.setter
-    def image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_version", value)
 
 
@@ -3064,7 +3064,7 @@ class ImageMappingRuleProfileArgsDict(TypedDict):
     """
     Image mapping rule profile
     """
-    user_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    user_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     List of values.
     """
@@ -3072,7 +3072,7 @@ class ImageMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ImageMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 user_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image mapping rule profile
 
@@ -3083,14 +3083,14 @@ class ImageMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="userConfiguration")
-    def user_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of values.
         """
         return pulumi.get(self, "user_configuration")
 
     @user_configuration.setter
-    def user_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_configuration", value)
 
 
@@ -3098,23 +3098,23 @@ class ImageReferenceArgsDict(TypedDict):
     """
     The image reference properties.
     """
-    exact_version: NotRequired[pulumi.Input[_builtins.str]]
+    exact_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies in decimal numbers, the exact version of image used to create the virtual machine.
     """
-    offer: NotRequired[pulumi.Input[_builtins.str]]
+    offer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the offer of the image used to create the virtual machine.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image publisher.
     """
-    sku: NotRequired[pulumi.Input[_builtins.str]]
+    sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image SKU.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
     """
@@ -3122,11 +3122,11 @@ class ImageReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
-                 exact_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 exact_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The image reference properties.
 
@@ -3149,62 +3149,62 @@ class ImageReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="exactVersion")
-    def exact_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exact_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies in decimal numbers, the exact version of image used to create the virtual machine.
         """
         return pulumi.get(self, "exact_version")
 
     @exact_version.setter
-    def exact_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exact_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exact_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the offer of the image used to create the virtual machine.
         """
         return pulumi.get(self, "offer")
 
     @offer.setter
-    def offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image publisher.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -3212,7 +3212,7 @@ class LinuxConfigurationArgsDict(TypedDict):
     """
     Specifies the Linux operating system settings on the virtual machine.
     """
-    ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+    ssh: NotRequired[pulumi.Input[Optional['SshConfigurationArgsDict']]]
     """
     Specifies the ssh key configuration for a Linux OS.
     """
@@ -3220,7 +3220,7 @@ class LinuxConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class LinuxConfigurationArgs:
     def __init__(__self__, *,
-                 ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None):
+                 ssh: pulumi.Input[Optional['SshConfigurationArgs']] = None):
         """
         Specifies the Linux operating system settings on the virtual machine.
 
@@ -3231,14 +3231,14 @@ class LinuxConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['SshConfigurationArgs']]:
+    def ssh(self) -> pulumi.Input[Optional['SshConfigurationArgs']]:
         """
         Specifies the ssh key configuration for a Linux OS.
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['SshConfigurationArgs']]):
+    def ssh(self, value: pulumi.Input[Optional['SshConfigurationArgs']]):
         pulumi.set(self, "ssh", value)
 
 
@@ -3246,11 +3246,11 @@ class ManagedResourceGroupConfigurationArgsDict(TypedDict):
     """
     Managed resource group configuration.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Managed resource group location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Managed resource group name.
     """
@@ -3258,8 +3258,8 @@ class ManagedResourceGroupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Managed resource group configuration.
 
@@ -3273,26 +3273,26 @@ class ManagedResourceGroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed resource group location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed resource group name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -3304,7 +3304,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -3313,7 +3313,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -3338,14 +3338,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3353,15 +3353,15 @@ class ManifestArtifactFormatArgsDict(TypedDict):
     """
     Manifest artifact properties.
     """
-    artifact_name: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact name
     """
-    artifact_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactType']]]
+    artifact_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ArtifactType']]]]
     """
     The artifact type.
     """
-    artifact_version: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact version.
     """
@@ -3369,9 +3369,9 @@ class ManifestArtifactFormatArgsDict(TypedDict):
 @pulumi.input_type
 class ManifestArtifactFormatArgs:
     def __init__(__self__, *,
-                 artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_type: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactType']]] = None,
-                 artifact_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_type: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactType']]] = None,
+                 artifact_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Manifest artifact properties.
 
@@ -3388,38 +3388,38 @@ class ManifestArtifactFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactName")
-    def artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact name
         """
         return pulumi.get(self, "artifact_name")
 
     @artifact_name.setter
-    def artifact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactType")
-    def artifact_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArtifactType']]]:
+    def artifact_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ArtifactType']]]:
         """
         The artifact type.
         """
         return pulumi.get(self, "artifact_type")
 
     @artifact_type.setter
-    def artifact_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactType']]]):
+    def artifact_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactType']]]):
         pulumi.set(self, "artifact_type", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactVersion")
-    def artifact_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact version.
         """
         return pulumi.get(self, "artifact_version")
 
     @artifact_version.setter
-    def artifact_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_version", value)
 
 
@@ -3427,15 +3427,15 @@ class NSDArtifactProfileArgsDict(TypedDict):
     """
     Artifact profile properties.
     """
-    artifact_name: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Artifact name.
     """
-    artifact_store_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    artifact_store_reference: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The artifact store resource id
     """
-    artifact_version: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Artifact version.
     """
@@ -3443,9 +3443,9 @@ class NSDArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NSDArtifactProfileArgs:
     def __init__(__self__, *,
-                 artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_store_reference: Optional[pulumi.Input['ReferencedResourceArgs']] = None,
-                 artifact_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_store_reference: pulumi.Input[Optional['ReferencedResourceArgs']] = None,
+                 artifact_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Artifact profile properties.
 
@@ -3462,38 +3462,38 @@ class NSDArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactName")
-    def artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifact name.
         """
         return pulumi.get(self, "artifact_name")
 
     @artifact_name.setter
-    def artifact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStoreReference")
-    def artifact_store_reference(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def artifact_store_reference(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The artifact store resource id
         """
         return pulumi.get(self, "artifact_store_reference")
 
     @artifact_store_reference.setter
-    def artifact_store_reference(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def artifact_store_reference(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "artifact_store_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactVersion")
-    def artifact_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifact version.
         """
         return pulumi.get(self, "artifact_version")
 
     @artifact_version.setter
-    def artifact_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_version", value)
 
 
@@ -3501,7 +3501,7 @@ class NetworkFunctionDefinitionGroupPropertiesFormatArgsDict(TypedDict):
     """
     Network function definition group properties.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition group description.
     """
@@ -3509,7 +3509,7 @@ class NetworkFunctionDefinitionGroupPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkFunctionDefinitionGroupPropertiesFormatArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network function definition group properties.
 
@@ -3520,14 +3520,14 @@ class NetworkFunctionDefinitionGroupPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition group description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -3540,15 +3540,15 @@ class NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict(TypedDict)
     The resource element template type.
     Expected value is 'NetworkFunctionDefinition'.
     """
-    configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgsDict']]]
     """
     The resource element template type.
     """
-    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    depends_on_profile: NotRequired[pulumi.Input[Optional['DependsOnProfileArgsDict']]]
     """
     The depends on profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the resource element template.
     """
@@ -3557,9 +3557,9 @@ class NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict(TypedDict)
 class NetworkFunctionDefinitionResourceElementTemplateDetailsArgs:
     def __init__(__self__, *,
                  resource_element_type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']] = None,
-                 depends_on_profile: Optional[pulumi.Input['DependsOnProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']] = None,
+                 depends_on_profile: pulumi.Input[Optional['DependsOnProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The network function definition resource element template details.
 
@@ -3592,38 +3592,38 @@ class NetworkFunctionDefinitionResourceElementTemplateDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']]:
         """
         The resource element template type.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ArmResourceDefinitionResourceElementTemplateArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOnProfile")
-    def depends_on_profile(self) -> Optional[pulumi.Input['DependsOnProfileArgs']]:
+    def depends_on_profile(self) -> pulumi.Input[Optional['DependsOnProfileArgs']]:
         """
         The depends on profile.
         """
         return pulumi.get(self, "depends_on_profile")
 
     @depends_on_profile.setter
-    def depends_on_profile(self, value: Optional[pulumi.Input['DependsOnProfileArgs']]):
+    def depends_on_profile(self, value: pulumi.Input[Optional['DependsOnProfileArgs']]):
         pulumi.set(self, "depends_on_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource element template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -3631,27 +3631,27 @@ class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
     """
     Network function role configuration.
     """
-    custom_profile: NotRequired[pulumi.Input['CustomProfileArgsDict']]
+    custom_profile: NotRequired[pulumi.Input[Optional['CustomProfileArgsDict']]]
     """
     Specifies the custom settings for the virtual machine.
     """
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]]
     """
     The network interface configurations.
     """
-    os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+    os_profile: NotRequired[pulumi.Input[Optional['OsProfileArgsDict']]]
     """
     Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
     """
-    role_name: NotRequired[pulumi.Input[_builtins.str]]
+    role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the network function role.
     """
-    role_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]
+    role_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]]
     """
     Role type.
     """
-    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    storage_profile: NotRequired[pulumi.Input[Optional['StorageProfileArgsDict']]]
     """
     Specifies the storage settings for the virtual machine disks.
     """
@@ -3663,7 +3663,7 @@ class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
     """
     The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
     """
-    virtual_machine_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]]
+    virtual_machine_size: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineSizeTypes']]]]
     """
     The size of the virtual machine.
     """
@@ -3671,15 +3671,15 @@ class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkFunctionRoleConfigurationArgs:
     def __init__(__self__, *,
-                 custom_profile: Optional[pulumi.Input['CustomProfileArgs']] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+                 custom_profile: pulumi.Input[Optional['CustomProfileArgs']] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+                 os_profile: pulumi.Input[Optional['OsProfileArgs']] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
                  user_data_parameters: Optional[Any] = None,
                  user_data_template: Optional[Any] = None,
-                 virtual_machine_size: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]] = None):
+                 virtual_machine_size: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineSizeTypes']]] = None):
         """
         Network function role configuration.
 
@@ -3714,74 +3714,74 @@ class NetworkFunctionRoleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customProfile")
-    def custom_profile(self) -> Optional[pulumi.Input['CustomProfileArgs']]:
+    def custom_profile(self) -> pulumi.Input[Optional['CustomProfileArgs']]:
         """
         Specifies the custom settings for the virtual machine.
         """
         return pulumi.get(self, "custom_profile")
 
     @custom_profile.setter
-    def custom_profile(self, value: Optional[pulumi.Input['CustomProfileArgs']]):
+    def custom_profile(self, value: pulumi.Input[Optional['CustomProfileArgs']]):
         pulumi.set(self, "custom_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         The network interface configurations.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OsProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OsProfileArgs']]:
         """
         Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OsProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OsProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function role.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]:
+    def role_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]:
         """
         Role type.
         """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]):
+    def role_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]):
         pulumi.set(self, "role_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Specifies the storage settings for the virtual machine disks.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
@@ -3810,14 +3810,14 @@ class NetworkFunctionRoleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineSize")
-    def virtual_machine_size(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]]:
+    def virtual_machine_size(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineSizeTypes']]]:
         """
         The size of the virtual machine.
         """
         return pulumi.get(self, "virtual_machine_size")
 
     @virtual_machine_size.setter
-    def virtual_machine_size(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]]):
+    def virtual_machine_size(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineSizeTypes']]]):
         pulumi.set(self, "virtual_machine_size", value)
 
 
@@ -3825,7 +3825,7 @@ class NetworkFunctionTemplateArgsDict(TypedDict):
     """
     The network function template.
     """
-    network_function_role_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgsDict']]]]
+    network_function_role_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgsDict']]]]]
     """
     An array of network function role definitions.
     """
@@ -3833,7 +3833,7 @@ class NetworkFunctionTemplateArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkFunctionTemplateArgs:
     def __init__(__self__, *,
-                 network_function_role_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]] = None):
+                 network_function_role_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]] = None):
         """
         The network function template.
 
@@ -3844,14 +3844,14 @@ class NetworkFunctionTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionRoleConfigurations")
-    def network_function_role_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]]:
+    def network_function_role_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]]:
         """
         An array of network function role definitions.
         """
         return pulumi.get(self, "network_function_role_configurations")
 
     @network_function_role_configurations.setter
-    def network_function_role_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]]):
+    def network_function_role_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgs']]]]):
         pulumi.set(self, "network_function_role_configurations", value)
 
 
@@ -3864,47 +3864,47 @@ class NetworkFunctionValueWithSecretsArgsDict(TypedDict):
     The secret type which indicates if secret or not.
     Expected value is 'Secret'.
     """
-    allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_software_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if software updates are allowed during deployment.
     """
-    network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition group name for the network function.
     """
-    network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_offering_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the network function definition offering.
     """
-    network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition version for the network function.
     """
-    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]]
     """
     The network function definition version resource reference.
     """
-    nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
+    nfvi_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The nfviId for the network function.
     """
-    nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
+    nfvi_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]]
     """
     The nfvi type for the network function.
     """
-    publisher_name: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher name for the network function.
     """
-    publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    publisher_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]]
     """
     The scope of the publisher.
     """
-    role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    role_override_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The role configuration override values from the user.
     """
-    secret_deployment_values: NotRequired[pulumi.Input[_builtins.str]]
+    secret_deployment_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON-serialized secret deployment values from the user. This contains secrets like passwords,keys etc
     """
@@ -3913,17 +3913,17 @@ class NetworkFunctionValueWithSecretsArgsDict(TypedDict):
 class NetworkFunctionValueWithSecretsArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[_builtins.str],
-                 allow_software_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_function_definition_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_offering_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_version_resource_reference: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
-                 nfvi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfvi_type: Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_scope: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]] = None,
-                 role_override_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_deployment_values: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_software_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_function_definition_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_offering_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_version_resource_reference: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
+                 nfvi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfvi_type: pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_scope: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]] = None,
+                 role_override_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_deployment_values: pulumi.Input[Optional[_builtins.str]] = None):
         """
         NetworkFunction with secrets.
 
@@ -3980,134 +3980,134 @@ class NetworkFunctionValueWithSecretsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowSoftwareUpdate")
-    def allow_software_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_software_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if software updates are allowed during deployment.
         """
         return pulumi.get(self, "allow_software_update")
 
     @allow_software_update.setter
-    def allow_software_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_software_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_software_update", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionGroupName")
-    def network_function_definition_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition group name for the network function.
         """
         return pulumi.get(self, "network_function_definition_group_name")
 
     @network_function_definition_group_name.setter
-    def network_function_definition_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionOfferingLocation")
-    def network_function_definition_offering_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_offering_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the network function definition offering.
         """
         return pulumi.get(self, "network_function_definition_offering_location")
 
     @network_function_definition_offering_location.setter
-    def network_function_definition_offering_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_offering_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_offering_location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionVersion")
-    def network_function_definition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition version for the network function.
         """
         return pulumi.get(self, "network_function_definition_version")
 
     @network_function_definition_version.setter
-    def network_function_definition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionVersionResourceReference")
-    def network_function_definition_version_resource_reference(self) -> Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
+    def network_function_definition_version_resource_reference(self) -> pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
         """
         The network function definition version resource reference.
         """
         return pulumi.get(self, "network_function_definition_version_resource_reference")
 
     @network_function_definition_version_resource_reference.setter
-    def network_function_definition_version_resource_reference(self, value: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
+    def network_function_definition_version_resource_reference(self, value: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
         pulumi.set(self, "network_function_definition_version_resource_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="nfviId")
-    def nfvi_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nfvi_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The nfviId for the network function.
         """
         return pulumi.get(self, "nfvi_id")
 
     @nfvi_id.setter
-    def nfvi_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nfvi_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nfvi_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nfviType")
-    def nfvi_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]]:
+    def nfvi_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]:
         """
         The nfvi type for the network function.
         """
         return pulumi.get(self, "nfvi_type")
 
     @nfvi_type.setter
-    def nfvi_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]]):
+    def nfvi_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]):
         pulumi.set(self, "nfvi_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher name for the network function.
         """
         return pulumi.get(self, "publisher_name")
 
     @publisher_name.setter
-    def publisher_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherScope")
-    def publisher_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]:
+    def publisher_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]:
         """
         The scope of the publisher.
         """
         return pulumi.get(self, "publisher_scope")
 
     @publisher_scope.setter
-    def publisher_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]):
+    def publisher_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]):
         pulumi.set(self, "publisher_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="roleOverrideValues")
-    def role_override_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def role_override_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The role configuration override values from the user.
         """
         return pulumi.get(self, "role_override_values")
 
     @role_override_values.setter
-    def role_override_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def role_override_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "role_override_values", value)
 
     @_builtins.property
     @pulumi.getter(name="secretDeploymentValues")
-    def secret_deployment_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_deployment_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON-serialized secret deployment values from the user. This contains secrets like passwords,keys etc
         """
         return pulumi.get(self, "secret_deployment_values")
 
     @secret_deployment_values.setter
-    def secret_deployment_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_deployment_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_deployment_values", value)
 
 
@@ -4120,47 +4120,47 @@ class NetworkFunctionValueWithoutSecretsArgsDict(TypedDict):
     The secret type which indicates if secret or not.
     Expected value is 'Open'.
     """
-    allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_software_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if software updates are allowed during deployment.
     """
-    deployment_values: NotRequired[pulumi.Input[_builtins.str]]
+    deployment_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON-serialized deployment values from the user.
     """
-    network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition group name for the network function.
     """
-    network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_offering_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the network function definition offering.
     """
-    network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    network_function_definition_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition version for the network function.
     """
-    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]]
     """
     The network function definition version resource reference.
     """
-    nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
+    nfvi_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The nfviId for the network function.
     """
-    nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
+    nfvi_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]]
     """
     The nfvi type for the network function.
     """
-    publisher_name: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher name for the network function.
     """
-    publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    publisher_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]]
     """
     The scope of the publisher.
     """
-    role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    role_override_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The role configuration override values from the user.
     """
@@ -4169,17 +4169,17 @@ class NetworkFunctionValueWithoutSecretsArgsDict(TypedDict):
 class NetworkFunctionValueWithoutSecretsArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[_builtins.str],
-                 allow_software_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deployment_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_offering_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_definition_version_resource_reference: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
-                 nfvi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfvi_type: Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_scope: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]] = None,
-                 role_override_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_software_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deployment_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_offering_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_version_resource_reference: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
+                 nfvi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfvi_type: pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_scope: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]] = None,
+                 role_override_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         NetworkFunction with no secrets.
 
@@ -4236,162 +4236,256 @@ class NetworkFunctionValueWithoutSecretsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowSoftwareUpdate")
-    def allow_software_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_software_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if software updates are allowed during deployment.
         """
         return pulumi.get(self, "allow_software_update")
 
     @allow_software_update.setter
-    def allow_software_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_software_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_software_update", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentValues")
-    def deployment_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON-serialized deployment values from the user.
         """
         return pulumi.get(self, "deployment_values")
 
     @deployment_values.setter
-    def deployment_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_values", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionGroupName")
-    def network_function_definition_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition group name for the network function.
         """
         return pulumi.get(self, "network_function_definition_group_name")
 
     @network_function_definition_group_name.setter
-    def network_function_definition_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionOfferingLocation")
-    def network_function_definition_offering_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_offering_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the network function definition offering.
         """
         return pulumi.get(self, "network_function_definition_offering_location")
 
     @network_function_definition_offering_location.setter
-    def network_function_definition_offering_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_offering_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_offering_location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionVersion")
-    def network_function_definition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_definition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition version for the network function.
         """
         return pulumi.get(self, "network_function_definition_version")
 
     @network_function_definition_version.setter
-    def network_function_definition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_definition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_definition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionDefinitionVersionResourceReference")
-    def network_function_definition_version_resource_reference(self) -> Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
+    def network_function_definition_version_resource_reference(self) -> pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
         """
         The network function definition version resource reference.
         """
         return pulumi.get(self, "network_function_definition_version_resource_reference")
 
     @network_function_definition_version_resource_reference.setter
-    def network_function_definition_version_resource_reference(self, value: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
+    def network_function_definition_version_resource_reference(self, value: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
         pulumi.set(self, "network_function_definition_version_resource_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="nfviId")
-    def nfvi_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nfvi_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The nfviId for the network function.
         """
         return pulumi.get(self, "nfvi_id")
 
     @nfvi_id.setter
-    def nfvi_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nfvi_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nfvi_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nfviType")
-    def nfvi_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]]:
+    def nfvi_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]:
         """
         The nfvi type for the network function.
         """
         return pulumi.get(self, "nfvi_type")
 
     @nfvi_type.setter
-    def nfvi_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NFVIType']]]):
+    def nfvi_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NFVIType']]]):
         pulumi.set(self, "nfvi_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher name for the network function.
         """
         return pulumi.get(self, "publisher_name")
 
     @publisher_name.setter
-    def publisher_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherScope")
-    def publisher_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]:
+    def publisher_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]:
         """
         The scope of the publisher.
         """
         return pulumi.get(self, "publisher_scope")
 
     @publisher_scope.setter
-    def publisher_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]):
+    def publisher_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]):
         pulumi.set(self, "publisher_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="roleOverrideValues")
-    def role_override_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def role_override_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The role configuration override values from the user.
         """
         return pulumi.get(self, "role_override_values")
 
     @role_override_values.setter
-    def role_override_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def role_override_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "role_override_values", value)
+
+
+class NetworkInterfaceArgsDict(TypedDict):
+    """
+    Network interface properties.
+    """
+    ip_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]]]]
+    """
+    A list of IP configurations of the network interface.
+    """
+    mac_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The MAC address of the network interface.
+    """
+    network_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the network interface.
+    """
+    vm_switch_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'VMSwitchType']]]]
+    """
+    The type of the VM switch.
+    """
+
+@pulumi.input_type
+class NetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_switch_type: pulumi.Input[Optional[Union[_builtins.str, 'VMSwitchType']]] = None):
+        """
+        Network interface properties.
+
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
+        :param pulumi.Input[_builtins.str] mac_address: The MAC address of the network interface.
+        :param pulumi.Input[_builtins.str] network_interface_name: The name of the network interface.
+        :param pulumi.Input[Union[_builtins.str, 'VMSwitchType']] vm_switch_type: The type of the VM switch.
+        """
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
+        if vm_switch_type is not None:
+            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
+        """
+        A list of IP configurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The MAC address of the network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mac_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network interface.
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @network_interface_name.setter
+    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_interface_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmSwitchType")
+    def vm_switch_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VMSwitchType']]]:
+        """
+        The type of the VM switch.
+        """
+        return pulumi.get(self, "vm_switch_type")
+
+    @vm_switch_type.setter
+    def vm_switch_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VMSwitchType']]]):
+        pulumi.set(self, "vm_switch_type", value)
 
 
 class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
     """
     Network interface IP configuration properties.
     """
-    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of DNS servers IP addresses.
     """
-    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    gateway: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the gateway.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the IP address.
     """
-    ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]
+    ip_allocation_method: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]]]
     """
     IP address allocation method.
     """
-    ip_version: NotRequired[pulumi.Input[Union[_builtins.str, 'IPVersion']]]
+    ip_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPVersion']]]]
     """
     IP address version.
     """
-    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    subnet: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the subnet.
     """
@@ -4399,12 +4493,12 @@ class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkInterfaceIPConfigurationArgs:
     def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
-                 ip_version: Optional[pulumi.Input[Union[_builtins.str, 'IPVersion']]] = None,
-                 subnet: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
+                 ip_version: pulumi.Input[Optional[Union[_builtins.str, 'IPVersion']]] = None,
+                 subnet: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network interface IP configuration properties.
 
@@ -4430,176 +4524,82 @@ class NetworkInterfaceIPConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of DNS servers IP addresses.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the gateway.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the IP address.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAllocationMethod")
-    def ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]:
+    def ip_allocation_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]]:
         """
         IP address allocation method.
         """
         return pulumi.get(self, "ip_allocation_method")
 
     @ip_allocation_method.setter
-    def ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]):
+    def ip_allocation_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]]):
         pulumi.set(self, "ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPVersion']]]:
+    def ip_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPVersion']]]:
         """
         IP address version.
         """
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPVersion']]]):
+    def ip_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPVersion']]]):
         pulumi.set(self, "ip_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the subnet.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet", value)
-
-
-class NetworkInterfaceArgsDict(TypedDict):
-    """
-    Network interface properties.
-    """
-    ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]]]
-    """
-    A list of IP configurations of the network interface.
-    """
-    mac_address: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The MAC address of the network interface.
-    """
-    network_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the network interface.
-    """
-    vm_switch_type: NotRequired[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]]
-    """
-    The type of the VM switch.
-    """
-
-@pulumi.input_type
-class NetworkInterfaceArgs:
-    def __init__(__self__, *,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_switch_type: Optional[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]] = None):
-        """
-        Network interface properties.
-
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
-        :param pulumi.Input[_builtins.str] mac_address: The MAC address of the network interface.
-        :param pulumi.Input[_builtins.str] network_interface_name: The name of the network interface.
-        :param pulumi.Input[Union[_builtins.str, 'VMSwitchType']] vm_switch_type: The type of the VM switch.
-        """
-        if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
-        if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
-        if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
-        if vm_switch_type is not None:
-            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
-
-    @_builtins.property
-    @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
-        """
-        A list of IP configurations of the network interface.
-        """
-        return pulumi.get(self, "ip_configurations")
-
-    @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
-        pulumi.set(self, "ip_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The MAC address of the network interface.
-        """
-        return pulumi.get(self, "mac_address")
-
-    @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "mac_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the network interface.
-        """
-        return pulumi.get(self, "network_interface_name")
-
-    @network_interface_name.setter
-    def network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "network_interface_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmSwitchType")
-    def vm_switch_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]]:
-        """
-        The type of the VM switch.
-        """
-        return pulumi.get(self, "vm_switch_type")
-
-    @vm_switch_type.setter
-    def vm_switch_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]]):
-        pulumi.set(self, "vm_switch_type", value)
 
 
 class NetworkServiceDesignGroupPropertiesFormatArgsDict(TypedDict):
     """
     network service design group properties.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network service design group description.
     """
@@ -4607,7 +4607,7 @@ class NetworkServiceDesignGroupPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkServiceDesignGroupPropertiesFormatArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         network service design group properties.
 
@@ -4618,14 +4618,14 @@ class NetworkServiceDesignGroupPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network service design group description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -4633,19 +4633,19 @@ class NetworkServiceDesignVersionPropertiesFormatArgsDict(TypedDict):
     """
     network service design version properties.
     """
-    configuration_group_schema_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
+    configuration_group_schema_references: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]]
     """
     The configuration schemas to used to define the values.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network service design version description.
     """
-    nfvis_from_site: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgsDict']]]]
+    nfvis_from_site: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['NfviDetailsArgsDict']]]]]
     """
     The nfvis from the site.
     """
-    resource_element_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgsDict', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict']]]]]
+    resource_element_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgsDict', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict']]]]]]
     """
     List of resource element template
     """
@@ -4653,10 +4653,10 @@ class NetworkServiceDesignVersionPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkServiceDesignVersionPropertiesFormatArgs:
     def __init__(__self__, *,
-                 configuration_group_schema_references: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfvis_from_site: Optional[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgs']]]] = None,
-                 resource_element_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]] = None):
+                 configuration_group_schema_references: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfvis_from_site: pulumi.Input[Optional[Mapping[str, pulumi.Input['NfviDetailsArgs']]]] = None,
+                 resource_element_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]] = None):
         """
         network service design version properties.
 
@@ -4676,50 +4676,50 @@ class NetworkServiceDesignVersionPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationGroupSchemaReferences")
-    def configuration_group_schema_references(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]:
+    def configuration_group_schema_references(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]:
         """
         The configuration schemas to used to define the values.
         """
         return pulumi.get(self, "configuration_group_schema_references")
 
     @configuration_group_schema_references.setter
-    def configuration_group_schema_references(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]):
+    def configuration_group_schema_references(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]):
         pulumi.set(self, "configuration_group_schema_references", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network service design version description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="nfvisFromSite")
-    def nfvis_from_site(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgs']]]]:
+    def nfvis_from_site(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['NfviDetailsArgs']]]]:
         """
         The nfvis from the site.
         """
         return pulumi.get(self, "nfvis_from_site")
 
     @nfvis_from_site.setter
-    def nfvis_from_site(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgs']]]]):
+    def nfvis_from_site(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['NfviDetailsArgs']]]]):
         pulumi.set(self, "nfvis_from_site", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceElementTemplates")
-    def resource_element_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]]:
+    def resource_element_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]]:
         """
         List of resource element template
         """
         return pulumi.get(self, "resource_element_templates")
 
     @resource_element_templates.setter
-    def resource_element_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]]):
+    def resource_element_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgs', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgs']]]]]):
         pulumi.set(self, "resource_element_templates", value)
 
 
@@ -4727,11 +4727,11 @@ class NfviDetailsArgsDict(TypedDict):
     """
     The nfvi details.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The nfvi name.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The nfvi type.
     """
@@ -4739,8 +4739,8 @@ class NfviDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class NfviDetailsArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The nfvi details.
 
@@ -4754,26 +4754,26 @@ class NfviDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The nfvi name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The nfvi type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -4786,7 +4786,7 @@ class OpenDeploymentResourceReferenceArgsDict(TypedDict):
     The resource reference arm id type.
     Expected value is 'Open'.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID.
     """
@@ -4795,7 +4795,7 @@ class OpenDeploymentResourceReferenceArgsDict(TypedDict):
 class OpenDeploymentResourceReferenceArgs:
     def __init__(__self__, *,
                  id_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Non secret deployment resource id reference.
 
@@ -4822,14 +4822,14 @@ class OpenDeploymentResourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -4837,19 +4837,19 @@ class OsDiskArgsDict(TypedDict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The VHD name.
     """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]]]
     """
     The OS type.
     """
-    vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+    vhd: NotRequired[pulumi.Input[Optional['VirtualHardDiskArgsDict']]]
     """
     The virtual hard disk.
     """
@@ -4857,10 +4857,10 @@ class OsDiskArgsDict(TypedDict):
 @pulumi.input_type
 class OsDiskArgs:
     def __init__(__self__, *,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 vhd: Optional[pulumi.Input['VirtualHardDiskArgs']] = None):
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
+                 vhd: pulumi.Input[Optional['VirtualHardDiskArgs']] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -4880,50 +4880,50 @@ class OsDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VHD name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]]:
         """
         The OS type.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def vhd(self) -> Optional[pulumi.Input['VirtualHardDiskArgs']]:
+    def vhd(self) -> pulumi.Input[Optional['VirtualHardDiskArgs']]:
         """
         The virtual hard disk.
         """
         return pulumi.get(self, "vhd")
 
     @vhd.setter
-    def vhd(self, value: Optional[pulumi.Input['VirtualHardDiskArgs']]):
+    def vhd(self, value: pulumi.Input[Optional['VirtualHardDiskArgs']]):
         pulumi.set(self, "vhd", value)
 
 
@@ -4931,19 +4931,19 @@ class OsProfileArgsDict(TypedDict):
     """
     Specifies the operating system settings for the role instance.
     """
-    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    admin_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     """
-    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    custom_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
     """
-    custom_data_required: NotRequired[pulumi.Input[_builtins.bool]]
+    custom_data_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if custom data is required to deploy this role.
     """
-    linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
+    linux_configuration: NotRequired[pulumi.Input[Optional['LinuxConfigurationArgsDict']]]
     """
     Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     """
@@ -4951,10 +4951,10 @@ class OsProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 linux_configuration: Optional[pulumi.Input['LinuxConfigurationArgs']] = None):
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 linux_configuration: pulumi.Input[Optional['LinuxConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the role instance.
 
@@ -4976,50 +4976,50 @@ class OsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="customDataRequired")
-    def custom_data_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_data_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if custom data is required to deploy this role.
         """
         return pulumi.get(self, "custom_data_required")
 
     @custom_data_required.setter
-    def custom_data_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_data_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_data_required", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxConfiguration")
-    def linux_configuration(self) -> Optional[pulumi.Input['LinuxConfigurationArgs']]:
+    def linux_configuration(self) -> pulumi.Input[Optional['LinuxConfigurationArgs']]:
         """
         Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
-    def linux_configuration(self, value: Optional[pulumi.Input['LinuxConfigurationArgs']]):
+    def linux_configuration(self, value: pulumi.Input[Optional['LinuxConfigurationArgs']]):
         pulumi.set(self, "linux_configuration", value)
 
 
@@ -5027,7 +5027,7 @@ class PublisherPropertiesFormatArgsDict(TypedDict):
     """
     publisher properties.
     """
-    scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]]
     """
     The publisher scope.
     """
@@ -5035,7 +5035,7 @@ class PublisherPropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class PublisherPropertiesFormatArgs:
     def __init__(__self__, *,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]] = None):
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]] = None):
         """
         publisher properties.
 
@@ -5046,14 +5046,14 @@ class PublisherPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]:
         """
         The publisher scope.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublisherScope']]]):
         pulumi.set(self, "scope", value)
 
 
@@ -5061,7 +5061,7 @@ class ReferencedResourceArgsDict(TypedDict):
     """
     Reference to another resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID.
     """
@@ -5069,7 +5069,7 @@ class ReferencedResourceArgsDict(TypedDict):
 @pulumi.input_type
 class ReferencedResourceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Reference to another resource.
 
@@ -5080,14 +5080,14 @@ class ReferencedResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -5100,7 +5100,7 @@ class SecretDeploymentResourceReferenceArgsDict(TypedDict):
     The resource reference arm id type.
     Expected value is 'Secret'.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID.
     """
@@ -5109,7 +5109,7 @@ class SecretDeploymentResourceReferenceArgsDict(TypedDict):
 class SecretDeploymentResourceReferenceArgs:
     def __init__(__self__, *,
                  id_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Secret deployment resource id reference.
 
@@ -5136,14 +5136,14 @@ class SecretDeploymentResourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -5151,19 +5151,19 @@ class SiteNetworkServicePropertiesFormatArgsDict(TypedDict):
     """
     Site network service properties.
     """
-    desired_state_configuration_group_value_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
+    desired_state_configuration_group_value_references: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]]
     """
     The goal state of the site network service resource. This has references to the configuration group value objects that describe the desired state of the site network service.
     """
-    managed_resource_group_configuration: NotRequired[pulumi.Input['ManagedResourceGroupConfigurationArgsDict']]
+    managed_resource_group_configuration: NotRequired[pulumi.Input[Optional['ManagedResourceGroupConfigurationArgsDict']]]
     """
     Managed resource group configuration.
     """
-    network_service_design_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    network_service_design_version_resource_reference: NotRequired[pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]]
     """
     The network service design version resource reference.
     """
-    site_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    site_reference: NotRequired[pulumi.Input[Optional['ReferencedResourceArgsDict']]]
     """
     The site details
     """
@@ -5171,10 +5171,10 @@ class SiteNetworkServicePropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class SiteNetworkServicePropertiesFormatArgs:
     def __init__(__self__, *,
-                 desired_state_configuration_group_value_references: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
-                 network_service_design_version_resource_reference: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
-                 site_reference: Optional[pulumi.Input['ReferencedResourceArgs']] = None):
+                 desired_state_configuration_group_value_references: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
+                 network_service_design_version_resource_reference: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]] = None,
+                 site_reference: pulumi.Input[Optional['ReferencedResourceArgs']] = None):
         """
         Site network service properties.
 
@@ -5194,50 +5194,50 @@ class SiteNetworkServicePropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredStateConfigurationGroupValueReferences")
-    def desired_state_configuration_group_value_references(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]:
+    def desired_state_configuration_group_value_references(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]:
         """
         The goal state of the site network service resource. This has references to the configuration group value objects that describe the desired state of the site network service.
         """
         return pulumi.get(self, "desired_state_configuration_group_value_references")
 
     @desired_state_configuration_group_value_references.setter
-    def desired_state_configuration_group_value_references(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]):
+    def desired_state_configuration_group_value_references(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReferencedResourceArgs']]]]):
         pulumi.set(self, "desired_state_configuration_group_value_references", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]:
         """
         Managed resource group configuration.
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="networkServiceDesignVersionResourceReference")
-    def network_service_design_version_resource_reference(self) -> Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
+    def network_service_design_version_resource_reference(self) -> pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]:
         """
         The network service design version resource reference.
         """
         return pulumi.get(self, "network_service_design_version_resource_reference")
 
     @network_service_design_version_resource_reference.setter
-    def network_service_design_version_resource_reference(self, value: Optional[pulumi.Input[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
+    def network_service_design_version_resource_reference(self, value: pulumi.Input[Optional[Union['OpenDeploymentResourceReferenceArgs', 'SecretDeploymentResourceReferenceArgs']]]):
         pulumi.set(self, "network_service_design_version_resource_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="siteReference")
-    def site_reference(self) -> Optional[pulumi.Input['ReferencedResourceArgs']]:
+    def site_reference(self) -> pulumi.Input[Optional['ReferencedResourceArgs']]:
         """
         The site details
         """
         return pulumi.get(self, "site_reference")
 
     @site_reference.setter
-    def site_reference(self, value: Optional[pulumi.Input['ReferencedResourceArgs']]):
+    def site_reference(self, value: pulumi.Input[Optional['ReferencedResourceArgs']]):
         pulumi.set(self, "site_reference", value)
 
 
@@ -5245,7 +5245,7 @@ class SitePropertiesFormatArgsDict(TypedDict):
     """
     Site properties.
     """
-    nfvis: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgsDict', 'AzureCoreNFVIDetailsArgsDict', 'AzureOperatorNexusClusterNFVIDetailsArgsDict']]]]]
+    nfvis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgsDict', 'AzureCoreNFVIDetailsArgsDict', 'AzureOperatorNexusClusterNFVIDetailsArgsDict']]]]]]
     """
     List of NFVIs
     """
@@ -5253,7 +5253,7 @@ class SitePropertiesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class SitePropertiesFormatArgs:
     def __init__(__self__, *,
-                 nfvis: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]] = None):
+                 nfvis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]] = None):
         """
         Site properties.
 
@@ -5264,14 +5264,14 @@ class SitePropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def nfvis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]]:
+    def nfvis(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]]:
         """
         List of NFVIs
         """
         return pulumi.get(self, "nfvis")
 
     @nfvis.setter
-    def nfvis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]]):
+    def nfvis(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgs', 'AzureCoreNFVIDetailsArgs', 'AzureOperatorNexusClusterNFVIDetailsArgs']]]]]):
         pulumi.set(self, "nfvis", value)
 
 
@@ -5312,7 +5312,7 @@ class SshConfigurationArgsDict(TypedDict):
     """
     SSH configuration for Linux based VMs running on Azure
     """
-    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    public_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]]
     """
     The list of SSH public keys used to authenticate with linux based VMs.
     """
@@ -5320,7 +5320,7 @@ class SshConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         SSH configuration for Linux based VMs running on Azure
 
@@ -5331,14 +5331,14 @@ class SshConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+    def public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         The list of SSH public keys used to authenticate with linux based VMs.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+    def public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
@@ -5346,11 +5346,11 @@ class SshPublicKeyArgsDict(TypedDict):
     """
     Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
     """
-    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    key_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
     """
@@ -5358,8 +5358,8 @@ class SshPublicKeyArgsDict(TypedDict):
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
-                 key_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
 
@@ -5373,26 +5373,26 @@ class SshPublicKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyData")
-    def key_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
         return pulumi.get(self, "key_data")
 
     @key_data.setter
-    def key_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -5400,15 +5400,15 @@ class StorageProfileArgsDict(TypedDict):
     """
     Specifies the storage settings for the virtual machine disks.
     """
-    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskArgsDict']]]]]
     """
     Specifies the parameters that are used to add a data disk to a virtual machine.
     """
-    image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
+    image_reference: NotRequired[pulumi.Input[Optional['ImageReferenceArgsDict']]]
     """
     The image reference properties.
     """
-    os_disk: NotRequired[pulumi.Input['OsDiskArgsDict']]
+    os_disk: NotRequired[pulumi.Input[Optional['OsDiskArgsDict']]]
     """
     Specifies information about the operating system disk used by the virtual machine.
     """
@@ -5416,9 +5416,9 @@ class StorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]] = None,
-                 image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
-                 os_disk: Optional[pulumi.Input['OsDiskArgs']] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskArgs']]]] = None,
+                 image_reference: pulumi.Input[Optional['ImageReferenceArgs']] = None,
+                 os_disk: pulumi.Input[Optional['OsDiskArgs']] = None):
         """
         Specifies the storage settings for the virtual machine disks.
 
@@ -5435,38 +5435,38 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskArgs']]]]:
         """
         Specifies the parameters that are used to add a data disk to a virtual machine.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="imageReference")
-    def image_reference(self) -> Optional[pulumi.Input['ImageReferenceArgs']]:
+    def image_reference(self) -> pulumi.Input[Optional['ImageReferenceArgs']]:
         """
         The image reference properties.
         """
         return pulumi.get(self, "image_reference")
 
     @image_reference.setter
-    def image_reference(self, value: Optional[pulumi.Input['ImageReferenceArgs']]):
+    def image_reference(self, value: pulumi.Input[Optional['ImageReferenceArgs']]):
         pulumi.set(self, "image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['OsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['OsDiskArgs']]:
         """
         Specifies information about the operating system disk used by the virtual machine.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['OsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['OsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
 
@@ -5474,11 +5474,11 @@ class VhdImageArtifactProfileArgsDict(TypedDict):
     """
     Vhd artifact profile.
     """
-    vhd_name: NotRequired[pulumi.Input[_builtins.str]]
+    vhd_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Vhd name.
     """
-    vhd_version: NotRequired[pulumi.Input[_builtins.str]]
+    vhd_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Vhd version.
     """
@@ -5486,8 +5486,8 @@ class VhdImageArtifactProfileArgsDict(TypedDict):
 @pulumi.input_type
 class VhdImageArtifactProfileArgs:
     def __init__(__self__, *,
-                 vhd_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vhd_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 vhd_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vhd_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Vhd artifact profile.
 
@@ -5501,26 +5501,26 @@ class VhdImageArtifactProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="vhdName")
-    def vhd_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vhd_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vhd name.
         """
         return pulumi.get(self, "vhd_name")
 
     @vhd_name.setter
-    def vhd_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vhd_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vhd_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vhdVersion")
-    def vhd_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vhd_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vhd version.
         """
         return pulumi.get(self, "vhd_version")
 
     @vhd_version.setter
-    def vhd_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vhd_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vhd_version", value)
 
 
@@ -5528,7 +5528,7 @@ class VhdImageMappingRuleProfileArgsDict(TypedDict):
     """
     Vhd mapping rule profile
     """
-    user_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    user_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     List of values.
     """
@@ -5536,7 +5536,7 @@ class VhdImageMappingRuleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class VhdImageMappingRuleProfileArgs:
     def __init__(__self__, *,
-                 user_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Vhd mapping rule profile
 
@@ -5547,14 +5547,14 @@ class VhdImageMappingRuleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="userConfiguration")
-    def user_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of values.
         """
         return pulumi.get(self, "user_configuration")
 
     @user_configuration.setter
-    def user_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_configuration", value)
 
 
@@ -5562,7 +5562,7 @@ class VirtualHardDiskArgsDict(TypedDict):
     """
     Describes the uri of a disk.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the virtual hard disk's uri.
     """
@@ -5570,7 +5570,7 @@ class VirtualHardDiskArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualHardDiskArgs:
     def __init__(__self__, *,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the uri of a disk.
 
@@ -5581,14 +5581,14 @@ class VirtualHardDiskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the virtual hard disk's uri.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -5601,15 +5601,15 @@ class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict(TypedDict):
     The network function type.
     Expected value is 'VirtualNetworkFunction'.
     """
-    deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    deploy_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deployment parameters of the network function definition version.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network function definition version description.
     """
-    network_function_template: NotRequired[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgsDict', 'AzureOperatorNexusNetworkFunctionTemplateArgsDict']]]
+    network_function_template: NotRequired[pulumi.Input[Optional[Union['AzureCoreNetworkFunctionTemplateArgsDict', 'AzureOperatorNexusNetworkFunctionTemplateArgsDict']]]]
     """
     Virtual network function template.
     """
@@ -5618,9 +5618,9 @@ class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict(TypedDict):
 class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs:
     def __init__(__self__, *,
                  network_function_type: pulumi.Input[_builtins.str],
-                 deploy_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_function_template: Optional[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]] = None):
+                 deploy_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_template: pulumi.Input[Optional[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]] = None):
         """
         Virtual network function network function definition version properties.
 
@@ -5653,38 +5653,38 @@ class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="deployParameters")
-    def deploy_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deploy_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment parameters of the network function definition version.
         """
         return pulumi.get(self, "deploy_parameters")
 
     @deploy_parameters.setter
-    def deploy_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deploy_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deploy_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network function definition version description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionTemplate")
-    def network_function_template(self) -> Optional[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]]:
+    def network_function_template(self) -> pulumi.Input[Optional[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]]:
         """
         Virtual network function template.
         """
         return pulumi.get(self, "network_function_template")
 
     @network_function_template.setter
-    def network_function_template(self, value: Optional[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]]):
+    def network_function_template(self, value: pulumi.Input[Optional[Union['AzureCoreNetworkFunctionTemplateArgs', 'AzureOperatorNexusNetworkFunctionTemplateArgs']]]):
         pulumi.set(self, "network_function_template", value)
 
 

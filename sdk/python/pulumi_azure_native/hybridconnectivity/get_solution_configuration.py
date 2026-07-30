@@ -178,7 +178,6 @@ def get_solution_configuration(resource_uri: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-12-01.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str solution_configuration: Represent Solution Configuration Resource.
     """
@@ -200,14 +199,13 @@ def get_solution_configuration(resource_uri: Optional[_builtins.str] = None,
         status_details=pulumi.get(__ret__, 'status_details'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                                      solution_configuration: Optional[pulumi.Input[_builtins.str]] = None,
+def get_solution_configuration_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                                      solution_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigurationResult]:
     """
     Get a SolutionConfiguration
 
     Uses Azure REST API version 2024-12-01.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str solution_configuration: Represent Solution Configuration Resource.

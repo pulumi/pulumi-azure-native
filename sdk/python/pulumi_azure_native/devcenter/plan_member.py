@@ -23,11 +23,11 @@ class PlanMemberArgs:
     def __init__(__self__, *,
                  plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'PlanMemberType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlanMember resource.
 
@@ -78,62 +78,62 @@ class PlanMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="memberId")
-    def member_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique id of the member.
         """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
-    def member_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_id", value)
 
     @_builtins.property
     @pulumi.getter(name="memberName")
-    def member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a devcenter plan member.
         """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
-    def member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PlanMemberType']]]:
+    def member_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]]:
         """
         The type of the member (user, group)
         """
         return pulumi.get(self, "member_type")
 
     @member_type.setter
-    def member_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PlanMemberType']]]):
+    def member_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]]):
         pulumi.set(self, "member_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier of the member.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -143,13 +143,13 @@ class PlanMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'PlanMemberType']]] = None,
-                 plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]] = None,
+                 plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a devcenter plan member resource.
@@ -157,7 +157,6 @@ class PlanMember(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class PlanMember(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PlanMemberArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class PlanMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'PlanMemberType']]] = None,
-                 plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'PlanMemberType']]] = None,
+                 plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

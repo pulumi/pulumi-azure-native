@@ -119,7 +119,6 @@ def get_import_sql_collector_operation(import_sql_collectors_name: Optional[_bui
 
     Uses Azure REST API version 2024-03-03-preview.
 
-
     :param _builtins.str import_sql_collectors_name: Import SQL Collector arm name.
     :param _builtins.str project_name: Assessment Project Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,15 +137,14 @@ def get_import_sql_collector_operation(import_sql_collectors_name: Optional[_bui
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_import_sql_collector_operation_output(import_sql_collectors_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_import_sql_collector_operation_output(import_sql_collectors_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportSqlCollectorOperationResult]:
     """
     Get a ImportSqlCollector
 
     Uses Azure REST API version 2024-03-03-preview.
-
 
     :param _builtins.str import_sql_collectors_name: Import SQL Collector arm name.
     :param _builtins.str project_name: Assessment Project Name

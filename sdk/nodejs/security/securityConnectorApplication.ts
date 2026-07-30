@@ -130,7 +130,7 @@ export interface SecurityConnectorApplicationArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * The application conditionSets - see examples
      */
@@ -138,11 +138,11 @@ export interface SecurityConnectorApplicationArgs {
     /**
      * description of the application
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * display name of the application
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

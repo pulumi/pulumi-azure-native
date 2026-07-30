@@ -178,7 +178,6 @@ def get_hub(hub_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2017-04-26.
 
-
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -200,14 +199,13 @@ def get_hub(hub_name: Optional[_builtins.str] = None,
         tenant_features=pulumi.get(__ret__, 'tenant_features'),
         type=pulumi.get(__ret__, 'type'),
         web_endpoint=pulumi.get(__ret__, 'web_endpoint'))
-def get_hub_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hub_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubResult]:
     """
     Gets information about the specified hub.
 
     Uses Azure REST API version 2017-04-26.
-
 
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str resource_group_name: The name of the resource group.

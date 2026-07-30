@@ -23,13 +23,13 @@ class EvidenceArgs:
     def __init__(__self__, *,
                  file_path: pulumi.Input[_builtins.str],
                  report_name: pulumi.Input[_builtins.str],
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_type: Optional[pulumi.Input[Union[_builtins.str, 'EvidenceType']]] = None,
-                 extra_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_creator_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responsibility_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_type: pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]] = None,
+                 extra_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_creator_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responsibility_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Evidence resource.
 
@@ -86,86 +86,86 @@ class EvidenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="controlId")
-    def control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Control id.
         """
         return pulumi.get(self, "control_id")
 
     @control_id.setter
-    def control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
 
     @_builtins.property
     @pulumi.getter(name="evidenceName")
-    def evidence_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def evidence_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The evidence name.
         """
         return pulumi.get(self, "evidence_name")
 
     @evidence_name.setter
-    def evidence_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def evidence_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "evidence_name", value)
 
     @_builtins.property
     @pulumi.getter(name="evidenceType")
-    def evidence_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EvidenceType']]]:
+    def evidence_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]]:
         """
         Evidence type.
         """
         return pulumi.get(self, "evidence_type")
 
     @evidence_type.setter
-    def evidence_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EvidenceType']]]):
+    def evidence_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]]):
         pulumi.set(self, "evidence_type", value)
 
     @_builtins.property
     @pulumi.getter(name="extraData")
-    def extra_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Extra data considered as evidence.
         """
         return pulumi.get(self, "extra_data")
 
     @extra_data.setter
-    def extra_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_data", value)
 
     @_builtins.property
     @pulumi.getter(name="offerGuid")
-    def offer_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offerGuid which mapping to the reports.
         """
         return pulumi.get(self, "offer_guid")
 
     @offer_guid.setter
-    def offer_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="reportCreatorTenantId")
-    def report_creator_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def report_creator_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the report creator.
         """
         return pulumi.get(self, "report_creator_tenant_id")
 
     @report_creator_tenant_id.setter
-    def report_creator_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def report_creator_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "report_creator_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="responsibilityId")
-    def responsibility_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responsibility_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Responsibility id.
         """
         return pulumi.get(self, "responsibility_id")
 
     @responsibility_id.setter
-    def responsibility_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responsibility_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responsibility_id", value)
 
 
@@ -175,21 +175,20 @@ class Evidence(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_type: Optional[pulumi.Input[Union[_builtins.str, 'EvidenceType']]] = None,
-                 extra_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_creator_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responsibility_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_type: pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]] = None,
+                 extra_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_creator_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responsibility_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A class represent an AppComplianceAutomation evidence resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +213,6 @@ class Evidence(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
-
         :param str resource_name: The name of the resource.
         :param EvidenceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,15 +228,15 @@ class Evidence(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evidence_type: Optional[pulumi.Input[Union[_builtins.str, 'EvidenceType']]] = None,
-                 extra_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_creator_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responsibility_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_type: pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]] = None,
+                 extra_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_creator_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responsibility_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

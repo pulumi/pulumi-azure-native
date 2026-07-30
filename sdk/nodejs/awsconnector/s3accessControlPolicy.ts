@@ -113,15 +113,15 @@ export interface S3AccessControlPolicyArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of S3AccessControlPolicy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.S3AccessControlPolicyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.awsconnector.S3AccessControlPolicyPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface S3AccessControlPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

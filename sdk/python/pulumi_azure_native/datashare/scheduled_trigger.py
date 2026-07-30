@@ -27,8 +27,8 @@ class ScheduledTriggerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_subscription_name: pulumi.Input[_builtins.str],
                  synchronization_time: pulumi.Input[_builtins.str],
-                 synchronization_mode: Optional[pulumi.Input[Union[_builtins.str, 'SynchronizationMode']]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 synchronization_mode: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledTrigger resource.
 
@@ -128,26 +128,26 @@ class ScheduledTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="synchronizationMode")
-    def synchronization_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SynchronizationMode']]]:
+    def synchronization_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]]:
         """
         Synchronization mode
         """
         return pulumi.get(self, "synchronization_mode")
 
     @synchronization_mode.setter
-    def synchronization_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SynchronizationMode']]]):
+    def synchronization_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]]):
         pulumi.set(self, "synchronization_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trigger.
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_name", value)
 
 
@@ -157,20 +157,19 @@ class ScheduledTrigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_interval: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synchronization_mode: Optional[pulumi.Input[Union[_builtins.str, 'SynchronizationMode']]] = None,
-                 synchronization_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_interval: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceInterval']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synchronization_mode: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]] = None,
+                 synchronization_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A type of trigger based on schedule
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class ScheduledTrigger(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduledTriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class ScheduledTrigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_interval: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synchronization_mode: Optional[pulumi.Input[Union[_builtins.str, 'SynchronizationMode']]] = None,
-                 synchronization_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_interval: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceInterval']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synchronization_mode: pulumi.Input[Optional[Union[_builtins.str, 'SynchronizationMode']]] = None,
+                 synchronization_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

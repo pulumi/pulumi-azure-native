@@ -59,7 +59,6 @@ def get_network_virtual_appliance_boot_diagnostic_logs(console_screenshot_storag
 
     Other available API versions: 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str console_screenshot_storage_sas_url: Specifies the sas-url to the storage blob into which console screen shot for the requested instance will be written
     :param _builtins.int instance_id: The network virtual appliance instance id for which boot diagnostic logs is being requested
     :param _builtins.str network_virtual_appliance_name: The name of Network Virtual Appliance.
@@ -77,11 +76,11 @@ def get_network_virtual_appliance_boot_diagnostic_logs(console_screenshot_storag
 
     return AwaitableGetNetworkVirtualApplianceBootDiagnosticLogsResult(
         instance_id=pulumi.get(__ret__, 'instance_id'))
-def get_network_virtual_appliance_boot_diagnostic_logs_output(console_screenshot_storage_sas_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                              instance_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                                              network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              serial_console_storage_sas_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_virtual_appliance_boot_diagnostic_logs_output(console_screenshot_storage_sas_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                              instance_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                                              network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              serial_console_storage_sas_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceBootDiagnosticLogsResult]:
     """
     Retrieves the boot diagnostic logs for a VM instance belonging to the specified Network Virtual Appliance.
@@ -89,7 +88,6 @@ def get_network_virtual_appliance_boot_diagnostic_logs_output(console_screenshot
     Uses Azure REST API version 2024-07-01.
 
     Other available API versions: 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str console_screenshot_storage_sas_url: Specifies the sas-url to the storage blob into which console screen shot for the requested instance will be written
     :param _builtins.int instance_id: The network virtual appliance instance id for which boot diagnostic logs is being requested

@@ -119,11 +119,11 @@ export interface AuthorizationAccessPolicyArgs {
     /**
      * The allowed Azure Active Directory Application IDs
      */
-    appIds?: pulumi.Input<pulumi.Input<string>[]>;
+    appIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier of the authorization access policy.
      */
-    authorizationAccessPolicyId?: pulumi.Input<string>;
+    authorizationAccessPolicyId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the authorization.
      */
@@ -135,7 +135,7 @@ export interface AuthorizationAccessPolicyArgs {
     /**
      * The Object Id
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -147,5 +147,5 @@ export interface AuthorizationAccessPolicyArgs {
     /**
      * The Tenant Id
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

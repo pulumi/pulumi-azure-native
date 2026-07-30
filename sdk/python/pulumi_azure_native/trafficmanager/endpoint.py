@@ -25,24 +25,24 @@ class EndpointInitArgs:
                  endpoint_type: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]] = None,
-                 geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv4: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv6: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.float]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.float]] = None):
+                 always_serve: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]] = None,
+                 geo_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_child_endpoints: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv4: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv6: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.float]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -146,218 +146,218 @@ class EndpointInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysServe")
-    def always_serve(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]]:
+    def always_serve(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]]:
         """
         If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         """
         return pulumi.get(self, "always_serve")
 
     @always_serve.setter
-    def always_serve(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]]):
+    def always_serve(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]]):
         pulumi.set(self, "always_serve", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]:
         """
         List of custom headers.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointMonitorStatus")
-    def endpoint_monitor_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]]:
+    def endpoint_monitor_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]:
         """
         The monitoring status of the endpoint.
         """
         return pulumi.get(self, "endpoint_monitor_status")
 
     @endpoint_monitor_status.setter
-    def endpoint_monitor_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]]):
+    def endpoint_monitor_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]):
         pulumi.set(self, "endpoint_monitor_status", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Traffic Manager endpoint.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]]:
+    def endpoint_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]]:
         """
         The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         """
         return pulumi.get(self, "endpoint_status")
 
     @endpoint_status.setter
-    def endpoint_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]]):
+    def endpoint_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]]):
         pulumi.set(self, "endpoint_status", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mapping(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
         return pulumi.get(self, "geo_mapping")
 
     @geo_mapping.setter
-    def geo_mapping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mapping(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mapping", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
-    def min_child_endpoints(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpointsIPv4")
-    def min_child_endpoints_i_pv4(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints_i_pv4(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints_i_pv4")
 
     @min_child_endpoints_i_pv4.setter
-    def min_child_endpoints_i_pv4(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints_i_pv4(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints_i_pv4", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpointsIPv6")
-    def min_child_endpoints_i_pv6(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints_i_pv6(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints_i_pv6")
 
     @min_child_endpoints_i_pv6.setter
-    def min_child_endpoints_i_pv6(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints_i_pv6(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints_i_pv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "weight", value)
 
 
@@ -367,27 +367,27 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv4: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv6: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.float]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.float]] = None,
+                 always_serve: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_child_endpoints: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv4: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv6: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.float]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Class representing a Traffic Manager endpoint.
@@ -395,7 +395,6 @@ class Endpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-04-01.
 
         Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -434,7 +433,6 @@ class Endpoint(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -450,27 +448,27 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv4: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv6: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.float]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.float]] = None,
+                 always_serve: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_child_endpoints: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv4: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv6: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.float]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

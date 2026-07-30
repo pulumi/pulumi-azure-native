@@ -23,12 +23,12 @@ __all__ = ['SecurityStandardArgs', 'SecurityStandard']
 class SecurityStandardArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 assessments: Optional[pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]] = None,
-                 cloud_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_set_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 assessments: pulumi.Input[Optional[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]] = None,
+                 cloud_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_set_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityStandard resource.
 
@@ -68,74 +68,74 @@ class SecurityStandardArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assessments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]]:
+    def assessments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]]:
         """
         List of assessment keys to apply to standard scope.
         """
         return pulumi.get(self, "assessments")
 
     @assessments.setter
-    def assessments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]]):
+    def assessments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]]):
         pulumi.set(self, "assessments", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudProviders")
-    def cloud_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]]:
+    def cloud_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]]:
         """
         List of all standard supported clouds.
         """
         return pulumi.get(self, "cloud_providers")
 
     @cloud_providers.setter
-    def cloud_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]]):
+    def cloud_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]]):
         pulumi.set(self, "cloud_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the standard
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the standard, equivalent to the standardId
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySetDefinitionId")
-    def policy_set_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_set_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy set definition id associated with the standard.
         """
         return pulumi.get(self, "policy_set_definition_id")
 
     @policy_set_definition_id.setter
-    def policy_set_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_set_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_set_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="standardId")
-    def standard_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Security Standard key - unique key for the standard type
         """
         return pulumi.get(self, "standard_id")
 
     @standard_id.setter
-    def standard_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standard_id", value)
 
 
@@ -145,19 +145,18 @@ class SecurityStandard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]]] = None,
-                 cloud_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_set_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]]] = None,
+                 cloud_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_set_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Security Standard on a resource
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class SecurityStandard(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param SecurityStandardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class SecurityStandard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]]] = None,
-                 cloud_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_set_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]]] = None,
+                 cloud_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_set_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

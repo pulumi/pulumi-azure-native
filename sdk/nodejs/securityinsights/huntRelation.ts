@@ -149,11 +149,11 @@ export interface HuntRelationArgs {
     /**
      * The hunt relation id (GUID)
      */
-    huntRelationId?: pulumi.Input<string>;
+    huntRelationId?: pulumi.Input<string | undefined>;
     /**
      * List of labels relevant to this hunt
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The id of the related resource
      */

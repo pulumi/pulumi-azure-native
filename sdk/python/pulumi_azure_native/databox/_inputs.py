@@ -68,12 +68,12 @@ __all__ = [
     'StorageAccountDetailsArgsDict',
     'TransferAllDetailsArgs',
     'TransferAllDetailsArgsDict',
+    'TransferConfigurationArgs',
+    'TransferConfigurationArgsDict',
     'TransferConfigurationTransferAllDetailsArgs',
     'TransferConfigurationTransferAllDetailsArgsDict',
     'TransferConfigurationTransferFilterDetailsArgs',
     'TransferConfigurationTransferFilterDetailsArgsDict',
-    'TransferConfigurationArgs',
-    'TransferConfigurationArgsDict',
     'TransferFilterDetailsArgs',
     'TransferFilterDetailsArgsDict',
     'TransportPreferencesArgs',
@@ -86,15 +86,15 @@ class AzureFileFilterDetailsArgsDict(TypedDict):
     """
     Filter details to transfer Azure files
     """
-    file_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    file_path_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of full path of the files to be transferred.
     """
-    file_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    file_prefix_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Prefix list of the Azure files to be transferred.
     """
-    file_share_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    file_share_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of file shares to be transferred.
     """
@@ -102,9 +102,9 @@ class AzureFileFilterDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureFileFilterDetailsArgs:
     def __init__(__self__, *,
-                 file_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 file_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 file_share_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 file_path_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 file_prefix_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 file_share_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filter details to transfer Azure files
 
@@ -121,38 +121,38 @@ class AzureFileFilterDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="filePathList")
-    def file_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def file_path_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of full path of the files to be transferred.
         """
         return pulumi.get(self, "file_path_list")
 
     @file_path_list.setter
-    def file_path_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def file_path_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "file_path_list", value)
 
     @_builtins.property
     @pulumi.getter(name="filePrefixList")
-    def file_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def file_prefix_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Prefix list of the Azure files to be transferred.
         """
         return pulumi.get(self, "file_prefix_list")
 
     @file_prefix_list.setter
-    def file_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def file_prefix_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "file_prefix_list", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareList")
-    def file_share_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def file_share_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of file shares to be transferred.
         """
         return pulumi.get(self, "file_share_list")
 
     @file_share_list.setter
-    def file_share_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def file_share_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "file_share_list", value)
 
 
@@ -160,15 +160,15 @@ class BlobFilterDetailsArgsDict(TypedDict):
     """
     Filter details to transfer Azure Blobs
     """
-    blob_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blob_path_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of full path of the blobs to be transferred.
     """
-    blob_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blob_prefix_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Prefix list of the Azure blobs to be transferred.
     """
-    container_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    container_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of blob containers to be transferred.
     """
@@ -176,9 +176,9 @@ class BlobFilterDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class BlobFilterDetailsArgs:
     def __init__(__self__, *,
-                 blob_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blob_path_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_prefix_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filter details to transfer Azure Blobs
 
@@ -195,38 +195,38 @@ class BlobFilterDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobPathList")
-    def blob_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_path_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of full path of the blobs to be transferred.
         """
         return pulumi.get(self, "blob_path_list")
 
     @blob_path_list.setter
-    def blob_path_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_path_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_path_list", value)
 
     @_builtins.property
     @pulumi.getter(name="blobPrefixList")
-    def blob_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_prefix_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Prefix list of the Azure blobs to be transferred.
         """
         return pulumi.get(self, "blob_prefix_list")
 
     @blob_prefix_list.setter
-    def blob_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_prefix_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_prefix_list", value)
 
     @_builtins.property
     @pulumi.getter(name="containerList")
-    def container_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def container_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of blob containers to be transferred.
         """
         return pulumi.get(self, "container_list")
 
     @container_list.setter
-    def container_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def container_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "container_list", value)
 
 
@@ -246,15 +246,15 @@ class ContactDetailsArgsDict(TypedDict):
     """
     Phone number of the contact person.
     """
-    mobile: NotRequired[pulumi.Input[_builtins.str]]
+    mobile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mobile number of the contact person.
     """
-    notification_preference: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
+    notification_preference: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]]
     """
     Notification preference for a job stage.
     """
-    phone_extension: NotRequired[pulumi.Input[_builtins.str]]
+    phone_extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone extension number of the contact person.
     """
@@ -265,9 +265,9 @@ class ContactDetailsArgs:
                  contact_name: pulumi.Input[_builtins.str],
                  email_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  phone: pulumi.Input[_builtins.str],
-                 mobile: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_preference: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
-                 phone_extension: Optional[pulumi.Input[_builtins.str]] = None):
+                 mobile: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_preference: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+                 phone_extension: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contact Details.
 
@@ -326,38 +326,38 @@ class ContactDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mobile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mobile number of the contact person.
         """
         return pulumi.get(self, "mobile")
 
     @mobile.setter
-    def mobile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPreference")
-    def notification_preference(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]:
+    def notification_preference(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]:
         """
         Notification preference for a job stage.
         """
         return pulumi.get(self, "notification_preference")
 
     @notification_preference.setter
-    def notification_preference(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]):
+    def notification_preference(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]):
         pulumi.set(self, "notification_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneExtension")
-    def phone_extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone extension number of the contact person.
         """
         return pulumi.get(self, "phone_extension")
 
     @phone_extension.setter
-    def phone_extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_extension", value)
 
 
@@ -373,11 +373,11 @@ class ContactInfoArgsDict(TypedDict):
     """
     Phone number of the contact person.
     """
-    mobile: NotRequired[pulumi.Input[_builtins.str]]
+    mobile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mobile number of the contact person.
     """
-    phone_extension: NotRequired[pulumi.Input[_builtins.str]]
+    phone_extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone extension number of the contact person.
     """
@@ -387,8 +387,8 @@ class ContactInfoArgs:
     def __init__(__self__, *,
                  contact_name: pulumi.Input[_builtins.str],
                  phone: pulumi.Input[_builtins.str],
-                 mobile: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_extension: Optional[pulumi.Input[_builtins.str]] = None):
+                 mobile: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_extension: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contact Info.
 
@@ -430,26 +430,26 @@ class ContactInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mobile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mobile number of the contact person.
         """
         return pulumi.get(self, "mobile")
 
     @mobile.setter
-    def mobile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneExtension")
-    def phone_extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone extension number of the contact person.
         """
         return pulumi.get(self, "phone_extension")
 
     @phone_extension.setter
-    def phone_extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_extension", value)
 
 
@@ -470,39 +470,39 @@ class DataBoxCustomerDiskJobDetailsArgsDict(TypedDict):
     """
     Return package shipping details.
     """
-    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    data_export_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]]
     """
     Details of the data to be exported from azure.
     """
-    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    data_import_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]]
     """
     Details of the data to be imported into azure.
     """
-    enable_manifest_backup: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_manifest_backup: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate if disk manifest should be backed-up in the Storage Account.
     """
-    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected size of the data, which needs to be transferred in this job, in terabytes.
     """
-    import_disk_details_collection: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgsDict']]]]
+    import_disk_details_collection: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ImportDiskDetailsArgsDict']]]]]
     """
     Contains the map of disk serial number to the disk details for import jobs.
     """
-    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['KeyEncryptionKeyArgsDict']]]
     """
     Details about which key encryption type is being used.
     """
-    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    preferences: NotRequired[pulumi.Input[Optional['PreferencesArgsDict']]]
     """
     Preferences for the order.
     """
-    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    reverse_shipping_details: NotRequired[pulumi.Input[Optional['ReverseShippingDetailsArgsDict']]]
     """
     Optional Reverse Shipping details for order.
     """
-    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    shipping_address: NotRequired[pulumi.Input[Optional['ShippingAddressArgsDict']]]
     """
     Shipping address of the customer.
     """
@@ -513,15 +513,15 @@ class DataBoxCustomerDiskJobDetailsArgs:
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[_builtins.str],
                  return_to_customer_package_details: pulumi.Input['PackageCarrierDetailsArgs'],
-                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 enable_manifest_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 import_disk_details_collection: Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]] = None,
-                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 data_export_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 enable_manifest_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expected_data_size_in_tera_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 import_disk_details_collection: pulumi.Input[Optional[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]] = None,
+                 key_encryption_key: pulumi.Input[Optional['KeyEncryptionKeyArgs']] = None,
+                 preferences: pulumi.Input[Optional['PreferencesArgs']] = None,
+                 reverse_shipping_details: pulumi.Input[Optional['ReverseShippingDetailsArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None):
         """
         Customer disk job details.
 
@@ -602,110 +602,110 @@ class DataBoxCustomerDiskJobDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @_builtins.property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @_builtins.property
     @pulumi.getter(name="enableManifestBackup")
-    def enable_manifest_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_manifest_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate if disk manifest should be backed-up in the Storage Account.
         """
         return pulumi.get(self, "enable_manifest_backup")
 
     @enable_manifest_backup.setter
-    def enable_manifest_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_manifest_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_manifest_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedDataSizeInTeraBytes")
-    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_data_size_in_tera_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @expected_data_size_in_tera_bytes.setter
-    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_data_size_in_tera_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="importDiskDetailsCollection")
-    def import_disk_details_collection(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]:
+    def import_disk_details_collection(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]:
         """
         Contains the map of disk serial number to the disk details for import jobs.
         """
         return pulumi.get(self, "import_disk_details_collection")
 
     @import_disk_details_collection.setter
-    def import_disk_details_collection(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]):
+    def import_disk_details_collection(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]):
         pulumi.set(self, "import_disk_details_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> pulumi.Input[Optional['KeyEncryptionKeyArgs']]:
         """
         Details about which key encryption type is being used.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: pulumi.Input[Optional['KeyEncryptionKeyArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+    def preferences(self) -> pulumi.Input[Optional['PreferencesArgs']]:
         """
         Preferences for the order.
         """
         return pulumi.get(self, "preferences")
 
     @preferences.setter
-    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+    def preferences(self, value: pulumi.Input[Optional['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseShippingDetails")
-    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+    def reverse_shipping_details(self) -> pulumi.Input[Optional['ReverseShippingDetailsArgs']]:
         """
         Optional Reverse Shipping details for order.
         """
         return pulumi.get(self, "reverse_shipping_details")
 
     @reverse_shipping_details.setter
-    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+    def reverse_shipping_details(self, value: pulumi.Input[Optional['ReverseShippingDetailsArgs']]):
         pulumi.set(self, "reverse_shipping_details", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping address of the customer.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -722,39 +722,39 @@ class DataBoxDiskJobDetailsArgsDict(TypedDict):
     Indicates the type of job details.
     Expected value is 'DataBoxDisk'.
     """
-    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    data_export_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]]
     """
     Details of the data to be exported from azure.
     """
-    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    data_import_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]]
     """
     Details of the data to be imported into azure.
     """
-    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected size of the data, which needs to be transferred in this job, in terabytes.
     """
-    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['KeyEncryptionKeyArgsDict']]]
     """
     Details about which key encryption type is being used.
     """
-    passkey: NotRequired[pulumi.Input[_builtins.str]]
+    passkey: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User entered passkey for DataBox Disk job.
     """
-    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    preferences: NotRequired[pulumi.Input[Optional['PreferencesArgsDict']]]
     """
     Preferences for the order.
     """
-    preferred_disks: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]
+    preferred_disks: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.int]]]]]
     """
     User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
     """
-    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    reverse_shipping_details: NotRequired[pulumi.Input[Optional['ReverseShippingDetailsArgsDict']]]
     """
     Optional Reverse Shipping details for order.
     """
-    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    shipping_address: NotRequired[pulumi.Input[Optional['ShippingAddressArgsDict']]]
     """
     Shipping address of the customer.
     """
@@ -764,15 +764,15 @@ class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[_builtins.str],
-                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
-                 passkey: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]] = None,
-                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 data_export_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 expected_data_size_in_tera_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_encryption_key: pulumi.Input[Optional['KeyEncryptionKeyArgs']] = None,
+                 passkey: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferences: pulumi.Input[Optional['PreferencesArgs']] = None,
+                 preferred_disks: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.int]]]] = None,
+                 reverse_shipping_details: pulumi.Input[Optional['ReverseShippingDetailsArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None):
         """
         DataBox Disk Job Details.
 
@@ -837,110 +837,110 @@ class DataBoxDiskJobDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @_builtins.property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedDataSizeInTeraBytes")
-    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_data_size_in_tera_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @expected_data_size_in_tera_bytes.setter
-    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_data_size_in_tera_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> pulumi.Input[Optional['KeyEncryptionKeyArgs']]:
         """
         Details about which key encryption type is being used.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: pulumi.Input[Optional['KeyEncryptionKeyArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def passkey(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passkey(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User entered passkey for DataBox Disk job.
         """
         return pulumi.get(self, "passkey")
 
     @passkey.setter
-    def passkey(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passkey(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passkey", value)
 
     @_builtins.property
     @pulumi.getter
-    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+    def preferences(self) -> pulumi.Input[Optional['PreferencesArgs']]:
         """
         Preferences for the order.
         """
         return pulumi.get(self, "preferences")
 
     @preferences.setter
-    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+    def preferences(self, value: pulumi.Input[Optional['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredDisks")
-    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]:
+    def preferred_disks(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.int]]]]:
         """
         User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         return pulumi.get(self, "preferred_disks")
 
     @preferred_disks.setter
-    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]):
+    def preferred_disks(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "preferred_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseShippingDetails")
-    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+    def reverse_shipping_details(self) -> pulumi.Input[Optional['ReverseShippingDetailsArgs']]:
         """
         Optional Reverse Shipping details for order.
         """
         return pulumi.get(self, "reverse_shipping_details")
 
     @reverse_shipping_details.setter
-    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+    def reverse_shipping_details(self, value: pulumi.Input[Optional['ReverseShippingDetailsArgs']]):
         pulumi.set(self, "reverse_shipping_details", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping address of the customer.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -957,35 +957,35 @@ class DataBoxHeavyJobDetailsArgsDict(TypedDict):
     Indicates the type of job details.
     Expected value is 'DataBoxHeavy'.
     """
-    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    data_export_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]]
     """
     Details of the data to be exported from azure.
     """
-    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    data_import_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]]
     """
     Details of the data to be imported into azure.
     """
-    device_password: NotRequired[pulumi.Input[_builtins.str]]
+    device_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
     """
-    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected size of the data, which needs to be transferred in this job, in terabytes.
     """
-    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['KeyEncryptionKeyArgsDict']]]
     """
     Details about which key encryption type is being used.
     """
-    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    preferences: NotRequired[pulumi.Input[Optional['PreferencesArgsDict']]]
     """
     Preferences for the order.
     """
-    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    reverse_shipping_details: NotRequired[pulumi.Input[Optional['ReverseShippingDetailsArgsDict']]]
     """
     Optional Reverse Shipping details for order.
     """
-    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    shipping_address: NotRequired[pulumi.Input[Optional['ShippingAddressArgsDict']]]
     """
     Shipping address of the customer.
     """
@@ -995,14 +995,14 @@ class DataBoxHeavyJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[_builtins.str],
-                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 device_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 data_export_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 device_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_data_size_in_tera_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_encryption_key: pulumi.Input[Optional['KeyEncryptionKeyArgs']] = None,
+                 preferences: pulumi.Input[Optional['PreferencesArgs']] = None,
+                 reverse_shipping_details: pulumi.Input[Optional['ReverseShippingDetailsArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None):
         """
         Databox Heavy Device Job Details
 
@@ -1064,98 +1064,98 @@ class DataBoxHeavyJobDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @_builtins.property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @_builtins.property
     @pulumi.getter(name="devicePassword")
-    def device_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
         return pulumi.get(self, "device_password")
 
     @device_password.setter
-    def device_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_password", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedDataSizeInTeraBytes")
-    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_data_size_in_tera_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @expected_data_size_in_tera_bytes.setter
-    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_data_size_in_tera_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> pulumi.Input[Optional['KeyEncryptionKeyArgs']]:
         """
         Details about which key encryption type is being used.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: pulumi.Input[Optional['KeyEncryptionKeyArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+    def preferences(self) -> pulumi.Input[Optional['PreferencesArgs']]:
         """
         Preferences for the order.
         """
         return pulumi.get(self, "preferences")
 
     @preferences.setter
-    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+    def preferences(self, value: pulumi.Input[Optional['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseShippingDetails")
-    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+    def reverse_shipping_details(self) -> pulumi.Input[Optional['ReverseShippingDetailsArgs']]:
         """
         Optional Reverse Shipping details for order.
         """
         return pulumi.get(self, "reverse_shipping_details")
 
     @reverse_shipping_details.setter
-    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+    def reverse_shipping_details(self, value: pulumi.Input[Optional['ReverseShippingDetailsArgs']]):
         pulumi.set(self, "reverse_shipping_details", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping address of the customer.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -1172,35 +1172,35 @@ class DataBoxJobDetailsArgsDict(TypedDict):
     Indicates the type of job details.
     Expected value is 'DataBox'.
     """
-    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    data_export_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]]
     """
     Details of the data to be exported from azure.
     """
-    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    data_import_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]]
     """
     Details of the data to be imported into azure.
     """
-    device_password: NotRequired[pulumi.Input[_builtins.str]]
+    device_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
     """
-    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected size of the data, which needs to be transferred in this job, in terabytes.
     """
-    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['KeyEncryptionKeyArgsDict']]]
     """
     Details about which key encryption type is being used.
     """
-    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    preferences: NotRequired[pulumi.Input[Optional['PreferencesArgsDict']]]
     """
     Preferences for the order.
     """
-    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    reverse_shipping_details: NotRequired[pulumi.Input[Optional['ReverseShippingDetailsArgsDict']]]
     """
     Optional Reverse Shipping details for order.
     """
-    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    shipping_address: NotRequired[pulumi.Input[Optional['ShippingAddressArgsDict']]]
     """
     Shipping address of the customer.
     """
@@ -1210,14 +1210,14 @@ class DataBoxJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[_builtins.str],
-                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 device_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 data_export_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 device_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_data_size_in_tera_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_encryption_key: pulumi.Input[Optional['KeyEncryptionKeyArgs']] = None,
+                 preferences: pulumi.Input[Optional['PreferencesArgs']] = None,
+                 reverse_shipping_details: pulumi.Input[Optional['ReverseShippingDetailsArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None):
         """
         Databox Job Details
 
@@ -1279,98 +1279,98 @@ class DataBoxJobDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @_builtins.property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @_builtins.property
     @pulumi.getter(name="devicePassword")
-    def device_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
         return pulumi.get(self, "device_password")
 
     @device_password.setter
-    def device_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_password", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedDataSizeInTeraBytes")
-    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_data_size_in_tera_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @expected_data_size_in_tera_bytes.setter
-    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_data_size_in_tera_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> pulumi.Input[Optional['KeyEncryptionKeyArgs']]:
         """
         Details about which key encryption type is being used.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: pulumi.Input[Optional['KeyEncryptionKeyArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+    def preferences(self) -> pulumi.Input[Optional['PreferencesArgs']]:
         """
         Preferences for the order.
         """
         return pulumi.get(self, "preferences")
 
     @preferences.setter
-    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+    def preferences(self, value: pulumi.Input[Optional['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseShippingDetails")
-    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+    def reverse_shipping_details(self) -> pulumi.Input[Optional['ReverseShippingDetailsArgs']]:
         """
         Optional Reverse Shipping details for order.
         """
         return pulumi.get(self, "reverse_shipping_details")
 
     @reverse_shipping_details.setter
-    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+    def reverse_shipping_details(self, value: pulumi.Input[Optional['ReverseShippingDetailsArgs']]):
         pulumi.set(self, "reverse_shipping_details", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping address of the customer.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -1386,7 +1386,7 @@ class DataExportDetailsArgsDict(TypedDict):
     """
     Configuration for the data transfer.
     """
-    log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
+    log_collection_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]]
     """
     Level of the logs to be collected.
     """
@@ -1396,7 +1396,7 @@ class DataExportDetailsArgs:
     def __init__(__self__, *,
                  account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
                  transfer_configuration: pulumi.Input['TransferConfigurationArgs'],
-                 log_collection_level: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]] = None):
+                 log_collection_level: pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for exporting data from azure.
 
@@ -1437,14 +1437,14 @@ class DataExportDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logCollectionLevel")
-    def log_collection_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]:
+    def log_collection_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]:
         """
         Level of the logs to be collected.
         """
         return pulumi.get(self, "log_collection_level")
 
     @log_collection_level.setter
-    def log_collection_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]):
+    def log_collection_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]):
         pulumi.set(self, "log_collection_level", value)
 
 
@@ -1456,7 +1456,7 @@ class DataImportDetailsArgsDict(TypedDict):
     """
     Account details of the data to be transferred
     """
-    log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
+    log_collection_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]]
     """
     Level of the logs to be collected.
     """
@@ -1465,7 +1465,7 @@ class DataImportDetailsArgsDict(TypedDict):
 class DataImportDetailsArgs:
     def __init__(__self__, *,
                  account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
-                 log_collection_level: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]] = None):
+                 log_collection_level: pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for importing data to azure.
 
@@ -1492,14 +1492,14 @@ class DataImportDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logCollectionLevel")
-    def log_collection_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]:
+    def log_collection_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]:
         """
         Level of the logs to be collected.
         """
         return pulumi.get(self, "log_collection_level")
 
     @log_collection_level.setter
-    def log_collection_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]):
+    def log_collection_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LogCollectionLevel']]]):
         pulumi.set(self, "log_collection_level", value)
 
 
@@ -1507,11 +1507,11 @@ class EncryptionPreferencesArgsDict(TypedDict):
     """
     Preferences related to the Encryption.
     """
-    double_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]]
+    double_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DoubleEncryption']]]]
     """
     Defines secondary layer of software-based encryption enablement.
     """
-    hardware_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]]
+    hardware_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'HardwareEncryption']]]]
     """
     Defines Hardware level encryption (Only for disk)
     """
@@ -1519,8 +1519,8 @@ class EncryptionPreferencesArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionPreferencesArgs:
     def __init__(__self__, *,
-                 double_encryption: Optional[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]] = None,
-                 hardware_encryption: Optional[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]] = None):
+                 double_encryption: pulumi.Input[Optional[Union[_builtins.str, 'DoubleEncryption']]] = None,
+                 hardware_encryption: pulumi.Input[Optional[Union[_builtins.str, 'HardwareEncryption']]] = None):
         """
         Preferences related to the Encryption.
 
@@ -1536,26 +1536,26 @@ class EncryptionPreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="doubleEncryption")
-    def double_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]]:
+    def double_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DoubleEncryption']]]:
         """
         Defines secondary layer of software-based encryption enablement.
         """
         return pulumi.get(self, "double_encryption")
 
     @double_encryption.setter
-    def double_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]]):
+    def double_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DoubleEncryption']]]):
         pulumi.set(self, "double_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareEncryption")
-    def hardware_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]]:
+    def hardware_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HardwareEncryption']]]:
         """
         Defines Hardware level encryption (Only for disk)
         """
         return pulumi.get(self, "hardware_encryption")
 
     @hardware_encryption.setter
-    def hardware_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]]):
+    def hardware_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HardwareEncryption']]]):
         pulumi.set(self, "hardware_encryption", value)
 
 
@@ -1615,11 +1615,11 @@ class IdentityPropertiesArgsDict(TypedDict):
     """
     Managed identity properties.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Managed service identity type.
     """
-    user_assigned: NotRequired[pulumi.Input['UserAssignedPropertiesArgsDict']]
+    user_assigned: NotRequired[pulumi.Input[Optional['UserAssignedPropertiesArgsDict']]]
     """
     User assigned identity properties.
     """
@@ -1627,8 +1627,8 @@ class IdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned: Optional[pulumi.Input['UserAssignedPropertiesArgs']] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned: pulumi.Input[Optional['UserAssignedPropertiesArgs']] = None):
         """
         Managed identity properties.
 
@@ -1642,26 +1642,26 @@ class IdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed service identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssigned")
-    def user_assigned(self) -> Optional[pulumi.Input['UserAssignedPropertiesArgs']]:
+    def user_assigned(self) -> pulumi.Input[Optional['UserAssignedPropertiesArgs']]:
         """
         User assigned identity properties.
         """
         return pulumi.get(self, "user_assigned")
 
     @user_assigned.setter
-    def user_assigned(self, value: Optional[pulumi.Input['UserAssignedPropertiesArgs']]):
+    def user_assigned(self, value: pulumi.Input[Optional['UserAssignedPropertiesArgs']]):
         pulumi.set(self, "user_assigned", value)
 
 
@@ -1740,7 +1740,7 @@ class JobDeliveryInfoArgsDict(TypedDict):
     """
     Additional delivery info.
     """
-    scheduled_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    scheduled_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Scheduled date time.
     """
@@ -1748,7 +1748,7 @@ class JobDeliveryInfoArgsDict(TypedDict):
 @pulumi.input_type
 class JobDeliveryInfoArgs:
     def __init__(__self__, *,
-                 scheduled_date_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 scheduled_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Additional delivery info.
 
@@ -1759,14 +1759,14 @@ class JobDeliveryInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="scheduledDateTime")
-    def scheduled_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduled_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scheduled date time.
         """
         return pulumi.get(self, "scheduled_date_time")
 
     @scheduled_date_time.setter
-    def scheduled_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduled_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduled_date_time", value)
 
 
@@ -1778,15 +1778,15 @@ class KeyEncryptionKeyArgsDict(TypedDict):
     """
     Type of encryption key used for key encryption.
     """
-    identity_properties: NotRequired[pulumi.Input['IdentityPropertiesArgsDict']]
+    identity_properties: NotRequired[pulumi.Input[Optional['IdentityPropertiesArgsDict']]]
     """
     Managed identity properties used for key encryption.
     """
-    kek_url: NotRequired[pulumi.Input[_builtins.str]]
+    kek_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key encryption key. It is required in case of Customer managed KekType.
     """
-    kek_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    kek_vault_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kek vault resource id. It is required in case of Customer managed KekType.
     """
@@ -1794,10 +1794,10 @@ class KeyEncryptionKeyArgsDict(TypedDict):
 @pulumi.input_type
 class KeyEncryptionKeyArgs:
     def __init__(__self__, *,
-                 kek_type: Optional[pulumi.Input[Union[_builtins.str, 'KekType']]] = None,
-                 identity_properties: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 kek_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 kek_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kek_type: pulumi.Input[Optional[Union[_builtins.str, 'KekType']]] = None,
+                 identity_properties: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 kek_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 kek_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Encryption key containing details about key to encrypt different keys.
 
@@ -1830,38 +1830,38 @@ class KeyEncryptionKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityProperties")
-    def identity_properties(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity_properties(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         """
         Managed identity properties used for key encryption.
         """
         return pulumi.get(self, "identity_properties")
 
     @identity_properties.setter
-    def identity_properties(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity_properties(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="kekUrl")
-    def kek_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kek_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key encryption key. It is required in case of Customer managed KekType.
         """
         return pulumi.get(self, "kek_url")
 
     @kek_url.setter
-    def kek_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kek_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kek_url", value)
 
     @_builtins.property
     @pulumi.getter(name="kekVaultResourceID")
-    def kek_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kek_vault_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kek vault resource id. It is required in case of Customer managed KekType.
         """
         return pulumi.get(self, "kek_vault_resource_id")
 
     @kek_vault_resource_id.setter
-    def kek_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kek_vault_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kek_vault_resource_id", value)
 
 
@@ -1882,7 +1882,7 @@ class ManagedDiskDetailsArgsDict(TypedDict):
     """
     Resource Id of the storage account that can be used to copy the vhd for staging.
     """
-    share_password: NotRequired[pulumi.Input[_builtins.str]]
+    share_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
     """
@@ -1890,10 +1890,10 @@ class ManagedDiskDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedDiskDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_account_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_id: pulumi.Input[_builtins.str],
                  staging_storage_account_id: pulumi.Input[_builtins.str],
-                 share_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 share_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the managed disks.
 
@@ -1950,14 +1950,14 @@ class ManagedDiskDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="sharePassword")
-    def share_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
         return pulumi.get(self, "share_password")
 
     @share_password.setter
-    def share_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_password", value)
 
 
@@ -1977,7 +1977,7 @@ class NotificationPreferenceArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationPreferenceArgs:
     def __init__(__self__, *,
-                 send_notification: Optional[pulumi.Input[_builtins.bool]] = None,
+                 send_notification: pulumi.Input[Optional[_builtins.bool]] = None,
                  stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]):
         """
         Notification preference for a job stage.
@@ -2019,15 +2019,15 @@ class PackageCarrierDetailsArgsDict(TypedDict):
     """
     Package carrier details.
     """
-    carrier_account_number: NotRequired[pulumi.Input[_builtins.str]]
+    carrier_account_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Carrier Account Number of customer for customer disk.
     """
-    carrier_name: NotRequired[pulumi.Input[_builtins.str]]
+    carrier_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the carrier.
     """
-    tracking_id: NotRequired[pulumi.Input[_builtins.str]]
+    tracking_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tracking Id of shipment.
     """
@@ -2035,9 +2035,9 @@ class PackageCarrierDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class PackageCarrierDetailsArgs:
     def __init__(__self__, *,
-                 carrier_account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 carrier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 carrier_account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 carrier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Package carrier details.
 
@@ -2054,38 +2054,38 @@ class PackageCarrierDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="carrierAccountNumber")
-    def carrier_account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def carrier_account_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Carrier Account Number of customer for customer disk.
         """
         return pulumi.get(self, "carrier_account_number")
 
     @carrier_account_number.setter
-    def carrier_account_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def carrier_account_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "carrier_account_number", value)
 
     @_builtins.property
     @pulumi.getter(name="carrierName")
-    def carrier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def carrier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the carrier.
         """
         return pulumi.get(self, "carrier_name")
 
     @carrier_name.setter
-    def carrier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def carrier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "carrier_name", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingId")
-    def tracking_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tracking Id of shipment.
         """
         return pulumi.get(self, "tracking_id")
 
     @tracking_id.setter
-    def tracking_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_id", value)
 
 
@@ -2093,23 +2093,23 @@ class PreferencesArgsDict(TypedDict):
     """
     Preferences related to the order
     """
-    encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
+    encryption_preferences: NotRequired[pulumi.Input[Optional['EncryptionPreferencesArgsDict']]]
     """
     Preferences related to the Encryption.
     """
-    preferred_data_center_region: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    preferred_data_center_region: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Preferred data center region.
     """
-    reverse_transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
+    reverse_transport_preferences: NotRequired[pulumi.Input[Optional['TransportPreferencesArgsDict']]]
     """
     Optional Preferences related to the reverse shipment logistics of the sku.
     """
-    storage_account_access_tier_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]
+    storage_account_access_tier_preferences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]]
     """
     Preferences related to the Access Tier of storage accounts.
     """
-    transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
+    transport_preferences: NotRequired[pulumi.Input[Optional['TransportPreferencesArgsDict']]]
     """
     Preferences related to the shipment logistics of the sku.
     """
@@ -2117,11 +2117,11 @@ class PreferencesArgsDict(TypedDict):
 @pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
-                 encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
-                 preferred_data_center_region: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reverse_transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None,
-                 storage_account_access_tier_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]] = None,
-                 transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
+                 encryption_preferences: pulumi.Input[Optional['EncryptionPreferencesArgs']] = None,
+                 preferred_data_center_region: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reverse_transport_preferences: pulumi.Input[Optional['TransportPreferencesArgs']] = None,
+                 storage_account_access_tier_preferences: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]] = None,
+                 transport_preferences: pulumi.Input[Optional['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
 
@@ -2144,62 +2144,62 @@ class PreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionPreferences")
-    def encryption_preferences(self) -> Optional[pulumi.Input['EncryptionPreferencesArgs']]:
+    def encryption_preferences(self) -> pulumi.Input[Optional['EncryptionPreferencesArgs']]:
         """
         Preferences related to the Encryption.
         """
         return pulumi.get(self, "encryption_preferences")
 
     @encryption_preferences.setter
-    def encryption_preferences(self, value: Optional[pulumi.Input['EncryptionPreferencesArgs']]):
+    def encryption_preferences(self, value: pulumi.Input[Optional['EncryptionPreferencesArgs']]):
         pulumi.set(self, "encryption_preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredDataCenterRegion")
-    def preferred_data_center_region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preferred_data_center_region(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Preferred data center region.
         """
         return pulumi.get(self, "preferred_data_center_region")
 
     @preferred_data_center_region.setter
-    def preferred_data_center_region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preferred_data_center_region(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preferred_data_center_region", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseTransportPreferences")
-    def reverse_transport_preferences(self) -> Optional[pulumi.Input['TransportPreferencesArgs']]:
+    def reverse_transport_preferences(self) -> pulumi.Input[Optional['TransportPreferencesArgs']]:
         """
         Optional Preferences related to the reverse shipment logistics of the sku.
         """
         return pulumi.get(self, "reverse_transport_preferences")
 
     @reverse_transport_preferences.setter
-    def reverse_transport_preferences(self, value: Optional[pulumi.Input['TransportPreferencesArgs']]):
+    def reverse_transport_preferences(self, value: pulumi.Input[Optional['TransportPreferencesArgs']]):
         pulumi.set(self, "reverse_transport_preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessTierPreferences")
-    def storage_account_access_tier_preferences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]:
+    def storage_account_access_tier_preferences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]:
         """
         Preferences related to the Access Tier of storage accounts.
         """
         return pulumi.get(self, "storage_account_access_tier_preferences")
 
     @storage_account_access_tier_preferences.setter
-    def storage_account_access_tier_preferences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]):
+    def storage_account_access_tier_preferences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]):
         pulumi.set(self, "storage_account_access_tier_preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="transportPreferences")
-    def transport_preferences(self) -> Optional[pulumi.Input['TransportPreferencesArgs']]:
+    def transport_preferences(self) -> pulumi.Input[Optional['TransportPreferencesArgs']]:
         """
         Preferences related to the shipment logistics of the sku.
         """
         return pulumi.get(self, "transport_preferences")
 
     @transport_preferences.setter
-    def transport_preferences(self, value: Optional[pulumi.Input['TransportPreferencesArgs']]):
+    def transport_preferences(self, value: pulumi.Input[Optional['TransportPreferencesArgs']]):
         pulumi.set(self, "transport_preferences", value)
 
 
@@ -2207,11 +2207,11 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     Msi identity details of the resource
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identity type
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     User Assigned Identities
     """
@@ -2219,8 +2219,8 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Msi identity details of the resource
 
@@ -2236,26 +2236,26 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2263,11 +2263,11 @@ class ReverseShippingDetailsArgsDict(TypedDict):
     """
     Reverse Shipping Address and contact details for a job.
     """
-    contact_details: NotRequired[pulumi.Input['ContactInfoArgsDict']]
+    contact_details: NotRequired[pulumi.Input[Optional['ContactInfoArgsDict']]]
     """
     Contact Info.
     """
-    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    shipping_address: NotRequired[pulumi.Input[Optional['ShippingAddressArgsDict']]]
     """
     Shipping address where customer wishes to receive the device.
     """
@@ -2275,8 +2275,8 @@ class ReverseShippingDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ReverseShippingDetailsArgs:
     def __init__(__self__, *,
-                 contact_details: Optional[pulumi.Input['ContactInfoArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 contact_details: pulumi.Input[Optional['ContactInfoArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None):
         """
         Reverse Shipping Address and contact details for a job.
 
@@ -2290,26 +2290,26 @@ class ReverseShippingDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> Optional[pulumi.Input['ContactInfoArgs']]:
+    def contact_details(self) -> pulumi.Input[Optional['ContactInfoArgs']]:
         """
         Contact Info.
         """
         return pulumi.get(self, "contact_details")
 
     @contact_details.setter
-    def contact_details(self, value: Optional[pulumi.Input['ContactInfoArgs']]):
+    def contact_details(self, value: pulumi.Input[Optional['ContactInfoArgs']]):
         pulumi.set(self, "contact_details", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping address where customer wishes to receive the device.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -2325,43 +2325,43 @@ class ShippingAddressArgsDict(TypedDict):
     """
     Street Address line 1.
     """
-    address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressType']]]
+    address_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AddressType']]]]
     """
     Type of address.
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the City.
     """
-    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    company_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the company.
     """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Postal code.
     """
-    skip_address_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_address_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate if customer has chosen to skip default address validation
     """
-    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    state_or_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the State or Province.
     """
-    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    street_address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Street Address line 2.
     """
-    street_address3: NotRequired[pulumi.Input[_builtins.str]]
+    street_address3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Street Address line 3.
     """
-    tax_identification_number: NotRequired[pulumi.Input[_builtins.str]]
+    tax_identification_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tax Identification Number
     """
-    zip_extended_code: NotRequired[pulumi.Input[_builtins.str]]
+    zip_extended_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Extended Zip Code.
     """
@@ -2371,16 +2371,16 @@ class ShippingAddressArgs:
     def __init__(__self__, *,
                  country: pulumi.Input[_builtins.str],
                  street_address1: pulumi.Input[_builtins.str],
-                 address_type: Optional[pulumi.Input[Union[_builtins.str, 'AddressType']]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_address_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state_or_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address3: Optional[pulumi.Input[_builtins.str]] = None,
-                 tax_identification_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_extended_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_type: pulumi.Input[Optional[Union[_builtins.str, 'AddressType']]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_address_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state_or_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address3: pulumi.Input[Optional[_builtins.str]] = None,
+                 tax_identification_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_extended_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Shipping address where customer wishes to receive the device.
 
@@ -2448,122 +2448,122 @@ class ShippingAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressType")
-    def address_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AddressType']]]:
+    def address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AddressType']]]:
         """
         Type of address.
         """
         return pulumi.get(self, "address_type")
 
     @address_type.setter
-    def address_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AddressType']]]):
+    def address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AddressType']]]):
         pulumi.set(self, "address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the City.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the company.
         """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_name", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Postal code.
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="skipAddressValidation")
-    def skip_address_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_address_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate if customer has chosen to skip default address validation
         """
         return pulumi.get(self, "skip_address_validation")
 
     @skip_address_validation.setter
-    def skip_address_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_address_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_address_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_or_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the State or Province.
         """
         return pulumi.get(self, "state_or_province")
 
     @state_or_province.setter
-    def state_or_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_or_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_or_province", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress2")
-    def street_address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Street Address line 2.
         """
         return pulumi.get(self, "street_address2")
 
     @street_address2.setter
-    def street_address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address2", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress3")
-    def street_address3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Street Address line 3.
         """
         return pulumi.get(self, "street_address3")
 
     @street_address3.setter
-    def street_address3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address3", value)
 
     @_builtins.property
     @pulumi.getter(name="taxIdentificationNumber")
-    def tax_identification_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tax_identification_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tax Identification Number
         """
         return pulumi.get(self, "tax_identification_number")
 
     @tax_identification_number.setter
-    def tax_identification_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tax_identification_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tax_identification_number", value)
 
     @_builtins.property
     @pulumi.getter(name="zipExtendedCode")
-    def zip_extended_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_extended_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Extended Zip Code.
         """
         return pulumi.get(self, "zip_extended_code")
 
     @zip_extended_code.setter
-    def zip_extended_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_extended_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_extended_code", value)
 
 
@@ -2575,11 +2575,11 @@ class SkuArgsDict(TypedDict):
     """
     The sku name.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of the sku.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku family.
     """
@@ -2588,8 +2588,8 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Sku.
 
@@ -2617,26 +2617,26 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the sku.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku family.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
 
@@ -2653,7 +2653,7 @@ class StorageAccountDetailsArgsDict(TypedDict):
     """
     Storage Account Resource Id.
     """
-    share_password: NotRequired[pulumi.Input[_builtins.str]]
+    share_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
     """
@@ -2661,9 +2661,9 @@ class StorageAccountDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class StorageAccountDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_account_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 share_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 share_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details for the storage account.
 
@@ -2706,14 +2706,14 @@ class StorageAccountDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="sharePassword")
-    def share_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
         return pulumi.get(self, "share_password")
 
     @share_password.setter
-    def share_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_password", value)
 
 
@@ -2725,11 +2725,11 @@ class TransferAllDetailsArgsDict(TypedDict):
     """
     Type of the account of data
     """
-    transfer_all_blobs: NotRequired[pulumi.Input[_builtins.bool]]
+    transfer_all_blobs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     To indicate if all Azure blobs have to be transferred
     """
-    transfer_all_files: NotRequired[pulumi.Input[_builtins.bool]]
+    transfer_all_files: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     To indicate if all Azure Files have to be transferred
     """
@@ -2737,9 +2737,9 @@ class TransferAllDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class TransferAllDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: Optional[pulumi.Input[Union[_builtins.str, 'DataAccountType']]] = None,
-                 transfer_all_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transfer_all_files: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_account_type: pulumi.Input[Optional[Union[_builtins.str, 'DataAccountType']]] = None,
+                 transfer_all_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transfer_all_files: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Details to transfer all data.
 
@@ -2769,95 +2769,27 @@ class TransferAllDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="transferAllBlobs")
-    def transfer_all_blobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def transfer_all_blobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To indicate if all Azure blobs have to be transferred
         """
         return pulumi.get(self, "transfer_all_blobs")
 
     @transfer_all_blobs.setter
-    def transfer_all_blobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def transfer_all_blobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "transfer_all_blobs", value)
 
     @_builtins.property
     @pulumi.getter(name="transferAllFiles")
-    def transfer_all_files(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def transfer_all_files(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To indicate if all Azure Files have to be transferred
         """
         return pulumi.get(self, "transfer_all_files")
 
     @transfer_all_files.setter
-    def transfer_all_files(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def transfer_all_files(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "transfer_all_files", value)
-
-
-class TransferConfigurationTransferAllDetailsArgsDict(TypedDict):
-    """
-    Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-    """
-    include: NotRequired[pulumi.Input['TransferAllDetailsArgsDict']]
-    """
-    Details to transfer all data.
-    """
-
-@pulumi.input_type
-class TransferConfigurationTransferAllDetailsArgs:
-    def __init__(__self__, *,
-                 include: Optional[pulumi.Input['TransferAllDetailsArgs']] = None):
-        """
-        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-
-        :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
-        """
-        if include is not None:
-            pulumi.set(__self__, "include", include)
-
-    @_builtins.property
-    @pulumi.getter
-    def include(self) -> Optional[pulumi.Input['TransferAllDetailsArgs']]:
-        """
-        Details to transfer all data.
-        """
-        return pulumi.get(self, "include")
-
-    @include.setter
-    def include(self, value: Optional[pulumi.Input['TransferAllDetailsArgs']]):
-        pulumi.set(self, "include", value)
-
-
-class TransferConfigurationTransferFilterDetailsArgsDict(TypedDict):
-    """
-    Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-    """
-    include: NotRequired[pulumi.Input['TransferFilterDetailsArgsDict']]
-    """
-    Details of the filtering the transfer of data.
-    """
-
-@pulumi.input_type
-class TransferConfigurationTransferFilterDetailsArgs:
-    def __init__(__self__, *,
-                 include: Optional[pulumi.Input['TransferFilterDetailsArgs']] = None):
-        """
-        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-
-        :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
-        """
-        if include is not None:
-            pulumi.set(__self__, "include", include)
-
-    @_builtins.property
-    @pulumi.getter
-    def include(self) -> Optional[pulumi.Input['TransferFilterDetailsArgs']]:
-        """
-        Details of the filtering the transfer of data.
-        """
-        return pulumi.get(self, "include")
-
-    @include.setter
-    def include(self, value: Optional[pulumi.Input['TransferFilterDetailsArgs']]):
-        pulumi.set(self, "include", value)
 
 
 class TransferConfigurationArgsDict(TypedDict):
@@ -2868,11 +2800,11 @@ class TransferConfigurationArgsDict(TypedDict):
     """
     Type of the configuration for transfer.
     """
-    transfer_all_details: NotRequired[pulumi.Input['TransferConfigurationTransferAllDetailsArgsDict']]
+    transfer_all_details: NotRequired[pulumi.Input[Optional['TransferConfigurationTransferAllDetailsArgsDict']]]
     """
     Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
     """
-    transfer_filter_details: NotRequired[pulumi.Input['TransferConfigurationTransferFilterDetailsArgsDict']]
+    transfer_filter_details: NotRequired[pulumi.Input[Optional['TransferConfigurationTransferFilterDetailsArgsDict']]]
     """
     Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
     """
@@ -2881,8 +2813,8 @@ class TransferConfigurationArgsDict(TypedDict):
 class TransferConfigurationArgs:
     def __init__(__self__, *,
                  transfer_configuration_type: pulumi.Input[Union[_builtins.str, 'TransferConfigurationType']],
-                 transfer_all_details: Optional[pulumi.Input['TransferConfigurationTransferAllDetailsArgs']] = None,
-                 transfer_filter_details: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']] = None):
+                 transfer_all_details: pulumi.Input[Optional['TransferConfigurationTransferAllDetailsArgs']] = None,
+                 transfer_filter_details: pulumi.Input[Optional['TransferConfigurationTransferFilterDetailsArgs']] = None):
         """
         Configuration for defining the transfer of data.
 
@@ -2910,27 +2842,95 @@ class TransferConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="transferAllDetails")
-    def transfer_all_details(self) -> Optional[pulumi.Input['TransferConfigurationTransferAllDetailsArgs']]:
+    def transfer_all_details(self) -> pulumi.Input[Optional['TransferConfigurationTransferAllDetailsArgs']]:
         """
         Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         """
         return pulumi.get(self, "transfer_all_details")
 
     @transfer_all_details.setter
-    def transfer_all_details(self, value: Optional[pulumi.Input['TransferConfigurationTransferAllDetailsArgs']]):
+    def transfer_all_details(self, value: pulumi.Input[Optional['TransferConfigurationTransferAllDetailsArgs']]):
         pulumi.set(self, "transfer_all_details", value)
 
     @_builtins.property
     @pulumi.getter(name="transferFilterDetails")
-    def transfer_filter_details(self) -> Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']]:
+    def transfer_filter_details(self) -> pulumi.Input[Optional['TransferConfigurationTransferFilterDetailsArgs']]:
         """
         Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         """
         return pulumi.get(self, "transfer_filter_details")
 
     @transfer_filter_details.setter
-    def transfer_filter_details(self, value: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']]):
+    def transfer_filter_details(self, value: pulumi.Input[Optional['TransferConfigurationTransferFilterDetailsArgs']]):
         pulumi.set(self, "transfer_filter_details", value)
+
+
+class TransferConfigurationTransferAllDetailsArgsDict(TypedDict):
+    """
+    Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+    """
+    include: NotRequired[pulumi.Input[Optional['TransferAllDetailsArgsDict']]]
+    """
+    Details to transfer all data.
+    """
+
+@pulumi.input_type
+class TransferConfigurationTransferAllDetailsArgs:
+    def __init__(__self__, *,
+                 include: pulumi.Input[Optional['TransferAllDetailsArgs']] = None):
+        """
+        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+
+        :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @_builtins.property
+    @pulumi.getter
+    def include(self) -> pulumi.Input[Optional['TransferAllDetailsArgs']]:
+        """
+        Details to transfer all data.
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: pulumi.Input[Optional['TransferAllDetailsArgs']]):
+        pulumi.set(self, "include", value)
+
+
+class TransferConfigurationTransferFilterDetailsArgsDict(TypedDict):
+    """
+    Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+    """
+    include: NotRequired[pulumi.Input[Optional['TransferFilterDetailsArgsDict']]]
+    """
+    Details of the filtering the transfer of data.
+    """
+
+@pulumi.input_type
+class TransferConfigurationTransferFilterDetailsArgs:
+    def __init__(__self__, *,
+                 include: pulumi.Input[Optional['TransferFilterDetailsArgs']] = None):
+        """
+        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+
+        :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @_builtins.property
+    @pulumi.getter
+    def include(self) -> pulumi.Input[Optional['TransferFilterDetailsArgs']]:
+        """
+        Details of the filtering the transfer of data.
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: pulumi.Input[Optional['TransferFilterDetailsArgs']]):
+        pulumi.set(self, "include", value)
 
 
 class TransferFilterDetailsArgsDict(TypedDict):
@@ -2941,15 +2941,15 @@ class TransferFilterDetailsArgsDict(TypedDict):
     """
     Type of the account of data.
     """
-    azure_file_filter_details: NotRequired[pulumi.Input['AzureFileFilterDetailsArgsDict']]
+    azure_file_filter_details: NotRequired[pulumi.Input[Optional['AzureFileFilterDetailsArgsDict']]]
     """
     Filter details to transfer Azure files.
     """
-    blob_filter_details: NotRequired[pulumi.Input['BlobFilterDetailsArgsDict']]
+    blob_filter_details: NotRequired[pulumi.Input[Optional['BlobFilterDetailsArgsDict']]]
     """
     Filter details to transfer blobs.
     """
-    filter_file_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgsDict']]]]
+    filter_file_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFileDetailsArgsDict']]]]]
     """
     Details of the filter files to be used for data transfer.
     """
@@ -2957,10 +2957,10 @@ class TransferFilterDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class TransferFilterDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: Optional[pulumi.Input[Union[_builtins.str, 'DataAccountType']]] = None,
-                 azure_file_filter_details: Optional[pulumi.Input['AzureFileFilterDetailsArgs']] = None,
-                 blob_filter_details: Optional[pulumi.Input['BlobFilterDetailsArgs']] = None,
-                 filter_file_details: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None):
+                 data_account_type: pulumi.Input[Optional[Union[_builtins.str, 'DataAccountType']]] = None,
+                 azure_file_filter_details: pulumi.Input[Optional['AzureFileFilterDetailsArgs']] = None,
+                 blob_filter_details: pulumi.Input[Optional['BlobFilterDetailsArgs']] = None,
+                 filter_file_details: pulumi.Input[Optional[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None):
         """
         Details of the filtering the transfer of data.
 
@@ -2993,38 +2993,38 @@ class TransferFilterDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureFileFilterDetails")
-    def azure_file_filter_details(self) -> Optional[pulumi.Input['AzureFileFilterDetailsArgs']]:
+    def azure_file_filter_details(self) -> pulumi.Input[Optional['AzureFileFilterDetailsArgs']]:
         """
         Filter details to transfer Azure files.
         """
         return pulumi.get(self, "azure_file_filter_details")
 
     @azure_file_filter_details.setter
-    def azure_file_filter_details(self, value: Optional[pulumi.Input['AzureFileFilterDetailsArgs']]):
+    def azure_file_filter_details(self, value: pulumi.Input[Optional['AzureFileFilterDetailsArgs']]):
         pulumi.set(self, "azure_file_filter_details", value)
 
     @_builtins.property
     @pulumi.getter(name="blobFilterDetails")
-    def blob_filter_details(self) -> Optional[pulumi.Input['BlobFilterDetailsArgs']]:
+    def blob_filter_details(self) -> pulumi.Input[Optional['BlobFilterDetailsArgs']]:
         """
         Filter details to transfer blobs.
         """
         return pulumi.get(self, "blob_filter_details")
 
     @blob_filter_details.setter
-    def blob_filter_details(self, value: Optional[pulumi.Input['BlobFilterDetailsArgs']]):
+    def blob_filter_details(self, value: pulumi.Input[Optional['BlobFilterDetailsArgs']]):
         pulumi.set(self, "blob_filter_details", value)
 
     @_builtins.property
     @pulumi.getter(name="filterFileDetails")
-    def filter_file_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]:
+    def filter_file_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]:
         """
         Details of the filter files to be used for data transfer.
         """
         return pulumi.get(self, "filter_file_details")
 
     @filter_file_details.setter
-    def filter_file_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]):
+    def filter_file_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]):
         pulumi.set(self, "filter_file_details", value)
 
 
@@ -3065,7 +3065,7 @@ class UserAssignedPropertiesArgsDict(TypedDict):
     """
     User assigned identity properties.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arm resource id for user assigned identity to be used to fetch MSI token.
     """
@@ -3073,7 +3073,7 @@ class UserAssignedPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class UserAssignedPropertiesArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User assigned identity properties.
 
@@ -3084,14 +3084,14 @@ class UserAssignedPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arm resource id for user assigned identity to be used to fetch MSI token.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 

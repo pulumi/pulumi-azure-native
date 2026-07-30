@@ -132,7 +132,6 @@ def get_deployment_at_scope(deployment_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str deployment_name: The name of the deployment.
     :param _builtins.str scope: The resource scope.
     """
@@ -150,8 +149,8 @@ def get_deployment_at_scope(deployment_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_at_scope_output(deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   scope: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
     """
     Gets a deployment.
@@ -159,7 +158,6 @@ def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str deployment_name: The name of the deployment.
     :param _builtins.str scope: The resource scope.

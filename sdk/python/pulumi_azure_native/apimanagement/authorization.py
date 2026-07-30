@@ -25,12 +25,12 @@ class AuthorizationArgs:
                  authorization_provider_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_type: Optional[pulumi.Input[Union[_builtins.str, 'AuthorizationType']]] = None,
-                 error: Optional[pulumi.Input['AuthorizationErrorArgs']] = None,
-                 o_auth2_grant_type: Optional[pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_type: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]] = None,
+                 error: pulumi.Input[Optional['AuthorizationErrorArgs']] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorization resource.
 
@@ -98,74 +98,74 @@ class AuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationId")
-    def authorization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the authorization.
         """
         return pulumi.get(self, "authorization_id")
 
     @authorization_id.setter
-    def authorization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthorizationType']]]:
+    def authorization_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]]:
         """
         Authorization type options
         """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthorizationType']]]):
+    def authorization_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input['AuthorizationErrorArgs']]:
+    def error(self) -> pulumi.Input[Optional['AuthorizationErrorArgs']]:
         """
         Authorization error details.
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input['AuthorizationErrorArgs']]):
+    def error(self, value: pulumi.Input[Optional['AuthorizationErrorArgs']]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2GrantType")
-    def o_auth2_grant_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']]]:
+    def o_auth2_grant_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]]:
         """
         OAuth2 grant type options
         """
         return pulumi.get(self, "o_auth2_grant_type")
 
     @o_auth2_grant_type.setter
-    def o_auth2_grant_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']]]):
+    def o_auth2_grant_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]]):
         pulumi.set(self, "o_auth2_grant_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Authorization parameters
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the Authorization
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -175,15 +175,15 @@ class Authorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_type: Optional[pulumi.Input[Union[_builtins.str, 'AuthorizationType']]] = None,
-                 error: Optional[pulumi.Input[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
-                 o_auth2_grant_type: Optional[pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_type: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]] = None,
+                 error: pulumi.Input[Optional[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Authorization contract.
@@ -191,7 +191,6 @@ class Authorization(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class Authorization(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,15 +232,15 @@ class Authorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_type: Optional[pulumi.Input[Union[_builtins.str, 'AuthorizationType']]] = None,
-                 error: Optional[pulumi.Input[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
-                 o_auth2_grant_type: Optional[pulumi.Input[Union[_builtins.str, 'OAuth2GrantType']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_type: pulumi.Input[Optional[Union[_builtins.str, 'AuthorizationType']]] = None,
+                 error: pulumi.Input[Optional[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional[Union[_builtins.str, 'OAuth2GrantType']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

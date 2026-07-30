@@ -22,8 +22,8 @@ __all__ = ['DependencyOfRelationshipArgs', 'DependencyOfRelationship']
 class DependencyOfRelationshipArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DependencyOfRelationshipPropertiesArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DependencyOfRelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DependencyOfRelationship resource.
 
@@ -51,26 +51,26 @@ class DependencyOfRelationshipArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of dependencyOf relationship.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DependencyOfRelationshipPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DependencyOfRelationshipPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DependencyOfRelationshipPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DependencyOfRelationshipPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,15 +80,14 @@ class DependencyOfRelationship(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DependencyOfRelationshipPropertiesArgs', 'DependencyOfRelationshipPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DependencyOfRelationshipPropertiesArgs', 'DependencyOfRelationshipPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a dependencyOf relationship resource.
 
         Uses Azure REST API version 2023-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,7 +106,6 @@ class DependencyOfRelationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DependencyOfRelationshipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +121,9 @@ class DependencyOfRelationship(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DependencyOfRelationshipPropertiesArgs', 'DependencyOfRelationshipPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DependencyOfRelationshipPropertiesArgs', 'DependencyOfRelationshipPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

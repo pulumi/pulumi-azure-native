@@ -107,15 +107,15 @@ export interface ConnectionPolicyArgs {
     /**
      * The name of the ConnectionPolicy that is unique within a VirtualHub. This name can be used to access the resource.
      */
-    connectionPolicyName?: pulumi.Input<string>;
+    connectionPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Properties of the ConnectionPolicy resource.
      */
-    properties?: pulumi.Input<inputs.network.ConnectionPolicyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.ConnectionPolicyPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

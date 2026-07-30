@@ -84,7 +84,7 @@ export interface GetFeaturesetVersionFeatureOutputArgs {
     /**
      * Specifies name of the feature.
      */
-    featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * Feature set name. This is case-sensitive.
      */

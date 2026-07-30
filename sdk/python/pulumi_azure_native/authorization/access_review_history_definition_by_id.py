@@ -22,14 +22,14 @@ __all__ = ['AccessReviewHistoryDefinitionByIdArgs', 'AccessReviewHistoryDefiniti
 @pulumi.input_type
 class AccessReviewHistoryDefinitionByIdArgs:
     def __init__(__self__, *,
-                 decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 range: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
+                 decisions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 range: pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewScopeArgs']]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a AccessReviewHistoryDefinitionById resource.
 
@@ -61,98 +61,98 @@ class AccessReviewHistoryDefinitionByIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def decisions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]]:
+    def decisions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]]:
         """
         Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         """
         return pulumi.get(self, "decisions")
 
     @decisions.setter
-    def decisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]]):
+    def decisions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]]):
         pulumi.set(self, "decisions", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the history definition.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="historyDefinitionId")
-    def history_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def history_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the access review history definition.
         """
         return pulumi.get(self, "history_definition_id")
 
     @history_definition_id.setter
-    def history_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def history_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "history_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]]:
+    def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]]:
         """
         Set of access review history instances for this history definition.
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]]):
+    def instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def range(self) -> Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]:
+    def range(self) -> pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']]:
         """
         Access Review History Definition recurrence settings.
         """
         return pulumi.get(self, "range")
 
     @range.setter
-    def range(self, value: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]):
+    def range(self, value: pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']]):
         pulumi.set(self, "range", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewScopeArgs']]]]:
         """
         A collection of scopes used when selecting review history data
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]:
         """
         The recurrence type : weekly, monthly, etc.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -162,14 +162,14 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 range: Optional[pulumi.Input[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
+                 decisions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 range: pulumi.Input[Optional[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         """
         Access Review History Definition.
@@ -177,7 +177,6 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
         Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +202,6 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
 
         Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccessReviewHistoryDefinitionByIdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,14 +217,14 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 range: Optional[pulumi.Input[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
+                 decisions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 range: pulumi.Input[Optional[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

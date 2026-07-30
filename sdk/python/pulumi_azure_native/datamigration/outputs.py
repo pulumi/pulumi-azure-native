@@ -2431,7 +2431,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                Expected value is 'ConnectToSource.SqlServer'.
         :param Mapping[str, _builtins.str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
-        :param _builtins.str task_id: Task id 
+        :param _builtins.str task_id: Task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2506,7 +2506,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
     @pulumi.getter(name="taskId")
     def task_id(self) -> Optional[_builtins.str]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
@@ -4979,8 +4979,7 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
         Database Migration Resource properties for SQL database.
 
         :param _builtins.str ended_on: Database migration end time.
-        :param _builtins.str kind: 
-               Expected value is 'SqlDb'.
+        :param _builtins.str kind: Expected value is 'SqlDb'.
         :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
         :param _builtins.str migration_status: Migration status.
         :param 'SqlDbMigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
@@ -5038,7 +5037,6 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-
         Expected value is 'SqlDb'.
         """
         return pulumi.get(self, "kind")
@@ -5244,8 +5242,7 @@ class DatabaseMigrationPropertiesSqlMiResponse(dict):
         Database Migration Resource properties for SQL Managed Instance.
 
         :param _builtins.str ended_on: Database migration end time.
-        :param _builtins.str kind: 
-               Expected value is 'SqlMi'.
+        :param _builtins.str kind: Expected value is 'SqlMi'.
         :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
         :param _builtins.str migration_status: Migration status.
         :param 'MigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
@@ -5301,7 +5298,6 @@ class DatabaseMigrationPropertiesSqlMiResponse(dict):
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-
         Expected value is 'SqlMi'.
         """
         return pulumi.get(self, "kind")
@@ -5499,8 +5495,7 @@ class DatabaseMigrationPropertiesSqlVmResponse(dict):
         Database Migration Resource properties for SQL Virtual Machine.
 
         :param _builtins.str ended_on: Database migration end time.
-        :param _builtins.str kind: 
-               Expected value is 'SqlVm'.
+        :param _builtins.str kind: Expected value is 'SqlVm'.
         :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
         :param _builtins.str migration_status: Migration status.
         :param 'MigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
@@ -5556,7 +5551,6 @@ class DatabaseMigrationPropertiesSqlVmResponse(dict):
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-
         Expected value is 'SqlVm'.
         """
         return pulumi.get(self, "kind")
@@ -7460,7 +7454,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                Expected value is 'GetUserTables.Sql'.
         :param Mapping[str, _builtins.str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlTaskInputResponse' input: Task input
-        :param _builtins.str task_id: Task id 
+        :param _builtins.str task_id: Task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -7535,7 +7529,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
     @pulumi.getter(name="taskId")
     def task_id(self) -> Optional[_builtins.str]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
@@ -8908,7 +8902,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
         :param Mapping[str, _builtins.str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse' input: Task input
         :param _builtins.bool is_cloneable: whether the task can be cloned or not
-        :param _builtins.str task_id: Task id 
+        :param _builtins.str task_id: Task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -8993,7 +8987,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
     @pulumi.getter(name="taskId")
     def task_id(self) -> Optional[_builtins.str]:
         """
-        Task id 
+        Task id
         """
         return pulumi.get(self, "task_id")
 
@@ -13408,8 +13402,8 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         :param _builtins.str encrypted_key_for_secure_fields: encrypted key for secure fields
         :param _builtins.str started_on: Date and time relative to UTC when the migration was started on
-        :param 'MigrationValidationOptionsResponse' validation_options: Options for enabling various post migration validations. Available options, 
-                1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+        :param 'MigrationValidationOptionsResponse' validation_options: Options for enabling various post migration validations. Available options,
+                1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -13466,8 +13460,8 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
     @pulumi.getter(name="validationOptions")
     def validation_options(self) -> Optional['outputs.MigrationValidationOptionsResponse']:
         """
-        Options for enabling various post migration validations. Available options, 
-         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+        Options for enabling various post migration validations. Available options,
+         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
          2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
         return pulumi.get(self, "validation_options")
@@ -18261,7 +18255,7 @@ class MongoDbConnectionInfoResponse(dict):
                Expected value is 'MongoDbConnectionInfo'.
         :param _builtins.str additional_settings: Additional connection settings
         :param _builtins.str authentication: Authentication type to use for connection
-        :param _builtins.str data_source: Data source 
+        :param _builtins.str data_source: Data source
         :param _builtins.bool encrypt_connection: Whether to encrypt the connection
         :param _builtins.str password: Password credential.
         :param _builtins.int port: port for server
@@ -18337,7 +18331,7 @@ class MongoDbConnectionInfoResponse(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[_builtins.str]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
@@ -19612,7 +19606,7 @@ class MySqlConnectionInfoResponse(dict):
                Expected value is 'MySqlConnectionInfo'.
         :param _builtins.str additional_settings: Additional connection settings
         :param _builtins.str authentication: Authentication type to use for connection
-        :param _builtins.str data_source: Data source 
+        :param _builtins.str data_source: Data source
         :param _builtins.bool encrypt_connection: Whether to encrypt the connection
         :param _builtins.str password: Password credential.
         :param _builtins.str user_name: User name
@@ -19680,7 +19674,7 @@ class MySqlConnectionInfoResponse(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[_builtins.str]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
@@ -20161,7 +20155,7 @@ class PostgreSqlConnectionInfoResponse(dict):
                Expected value is 'PostgreSqlConnectionInfo'.
         :param _builtins.str additional_settings: Additional connection settings
         :param _builtins.str authentication: Authentication type to use for connection
-        :param _builtins.str data_source: Data source 
+        :param _builtins.str data_source: Data source
         :param _builtins.str database_name: Name of the database
         :param _builtins.bool encrypt_connection: Whether to encrypt the connection
         :param _builtins.str password: Password credential.
@@ -20243,7 +20237,7 @@ class PostgreSqlConnectionInfoResponse(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[_builtins.str]:
         """
-        Data source 
+        Data source
         """
         return pulumi.get(self, "data_source")
 
@@ -23438,7 +23432,7 @@ class WaitStatisticsResponse(dict):
         Wait statistics gathered during query batch execution
 
         :param _builtins.float wait_count: Total no. of waits
-        :param _builtins.float wait_time_ms: Total wait time in millisecond(s) 
+        :param _builtins.float wait_time_ms: Total wait time in millisecond(s)
         :param _builtins.str wait_type: Type of the Wait
         """
         if wait_count is not None:
@@ -23462,7 +23456,7 @@ class WaitStatisticsResponse(dict):
     @pulumi.getter(name="waitTimeMs")
     def wait_time_ms(self) -> Optional[_builtins.float]:
         """
-        Total wait time in millisecond(s) 
+        Total wait time in millisecond(s)
         """
         return pulumi.get(self, "wait_time_ms")
 

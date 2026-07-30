@@ -152,27 +152,27 @@ export interface RoleDefinitionArgs {
     /**
      * Role definition assignable scopes.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The role definition description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Role definition permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.PermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.PermissionArgs>[] | undefined>;
     /**
      * The ID of the role definition.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The role name.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * The role type.
      */
-    roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

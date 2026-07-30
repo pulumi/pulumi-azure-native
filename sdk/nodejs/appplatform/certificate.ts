@@ -108,11 +108,11 @@ export interface CertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Properties of the certificate resource payload.
      */
-    properties?: pulumi.Input<inputs.appplatform.ContentCertificatePropertiesArgs | inputs.appplatform.KeyVaultCertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.ContentCertificatePropertiesArgs | inputs.appplatform.KeyVaultCertificatePropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

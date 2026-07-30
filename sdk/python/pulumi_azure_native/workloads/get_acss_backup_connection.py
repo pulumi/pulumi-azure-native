@@ -167,7 +167,6 @@ def get_acss_backup_connection(backup_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-10-01-preview.
 
-
     :param _builtins.str backup_name: The name of the backup connection resource of virtual instance for SAP.
     :param _builtins.str connector_name: The name of the connector resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,15 +189,14 @@ def get_acss_backup_connection(backup_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_acss_backup_connection_output(backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetACSSBackupConnectionResult]:
     """
     Gets the backup connection resource of virtual instance for SAP.
 
     Uses Azure REST API version 2023-10-01-preview.
-
 
     :param _builtins.str backup_name: The name of the backup connection resource of virtual instance for SAP.
     :param _builtins.str connector_name: The name of the connector resource

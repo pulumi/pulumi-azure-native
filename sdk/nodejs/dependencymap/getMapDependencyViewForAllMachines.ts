@@ -87,7 +87,7 @@ export interface GetMapDependencyViewForAllMachinesOutputArgs {
     /**
      * Filters for GetDependencyViewForAllMachines
      */
-    filters?: pulumi.Input<inputs.dependencymap.DependencyProcessFilterArgs>;
+    filters?: pulumi.Input<inputs.dependencymap.DependencyProcessFilterArgs | undefined>;
     /**
      * Maps resource name
      */

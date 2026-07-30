@@ -24,10 +24,10 @@ class IssueArgs:
     def __init__(__self__, *,
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['IssuePropertiesArgs']] = None,
-                 related: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_investigation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['IssuePropertiesArgs']] = None,
+                 related: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_investigation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Issue resource.
 
@@ -75,50 +75,50 @@ class IssueArgs:
 
     @_builtins.property
     @pulumi.getter(name="issueName")
-    def issue_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IssueResource
         """
         return pulumi.get(self, "issue_name")
 
     @issue_name.setter
-    def issue_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issue_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IssuePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['IssuePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IssuePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['IssuePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def related(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def related(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Related resource or alert that is to be added to the issue (default: empty - the issue will be created without any related resources or alerts)
         """
         return pulumi.get(self, "related")
 
     @related.setter
-    def related(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def related(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "related", value)
 
     @_builtins.property
     @pulumi.getter(name="startInvestigation")
-    def start_investigation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_investigation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically start an investigation once the issue is created (default: false)
         """
         return pulumi.get(self, "start_investigation")
 
     @start_investigation.setter
-    def start_investigation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_investigation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_investigation", value)
 
 
@@ -128,12 +128,12 @@ class Issue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
-                 related: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_investigation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
+                 related: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_investigation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The Issue resource
@@ -141,7 +141,6 @@ class Issue(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-03-preview.
 
         Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class Issue(pulumi.CustomResource):
 
         Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class Issue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
-                 related: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_investigation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']]] = None,
+                 related: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_investigation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

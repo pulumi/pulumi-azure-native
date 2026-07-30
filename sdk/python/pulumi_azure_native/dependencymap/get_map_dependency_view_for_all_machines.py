@@ -133,7 +133,6 @@ def get_map_dependency_view_for_all_machines(filters: Optional[Union['Dependency
 
     Uses Azure REST API version 2025-07-01-preview.
 
-
     :param Union['DependencyProcessFilter', 'DependencyProcessFilterDict'] filters: Filters for GetDependencyViewForAllMachines
     :param _builtins.str map_name: Maps resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,15 +152,14 @@ def get_map_dependency_view_for_all_machines(filters: Optional[Union['Dependency
         properties=pulumi.get(__ret__, 'properties'),
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'))
-def get_map_dependency_view_for_all_machines_output(filters: Optional[pulumi.Input[Optional[Union['DependencyProcessFilter', 'DependencyProcessFilterDict']]]] = None,
-                                                    map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_map_dependency_view_for_all_machines_output(filters: pulumi.Input[Optional[Optional[Union['DependencyProcessFilter', 'DependencyProcessFilterDict']]]] = None,
+                                                    map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapDependencyViewForAllMachinesResult]:
     """
     Get dependencies for all machines
 
     Uses Azure REST API version 2025-07-01-preview.
-
 
     :param Union['DependencyProcessFilter', 'DependencyProcessFilterDict'] filters: Filters for GetDependencyViewForAllMachines
     :param _builtins.str map_name: Maps resource name

@@ -23,10 +23,10 @@ class AuthorizationProviderArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2: Optional[pulumi.Input['AuthorizationProviderOAuth2SettingsArgs']] = None):
+                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2: pulumi.Input[Optional['AuthorizationProviderOAuth2SettingsArgs']] = None):
         """
         The set of arguments for constructing a AuthorizationProvider resource.
 
@@ -74,50 +74,50 @@ class AuthorizationProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationProviderId")
-    def authorization_provider_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the authorization provider.
         """
         return pulumi.get(self, "authorization_provider_id")
 
     @authorization_provider_id.setter
-    def authorization_provider_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_provider_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_provider_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization Provider name. Must be 1 to 300 characters long.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity provider name. Must be 1 to 300 characters long.
         """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
-    def identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def oauth2(self) -> Optional[pulumi.Input['AuthorizationProviderOAuth2SettingsArgs']]:
+    def oauth2(self) -> pulumi.Input[Optional['AuthorizationProviderOAuth2SettingsArgs']]:
         """
         OAuth2 settings
         """
         return pulumi.get(self, "oauth2")
 
     @oauth2.setter
-    def oauth2(self, value: Optional[pulumi.Input['AuthorizationProviderOAuth2SettingsArgs']]):
+    def oauth2(self, value: pulumi.Input[Optional['AuthorizationProviderOAuth2SettingsArgs']]):
         pulumi.set(self, "oauth2", value)
 
 
@@ -127,12 +127,12 @@ class AuthorizationProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2: Optional[pulumi.Input[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2: pulumi.Input[Optional[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Authorization Provider contract.
@@ -140,7 +140,6 @@ class AuthorizationProvider(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +163,6 @@ class AuthorizationProvider(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AuthorizationProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,12 +178,12 @@ class AuthorizationProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2: Optional[pulumi.Input[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2: pulumi.Input[Optional[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

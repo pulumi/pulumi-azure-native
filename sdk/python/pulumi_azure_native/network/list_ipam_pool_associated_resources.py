@@ -70,7 +70,6 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[_builtins
 
     Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_manager_name: The name of the network manager.
     :param _builtins.str pool_name: Pool resource name.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -85,9 +84,9 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[_builtins
     return AwaitableListIpamPoolAssociatedResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_ipam_pool_associated_resources_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIpamPoolAssociatedResourcesResult]:
     """
     List of PoolAssociation
@@ -95,7 +94,6 @@ def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pu
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_manager_name: The name of the network manager.
     :param _builtins.str pool_name: Pool resource name.

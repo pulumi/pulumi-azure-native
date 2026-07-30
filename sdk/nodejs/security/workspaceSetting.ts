@@ -118,5 +118,5 @@ export interface WorkspaceSettingArgs {
     /**
      * Name of the security setting
      */
-    workspaceSettingName?: pulumi.Input<string>;
+    workspaceSettingName?: pulumi.Input<string | undefined>;
 }

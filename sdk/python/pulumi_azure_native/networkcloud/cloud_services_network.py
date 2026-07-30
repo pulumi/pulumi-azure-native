@@ -24,11 +24,11 @@ class CloudServicesNetworkArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EgressEndpointArgs']]]] = None,
-                 cloud_services_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_egress_endpoints: Optional[pulumi.Input[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['EgressEndpointArgs']]]] = None,
+                 cloud_services_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_egress_endpoints: pulumi.Input[Optional[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudServicesNetwork resource.
 
@@ -81,62 +81,62 @@ class CloudServicesNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalEgressEndpoints")
-    def additional_egress_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EgressEndpointArgs']]]]:
+    def additional_egress_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EgressEndpointArgs']]]]:
         """
         The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.
         """
         return pulumi.get(self, "additional_egress_endpoints")
 
     @additional_egress_endpoints.setter
-    def additional_egress_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EgressEndpointArgs']]]]):
+    def additional_egress_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EgressEndpointArgs']]]]):
         pulumi.set(self, "additional_egress_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudServicesNetworkName")
-    def cloud_services_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_services_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cloud services network.
         """
         return pulumi.get(self, "cloud_services_network_name")
 
     @cloud_services_network_name.setter
-    def cloud_services_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_services_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_services_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultEgressEndpoints")
-    def enable_default_egress_endpoints(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]]:
+    def enable_default_egress_endpoints(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]]:
         """
         The indicator of whether the platform default endpoints are allowed for the egress traffic.
         """
         return pulumi.get(self, "enable_default_egress_endpoints")
 
     @enable_default_egress_endpoints.setter
-    def enable_default_egress_endpoints(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]]):
+    def enable_default_egress_endpoints(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]]):
         pulumi.set(self, "enable_default_egress_endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,13 +146,13 @@ class CloudServicesNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EgressEndpointArgs', 'EgressEndpointArgsDict']]]]] = None,
-                 cloud_services_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_egress_endpoints: Optional[pulumi.Input[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EgressEndpointArgs', 'EgressEndpointArgsDict']]]]] = None,
+                 cloud_services_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_egress_endpoints: pulumi.Input[Optional[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Upon creation, the additional services that are provided by the platform will be allocated and
@@ -163,7 +163,6 @@ class CloudServicesNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +190,6 @@ class CloudServicesNetwork(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CloudServicesNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,13 +205,13 @@ class CloudServicesNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EgressEndpointArgs', 'EgressEndpointArgsDict']]]]] = None,
-                 cloud_services_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_egress_endpoints: Optional[pulumi.Input[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EgressEndpointArgs', 'EgressEndpointArgsDict']]]]] = None,
+                 cloud_services_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_egress_endpoints: pulumi.Input[Optional[Union[_builtins.str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

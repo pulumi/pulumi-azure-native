@@ -46,19 +46,19 @@ class IdentityConfigurationPropertiesArgsDict(TypedDict):
     """
     The tenantId of the selected identity provider for the Community Training Resource
     """
-    b2c_authentication_policy: NotRequired[pulumi.Input[_builtins.str]]
+    b2c_authentication_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the authentication policy registered in ADB2C for the Community Training Resource
     """
-    b2c_password_reset_policy: NotRequired[pulumi.Input[_builtins.str]]
+    b2c_password_reset_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the password reset policy registered in ADB2C for the Community Training Resource
     """
-    custom_login_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    custom_login_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom login parameters for the Community Training Resource
     """
-    teams_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    teams_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     To indicate whether the Community Training Resource has Teams enabled
     """
@@ -71,10 +71,10 @@ class IdentityConfigurationPropertiesArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  identity_type: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 b2c_authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 b2c_password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_login_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 b2c_authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 b2c_password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_login_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Details of the Community CommunityTraining Identity Configuration
 
@@ -166,50 +166,50 @@ class IdentityConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="b2cAuthenticationPolicy")
-    def b2c_authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def b2c_authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the authentication policy registered in ADB2C for the Community Training Resource
         """
         return pulumi.get(self, "b2c_authentication_policy")
 
     @b2c_authentication_policy.setter
-    def b2c_authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def b2c_authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "b2c_authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="b2cPasswordResetPolicy")
-    def b2c_password_reset_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def b2c_password_reset_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the password reset policy registered in ADB2C for the Community Training Resource
         """
         return pulumi.get(self, "b2c_password_reset_policy")
 
     @b2c_password_reset_policy.setter
-    def b2c_password_reset_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def b2c_password_reset_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "b2c_password_reset_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="customLoginParameters")
-    def custom_login_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_login_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom login parameters for the Community Training Resource
         """
         return pulumi.get(self, "custom_login_parameters")
 
     @custom_login_parameters.setter
-    def custom_login_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_login_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_login_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="teamsEnabled")
-    def teams_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def teams_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To indicate whether the Community Training Resource has Teams enabled
         """
         return pulumi.get(self, "teams_enabled")
 
     @teams_enabled.setter
-    def teams_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def teams_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "teams_enabled", value)
 
 
@@ -221,19 +221,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU. Ex - P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -242,17 +242,17 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -279,50 +279,50 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

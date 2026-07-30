@@ -157,7 +157,6 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str metadata_name: Name of the HybridIdentityMetadata.
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str virtual_machine_name: Name of the vm.
@@ -179,9 +178,9 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hybrid_identity_metadatum_output(metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
@@ -189,7 +188,6 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str metadata_name: Name of the HybridIdentityMetadata.
     :param _builtins.str resource_group_name: The Resource Group Name.

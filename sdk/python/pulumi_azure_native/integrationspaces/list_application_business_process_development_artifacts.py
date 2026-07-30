@@ -59,7 +59,6 @@ def list_application_business_process_development_artifacts(application_name: Op
 
     Uses Azure REST API version 2023-11-14-preview.
 
-
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str space_name: The name of the space
@@ -73,15 +72,14 @@ def list_application_business_process_development_artifacts(application_name: Op
 
     return AwaitableListApplicationBusinessProcessDevelopmentArtifactsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_application_business_process_development_artifacts_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                   space_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_application_business_process_development_artifacts_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                   space_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationBusinessProcessDevelopmentArtifactsResult]:
     """
     The list business process development artifacts action.
 
     Uses Azure REST API version 2023-11-14-preview.
-
 
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

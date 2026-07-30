@@ -141,15 +141,15 @@ export interface VolumeArgs {
     /**
      * This type describes a volume provided by an Azure Files file share.
      */
-    azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.VolumeProviderParametersAzureFileArgs>;
+    azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.VolumeProviderParametersAzureFileArgs | undefined>;
     /**
      * User readable description of the volume.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Provider of the volume.
      */
@@ -161,9 +161,9 @@ export interface VolumeArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The identity of the volume.
      */
-    volumeResourceName?: pulumi.Input<string>;
+    volumeResourceName?: pulumi.Input<string | undefined>;
 }

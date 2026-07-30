@@ -93,7 +93,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["connectorName"] = args?.connectorName;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.storage.storageConnectorPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.storage.storageConnectorPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -127,11 +127,11 @@ export interface ConnectorArgs {
     /**
      * The name of the Storage Connector.
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The properties of the Storage Connector.
      */
@@ -143,5 +143,5 @@ export interface ConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

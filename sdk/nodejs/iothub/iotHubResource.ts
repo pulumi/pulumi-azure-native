@@ -101,7 +101,7 @@ export class IotHubResource extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iothub.iotHubPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.iothub.iotHubPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["sku"] = args?.sku;
@@ -137,15 +137,15 @@ export interface IotHubResourceArgs {
     /**
      * The managed identities for the IotHub.
      */
-    identity?: pulumi.Input<inputs.iothub.ArmIdentityArgs>;
+    identity?: pulumi.Input<inputs.iothub.ArmIdentityArgs | undefined>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * IotHub properties
      */
-    properties?: pulumi.Input<inputs.iothub.IotHubPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iothub.IotHubPropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -153,7 +153,7 @@ export interface IotHubResourceArgs {
     /**
      * The name of the IoT hub.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * IotHub SKU info
      */
@@ -161,5 +161,5 @@ export interface IotHubResourceArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

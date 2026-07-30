@@ -25,7 +25,7 @@ class CustomerEventArgs:
                  receivers: pulumi.Input[Sequence[pulumi.Input['NotificationEventReceiverArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 customer_event_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_event_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerEvent resource.
 
@@ -92,14 +92,14 @@ class CustomerEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerEventName")
-    def customer_event_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_event_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name of the Test Base Customer event.
         """
         return pulumi.get(self, "customer_event_name")
 
     @customer_event_name.setter
-    def customer_event_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_event_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_event_name", value)
 
 
@@ -109,11 +109,11 @@ class CustomerEvent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_event_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_event_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Customer Notification Event resource.
@@ -121,7 +121,6 @@ class CustomerEvent(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class CustomerEvent(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CustomerEventArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class CustomerEvent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_event_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_event_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

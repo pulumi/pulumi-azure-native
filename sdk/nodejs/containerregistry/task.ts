@@ -151,7 +151,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["taskName"] = args?.taskName;
             resourceInputs["timeout"] = (args?.timeout) ?? 3600;
-            resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["trigger"] = args ? pulumi.output(args.trigger).apply(v => v === undefined ? undefined : inputs.containerregistry.triggerPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -193,35 +193,35 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentPropertiesArgs>;
+    agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentPropertiesArgs | undefined>;
     /**
      * The dedicated agent pool for the task.
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    credentials?: pulumi.Input<inputs.containerregistry.CredentialsArgs>;
+    credentials?: pulumi.Input<inputs.containerregistry.CredentialsArgs | undefined>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
-    isSystemTask?: pulumi.Input<boolean>;
+    isSystemTask?: pulumi.Input<boolean | undefined>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The template that describes the repository and tag information for run log artifact.
      */
-    logTemplate?: pulumi.Input<string>;
+    logTemplate?: pulumi.Input<string | undefined>;
     /**
      * The platform properties against which the run has to happen.
      */
-    platform?: pulumi.Input<inputs.containerregistry.PlatformPropertiesArgs>;
+    platform?: pulumi.Input<inputs.containerregistry.PlatformPropertiesArgs | undefined>;
     /**
      * The name of the container registry.
      */
@@ -233,25 +233,25 @@ export interface TaskArgs {
     /**
      * The current status of task.
      */
-    status?: pulumi.Input<string | enums.containerregistry.TaskStatus>;
+    status?: pulumi.Input<string | enums.containerregistry.TaskStatus | undefined>;
     /**
      * The properties of a task step.
      */
-    step?: pulumi.Input<inputs.containerregistry.DockerBuildStepArgs | inputs.containerregistry.EncodedTaskStepArgs | inputs.containerregistry.FileTaskStepArgs>;
+    step?: pulumi.Input<inputs.containerregistry.DockerBuildStepArgs | inputs.containerregistry.EncodedTaskStepArgs | inputs.containerregistry.FileTaskStepArgs | undefined>;
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the container registry task.
      */
-    taskName?: pulumi.Input<string>;
+    taskName?: pulumi.Input<string | undefined>;
     /**
      * Run timeout in seconds.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The properties that describe all triggers for the task.
      */
-    trigger?: pulumi.Input<inputs.containerregistry.TriggerPropertiesArgs>;
+    trigger?: pulumi.Input<inputs.containerregistry.TriggerPropertiesArgs | undefined>;
 }

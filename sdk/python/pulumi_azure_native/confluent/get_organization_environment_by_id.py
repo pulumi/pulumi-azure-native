@@ -145,7 +145,6 @@ def get_organization_environment_by_id(environment_id: Optional[_builtins.str] =
 
     Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str environment_id: Confluent environment id
     :param _builtins.str organization_name: Organization resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_organization_environment_by_id(environment_id: Optional[_builtins.str] =
         stream_governance_config=pulumi.get(__ret__, 'stream_governance_config'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_organization_environment_by_id_output(environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organization_environment_by_id_output(environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationEnvironmentByIdResult]:
     """
     Get Environment details by environment Id
@@ -176,7 +175,6 @@ def get_organization_environment_by_id_output(environment_id: Optional[pulumi.In
     Uses Azure REST API version 2024-07-01.
 
     Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str environment_id: Confluent environment id
     :param _builtins.str organization_name: Organization resource name

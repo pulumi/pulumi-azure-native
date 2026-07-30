@@ -130,5 +130,5 @@ export interface PartnerArgs {
     /**
      * Id of the Partner
      */
-    partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string | undefined>;
 }

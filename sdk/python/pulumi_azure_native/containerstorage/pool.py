@@ -24,13 +24,13 @@ class PoolArgs:
     def __init__(__self__, *,
                  pool_type: pulumi.Input['PoolTypeArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reclaim_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']]] = None,
-                 resources: Optional[pulumi.Input['ResourcesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None):
+                 assignments: pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reclaim_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]] = None,
+                 resources: pulumi.Input[Optional['ResourcesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
 
@@ -87,86 +87,86 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentArgs']]]]:
+    def assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentArgs']]]]:
         """
         List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
         """
         return pulumi.get(self, "assignments")
 
     @assignments.setter
-    def assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentArgs']]]]):
+    def assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentArgs']]]]):
         pulumi.set(self, "assignments", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pool Object
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="reclaimPolicy")
-    def reclaim_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']]]:
+    def reclaim_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]]:
         """
         ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
         """
         return pulumi.get(self, "reclaim_policy")
 
     @reclaim_policy.setter
-    def reclaim_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']]]):
+    def reclaim_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]]):
         pulumi.set(self, "reclaim_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input['ResourcesArgs']]:
+    def resources(self) -> pulumi.Input[Optional['ResourcesArgs']]:
         """
         Resources represent the resources the pool should have.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input['ResourcesArgs']]):
+    def resources(self, value: pulumi.Input[Optional['ResourcesArgs']]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]]:
         """
         List of availability zones that resources can be created in.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -176,21 +176,20 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
-                 reclaim_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None,
+                 assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
+                 reclaim_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None,
                  __props__=None):
         """
         Pool resource
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class Pool(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
-                 reclaim_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None,
+                 assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
+                 reclaim_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

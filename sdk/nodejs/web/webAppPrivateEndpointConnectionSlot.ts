@@ -132,11 +132,11 @@ export interface WebAppPrivateEndpointConnectionSlotArgs {
     /**
      * Private IPAddresses mapped to the remote private endpoint
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the site.
      */
@@ -144,11 +144,11 @@ export interface WebAppPrivateEndpointConnectionSlotArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The state of a private link connection
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

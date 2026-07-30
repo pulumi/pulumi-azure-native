@@ -24,11 +24,11 @@ class VolumeArgs:
     def __init__(__self__, *,
                  provider: pulumi.Input[Union[_builtins.str, 'VolumeProvider']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_file_parameters: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_file_parameters: pulumi.Input[Optional['VolumeProviderParametersAzureFileArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 volume_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -79,62 +79,62 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureFileParameters")
-    def azure_file_parameters(self) -> Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]:
+    def azure_file_parameters(self) -> pulumi.Input[Optional['VolumeProviderParametersAzureFileArgs']]:
         """
         This type describes a volume provided by an Azure Files file share.
         """
         return pulumi.get(self, "azure_file_parameters")
 
     @azure_file_parameters.setter
-    def azure_file_parameters(self, value: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]):
+    def azure_file_parameters(self, value: pulumi.Input[Optional['VolumeProviderParametersAzureFileArgs']]):
         pulumi.set(self, "azure_file_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the volume.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeResourceName")
-    def volume_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity of the volume.
         """
         return pulumi.get(self, "volume_resource_name")
 
     @volume_resource_name.setter
-    def volume_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_resource_name", value)
 
 
@@ -144,19 +144,18 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_parameters: Optional[pulumi.Input[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[Union[_builtins.str, 'VolumeProvider']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_file_parameters: pulumi.Input[Optional[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[Union[_builtins.str, 'VolumeProvider']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 volume_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This type describes a volume resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class Volume(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_parameters: Optional[pulumi.Input[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[Union[_builtins.str, 'VolumeProvider']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 volume_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_file_parameters: pulumi.Input[Optional[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[Union[_builtins.str, 'VolumeProvider']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 volume_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

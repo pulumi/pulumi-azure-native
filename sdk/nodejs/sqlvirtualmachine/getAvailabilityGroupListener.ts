@@ -121,7 +121,7 @@ export interface GetAvailabilityGroupListenerOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

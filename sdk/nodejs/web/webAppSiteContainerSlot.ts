@@ -195,15 +195,15 @@ export interface WebAppSiteContainerSlotArgs {
     /**
      * Auth Type
      */
-    authType?: pulumi.Input<enums.web.AuthType>;
+    authType?: pulumi.Input<enums.web.AuthType | undefined>;
     /**
      * Site Container Name
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * List of environment variables
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.web.EnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.web.EnvironmentVariableArgs>[] | undefined>;
     /**
      * Image Name
      */
@@ -211,7 +211,7 @@ export interface WebAppSiteContainerSlotArgs {
     /**
      * <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
      */
-    inheritAppSettingsAndConnectionStrings?: pulumi.Input<boolean>;
+    inheritAppSettingsAndConnectionStrings?: pulumi.Input<boolean | undefined>;
     /**
      * <code>true</code> if the container is the main site container; <code>false</code> otherwise.
      */
@@ -219,7 +219,7 @@ export interface WebAppSiteContainerSlotArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -227,7 +227,7 @@ export interface WebAppSiteContainerSlotArgs {
     /**
      * Password Secret
      */
-    passwordSecret?: pulumi.Input<string>;
+    passwordSecret?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -239,21 +239,21 @@ export interface WebAppSiteContainerSlotArgs {
     /**
      * StartUp Command
      */
-    startUpCommand?: pulumi.Input<string>;
+    startUpCommand?: pulumi.Input<string | undefined>;
     /**
      * Target Port
      */
-    targetPort?: pulumi.Input<string>;
+    targetPort?: pulumi.Input<string | undefined>;
     /**
      * UserManagedIdentity ClientId
      */
-    userManagedIdentityClientId?: pulumi.Input<string>;
+    userManagedIdentityClientId?: pulumi.Input<string | undefined>;
     /**
      * User Name
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
     /**
      * List of volume mounts
      */
-    volumeMounts?: pulumi.Input<pulumi.Input<inputs.web.VolumeMountArgs>[]>;
+    volumeMounts?: pulumi.Input<pulumi.Input<inputs.web.VolumeMountArgs>[] | undefined>;
 }

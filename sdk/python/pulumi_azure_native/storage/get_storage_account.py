@@ -661,7 +661,6 @@ def get_storage_account(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -725,9 +724,9 @@ def get_storage_account(account_name: Optional[_builtins.str] = None,
         storage_account_sku_conversion_status=pulumi.get(__ret__, 'storage_account_sku_conversion_status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
@@ -735,7 +734,6 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.

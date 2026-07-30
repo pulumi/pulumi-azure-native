@@ -60,7 +60,6 @@ def list_linker_configurations(linker_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str linker_name: The name Linker resource.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
@@ -72,8 +71,8 @@ def list_linker_configurations(linker_name: Optional[_builtins.str] = None,
 
     return AwaitableListLinkerConfigurationsResult(
         configurations=pulumi.get(__ret__, 'configurations'))
-def list_linker_configurations_output(linker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_linker_configurations_output(linker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
     list source configurations for a Linker.
@@ -81,7 +80,6 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str linker_name: The name Linker resource.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.

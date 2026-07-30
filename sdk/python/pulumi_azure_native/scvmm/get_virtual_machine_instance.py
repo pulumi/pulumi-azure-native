@@ -215,7 +215,6 @@ def get_virtual_machine_instance(resource_uri: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """
     __args__ = dict()
@@ -238,7 +237,7 @@ def get_virtual_machine_instance(resource_uri: Optional[_builtins.str] = None,
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_instance_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
     Retrieves information about a virtual machine instance.
@@ -246,7 +245,6 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """

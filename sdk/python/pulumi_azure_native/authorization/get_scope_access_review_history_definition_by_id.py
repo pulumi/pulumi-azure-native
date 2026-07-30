@@ -274,7 +274,6 @@ def get_scope_access_review_history_definition_by_id(history_definition_id: Opti
 
     Uses Azure REST API version 2021-12-01-preview.
 
-
     :param _builtins.str history_definition_id: The id of the access review history definition.
     :param _builtins.str scope: The scope of the resource.
     """
@@ -304,14 +303,13 @@ def get_scope_access_review_history_definition_by_id(history_definition_id: Opti
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
-def get_scope_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scope_access_review_history_definition_by_id_output(history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            scope: pulumi.Input[Optional[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAccessReviewHistoryDefinitionByIdResult]:
     """
     Get access review history definition by definition Id
 
     Uses Azure REST API version 2021-12-01-preview.
-
 
     :param _builtins.str history_definition_id: The id of the access review history definition.
     :param _builtins.str scope: The scope of the resource.

@@ -279,15 +279,15 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The authorizationKey.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The connection mode for this connection.
      */
-    connectionMode?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionMode>;
+    connectionMode?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionMode | undefined>;
     /**
      * Connection protocol used for this connection.
      */
-    connectionProtocol?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionProtocol>;
+    connectionProtocol?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionProtocol | undefined>;
     /**
      * Gateway connection type.
      */
@@ -295,51 +295,51 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The dead peer detection timeout of this connection in seconds.
      */
-    dpdTimeoutSeconds?: pulumi.Input<number>;
+    dpdTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * List of egress NatRules.
      */
-    egressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+    egressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
     /**
      * EnableBgp flag.
      */
-    enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
      */
-    enablePrivateLinkFastPath?: pulumi.Input<boolean>;
+    enablePrivateLinkFastPath?: pulumi.Input<boolean | undefined>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */
-    expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    expressRouteGatewayBypass?: pulumi.Input<boolean | undefined>;
     /**
      * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
      */
-    gatewayCustomBgpIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.GatewayCustomBgpIpAddressIpConfigurationArgs>[]>;
+    gatewayCustomBgpIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.GatewayCustomBgpIpAddressIpConfigurationArgs>[] | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * List of ingress NatRules.
      */
-    ingressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+    ingressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[]>;
+    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[] | undefined>;
     /**
      * The reference to local network gateway resource.
      */
-    localNetworkGateway2?: pulumi.Input<inputs.network.LocalNetworkGatewayArgs>;
+    localNetworkGateway2?: pulumi.Input<inputs.network.LocalNetworkGatewayArgs | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The reference to peerings resource.
      */
-    peer?: pulumi.Input<inputs.network.SubResourceArgs>;
+    peer?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -347,27 +347,27 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The routing weight.
      */
-    routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number | undefined>;
     /**
      * The IPSec shared key.
      */
-    sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicyArgs>[]>;
+    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicyArgs>[] | undefined>;
     /**
      * Use private local Azure IP for the connection.
      */
-    useLocalAzureIpAddress?: pulumi.Input<boolean>;
+    useLocalAzureIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * Enable policy-based traffic selectors.
      */
-    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean | undefined>;
     /**
      * The reference to virtual network gateway resource.
      */
@@ -375,9 +375,9 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The reference to virtual network gateway resource.
      */
-    virtualNetworkGateway2?: pulumi.Input<inputs.network.VirtualNetworkGatewayArgs>;
+    virtualNetworkGateway2?: pulumi.Input<inputs.network.VirtualNetworkGatewayArgs | undefined>;
     /**
      * The name of the virtual network gateway connection.
      */
-    virtualNetworkGatewayConnectionName?: pulumi.Input<string>;
+    virtualNetworkGatewayConnectionName?: pulumi.Input<string | undefined>;
 }

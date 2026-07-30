@@ -74,7 +74,6 @@ def list_global_rulestack_security_services(global_rulestack_name: Optional[_bui
 
     Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str global_rulestack_name: GlobalRulestack resource name
     """
     __args__ = dict()
@@ -88,10 +87,10 @@ def list_global_rulestack_security_services(global_rulestack_name: Optional[_bui
     return AwaitableListGlobalRulestackSecurityServicesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_global_rulestack_security_services_output(global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   skip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                   top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                                   type: Optional[pulumi.Input[_builtins.str]] = None,
+def list_global_rulestack_security_services_output(global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   skip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                   top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                                   type: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackSecurityServicesResult]:
     """
     List the security services for rulestack
@@ -99,7 +98,6 @@ def list_global_rulestack_security_services_output(global_rulestack_name: Option
     Uses Azure REST API version 2025-05-23.
 
     Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str global_rulestack_name: GlobalRulestack resource name
     """

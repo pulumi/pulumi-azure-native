@@ -136,19 +136,19 @@ export interface RouteArgs {
     /**
      * The destination CIDR to which the route applies.
      */
-    addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    nextHopIpAddress?: pulumi.Input<string>;
+    nextHopIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to.
      */
@@ -160,7 +160,7 @@ export interface RouteArgs {
     /**
      * The name of the route.
      */
-    routeName?: pulumi.Input<string>;
+    routeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the route table.
      */
@@ -168,5 +168,5 @@ export interface RouteArgs {
     /**
      * The type of the resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

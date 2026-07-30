@@ -24,12 +24,12 @@ class GovernanceAssignmentArgs:
                  assessment_name: pulumi.Input[_builtins.str],
                  remediation_due_date: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 additional_data: Optional[pulumi.Input['GovernanceAssignmentAdditionalDataArgs']] = None,
-                 assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 governance_email_notification: Optional[pulumi.Input['GovernanceEmailNotificationArgs']] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_eta: Optional[pulumi.Input['RemediationEtaArgs']] = None):
+                 additional_data: pulumi.Input[Optional['GovernanceAssignmentAdditionalDataArgs']] = None,
+                 assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 governance_email_notification: pulumi.Input[Optional['GovernanceEmailNotificationArgs']] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_eta: pulumi.Input[Optional['RemediationEtaArgs']] = None):
         """
         The set of arguments for constructing a GovernanceAssignment resource.
 
@@ -97,74 +97,74 @@ class GovernanceAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional[pulumi.Input['GovernanceAssignmentAdditionalDataArgs']]:
+    def additional_data(self) -> pulumi.Input[Optional['GovernanceAssignmentAdditionalDataArgs']]:
         """
         The additional data for the governance assignment - e.g. links to ticket (optional), see example
         """
         return pulumi.get(self, "additional_data")
 
     @additional_data.setter
-    def additional_data(self, value: Optional[pulumi.Input['GovernanceAssignmentAdditionalDataArgs']]):
+    def additional_data(self, value: pulumi.Input[Optional['GovernanceAssignmentAdditionalDataArgs']]):
         pulumi.set(self, "additional_data", value)
 
     @_builtins.property
     @pulumi.getter(name="assignmentKey")
-    def assignment_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The governance assignment key.
         """
         return pulumi.get(self, "assignment_key")
 
     @assignment_key.setter
-    def assignment_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_key", value)
 
     @_builtins.property
     @pulumi.getter(name="governanceEmailNotification")
-    def governance_email_notification(self) -> Optional[pulumi.Input['GovernanceEmailNotificationArgs']]:
+    def governance_email_notification(self) -> pulumi.Input[Optional['GovernanceEmailNotificationArgs']]:
         """
         The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         """
         return pulumi.get(self, "governance_email_notification")
 
     @governance_email_notification.setter
-    def governance_email_notification(self, value: Optional[pulumi.Input['GovernanceEmailNotificationArgs']]):
+    def governance_email_notification(self, value: pulumi.Input[Optional['GovernanceEmailNotificationArgs']]):
         pulumi.set(self, "governance_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="isGracePeriod")
-    def is_grace_period(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_grace_period(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines whether there is a grace period on the governance assignment
         """
         return pulumi.get(self, "is_grace_period")
 
     @is_grace_period.setter
-    def is_grace_period(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_grace_period(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_grace_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Owner for the governance assignment - e.g. user@contoso.com - see example
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationEta")
-    def remediation_eta(self) -> Optional[pulumi.Input['RemediationEtaArgs']]:
+    def remediation_eta(self) -> pulumi.Input[Optional['RemediationEtaArgs']]:
         """
         The ETA (estimated time of arrival) for remediation (optional), see example
         """
         return pulumi.get(self, "remediation_eta")
 
     @remediation_eta.setter
-    def remediation_eta(self, value: Optional[pulumi.Input['RemediationEtaArgs']]):
+    def remediation_eta(self, value: pulumi.Input[Optional['RemediationEtaArgs']]):
         pulumi.set(self, "remediation_eta", value)
 
 
@@ -174,21 +174,20 @@ class GovernanceAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_due_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_eta: Optional[pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 governance_email_notification: pulumi.Input[Optional[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_due_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_eta: pulumi.Input[Optional[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Governance assignment over a given scope
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +212,6 @@ class GovernanceAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param GovernanceAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,15 +227,15 @@ class GovernanceAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_due_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_eta: Optional[pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 governance_email_notification: pulumi.Input[Optional[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_due_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_eta: pulumi.Input[Optional[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

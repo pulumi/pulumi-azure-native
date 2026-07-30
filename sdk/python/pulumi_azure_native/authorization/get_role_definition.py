@@ -216,7 +216,6 @@ def get_role_definition(role_definition_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str role_definition_id: The ID of the role definition.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -241,8 +240,8 @@ def get_role_definition(role_definition_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
-def get_role_definition_output(role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_definition_output(role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               scope: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
     Get role definition by ID (GUID).
@@ -250,7 +249,6 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str role_definition_id: The ID of the role definition.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

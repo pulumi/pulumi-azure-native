@@ -116,7 +116,7 @@ export interface PlacementPolicyArgs {
     /**
      * Name of the placement policy.
      */
-    placementPolicyName?: pulumi.Input<string>;
+    placementPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */
@@ -124,7 +124,7 @@ export interface PlacementPolicyArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.avs.VmHostPlacementPolicyPropertiesArgs | inputs.avs.VmVmPlacementPolicyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.avs.VmHostPlacementPolicyPropertiesArgs | inputs.avs.VmVmPlacementPolicyPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

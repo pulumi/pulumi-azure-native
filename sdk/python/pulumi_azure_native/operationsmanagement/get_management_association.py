@@ -121,7 +121,6 @@ def get_management_association(management_association_name: Optional[_builtins.s
 
     Uses Azure REST API version 2015-11-01-preview.
 
-
     :param _builtins.str management_association_name: User ManagementAssociation Name.
     :param _builtins.str provider_name: Provider name for the parent resource.
     :param _builtins.str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -144,17 +143,16 @@ def get_management_association(management_association_name: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_association_output(management_association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_association_output(management_association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementAssociationResult]:
     """
     Retrieves the user ManagementAssociation.
 
     Uses Azure REST API version 2015-11-01-preview.
-
 
     :param _builtins.str management_association_name: User ManagementAssociation Name.
     :param _builtins.str provider_name: Provider name for the parent resource.

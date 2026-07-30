@@ -116,11 +116,11 @@ export interface PrivateLinkScopeArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties that define a Azure Arc PrivateLinkScope resource.
      */
-    properties?: pulumi.Input<inputs.kubernetesconfiguration.KubernetesConfigurationPrivateLinkScopePropertiesArgs>;
+    properties?: pulumi.Input<inputs.kubernetesconfiguration.KubernetesConfigurationPrivateLinkScopePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,9 +128,9 @@ export interface PrivateLinkScopeArgs {
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    scopeName?: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

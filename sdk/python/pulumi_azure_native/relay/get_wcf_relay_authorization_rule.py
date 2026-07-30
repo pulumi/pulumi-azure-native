@@ -134,7 +134,6 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[_builtins
 
     Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str relay_name: The relay name.
@@ -156,10 +155,10 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[_builtins
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wcf_relay_authorization_rule_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
     """
     Get authorizationRule for a WCF relay by name.
@@ -167,7 +166,6 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_rule_name: The authorization rule name.
     :param _builtins.str namespace_name: The namespace name

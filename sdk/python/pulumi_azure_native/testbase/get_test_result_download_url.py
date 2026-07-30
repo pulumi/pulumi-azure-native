@@ -73,7 +73,6 @@ def get_test_result_download_url(package_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str package_name: The resource name of the Test Base Package.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
@@ -90,10 +89,10 @@ def get_test_result_download_url(package_name: Optional[_builtins.str] = None,
     return AwaitableGetTestResultDownloadURLResult(
         download_url=pulumi.get(__ret__, 'download_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_test_result_download_url_output(package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        test_result_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_result_download_url_output(package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        test_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultDownloadURLResult]:
     """
     Gets the download URL of the test result.
@@ -101,7 +100,6 @@ def get_test_result_download_url_output(package_name: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str package_name: The resource name of the Test Base Package.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

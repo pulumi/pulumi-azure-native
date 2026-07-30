@@ -181,7 +181,6 @@ def get_runtime_environment(automation_account_name: Optional[_builtins.str] = N
 
     Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str runtime_environment_name: The name of the Runtime Environment.
@@ -205,9 +204,9 @@ def get_runtime_environment(automation_account_name: Optional[_builtins.str] = N
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_runtime_environment_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_runtime_environment_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeEnvironmentResult]:
     """
     Get information about the Runtime Environment
@@ -215,7 +214,6 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

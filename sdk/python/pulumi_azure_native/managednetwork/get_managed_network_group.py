@@ -191,7 +191,6 @@ def get_managed_network_group(managed_network_group_name: Optional[_builtins.str
 
     Uses Azure REST API version 2019-06-01-preview.
 
-
     :param _builtins.str managed_network_group_name: The name of the Managed Network Group.
     :param _builtins.str managed_network_name: The name of the Managed Network.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -216,15 +215,14 @@ def get_managed_network_group(managed_network_group_name: Optional[_builtins.str
         subscriptions=pulumi.get(__ret__, 'subscriptions'),
         type=pulumi.get(__ret__, 'type'),
         virtual_networks=pulumi.get(__ret__, 'virtual_networks'))
-def get_managed_network_group_output(managed_network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_network_group_output(managed_network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
     """
     The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
 
     Uses Azure REST API version 2019-06-01-preview.
-
 
     :param _builtins.str managed_network_group_name: The name of the Managed Network Group.
     :param _builtins.str managed_network_name: The name of the Managed Network.

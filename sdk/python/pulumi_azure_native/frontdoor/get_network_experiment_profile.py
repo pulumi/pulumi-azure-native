@@ -155,7 +155,6 @@ def get_network_experiment_profile(profile_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str profile_name: The Profile identifier associated with the Tenant and Partner
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -175,8 +174,8 @@ def get_network_experiment_profile(profile_name: Optional[_builtins.str] = None,
         resource_state=pulumi.get(__ret__, 'resource_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_experiment_profile_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_experiment_profile_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkExperimentProfileResult]:
     """
     Gets an NetworkExperiment Profile by ProfileName
@@ -184,7 +183,6 @@ def get_network_experiment_profile_output(profile_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2025-11-01.
 
     Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str profile_name: The Profile identifier associated with the Tenant and Partner
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

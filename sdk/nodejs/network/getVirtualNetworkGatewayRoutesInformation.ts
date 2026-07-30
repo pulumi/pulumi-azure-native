@@ -83,7 +83,7 @@ export interface GetVirtualNetworkGatewayRoutesInformationOutputArgs {
     /**
      * Attempt to recalculate the Route Sets Information for the gateway
      */
-    attemptRefresh?: pulumi.Input<boolean>;
+    attemptRefresh?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group.
      */

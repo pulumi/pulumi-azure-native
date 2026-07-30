@@ -155,7 +155,6 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
 
     Uses Azure REST API version 2023-06-01-preview.
 
-
     :param _builtins.str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param _builtins.str private_endpoint_connection_name: Private endpoint connection name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -177,15 +176,14 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get Private endpoint connection object.
 
     Uses Azure REST API version 2023-06-01-preview.
-
 
     :param _builtins.str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param _builtins.str private_endpoint_connection_name: Private endpoint connection name.

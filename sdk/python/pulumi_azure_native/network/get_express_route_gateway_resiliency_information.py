@@ -131,7 +131,6 @@ def get_express_route_gateway_resiliency_information(attempt_refresh: Optional[_
 
     Uses Azure REST API version 2025-07-01.
 
-
     :param _builtins.bool attempt_refresh: Whether to attempt a refresh of the resiliency information.
     :param _builtins.str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,15 +150,14 @@ def get_express_route_gateway_resiliency_information(attempt_refresh: Optional[_
         next_eligible_compute_time=pulumi.get(__ret__, 'next_eligible_compute_time'),
         overall_score=pulumi.get(__ret__, 'overall_score'),
         score_change=pulumi.get(__ret__, 'score_change'))
-def get_express_route_gateway_resiliency_information_output(attempt_refresh: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                            express_route_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_route_gateway_resiliency_information_output(attempt_refresh: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                            express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteGatewayResiliencyInformationResult]:
     """
     Retrieves the resiliency information for the ExpressRoute gateway.
 
     Uses Azure REST API version 2025-07-01.
-
 
     :param _builtins.bool attempt_refresh: Whether to attempt a refresh of the resiliency information.
     :param _builtins.str express_route_gateway_name: The name of the ExpressRoute gateway.

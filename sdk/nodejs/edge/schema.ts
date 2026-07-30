@@ -122,7 +122,7 @@ export interface SchemaArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,9 +130,9 @@ export interface SchemaArgs {
     /**
      * The name of the Schema
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -30,11 +30,11 @@ class LogSettingsArgsDict(TypedDict):
     """
     A value indicating whether this log is enabled.
     """
-    category: NotRequired[pulumi.Input[Union[_builtins.str, 'Category']]]
+    category: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Category']]]]
     """
     Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
     """
-    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    retention_policy: NotRequired[pulumi.Input[Optional['RetentionPolicyArgsDict']]]
     """
     The retention policy for this log.
     """
@@ -43,8 +43,8 @@ class LogSettingsArgsDict(TypedDict):
 class LogSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 category: Optional[pulumi.Input[Union[_builtins.str, 'Category']]] = None,
-                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
+                 category: pulumi.Input[Optional[Union[_builtins.str, 'Category']]] = None,
+                 retention_policy: pulumi.Input[Optional['RetentionPolicyArgs']] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 
@@ -72,26 +72,26 @@ class LogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Category']]]:
+    def category(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Category']]]:
         """
         Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Category']]]):
+    def category(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Category']]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyArgs']]:
         """
         The retention policy for this log.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
 

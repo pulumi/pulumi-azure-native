@@ -186,27 +186,27 @@ export interface DicomServiceArgs {
     /**
      * Dicom Service Cors configuration.
      */
-    corsConfiguration?: pulumi.Input<inputs.healthcareapis.CorsConfigurationArgs>;
+    corsConfiguration?: pulumi.Input<inputs.healthcareapis.CorsConfigurationArgs | undefined>;
     /**
      * The name of DICOM Service resource.
      */
-    dicomServiceName?: pulumi.Input<string>;
+    dicomServiceName?: pulumi.Input<string | undefined>;
     /**
      * If data partitions is enabled or not.
      */
-    enableDataPartitions?: pulumi.Input<boolean>;
+    enableDataPartitions?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption settings of the DICOM service
      */
-    encryption?: pulumi.Input<inputs.healthcareapis.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.healthcareapis.EncryptionArgs | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    identity?: pulumi.Input<inputs.healthcareapis.ServiceManagedIdentityIdentityArgs>;
+    identity?: pulumi.Input<inputs.healthcareapis.ServiceManagedIdentityIdentityArgs | undefined>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -214,11 +214,11 @@ export interface DicomServiceArgs {
     /**
      * The configuration of external storage account
      */
-    storageConfiguration?: pulumi.Input<inputs.healthcareapis.StorageConfigurationArgs>;
+    storageConfiguration?: pulumi.Input<inputs.healthcareapis.StorageConfigurationArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of workspace resource.
      */

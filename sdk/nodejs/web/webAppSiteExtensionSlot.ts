@@ -236,7 +236,7 @@ export interface WebAppSiteExtensionSlotArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId?: pulumi.Input<string>;
+    siteExtensionId?: pulumi.Input<string | undefined>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */

@@ -138,7 +138,7 @@ export interface CapacityPoolSnapshotArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the capacity pool
      */
@@ -150,7 +150,7 @@ export interface CapacityPoolSnapshotArgs {
     /**
      * The name of the snapshot
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * The name of the volume
      */

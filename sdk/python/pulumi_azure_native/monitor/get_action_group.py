@@ -312,7 +312,6 @@ def get_action_group(action_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-03-01, 2022-06-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str action_group_name: The name of the action group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -345,8 +344,8 @@ def get_action_group(action_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-def get_action_group_output(action_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_action_group_output(action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Get an action group.
@@ -354,7 +353,6 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2018-03-01, 2022-06-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str action_group_name: The name of the action group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

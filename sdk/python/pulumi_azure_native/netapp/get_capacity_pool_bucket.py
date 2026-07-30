@@ -175,7 +175,6 @@ def get_capacity_pool_bucket(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str bucket_name: The name of the bucket
     :param _builtins.str pool_name: The name of the capacity pool
@@ -202,11 +201,11 @@ def get_capacity_pool_bucket(account_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_capacity_pool_bucket_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_pool_bucket_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolBucketResult]:
     """
     Get the details of the specified volume's bucket. A bucket allows additional services, such as AI services, connect to the volume data contained in those buckets.
@@ -214,7 +213,6 @@ def get_capacity_pool_bucket_output(account_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2025-03-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str bucket_name: The name of the bucket

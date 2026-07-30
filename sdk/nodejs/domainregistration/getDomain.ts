@@ -103,7 +103,7 @@ export interface GetDomainResult {
      */
     readonly provisioningState: string;
     /**
-     * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+     * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
      *  it is hosted on name servers Azure has programmatic access to.
      */
     readonly readyForDnsRecordManagement: boolean;

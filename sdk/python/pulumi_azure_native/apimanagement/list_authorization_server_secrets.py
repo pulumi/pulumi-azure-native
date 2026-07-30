@@ -84,7 +84,6 @@ def list_authorization_server_secrets(authsid: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authsid: Identifier of the authorization server.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -100,9 +99,9 @@ def list_authorization_server_secrets(authsid: Optional[_builtins.str] = None,
         client_secret=pulumi.get(__ret__, 'client_secret'),
         resource_owner_password=pulumi.get(__ret__, 'resource_owner_password'),
         resource_owner_username=pulumi.get(__ret__, 'resource_owner_username'))
-def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_authorization_server_secrets_output(authsid: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
     Gets the client secret details of the authorization server.
@@ -110,7 +109,6 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authsid: Identifier of the authorization server.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

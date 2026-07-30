@@ -115,7 +115,7 @@ export interface ListContainerAppCustomHostNameAnalysisOutputArgs {
     /**
      * Custom hostname.
      */
-    customHostname?: pulumi.Input<string>;
+    customHostname?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

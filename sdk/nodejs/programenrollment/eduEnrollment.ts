@@ -114,15 +114,15 @@ export interface EduEnrollmentArgs {
     /**
      * The name of the edu enrollment
      */
-    enrollmentName?: pulumi.Input<string>;
+    enrollmentName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.programenrollment.EduEnrollmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.programenrollment.EduEnrollmentPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface EduEnrollmentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

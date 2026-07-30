@@ -23,11 +23,11 @@ __all__ = ['PowerBIResourceArgs', 'PowerBIResource']
 class PowerBIResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PowerBIResource resource.
 
@@ -65,31 +65,31 @@ class PowerBIResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureResourceName")
-    def azure_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure resource.
         """
         return pulumi.get(self, "azure_resource_name")
 
     @azure_resource_name.setter
-    def azure_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         Specifies the private endpoint connections of the resource.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -97,31 +97,31 @@ class PowerBIResourceArgs:
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies the tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the tenant id of the resource.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -131,16 +131,15 @@ class PowerBIResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class PowerBIResource(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param PowerBIResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class PowerBIResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

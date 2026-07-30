@@ -142,7 +142,6 @@ def get_fleet(fleet_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-02-01-preview.
 
-
     :param _builtins.str fleet_name: Name of the database fleet.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -161,14 +160,13 @@ def get_fleet(fleet_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_fleet_output(fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fleet_output(fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Gets a fleet resource.
 
     Uses Azure REST API version 2025-02-01-preview.
-
 
     :param _builtins.str fleet_name: Name of the database fleet.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

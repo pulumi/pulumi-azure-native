@@ -25,7 +25,7 @@ class DigitalTwinsEndpointArgs:
                  properties: pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DigitalTwinsEndpoint resource.
 
@@ -78,14 +78,14 @@ class DigitalTwinsEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Endpoint Resource.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
 
@@ -95,16 +95,15 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['EventGridArgs', 'EventGridArgsDict'], Union['EventHubArgs', 'EventHubArgsDict'], Union['ServiceBusArgs', 'ServiceBusArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['EventGridArgs', 'EventGridArgsDict'], Union['EventHubArgs', 'EventHubArgsDict'], Union['ServiceBusArgs', 'ServiceBusArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         DigitalTwinsInstance endpoint resource.
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-
         :param str resource_name: The name of the resource.
         :param DigitalTwinsEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['EventGridArgs', 'EventGridArgsDict'], Union['EventHubArgs', 'EventHubArgsDict'], Union['ServiceBusArgs', 'ServiceBusArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['EventGridArgs', 'EventGridArgsDict'], Union['EventHubArgs', 'EventHubArgsDict'], Union['ServiceBusArgs', 'ServiceBusArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

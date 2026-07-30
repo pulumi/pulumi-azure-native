@@ -84,7 +84,6 @@ def get_application_business_process_development_artifact(application_name: Opti
 
     Uses Azure REST API version 2023-11-14-preview.
 
-
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str name: The name of the business process development artifact.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -102,16 +101,15 @@ def get_application_business_process_development_artifact(application_name: Opti
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'))
-def get_application_business_process_development_artifact_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_business_process_development_artifact_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationBusinessProcessDevelopmentArtifactResult]:
     """
     The get business process development artifact action.
 
     Uses Azure REST API version 2023-11-14-preview.
-
 
     :param _builtins.str application_name: The name of the Application
     :param _builtins.str name: The name of the business process development artifact.

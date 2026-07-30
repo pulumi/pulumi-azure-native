@@ -111,7 +111,7 @@ export interface ConnectionArgs {
     /**
      * The name of the Connection resource.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Connection properties.
      */

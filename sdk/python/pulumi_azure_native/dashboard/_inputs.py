@@ -50,7 +50,7 @@ class AzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
     """
     Integrations for Azure Monitor Workspace.
     """
-    azure_monitor_workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    azure_monitor_workspace_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of the connected Azure Monitor Workspace.
     """
@@ -58,7 +58,7 @@ class AzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
 @pulumi.input_type
 class AzureMonitorWorkspaceIntegrationArgs:
     def __init__(__self__, *,
-                 azure_monitor_workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_monitor_workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Integrations for Azure Monitor Workspace.
 
@@ -69,14 +69,14 @@ class AzureMonitorWorkspaceIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspaceResourceId")
-    def azure_monitor_workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_monitor_workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the connected Azure Monitor Workspace.
         """
         return pulumi.get(self, "azure_monitor_workspace_resource_id")
 
     @azure_monitor_workspace_resource_id.setter
-    def azure_monitor_workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_monitor_workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_monitor_workspace_resource_id", value)
 
 
@@ -84,7 +84,7 @@ class DashboardDefinitionPropertiesArgsDict(TypedDict):
     """
     Properties specific to the dashboard definition.
     """
-    serialized_data: NotRequired[pulumi.Input[_builtins.str]]
+    serialized_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The dashboard definition data in JSON format.
     """
@@ -92,7 +92,7 @@ class DashboardDefinitionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 serialized_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 serialized_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties specific to the dashboard definition.
 
@@ -103,14 +103,14 @@ class DashboardDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="serializedData")
-    def serialized_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serialized_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dashboard definition data in JSON format.
         """
         return pulumi.get(self, "serialized_data")
 
     @serialized_data.setter
-    def serialized_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serialized_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serialized_data", value)
 
 
@@ -118,11 +118,11 @@ class EnterpriseConfigurationsArgsDict(TypedDict):
     """
     Enterprise settings of a Grafana instance
     """
-    marketplace_auto_renew: NotRequired[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]]
+    marketplace_auto_renew: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MarketplaceAutoRenew']]]]
     """
     The AutoRenew setting of the Enterprise subscription
     """
-    marketplace_plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    marketplace_plan_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
     """
@@ -130,8 +130,8 @@ class EnterpriseConfigurationsArgsDict(TypedDict):
 @pulumi.input_type
 class EnterpriseConfigurationsArgs:
     def __init__(__self__, *,
-                 marketplace_auto_renew: Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]] = None,
-                 marketplace_plan_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 marketplace_auto_renew: pulumi.Input[Optional[Union[_builtins.str, 'MarketplaceAutoRenew']]] = None,
+                 marketplace_plan_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Enterprise settings of a Grafana instance
 
@@ -145,26 +145,26 @@ class EnterpriseConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="marketplaceAutoRenew")
-    def marketplace_auto_renew(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]]:
+    def marketplace_auto_renew(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MarketplaceAutoRenew']]]:
         """
         The AutoRenew setting of the Enterprise subscription
         """
         return pulumi.get(self, "marketplace_auto_renew")
 
     @marketplace_auto_renew.setter
-    def marketplace_auto_renew(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]]):
+    def marketplace_auto_renew(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MarketplaceAutoRenew']]]):
         pulumi.set(self, "marketplace_auto_renew", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplacePlanId")
-    def marketplace_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
         """
         return pulumi.get(self, "marketplace_plan_id")
 
     @marketplace_plan_id.setter
-    def marketplace_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_plan_id", value)
 
 
@@ -172,20 +172,20 @@ class GrafanaConfigurationsArgsDict(TypedDict):
     """
     Server configurations of a Grafana instance
     """
-    security: NotRequired[pulumi.Input['SecurityArgsDict']]
+    security: NotRequired[pulumi.Input[Optional['SecurityArgsDict']]]
     """
     Grafana security settings
     """
-    smtp: NotRequired[pulumi.Input['SmtpArgsDict']]
+    smtp: NotRequired[pulumi.Input[Optional['SmtpArgsDict']]]
     """
     Email server settings.
     https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
     """
-    snapshots: NotRequired[pulumi.Input['SnapshotsArgsDict']]
+    snapshots: NotRequired[pulumi.Input[Optional['SnapshotsArgsDict']]]
     """
     Grafana Snapshots settings
     """
-    users: NotRequired[pulumi.Input['UsersArgsDict']]
+    users: NotRequired[pulumi.Input[Optional['UsersArgsDict']]]
     """
     Grafana users settings
     """
@@ -193,10 +193,10 @@ class GrafanaConfigurationsArgsDict(TypedDict):
 @pulumi.input_type
 class GrafanaConfigurationsArgs:
     def __init__(__self__, *,
-                 security: Optional[pulumi.Input['SecurityArgs']] = None,
-                 smtp: Optional[pulumi.Input['SmtpArgs']] = None,
-                 snapshots: Optional[pulumi.Input['SnapshotsArgs']] = None,
-                 users: Optional[pulumi.Input['UsersArgs']] = None):
+                 security: pulumi.Input[Optional['SecurityArgs']] = None,
+                 smtp: pulumi.Input[Optional['SmtpArgs']] = None,
+                 snapshots: pulumi.Input[Optional['SnapshotsArgs']] = None,
+                 users: pulumi.Input[Optional['UsersArgs']] = None):
         """
         Server configurations of a Grafana instance
 
@@ -217,19 +217,19 @@ class GrafanaConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['SecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['SecurityArgs']]:
         """
         Grafana security settings
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['SecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['SecurityArgs']]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter
-    def smtp(self) -> Optional[pulumi.Input['SmtpArgs']]:
+    def smtp(self) -> pulumi.Input[Optional['SmtpArgs']]:
         """
         Email server settings.
         https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
@@ -237,31 +237,31 @@ class GrafanaConfigurationsArgs:
         return pulumi.get(self, "smtp")
 
     @smtp.setter
-    def smtp(self, value: Optional[pulumi.Input['SmtpArgs']]):
+    def smtp(self, value: pulumi.Input[Optional['SmtpArgs']]):
         pulumi.set(self, "smtp", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshots(self) -> Optional[pulumi.Input['SnapshotsArgs']]:
+    def snapshots(self) -> pulumi.Input[Optional['SnapshotsArgs']]:
         """
         Grafana Snapshots settings
         """
         return pulumi.get(self, "snapshots")
 
     @snapshots.setter
-    def snapshots(self, value: Optional[pulumi.Input['SnapshotsArgs']]):
+    def snapshots(self, value: pulumi.Input[Optional['SnapshotsArgs']]):
         pulumi.set(self, "snapshots", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['UsersArgs']]:
+    def users(self) -> pulumi.Input[Optional['UsersArgs']]:
         """
         Grafana users settings
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input['UsersArgs']]):
+    def users(self, value: pulumi.Input[Optional['UsersArgs']]):
         pulumi.set(self, "users", value)
 
 
@@ -269,12 +269,12 @@ class GrafanaIntegrationsArgsDict(TypedDict):
     """
     GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
     """
-    azure_monitor_workspace_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgsDict']]]]
+    azure_monitor_workspace_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgsDict']]]]]
 
 @pulumi.input_type
 class GrafanaIntegrationsArgs:
     def __init__(__self__, *,
-                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]] = None):
+                 azure_monitor_workspace_integrations: pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]] = None):
         """
         GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         """
@@ -283,24 +283,24 @@ class GrafanaIntegrationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
-    def azure_monitor_workspace_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]]:
+    def azure_monitor_workspace_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]]:
         return pulumi.get(self, "azure_monitor_workspace_integrations")
 
     @azure_monitor_workspace_integrations.setter
-    def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]]):
+    def azure_monitor_workspace_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]]):
         pulumi.set(self, "azure_monitor_workspace_integrations", value)
 
 
 class IntegrationFabricPropertiesArgsDict(TypedDict):
-    data_source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    data_source_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
     """
-    scenarios: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scenarios: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of integration scenarios covered by this integration fabric
     """
-    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
     """
@@ -308,9 +308,9 @@ class IntegrationFabricPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationFabricPropertiesArgs:
     def __init__(__self__, *,
-                 data_source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scenarios: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scenarios: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_source_resource_id: The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scenarios: A list of integration scenarios covered by this integration fabric
@@ -325,38 +325,38 @@ class IntegrationFabricPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSourceResourceId")
-    def data_source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
         """
         return pulumi.get(self, "data_source_resource_id")
 
     @data_source_resource_id.setter
-    def data_source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scenarios(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scenarios(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of integration scenarios covered by this integration fabric
         """
         return pulumi.get(self, "scenarios")
 
     @scenarios.setter
-    def scenarios(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scenarios(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scenarios", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -364,43 +364,43 @@ class ManagedGrafanaPropertiesArgsDict(TypedDict):
     """
     Properties specific to the grafana resource.
     """
-    api_key: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiKey']]]
+    api_key: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApiKey']]]]
     """
     The api key setting of the Grafana instance.
     """
-    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]]
     """
     Scope for dns deterministic name hash calculation.
     """
-    deterministic_outbound_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]]
+    deterministic_outbound_ip: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DeterministicOutboundIP']]]]
     """
     Whether a Grafana instance uses deterministic outbound IPs.
     """
-    enterprise_configurations: NotRequired[pulumi.Input['EnterpriseConfigurationsArgsDict']]
+    enterprise_configurations: NotRequired[pulumi.Input[Optional['EnterpriseConfigurationsArgsDict']]]
     """
     Enterprise settings of a Grafana instance
     """
-    grafana_configurations: NotRequired[pulumi.Input['GrafanaConfigurationsArgsDict']]
+    grafana_configurations: NotRequired[pulumi.Input[Optional['GrafanaConfigurationsArgsDict']]]
     """
     Server configurations of a Grafana instance
     """
-    grafana_integrations: NotRequired[pulumi.Input['GrafanaIntegrationsArgsDict']]
+    grafana_integrations: NotRequired[pulumi.Input[Optional['GrafanaIntegrationsArgsDict']]]
     """
     GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
     """
-    grafana_major_version: NotRequired[pulumi.Input[_builtins.str]]
+    grafana_major_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The major Grafana software version to target.
     """
-    grafana_plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    grafana_plugins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Indicate the state for enable or disable traffic over the public interface.
     """
-    zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
+    zone_redundancy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]]
     """
     The zone redundancy setting of the Grafana instance.
     """
@@ -408,16 +408,16 @@ class ManagedGrafanaPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedGrafanaPropertiesArgs:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[Union[_builtins.str, 'ApiKey']]] = None,
-                 auto_generated_domain_name_label_scope: Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]] = None,
-                 deterministic_outbound_ip: Optional[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]] = None,
-                 enterprise_configurations: Optional[pulumi.Input['EnterpriseConfigurationsArgs']] = None,
-                 grafana_configurations: Optional[pulumi.Input['GrafanaConfigurationsArgs']] = None,
-                 grafana_integrations: Optional[pulumi.Input['GrafanaIntegrationsArgs']] = None,
-                 grafana_major_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_plugins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None):
+                 api_key: pulumi.Input[Optional[Union[_builtins.str, 'ApiKey']]] = None,
+                 auto_generated_domain_name_label_scope: pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]] = None,
+                 deterministic_outbound_ip: pulumi.Input[Optional[Union[_builtins.str, 'DeterministicOutboundIP']]] = None,
+                 enterprise_configurations: pulumi.Input[Optional['EnterpriseConfigurationsArgs']] = None,
+                 grafana_configurations: pulumi.Input[Optional['GrafanaConfigurationsArgs']] = None,
+                 grafana_integrations: pulumi.Input[Optional['GrafanaIntegrationsArgs']] = None,
+                 grafana_major_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_plugins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         Properties specific to the grafana resource.
 
@@ -455,122 +455,122 @@ class ManagedGrafanaPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApiKey']]]:
+    def api_key(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApiKey']]]:
         """
         The api key setting of the Grafana instance.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApiKey']]]):
+    def api_key(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApiKey']]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
-    def auto_generated_domain_name_label_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]:
+    def auto_generated_domain_name_label_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]:
         """
         Scope for dns deterministic name hash calculation.
         """
         return pulumi.get(self, "auto_generated_domain_name_label_scope")
 
     @auto_generated_domain_name_label_scope.setter
-    def auto_generated_domain_name_label_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]):
+    def auto_generated_domain_name_label_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]):
         pulumi.set(self, "auto_generated_domain_name_label_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="deterministicOutboundIP")
-    def deterministic_outbound_ip(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]]:
+    def deterministic_outbound_ip(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeterministicOutboundIP']]]:
         """
         Whether a Grafana instance uses deterministic outbound IPs.
         """
         return pulumi.get(self, "deterministic_outbound_ip")
 
     @deterministic_outbound_ip.setter
-    def deterministic_outbound_ip(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]]):
+    def deterministic_outbound_ip(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeterministicOutboundIP']]]):
         pulumi.set(self, "deterministic_outbound_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseConfigurations")
-    def enterprise_configurations(self) -> Optional[pulumi.Input['EnterpriseConfigurationsArgs']]:
+    def enterprise_configurations(self) -> pulumi.Input[Optional['EnterpriseConfigurationsArgs']]:
         """
         Enterprise settings of a Grafana instance
         """
         return pulumi.get(self, "enterprise_configurations")
 
     @enterprise_configurations.setter
-    def enterprise_configurations(self, value: Optional[pulumi.Input['EnterpriseConfigurationsArgs']]):
+    def enterprise_configurations(self, value: pulumi.Input[Optional['EnterpriseConfigurationsArgs']]):
         pulumi.set(self, "enterprise_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaConfigurations")
-    def grafana_configurations(self) -> Optional[pulumi.Input['GrafanaConfigurationsArgs']]:
+    def grafana_configurations(self) -> pulumi.Input[Optional['GrafanaConfigurationsArgs']]:
         """
         Server configurations of a Grafana instance
         """
         return pulumi.get(self, "grafana_configurations")
 
     @grafana_configurations.setter
-    def grafana_configurations(self, value: Optional[pulumi.Input['GrafanaConfigurationsArgs']]):
+    def grafana_configurations(self, value: pulumi.Input[Optional['GrafanaConfigurationsArgs']]):
         pulumi.set(self, "grafana_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaIntegrations")
-    def grafana_integrations(self) -> Optional[pulumi.Input['GrafanaIntegrationsArgs']]:
+    def grafana_integrations(self) -> pulumi.Input[Optional['GrafanaIntegrationsArgs']]:
         """
         GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         """
         return pulumi.get(self, "grafana_integrations")
 
     @grafana_integrations.setter
-    def grafana_integrations(self, value: Optional[pulumi.Input['GrafanaIntegrationsArgs']]):
+    def grafana_integrations(self, value: pulumi.Input[Optional['GrafanaIntegrationsArgs']]):
         pulumi.set(self, "grafana_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaMajorVersion")
-    def grafana_major_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grafana_major_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The major Grafana software version to target.
         """
         return pulumi.get(self, "grafana_major_version")
 
     @grafana_major_version.setter
-    def grafana_major_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grafana_major_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grafana_major_version", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaPlugins")
-    def grafana_plugins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grafana_plugins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         """
         return pulumi.get(self, "grafana_plugins")
 
     @grafana_plugins.setter
-    def grafana_plugins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grafana_plugins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grafana_plugins", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Indicate the state for enable or disable traffic over the public interface.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]:
+    def zone_redundancy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]:
         """
         The zone redundancy setting of the Grafana instance.
         """
         return pulumi.get(self, "zone_redundancy")
 
     @zone_redundancy.setter
-    def zone_redundancy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]):
+    def zone_redundancy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]):
         pulumi.set(self, "zone_redundancy", value)
 
 
@@ -582,7 +582,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -591,7 +591,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -616,14 +616,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -631,15 +631,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -647,9 +647,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -666,38 +666,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -724,7 +724,7 @@ class SecurityArgsDict(TypedDict):
     """
     Grafana security settings
     """
-    csrf_always_check: NotRequired[pulumi.Input[_builtins.bool]]
+    csrf_always_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
     """
@@ -732,7 +732,7 @@ class SecurityArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityArgs:
     def __init__(__self__, *,
-                 csrf_always_check: Optional[pulumi.Input[_builtins.bool]] = None):
+                 csrf_always_check: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Grafana security settings
 
@@ -743,14 +743,14 @@ class SecurityArgs:
 
     @_builtins.property
     @pulumi.getter(name="csrfAlwaysCheck")
-    def csrf_always_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def csrf_always_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
         """
         return pulumi.get(self, "csrf_always_check")
 
     @csrf_always_check.setter
-    def csrf_always_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def csrf_always_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "csrf_always_check", value)
 
 
@@ -759,39 +759,39 @@ class SmtpArgsDict(TypedDict):
     Email server settings.
     https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable this to allow Grafana to send email. Default is false
     """
-    from_address: NotRequired[pulumi.Input[_builtins.str]]
+    from_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address used when sending out emails
     https://pkg.go.dev/net/mail#Address
     """
-    from_name: NotRequired[pulumi.Input[_builtins.str]]
+    from_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
     https://pkg.go.dev/net/mail#Address
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SMTP server hostname with port, e.g. test.email.net:587
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
     """
-    skip_verify: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_verify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Verify SSL for SMTP server. Default is false
     https://pkg.go.dev/crypto/tls#Config
     """
-    start_tls_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]]
+    start_tls_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StartTLSPolicy']]]]
     """
     The StartTLSPolicy setting of the SMTP configuration
     https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
     """
-    user: NotRequired[pulumi.Input[_builtins.str]]
+    user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User of SMTP auth
     """
@@ -799,14 +799,14 @@ class SmtpArgsDict(TypedDict):
 @pulumi.input_type
 class SmtpArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_verify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 start_tls_policy: Optional[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_verify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 start_tls_policy: pulumi.Input[Optional[Union[_builtins.str, 'StartTLSPolicy']]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Email server settings.
         https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
@@ -845,19 +845,19 @@ class SmtpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable this to allow Grafana to send email. Default is false
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
-    def from_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address used when sending out emails
         https://pkg.go.dev/net/mail#Address
@@ -865,12 +865,12 @@ class SmtpArgs:
         return pulumi.get(self, "from_address")
 
     @from_address.setter
-    def from_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_address", value)
 
     @_builtins.property
     @pulumi.getter(name="fromName")
-    def from_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
         https://pkg.go.dev/net/mail#Address
@@ -878,36 +878,36 @@ class SmtpArgs:
         return pulumi.get(self, "from_name")
 
     @from_name.setter
-    def from_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SMTP server hostname with port, e.g. test.email.net:587
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="skipVerify")
-    def skip_verify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_verify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Verify SSL for SMTP server. Default is false
         https://pkg.go.dev/crypto/tls#Config
@@ -915,12 +915,12 @@ class SmtpArgs:
         return pulumi.get(self, "skip_verify")
 
     @skip_verify.setter
-    def skip_verify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_verify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_verify", value)
 
     @_builtins.property
     @pulumi.getter(name="startTLSPolicy")
-    def start_tls_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]]:
+    def start_tls_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StartTLSPolicy']]]:
         """
         The StartTLSPolicy setting of the SMTP configuration
         https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
@@ -928,19 +928,19 @@ class SmtpArgs:
         return pulumi.get(self, "start_tls_policy")
 
     @start_tls_policy.setter
-    def start_tls_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]]):
+    def start_tls_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StartTLSPolicy']]]):
         pulumi.set(self, "start_tls_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User of SMTP auth
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -948,7 +948,7 @@ class SnapshotsArgsDict(TypedDict):
     """
     Grafana Snapshots settings
     """
-    external_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    external_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to false to disable external snapshot publish endpoint
     """
@@ -956,7 +956,7 @@ class SnapshotsArgsDict(TypedDict):
 @pulumi.input_type
 class SnapshotsArgs:
     def __init__(__self__, *,
-                 external_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 external_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Grafana Snapshots settings
 
@@ -967,14 +967,14 @@ class SnapshotsArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalEnabled")
-    def external_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def external_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to false to disable external snapshot publish endpoint
         """
         return pulumi.get(self, "external_enabled")
 
     @external_enabled.setter
-    def external_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def external_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "external_enabled", value)
 
 
@@ -982,7 +982,7 @@ class UsersArgsDict(TypedDict):
     """
     Grafana users settings
     """
-    viewers_can_edit: NotRequired[pulumi.Input[_builtins.bool]]
+    viewers_can_edit: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
     """
@@ -990,7 +990,7 @@ class UsersArgsDict(TypedDict):
 @pulumi.input_type
 class UsersArgs:
     def __init__(__self__, *,
-                 viewers_can_edit: Optional[pulumi.Input[_builtins.bool]] = None):
+                 viewers_can_edit: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Grafana users settings
 
@@ -1001,14 +1001,14 @@ class UsersArgs:
 
     @_builtins.property
     @pulumi.getter(name="viewersCanEdit")
-    def viewers_can_edit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def viewers_can_edit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
         """
         return pulumi.get(self, "viewers_can_edit")
 
     @viewers_can_edit.setter
-    def viewers_can_edit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def viewers_can_edit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "viewers_can_edit", value)
 
 

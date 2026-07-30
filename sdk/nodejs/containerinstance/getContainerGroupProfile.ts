@@ -92,7 +92,7 @@ export interface GetContainerGroupProfileResult {
      */
     readonly priority?: string;
     /**
-     * Restart policy for all containers within the container group. 
+     * Restart policy for all containers within the container group.
      * - `Always` Always restart
      * - `OnFailure` Restart on failure
      * - `Never` Never restart

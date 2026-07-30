@@ -62,7 +62,7 @@ export class LinkerDryrun extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly prerequisiteResults: pulumi.Output<(outputs.servicelinker.BasicErrorDryrunPrerequisiteResultResponse | outputs.servicelinker.PermissionsMissingDryrunPrerequisiteResultResponse)[]>;
     /**
-     * The provisioning state. 
+     * The provisioning state.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
@@ -122,11 +122,11 @@ export interface LinkerDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The parameters of the dryrun
      */
-    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs>;
+    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */

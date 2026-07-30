@@ -23,8 +23,8 @@ __all__ = ['NotificationRegistrationArgs', 'NotificationRegistration']
 class NotificationRegistrationArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 notification_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']] = None):
+                 notification_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['NotificationRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NotificationRegistration resource.
 
@@ -51,23 +51,23 @@ class NotificationRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="notificationRegistrationName")
-    def notification_registration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification registration.
         """
         return pulumi.get(self, "notification_registration_name")
 
     @notification_registration_name.setter
-    def notification_registration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['NotificationRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['NotificationRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -77,9 +77,9 @@ class NotificationRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -87,7 +87,6 @@ class NotificationRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,7 +106,6 @@ class NotificationRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NotificationRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +121,9 @@ class NotificationRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

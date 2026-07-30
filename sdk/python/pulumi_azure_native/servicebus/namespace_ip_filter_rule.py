@@ -22,10 +22,10 @@ class NamespaceIpFilterRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'IPAction']]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_filter_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_filter_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceIpFilterRule resource.
 
@@ -73,50 +73,50 @@ class NamespaceIpFilterRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAction']]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]]:
         """
         The IP Filter Action
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAction']]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="filterName")
-    def filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Filter name
         """
         return pulumi.get(self, "filter_name")
 
     @filter_name.setter
-    def filter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipFilterRuleName")
-    def ip_filter_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_filter_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Filter Rule name.
         """
         return pulumi.get(self, "ip_filter_rule_name")
 
     @ip_filter_rule_name.setter
-    def ip_filter_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_filter_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_filter_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Mask
         """
         return pulumi.get(self, "ip_mask")
 
     @ip_mask.setter
-    def ip_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_mask", value)
 
 
@@ -126,18 +126,17 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'IPAction']]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_filter_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_filter_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in a List or Get IpFilterRules operation
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceIpFilterRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'IPAction']]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_filter_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_filter_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

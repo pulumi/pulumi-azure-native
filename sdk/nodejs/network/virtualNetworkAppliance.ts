@@ -104,7 +104,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.commonSubnetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.commonSubnetArgsProvideDefaults(v)) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkApplianceName"] = args?.virtualNetworkApplianceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -141,15 +141,15 @@ export interface VirtualNetworkApplianceArgs {
     /**
      * Bandwidth of the VirtualNetworkAppliance resource in Gbps.
      */
-    bandwidthInGbps?: pulumi.Input<string>;
+    bandwidthInGbps?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -157,13 +157,13 @@ export interface VirtualNetworkApplianceArgs {
     /**
      * The reference to the subnet resource.
      */
-    subnet?: pulumi.Input<inputs.network.CommonSubnetArgs>;
+    subnet?: pulumi.Input<inputs.network.CommonSubnetArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the virtual network appliance.
      */
-    virtualNetworkApplianceName?: pulumi.Input<string>;
+    virtualNetworkApplianceName?: pulumi.Input<string | undefined>;
 }

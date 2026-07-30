@@ -117,7 +117,7 @@ export interface GetRestorePointOutputArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

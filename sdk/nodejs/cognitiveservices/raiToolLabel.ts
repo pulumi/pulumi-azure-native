@@ -124,11 +124,11 @@ export interface RaiToolLabelArgs {
     /**
      * Properties of the RAI Tool Label.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesArgs | undefined>;
     /**
      * The name of the Rai Tool Label
      */
-    raiToolConnectionName?: pulumi.Input<string>;
+    raiToolConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface RaiToolLabelArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

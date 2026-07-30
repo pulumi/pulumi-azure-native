@@ -166,7 +166,6 @@ def get_agri_service(agri_service_resource_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-01-preview.
 
-
     :param _builtins.str agri_service_resource_name: The name of the AgriService resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -187,14 +186,13 @@ def get_agri_service(agri_service_resource_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_agri_service_output(agri_service_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agri_service_output(agri_service_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgriServiceResult]:
     """
     Get a AgriServiceResource
 
     Uses Azure REST API version 2024-06-01-preview.
-
 
     :param _builtins.str agri_service_resource_name: The name of the AgriService resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

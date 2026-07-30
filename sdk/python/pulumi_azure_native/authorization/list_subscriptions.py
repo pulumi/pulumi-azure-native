@@ -67,7 +67,6 @@ def list_subscriptions(api_version: Optional[_builtins.str] = None,
     """
     Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
 
-
     :param _builtins.str api_version: The API version to use for the request. Defaults to '2022-12-01'.
     """
     __args__ = dict()
@@ -78,11 +77,10 @@ def list_subscriptions(api_version: Optional[_builtins.str] = None,
     return AwaitableListSubscriptionsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_subscriptions_output(api_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_subscriptions_output(api_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSubscriptionsResult]:
     """
     Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
-
 
     :param _builtins.str api_version: The API version to use for the request. Defaults to '2022-12-01'.
     """

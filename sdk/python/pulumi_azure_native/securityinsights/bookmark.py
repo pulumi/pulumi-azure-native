@@ -26,18 +26,18 @@ class BookmarkArgs:
                  query: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input['UserInfoArgs']] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_info: Optional[pulumi.Input['IncidentInfoArgs']] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_result: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input['UserInfoArgs']] = None):
+                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional['UserInfoArgs']] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_info: pulumi.Input[Optional['IncidentInfoArgs']] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_result: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional['UserInfoArgs']] = None):
         """
         The set of arguments for constructing a Bookmark resource.
 
@@ -137,146 +137,146 @@ class BookmarkArgs:
 
     @_builtins.property
     @pulumi.getter(name="bookmarkId")
-    def bookmark_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bookmark_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Bookmark ID
         """
         return pulumi.get(self, "bookmark_id")
 
     @bookmark_id.setter
-    def bookmark_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bookmark_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bookmark_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time the bookmark was created
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['UserInfoArgs']]:
+    def created_by(self) -> pulumi.Input[Optional['UserInfoArgs']]:
         """
         Describes a user that created the bookmark
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['UserInfoArgs']]):
+    def created_by(self, value: pulumi.Input[Optional['UserInfoArgs']]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTime")
-    def event_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bookmark event time
         """
         return pulumi.get(self, "event_time")
 
     @event_time.setter
-    def event_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_time", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentInfo")
-    def incident_info(self) -> Optional[pulumi.Input['IncidentInfoArgs']]:
+    def incident_info(self) -> pulumi.Input[Optional['IncidentInfoArgs']]:
         """
         Describes an incident that relates to bookmark
         """
         return pulumi.get(self, "incident_info")
 
     @incident_info.setter
-    def incident_info(self, value: Optional[pulumi.Input['IncidentInfoArgs']]):
+    def incident_info(self, value: pulumi.Input[Optional['IncidentInfoArgs']]):
         pulumi.set(self, "incident_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels relevant to this bookmark
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notes of the bookmark
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="queryEndTime")
-    def query_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end time for the query
         """
         return pulumi.get(self, "query_end_time")
 
     @query_end_time.setter
-    def query_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="queryResult")
-    def query_result(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_result(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query result of the bookmark.
         """
         return pulumi.get(self, "query_result")
 
     @query_result.setter
-    def query_result(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_result(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_result", value)
 
     @_builtins.property
     @pulumi.getter(name="queryStartTime")
-    def query_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time for the query
         """
         return pulumi.get(self, "query_start_time")
 
     @query_start_time.setter
-    def query_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last time the bookmark was updated
         """
         return pulumi.get(self, "updated")
 
     @updated.setter
-    def updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional[pulumi.Input['UserInfoArgs']]:
+    def updated_by(self) -> pulumi.Input[Optional['UserInfoArgs']]:
         """
         Describes a user that updated the bookmark
         """
         return pulumi.get(self, "updated_by")
 
     @updated_by.setter
-    def updated_by(self, value: Optional[pulumi.Input['UserInfoArgs']]):
+    def updated_by(self, value: pulumi.Input[Optional['UserInfoArgs']]):
         pulumi.set(self, "updated_by", value)
 
 
@@ -286,22 +286,22 @@ class Bookmark(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_info: Optional[pulumi.Input[Union['IncidentInfoArgs', 'IncidentInfoArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_result: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_info: pulumi.Input[Optional[Union['IncidentInfoArgs', 'IncidentInfoArgsDict']]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_result: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a bookmark in Azure Security Insights.
@@ -309,7 +309,6 @@ class Bookmark(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,7 +342,6 @@ class Bookmark(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BookmarkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,22 +357,22 @@ class Bookmark(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_info: Optional[pulumi.Input[Union['IncidentInfoArgs', 'IncidentInfoArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_result: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_by: Optional[pulumi.Input[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_info: pulumi.Input[Optional[Union['IncidentInfoArgs', 'IncidentInfoArgsDict']]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_result: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_by: pulumi.Input[Optional[Union['UserInfoArgs', 'UserInfoArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,7 +23,7 @@ class BlobContainerLegalHoldArgs:
                  container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BlobContainerLegalHold resource.
 
@@ -90,14 +90,14 @@ class BlobContainerLegalHoldArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowProtectedAppendWritesAll")
-    def allow_protected_append_writes_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_protected_append_writes_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
         """
         return pulumi.get(self, "allow_protected_append_writes_all")
 
     @allow_protected_append_writes_all.setter
-    def allow_protected_append_writes_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_protected_append_writes_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_protected_append_writes_all", value)
 
 
@@ -107,15 +107,14 @@ class BlobContainerLegalHold(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         .
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +133,6 @@ class BlobContainerLegalHold(pulumi.CustomResource):
         """
         .
 
-
         :param str resource_name: The name of the resource.
         :param BlobContainerLegalHoldArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +148,11 @@ class BlobContainerLegalHold(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,11 +23,11 @@ class LongRunningBackupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name_v2: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_type: Optional[pulumi.Input[Union[_builtins.str, 'BackupType']]] = None,
-                 completed_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name_v2: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_type: pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]] = None,
+                 completed_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LongRunningBackup resource.
 
@@ -77,59 +77,59 @@ class LongRunningBackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupName")
-    def backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the backup.
         """
         return pulumi.get(self, "backup_name")
 
     @backup_name.setter
-    def backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupNameV2")
-    def backup_name_v2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_name_v2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup name
         """
         return pulumi.get(self, "backup_name_v2")
 
     @backup_name_v2.setter
-    def backup_name_v2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_name_v2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_name_v2", value)
 
     @_builtins.property
     @pulumi.getter(name="backupType")
-    def backup_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackupType']]]:
+    def backup_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]]:
         return pulumi.get(self, "backup_type")
 
     @backup_type.setter
-    def backup_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackupType']]]):
+    def backup_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]]):
         pulumi.set(self, "backup_type", value)
 
     @_builtins.property
     @pulumi.getter(name="completedTime")
-    def completed_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completed_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup completed time (ISO8601 format).
         """
         return pulumi.get(self, "completed_time")
 
     @completed_time.setter
-    def completed_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completed_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completed_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup source
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -139,13 +139,13 @@ class LongRunningBackup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name_v2: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_type: Optional[pulumi.Input[Union[_builtins.str, 'BackupType']]] = None,
-                 completed_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name_v2: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_type: pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]] = None,
+                 completed_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Server backup properties
@@ -153,7 +153,6 @@ class LongRunningBackup(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01-preview.
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +176,6 @@ class LongRunningBackup(pulumi.CustomResource):
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LongRunningBackupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,13 +191,13 @@ class LongRunningBackup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_name_v2: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_type: Optional[pulumi.Input[Union[_builtins.str, 'BackupType']]] = None,
-                 completed_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name_v2: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_type: pulumi.Input[Optional[Union[_builtins.str, 'BackupType']]] = None,
+                 completed_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

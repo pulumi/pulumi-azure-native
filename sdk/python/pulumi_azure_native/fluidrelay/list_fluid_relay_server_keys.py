@@ -71,7 +71,6 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[_builtins.str
 
     Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str resource_group: The resource group containing the resource.
     """
@@ -84,8 +83,8 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[_builtins.str
     return AwaitableListFluidRelayServerKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def list_fluid_relay_server_keys_output(fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFluidRelayServerKeysResult]:
     """
     The set of available keys for this server.
@@ -93,7 +92,6 @@ def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str resource_group: The resource group containing the resource.

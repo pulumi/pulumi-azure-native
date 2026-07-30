@@ -22,8 +22,8 @@ class AuthorizationArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authorization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorization resource.
 
@@ -65,26 +65,26 @@ class AuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ExpressRoute Circuit Authorization
         """
         return pulumi.get(self, "authorization_name")
 
     @authorization_name.setter
-    def authorization_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteId")
-    def express_route_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the ExpressRoute Circuit
         """
         return pulumi.get(self, "express_route_id")
 
     @express_route_id.setter
-    def express_route_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_id", value)
 
 
@@ -94,10 +94,10 @@ class Authorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ExpressRoute Circuit Authorization
@@ -105,7 +105,6 @@ class Authorization(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class Authorization(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class Authorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

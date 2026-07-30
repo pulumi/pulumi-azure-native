@@ -108,7 +108,7 @@ export interface DppResourceGuardProxyArgs {
     /**
      * ResourceGuardProxyBaseResource properties
      */
-    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardProxyBaseArgs>;
+    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardProxyBaseArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -116,7 +116,7 @@ export interface DppResourceGuardProxyArgs {
     /**
      * name of the resource guard proxy
      */
-    resourceGuardProxyName?: pulumi.Input<string>;
+    resourceGuardProxyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the backup vault.
      */

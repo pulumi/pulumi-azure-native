@@ -68,7 +68,7 @@ export interface GetSqlSitesControllerResult {
     readonly serviceEndpoint: string;
     /**
      * Gets or sets the appliance details used by service to communicate
-     *            
+     *
      * to the appliance.
      */
     readonly siteAppliancePropertiesCollection?: outputs.offazure.SiteAppliancePropertiesResponse[];

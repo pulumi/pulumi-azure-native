@@ -22,9 +22,9 @@ class SuppressionArgs:
     def __init__(__self__, *,
                  recommendation_id: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Suppression resource.
 
@@ -69,38 +69,38 @@ class SuppressionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the suppression.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionId")
-    def suppression_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suppression_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the suppression.
         """
         return pulumi.get(self, "suppression_id")
 
     @suppression_id.setter
-    def suppression_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suppression_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suppression_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration for which the suppression is valid.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -110,11 +110,11 @@ class Suppression(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommendation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommendation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
@@ -122,7 +122,6 @@ class Suppression(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class Suppression(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class Suppression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommendation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommendation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

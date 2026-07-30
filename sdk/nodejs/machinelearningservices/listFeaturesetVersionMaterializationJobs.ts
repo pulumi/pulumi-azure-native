@@ -101,15 +101,15 @@ export interface ListFeaturesetVersionMaterializationJobsOutputArgs {
     /**
      * End time of the feature window to filter materialization jobs.
      */
-    featureWindowEnd?: pulumi.Input<string>;
+    featureWindowEnd?: pulumi.Input<string | undefined>;
     /**
      * Start time of the feature window to filter materialization jobs.
      */
-    featureWindowStart?: pulumi.Input<string>;
+    featureWindowStart?: pulumi.Input<string | undefined>;
     /**
      * Comma-separated list of tag names (and optionally values). Example: tag1,tag2=value2
      */
-    filters?: pulumi.Input<string>;
+    filters?: pulumi.Input<string | undefined>;
     /**
      * Container name. This is case-sensitive.
      */
@@ -121,7 +121,7 @@ export interface ListFeaturesetVersionMaterializationJobsOutputArgs {
     /**
      * Continuation token for pagination.
      */
-    skip?: pulumi.Input<string>;
+    skip?: pulumi.Input<string | undefined>;
     /**
      * Version identifier. This is case-sensitive.
      */

@@ -1269,7 +1269,7 @@ class AllowedPrincipalsResponse(dict):
 @pulumi.output_type
 class AppInsightsConfigurationResponse(dict):
     """
-    Configuration of Application Insights 
+    Configuration of Application Insights
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1291,7 +1291,7 @@ class AppInsightsConfigurationResponse(dict):
     def __init__(__self__, *,
                  connection_string: Optional[_builtins.str] = None):
         """
-        Configuration of Application Insights 
+        Configuration of Application Insights
 
         :param _builtins.str connection_string: Application Insights connection string
         """
@@ -1728,7 +1728,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         The configuration settings of the Azure Active Directory app registration.
 
         :param _builtins.str client_id: The Client ID of this relying party application, known as the client_id.
-               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
                other 3rd party OpenID Connect providers.
                More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         :param _builtins.str client_secret_certificate_issuer: An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
@@ -1761,7 +1761,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     def client_id(self) -> Optional[_builtins.str]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -3784,7 +3784,7 @@ class CorsPolicyResponse(dict):
         :param _builtins.bool allow_credentials: Specifies whether the resource allows credentials
         :param Sequence[_builtins.str] allowed_headers: Specifies the content for the access-control-allow-headers header
         :param Sequence[_builtins.str] allowed_methods: Specifies the content for the access-control-allow-methods header
-        :param Sequence[_builtins.str] expose_headers: Specifies the content for the access-control-expose-headers header 
+        :param Sequence[_builtins.str] expose_headers: Specifies the content for the access-control-expose-headers header
         :param _builtins.int max_age: Specifies the content for the access-control-max-age header
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -3835,7 +3835,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies the content for the access-control-expose-headers header 
+        Specifies the content for the access-control-expose-headers header
         """
         return pulumi.get(self, "expose_headers")
 
@@ -5240,13 +5240,13 @@ class DaprSubscriptionRoutesResponse(dict):
 @pulumi.output_type
 class DataDogConfigurationResponse(dict):
     """
-    Configuration of datadog 
+    Configuration of datadog
     """
     def __init__(__self__, *,
                  key: Optional[_builtins.str] = None,
                  site: Optional[_builtins.str] = None):
         """
-        Configuration of datadog 
+        Configuration of datadog
 
         :param _builtins.str key: The data dog api key
         :param _builtins.str site: The data dog site
@@ -10817,7 +10817,7 @@ class OpenTelemetryConfigurationResponse(dict):
 @pulumi.output_type
 class OtlpConfigurationResponse(dict):
     """
-    Configuration of otlp 
+    Configuration of otlp
     """
     def __init__(__self__, *,
                  endpoint: Optional[_builtins.str] = None,
@@ -10825,7 +10825,7 @@ class OtlpConfigurationResponse(dict):
                  insecure: Optional[_builtins.bool] = None,
                  name: Optional[_builtins.str] = None):
         """
-        Configuration of otlp 
+        Configuration of otlp
 
         :param _builtins.str endpoint: The endpoint of otlp configuration
         :param Sequence['HeaderResponse'] headers: Headers of otlp configurations

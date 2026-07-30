@@ -22,9 +22,9 @@ __all__ = ['ProviderRegistrationArgs', 'ProviderRegistration']
 @pulumi.input_type
 class ProviderRegistrationArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProviderRegistration resource.
 
@@ -42,35 +42,35 @@ class ProviderRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]:
         """
         Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
-    def provider_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource provider hosted within ProviderHub.
         """
         return pulumi.get(self, "provider_namespace")
 
     @provider_namespace.setter
-    def provider_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_namespace", value)
 
 
@@ -80,9 +80,9 @@ class ProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -90,7 +90,6 @@ class ProviderRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +109,6 @@ class ProviderRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,9 +124,9 @@ class ProviderRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

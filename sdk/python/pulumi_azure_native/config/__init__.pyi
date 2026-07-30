@@ -76,7 +76,7 @@ Your cloud service or provider's bearer token to exchange for an OIDC ID token.
 
 oidcRequestUrl: Optional[str]
 """
-The URL to initiate the OIDC token exchange. 
+The URL to initiate the OIDC token exchange.
 """
 
 oidcToken: Optional[str]

@@ -216,7 +216,6 @@ def get_role_management_policy(role_management_policy_name: Optional[_builtins.s
 
     Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str role_management_policy_name: The name (guid) of the role management policy to get.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -241,8 +240,8 @@ def get_role_management_policy(role_management_policy_name: Optional[_builtins.s
         scope=pulumi.get(__ret__, 'scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_role_management_policy_output(role_management_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_management_policy_output(role_management_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleManagementPolicyResult]:
     """
     Get the specified role management policy for a resource scope
@@ -250,7 +249,6 @@ def get_role_management_policy_output(role_management_policy_name: Optional[pulu
     Uses Azure REST API version 2024-09-01-preview.
 
     Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str role_management_policy_name: The name (guid) of the role management policy to get.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

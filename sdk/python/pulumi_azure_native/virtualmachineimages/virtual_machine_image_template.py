@@ -26,18 +26,18 @@ class VirtualMachineImageTemplateArgs:
                  identity: pulumi.Input['ImageTemplateIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplatePlatformImageSourceArgs', 'ImageTemplateSharedImageVersionSourceArgs']],
-                 auto_run: Optional[pulumi.Input['ImageTemplateAutoRunArgs']] = None,
-                 build_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 customize: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]] = None,
-                 error_handling: Optional[pulumi.Input['ImageTemplatePropertiesErrorHandlingArgs']] = None,
-                 image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 optimize: Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']] = None,
-                 staging_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validate: Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']] = None,
-                 vm_profile: Optional[pulumi.Input['ImageTemplateVmProfileArgs']] = None):
+                 auto_run: pulumi.Input[Optional['ImageTemplateAutoRunArgs']] = None,
+                 build_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 customize: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]] = None,
+                 error_handling: pulumi.Input[Optional['ImageTemplatePropertiesErrorHandlingArgs']] = None,
+                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 optimize: pulumi.Input[Optional['ImageTemplatePropertiesOptimizeArgs']] = None,
+                 staging_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validate: pulumi.Input[Optional['ImageTemplatePropertiesValidateArgs']] = None,
+                 vm_profile: pulumi.Input[Optional['ImageTemplateVmProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineImageTemplate resource.
 
@@ -139,146 +139,146 @@ class VirtualMachineImageTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRun")
-    def auto_run(self) -> Optional[pulumi.Input['ImageTemplateAutoRunArgs']]:
+    def auto_run(self) -> pulumi.Input[Optional['ImageTemplateAutoRunArgs']]:
         """
         Indicates whether or not to automatically run the image template build on template creation or update.
         """
         return pulumi.get(self, "auto_run")
 
     @auto_run.setter
-    def auto_run(self, value: Optional[pulumi.Input['ImageTemplateAutoRunArgs']]):
+    def auto_run(self, value: pulumi.Input[Optional['ImageTemplateAutoRunArgs']]):
         pulumi.set(self, "auto_run", value)
 
     @_builtins.property
     @pulumi.getter(name="buildTimeoutInMinutes")
-    def build_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def build_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         """
         return pulumi.get(self, "build_timeout_in_minutes")
 
     @build_timeout_in_minutes.setter
-    def build_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def build_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "build_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def customize(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]]:
+    def customize(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
         return pulumi.get(self, "customize")
 
     @customize.setter
-    def customize(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]]):
+    def customize(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]]):
         pulumi.set(self, "customize", value)
 
     @_builtins.property
     @pulumi.getter(name="errorHandling")
-    def error_handling(self) -> Optional[pulumi.Input['ImageTemplatePropertiesErrorHandlingArgs']]:
+    def error_handling(self) -> pulumi.Input[Optional['ImageTemplatePropertiesErrorHandlingArgs']]:
         """
         Error handling options upon a build failure
         """
         return pulumi.get(self, "error_handling")
 
     @error_handling.setter
-    def error_handling(self, value: Optional[pulumi.Input['ImageTemplatePropertiesErrorHandlingArgs']]):
+    def error_handling(self, value: pulumi.Input[Optional['ImageTemplatePropertiesErrorHandlingArgs']]):
         pulumi.set(self, "error_handling", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTemplateName")
-    def image_template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the image Template
         """
         return pulumi.get(self, "image_template_name")
 
     @image_template_name.setter
-    def image_template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceTags")
-    def managed_resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def managed_resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags that will be applied to the resource group and/or resources created by the service.
         """
         return pulumi.get(self, "managed_resource_tags")
 
     @managed_resource_tags.setter
-    def managed_resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def managed_resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_resource_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def optimize(self) -> Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']]:
+    def optimize(self) -> pulumi.Input[Optional['ImageTemplatePropertiesOptimizeArgs']]:
         """
         Specifies optimization to be performed on image.
         """
         return pulumi.get(self, "optimize")
 
     @optimize.setter
-    def optimize(self, value: Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']]):
+    def optimize(self, value: pulumi.Input[Optional['ImageTemplatePropertiesOptimizeArgs']]):
         pulumi.set(self, "optimize", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingResourceGroup")
-    def staging_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def staging_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
         """
         return pulumi.get(self, "staging_resource_group")
 
     @staging_resource_group.setter
-    def staging_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def staging_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "staging_resource_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']]:
+    def validate(self) -> pulumi.Input[Optional['ImageTemplatePropertiesValidateArgs']]:
         """
         Configuration options and list of validations to be performed on the resulting image.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']]):
+    def validate(self, value: pulumi.Input[Optional['ImageTemplatePropertiesValidateArgs']]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter(name="vmProfile")
-    def vm_profile(self) -> Optional[pulumi.Input['ImageTemplateVmProfileArgs']]:
+    def vm_profile(self) -> pulumi.Input[Optional['ImageTemplateVmProfileArgs']]:
         """
         Describes how virtual machine is set up to build images
         """
         return pulumi.get(self, "vm_profile")
 
     @vm_profile.setter
-    def vm_profile(self, value: Optional[pulumi.Input['ImageTemplateVmProfileArgs']]):
+    def vm_profile(self, value: pulumi.Input[Optional['ImageTemplateVmProfileArgs']]):
         pulumi.set(self, "vm_profile", value)
 
 
@@ -288,22 +288,22 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_run: Optional[pulumi.Input[Union['ImageTemplateAutoRunArgs', 'ImageTemplateAutoRunArgsDict']]] = None,
-                 build_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 customize: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplateFileCustomizerArgsDict'], Union['ImageTemplatePowerShellCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgsDict'], Union['ImageTemplateRestartCustomizerArgs', 'ImageTemplateRestartCustomizerArgsDict'], Union['ImageTemplateShellCustomizerArgs', 'ImageTemplateShellCustomizerArgsDict'], Union['ImageTemplateWindowsUpdateCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgsDict']]]]]] = None,
-                 distribute: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateManagedImageDistributorArgsDict'], Union['ImageTemplateSharedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgsDict'], Union['ImageTemplateVhdDistributorArgs', 'ImageTemplateVhdDistributorArgsDict']]]]]] = None,
-                 error_handling: Optional[pulumi.Input[Union['ImageTemplatePropertiesErrorHandlingArgs', 'ImageTemplatePropertiesErrorHandlingArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ImageTemplateIdentityArgs', 'ImageTemplateIdentityArgsDict']]] = None,
-                 image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 optimize: Optional[pulumi.Input[Union['ImageTemplatePropertiesOptimizeArgs', 'ImageTemplatePropertiesOptimizeArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplateManagedImageSourceArgsDict'], Union['ImageTemplatePlatformImageSourceArgs', 'ImageTemplatePlatformImageSourceArgsDict'], Union['ImageTemplateSharedImageVersionSourceArgs', 'ImageTemplateSharedImageVersionSourceArgsDict']]]] = None,
-                 staging_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validate: Optional[pulumi.Input[Union['ImageTemplatePropertiesValidateArgs', 'ImageTemplatePropertiesValidateArgsDict']]] = None,
-                 vm_profile: Optional[pulumi.Input[Union['ImageTemplateVmProfileArgs', 'ImageTemplateVmProfileArgsDict']]] = None,
+                 auto_run: pulumi.Input[Optional[Union['ImageTemplateAutoRunArgs', 'ImageTemplateAutoRunArgsDict']]] = None,
+                 build_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 customize: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplateFileCustomizerArgsDict'], Union['ImageTemplatePowerShellCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgsDict'], Union['ImageTemplateRestartCustomizerArgs', 'ImageTemplateRestartCustomizerArgsDict'], Union['ImageTemplateShellCustomizerArgs', 'ImageTemplateShellCustomizerArgsDict'], Union['ImageTemplateWindowsUpdateCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgsDict']]]]]] = None,
+                 distribute: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateManagedImageDistributorArgsDict'], Union['ImageTemplateSharedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgsDict'], Union['ImageTemplateVhdDistributorArgs', 'ImageTemplateVhdDistributorArgsDict']]]]]] = None,
+                 error_handling: pulumi.Input[Optional[Union['ImageTemplatePropertiesErrorHandlingArgs', 'ImageTemplatePropertiesErrorHandlingArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ImageTemplateIdentityArgs', 'ImageTemplateIdentityArgsDict']]] = None,
+                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 optimize: pulumi.Input[Optional[Union['ImageTemplatePropertiesOptimizeArgs', 'ImageTemplatePropertiesOptimizeArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplateManagedImageSourceArgsDict'], Union['ImageTemplatePlatformImageSourceArgs', 'ImageTemplatePlatformImageSourceArgsDict'], Union['ImageTemplateSharedImageVersionSourceArgs', 'ImageTemplateSharedImageVersionSourceArgsDict']]]] = None,
+                 staging_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validate: pulumi.Input[Optional[Union['ImageTemplatePropertiesValidateArgs', 'ImageTemplatePropertiesValidateArgsDict']]] = None,
+                 vm_profile: pulumi.Input[Optional[Union['ImageTemplateVmProfileArgs', 'ImageTemplateVmProfileArgsDict']]] = None,
                  __props__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
@@ -311,7 +311,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-07-01.
 
         Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,7 +344,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,22 +359,22 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_run: Optional[pulumi.Input[Union['ImageTemplateAutoRunArgs', 'ImageTemplateAutoRunArgsDict']]] = None,
-                 build_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 customize: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplateFileCustomizerArgsDict'], Union['ImageTemplatePowerShellCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgsDict'], Union['ImageTemplateRestartCustomizerArgs', 'ImageTemplateRestartCustomizerArgsDict'], Union['ImageTemplateShellCustomizerArgs', 'ImageTemplateShellCustomizerArgsDict'], Union['ImageTemplateWindowsUpdateCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgsDict']]]]]] = None,
-                 distribute: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateManagedImageDistributorArgsDict'], Union['ImageTemplateSharedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgsDict'], Union['ImageTemplateVhdDistributorArgs', 'ImageTemplateVhdDistributorArgsDict']]]]]] = None,
-                 error_handling: Optional[pulumi.Input[Union['ImageTemplatePropertiesErrorHandlingArgs', 'ImageTemplatePropertiesErrorHandlingArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ImageTemplateIdentityArgs', 'ImageTemplateIdentityArgsDict']]] = None,
-                 image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 optimize: Optional[pulumi.Input[Union['ImageTemplatePropertiesOptimizeArgs', 'ImageTemplatePropertiesOptimizeArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplateManagedImageSourceArgsDict'], Union['ImageTemplatePlatformImageSourceArgs', 'ImageTemplatePlatformImageSourceArgsDict'], Union['ImageTemplateSharedImageVersionSourceArgs', 'ImageTemplateSharedImageVersionSourceArgsDict']]]] = None,
-                 staging_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validate: Optional[pulumi.Input[Union['ImageTemplatePropertiesValidateArgs', 'ImageTemplatePropertiesValidateArgsDict']]] = None,
-                 vm_profile: Optional[pulumi.Input[Union['ImageTemplateVmProfileArgs', 'ImageTemplateVmProfileArgsDict']]] = None,
+                 auto_run: pulumi.Input[Optional[Union['ImageTemplateAutoRunArgs', 'ImageTemplateAutoRunArgsDict']]] = None,
+                 build_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 customize: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplateFileCustomizerArgsDict'], Union['ImageTemplatePowerShellCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgsDict'], Union['ImageTemplateRestartCustomizerArgs', 'ImageTemplateRestartCustomizerArgsDict'], Union['ImageTemplateShellCustomizerArgs', 'ImageTemplateShellCustomizerArgsDict'], Union['ImageTemplateWindowsUpdateCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgsDict']]]]]] = None,
+                 distribute: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateManagedImageDistributorArgsDict'], Union['ImageTemplateSharedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgsDict'], Union['ImageTemplateVhdDistributorArgs', 'ImageTemplateVhdDistributorArgsDict']]]]]] = None,
+                 error_handling: pulumi.Input[Optional[Union['ImageTemplatePropertiesErrorHandlingArgs', 'ImageTemplatePropertiesErrorHandlingArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ImageTemplateIdentityArgs', 'ImageTemplateIdentityArgsDict']]] = None,
+                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 optimize: pulumi.Input[Optional[Union['ImageTemplatePropertiesOptimizeArgs', 'ImageTemplatePropertiesOptimizeArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplateManagedImageSourceArgsDict'], Union['ImageTemplatePlatformImageSourceArgs', 'ImageTemplatePlatformImageSourceArgsDict'], Union['ImageTemplateSharedImageVersionSourceArgs', 'ImageTemplateSharedImageVersionSourceArgsDict']]]] = None,
+                 staging_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validate: pulumi.Input[Optional[Union['ImageTemplatePropertiesValidateArgs', 'ImageTemplatePropertiesValidateArgsDict']]] = None,
+                 vm_profile: pulumi.Input[Optional[Union['ImageTemplateVmProfileArgs', 'ImageTemplateVmProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

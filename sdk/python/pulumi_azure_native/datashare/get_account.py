@@ -190,7 +190,6 @@ def get_account(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str resource_group_name: The resource group name.
     """
@@ -213,14 +212,13 @@ def get_account(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_email=pulumi.get(__ret__, 'user_email'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get an account
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str resource_group_name: The resource group name.

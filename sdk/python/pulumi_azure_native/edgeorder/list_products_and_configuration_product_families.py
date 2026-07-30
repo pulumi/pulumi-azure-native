@@ -76,7 +76,6 @@ def list_products_and_configuration_product_families(customer_subscription_detai
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
     :param _builtins.str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
     :param Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]] filterable_properties: Dictionary of filterable properties on product family.
@@ -93,10 +92,10 @@ def list_products_and_configuration_product_families(customer_subscription_detai
     return AwaitableListProductsAndConfigurationProductFamiliesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_products_and_configuration_product_families_output(customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
-                                                            expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                            filterable_properties: Optional[pulumi.Input[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
-                                                            skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_products_and_configuration_product_families_output(customer_subscription_details: pulumi.Input[Optional[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
+                                                            expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                            filterable_properties: pulumi.Input[Optional[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
+                                                            skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationProductFamiliesResult]:
     """
     List product families for the given subscription.
@@ -104,7 +103,6 @@ def list_products_and_configuration_product_families_output(customer_subscriptio
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
     :param _builtins.str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.

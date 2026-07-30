@@ -120,7 +120,6 @@ def get_dev_ops_configuration(resource_group_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_connector_name: The security connector name.
     """
@@ -137,8 +136,8 @@ def get_dev_ops_configuration(resource_group_name: Optional[_builtins.str] = Non
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dev_ops_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsConfigurationResult]:
     """
     DevOps Configuration resource.
@@ -146,7 +145,6 @@ def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_connector_name: The security connector name.

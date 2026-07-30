@@ -73,7 +73,6 @@ def list_workspace_subscription_secrets(resource_group_name: Optional[_builtins.
 
     Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
     :param _builtins.str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
@@ -90,10 +89,10 @@ def list_workspace_subscription_secrets(resource_group_name: Optional[_builtins.
     return AwaitableListWorkspaceSubscriptionSecretsResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_workspace_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               sid: Optional[pulumi.Input[_builtins.str]] = None,
-                                               workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_subscription_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               sid: pulumi.Input[Optional[_builtins.str]] = None,
+                                               workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceSubscriptionSecretsResult]:
     """
     Gets the specified Subscription keys.
@@ -101,7 +100,6 @@ def list_workspace_subscription_secrets_output(resource_group_name: Optional[pul
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.

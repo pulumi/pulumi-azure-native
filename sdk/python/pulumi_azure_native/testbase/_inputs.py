@@ -20,10 +20,10 @@ __all__ = [
     'CommandArgsDict',
     'DistributionGroupListReceiverValueArgs',
     'DistributionGroupListReceiverValueArgsDict',
-    'DraftPackageIntuneAppMetadataItemArgs',
-    'DraftPackageIntuneAppMetadataItemArgsDict',
     'DraftPackageIntuneAppMetadataArgs',
     'DraftPackageIntuneAppMetadataArgsDict',
+    'DraftPackageIntuneAppMetadataItemArgs',
+    'DraftPackageIntuneAppMetadataItemArgsDict',
     'EnrolledIntuneAppArgs',
     'EnrolledIntuneAppArgsDict',
     'FirstPartyAppDefinitionArgs',
@@ -54,10 +54,10 @@ __all__ = [
     'TabStateArgsDict',
     'TargetOSInfoArgs',
     'TargetOSInfoArgsDict',
-    'TestBaseAccountSKUArgs',
-    'TestBaseAccountSKUArgsDict',
     'TestArgs',
     'TestArgsDict',
+    'TestBaseAccountSKUArgs',
+    'TestBaseAccountSKUArgsDict',
     'UserObjectReceiverValueArgs',
     'UserObjectReceiverValueArgsDict',
 ]
@@ -82,43 +82,43 @@ class CommandArgsDict(TypedDict):
     """
     The name of the command.
     """
-    always_run: NotRequired[pulumi.Input[_builtins.bool]]
+    always_run: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to run the command even if a previous command is failed.
     """
-    apply_update_before: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_update_before: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to apply update before the command.
     """
-    enroll_intune_before: NotRequired[pulumi.Input[_builtins.bool]]
+    enroll_intune_before: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enroll Intune before the command.
     """
-    install1_p_app_before: NotRequired[pulumi.Input[_builtins.bool]]
+    install1_p_app_before: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to install first party applications before running the command.
     """
-    max_run_time: NotRequired[pulumi.Input[_builtins.int]]
+    max_run_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the max run time of the command.
     """
-    post_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    post_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the command is assigned to be executed after in-place upgrade.
     """
-    pre_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    pre_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the command is assigned to be executed before in-place upgrade.
     """
-    restart_after: NotRequired[pulumi.Input[_builtins.bool]]
+    restart_after: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to restart the VM after the command executed.
     """
-    run_as_interactive: NotRequired[pulumi.Input[_builtins.bool]]
+    run_as_interactive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to run the command in interactive mode.
     """
-    run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
+    run_elevated: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to run the command as administrator.
     """
@@ -130,16 +130,16 @@ class CommandArgs:
                  content: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Union[_builtins.str, 'ContentType']],
                  name: pulumi.Input[_builtins.str],
-                 always_run: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_update_before: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enroll_intune_before: Optional[pulumi.Input[_builtins.bool]] = None,
-                 install1_p_app_before: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_run_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 post_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pre_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restart_after: Optional[pulumi.Input[_builtins.bool]] = None,
-                 run_as_interactive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 run_elevated: Optional[pulumi.Input[_builtins.bool]] = None):
+                 always_run: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_update_before: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enroll_intune_before: pulumi.Input[Optional[_builtins.bool]] = None,
+                 install1_p_app_before: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_run_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 post_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pre_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restart_after: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as_interactive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_elevated: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The command used in the test
 
@@ -233,122 +233,122 @@ class CommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysRun")
-    def always_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_run(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to run the command even if a previous command is failed.
         """
         return pulumi.get(self, "always_run")
 
     @always_run.setter
-    def always_run(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_run(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_run", value)
 
     @_builtins.property
     @pulumi.getter(name="applyUpdateBefore")
-    def apply_update_before(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_update_before(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to apply update before the command.
         """
         return pulumi.get(self, "apply_update_before")
 
     @apply_update_before.setter
-    def apply_update_before(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_update_before(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_update_before", value)
 
     @_builtins.property
     @pulumi.getter(name="enrollIntuneBefore")
-    def enroll_intune_before(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enroll_intune_before(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enroll Intune before the command.
         """
         return pulumi.get(self, "enroll_intune_before")
 
     @enroll_intune_before.setter
-    def enroll_intune_before(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enroll_intune_before(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enroll_intune_before", value)
 
     @_builtins.property
     @pulumi.getter(name="install1PAppBefore")
-    def install1_p_app_before(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def install1_p_app_before(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to install first party applications before running the command.
         """
         return pulumi.get(self, "install1_p_app_before")
 
     @install1_p_app_before.setter
-    def install1_p_app_before(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def install1_p_app_before(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "install1_p_app_before", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRunTime")
-    def max_run_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_run_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the max run time of the command.
         """
         return pulumi.get(self, "max_run_time")
 
     @max_run_time.setter
-    def max_run_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_run_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_run_time", value)
 
     @_builtins.property
     @pulumi.getter(name="postUpgrade")
-    def post_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def post_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the command is assigned to be executed after in-place upgrade.
         """
         return pulumi.get(self, "post_upgrade")
 
     @post_upgrade.setter
-    def post_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def post_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "post_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="preUpgrade")
-    def pre_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pre_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the command is assigned to be executed before in-place upgrade.
         """
         return pulumi.get(self, "pre_upgrade")
 
     @pre_upgrade.setter
-    def pre_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pre_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pre_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="restartAfter")
-    def restart_after(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restart_after(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to restart the VM after the command executed.
         """
         return pulumi.get(self, "restart_after")
 
     @restart_after.setter
-    def restart_after(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restart_after(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restart_after", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsInteractive")
-    def run_as_interactive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def run_as_interactive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to run the command in interactive mode.
         """
         return pulumi.get(self, "run_as_interactive")
 
     @run_as_interactive.setter
-    def run_as_interactive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def run_as_interactive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "run_as_interactive", value)
 
     @_builtins.property
     @pulumi.getter(name="runElevated")
-    def run_elevated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def run_elevated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to run the command as administrator.
         """
         return pulumi.get(self, "run_elevated")
 
     @run_elevated.setter
-    def run_elevated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def run_elevated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "run_elevated", value)
 
 
@@ -356,7 +356,7 @@ class DistributionGroupListReceiverValueArgsDict(TypedDict):
     """
     The user object receiver value.
     """
-    distribution_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    distribution_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of distribution groups.
     """
@@ -364,7 +364,7 @@ class DistributionGroupListReceiverValueArgsDict(TypedDict):
 @pulumi.input_type
 class DistributionGroupListReceiverValueArgs:
     def __init__(__self__, *,
-                 distribution_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 distribution_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The user object receiver value.
 
@@ -375,82 +375,136 @@ class DistributionGroupListReceiverValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="distributionGroups")
-    def distribution_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def distribution_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of distribution groups.
         """
         return pulumi.get(self, "distribution_groups")
 
     @distribution_groups.setter
-    def distribution_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def distribution_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "distribution_groups", value)
+
+
+class DraftPackageIntuneAppMetadataArgsDict(TypedDict):
+    """
+    The metadata of Intune app(s) used for generation.
+    """
+    intune_app: NotRequired[pulumi.Input[Optional['DraftPackageIntuneAppMetadataItemArgsDict']]]
+    """
+    The Metadata of the Intune App through intunewin file uploading.
+    """
+    intune_app_dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]]]]
+    """
+    The Metadata of dependencies of the Intune App through intunewin file uploading.
+    """
+
+@pulumi.input_type
+class DraftPackageIntuneAppMetadataArgs:
+    def __init__(__self__, *,
+                 intune_app: pulumi.Input[Optional['DraftPackageIntuneAppMetadataItemArgs']] = None,
+                 intune_app_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]] = None):
+        """
+        The metadata of Intune app(s) used for generation.
+
+        :param pulumi.Input['DraftPackageIntuneAppMetadataItemArgs'] intune_app: The Metadata of the Intune App through intunewin file uploading.
+        :param pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]] intune_app_dependencies: The Metadata of dependencies of the Intune App through intunewin file uploading.
+        """
+        if intune_app is not None:
+            pulumi.set(__self__, "intune_app", intune_app)
+        if intune_app_dependencies is not None:
+            pulumi.set(__self__, "intune_app_dependencies", intune_app_dependencies)
+
+    @_builtins.property
+    @pulumi.getter(name="intuneApp")
+    def intune_app(self) -> pulumi.Input[Optional['DraftPackageIntuneAppMetadataItemArgs']]:
+        """
+        The Metadata of the Intune App through intunewin file uploading.
+        """
+        return pulumi.get(self, "intune_app")
+
+    @intune_app.setter
+    def intune_app(self, value: pulumi.Input[Optional['DraftPackageIntuneAppMetadataItemArgs']]):
+        pulumi.set(self, "intune_app", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intuneAppDependencies")
+    def intune_app_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]]:
+        """
+        The Metadata of dependencies of the Intune App through intunewin file uploading.
+        """
+        return pulumi.get(self, "intune_app_dependencies")
+
+    @intune_app_dependencies.setter
+    def intune_app_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]]):
+        pulumi.set(self, "intune_app_dependencies", value)
 
 
 class DraftPackageIntuneAppMetadataItemArgsDict(TypedDict):
     """
     The Metadata of a single Intune App.
     """
-    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intune app id.
     """
-    app_name: NotRequired[pulumi.Input[_builtins.str]]
+    app_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intune app name.
     """
-    create_date: NotRequired[pulumi.Input[_builtins.str]]
+    create_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation date of the app.
     """
-    dependency_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dependency_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Ids of dependency apps.
     """
-    dependent_app_count: NotRequired[pulumi.Input[_builtins.int]]
+    dependent_app_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Count of dependency apps.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the app.
     """
-    expected_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expected_exit_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Expected exit codes returned from Intune App.
     """
-    install_command: NotRequired[pulumi.Input[_builtins.str]]
+    install_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Install command.
     """
-    last_processed: NotRequired[pulumi.Input[_builtins.float]]
+    last_processed: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     last processed time tickets.
     """
-    minimum_supported_os: NotRequired[pulumi.Input[_builtins.str]]
+    minimum_supported_os: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Minimum supported OS. The OS version must be greater than this version to run this app.
     """
-    owner: NotRequired[pulumi.Input[_builtins.str]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the app.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Publisher of the app.
     """
-    setup_file: NotRequired[pulumi.Input[_builtins.str]]
+    setup_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Setup file path.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IntuneExtractStatus']]]]
     """
     Extract status.
     """
-    uninstall_command: NotRequired[pulumi.Input[_builtins.str]]
+    uninstall_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uninstall command.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intune app version.
     """
@@ -458,22 +512,22 @@ class DraftPackageIntuneAppMetadataItemArgsDict(TypedDict):
 @pulumi.input_type
 class DraftPackageIntuneAppMetadataItemArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependency_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dependent_app_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 install_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_processed: Optional[pulumi.Input[_builtins.float]] = None,
-                 minimum_supported_os: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 setup_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]] = None,
-                 uninstall_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependency_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dependent_app_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_exit_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 install_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_processed: pulumi.Input[Optional[_builtins.float]] = None,
+                 minimum_supported_os: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 setup_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'IntuneExtractStatus']]] = None,
+                 uninstall_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Metadata of a single Intune App.
 
@@ -529,249 +583,195 @@ class DraftPackageIntuneAppMetadataItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intune app id.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appName")
-    def app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intune app name.
         """
         return pulumi.get(self, "app_name")
 
     @app_name.setter
-    def app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation date of the app.
         """
         return pulumi.get(self, "create_date")
 
     @create_date.setter
-    def create_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_date", value)
 
     @_builtins.property
     @pulumi.getter(name="dependencyIds")
-    def dependency_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dependency_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Ids of dependency apps.
         """
         return pulumi.get(self, "dependency_ids")
 
     @dependency_ids.setter
-    def dependency_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dependency_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dependency_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="dependentAppCount")
-    def dependent_app_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dependent_app_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Count of dependency apps.
         """
         return pulumi.get(self, "dependent_app_count")
 
     @dependent_app_count.setter
-    def dependent_app_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dependent_app_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dependent_app_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the app.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedExitCodes")
-    def expected_exit_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expected_exit_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Expected exit codes returned from Intune App.
         """
         return pulumi.get(self, "expected_exit_codes")
 
     @expected_exit_codes.setter
-    def expected_exit_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expected_exit_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expected_exit_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="installCommand")
-    def install_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def install_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Install command.
         """
         return pulumi.get(self, "install_command")
 
     @install_command.setter
-    def install_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def install_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "install_command", value)
 
     @_builtins.property
     @pulumi.getter(name="lastProcessed")
-    def last_processed(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def last_processed(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         last processed time tickets.
         """
         return pulumi.get(self, "last_processed")
 
     @last_processed.setter
-    def last_processed(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def last_processed(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "last_processed", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumSupportedOS")
-    def minimum_supported_os(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_supported_os(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum supported OS. The OS version must be greater than this version to run this app.
         """
         return pulumi.get(self, "minimum_supported_os")
 
     @minimum_supported_os.setter
-    def minimum_supported_os(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_supported_os(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_supported_os", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the app.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publisher of the app.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter(name="setupFile")
-    def setup_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def setup_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Setup file path.
         """
         return pulumi.get(self, "setup_file")
 
     @setup_file.setter
-    def setup_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def setup_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setup_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IntuneExtractStatus']]]:
         """
         Extract status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IntuneExtractStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="uninstallCommand")
-    def uninstall_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uninstall_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uninstall command.
         """
         return pulumi.get(self, "uninstall_command")
 
     @uninstall_command.setter
-    def uninstall_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uninstall_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uninstall_command", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intune app version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
-
-
-class DraftPackageIntuneAppMetadataArgsDict(TypedDict):
-    """
-    The metadata of Intune app(s) used for generation.
-    """
-    intune_app: NotRequired[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]
-    """
-    The Metadata of the Intune App through intunewin file uploading.
-    """
-    intune_app_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]]]
-    """
-    The Metadata of dependencies of the Intune App through intunewin file uploading.
-    """
-
-@pulumi.input_type
-class DraftPackageIntuneAppMetadataArgs:
-    def __init__(__self__, *,
-                 intune_app: Optional[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']] = None,
-                 intune_app_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]] = None):
-        """
-        The metadata of Intune app(s) used for generation.
-
-        :param pulumi.Input['DraftPackageIntuneAppMetadataItemArgs'] intune_app: The Metadata of the Intune App through intunewin file uploading.
-        :param pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]] intune_app_dependencies: The Metadata of dependencies of the Intune App through intunewin file uploading.
-        """
-        if intune_app is not None:
-            pulumi.set(__self__, "intune_app", intune_app)
-        if intune_app_dependencies is not None:
-            pulumi.set(__self__, "intune_app_dependencies", intune_app_dependencies)
-
-    @_builtins.property
-    @pulumi.getter(name="intuneApp")
-    def intune_app(self) -> Optional[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]:
-        """
-        The Metadata of the Intune App through intunewin file uploading.
-        """
-        return pulumi.get(self, "intune_app")
-
-    @intune_app.setter
-    def intune_app(self, value: Optional[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]):
-        pulumi.set(self, "intune_app", value)
-
-    @_builtins.property
-    @pulumi.getter(name="intuneAppDependencies")
-    def intune_app_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]]:
-        """
-        The Metadata of dependencies of the Intune App through intunewin file uploading.
-        """
-        return pulumi.get(self, "intune_app_dependencies")
-
-    @intune_app_dependencies.setter
-    def intune_app_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgs']]]]):
-        pulumi.set(self, "intune_app_dependencies", value)
 
 
 class EnrolledIntuneAppArgsDict(TypedDict):
@@ -849,23 +849,23 @@ class FirstPartyAppDefinitionArgsDict(TypedDict):
     """
     Properties of the definition of a first party application of the Test Base package.
     """
-    architecture: NotRequired[pulumi.Input[Union[_builtins.str, 'Architecture']]]
+    architecture: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]]]
     """
     The architecture of a first party application of a Test Base Account.
     """
-    channel: NotRequired[pulumi.Input[_builtins.str]]
+    channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The channel info of a first party application of a Test Base Account.
     """
-    interop_execution_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]]
+    interop_execution_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InteropExecutionMode']]]]
     """
     Specifies how the first party applications should be inter-operated with user's application.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The media name of a first party application of a Test Base Account.
     """
-    ring: NotRequired[pulumi.Input[_builtins.str]]
+    ring: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ring info of a first party application of a Test Base Account.
     """
@@ -873,11 +873,11 @@ class FirstPartyAppDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class FirstPartyAppDefinitionArgs:
     def __init__(__self__, *,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]] = None,
-                 channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 interop_execution_mode: Optional[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ring: Optional[pulumi.Input[_builtins.str]] = None):
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]] = None,
+                 channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 interop_execution_mode: pulumi.Input[Optional[Union[_builtins.str, 'InteropExecutionMode']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ring: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the definition of a first party application of the Test Base package.
 
@@ -902,62 +902,62 @@ class FirstPartyAppDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]]:
+    def architecture(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]]:
         """
         The architecture of a first party application of a Test Base Account.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]]):
+    def architecture(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The channel info of a first party application of a Test Base Account.
         """
         return pulumi.get(self, "channel")
 
     @channel.setter
-    def channel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel", value)
 
     @_builtins.property
     @pulumi.getter(name="interopExecutionMode")
-    def interop_execution_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]]:
+    def interop_execution_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InteropExecutionMode']]]:
         """
         Specifies how the first party applications should be inter-operated with user's application.
         """
         return pulumi.get(self, "interop_execution_mode")
 
     @interop_execution_mode.setter
-    def interop_execution_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]]):
+    def interop_execution_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InteropExecutionMode']]]):
         pulumi.set(self, "interop_execution_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The media name of a first party application of a Test Base Account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ring(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ring info of a first party application of a Test Base Account.
         """
         return pulumi.get(self, "ring")
 
     @ring.setter
-    def ring(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ring(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ring", value)
 
 
@@ -969,7 +969,7 @@ class GalleryAppDefinitionArgsDict(TypedDict):
     """
     The SKU id of the gallery application.
     """
-    is_consented: NotRequired[pulumi.Input[_builtins.bool]]
+    is_consented: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the disclaimer of the gallery application is accepted.
     """
@@ -978,7 +978,7 @@ class GalleryAppDefinitionArgsDict(TypedDict):
 class GalleryAppDefinitionArgs:
     def __init__(__self__, *,
                  sku_id: pulumi.Input[_builtins.str],
-                 is_consented: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_consented: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties of the definition of a gallery application used in Test Base package.
 
@@ -1005,14 +1005,14 @@ class GalleryAppDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="isConsented")
-    def is_consented(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_consented(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the disclaimer of the gallery application is accepted.
         """
         return pulumi.get(self, "is_consented")
 
     @is_consented.setter
-    def is_consented(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_consented(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_consented", value)
 
 
@@ -1024,11 +1024,11 @@ class HighlightedFileArgsDict(TypedDict):
     """
     The path of the highlighted file.
     """
-    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    sections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The name of sections to highlight.
     """
-    visited: NotRequired[pulumi.Input[_builtins.bool]]
+    visited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag to save whether this file is viewed by user.
     """
@@ -1037,8 +1037,8 @@ class HighlightedFileArgsDict(TypedDict):
 class HighlightedFileArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 sections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 sections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The information of a highlighted file that user should pay attention to.
 
@@ -1068,26 +1068,26 @@ class HighlightedFileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name of sections to highlight.
         """
         return pulumi.get(self, "sections")
 
     @sections.setter
-    def sections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sections", value)
 
     @_builtins.property
     @pulumi.getter
-    def visited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to save whether this file is viewed by user.
         """
         return pulumi.get(self, "visited")
 
     @visited.setter
-    def visited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visited", value)
 
 
@@ -1095,11 +1095,11 @@ class InplaceUpgradeOSInfoArgsDict(TypedDict):
     """
     Specifies the baseline os and target os for in-place upgrade tests.
     """
-    baseline_os: NotRequired[pulumi.Input['OsPropertiesArgsDict']]
+    baseline_os: NotRequired[pulumi.Input[Optional['OsPropertiesArgsDict']]]
     """
     Specifies the baseline os for in-place upgrade tests.
     """
-    target_os: NotRequired[pulumi.Input[_builtins.str]]
+    target_os: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the target os for in-place upgrade tests.
     """
@@ -1107,8 +1107,8 @@ class InplaceUpgradeOSInfoArgsDict(TypedDict):
 @pulumi.input_type
 class InplaceUpgradeOSInfoArgs:
     def __init__(__self__, *,
-                 baseline_os: Optional[pulumi.Input['OsPropertiesArgs']] = None,
-                 target_os: Optional[pulumi.Input[_builtins.str]] = None):
+                 baseline_os: pulumi.Input[Optional['OsPropertiesArgs']] = None,
+                 target_os: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the baseline os and target os for in-place upgrade tests.
 
@@ -1122,26 +1122,26 @@ class InplaceUpgradeOSInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="baselineOS")
-    def baseline_os(self) -> Optional[pulumi.Input['OsPropertiesArgs']]:
+    def baseline_os(self) -> pulumi.Input[Optional['OsPropertiesArgs']]:
         """
         Specifies the baseline os for in-place upgrade tests.
         """
         return pulumi.get(self, "baseline_os")
 
     @baseline_os.setter
-    def baseline_os(self, value: Optional[pulumi.Input['OsPropertiesArgs']]):
+    def baseline_os(self, value: pulumi.Input[Optional['OsPropertiesArgs']]):
         pulumi.set(self, "baseline_os", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOS")
-    def target_os(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_os(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the target os for in-place upgrade tests.
         """
         return pulumi.get(self, "target_os")
 
     @target_os.setter
-    def target_os(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_os(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_os", value)
 
 
@@ -1149,15 +1149,15 @@ class IntuneEnrollmentMetadataArgsDict(TypedDict):
     """
     The metadata of Intune enrollment.
     """
-    app_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgsDict']]]]
+    app_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnrolledIntuneAppArgsDict']]]]]
     """
     The enrolled Intune apps.
     """
-    credential_id: NotRequired[pulumi.Input[_builtins.str]]
+    credential_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the Intune enrollment credential.
     """
-    expected_deployment_duration_in_minute: NotRequired[pulumi.Input[_builtins.int]]
+    expected_deployment_duration_in_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected duration of Intune applications and policies deployment.
     """
@@ -1165,9 +1165,9 @@ class IntuneEnrollmentMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class IntuneEnrollmentMetadataArgs:
     def __init__(__self__, *,
-                 app_list: Optional[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]] = None,
-                 credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_deployment_duration_in_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 app_list: pulumi.Input[Optional[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]] = None,
+                 credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_deployment_duration_in_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The metadata of Intune enrollment.
 
@@ -1184,38 +1184,38 @@ class IntuneEnrollmentMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="appList")
-    def app_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]]:
+    def app_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]]:
         """
         The enrolled Intune apps.
         """
         return pulumi.get(self, "app_list")
 
     @app_list.setter
-    def app_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]]):
+    def app_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnrolledIntuneAppArgs']]]]):
         pulumi.set(self, "app_list", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialId")
-    def credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the Intune enrollment credential.
         """
         return pulumi.get(self, "credential_id")
 
     @credential_id.setter
-    def credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedDeploymentDurationInMinute")
-    def expected_deployment_duration_in_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expected_deployment_duration_in_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected duration of Intune applications and policies deployment.
         """
         return pulumi.get(self, "expected_deployment_duration_in_minute")
 
     @expected_deployment_duration_in_minute.setter
-    def expected_deployment_duration_in_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expected_deployment_duration_in_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expected_deployment_duration_in_minute", value)
 
 
@@ -1223,11 +1223,11 @@ class NotificationEventReceiverArgsDict(TypedDict):
     """
     A notification event receivers.
     """
-    receiver_type: NotRequired[pulumi.Input[_builtins.str]]
+    receiver_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the notification event receiver.
     """
-    receiver_value: NotRequired[pulumi.Input['NotificationReceiverValueArgsDict']]
+    receiver_value: NotRequired[pulumi.Input[Optional['NotificationReceiverValueArgsDict']]]
     """
     The notification event receiver value.
     """
@@ -1235,8 +1235,8 @@ class NotificationEventReceiverArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationEventReceiverArgs:
     def __init__(__self__, *,
-                 receiver_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 receiver_value: Optional[pulumi.Input['NotificationReceiverValueArgs']] = None):
+                 receiver_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 receiver_value: pulumi.Input[Optional['NotificationReceiverValueArgs']] = None):
         """
         A notification event receivers.
 
@@ -1250,26 +1250,26 @@ class NotificationEventReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="receiverType")
-    def receiver_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receiver_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the notification event receiver.
         """
         return pulumi.get(self, "receiver_type")
 
     @receiver_type.setter
-    def receiver_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receiver_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receiver_type", value)
 
     @_builtins.property
     @pulumi.getter(name="receiverValue")
-    def receiver_value(self) -> Optional[pulumi.Input['NotificationReceiverValueArgs']]:
+    def receiver_value(self) -> pulumi.Input[Optional['NotificationReceiverValueArgs']]:
         """
         The notification event receiver value.
         """
         return pulumi.get(self, "receiver_value")
 
     @receiver_value.setter
-    def receiver_value(self, value: Optional[pulumi.Input['NotificationReceiverValueArgs']]):
+    def receiver_value(self, value: pulumi.Input[Optional['NotificationReceiverValueArgs']]):
         pulumi.set(self, "receiver_value", value)
 
 
@@ -1277,15 +1277,15 @@ class NotificationReceiverValueArgsDict(TypedDict):
     """
     A notification event receiver value.
     """
-    distribution_group_list_receiver_value: NotRequired[pulumi.Input['DistributionGroupListReceiverValueArgsDict']]
+    distribution_group_list_receiver_value: NotRequired[pulumi.Input[Optional['DistributionGroupListReceiverValueArgsDict']]]
     """
     The user object receiver value.
     """
-    subscription_receiver_value: NotRequired[pulumi.Input['SubscriptionReceiverValueArgsDict']]
+    subscription_receiver_value: NotRequired[pulumi.Input[Optional['SubscriptionReceiverValueArgsDict']]]
     """
     The user object receiver value.
     """
-    user_object_receiver_value: NotRequired[pulumi.Input['UserObjectReceiverValueArgsDict']]
+    user_object_receiver_value: NotRequired[pulumi.Input[Optional['UserObjectReceiverValueArgsDict']]]
     """
     The user object receiver value.
     """
@@ -1293,9 +1293,9 @@ class NotificationReceiverValueArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationReceiverValueArgs:
     def __init__(__self__, *,
-                 distribution_group_list_receiver_value: Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']] = None,
-                 subscription_receiver_value: Optional[pulumi.Input['SubscriptionReceiverValueArgs']] = None,
-                 user_object_receiver_value: Optional[pulumi.Input['UserObjectReceiverValueArgs']] = None):
+                 distribution_group_list_receiver_value: pulumi.Input[Optional['DistributionGroupListReceiverValueArgs']] = None,
+                 subscription_receiver_value: pulumi.Input[Optional['SubscriptionReceiverValueArgs']] = None,
+                 user_object_receiver_value: pulumi.Input[Optional['UserObjectReceiverValueArgs']] = None):
         """
         A notification event receiver value.
 
@@ -1312,38 +1312,38 @@ class NotificationReceiverValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="distributionGroupListReceiverValue")
-    def distribution_group_list_receiver_value(self) -> Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']]:
+    def distribution_group_list_receiver_value(self) -> pulumi.Input[Optional['DistributionGroupListReceiverValueArgs']]:
         """
         The user object receiver value.
         """
         return pulumi.get(self, "distribution_group_list_receiver_value")
 
     @distribution_group_list_receiver_value.setter
-    def distribution_group_list_receiver_value(self, value: Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']]):
+    def distribution_group_list_receiver_value(self, value: pulumi.Input[Optional['DistributionGroupListReceiverValueArgs']]):
         pulumi.set(self, "distribution_group_list_receiver_value", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionReceiverValue")
-    def subscription_receiver_value(self) -> Optional[pulumi.Input['SubscriptionReceiverValueArgs']]:
+    def subscription_receiver_value(self) -> pulumi.Input[Optional['SubscriptionReceiverValueArgs']]:
         """
         The user object receiver value.
         """
         return pulumi.get(self, "subscription_receiver_value")
 
     @subscription_receiver_value.setter
-    def subscription_receiver_value(self, value: Optional[pulumi.Input['SubscriptionReceiverValueArgs']]):
+    def subscription_receiver_value(self, value: pulumi.Input[Optional['SubscriptionReceiverValueArgs']]):
         pulumi.set(self, "subscription_receiver_value", value)
 
     @_builtins.property
     @pulumi.getter(name="userObjectReceiverValue")
-    def user_object_receiver_value(self) -> Optional[pulumi.Input['UserObjectReceiverValueArgs']]:
+    def user_object_receiver_value(self) -> pulumi.Input[Optional['UserObjectReceiverValueArgs']]:
         """
         The user object receiver value.
         """
         return pulumi.get(self, "user_object_receiver_value")
 
     @user_object_receiver_value.setter
-    def user_object_receiver_value(self, value: Optional[pulumi.Input['UserObjectReceiverValueArgs']]):
+    def user_object_receiver_value(self, value: pulumi.Input[Optional['UserObjectReceiverValueArgs']]):
         pulumi.set(self, "user_object_receiver_value", value)
 
 
@@ -1351,15 +1351,15 @@ class OsPropertiesArgsDict(TypedDict):
     """
     The properties of an operating system.
     """
-    custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
+    custom_image_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the referenced Test Base Custom Image Id if available.
     """
-    os_name: NotRequired[pulumi.Input[_builtins.str]]
+    os_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the OS.
     """
-    release_properties: NotRequired[pulumi.Input['ReleasePropertiesArgsDict']]
+    release_properties: NotRequired[pulumi.Input[Optional['ReleasePropertiesArgsDict']]]
     """
     The properties of the OS release.
     """
@@ -1367,9 +1367,9 @@ class OsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class OsPropertiesArgs:
     def __init__(__self__, *,
-                 custom_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_properties: Optional[pulumi.Input['ReleasePropertiesArgs']] = None):
+                 custom_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_properties: pulumi.Input[Optional['ReleasePropertiesArgs']] = None):
         """
         The properties of an operating system.
 
@@ -1386,64 +1386,64 @@ class OsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customImageId")
-    def custom_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the referenced Test Base Custom Image Id if available.
         """
         return pulumi.get(self, "custom_image_id")
 
     @custom_image_id.setter
-    def custom_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="osName")
-    def os_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OS.
         """
         return pulumi.get(self, "os_name")
 
     @os_name.setter
-    def os_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_name", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseProperties")
-    def release_properties(self) -> Optional[pulumi.Input['ReleasePropertiesArgs']]:
+    def release_properties(self) -> pulumi.Input[Optional['ReleasePropertiesArgs']]:
         """
         The properties of the OS release.
         """
         return pulumi.get(self, "release_properties")
 
     @release_properties.setter
-    def release_properties(self, value: Optional[pulumi.Input['ReleasePropertiesArgs']]):
+    def release_properties(self, value: pulumi.Input[Optional['ReleasePropertiesArgs']]):
         pulumi.set(self, "release_properties", value)
 
 
 class PreReleaseAccessRequestSpecArgsDict(TypedDict):
-    city: NotRequired[pulumi.Input[_builtins.str]]
-    company_website: NotRequired[pulumi.Input[_builtins.str]]
-    country_and_region: NotRequired[pulumi.Input[_builtins.str]]
-    email: NotRequired[pulumi.Input[_builtins.str]]
-    engagements: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]
-    organization_name: NotRequired[pulumi.Input[_builtins.str]]
-    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-    street_address: NotRequired[pulumi.Input[_builtins.str]]
-    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    company_website: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    country_and_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    engagements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]]
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    state_or_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    street_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    zip_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PreReleaseAccessRequestSpecArgs:
     def __init__(__self__, *,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_website: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_and_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 engagements: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_website: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_and_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 engagements: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_code: pulumi.Input[Optional[_builtins.str]] = None):
         if city is not None:
             pulumi.set(__self__, "city", city)
         if company_website is not None:
@@ -1465,83 +1465,83 @@ class PreReleaseAccessRequestSpecArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="companyWebsite")
-    def company_website(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_website(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "company_website")
 
     @company_website.setter
-    def company_website(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_website(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_website", value)
 
     @_builtins.property
     @pulumi.getter(name="countryAndRegion")
-    def country_and_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_and_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "country_and_region")
 
     @country_and_region.setter
-    def country_and_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_and_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_and_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]:
+    def engagements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]:
         return pulumi.get(self, "engagements")
 
     @engagements.setter
-    def engagements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]):
+    def engagements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]):
         pulumi.set(self, "engagements", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationName")
-    def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
-    def organization_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_or_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "state_or_province")
 
     @state_or_province.setter
-    def state_or_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_or_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_or_province", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "street_address")
 
     @street_address.setter
-    def street_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address", value)
 
     @_builtins.property
     @pulumi.getter(name="zipCode")
-    def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
-    def zip_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_code", value)
 
 
@@ -1549,19 +1549,19 @@ class ReleasePropertiesArgsDict(TypedDict):
     """
     The properties of an operating system release.
     """
-    build_number: NotRequired[pulumi.Input[_builtins.str]]
+    build_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The build number of the OS release.
     """
-    build_revision: NotRequired[pulumi.Input[_builtins.str]]
+    build_revision: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The build revision of the OS release.
     """
-    release_name: NotRequired[pulumi.Input[_builtins.str]]
+    release_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the OS release.
     """
-    release_version_date: NotRequired[pulumi.Input[_builtins.str]]
+    release_version_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The release version date of the OS release.
     """
@@ -1569,10 +1569,10 @@ class ReleasePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ReleasePropertiesArgs:
     def __init__(__self__, *,
-                 build_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_version_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_version_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of an operating system release.
 
@@ -1592,50 +1592,50 @@ class ReleasePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildNumber")
-    def build_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The build number of the OS release.
         """
         return pulumi.get(self, "build_number")
 
     @build_number.setter
-    def build_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_number", value)
 
     @_builtins.property
     @pulumi.getter(name="buildRevision")
-    def build_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The build revision of the OS release.
         """
         return pulumi.get(self, "build_revision")
 
     @build_revision.setter
-    def build_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_revision", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseName")
-    def release_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OS release.
         """
         return pulumi.get(self, "release_name")
 
     @release_name.setter
-    def release_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_name", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseVersionDate")
-    def release_version_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_version_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The release version date of the OS release.
         """
         return pulumi.get(self, "release_version_date")
 
     @release_version_date.setter
-    def release_version_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_version_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_version_date", value)
 
 
@@ -1643,15 +1643,15 @@ class SubscriptionReceiverValueArgsDict(TypedDict):
     """
     The subscription role receiver value.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The role of the notification receiver.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscription id of the notification receiver.
     """
-    subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscription name of the notification receiver.
     """
@@ -1659,9 +1659,9 @@ class SubscriptionReceiverValueArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionReceiverValueArgs:
     def __init__(__self__, *,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The subscription role receiver value.
 
@@ -1678,38 +1678,38 @@ class SubscriptionReceiverValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role of the notification receiver.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id of the notification receiver.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription name of the notification receiver.
         """
         return pulumi.get(self, "subscription_name")
 
     @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_name", value)
 
 
@@ -1750,11 +1750,11 @@ class TabStateArgsDict(TypedDict):
     """
     Specifies current state of tabs.
     """
-    current_tab: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]
+    current_tab: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PackageStudioTabs']]]]
     """
     Current tab.
     """
-    visited_tabs: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]
+    visited_tabs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]]
     """
     visited tabs.
     """
@@ -1762,8 +1762,8 @@ class TabStateArgsDict(TypedDict):
 @pulumi.input_type
 class TabStateArgs:
     def __init__(__self__, *,
-                 current_tab: Optional[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]] = None,
-                 visited_tabs: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]] = None):
+                 current_tab: pulumi.Input[Optional[Union[_builtins.str, 'PackageStudioTabs']]] = None,
+                 visited_tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]] = None):
         """
         Specifies current state of tabs.
 
@@ -1777,26 +1777,26 @@ class TabStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentTab")
-    def current_tab(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]:
+    def current_tab(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PackageStudioTabs']]]:
         """
         Current tab.
         """
         return pulumi.get(self, "current_tab")
 
     @current_tab.setter
-    def current_tab(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]):
+    def current_tab(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PackageStudioTabs']]]):
         pulumi.set(self, "current_tab", value)
 
     @_builtins.property
     @pulumi.getter(name="visitedTabs")
-    def visited_tabs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]:
+    def visited_tabs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]:
         """
         visited tabs.
         """
         return pulumi.get(self, "visited_tabs")
 
     @visited_tabs.setter
-    def visited_tabs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]):
+    def visited_tabs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]):
         pulumi.set(self, "visited_tabs", value)
 
 
@@ -1808,19 +1808,19 @@ class TargetOSInfoArgsDict(TypedDict):
     """
     Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
     """
-    baseline_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    baseline_oss: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the baseline OSs to be tested.
     """
-    insider_channel_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    insider_channel_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Insider Channel Ids. Only used for feature update.
     """
-    target_os_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target_os_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the ids of the target OSs from Custom Images to be tested.
     """
-    target_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target_oss: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the target OSs to be tested.
     """
@@ -1829,10 +1829,10 @@ class TargetOSInfoArgsDict(TypedDict):
 class TargetOSInfoArgs:
     def __init__(__self__, *,
                  os_update_type: pulumi.Input[_builtins.str],
-                 baseline_oss: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insider_channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_os_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_oss: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 baseline_oss: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insider_channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_os_image_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_oss: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The information of the target OS to be tested.
 
@@ -1866,51 +1866,123 @@ class TargetOSInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="baselineOSs")
-    def baseline_oss(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def baseline_oss(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the baseline OSs to be tested.
         """
         return pulumi.get(self, "baseline_oss")
 
     @baseline_oss.setter
-    def baseline_oss(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def baseline_oss(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "baseline_oss", value)
 
     @_builtins.property
     @pulumi.getter(name="insiderChannelIds")
-    def insider_channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def insider_channel_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Insider Channel Ids. Only used for feature update.
         """
         return pulumi.get(self, "insider_channel_ids")
 
     @insider_channel_ids.setter
-    def insider_channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def insider_channel_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "insider_channel_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOSImageIds")
-    def target_os_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_os_image_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the ids of the target OSs from Custom Images to be tested.
         """
         return pulumi.get(self, "target_os_image_ids")
 
     @target_os_image_ids.setter
-    def target_os_image_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_os_image_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_os_image_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOSs")
-    def target_oss(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_oss(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the target OSs to be tested.
         """
         return pulumi.get(self, "target_oss")
 
     @target_oss.setter
-    def target_oss(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_oss(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_oss", value)
+
+
+class TestArgsDict(TypedDict):
+    """
+    The definition of a Test.
+    """
+    commands: pulumi.Input[Sequence[pulumi.Input['CommandArgsDict']]]
+    """
+    The commands used in the test.
+    """
+    test_type: pulumi.Input[Union[_builtins.str, 'TestType']]
+    """
+    The type of the test.
+    """
+    is_active: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates if this test is active.It doesn't schedule test for not active Test.
+    """
+
+@pulumi.input_type
+class TestArgs:
+    def __init__(__self__, *,
+                 commands: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]],
+                 test_type: pulumi.Input[Union[_builtins.str, 'TestType']],
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The definition of a Test.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CommandArgs']]] commands: The commands used in the test.
+        :param pulumi.Input[Union[_builtins.str, 'TestType']] test_type: The type of the test.
+        :param pulumi.Input[_builtins.bool] is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
+        """
+        pulumi.set(__self__, "commands", commands)
+        pulumi.set(__self__, "test_type", test_type)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+
+    @_builtins.property
+    @pulumi.getter
+    def commands(self) -> pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]:
+        """
+        The commands used in the test.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]):
+        pulumi.set(self, "commands", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testType")
+    def test_type(self) -> pulumi.Input[Union[_builtins.str, 'TestType']]:
+        """
+        The type of the test.
+        """
+        return pulumi.get(self, "test_type")
+
+    @test_type.setter
+    def test_type(self, value: pulumi.Input[Union[_builtins.str, 'TestType']]):
+        pulumi.set(self, "test_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if this test is active.It doesn't schedule test for not active Test.
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_active", value)
 
 
 class TestBaseAccountSKUArgsDict(TypedDict):
@@ -1925,11 +1997,11 @@ class TestBaseAccountSKUArgsDict(TypedDict):
     """
     The tier of this particular SKU.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The locations that the SKU is available.
     """
-    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of resource the SKU applies to.
     """
@@ -1939,8 +2011,8 @@ class TestBaseAccountSKUArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[Union[_builtins.str, 'Tier']],
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a Test Base Account SKU.
 
@@ -1982,106 +2054,34 @@ class TestBaseAccountSKUArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The locations that the SKU is available.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource the SKU applies to.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
-
-
-class TestArgsDict(TypedDict):
-    """
-    The definition of a Test.
-    """
-    commands: pulumi.Input[Sequence[pulumi.Input['CommandArgsDict']]]
-    """
-    The commands used in the test.
-    """
-    test_type: pulumi.Input[Union[_builtins.str, 'TestType']]
-    """
-    The type of the test.
-    """
-    is_active: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if this test is active.It doesn't schedule test for not active Test.
-    """
-
-@pulumi.input_type
-class TestArgs:
-    def __init__(__self__, *,
-                 commands: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]],
-                 test_type: pulumi.Input[Union[_builtins.str, 'TestType']],
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The definition of a Test.
-
-        :param pulumi.Input[Sequence[pulumi.Input['CommandArgs']]] commands: The commands used in the test.
-        :param pulumi.Input[Union[_builtins.str, 'TestType']] test_type: The type of the test.
-        :param pulumi.Input[_builtins.bool] is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
-        """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "test_type", test_type)
-        if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
-
-    @_builtins.property
-    @pulumi.getter
-    def commands(self) -> pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]:
-        """
-        The commands used in the test.
-        """
-        return pulumi.get(self, "commands")
-
-    @commands.setter
-    def commands(self, value: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]):
-        pulumi.set(self, "commands", value)
-
-    @_builtins.property
-    @pulumi.getter(name="testType")
-    def test_type(self) -> pulumi.Input[Union[_builtins.str, 'TestType']]:
-        """
-        The type of the test.
-        """
-        return pulumi.get(self, "test_type")
-
-    @test_type.setter
-    def test_type(self, value: pulumi.Input[Union[_builtins.str, 'TestType']]):
-        pulumi.set(self, "test_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if this test is active.It doesn't schedule test for not active Test.
-        """
-        return pulumi.get(self, "is_active")
-
-    @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_active", value)
 
 
 class UserObjectReceiverValueArgsDict(TypedDict):
     """
     The user object receiver value.
     """
-    user_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_object_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     user object ids.
     """
@@ -2089,7 +2089,7 @@ class UserObjectReceiverValueArgsDict(TypedDict):
 @pulumi.input_type
 class UserObjectReceiverValueArgs:
     def __init__(__self__, *,
-                 user_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The user object receiver value.
 
@@ -2100,14 +2100,14 @@ class UserObjectReceiverValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="userObjectIds")
-    def user_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         user object ids.
         """
         return pulumi.get(self, "user_object_ids")
 
     @user_object_ids.setter
-    def user_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_object_ids", value)
 
 

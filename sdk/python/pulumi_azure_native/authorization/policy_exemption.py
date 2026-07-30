@@ -25,14 +25,14 @@ class PolicyExemptionArgs:
                  exemption_category: pulumi.Input[Union[_builtins.str, 'ExemptionCategory']],
                  policy_assignment_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 assignment_scope_validation: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_scope_validation: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_exemption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_exemption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyExemption resource.
 
@@ -108,50 +108,50 @@ class PolicyExemptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignmentScopeValidation")
-    def assignment_scope_validation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssignmentScopeValidation']]]:
+    def assignment_scope_validation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssignmentScopeValidation']]]:
         """
         The option whether validate the exemption is at or under the assignment scope.
         """
         return pulumi.get(self, "assignment_scope_validation")
 
     @assignment_scope_validation.setter
-    def assignment_scope_validation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentScopeValidation']]]):
+    def assignment_scope_validation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentScopeValidation']]]):
         pulumi.set(self, "assignment_scope_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the policy exemption.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the policy exemption.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
@@ -168,38 +168,38 @@ class PolicyExemptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_definition_reference_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_ids")
 
     @policy_definition_reference_ids.setter
-    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_definition_reference_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_definition_reference_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="policyExemptionName")
-    def policy_exemption_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_exemption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy exemption to delete.
         """
         return pulumi.get(self, "policy_exemption_name")
 
     @policy_exemption_name.setter
-    def policy_exemption_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_exemption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_exemption_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSelectors")
-    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]:
+    def resource_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSelectorArgs']]]]:
         """
         The resource selector list to filter policies by resource properties.
         """
         return pulumi.get(self, "resource_selectors")
 
     @resource_selectors.setter
-    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]):
+    def resource_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSelectorArgs']]]]):
         pulumi.set(self, "resource_selectors", value)
 
 
@@ -209,17 +209,17 @@ class PolicyExemption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_scope_validation: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exemption_category: Optional[pulumi.Input[Union[_builtins.str, 'ExemptionCategory']]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_scope_validation: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exemption_category: pulumi.Input[Optional[Union[_builtins.str, 'ExemptionCategory']]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_exemption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_exemption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The policy exemption.
@@ -227,7 +227,6 @@ class PolicyExemption(pulumi.CustomResource):
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
 
         Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,7 +255,6 @@ class PolicyExemption(pulumi.CustomResource):
 
         Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PolicyExemptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,17 +270,17 @@ class PolicyExemption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_scope_validation: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exemption_category: Optional[pulumi.Input[Union[_builtins.str, 'ExemptionCategory']]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_scope_validation: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentScopeValidation']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exemption_category: pulumi.Input[Optional[Union[_builtins.str, 'ExemptionCategory']]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_exemption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_exemption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

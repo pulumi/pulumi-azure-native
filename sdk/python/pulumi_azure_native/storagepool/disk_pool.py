@@ -24,14 +24,14 @@ class DiskPoolArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  subnet_id: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disk_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskPool resource.
 
@@ -105,98 +105,98 @@ class DiskPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of additional capabilities for a Disk Pool.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Logical zone for Disk Pool resource; example: ["1"].
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="diskPoolName")
-    def disk_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Disk Pool.
         """
         return pulumi.get(self, "disk_pool_name")
 
     @disk_pool_name.setter
-    def disk_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+    def disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]:
         """
         List of Azure Managed Disks to attach to a Disk Pool.
         """
         return pulumi.get(self, "disks")
 
     @disks.setter
-    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+    def disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]):
         pulumi.set(self, "disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource id. Indicates if this resource is managed by another Azure resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="managedByExtended")
-    def managed_by_extended(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def managed_by_extended(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Azure resource ids that manage this resource.
         """
         return pulumi.get(self, "managed_by_extended")
 
     @managed_by_extended.setter
-    def managed_by_extended(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def managed_by_extended(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_by_extended", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -206,23 +206,22 @@ class DiskPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disk_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Response for Disk Pool request.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +248,6 @@ class DiskPool(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,17 +263,17 @@ class DiskPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disk_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

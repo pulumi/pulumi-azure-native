@@ -23,8 +23,8 @@ class SuppressionListArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionList resource.
 
@@ -80,26 +80,26 @@ class SuppressionListArgs:
 
     @_builtins.property
     @pulumi.getter(name="listName")
-    def list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         """
         return pulumi.get(self, "list_name")
 
     @list_name.setter
-    def list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "list_name", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionListName")
-    def suppression_list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suppression_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the suppression list.
         """
         return pulumi.get(self, "suppression_list_name")
 
     @suppression_list_name.setter
-    def suppression_list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suppression_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suppression_list_name", value)
 
 
@@ -109,11 +109,11 @@ class SuppressionList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A class representing a SuppressionList resource.
@@ -121,7 +121,6 @@ class SuppressionList(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class SuppressionList(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SuppressionListArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class SuppressionList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

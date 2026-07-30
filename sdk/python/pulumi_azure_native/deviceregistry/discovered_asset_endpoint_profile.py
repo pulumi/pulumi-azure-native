@@ -28,11 +28,11 @@ class DiscoveredAssetEndpointProfileArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_address: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.float],
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovered_asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovered_asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAssetEndpointProfile resource.
 
@@ -139,62 +139,62 @@ class DiscoveredAssetEndpointProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
     @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveredAssetEndpointProfileName")
-    def discovered_asset_endpoint_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovered_asset_endpoint_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Discovered Asset Endpoint Profile name parameter.
         """
         return pulumi.get(self, "discovered_asset_endpoint_profile_name")
 
     @discovered_asset_endpoint_profile_name.setter
-    def discovered_asset_endpoint_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovered_asset_endpoint_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovered_asset_endpoint_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedAuthenticationMethods")
-    def supported_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]:
+    def supported_authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]:
         """
         List of supported authentication methods supported by the target server.
         """
         return pulumi.get(self, "supported_authentication_methods")
 
     @supported_authentication_methods.setter
-    def supported_authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]):
+    def supported_authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]):
         pulumi.set(self, "supported_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -204,23 +204,22 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovered_asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovered_asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Discovered Asset Endpoint Profile definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,7 +246,6 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,17 +261,17 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovered_asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_profile_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 additional_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovered_asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_profile_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

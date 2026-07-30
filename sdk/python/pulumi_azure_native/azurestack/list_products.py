@@ -71,7 +71,6 @@ def list_products(product_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-06-01.
 
-
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.
     :param _builtins.str resource_group: Name of the resource group.
@@ -86,15 +85,14 @@ def list_products(product_name: Optional[_builtins.str] = None,
     return AwaitableListProductsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_products_output(product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def list_products_output(product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsResult]:
     """
     Returns a list of products.
 
     Uses Azure REST API version 2022-06-01.
-
 
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.

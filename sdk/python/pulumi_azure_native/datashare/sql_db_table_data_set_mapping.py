@@ -29,7 +29,7 @@ class SqlDBTableDataSetMappingArgs:
                  share_subscription_name: pulumi.Input[_builtins.str],
                  sql_server_resource_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlDBTableDataSetMapping resource.
 
@@ -168,14 +168,14 @@ class SqlDBTableDataSetMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetMappingName")
-    def data_set_mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data set mapping to be created.
         """
         return pulumi.get(self, "data_set_mapping_name")
 
     @data_set_mapping_name.setter
-    def data_set_mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_mapping_name", value)
 
 
@@ -185,22 +185,21 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A SQL DB Table data set mapping.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +226,6 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param SqlDBTableDataSetMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,16 +241,16 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

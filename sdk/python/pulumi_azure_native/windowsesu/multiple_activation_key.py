@@ -21,14 +21,14 @@ __all__ = ['MultipleActivationKeyArgs', 'MultipleActivationKey']
 class MultipleActivationKeyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agreement_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_server_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_eligible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_activation_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 support_type: Optional[pulumi.Input[Union[_builtins.str, 'SupportType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 agreement_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_server_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_eligible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_activation_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 support_type: pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MultipleActivationKey resource.
 
@@ -76,98 +76,98 @@ class MultipleActivationKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="agreementNumber")
-    def agreement_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agreement_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Agreement number under which the key is requested.
         """
         return pulumi.get(self, "agreement_number")
 
     @agreement_number.setter
-    def agreement_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agreement_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agreement_number", value)
 
     @_builtins.property
     @pulumi.getter(name="installedServerNumber")
-    def installed_server_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def installed_server_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of activations/servers using the MAK key.
         """
         return pulumi.get(self, "installed_server_number")
 
     @installed_server_number.setter
-    def installed_server_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def installed_server_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "installed_server_number", value)
 
     @_builtins.property
     @pulumi.getter(name="isEligible")
-    def is_eligible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_eligible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
         """
         return pulumi.get(self, "is_eligible")
 
     @is_eligible.setter
-    def is_eligible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_eligible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_eligible", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="multipleActivationKeyName")
-    def multiple_activation_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multiple_activation_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MAK key.
         """
         return pulumi.get(self, "multiple_activation_key_name")
 
     @multiple_activation_key_name.setter
-    def multiple_activation_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multiple_activation_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multiple_activation_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]:
         """
         Type of OS for which the key is requested.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="supportType")
-    def support_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportType']]]:
+    def support_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]]:
         """
         Type of support
         """
         return pulumi.get(self, "support_type")
 
     @support_type.setter
-    def support_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportType']]]):
+    def support_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]]):
         pulumi.set(self, "support_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,21 +177,20 @@ class MultipleActivationKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agreement_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_server_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_eligible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_activation_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_type: Optional[pulumi.Input[Union[_builtins.str, 'SupportType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agreement_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_server_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_eligible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_activation_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_type: pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MAK key details.
 
         Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +215,6 @@ class MultipleActivationKey(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MultipleActivationKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,15 +230,15 @@ class MultipleActivationKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agreement_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_server_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_eligible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_activation_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OsType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_type: Optional[pulumi.Input[Union[_builtins.str, 'SupportType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agreement_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_server_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_eligible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_activation_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_type: pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

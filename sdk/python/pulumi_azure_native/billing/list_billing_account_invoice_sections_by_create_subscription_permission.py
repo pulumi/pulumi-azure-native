@@ -72,7 +72,6 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
 
     Other available API versions: 2019-10-01-preview, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str filter: The filter query option allows clients to filter a collection of resources that are addressed by a request URL.
     """
@@ -85,8 +84,8 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
     return AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                                   filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                                   filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
     """
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
@@ -94,7 +93,6 @@ def list_billing_account_invoice_sections_by_create_subscription_permission_outp
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2019-10-01-preview, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str filter: The filter query option allows clients to filter a collection of resources that are addressed by a request URL.

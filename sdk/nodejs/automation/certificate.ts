@@ -153,15 +153,15 @@ export interface CertificateArgs {
     /**
      * The name of certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the description of the certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the is exportable flag of the certificate.
      */
-    isExportable?: pulumi.Input<boolean>;
+    isExportable?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets the name of the certificate.
      */
@@ -173,5 +173,5 @@ export interface CertificateArgs {
     /**
      * Gets or sets the thumbprint of the certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }

@@ -171,35 +171,35 @@ export interface VpnSiteArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges.
      */
-    addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
     /**
      * The set of bgp properties.
      */
-    bgpProperties?: pulumi.Input<inputs.network.BgpSettingsArgs>;
+    bgpProperties?: pulumi.Input<inputs.network.BgpSettingsArgs | undefined>;
     /**
      * The device properties.
      */
-    deviceProperties?: pulumi.Input<inputs.network.DevicePropertiesArgs>;
+    deviceProperties?: pulumi.Input<inputs.network.DevicePropertiesArgs | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The ip-address for the vpn-site.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * IsSecuritySite flag.
      */
-    isSecuritySite?: pulumi.Input<boolean>;
+    isSecuritySite?: pulumi.Input<boolean | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Office365 Policy.
      */
-    o365Policy?: pulumi.Input<inputs.network.O365PolicyPropertiesArgs>;
+    o365Policy?: pulumi.Input<inputs.network.O365PolicyPropertiesArgs | undefined>;
     /**
      * The resource group name of the VpnSite.
      */
@@ -207,21 +207,21 @@ export interface VpnSiteArgs {
     /**
      * The key for vpn-site that can be used for connections.
      */
-    siteKey?: pulumi.Input<string>;
+    siteKey?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VirtualWAN to which the vpnSite belongs.
      */
-    virtualWan?: pulumi.Input<inputs.network.SubResourceArgs>;
+    virtualWan?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * List of all vpn site links.
      */
-    vpnSiteLinks?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkArgs>[]>;
+    vpnSiteLinks?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkArgs>[] | undefined>;
     /**
      * The name of the VpnSite being created or updated.
      */
-    vpnSiteName?: pulumi.Input<string>;
+    vpnSiteName?: pulumi.Input<string | undefined>;
 }

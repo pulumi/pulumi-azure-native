@@ -372,7 +372,6 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str virtual_machine_name: Name of the VirtualMachine.
     """
@@ -410,8 +409,8 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         vm_name=pulumi.get(__ret__, 'vm_name'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
-def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements VirtualMachine GET method.
@@ -419,7 +418,6 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str virtual_machine_name: Name of the VirtualMachine.

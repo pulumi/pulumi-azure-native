@@ -64,7 +64,6 @@ def list_gateway_debug_credentials(api_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str api_id: Full resource Id of an API.
     :param _builtins.str credentials_expire_after: Credentials expiration in ISO8601 format. Maximum duration of the credentials is PT1H. When property is not specified, them value PT1H is used.
     :param _builtins.str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -84,12 +83,12 @@ def list_gateway_debug_credentials(api_id: Optional[_builtins.str] = None,
 
     return AwaitableListGatewayDebugCredentialsResult(
         token=pulumi.get(__ret__, 'token'))
-def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          credentials_expire_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          purposes: Optional[pulumi.Input[Sequence[Union[_builtins.str, 'GatewayListDebugCredentialsContractPurpose']]]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_gateway_debug_credentials_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          credentials_expire_after: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          purposes: pulumi.Input[Optional[Sequence[Union[_builtins.str, 'GatewayListDebugCredentialsContractPurpose']]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGatewayDebugCredentialsResult]:
     """
     Create new debug credentials for gateway.
@@ -97,7 +96,6 @@ def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str api_id: Full resource Id of an API.
     :param _builtins.str credentials_expire_after: Credentials expiration in ISO8601 format. Maximum duration of the credentials is PT1H. When property is not specified, them value PT1H is used.

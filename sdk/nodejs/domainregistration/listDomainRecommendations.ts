@@ -67,9 +67,9 @@ export interface ListDomainRecommendationsOutputArgs {
     /**
      * Keywords to be used for generating domain recommendations.
      */
-    keywords?: pulumi.Input<string>;
+    keywords?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of recommendations.
      */
-    maxDomainRecommendations?: pulumi.Input<number>;
+    maxDomainRecommendations?: pulumi.Input<number | undefined>;
 }

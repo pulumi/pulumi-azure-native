@@ -112,19 +112,19 @@ export interface ContentTypeArgs {
     /**
      * Content type identifier.
      */
-    contentTypeId?: pulumi.Input<string>;
+    contentTypeId?: pulumi.Input<string | undefined>;
     /**
      * Content type description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Content type identifier
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Content type name. Must be 1 to 250 characters long.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,7 +132,7 @@ export interface ContentTypeArgs {
     /**
      * Content type schema.
      */
-    schema?: any;
+    schema?: any | undefined;
     /**
      * The name of the API Management service.
      */
@@ -140,5 +140,5 @@ export interface ContentTypeArgs {
     /**
      * Content type version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

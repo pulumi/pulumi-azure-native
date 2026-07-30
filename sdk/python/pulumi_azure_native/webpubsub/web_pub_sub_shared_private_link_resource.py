@@ -24,8 +24,8 @@ class WebPubSubSharedPrivateLinkResourceArgs:
                  private_link_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebPubSubSharedPrivateLinkResource resource.
 
@@ -95,26 +95,26 @@ class WebPubSubSharedPrivateLinkResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The request message for requesting approval of the shared private link resource
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPrivateLinkResourceName")
-    def shared_private_link_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_private_link_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the shared private link resource.
         """
         return pulumi.get(self, "shared_private_link_resource_name")
 
     @shared_private_link_resource_name.setter
-    def shared_private_link_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_private_link_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
@@ -124,12 +124,12 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a Shared Private Link Resource
@@ -137,7 +137,6 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

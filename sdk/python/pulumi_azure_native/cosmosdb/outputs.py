@@ -1221,7 +1221,7 @@ class ClientEncryptionPolicyResponse(dict):
         Cosmos DB client encryption policy.
 
         :param Sequence['ClientEncryptionIncludedPathResponse'] included_paths: Paths of the item that need encryption along with path-specific settings.
-        :param _builtins.int policy_format_version: Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+        :param _builtins.int policy_format_version: Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption.
         """
         pulumi.set(__self__, "included_paths", included_paths)
         pulumi.set(__self__, "policy_format_version", policy_format_version)
@@ -1238,7 +1238,7 @@ class ClientEncryptionPolicyResponse(dict):
     @pulumi.getter(name="policyFormatVersion")
     def policy_format_version(self) -> _builtins.int:
         """
-        Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+        Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption.
         """
         return pulumi.get(self, "policy_format_version")
 

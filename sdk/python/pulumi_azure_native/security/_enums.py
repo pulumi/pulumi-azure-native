@@ -270,7 +270,7 @@ class DataSource(_builtins.str, Enum):
 class DevOpsProvisioningState(_builtins.str, Enum):
     """
     The provisioning state of the resource.
-    
+
     Pending - Provisioning pending.
     Failed - Provisioning failed.
     Succeeded - Successful provisioning.
@@ -748,7 +748,7 @@ class Protocol(_builtins.str, Enum):
     """
     ALL = "*"
     """
-    *
+    * 
     """
 
 

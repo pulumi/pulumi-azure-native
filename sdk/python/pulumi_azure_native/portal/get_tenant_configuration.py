@@ -119,7 +119,6 @@ def get_tenant_configuration(configuration_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_name: The name of the Configuration
     """
     __args__ = dict()
@@ -134,7 +133,7 @@ def get_tenant_configuration(configuration_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tenant_configuration_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantConfigurationResult]:
     """
     Gets the tenant configuration.
@@ -142,7 +141,6 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2022-12-01-preview.
 
     Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_name: The name of the Configuration
     """

@@ -216,7 +216,6 @@ def get_storage_task(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storageactions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
     """
@@ -241,8 +240,8 @@ def get_storage_task(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_version=pulumi.get(__ret__, 'task_version'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_task_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            storage_task_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_task_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            storage_task_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskResult]:
     """
     Get the storage task properties
@@ -250,7 +249,6 @@ def get_storage_task_output(resource_group_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storageactions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.

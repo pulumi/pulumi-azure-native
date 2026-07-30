@@ -23,13 +23,13 @@ class ProductArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['ProductState']] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['ProductState']] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Product resource.
 
@@ -100,86 +100,86 @@ class ProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalRequired")
-    def approval_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def approval_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         """
         return pulumi.get(self, "approval_required")
 
     @approval_required.setter
-    def approval_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def approval_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "approval_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product description. May include HTML formatting tags.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['ProductState']]:
+    def state(self) -> pulumi.Input[Optional['ProductState']]:
         """
         whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['ProductState']]):
+    def state(self, value: pulumi.Input[Optional['ProductState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
         """
         return pulumi.get(self, "subscription_required")
 
     @subscription_required.setter
-    def subscription_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_required", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def subscriptions_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         """
         return pulumi.get(self, "subscriptions_limit")
 
     @subscriptions_limit.setter
-    def subscriptions_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def subscriptions_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "subscriptions_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
@@ -189,16 +189,16 @@ class Product(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['ProductState']] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['ProductState']] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Product details.
@@ -206,7 +206,6 @@ class Product(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +233,6 @@ class Product(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,16 +248,16 @@ class Product(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['ProductState']] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['ProductState']] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

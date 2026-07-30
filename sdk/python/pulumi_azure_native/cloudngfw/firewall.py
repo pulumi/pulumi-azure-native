@@ -27,17 +27,17 @@ class FirewallArgs:
                  network_profile: pulumi.Input['NetworkProfileArgs'],
                  plan_data: pulumi.Input['PlanDataArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 associated_rulestack: Optional[pulumi.Input['RulestackDetailsArgs']] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendSettingArgs']]]] = None,
-                 identity: Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
-                 is_panorama_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 is_strata_cloud_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 panorama_config: Optional[pulumi.Input['PanoramaConfigArgs']] = None,
-                 strata_cloud_manager_config: Optional[pulumi.Input['StrataCloudManagerConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 associated_rulestack: pulumi.Input[Optional['RulestackDetailsArgs']] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendSettingArgs']]]] = None,
+                 identity: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
+                 is_panorama_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 is_strata_cloud_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 panorama_config: pulumi.Input[Optional['PanoramaConfigArgs']] = None,
+                 strata_cloud_manager_config: pulumi.Input[Optional['StrataCloudManagerConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
 
@@ -148,134 +148,134 @@ class FirewallArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedRulestack")
-    def associated_rulestack(self) -> Optional[pulumi.Input['RulestackDetailsArgs']]:
+    def associated_rulestack(self) -> pulumi.Input[Optional['RulestackDetailsArgs']]:
         """
         Associated Rulestack
         """
         return pulumi.get(self, "associated_rulestack")
 
     @associated_rulestack.setter
-    def associated_rulestack(self, value: Optional[pulumi.Input['RulestackDetailsArgs']]):
+    def associated_rulestack(self, value: pulumi.Input[Optional['RulestackDetailsArgs']]):
         pulumi.set(self, "associated_rulestack", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallName")
-    def firewall_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Firewall resource name
         """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
-    def firewall_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frontEndSettings")
-    def front_end_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontendSettingArgs']]]]:
+    def front_end_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontendSettingArgs']]]]:
         """
         Frontend settings for Firewall
         """
         return pulumi.get(self, "front_end_settings")
 
     @front_end_settings.setter
-    def front_end_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendSettingArgs']]]]):
+    def front_end_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendSettingArgs']]]]):
         pulumi.set(self, "front_end_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isPanoramaManaged")
-    def is_panorama_managed(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]]:
+    def is_panorama_managed(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]]:
         """
         Panorama Managed: Default is False. Default will be CloudSec managed
         """
         return pulumi.get(self, "is_panorama_managed")
 
     @is_panorama_managed.setter
-    def is_panorama_managed(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]]):
+    def is_panorama_managed(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]]):
         pulumi.set(self, "is_panorama_managed", value)
 
     @_builtins.property
     @pulumi.getter(name="isStrataCloudManaged")
-    def is_strata_cloud_managed(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]]:
+    def is_strata_cloud_managed(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]]:
         """
         Strata Cloud Managed: Default is False. Default will be CloudSec managed
         """
         return pulumi.get(self, "is_strata_cloud_managed")
 
     @is_strata_cloud_managed.setter
-    def is_strata_cloud_managed(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]]):
+    def is_strata_cloud_managed(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]]):
         pulumi.set(self, "is_strata_cloud_managed", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="panEtag")
-    def pan_etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pan_etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         panEtag info
         """
         return pulumi.get(self, "pan_etag")
 
     @pan_etag.setter
-    def pan_etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pan_etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pan_etag", value)
 
     @_builtins.property
     @pulumi.getter(name="panoramaConfig")
-    def panorama_config(self) -> Optional[pulumi.Input['PanoramaConfigArgs']]:
+    def panorama_config(self) -> pulumi.Input[Optional['PanoramaConfigArgs']]:
         """
         Panorama Configuration
         """
         return pulumi.get(self, "panorama_config")
 
     @panorama_config.setter
-    def panorama_config(self, value: Optional[pulumi.Input['PanoramaConfigArgs']]):
+    def panorama_config(self, value: pulumi.Input[Optional['PanoramaConfigArgs']]):
         pulumi.set(self, "panorama_config", value)
 
     @_builtins.property
     @pulumi.getter(name="strataCloudManagerConfig")
-    def strata_cloud_manager_config(self) -> Optional[pulumi.Input['StrataCloudManagerConfigArgs']]:
+    def strata_cloud_manager_config(self) -> pulumi.Input[Optional['StrataCloudManagerConfigArgs']]:
         """
         Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
         """
         return pulumi.get(self, "strata_cloud_manager_config")
 
     @strata_cloud_manager_config.setter
-    def strata_cloud_manager_config(self, value: Optional[pulumi.Input['StrataCloudManagerConfigArgs']]):
+    def strata_cloud_manager_config(self, value: pulumi.Input[Optional['StrataCloudManagerConfigArgs']]):
         pulumi.set(self, "strata_cloud_manager_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -285,22 +285,22 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rulestack: Optional[pulumi.Input[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
-                 is_panorama_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 is_strata_cloud_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_details: Optional[pulumi.Input[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 panorama_config: Optional[pulumi.Input[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
-                 plan_data: Optional[pulumi.Input[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strata_cloud_manager_config: Optional[pulumi.Input[Union['StrataCloudManagerConfigArgs', 'StrataCloudManagerConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_rulestack: pulumi.Input[Optional[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
+                 is_panorama_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 is_strata_cloud_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_details: pulumi.Input[Optional[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 panorama_config: pulumi.Input[Optional[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
+                 plan_data: pulumi.Input[Optional[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strata_cloud_manager_config: pulumi.Input[Optional[Union['StrataCloudManagerConfigArgs', 'StrataCloudManagerConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         PaloAltoNetworks Firewall
@@ -308,7 +308,6 @@ class Firewall(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,7 +341,6 @@ class Firewall(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,22 +356,22 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rulestack: Optional[pulumi.Input[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
-                 is_panorama_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 is_strata_cloud_managed: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_details: Optional[pulumi.Input[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 pan_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 panorama_config: Optional[pulumi.Input[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
-                 plan_data: Optional[pulumi.Input[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strata_cloud_manager_config: Optional[pulumi.Input[Union['StrataCloudManagerConfigArgs', 'StrataCloudManagerConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_rulestack: pulumi.Input[Optional[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
+                 is_panorama_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 is_strata_cloud_managed: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_details: pulumi.Input[Optional[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 pan_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 panorama_config: pulumi.Input[Optional[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
+                 plan_data: pulumi.Input[Optional[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strata_cloud_manager_config: pulumi.Input[Optional[Union['StrataCloudManagerConfigArgs', 'StrataCloudManagerConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

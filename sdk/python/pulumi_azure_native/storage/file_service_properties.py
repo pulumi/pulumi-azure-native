@@ -24,10 +24,10 @@ class FileServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
-                 file_services_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_settings: Optional[pulumi.Input['ProtocolSettingsArgs']] = None,
-                 share_delete_retention_policy: Optional[pulumi.Input['DeleteRetentionPolicyArgs']] = None):
+                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
+                 file_services_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_settings: pulumi.Input[Optional['ProtocolSettingsArgs']] = None,
+                 share_delete_retention_policy: pulumi.Input[Optional['DeleteRetentionPolicyArgs']] = None):
         """
         The set of arguments for constructing a FileServiceProperties resource.
 
@@ -75,50 +75,50 @@ class FileServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['CorsRulesArgs']]:
+    def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
         """
         Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['CorsRulesArgs']]):
+    def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="fileServicesName")
-    def file_services_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_services_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file Service within the specified storage account. File Service Name must be "default"
         """
         return pulumi.get(self, "file_services_name")
 
     @file_services_name.setter
-    def file_services_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_services_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_services_name", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolSettings")
-    def protocol_settings(self) -> Optional[pulumi.Input['ProtocolSettingsArgs']]:
+    def protocol_settings(self) -> pulumi.Input[Optional['ProtocolSettingsArgs']]:
         """
         Protocol settings for file service
         """
         return pulumi.get(self, "protocol_settings")
 
     @protocol_settings.setter
-    def protocol_settings(self, value: Optional[pulumi.Input['ProtocolSettingsArgs']]):
+    def protocol_settings(self, value: pulumi.Input[Optional['ProtocolSettingsArgs']]):
         pulumi.set(self, "protocol_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="shareDeleteRetentionPolicy")
-    def share_delete_retention_policy(self) -> Optional[pulumi.Input['DeleteRetentionPolicyArgs']]:
+    def share_delete_retention_policy(self) -> pulumi.Input[Optional['DeleteRetentionPolicyArgs']]:
         """
         The file service properties for share soft delete.
         """
         return pulumi.get(self, "share_delete_retention_policy")
 
     @share_delete_retention_policy.setter
-    def share_delete_retention_policy(self, value: Optional[pulumi.Input['DeleteRetentionPolicyArgs']]):
+    def share_delete_retention_policy(self, value: pulumi.Input[Optional['DeleteRetentionPolicyArgs']]):
         pulumi.set(self, "share_delete_retention_policy", value)
 
 
@@ -128,12 +128,12 @@ class FileServiceProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 file_services_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_settings: Optional[pulumi.Input[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 file_services_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_settings: pulumi.Input[Optional[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_delete_retention_policy: pulumi.Input[Optional[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  __props__=None):
         """
         The properties of File services in storage account.
@@ -141,7 +141,6 @@ class FileServiceProperties(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class FileServiceProperties(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FileServicePropertiesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class FileServiceProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 file_services_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_settings: Optional[pulumi.Input[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 file_services_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_settings: pulumi.Input[Optional[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_delete_retention_policy: pulumi.Input[Optional[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

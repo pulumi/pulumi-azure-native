@@ -157,7 +157,6 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
@@ -179,9 +178,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the storage sync service.
@@ -189,7 +188,6 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

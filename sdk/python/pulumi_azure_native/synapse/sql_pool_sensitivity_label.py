@@ -26,12 +26,12 @@ class SqlPoolSensitivityLabelArgs:
                  sql_pool_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
-                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None):
+                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
+                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolSensitivityLabel resource.
 
@@ -140,71 +140,71 @@ class SqlPoolSensitivityLabelArgs:
 
     @_builtins.property
     @pulumi.getter(name="informationType")
-    def information_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def information_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The information type.
         """
         return pulumi.get(self, "information_type")
 
     @information_type.setter
-    def information_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def information_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "information_type", value)
 
     @_builtins.property
     @pulumi.getter(name="informationTypeId")
-    def information_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def information_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The information type ID.
         """
         return pulumi.get(self, "information_type_id")
 
     @information_type_id.setter
-    def information_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def information_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "information_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="labelId")
-    def label_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label ID.
         """
         return pulumi.get(self, "label_id")
 
     @label_id.setter
-    def label_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_id", value)
 
     @_builtins.property
     @pulumi.getter(name="labelName")
-    def label_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label name.
         """
         return pulumi.get(self, "label_name")
 
     @label_name.setter
-    def label_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input['SensitivityLabelRank']]:
+    def rank(self) -> pulumi.Input[Optional['SensitivityLabelRank']]:
         return pulumi.get(self, "rank")
 
     @rank.setter
-    def rank(self, value: Optional[pulumi.Input['SensitivityLabelRank']]):
+    def rank(self, value: pulumi.Input[Optional['SensitivityLabelRank']]):
         pulumi.set(self, "rank", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLabelSource")
-    def sensitivity_label_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sensitivity_label_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the sensitivity label.
         """
         return pulumi.get(self, "sensitivity_label_source")
 
     @sensitivity_label_source.setter
-    def sensitivity_label_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sensitivity_label_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sensitivity_label_source", value)
 
 
@@ -214,18 +214,18 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A sensitivity label.
@@ -233,7 +233,6 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +261,6 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SqlPoolSensitivityLabelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,18 +276,18 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

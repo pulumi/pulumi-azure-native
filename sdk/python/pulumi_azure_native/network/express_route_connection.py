@@ -26,14 +26,14 @@ class ExpressRouteConnectionInitArgs:
                  express_route_gateway_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional['RoutingConfigurationArgs']] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ExpressRouteConnection resource.
 
@@ -121,98 +121,98 @@ class ExpressRouteConnectionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization key to establish the connection.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionName")
-    def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection subresource.
         """
         return pulumi.get(self, "connection_name")
 
     @connection_name.setter
-    def connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_internet_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
 
     @enable_internet_security.setter
-    def enable_internet_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_internet_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_internet_security", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateLinkFastPath")
-    def enable_private_link_fast_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_link_fast_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         """
         return pulumi.get(self, "enable_private_link_fast_path")
 
     @enable_private_link_fast_path.setter
-    def enable_private_link_fast_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_link_fast_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_link_fast_path", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteGatewayBypass")
-    def express_route_gateway_bypass(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def express_route_gateway_bypass(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable FastPath to vWan Firewall hub.
         """
         return pulumi.get(self, "express_route_gateway_bypass")
 
     @express_route_gateway_bypass.setter
-    def express_route_gateway_bypass(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def express_route_gateway_bypass(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "express_route_gateway_bypass", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+    def routing_configuration(self) -> pulumi.Input[Optional['RoutingConfigurationArgs']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+    def routing_configuration(self, value: pulumi.Input[Optional['RoutingConfigurationArgs']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def routing_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The routing weight associated to the connection.
         """
         return pulumi.get(self, "routing_weight")
 
     @routing_weight.setter
-    def routing_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def routing_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "routing_weight", value)
 
 
@@ -222,18 +222,18 @@ class ExpressRouteConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_circuit_peering: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         ExpressRouteConnection resource.
@@ -241,7 +241,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +270,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ExpressRouteConnectionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,18 +285,18 @@ class ExpressRouteConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
-                 express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
-                 routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_link_fast_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_circuit_peering: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
+                 express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
+                 routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

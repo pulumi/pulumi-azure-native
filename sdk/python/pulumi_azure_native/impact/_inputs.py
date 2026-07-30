@@ -36,21 +36,21 @@ __all__ = [
     'PerformanceArgsDict',
     'SourceOrTargetArgs',
     'SourceOrTargetArgsDict',
-    'WorkloadImpactPropertiesArgs',
-    'WorkloadImpactPropertiesArgsDict',
     'WorkloadArgs',
     'WorkloadArgsDict',
+    'WorkloadImpactPropertiesArgs',
+    'WorkloadImpactPropertiesArgsDict',
 ]
 
 class ClientIncidentDetailsArgsDict(TypedDict):
     """
     Client incident details ex: incidentId , incident source
     """
-    client_incident_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_incident_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client incident id. ex : id of the incident created to investigate and address the impact if any.
     """
-    client_incident_source: NotRequired[pulumi.Input[Union[_builtins.str, 'IncidentSource']]]
+    client_incident_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IncidentSource']]]]
     """
     Client incident source. ex : source system name where the incident is created
     """
@@ -58,8 +58,8 @@ class ClientIncidentDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ClientIncidentDetailsArgs:
     def __init__(__self__, *,
-                 client_incident_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_incident_source: Optional[pulumi.Input[Union[_builtins.str, 'IncidentSource']]] = None):
+                 client_incident_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_incident_source: pulumi.Input[Optional[Union[_builtins.str, 'IncidentSource']]] = None):
         """
         Client incident details ex: incidentId , incident source
 
@@ -73,26 +73,26 @@ class ClientIncidentDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientIncidentId")
-    def client_incident_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_incident_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client incident id. ex : id of the incident created to investigate and address the impact if any.
         """
         return pulumi.get(self, "client_incident_id")
 
     @client_incident_id.setter
-    def client_incident_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_incident_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_incident_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientIncidentSource")
-    def client_incident_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IncidentSource']]]:
+    def client_incident_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IncidentSource']]]:
         """
         Client incident source. ex : source system name where the incident is created
         """
         return pulumi.get(self, "client_incident_source")
 
     @client_incident_source.setter
-    def client_incident_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IncidentSource']]]):
+    def client_incident_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IncidentSource']]]):
         pulumi.set(self, "client_incident_source", value)
 
 
@@ -100,19 +100,19 @@ class ConnectivityArgsDict(TypedDict):
     """
     Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource could be VM or the network. In such cases, the connectivity field will have the details about both VM and network.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port number for the connection
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'Protocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]]
     """
     Protocol used for the connection
     """
-    source: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
+    source: NotRequired[pulumi.Input[Optional['SourceOrTargetArgsDict']]]
     """
     Source from which the connection was attempted
     """
-    target: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['SourceOrTargetArgsDict']]]
     """
     target which connection was attempted
     """
@@ -120,10 +120,10 @@ class ConnectivityArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectivityArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]] = None,
-                 source: Optional[pulumi.Input['SourceOrTargetArgs']] = None,
-                 target: Optional[pulumi.Input['SourceOrTargetArgs']] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None,
+                 source: pulumi.Input[Optional['SourceOrTargetArgs']] = None,
+                 target: pulumi.Input[Optional['SourceOrTargetArgs']] = None):
         """
         Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource could be VM or the network. In such cases, the connectivity field will have the details about both VM and network.
 
@@ -143,50 +143,50 @@ class ConnectivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port number for the connection
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]:
         """
         Protocol used for the connection
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['SourceOrTargetArgs']]:
+    def source(self) -> pulumi.Input[Optional['SourceOrTargetArgs']]:
         """
         Source from which the connection was attempted
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['SourceOrTargetArgs']]):
+    def source(self, value: pulumi.Input[Optional['SourceOrTargetArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['SourceOrTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['SourceOrTargetArgs']]:
         """
         target which connection was attempted
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['SourceOrTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['SourceOrTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -279,11 +279,11 @@ class ErrorDetailPropertiesArgsDict(TypedDict):
     """
     ARM error code and error message associated with the impact
     """
-    error_code: NotRequired[pulumi.Input[_builtins.str]]
+    error_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Error code associated with the impact.
     """
-    error_message: NotRequired[pulumi.Input[_builtins.str]]
+    error_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Error Message associated with the impact
     """
@@ -291,8 +291,8 @@ class ErrorDetailPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ErrorDetailPropertiesArgs:
     def __init__(__self__, *,
-                 error_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ARM error code and error message associated with the impact
 
@@ -306,26 +306,26 @@ class ErrorDetailPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Error code associated with the impact.
         """
         return pulumi.get(self, "error_code")
 
     @error_code.setter
-    def error_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_code", value)
 
     @_builtins.property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Error Message associated with the impact
         """
         return pulumi.get(self, "error_message")
 
     @error_message.setter
-    def error_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_message", value)
 
 
@@ -397,7 +397,7 @@ class ImpactDetailsArgsDict(TypedDict):
     """
     Time at which impact was started according to reported impact.
     """
-    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time at which impact was ended according to reported impact.
     """
@@ -408,7 +408,7 @@ class ImpactDetailsArgs:
                  impact_id: pulumi.Input[_builtins.str],
                  impacted_resource_id: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         details of of the impact for which insight has been generated.
 
@@ -461,14 +461,14 @@ class ImpactDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which impact was ended according to reported impact.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
 
@@ -496,19 +496,19 @@ class InsightPropertiesArgsDict(TypedDict):
     """
     additional details of the insight.
     """
-    event_id: NotRequired[pulumi.Input[_builtins.str]]
+    event_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the event that has been correlated with this insight. This can be used to aggregate insights for the same event.
     """
-    event_time: NotRequired[pulumi.Input[_builtins.str]]
+    event_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time of the event, which has been correlated the impact.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier that can be used to group similar insights.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     status of the insight. example resolved, repaired, other.
     """
@@ -521,10 +521,10 @@ class InsightPropertiesArgs:
                  impact: pulumi.Input['ImpactDetailsArgs'],
                  insight_unique_id: pulumi.Input[_builtins.str],
                  additional_details: Optional[Any] = None,
-                 event_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Impact category properties.
 
@@ -615,50 +615,50 @@ class InsightPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the event that has been correlated with this insight. This can be used to aggregate insights for the same event.
         """
         return pulumi.get(self, "event_id")
 
     @event_id.setter
-    def event_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTime")
-    def event_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time of the event, which has been correlated the impact.
         """
         return pulumi.get(self, "event_time")
 
     @event_time.setter
-    def event_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_time", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier that can be used to group similar insights.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         status of the insight. example resolved, repaired, other.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -666,23 +666,23 @@ class PerformanceArgsDict(TypedDict):
     """
     Details about impacted performance metrics. Applicable for performance related impact
     """
-    actual: NotRequired[pulumi.Input[_builtins.float]]
+    actual: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Observed value for the metric
     """
-    expected: NotRequired[pulumi.Input[_builtins.float]]
+    expected: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Threshold value for the metric
     """
-    expected_value_range: NotRequired[pulumi.Input['ExpectedValueRangeArgsDict']]
+    expected_value_range: NotRequired[pulumi.Input[Optional['ExpectedValueRangeArgsDict']]]
     """
     Max and Min Threshold values for the metric
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Metric examples:  Disk, IOPs, CPU, GPU, Memory, details can be found from /impactCategories API
     """
-    unit: NotRequired[pulumi.Input[Union[_builtins.str, 'MetricUnit']]]
+    unit: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MetricUnit']]]]
     """
     Unit of the metric ex: Bytes, Percentage, Count, Seconds, Milliseconds, Bytes/Second, Count/Second, etc.., Other
     """
@@ -690,11 +690,11 @@ class PerformanceArgsDict(TypedDict):
 @pulumi.input_type
 class PerformanceArgs:
     def __init__(__self__, *,
-                 actual: Optional[pulumi.Input[_builtins.float]] = None,
-                 expected: Optional[pulumi.Input[_builtins.float]] = None,
-                 expected_value_range: Optional[pulumi.Input['ExpectedValueRangeArgs']] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[Union[_builtins.str, 'MetricUnit']]] = None):
+                 actual: pulumi.Input[Optional[_builtins.float]] = None,
+                 expected: pulumi.Input[Optional[_builtins.float]] = None,
+                 expected_value_range: pulumi.Input[Optional['ExpectedValueRangeArgs']] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[Union[_builtins.str, 'MetricUnit']]] = None):
         """
         Details about impacted performance metrics. Applicable for performance related impact
 
@@ -717,62 +717,62 @@ class PerformanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actual(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def actual(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Observed value for the metric
         """
         return pulumi.get(self, "actual")
 
     @actual.setter
-    def actual(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def actual(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "actual", value)
 
     @_builtins.property
     @pulumi.getter
-    def expected(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def expected(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Threshold value for the metric
         """
         return pulumi.get(self, "expected")
 
     @expected.setter
-    def expected(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def expected(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "expected", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedValueRange")
-    def expected_value_range(self) -> Optional[pulumi.Input['ExpectedValueRangeArgs']]:
+    def expected_value_range(self) -> pulumi.Input[Optional['ExpectedValueRangeArgs']]:
         """
         Max and Min Threshold values for the metric
         """
         return pulumi.get(self, "expected_value_range")
 
     @expected_value_range.setter
-    def expected_value_range(self, value: Optional[pulumi.Input['ExpectedValueRangeArgs']]):
+    def expected_value_range(self, value: pulumi.Input[Optional['ExpectedValueRangeArgs']]):
         pulumi.set(self, "expected_value_range", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Metric examples:  Disk, IOPs, CPU, GPU, Memory, details can be found from /impactCategories API
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MetricUnit']]]:
+    def unit(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MetricUnit']]]:
         """
         Unit of the metric ex: Bytes, Percentage, Count, Seconds, Milliseconds, Bytes/Second, Count/Second, etc.., Other
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MetricUnit']]]):
+    def unit(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MetricUnit']]]):
         pulumi.set(self, "unit", value)
 
 
@@ -780,7 +780,7 @@ class SourceOrTargetArgsDict(TypedDict):
     """
     Resource details
     """
-    azure_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    azure_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
     """
@@ -788,7 +788,7 @@ class SourceOrTargetArgsDict(TypedDict):
 @pulumi.input_type
 class SourceOrTargetArgs:
     def __init__(__self__, *,
-                 azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource details
 
@@ -799,15 +799,69 @@ class SourceOrTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureResourceId")
-    def azure_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
         """
         return pulumi.get(self, "azure_resource_id")
 
     @azure_resource_id.setter
-    def azure_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_resource_id", value)
+
+
+class WorkloadArgsDict(TypedDict):
+    """
+    Information about the impacted workload
+    """
+    context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    the scenario for the workload
+    """
+    toolset: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Toolset']]]]
+    """
+    Tool used to interact with Azure. SDK, AzPortal, etc.., Other
+    """
+
+@pulumi.input_type
+class WorkloadArgs:
+    def __init__(__self__, *,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 toolset: pulumi.Input[Optional[Union[_builtins.str, 'Toolset']]] = None):
+        """
+        Information about the impacted workload
+
+        :param pulumi.Input[_builtins.str] context: the scenario for the workload
+        :param pulumi.Input[Union[_builtins.str, 'Toolset']] toolset: Tool used to interact with Azure. SDK, AzPortal, etc.., Other
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if toolset is not None:
+            pulumi.set(__self__, "toolset", toolset)
+
+    @_builtins.property
+    @pulumi.getter
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        the scenario for the workload
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "context", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def toolset(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Toolset']]]:
+        """
+        Tool used to interact with Azure. SDK, AzPortal, etc.., Other
+        """
+        return pulumi.get(self, "toolset")
+
+    @toolset.setter
+    def toolset(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Toolset']]]):
+        pulumi.set(self, "toolset", value)
 
 
 class WorkloadImpactPropertiesArgsDict(TypedDict):
@@ -824,49 +878,49 @@ class WorkloadImpactPropertiesArgsDict(TypedDict):
     """
     start_date_time: pulumi.Input[_builtins.str]
     """
-    Time at which impact was observed 
+    Time at which impact was observed
     """
     additional_properties: NotRequired[Any]
     """
     Additional fields related to impact, applicable fields per resource type are list under /impactCategories API
     """
-    arm_correlation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    arm_correlation_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The ARM correlation ids, this is important field for control plane related impacts
     """
-    client_incident_details: NotRequired[pulumi.Input['ClientIncidentDetailsArgsDict']]
+    client_incident_details: NotRequired[pulumi.Input[Optional['ClientIncidentDetailsArgsDict']]]
     """
     Client incident details ex: incidentId , incident source
     """
-    confidence_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]]
+    confidence_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ConfidenceLevel']]]]
     """
     Degree of confidence on the impact being a platform issue
     """
-    connectivity: NotRequired[pulumi.Input['ConnectivityArgsDict']]
+    connectivity: NotRequired[pulumi.Input[Optional['ConnectivityArgsDict']]]
     """
     Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
     """
-    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Time at which impact has ended 
+    Time at which impact has ended
     """
-    error_details: NotRequired[pulumi.Input['ErrorDetailPropertiesArgsDict']]
+    error_details: NotRequired[pulumi.Input[Optional['ErrorDetailPropertiesArgsDict']]]
     """
     ARM error code and error message associated with the impact
     """
-    impact_description: NotRequired[pulumi.Input[_builtins.str]]
+    impact_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A detailed description of the impact
     """
-    impact_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    impact_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this field to group impacts
     """
-    performance: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerformanceArgsDict']]]]
+    performance: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PerformanceArgsDict']]]]]
     """
     Details about performance issue. Applicable for performance impacts.
     """
-    workload: NotRequired[pulumi.Input['WorkloadArgsDict']]
+    workload: NotRequired[pulumi.Input[Optional['WorkloadArgsDict']]]
     """
     Information about the impacted workload
     """
@@ -878,28 +932,28 @@ class WorkloadImpactPropertiesArgs:
                  impacted_resource_id: pulumi.Input[_builtins.str],
                  start_date_time: pulumi.Input[_builtins.str],
                  additional_properties: Optional[Any] = None,
-                 arm_correlation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_incident_details: Optional[pulumi.Input['ClientIncidentDetailsArgs']] = None,
-                 confidence_level: Optional[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]] = None,
-                 connectivity: Optional[pulumi.Input['ConnectivityArgs']] = None,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_details: Optional[pulumi.Input['ErrorDetailPropertiesArgs']] = None,
-                 impact_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 impact_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance: Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceArgs']]]] = None,
-                 workload: Optional[pulumi.Input['WorkloadArgs']] = None):
+                 arm_correlation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_incident_details: pulumi.Input[Optional['ClientIncidentDetailsArgs']] = None,
+                 confidence_level: pulumi.Input[Optional[Union[_builtins.str, 'ConfidenceLevel']]] = None,
+                 connectivity: pulumi.Input[Optional['ConnectivityArgs']] = None,
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_details: pulumi.Input[Optional['ErrorDetailPropertiesArgs']] = None,
+                 impact_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 impact_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance: pulumi.Input[Optional[Sequence[pulumi.Input['PerformanceArgs']]]] = None,
+                 workload: pulumi.Input[Optional['WorkloadArgs']] = None):
         """
         Workload impact properties
 
         :param pulumi.Input[_builtins.str] impact_category: Category of the impact,  details can found from /impactCategories API
         :param pulumi.Input[_builtins.str] impacted_resource_id: Azure resource id of the impacted resource
-        :param pulumi.Input[_builtins.str] start_date_time: Time at which impact was observed 
+        :param pulumi.Input[_builtins.str] start_date_time: Time at which impact was observed
         :param Any additional_properties: Additional fields related to impact, applicable fields per resource type are list under /impactCategories API
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arm_correlation_ids: The ARM correlation ids, this is important field for control plane related impacts
         :param pulumi.Input['ClientIncidentDetailsArgs'] client_incident_details: Client incident details ex: incidentId , incident source
         :param pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']] confidence_level: Degree of confidence on the impact being a platform issue
         :param pulumi.Input['ConnectivityArgs'] connectivity: Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
-        :param pulumi.Input[_builtins.str] end_date_time: Time at which impact has ended 
+        :param pulumi.Input[_builtins.str] end_date_time: Time at which impact has ended
         :param pulumi.Input['ErrorDetailPropertiesArgs'] error_details: ARM error code and error message associated with the impact
         :param pulumi.Input[_builtins.str] impact_description: A detailed description of the impact
         :param pulumi.Input[_builtins.str] impact_group_id: Use this field to group impacts
@@ -960,7 +1014,7 @@ class WorkloadImpactPropertiesArgs:
     @pulumi.getter(name="startDateTime")
     def start_date_time(self) -> pulumi.Input[_builtins.str]:
         """
-        Time at which impact was observed 
+        Time at which impact was observed
         """
         return pulumi.get(self, "start_date_time")
 
@@ -982,176 +1036,122 @@ class WorkloadImpactPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="armCorrelationIds")
-    def arm_correlation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def arm_correlation_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ARM correlation ids, this is important field for control plane related impacts
         """
         return pulumi.get(self, "arm_correlation_ids")
 
     @arm_correlation_ids.setter
-    def arm_correlation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def arm_correlation_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "arm_correlation_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="clientIncidentDetails")
-    def client_incident_details(self) -> Optional[pulumi.Input['ClientIncidentDetailsArgs']]:
+    def client_incident_details(self) -> pulumi.Input[Optional['ClientIncidentDetailsArgs']]:
         """
         Client incident details ex: incidentId , incident source
         """
         return pulumi.get(self, "client_incident_details")
 
     @client_incident_details.setter
-    def client_incident_details(self, value: Optional[pulumi.Input['ClientIncidentDetailsArgs']]):
+    def client_incident_details(self, value: pulumi.Input[Optional['ClientIncidentDetailsArgs']]):
         pulumi.set(self, "client_incident_details", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceLevel")
-    def confidence_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]]:
+    def confidence_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConfidenceLevel']]]:
         """
         Degree of confidence on the impact being a platform issue
         """
         return pulumi.get(self, "confidence_level")
 
     @confidence_level.setter
-    def confidence_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]]):
+    def confidence_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConfidenceLevel']]]):
         pulumi.set(self, "confidence_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def connectivity(self) -> Optional[pulumi.Input['ConnectivityArgs']]:
+    def connectivity(self) -> pulumi.Input[Optional['ConnectivityArgs']]:
         """
         Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
         """
         return pulumi.get(self, "connectivity")
 
     @connectivity.setter
-    def connectivity(self, value: Optional[pulumi.Input['ConnectivityArgs']]):
+    def connectivity(self, value: pulumi.Input[Optional['ConnectivityArgs']]):
         pulumi.set(self, "connectivity", value)
 
     @_builtins.property
     @pulumi.getter(name="endDateTime")
-    def end_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Time at which impact has ended 
+        Time at which impact has ended
         """
         return pulumi.get(self, "end_date_time")
 
     @end_date_time.setter
-    def end_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Optional[pulumi.Input['ErrorDetailPropertiesArgs']]:
+    def error_details(self) -> pulumi.Input[Optional['ErrorDetailPropertiesArgs']]:
         """
         ARM error code and error message associated with the impact
         """
         return pulumi.get(self, "error_details")
 
     @error_details.setter
-    def error_details(self, value: Optional[pulumi.Input['ErrorDetailPropertiesArgs']]):
+    def error_details(self, value: pulumi.Input[Optional['ErrorDetailPropertiesArgs']]):
         pulumi.set(self, "error_details", value)
 
     @_builtins.property
     @pulumi.getter(name="impactDescription")
-    def impact_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def impact_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A detailed description of the impact
         """
         return pulumi.get(self, "impact_description")
 
     @impact_description.setter
-    def impact_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def impact_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "impact_description", value)
 
     @_builtins.property
     @pulumi.getter(name="impactGroupId")
-    def impact_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def impact_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this field to group impacts
         """
         return pulumi.get(self, "impact_group_id")
 
     @impact_group_id.setter
-    def impact_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def impact_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "impact_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def performance(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceArgs']]]]:
+    def performance(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PerformanceArgs']]]]:
         """
         Details about performance issue. Applicable for performance impacts.
         """
         return pulumi.get(self, "performance")
 
     @performance.setter
-    def performance(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceArgs']]]]):
+    def performance(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PerformanceArgs']]]]):
         pulumi.set(self, "performance", value)
 
     @_builtins.property
     @pulumi.getter
-    def workload(self) -> Optional[pulumi.Input['WorkloadArgs']]:
+    def workload(self) -> pulumi.Input[Optional['WorkloadArgs']]:
         """
         Information about the impacted workload
         """
         return pulumi.get(self, "workload")
 
     @workload.setter
-    def workload(self, value: Optional[pulumi.Input['WorkloadArgs']]):
+    def workload(self, value: pulumi.Input[Optional['WorkloadArgs']]):
         pulumi.set(self, "workload", value)
-
-
-class WorkloadArgsDict(TypedDict):
-    """
-    Information about the impacted workload
-    """
-    context: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    the scenario for the workload
-    """
-    toolset: NotRequired[pulumi.Input[Union[_builtins.str, 'Toolset']]]
-    """
-    Tool used to interact with Azure. SDK, AzPortal, etc.., Other
-    """
-
-@pulumi.input_type
-class WorkloadArgs:
-    def __init__(__self__, *,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 toolset: Optional[pulumi.Input[Union[_builtins.str, 'Toolset']]] = None):
-        """
-        Information about the impacted workload
-
-        :param pulumi.Input[_builtins.str] context: the scenario for the workload
-        :param pulumi.Input[Union[_builtins.str, 'Toolset']] toolset: Tool used to interact with Azure. SDK, AzPortal, etc.., Other
-        """
-        if context is not None:
-            pulumi.set(__self__, "context", context)
-        if toolset is not None:
-            pulumi.set(__self__, "toolset", toolset)
-
-    @_builtins.property
-    @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        the scenario for the workload
-        """
-        return pulumi.get(self, "context")
-
-    @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "context", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def toolset(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Toolset']]]:
-        """
-        Tool used to interact with Azure. SDK, AzPortal, etc.., Other
-        """
-        return pulumi.get(self, "toolset")
-
-    @toolset.setter
-    def toolset(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Toolset']]]):
-        pulumi.set(self, "toolset", value)
 
 

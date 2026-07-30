@@ -28,16 +28,16 @@ class DomainArgs:
                  contact_registrant: pulumi.Input['ContactArgs'],
                  contact_tech: pulumi.Input['ContactArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_type: Optional[pulumi.Input['DnsType']] = None,
-                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_dns_type: Optional[pulumi.Input['DnsType']] = None):
+                 auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_type: pulumi.Input[Optional['DnsType']] = None,
+                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_dns_type: pulumi.Input[Optional['DnsType']] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -160,119 +160,119 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="authCode")
-    def auth_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "auth_code")
 
     @auth_code.setter
-    def auth_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_code", value)
 
     @_builtins.property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_renew(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "auto_renew")
 
     @auto_renew.setter
-    def auto_renew(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_renew(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_renew", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsType")
-    def dns_type(self) -> Optional[pulumi.Input['DnsType']]:
+    def dns_type(self) -> pulumi.Input[Optional['DnsType']]:
         """
         Current DNS type
         """
         return pulumi.get(self, "dns_type")
 
     @dns_type.setter
-    def dns_type(self, value: Optional[pulumi.Input['DnsType']]):
+    def dns_type(self, value: pulumi.Input[Optional['DnsType']]):
         pulumi.set(self, "dns_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZoneId")
-    def dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure DNS Zone to use
         """
         return pulumi.get(self, "dns_zone_id")
 
     @dns_zone_id.setter
-    def dns_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def privacy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def privacy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "privacy")
 
     @privacy.setter
-    def privacy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def privacy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "privacy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDnsType")
-    def target_dns_type(self) -> Optional[pulumi.Input['DnsType']]:
+    def target_dns_type(self) -> pulumi.Input[Optional['DnsType']]:
         """
         Target DNS type (would be used for migration)
         """
         return pulumi.get(self, "target_dns_type")
 
     @target_dns_type.setter
-    def target_dns_type(self, value: Optional[pulumi.Input['DnsType']]):
+    def target_dns_type(self, value: pulumi.Input[Optional['DnsType']]):
         pulumi.set(self, "target_dns_type", value)
 
 
@@ -282,22 +282,22 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
-                 consent: Optional[pulumi.Input[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
-                 contact_admin: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_billing: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_registrant: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_tech: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 dns_type: Optional[pulumi.Input['DnsType']] = None,
-                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_dns_type: Optional[pulumi.Input['DnsType']] = None,
+                 auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 consent: pulumi.Input[Optional[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
+                 contact_admin: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_billing: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_registrant: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_tech: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 dns_type: pulumi.Input[Optional['DnsType']] = None,
+                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_dns_type: pulumi.Input[Optional['DnsType']] = None,
                  __props__=None):
         """
         Information about a domain.
@@ -305,7 +305,6 @@ class Domain(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,7 +337,6 @@ class Domain(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,22 +352,22 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
-                 consent: Optional[pulumi.Input[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
-                 contact_admin: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_billing: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_registrant: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 contact_tech: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
-                 dns_type: Optional[pulumi.Input['DnsType']] = None,
-                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_dns_type: Optional[pulumi.Input['DnsType']] = None,
+                 auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 consent: pulumi.Input[Optional[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
+                 contact_admin: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_billing: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_registrant: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_tech: pulumi.Input[Optional[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 dns_type: pulumi.Input[Optional['DnsType']] = None,
+                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_dns_type: pulumi.Input[Optional['DnsType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -597,7 +595,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="readyForDnsRecordManagement")
     def ready_for_dns_record_management(self) -> pulumi.Output[_builtins.bool]:
         """
-        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
          it is hosted on name servers Azure has programmatic access to.
         """
         return pulumi.get(self, "ready_for_dns_record_management")

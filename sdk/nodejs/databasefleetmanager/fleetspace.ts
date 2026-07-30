@@ -110,11 +110,11 @@ export interface FleetspaceArgs {
     /**
      * Name of the fleetspace.
      */
-    fleetspaceName?: pulumi.Input<string>;
+    fleetspaceName?: pulumi.Input<string | undefined>;
     /**
      * A Fleetspace properties.
      */
-    properties?: pulumi.Input<inputs.databasefleetmanager.FleetspacePropertiesArgs>;
+    properties?: pulumi.Input<inputs.databasefleetmanager.FleetspacePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

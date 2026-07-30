@@ -139,19 +139,19 @@ export interface NetworkSecurityPerimeterAssociationArgs {
     /**
      * Access mode on the association.
      */
-    accessMode?: pulumi.Input<string | enums.network.AssociationAccessMode>;
+    accessMode?: pulumi.Input<string | enums.network.AssociationAccessMode | undefined>;
     /**
      * The name of the NSP association.
      */
-    associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */
@@ -159,11 +159,11 @@ export interface NetworkSecurityPerimeterAssociationArgs {
     /**
      * The PaaS resource to be associated.
      */
-    privateLinkResource?: pulumi.Input<inputs.network.SubResourceArgs>;
+    privateLinkResource?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * Profile id to which the PaaS resource is associated.
      */
-    profile?: pulumi.Input<inputs.network.SubResourceArgs>;
+    profile?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -171,5 +171,5 @@ export interface NetworkSecurityPerimeterAssociationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

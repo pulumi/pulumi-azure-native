@@ -133,7 +133,6 @@ def get_sync_group(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
     :param _builtins.str sync_group_name: Name of Sync Group resource.
@@ -153,9 +152,9 @@ def get_sync_group(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
-def get_sync_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sync_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Get a given SyncGroup.
@@ -163,7 +162,6 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_sync_service_name: Name of Storage Sync Service resource.

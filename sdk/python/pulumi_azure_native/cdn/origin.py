@@ -24,17 +24,17 @@ class OriginArgs:
                  host_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_approval_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_approval_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Origin resource.
 
@@ -131,134 +131,134 @@ class OriginArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Origin is enabled for load balancing or not
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_port", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def https_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def https_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "https_port", value)
 
     @_builtins.property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_host_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         """
         return pulumi.get(self, "origin_host_header")
 
     @origin_host_header.setter
-    def origin_host_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_host_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_host_header", value)
 
     @_builtins.property
     @pulumi.getter(name="originName")
-    def origin_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the origin which is unique within the endpoint.
         """
         return pulumi.get(self, "origin_name")
 
     @origin_name.setter
-    def origin_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAlias")
-    def private_link_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         """
         return pulumi.get(self, "private_link_alias")
 
     @private_link_alias.setter
-    def private_link_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkApprovalMessage")
-    def private_link_approval_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_approval_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom message to be included in the approval request to connect to the Private Link.
         """
         return pulumi.get(self, "private_link_approval_message")
 
     @private_link_approval_message.setter
-    def private_link_approval_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_approval_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_approval_message", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkLocation")
-    def private_link_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
         """
         return pulumi.get(self, "private_link_location")
 
     @private_link_location.setter
-    def private_link_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_location", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         """
         return pulumi.get(self, "private_link_resource_id")
 
     @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -268,21 +268,21 @@ class Origin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_approval_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_approval_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
@@ -290,7 +290,6 @@ class Origin(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,7 +322,6 @@ class Origin(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,21 +337,21 @@ class Origin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_approval_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_approval_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

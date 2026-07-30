@@ -372,7 +372,6 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
     """
@@ -410,8 +409,8 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         virtual_network_profile=pulumi.get(__ret__, 'virtual_network_profile'),
         workspace_repository_configuration=pulumi.get(__ret__, 'workspace_repository_configuration'),
         workspace_uid=pulumi.get(__ret__, 'workspace_uid'))
-def get_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets a workspace
@@ -419,7 +418,6 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.st
     Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.

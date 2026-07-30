@@ -146,7 +146,6 @@ def get_api_tool(api_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -169,10 +168,10 @@ def get_api_tool(api_id: Optional[_builtins.str] = None,
         operation_id=pulumi.get(__ret__, 'operation_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_tool_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        tool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_tool_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        tool_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiToolResult]:
     """
     Gets the details of the API Tool specified by its identifier.
@@ -180,7 +179,6 @@ def get_api_tool_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

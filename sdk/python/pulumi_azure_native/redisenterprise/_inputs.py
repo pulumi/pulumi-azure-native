@@ -44,7 +44,7 @@ class AccessPolicyAssignmentPropertiesUserArgsDict(TypedDict):
     """
     The user associated with the access policy.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of the user.
     """
@@ -52,7 +52,7 @@ class AccessPolicyAssignmentPropertiesUserArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyAssignmentPropertiesUserArgs:
     def __init__(__self__, *,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The user associated with the access policy.
 
@@ -63,14 +63,14 @@ class AccessPolicyAssignmentPropertiesUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the user.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
 
@@ -78,11 +78,11 @@ class ClusterPropertiesCustomerManagedKeyEncryptionArgsDict(TypedDict):
     """
     All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
     """
-    key_encryption_key_identity: NotRequired[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgsDict']]
+    key_encryption_key_identity: NotRequired[pulumi.Input[Optional['ClusterPropertiesKeyEncryptionKeyIdentityArgsDict']]]
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_encryption_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
     """
@@ -90,8 +90,8 @@ class ClusterPropertiesCustomerManagedKeyEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
     def __init__(__self__, *,
-                 key_encryption_key_identity: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']] = None,
-                 key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_encryption_key_identity: pulumi.Input[Optional['ClusterPropertiesKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
 
@@ -105,26 +105,26 @@ class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
-    def key_encryption_key_identity(self) -> Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]:
+    def key_encryption_key_identity(self) -> pulumi.Input[Optional['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]:
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         """
         return pulumi.get(self, "key_encryption_key_identity")
 
     @key_encryption_key_identity.setter
-    def key_encryption_key_identity(self, value: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]):
+    def key_encryption_key_identity(self, value: pulumi.Input[Optional['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]):
         pulumi.set(self, "key_encryption_key_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyUrl")
-    def key_encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         """
         return pulumi.get(self, "key_encryption_key_url")
 
     @key_encryption_key_url.setter
-    def key_encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_encryption_key_url", value)
 
 
@@ -132,7 +132,7 @@ class ClusterPropertiesEncryptionArgsDict(TypedDict):
     """
     Encryption-at-rest configuration for the cluster.
     """
-    customer_managed_key_encryption: NotRequired[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgsDict']]
+    customer_managed_key_encryption: NotRequired[pulumi.Input[Optional['ClusterPropertiesCustomerManagedKeyEncryptionArgsDict']]]
     """
     All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
     """
@@ -140,7 +140,7 @@ class ClusterPropertiesEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterPropertiesEncryptionArgs:
     def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']] = None):
+                 customer_managed_key_encryption: pulumi.Input[Optional['ClusterPropertiesCustomerManagedKeyEncryptionArgs']] = None):
         """
         Encryption-at-rest configuration for the cluster.
 
@@ -151,14 +151,14 @@ class ClusterPropertiesEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]:
+    def customer_managed_key_encryption(self) -> pulumi.Input[Optional['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]:
         """
         All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
         """
         return pulumi.get(self, "customer_managed_key_encryption")
 
     @customer_managed_key_encryption.setter
-    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]):
+    def customer_managed_key_encryption(self, value: pulumi.Input[Optional['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]):
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 
@@ -166,11 +166,11 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgsDict(TypedDict):
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CmkIdentityType']]]
+    identity_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CmkIdentityType']]]]
     """
     Only userAssignedIdentity is supported in this API version; other types may be supported in the future
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
     """
@@ -178,8 +178,8 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
     def __init__(__self__, *,
-                 identity_type: Optional[pulumi.Input[Union[_builtins.str, 'CmkIdentityType']]] = None,
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_type: pulumi.Input[Optional[Union[_builtins.str, 'CmkIdentityType']]] = None,
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
 
@@ -193,26 +193,26 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CmkIdentityType']]]:
+    def identity_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CmkIdentityType']]]:
         """
         Only userAssignedIdentity is supported in this API version; other types may be supported in the future
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CmkIdentityType']]]):
+    def identity_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CmkIdentityType']]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
@@ -220,11 +220,11 @@ class DatabasePropertiesGeoReplicationArgsDict(TypedDict):
     """
     Optional set of properties to configure geo replication for this database.
     """
-    group_nickname: NotRequired[pulumi.Input[_builtins.str]]
+    group_nickname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name for the group of linked database resources
     """
-    linked_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgsDict']]]]
+    linked_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkedDatabaseArgsDict']]]]]
     """
     List of database resources to link with this database
     """
@@ -232,8 +232,8 @@ class DatabasePropertiesGeoReplicationArgsDict(TypedDict):
 @pulumi.input_type
 class DatabasePropertiesGeoReplicationArgs:
     def __init__(__self__, *,
-                 group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_databases: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None):
+                 group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_databases: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None):
         """
         Optional set of properties to configure geo replication for this database.
 
@@ -247,26 +247,26 @@ class DatabasePropertiesGeoReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupNickname")
-    def group_nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the group of linked database resources
         """
         return pulumi.get(self, "group_nickname")
 
     @group_nickname.setter
-    def group_nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_nickname", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedDatabases")
-    def linked_databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]:
+    def linked_databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]:
         """
         List of database resources to link with this database
         """
         return pulumi.get(self, "linked_databases")
 
     @linked_databases.setter
-    def linked_databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]):
+    def linked_databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]):
         pulumi.set(self, "linked_databases", value)
 
 
@@ -274,7 +274,7 @@ class LinkedDatabaseArgsDict(TypedDict):
     """
     Specifies details of a linked database resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of a database resource to link with this database.
     """
@@ -282,7 +282,7 @@ class LinkedDatabaseArgsDict(TypedDict):
 @pulumi.input_type
 class LinkedDatabaseArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies details of a linked database resource.
 
@@ -293,14 +293,14 @@ class LinkedDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of a database resource to link with this database.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -312,7 +312,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -321,7 +321,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -346,14 +346,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -365,7 +365,7 @@ class ModuleArgsDict(TypedDict):
     """
     The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
     """
-    args: NotRequired[pulumi.Input[_builtins.str]]
+    args: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
     """
@@ -374,7 +374,7 @@ class ModuleArgsDict(TypedDict):
 class ModuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 args: Optional[pulumi.Input[_builtins.str]] = None):
+                 args: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies configuration of a redis module
 
@@ -399,14 +399,14 @@ class ModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def args(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def args(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "args", value)
 
 
@@ -414,19 +414,19 @@ class PersistenceArgsDict(TypedDict):
     """
     Persistence-related configuration for the Redis Enterprise database
     """
-    aof_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    aof_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
     """
-    aof_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'AofFrequency']]]
+    aof_frequency: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AofFrequency']]]]
     """
     Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
     """
-    rdb_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    rdb_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
     """
-    rdb_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'RdbFrequency']]]
+    rdb_frequency: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RdbFrequency']]]]
     """
     Sets the frequency at which a snapshot of the database is created.
     """
@@ -434,10 +434,10 @@ class PersistenceArgsDict(TypedDict):
 @pulumi.input_type
 class PersistenceArgs:
     def __init__(__self__, *,
-                 aof_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aof_frequency: Optional[pulumi.Input[Union[_builtins.str, 'AofFrequency']]] = None,
-                 rdb_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rdb_frequency: Optional[pulumi.Input[Union[_builtins.str, 'RdbFrequency']]] = None):
+                 aof_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aof_frequency: pulumi.Input[Optional[Union[_builtins.str, 'AofFrequency']]] = None,
+                 rdb_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rdb_frequency: pulumi.Input[Optional[Union[_builtins.str, 'RdbFrequency']]] = None):
         """
         Persistence-related configuration for the Redis Enterprise database
 
@@ -457,50 +457,50 @@ class PersistenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="aofEnabled")
-    def aof_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aof_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "aof_enabled")
 
     @aof_enabled.setter
-    def aof_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aof_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aof_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="aofFrequency")
-    def aof_frequency(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AofFrequency']]]:
+    def aof_frequency(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AofFrequency']]]:
         """
         Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         return pulumi.get(self, "aof_frequency")
 
     @aof_frequency.setter
-    def aof_frequency(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AofFrequency']]]):
+    def aof_frequency(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AofFrequency']]]):
         pulumi.set(self, "aof_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="rdbEnabled")
-    def rdb_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rdb_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "rdb_enabled")
 
     @rdb_enabled.setter
-    def rdb_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rdb_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rdb_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rdbFrequency")
-    def rdb_frequency(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RdbFrequency']]]:
+    def rdb_frequency(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RdbFrequency']]]:
         """
         Sets the frequency at which a snapshot of the database is created.
         """
         return pulumi.get(self, "rdb_frequency")
 
     @rdb_frequency.setter
-    def rdb_frequency(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RdbFrequency']]]):
+    def rdb_frequency(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RdbFrequency']]]):
         pulumi.set(self, "rdb_frequency", value)
 
 
@@ -508,15 +508,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -524,9 +524,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -543,38 +543,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -586,7 +586,7 @@ class SkuArgsDict(TypedDict):
     """
     The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
     """
@@ -595,7 +595,7 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         SKU parameters supplied to the create Redis Enterprise cluster operation.
 
@@ -620,14 +620,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 

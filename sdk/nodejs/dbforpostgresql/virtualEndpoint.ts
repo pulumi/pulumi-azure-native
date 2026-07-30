@@ -120,11 +120,11 @@ export interface VirtualEndpointArgs {
     /**
      * Type of endpoint for the virtual endpoints.
      */
-    endpointType?: pulumi.Input<string | enums.dbforpostgresql.VirtualEndpointType>;
+    endpointType?: pulumi.Input<string | enums.dbforpostgresql.VirtualEndpointType | undefined>;
     /**
      * List of servers that one of the virtual endpoints can refer to.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface VirtualEndpointArgs {
     /**
      * Base name of the virtual endpoints.
      */
-    virtualEndpointName?: pulumi.Input<string>;
+    virtualEndpointName?: pulumi.Input<string | undefined>;
 }

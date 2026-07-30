@@ -323,7 +323,6 @@ def get_kpi(hub_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2017-04-26.
 
-
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str kpi_name: The name of the KPI.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -359,15 +358,14 @@ def get_kpi(hub_name: Optional[_builtins.str] = None,
         thres_holds=pulumi.get(__ret__, 'thres_holds'),
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
-def get_kpi_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   kpi_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kpi_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKpiResult]:
     """
     Gets a KPI in the hub.
 
     Uses Azure REST API version 2017-04-26.
-
 
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str kpi_name: The name of the KPI.

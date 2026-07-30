@@ -23,20 +23,20 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input['EncryptionConfigArgs']] = None,
-                 encryption_state: Optional[pulumi.Input['EncryptionState']] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_id_provider_state: Optional[pulumi.Input['TrustedIdProviderState']] = None,
-                 trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional['EncryptionConfigArgs']] = None,
+                 encryption_state: pulumi.Input[Optional['EncryptionState']] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 identity: pulumi.Input[Optional['EncryptionIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_id_provider_state: pulumi.Input[Optional['TrustedIdProviderState']] = None,
+                 trusted_id_providers: pulumi.Input[Optional[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -100,170 +100,170 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Lake Store account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultGroup")
-    def default_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default owner group for all new folders and files created in the Data Lake Store account.
         """
         return pulumi.get(self, "default_group")
 
     @default_group.setter
-    def default_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_group", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional[pulumi.Input['EncryptionConfigArgs']]:
+    def encryption_config(self) -> pulumi.Input[Optional['EncryptionConfigArgs']]:
         """
         The Key Vault encryption configuration.
         """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: Optional[pulumi.Input['EncryptionConfigArgs']]):
+    def encryption_config(self, value: pulumi.Input[Optional['EncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionState")
-    def encryption_state(self) -> Optional[pulumi.Input['EncryptionState']]:
+    def encryption_state(self) -> pulumi.Input[Optional['EncryptionState']]:
         """
         The current state of encryption for this Data Lake Store account.
         """
         return pulumi.get(self, "encryption_state")
 
     @encryption_state.setter
-    def encryption_state(self, value: Optional[pulumi.Input['EncryptionState']]):
+    def encryption_state(self, value: pulumi.Input[Optional['EncryptionState']]):
         pulumi.set(self, "encryption_state", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> Optional[pulumi.Input['FirewallAllowAzureIpsState']]:
+    def firewall_allow_azure_ips(self) -> pulumi.Input[Optional['FirewallAllowAzureIpsState']]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
         return pulumi.get(self, "firewall_allow_azure_ips")
 
     @firewall_allow_azure_ips.setter
-    def firewall_allow_azure_ips(self, value: Optional[pulumi.Input['FirewallAllowAzureIpsState']]):
+    def firewall_allow_azure_ips(self, value: pulumi.Input[Optional['FirewallAllowAzureIpsState']]):
         pulumi.set(self, "firewall_allow_azure_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]:
+    def firewall_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]:
         """
         The list of firewall rules associated with this Data Lake Store account.
         """
         return pulumi.get(self, "firewall_rules")
 
     @firewall_rules.setter
-    def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]):
+    def firewall_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]):
         pulumi.set(self, "firewall_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> Optional[pulumi.Input['FirewallState']]:
+    def firewall_state(self) -> pulumi.Input[Optional['FirewallState']]:
         """
         The current state of the IP address firewall for this Data Lake Store account.
         """
         return pulumi.get(self, "firewall_state")
 
     @firewall_state.setter
-    def firewall_state(self, value: Optional[pulumi.Input['FirewallState']]):
+    def firewall_state(self, value: pulumi.Input[Optional['FirewallState']]):
         pulumi.set(self, "firewall_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EncryptionIdentityArgs']]:
         """
         The Key Vault encryption identity, if any.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EncryptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> Optional[pulumi.Input['TierType']]:
+    def new_tier(self) -> pulumi.Input[Optional['TierType']]:
         """
         The commitment tier to use for next month.
         """
         return pulumi.get(self, "new_tier")
 
     @new_tier.setter
-    def new_tier(self, value: Optional[pulumi.Input['TierType']]):
+    def new_tier(self, value: pulumi.Input[Optional['TierType']]):
         pulumi.set(self, "new_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedIdProviderState")
-    def trusted_id_provider_state(self) -> Optional[pulumi.Input['TrustedIdProviderState']]:
+    def trusted_id_provider_state(self) -> pulumi.Input[Optional['TrustedIdProviderState']]:
         """
         The current state of the trusted identity provider feature for this Data Lake Store account.
         """
         return pulumi.get(self, "trusted_id_provider_state")
 
     @trusted_id_provider_state.setter
-    def trusted_id_provider_state(self, value: Optional[pulumi.Input['TrustedIdProviderState']]):
+    def trusted_id_provider_state(self, value: pulumi.Input[Optional['TrustedIdProviderState']]):
         pulumi.set(self, "trusted_id_provider_state", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedIdProviders")
-    def trusted_id_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]]:
+    def trusted_id_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]]:
         """
         The list of trusted identity providers associated with this Data Lake Store account.
         """
         return pulumi.get(self, "trusted_id_providers")
 
     @trusted_id_providers.setter
-    def trusted_id_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]]):
+    def trusted_id_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CreateTrustedIdProviderWithAccountParametersArgs']]]]):
         pulumi.set(self, "trusted_id_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]:
         """
         The list of virtual network rules associated with this Data Lake Store account.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -273,27 +273,26 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigArgs', 'EncryptionConfigArgsDict']]] = None,
-                 encryption_state: Optional[pulumi.Input['EncryptionState']] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 identity: Optional[pulumi.Input[Union['EncryptionIdentityArgs', 'EncryptionIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_id_provider_state: Optional[pulumi.Input['TrustedIdProviderState']] = None,
-                 trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateTrustedIdProviderWithAccountParametersArgs', 'CreateTrustedIdProviderWithAccountParametersArgsDict']]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateVirtualNetworkRuleWithAccountParametersArgs', 'CreateVirtualNetworkRuleWithAccountParametersArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['EncryptionConfigArgs', 'EncryptionConfigArgsDict']]] = None,
+                 encryption_state: pulumi.Input[Optional['EncryptionState']] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 identity: pulumi.Input[Optional[Union['EncryptionIdentityArgs', 'EncryptionIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_id_provider_state: pulumi.Input[Optional['TrustedIdProviderState']] = None,
+                 trusted_id_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateTrustedIdProviderWithAccountParametersArgs', 'CreateTrustedIdProviderWithAccountParametersArgsDict']]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateVirtualNetworkRuleWithAccountParametersArgs', 'CreateVirtualNetworkRuleWithAccountParametersArgsDict']]]]] = None,
                  __props__=None):
         """
         Data Lake Store account information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,7 +323,6 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
-
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,21 +338,21 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigArgs', 'EncryptionConfigArgsDict']]] = None,
-                 encryption_state: Optional[pulumi.Input['EncryptionState']] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 identity: Optional[pulumi.Input[Union['EncryptionIdentityArgs', 'EncryptionIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_id_provider_state: Optional[pulumi.Input['TrustedIdProviderState']] = None,
-                 trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateTrustedIdProviderWithAccountParametersArgs', 'CreateTrustedIdProviderWithAccountParametersArgsDict']]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateVirtualNetworkRuleWithAccountParametersArgs', 'CreateVirtualNetworkRuleWithAccountParametersArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['EncryptionConfigArgs', 'EncryptionConfigArgsDict']]] = None,
+                 encryption_state: pulumi.Input[Optional['EncryptionState']] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 identity: pulumi.Input[Optional[Union['EncryptionIdentityArgs', 'EncryptionIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_id_provider_state: pulumi.Input[Optional['TrustedIdProviderState']] = None,
+                 trusted_id_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateTrustedIdProviderWithAccountParametersArgs', 'CreateTrustedIdProviderWithAccountParametersArgsDict']]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateVirtualNetworkRuleWithAccountParametersArgs', 'CreateVirtualNetworkRuleWithAccountParametersArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

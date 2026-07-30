@@ -105,7 +105,7 @@ export interface SyncIdentityProviderArgs {
     /**
      * The name of the SyncIdentityProvider resource.
      */
-    childResourceName?: pulumi.Input<string>;
+    childResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -114,5 +114,5 @@ export interface SyncIdentityProviderArgs {
      * The name of the OpenShift cluster resource.
      */
     resourceName: pulumi.Input<string>;
-    resources?: pulumi.Input<string>;
+    resources?: pulumi.Input<string | undefined>;
 }

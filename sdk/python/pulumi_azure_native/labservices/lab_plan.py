@@ -23,17 +23,17 @@ __all__ = ['LabPlanArgs', 'LabPlan']
 class LabPlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_auto_shutdown_profile: Optional[pulumi.Input['AutoShutdownProfileArgs']] = None,
-                 default_connection_profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
-                 default_network_profile: Optional[pulumi.Input['LabPlanNetworkProfileArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_info: Optional[pulumi.Input['SupportInfoArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allowed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_auto_shutdown_profile: pulumi.Input[Optional['AutoShutdownProfileArgs']] = None,
+                 default_connection_profile: pulumi.Input[Optional['ConnectionProfileArgs']] = None,
+                 default_network_profile: pulumi.Input[Optional['LabPlanNetworkProfileArgs']] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 lab_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_lms_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_info: pulumi.Input[Optional['SupportInfoArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LabPlan resource.
 
@@ -88,134 +88,134 @@ class LabPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedRegions")
-    def allowed_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed regions for the lab creator to use when creating labs using this lab plan.
         """
         return pulumi.get(self, "allowed_regions")
 
     @allowed_regions.setter
-    def allowed_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAutoShutdownProfile")
-    def default_auto_shutdown_profile(self) -> Optional[pulumi.Input['AutoShutdownProfileArgs']]:
+    def default_auto_shutdown_profile(self) -> pulumi.Input[Optional['AutoShutdownProfileArgs']]:
         """
         The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         """
         return pulumi.get(self, "default_auto_shutdown_profile")
 
     @default_auto_shutdown_profile.setter
-    def default_auto_shutdown_profile(self, value: Optional[pulumi.Input['AutoShutdownProfileArgs']]):
+    def default_auto_shutdown_profile(self, value: pulumi.Input[Optional['AutoShutdownProfileArgs']]):
         pulumi.set(self, "default_auto_shutdown_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultConnectionProfile")
-    def default_connection_profile(self) -> Optional[pulumi.Input['ConnectionProfileArgs']]:
+    def default_connection_profile(self) -> pulumi.Input[Optional['ConnectionProfileArgs']]:
         """
         The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         """
         return pulumi.get(self, "default_connection_profile")
 
     @default_connection_profile.setter
-    def default_connection_profile(self, value: Optional[pulumi.Input['ConnectionProfileArgs']]):
+    def default_connection_profile(self, value: pulumi.Input[Optional['ConnectionProfileArgs']]):
         pulumi.set(self, "default_connection_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultNetworkProfile")
-    def default_network_profile(self) -> Optional[pulumi.Input['LabPlanNetworkProfileArgs']]:
+    def default_network_profile(self) -> pulumi.Input[Optional['LabPlanNetworkProfileArgs']]:
         """
         The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
         """
         return pulumi.get(self, "default_network_profile")
 
     @default_network_profile.setter
-    def default_network_profile(self, value: Optional[pulumi.Input['LabPlanNetworkProfileArgs']]):
+    def default_network_profile(self, value: pulumi.Input[Optional['LabPlanNetworkProfileArgs']]):
         pulumi.set(self, "default_network_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         Managed Identity Information
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="labPlanName")
-    def lab_plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         """
         return pulumi.get(self, "lab_plan_name")
 
     @lab_plan_name.setter
-    def lab_plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedLmsInstance")
-    def linked_lms_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_lms_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base Url of the lms instance this lab plan can link lab rosters against.
         """
         return pulumi.get(self, "linked_lms_instance")
 
     @linked_lms_instance.setter
-    def linked_lms_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_lms_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_lms_instance", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedGalleryId")
-    def shared_gallery_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_gallery_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
         """
         return pulumi.get(self, "shared_gallery_id")
 
     @shared_gallery_id.setter
-    def shared_gallery_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_gallery_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_gallery_id", value)
 
     @_builtins.property
     @pulumi.getter(name="supportInfo")
-    def support_info(self) -> Optional[pulumi.Input['SupportInfoArgs']]:
+    def support_info(self) -> pulumi.Input[Optional['SupportInfoArgs']]:
         """
         Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
         """
         return pulumi.get(self, "support_info")
 
     @support_info.setter
-    def support_info(self, value: Optional[pulumi.Input['SupportInfoArgs']]):
+    def support_info(self, value: pulumi.Input[Optional['SupportInfoArgs']]):
         pulumi.set(self, "support_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -225,18 +225,18 @@ class LabPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
-                 default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
-                 default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_info: Optional[pulumi.Input[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_auto_shutdown_profile: pulumi.Input[Optional[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 default_connection_profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 default_network_profile: pulumi.Input[Optional[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 lab_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_lms_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_info: pulumi.Input[Optional[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
@@ -244,7 +244,6 @@ class LabPlan(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +273,6 @@ class LabPlan(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LabPlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,18 +288,18 @@ class LabPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
-                 default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
-                 default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_info: Optional[pulumi.Input[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_auto_shutdown_profile: pulumi.Input[Optional[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 default_connection_profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 default_network_profile: pulumi.Input[Optional[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 lab_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_lms_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_info: pulumi.Input[Optional[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

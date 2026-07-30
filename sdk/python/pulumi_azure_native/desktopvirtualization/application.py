@@ -24,17 +24,17 @@ class ApplicationArgs:
                  application_group_name: pulumi.Input[_builtins.str],
                  command_line_setting: pulumi.Input[Union[_builtins.str, 'CommandLineSetting']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_family_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_family_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -117,134 +117,134 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application within the specified application group
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']]]:
+    def application_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]]:
         """
         Resource Type of Application.
         """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
-    def application_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']]]):
+    def application_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]]):
         pulumi.set(self, "application_type", value)
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
-    def command_line_arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command_line_arguments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Command Line Arguments for Application.
         """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
-    def command_line_arguments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command_line_arguments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command_line_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a path for the executable file for the application.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of Application.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconIndex")
-    def icon_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icon_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Index of the icon.
         """
         return pulumi.get(self, "icon_index")
 
     @icon_index.setter
-    def icon_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icon_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icon_index", value)
 
     @_builtins.property
     @pulumi.getter(name="iconPath")
-    def icon_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to icon.
         """
         return pulumi.get(self, "icon_path")
 
     @icon_path.setter
-    def icon_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_path", value)
 
     @_builtins.property
     @pulumi.getter(name="msixPackageApplicationId")
-    def msix_package_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msix_package_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the package application Id for MSIX applications
         """
         return pulumi.get(self, "msix_package_application_id")
 
     @msix_package_application_id.setter
-    def msix_package_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msix_package_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msix_package_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="msixPackageFamilyName")
-    def msix_package_family_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msix_package_family_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the package family name for MSIX applications
         """
         return pulumi.get(self, "msix_package_family_name")
 
     @msix_package_family_name.setter
-    def msix_package_family_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msix_package_family_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msix_package_family_name", value)
 
     @_builtins.property
     @pulumi.getter(name="showInPortal")
-    def show_in_portal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_in_portal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
         return pulumi.get(self, "show_in_portal")
 
     @show_in_portal.setter
-    def show_in_portal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_in_portal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_in_portal", value)
 
 
@@ -254,20 +254,20 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_setting: Optional[pulumi.Input[Union[_builtins.str, 'CommandLineSetting']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_family_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None,
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_setting: pulumi.Input[Optional[Union[_builtins.str, 'CommandLineSetting']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_family_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Schema for Application properties.
@@ -275,7 +275,6 @@ class Application(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +306,6 @@ class Application(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,20 +321,20 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_setting: Optional[pulumi.Input[Union[_builtins.str, 'CommandLineSetting']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 msix_package_family_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None,
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_setting: pulumi.Input[Optional[Union[_builtins.str, 'CommandLineSetting']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 msix_package_family_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

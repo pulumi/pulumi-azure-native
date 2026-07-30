@@ -108,7 +108,7 @@ export interface NetworkSecurityPerimeterLoggingConfigurationArgs {
     /**
      * The name of the NSP logging configuration. Accepts 'instance' as name.
      */
-    loggingConfigurationName?: pulumi.Input<string>;
+    loggingConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */
@@ -116,7 +116,7 @@ export interface NetworkSecurityPerimeterLoggingConfigurationArgs {
     /**
      * Properties of the NSP logging configuration.
      */
-    properties?: pulumi.Input<inputs.network.NspLoggingConfigurationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.NspLoggingConfigurationPropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */

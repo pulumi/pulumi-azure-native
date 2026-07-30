@@ -105,11 +105,11 @@ export interface DocumentationArgs {
     /**
      * Markdown documentation content.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Documentation identifier. Must be unique in the current API Management service instance.
      */
-    documentationId?: pulumi.Input<string>;
+    documentationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,5 +121,5 @@ export interface DocumentationArgs {
     /**
      * documentation title.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }

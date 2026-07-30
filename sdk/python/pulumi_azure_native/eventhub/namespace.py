@@ -23,22 +23,22 @@ __all__ = ['NamespaceArgs', 'Namespace']
 class NamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 is_auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kafka_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 is_auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kafka_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
 
@@ -111,139 +111,139 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="alternateName")
-    def alternate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alternate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alternate name specified when alias and namespace names are same.
         """
         return pulumi.get(self, "alternate_name")
 
     @alternate_name.setter
-    def alternate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alternate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alternate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterArmId")
-    def cluster_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_arm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster ARM ID of the Namespace.
         """
         return pulumi.get(self, "cluster_arm_id")
 
     @cluster_arm_id.setter
-    def cluster_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_arm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property disables SAS authentication for the Event Hubs namespace.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
         """
         Properties of BYOK Encryption description
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         Properties of BYOK Identity description
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isAutoInflateEnabled")
-    def is_auto_inflate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_auto_inflate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether AutoInflate is enabled for eventhub namespace.
         """
         return pulumi.get(self, "is_auto_inflate_enabled")
 
     @is_auto_inflate_enabled.setter
-    def is_auto_inflate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_auto_inflate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_auto_inflate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaEnabled")
-    def kafka_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kafka_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether Kafka is enabled for eventhub namespace.
         """
         return pulumi.get(self, "kafka_enabled")
 
     @kafka_enabled.setter
-    def kafka_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kafka_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kafka_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_throughput_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
         """
         return pulumi.get(self, "maximum_throughput_units")
 
     @maximum_throughput_units.setter
-    def maximum_throughput_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_throughput_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_throughput_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]:
         """
         The minimum TLS version for the cluster to support, e.g. '1.2'
         """
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Namespace name
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         List of private endpoint connections.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -251,55 +251,55 @@ class NamespaceArgs:
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         This determines if traffic is allowed over public network. By default it is enabled.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         Properties of sku resource
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -309,23 +309,23 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 is_auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kafka_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 is_auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kafka_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Single Namespace item in List or Get Operation
@@ -333,7 +333,6 @@ class Namespace(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -369,7 +368,6 @@ class Namespace(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -385,23 +383,23 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 is_auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kafka_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 is_auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kafka_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

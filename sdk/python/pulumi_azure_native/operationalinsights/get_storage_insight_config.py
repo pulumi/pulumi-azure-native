@@ -169,7 +169,6 @@ def get_storage_insight_config(resource_group_name: Optional[_builtins.str] = No
 
     Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_insight_name: Name of the storageInsightsConfigs resource
     :param _builtins.str workspace_name: The name of the workspace.
@@ -192,9 +191,9 @@ def get_storage_insight_config(resource_group_name: Optional[_builtins.str] = No
         tables=pulumi.get(__ret__, 'tables'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      storage_insight_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_insight_config_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      storage_insight_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageInsightConfigResult]:
     """
     Gets a storage insight instance.
@@ -202,7 +201,6 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str storage_insight_name: Name of the storageInsightsConfigs resource

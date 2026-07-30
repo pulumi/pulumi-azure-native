@@ -23,20 +23,20 @@ __all__ = ['ProfileArgs', 'Profile']
 class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
-                 dns_config: Optional[pulumi.Input['DnsConfigArgs']] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.float]] = None,
-                 monitor_config: Optional[pulumi.Input['MonitorConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[Union[_builtins.str, 'ProfileStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
-                 traffic_view_enrollment_status: Optional[pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_endpoint_record_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
+                 dns_config: pulumi.Input[Optional['DnsConfigArgs']] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.float]] = None,
+                 monitor_config: pulumi.Input[Optional['MonitorConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
+                 traffic_view_enrollment_status: pulumi.Input[Optional[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -101,31 +101,31 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedEndpointRecordTypes")
-    def allowed_endpoint_record_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]]:
+    def allowed_endpoint_record_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]]:
         """
         The list of allowed endpoint record types.
         """
         return pulumi.get(self, "allowed_endpoint_record_types")
 
     @allowed_endpoint_record_types.setter
-    def allowed_endpoint_record_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]]):
+    def allowed_endpoint_record_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]]):
         pulumi.set(self, "allowed_endpoint_record_types", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional[pulumi.Input['DnsConfigArgs']]:
+    def dns_config(self) -> pulumi.Input[Optional['DnsConfigArgs']]:
         """
         The DNS settings of the Traffic Manager profile.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: Optional[pulumi.Input['DnsConfigArgs']]):
+    def dns_config(self, value: pulumi.Input[Optional['DnsConfigArgs']]):
         pulumi.set(self, "dns_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointArgs']]]]:
         """
         The list of endpoints in the Traffic Manager profile.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -133,139 +133,139 @@ class ProfileArgs:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_return(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum number of endpoints to be returned for MultiValue routing type.
         """
         return pulumi.get(self, "max_return")
 
     @max_return.setter
-    def max_return(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_return(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_return", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> Optional[pulumi.Input['MonitorConfigArgs']]:
+    def monitor_config(self) -> pulumi.Input[Optional['MonitorConfigArgs']]:
         """
         The endpoint monitoring settings of the Traffic Manager profile.
         """
         return pulumi.get(self, "monitor_config")
 
     @monitor_config.setter
-    def monitor_config(self, value: Optional[pulumi.Input['MonitorConfigArgs']]):
+    def monitor_config(self, value: pulumi.Input[Optional['MonitorConfigArgs']]):
         pulumi.set(self, "monitor_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Traffic Manager profile.
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileStatus")
-    def profile_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProfileStatus']]]:
+    def profile_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]]:
         """
         The status of the Traffic Manager profile.
         """
         return pulumi.get(self, "profile_status")
 
     @profile_status.setter
-    def profile_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProfileStatus']]]):
+    def profile_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]]):
         pulumi.set(self, "profile_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficRoutingMethod")
-    def traffic_routing_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']]]:
+    def traffic_routing_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]]:
         """
         The traffic routing method of the Traffic Manager profile.
         """
         return pulumi.get(self, "traffic_routing_method")
 
     @traffic_routing_method.setter
-    def traffic_routing_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']]]):
+    def traffic_routing_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]]):
         pulumi.set(self, "traffic_routing_method", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficViewEnrollmentStatus")
-    def traffic_view_enrollment_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]]:
+    def traffic_view_enrollment_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]]:
         """
         Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         """
         return pulumi.get(self, "traffic_view_enrollment_status")
 
     @traffic_view_enrollment_status.setter
-    def traffic_view_enrollment_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]]):
+    def traffic_view_enrollment_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]]):
         pulumi.set(self, "traffic_view_enrollment_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -275,21 +275,21 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
-                 dns_config: Optional[pulumi.Input[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.float]] = None,
-                 monitor_config: Optional[pulumi.Input[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[Union[_builtins.str, 'ProfileStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
-                 traffic_view_enrollment_status: Optional[pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_endpoint_record_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
+                 dns_config: pulumi.Input[Optional[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.float]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
+                 traffic_view_enrollment_status: pulumi.Input[Optional[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing a Traffic Manager profile.
@@ -297,7 +297,6 @@ class Profile(pulumi.CustomResource):
         Uses Azure REST API version 2022-04-01.
 
         Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,7 +330,6 @@ class Profile(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,21 +345,21 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
-                 dns_config: Optional[pulumi.Input[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.float]] = None,
-                 monitor_config: Optional[pulumi.Input[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[Union[_builtins.str, 'ProfileStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
-                 traffic_view_enrollment_status: Optional[pulumi.Input[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_endpoint_record_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedEndpointRecordType']]]]] = None,
+                 dns_config: pulumi.Input[Optional[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.float]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[Union[_builtins.str, 'ProfileStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRoutingMethod']]] = None,
+                 traffic_view_enrollment_status: pulumi.Input[Optional[Union[_builtins.str, 'TrafficViewEnrollmentStatus']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

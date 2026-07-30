@@ -131,7 +131,6 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[_builtins.str] = No
 
     Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str deployment_name: The name of the deployment.
     """
     __args__ = dict()
@@ -147,7 +146,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_at_tenant_scope_output(deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_at_tenant_scope_output(deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtTenantScopeResult]:
     """
     Gets a deployment.
@@ -155,7 +154,6 @@ def get_deployment_at_tenant_scope_output(deployment_name: Optional[pulumi.Input
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str deployment_name: The name of the deployment.
     """

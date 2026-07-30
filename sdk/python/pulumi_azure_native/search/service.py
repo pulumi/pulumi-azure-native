@@ -23,24 +23,24 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auth_options: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']] = None,
-                 compute_type: Optional[pulumi.Input[Union[_builtins.str, 'ComputeType']]] = None,
-                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_with_cmk: Optional[pulumi.Input['EncryptionWithCmkArgs']] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search: Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_available: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]] = None):
+                 auth_options: pulumi.Input[Optional['DataPlaneAuthOptionsArgs']] = None,
+                 compute_type: pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_with_cmk: pulumi.Input[Optional['EncryptionWithCmkArgs']] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_mode: pulumi.Input[Optional['HostingMode']] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional['NetworkRuleSetArgs']] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search: pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_available: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeAvailable']]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -124,218 +124,218 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="authOptions")
-    def auth_options(self) -> Optional[pulumi.Input['DataPlaneAuthOptionsArgs']]:
+    def auth_options(self) -> pulumi.Input[Optional['DataPlaneAuthOptionsArgs']]:
         """
         Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         """
         return pulumi.get(self, "auth_options")
 
     @auth_options.setter
-    def auth_options(self, value: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']]):
+    def auth_options(self, value: pulumi.Input[Optional['DataPlaneAuthOptionsArgs']]):
         pulumi.set(self, "auth_options", value)
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComputeType']]]:
+    def compute_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]]:
         """
         Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComputeType']]]):
+    def compute_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataExfiltrationProtections")
-    def data_exfiltration_protections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]]:
+    def data_exfiltration_protections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]]:
         """
         A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         """
         return pulumi.get(self, "data_exfiltration_protections")
 
     @data_exfiltration_protections.setter
-    def data_exfiltration_protections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]]):
+    def data_exfiltration_protections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]]):
         pulumi.set(self, "data_exfiltration_protections", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionWithCmk")
-    def encryption_with_cmk(self) -> Optional[pulumi.Input['EncryptionWithCmkArgs']]:
+    def encryption_with_cmk(self) -> pulumi.Input[Optional['EncryptionWithCmkArgs']]:
         """
         Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         """
         return pulumi.get(self, "encryption_with_cmk")
 
     @encryption_with_cmk.setter
-    def encryption_with_cmk(self, value: Optional[pulumi.Input['EncryptionWithCmkArgs']]):
+    def encryption_with_cmk(self, value: pulumi.Input[Optional['EncryptionWithCmkArgs']]):
         pulumi.set(self, "encryption_with_cmk", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint of the Azure AI Search service.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingMode")
-    def hosting_mode(self) -> Optional[pulumi.Input['HostingMode']]:
+    def hosting_mode(self) -> pulumi.Input[Optional['HostingMode']]:
         """
         Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         """
         return pulumi.get(self, "hosting_mode")
 
     @hosting_mode.setter
-    def hosting_mode(self, value: Optional[pulumi.Input['HostingMode']]):
+    def hosting_mode(self, value: pulumi.Input[Optional['HostingMode']]):
         pulumi.set(self, "hosting_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['NetworkRuleSetArgs']]:
         """
         Network specific rules that determine how the Azure AI Search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         """
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_count", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="searchServiceName")
-    def search_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure AI Search service associated with the specified resource group.
         """
         return pulumi.get(self, "search_service_name")
 
     @search_service_name.setter
-    def search_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticSearch")
-    def semantic_search(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]]:
+    def semantic_search(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]]:
         """
         Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         """
         return pulumi.get(self, "semantic_search")
 
     @semantic_search.setter
-    def semantic_search(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]]):
+    def semantic_search(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]]):
         pulumi.set(self, "semantic_search", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeAvailable")
-    def upgrade_available(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]]:
+    def upgrade_available(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpgradeAvailable']]]:
         """
         Indicates if the search service has an upgrade available.
         """
         return pulumi.get(self, "upgrade_available")
 
     @upgrade_available.setter
-    def upgrade_available(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]]):
+    def upgrade_available(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeAvailable']]]):
         pulumi.set(self, "upgrade_available", value)
 
 
@@ -345,25 +345,25 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_options: Optional[pulumi.Input[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input[Union[_builtins.str, 'ComputeType']]] = None,
-                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_with_cmk: Optional[pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search: Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_available: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]] = None,
+                 auth_options: pulumi.Input[Optional[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_with_cmk: pulumi.Input[Optional[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_mode: pulumi.Input[Optional['HostingMode']] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search: pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_available: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeAvailable']]] = None,
                  __props__=None):
         """
         Describes an Azure AI Search service and its current state.
@@ -371,7 +371,6 @@ class Service(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -408,7 +407,6 @@ class Service(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,25 +422,25 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_options: Optional[pulumi.Input[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input[Union[_builtins.str, 'ComputeType']]] = None,
-                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_with_cmk: Optional[pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search: Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_available: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]] = None,
+                 auth_options: pulumi.Input[Optional[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional[Union[_builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_with_cmk: pulumi.Input[Optional[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_mode: pulumi.Input[Optional['HostingMode']] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search: pulumi.Input[Optional[Union[_builtins.str, 'SearchSemanticSearch']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_available: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeAvailable']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

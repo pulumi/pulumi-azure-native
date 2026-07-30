@@ -24,9 +24,9 @@ class LoadBalancerArgs:
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  advertise_mode: pulumi.Input[Union[_builtins.str, 'AdvertiseMode']],
                  resource_uri: pulumi.Input[_builtins.str],
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_selector: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -85,38 +85,38 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpPeers")
-    def bgp_peers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bgp_peers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
         """
         return pulumi.get(self, "bgp_peers")
 
     @bgp_peers.setter
-    def bgp_peers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bgp_peers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bgp_peers", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the LoadBalancer
         """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
-    def load_balancer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceSelector")
-    def service_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def service_selector(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A dynamic label mapping to select related services. For instance, if you want to create a load balancer only for services with label "a=b", then please specify {"a": "b"} in the field.
         """
         return pulumi.get(self, "service_selector")
 
     @service_selector.setter
-    def service_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def service_selector(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_selector", value)
 
 
@@ -126,18 +126,17 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 advertise_mode: Optional[pulumi.Input[Union[_builtins.str, 'AdvertiseMode']]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertise_mode: pulumi.Input[Optional[Union[_builtins.str, 'AdvertiseMode']]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_selector: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 advertise_mode: Optional[pulumi.Input[Union[_builtins.str, 'AdvertiseMode']]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertise_mode: pulumi.Input[Optional[Union[_builtins.str, 'AdvertiseMode']]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_selector: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

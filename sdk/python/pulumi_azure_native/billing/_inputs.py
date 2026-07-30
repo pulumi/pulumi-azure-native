@@ -20,6 +20,8 @@ __all__ = [
     'AssociatedTenantPropertiesArgsDict',
     'AzurePlanArgs',
     'AzurePlanArgsDict',
+    'BillingProfilePropertiesArgs',
+    'BillingProfilePropertiesArgsDict',
     'BillingProfilePropertiesBillToArgs',
     'BillingProfilePropertiesBillToArgsDict',
     'BillingProfilePropertiesCurrentPaymentTermArgs',
@@ -30,8 +32,6 @@ __all__ = [
     'BillingProfilePropertiesShipToArgsDict',
     'BillingProfilePropertiesSoldToArgs',
     'BillingProfilePropertiesSoldToArgsDict',
-    'BillingProfilePropertiesArgs',
-    'BillingProfilePropertiesArgsDict',
     'BillingRoleAssignmentPropertiesArgs',
     'BillingRoleAssignmentPropertiesArgsDict',
     'InvoiceSectionPropertiesArgs',
@@ -42,19 +42,19 @@ class AssociatedTenantPropertiesArgsDict(TypedDict):
     """
     An associated tenant.
     """
-    billing_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]]
+    billing_management_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BillingManagementTenantState']]]]
     """
     The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the associated tenant.
     """
-    provisioning_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]]
+    provisioning_management_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningTenantState']]]]
     """
     The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that uniquely identifies a tenant.
     """
@@ -62,10 +62,10 @@ class AssociatedTenantPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AssociatedTenantPropertiesArgs:
     def __init__(__self__, *,
-                 billing_management_state: Optional[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_management_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 billing_management_state: pulumi.Input[Optional[Union[_builtins.str, 'BillingManagementTenantState']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_management_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningTenantState']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An associated tenant.
 
@@ -85,50 +85,50 @@ class AssociatedTenantPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingManagementState")
-    def billing_management_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]]:
+    def billing_management_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BillingManagementTenantState']]]:
         """
         The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
         """
         return pulumi.get(self, "billing_management_state")
 
     @billing_management_state.setter
-    def billing_management_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]]):
+    def billing_management_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BillingManagementTenantState']]]):
         pulumi.set(self, "billing_management_state", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the associated tenant.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningManagementState")
-    def provisioning_management_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]]:
+    def provisioning_management_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningTenantState']]]:
         """
         The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
         """
         return pulumi.get(self, "provisioning_management_state")
 
     @provisioning_management_state.setter
-    def provisioning_management_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]]):
+    def provisioning_management_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningTenantState']]]):
         pulumi.set(self, "provisioning_management_state", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that uniquely identifies a tenant.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -136,15 +136,15 @@ class AzurePlanArgsDict(TypedDict):
     """
     Details of the Azure plan.
     """
-    product_id: NotRequired[pulumi.Input[_builtins.str]]
+    product_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that uniquely identifies a product.
     """
-    sku_description: NotRequired[pulumi.Input[_builtins.str]]
+    sku_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku description.
     """
-    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    sku_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that uniquely identifies a sku.
     """
@@ -152,9 +152,9 @@ class AzurePlanArgsDict(TypedDict):
 @pulumi.input_type
 class AzurePlanArgs:
     def __init__(__self__, *,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the Azure plan.
 
@@ -171,1170 +171,86 @@ class AzurePlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that uniquely identifies a product.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skuDescription")
-    def sku_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku description.
         """
         return pulumi.get(self, "sku_description")
 
     @sku_description.setter
-    def sku_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_description", value)
 
     @_builtins.property
     @pulumi.getter(name="skuId")
-    def sku_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that uniquely identifies a sku.
         """
         return pulumi.get(self, "sku_id")
 
     @sku_id.setter
-    def sku_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_id", value)
-
-
-class BillingProfilePropertiesBillToArgsDict(TypedDict):
-    """
-    Billing address.
-    """
-    address_line1: pulumi.Input[_builtins.str]
-    """
-    Address line 1.
-    """
-    country: pulumi.Input[_builtins.str]
-    """
-    Country code uses ISO 3166-1 Alpha-2 format.
-    """
-    address_line2: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 2.
-    """
-    address_line3: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 3.
-    """
-    city: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address city.
-    """
-    company_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Company name. Optional for MCA Individual (Pay-as-you-go).
-    """
-    district: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address district.
-    """
-    email: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Email address.
-    """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    First name. Optional for MCA Enterprise.
-    """
-    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if the address is incomplete.
-    """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Last name. Optional for MCA Enterprise.
-    """
-    middle_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Middle name.
-    """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Phone number.
-    """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Postal code.
-    """
-    region: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address region.
-    """
-
-@pulumi.input_type
-class BillingProfilePropertiesBillToArgs:
-    def __init__(__self__, *,
-                 address_line1: pulumi.Input[_builtins.str],
-                 country: pulumi.Input[_builtins.str],
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 district: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_valid_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Billing address.
-
-        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
-        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
-        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
-        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
-        :param pulumi.Input[_builtins.str] city: Address city.
-        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
-        :param pulumi.Input[_builtins.str] district: Address district.
-        :param pulumi.Input[_builtins.str] email: Email address.
-        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
-        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.str] middle_name: Middle name.
-        :param pulumi.Input[_builtins.str] phone_number: Phone number.
-        :param pulumi.Input[_builtins.str] postal_code: Postal code.
-        :param pulumi.Input[_builtins.str] region: Address region.
-        """
-        pulumi.set(__self__, "address_line1", address_line1)
-        pulumi.set(__self__, "country", country)
-        if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
-        if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
-        if city is not None:
-            pulumi.set(__self__, "city", city)
-        if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
-        if district is not None:
-            pulumi.set(__self__, "district", district)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if is_valid_address is not None:
-            pulumi.set(__self__, "is_valid_address", is_valid_address)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
-        if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
-        if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
-        if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> pulumi.Input[_builtins.str]:
-        """
-        Address line 1.
-        """
-        return pulumi.get(self, "address_line1")
-
-    @address_line1.setter
-    def address_line1(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "address_line1", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def country(self) -> pulumi.Input[_builtins.str]:
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        return pulumi.get(self, "country")
-
-    @country.setter
-    def country(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "country", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 2.
-        """
-        return pulumi.get(self, "address_line2")
-
-    @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line2", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 3.
-        """
-        return pulumi.get(self, "address_line3")
-
-    @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line3", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address city.
-        """
-        return pulumi.get(self, "city")
-
-    @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "city", value)
-
-    @_builtins.property
-    @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        return pulumi.get(self, "company_name")
-
-    @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "company_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address district.
-        """
-        return pulumi.get(self, "district")
-
-    @district.setter
-    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "district", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "first_name")
-
-    @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "first_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isValidAddress")
-    def is_valid_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if the address is incomplete.
-        """
-        return pulumi.get(self, "is_valid_address")
-
-    @is_valid_address.setter
-    def is_valid_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_valid_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "last_name")
-
-    @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Middle name.
-        """
-        return pulumi.get(self, "middle_name")
-
-    @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "middle_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Phone number.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "phone_number", value)
-
-    @_builtins.property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Postal code.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "postal_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address region.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "region", value)
-
-
-class BillingProfilePropertiesCurrentPaymentTermArgsDict(TypedDict):
-    """
-    The current payment term of the billing profile.
-    """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The date on when the defined 'Payment Term' will end and is always in UTC.
-    """
-    start_date: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-    """
-    term: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Represents duration in netXX format. Always in days.
-    """
-
-@pulumi.input_type
-class BillingProfilePropertiesCurrentPaymentTermArgs:
-    def __init__(__self__, *,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 term: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The current payment term of the billing profile.
-
-        :param pulumi.Input[_builtins.str] end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
-        :param pulumi.Input[_builtins.str] start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-        :param pulumi.Input[_builtins.str] term: Represents duration in netXX format. Always in days.
-        """
-        if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
-        if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
-        if term is not None:
-            pulumi.set(__self__, "term", term)
-
-    @_builtins.property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date on when the defined 'Payment Term' will end and is always in UTC.
-        """
-        return pulumi.get(self, "end_date")
-
-    @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "end_date", value)
-
-    @_builtins.property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-        """
-        return pulumi.get(self, "start_date")
-
-    @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "start_date", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def term(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Represents duration in netXX format. Always in days.
-        """
-        return pulumi.get(self, "term")
-
-    @term.setter
-    def term(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "term", value)
-
-
-class BillingProfilePropertiesIndirectRelationshipInfoArgsDict(TypedDict):
-    """
-    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-    """
-    billing_account_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The billing account name of the partner or the customer for an indirect motion.
-    """
-    billing_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The billing profile name of the partner or the customer for an indirect motion.
-    """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The display name of the partner or customer for an indirect motion.
-    """
-
-@pulumi.input_type
-class BillingProfilePropertiesIndirectRelationshipInfoArgs:
-    def __init__(__self__, *,
-                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-
-        :param pulumi.Input[_builtins.str] billing_account_name: The billing account name of the partner or the customer for an indirect motion.
-        :param pulumi.Input[_builtins.str] billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the partner or customer for an indirect motion.
-        """
-        if billing_account_name is not None:
-            pulumi.set(__self__, "billing_account_name", billing_account_name)
-        if billing_profile_name is not None:
-            pulumi.set(__self__, "billing_profile_name", billing_profile_name)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-
-    @_builtins.property
-    @pulumi.getter(name="billingAccountName")
-    def billing_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The billing account name of the partner or the customer for an indirect motion.
-        """
-        return pulumi.get(self, "billing_account_name")
-
-    @billing_account_name.setter
-    def billing_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "billing_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="billingProfileName")
-    def billing_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The billing profile name of the partner or the customer for an indirect motion.
-        """
-        return pulumi.get(self, "billing_profile_name")
-
-    @billing_profile_name.setter
-    def billing_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "billing_profile_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the partner or customer for an indirect motion.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-
-class BillingProfilePropertiesShipToArgsDict(TypedDict):
-    """
-    The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
-    """
-    address_line1: pulumi.Input[_builtins.str]
-    """
-    Address line 1.
-    """
-    country: pulumi.Input[_builtins.str]
-    """
-    Country code uses ISO 3166-1 Alpha-2 format.
-    """
-    address_line2: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 2.
-    """
-    address_line3: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 3.
-    """
-    city: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address city.
-    """
-    company_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Company name. Optional for MCA Individual (Pay-as-you-go).
-    """
-    district: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address district.
-    """
-    email: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Email address.
-    """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    First name. Optional for MCA Enterprise.
-    """
-    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if the address is incomplete.
-    """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Last name. Optional for MCA Enterprise.
-    """
-    middle_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Middle name.
-    """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Phone number.
-    """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Postal code.
-    """
-    region: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address region.
-    """
-
-@pulumi.input_type
-class BillingProfilePropertiesShipToArgs:
-    def __init__(__self__, *,
-                 address_line1: pulumi.Input[_builtins.str],
-                 country: pulumi.Input[_builtins.str],
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 district: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_valid_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
-
-        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
-        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
-        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
-        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
-        :param pulumi.Input[_builtins.str] city: Address city.
-        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
-        :param pulumi.Input[_builtins.str] district: Address district.
-        :param pulumi.Input[_builtins.str] email: Email address.
-        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
-        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.str] middle_name: Middle name.
-        :param pulumi.Input[_builtins.str] phone_number: Phone number.
-        :param pulumi.Input[_builtins.str] postal_code: Postal code.
-        :param pulumi.Input[_builtins.str] region: Address region.
-        """
-        pulumi.set(__self__, "address_line1", address_line1)
-        pulumi.set(__self__, "country", country)
-        if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
-        if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
-        if city is not None:
-            pulumi.set(__self__, "city", city)
-        if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
-        if district is not None:
-            pulumi.set(__self__, "district", district)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if is_valid_address is not None:
-            pulumi.set(__self__, "is_valid_address", is_valid_address)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
-        if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
-        if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
-        if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> pulumi.Input[_builtins.str]:
-        """
-        Address line 1.
-        """
-        return pulumi.get(self, "address_line1")
-
-    @address_line1.setter
-    def address_line1(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "address_line1", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def country(self) -> pulumi.Input[_builtins.str]:
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        return pulumi.get(self, "country")
-
-    @country.setter
-    def country(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "country", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 2.
-        """
-        return pulumi.get(self, "address_line2")
-
-    @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line2", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 3.
-        """
-        return pulumi.get(self, "address_line3")
-
-    @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line3", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address city.
-        """
-        return pulumi.get(self, "city")
-
-    @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "city", value)
-
-    @_builtins.property
-    @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        return pulumi.get(self, "company_name")
-
-    @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "company_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address district.
-        """
-        return pulumi.get(self, "district")
-
-    @district.setter
-    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "district", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "first_name")
-
-    @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "first_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isValidAddress")
-    def is_valid_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if the address is incomplete.
-        """
-        return pulumi.get(self, "is_valid_address")
-
-    @is_valid_address.setter
-    def is_valid_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_valid_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "last_name")
-
-    @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Middle name.
-        """
-        return pulumi.get(self, "middle_name")
-
-    @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "middle_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Phone number.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "phone_number", value)
-
-    @_builtins.property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Postal code.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "postal_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address region.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "region", value)
-
-
-class BillingProfilePropertiesSoldToArgsDict(TypedDict):
-    """
-    The address of the individual or organization that is responsible for the billing account.
-    """
-    address_line1: pulumi.Input[_builtins.str]
-    """
-    Address line 1.
-    """
-    country: pulumi.Input[_builtins.str]
-    """
-    Country code uses ISO 3166-1 Alpha-2 format.
-    """
-    address_line2: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 2.
-    """
-    address_line3: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address line 3.
-    """
-    city: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address city.
-    """
-    company_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Company name. Optional for MCA Individual (Pay-as-you-go).
-    """
-    district: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address district.
-    """
-    email: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Email address.
-    """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    First name. Optional for MCA Enterprise.
-    """
-    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if the address is incomplete.
-    """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Last name. Optional for MCA Enterprise.
-    """
-    middle_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Middle name.
-    """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Phone number.
-    """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Postal code.
-    """
-    region: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Address region.
-    """
-
-@pulumi.input_type
-class BillingProfilePropertiesSoldToArgs:
-    def __init__(__self__, *,
-                 address_line1: pulumi.Input[_builtins.str],
-                 country: pulumi.Input[_builtins.str],
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 district: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_valid_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The address of the individual or organization that is responsible for the billing account.
-
-        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
-        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
-        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
-        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
-        :param pulumi.Input[_builtins.str] city: Address city.
-        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
-        :param pulumi.Input[_builtins.str] district: Address district.
-        :param pulumi.Input[_builtins.str] email: Email address.
-        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
-        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
-        :param pulumi.Input[_builtins.str] middle_name: Middle name.
-        :param pulumi.Input[_builtins.str] phone_number: Phone number.
-        :param pulumi.Input[_builtins.str] postal_code: Postal code.
-        :param pulumi.Input[_builtins.str] region: Address region.
-        """
-        pulumi.set(__self__, "address_line1", address_line1)
-        pulumi.set(__self__, "country", country)
-        if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
-        if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
-        if city is not None:
-            pulumi.set(__self__, "city", city)
-        if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
-        if district is not None:
-            pulumi.set(__self__, "district", district)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if is_valid_address is not None:
-            pulumi.set(__self__, "is_valid_address", is_valid_address)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
-        if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
-        if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
-        if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> pulumi.Input[_builtins.str]:
-        """
-        Address line 1.
-        """
-        return pulumi.get(self, "address_line1")
-
-    @address_line1.setter
-    def address_line1(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "address_line1", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def country(self) -> pulumi.Input[_builtins.str]:
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        return pulumi.get(self, "country")
-
-    @country.setter
-    def country(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "country", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 2.
-        """
-        return pulumi.get(self, "address_line2")
-
-    @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line2", value)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address line 3.
-        """
-        return pulumi.get(self, "address_line3")
-
-    @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "address_line3", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address city.
-        """
-        return pulumi.get(self, "city")
-
-    @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "city", value)
-
-    @_builtins.property
-    @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        return pulumi.get(self, "company_name")
-
-    @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "company_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address district.
-        """
-        return pulumi.get(self, "district")
-
-    @district.setter
-    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "district", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "first_name")
-
-    @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "first_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isValidAddress")
-    def is_valid_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if the address is incomplete.
-        """
-        return pulumi.get(self, "is_valid_address")
-
-    @is_valid_address.setter
-    def is_valid_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_valid_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "last_name")
-
-    @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Middle name.
-        """
-        return pulumi.get(self, "middle_name")
-
-    @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "middle_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Phone number.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "phone_number", value)
-
-    @_builtins.property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Postal code.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "postal_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Address region.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "region", value)
 
 
 class BillingProfilePropertiesArgsDict(TypedDict):
     """
     A billing profile.
     """
-    bill_to: NotRequired[pulumi.Input['BillingProfilePropertiesBillToArgsDict']]
+    bill_to: NotRequired[pulumi.Input[Optional['BillingProfilePropertiesBillToArgsDict']]]
     """
     Billing address.
     """
-    current_payment_term: NotRequired[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgsDict']]
+    current_payment_term: NotRequired[pulumi.Input[Optional['BillingProfilePropertiesCurrentPaymentTermArgsDict']]]
     """
     The current payment term of the billing profile.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the billing profile.
     """
-    enabled_azure_plans: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgsDict']]]]
+    enabled_azure_plans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AzurePlanArgsDict']]]]]
     """
     Information about the enabled azure plans.
     """
-    indirect_relationship_info: NotRequired[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgsDict']]
+    indirect_relationship_info: NotRequired[pulumi.Input[Optional['BillingProfilePropertiesIndirectRelationshipInfoArgsDict']]]
     """
     Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
     """
-    invoice_email_opt_in: NotRequired[pulumi.Input[_builtins.bool]]
+    invoice_email_opt_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag controlling whether the invoices for the billing profile are sent through email.
     """
-    invoice_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    invoice_recipients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of email addresses to receive invoices by email for the billing profile.
     """
-    po_number: NotRequired[pulumi.Input[_builtins.str]]
+    po_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default purchase order number that will appear on the invoices generated for the billing profile.
     """
-    ship_to: NotRequired[pulumi.Input['BillingProfilePropertiesShipToArgsDict']]
+    ship_to: NotRequired[pulumi.Input[Optional['BillingProfilePropertiesShipToArgsDict']]]
     """
     The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
     """
-    sold_to: NotRequired[pulumi.Input['BillingProfilePropertiesSoldToArgsDict']]
+    sold_to: NotRequired[pulumi.Input[Optional['BillingProfilePropertiesSoldToArgsDict']]]
     """
     The address of the individual or organization that is responsible for the billing account.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
     """
@@ -1342,17 +258,17 @@ class BillingProfilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BillingProfilePropertiesArgs:
     def __init__(__self__, *,
-                 bill_to: Optional[pulumi.Input['BillingProfilePropertiesBillToArgs']] = None,
-                 current_payment_term: Optional[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_azure_plans: Optional[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgs']]]] = None,
-                 indirect_relationship_info: Optional[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgs']] = None,
-                 invoice_email_opt_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invoice_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 po_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 ship_to: Optional[pulumi.Input['BillingProfilePropertiesShipToArgs']] = None,
-                 sold_to: Optional[pulumi.Input['BillingProfilePropertiesSoldToArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bill_to: pulumi.Input[Optional['BillingProfilePropertiesBillToArgs']] = None,
+                 current_payment_term: pulumi.Input[Optional['BillingProfilePropertiesCurrentPaymentTermArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_azure_plans: pulumi.Input[Optional[Sequence[pulumi.Input['AzurePlanArgs']]]] = None,
+                 indirect_relationship_info: pulumi.Input[Optional['BillingProfilePropertiesIndirectRelationshipInfoArgs']] = None,
+                 invoice_email_opt_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invoice_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 po_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 ship_to: pulumi.Input[Optional['BillingProfilePropertiesShipToArgs']] = None,
+                 sold_to: pulumi.Input[Optional['BillingProfilePropertiesSoldToArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A billing profile.
 
@@ -1393,135 +309,1219 @@ class BillingProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="billTo")
-    def bill_to(self) -> Optional[pulumi.Input['BillingProfilePropertiesBillToArgs']]:
+    def bill_to(self) -> pulumi.Input[Optional['BillingProfilePropertiesBillToArgs']]:
         """
         Billing address.
         """
         return pulumi.get(self, "bill_to")
 
     @bill_to.setter
-    def bill_to(self, value: Optional[pulumi.Input['BillingProfilePropertiesBillToArgs']]):
+    def bill_to(self, value: pulumi.Input[Optional['BillingProfilePropertiesBillToArgs']]):
         pulumi.set(self, "bill_to", value)
 
     @_builtins.property
     @pulumi.getter(name="currentPaymentTerm")
-    def current_payment_term(self) -> Optional[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgs']]:
+    def current_payment_term(self) -> pulumi.Input[Optional['BillingProfilePropertiesCurrentPaymentTermArgs']]:
         """
         The current payment term of the billing profile.
         """
         return pulumi.get(self, "current_payment_term")
 
     @current_payment_term.setter
-    def current_payment_term(self, value: Optional[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgs']]):
+    def current_payment_term(self, value: pulumi.Input[Optional['BillingProfilePropertiesCurrentPaymentTermArgs']]):
         pulumi.set(self, "current_payment_term", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the billing profile.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledAzurePlans")
-    def enabled_azure_plans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgs']]]]:
+    def enabled_azure_plans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzurePlanArgs']]]]:
         """
         Information about the enabled azure plans.
         """
         return pulumi.get(self, "enabled_azure_plans")
 
     @enabled_azure_plans.setter
-    def enabled_azure_plans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgs']]]]):
+    def enabled_azure_plans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzurePlanArgs']]]]):
         pulumi.set(self, "enabled_azure_plans", value)
 
     @_builtins.property
     @pulumi.getter(name="indirectRelationshipInfo")
-    def indirect_relationship_info(self) -> Optional[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgs']]:
+    def indirect_relationship_info(self) -> pulumi.Input[Optional['BillingProfilePropertiesIndirectRelationshipInfoArgs']]:
         """
         Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
         """
         return pulumi.get(self, "indirect_relationship_info")
 
     @indirect_relationship_info.setter
-    def indirect_relationship_info(self, value: Optional[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgs']]):
+    def indirect_relationship_info(self, value: pulumi.Input[Optional['BillingProfilePropertiesIndirectRelationshipInfoArgs']]):
         pulumi.set(self, "indirect_relationship_info", value)
 
     @_builtins.property
     @pulumi.getter(name="invoiceEmailOptIn")
-    def invoice_email_opt_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invoice_email_opt_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag controlling whether the invoices for the billing profile are sent through email.
         """
         return pulumi.get(self, "invoice_email_opt_in")
 
     @invoice_email_opt_in.setter
-    def invoice_email_opt_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invoice_email_opt_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invoice_email_opt_in", value)
 
     @_builtins.property
     @pulumi.getter(name="invoiceRecipients")
-    def invoice_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def invoice_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of email addresses to receive invoices by email for the billing profile.
         """
         return pulumi.get(self, "invoice_recipients")
 
     @invoice_recipients.setter
-    def invoice_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def invoice_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "invoice_recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="poNumber")
-    def po_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def po_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default purchase order number that will appear on the invoices generated for the billing profile.
         """
         return pulumi.get(self, "po_number")
 
     @po_number.setter
-    def po_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def po_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "po_number", value)
 
     @_builtins.property
     @pulumi.getter(name="shipTo")
-    def ship_to(self) -> Optional[pulumi.Input['BillingProfilePropertiesShipToArgs']]:
+    def ship_to(self) -> pulumi.Input[Optional['BillingProfilePropertiesShipToArgs']]:
         """
         The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
         """
         return pulumi.get(self, "ship_to")
 
     @ship_to.setter
-    def ship_to(self, value: Optional[pulumi.Input['BillingProfilePropertiesShipToArgs']]):
+    def ship_to(self, value: pulumi.Input[Optional['BillingProfilePropertiesShipToArgs']]):
         pulumi.set(self, "ship_to", value)
 
     @_builtins.property
     @pulumi.getter(name="soldTo")
-    def sold_to(self) -> Optional[pulumi.Input['BillingProfilePropertiesSoldToArgs']]:
+    def sold_to(self) -> pulumi.Input[Optional['BillingProfilePropertiesSoldToArgs']]:
         """
         The address of the individual or organization that is responsible for the billing account.
         """
         return pulumi.get(self, "sold_to")
 
     @sold_to.setter
-    def sold_to(self, value: Optional[pulumi.Input['BillingProfilePropertiesSoldToArgs']]):
+    def sold_to(self, value: pulumi.Input[Optional['BillingProfilePropertiesSoldToArgs']]):
         pulumi.set(self, "sold_to", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+
+class BillingProfilePropertiesBillToArgsDict(TypedDict):
+    """
+    Billing address.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address region.
+    """
+
+@pulumi.input_type
+class BillingProfilePropertiesBillToArgs:
+    def __init__(__self__, *,
+                 address_line1: pulumi.Input[_builtins.str],
+                 country: pulumi.Input[_builtins.str],
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 district: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_valid_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Billing address.
+
+        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
+        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
+        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
+        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
+        :param pulumi.Input[_builtins.str] city: Address city.
+        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
+        :param pulumi.Input[_builtins.str] district: Address district.
+        :param pulumi.Input[_builtins.str] email: Email address.
+        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
+        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.str] middle_name: Middle name.
+        :param pulumi.Input[_builtins.str] phone_number: Phone number.
+        :param pulumi.Input[_builtins.str] postal_code: Postal code.
+        :param pulumi.Input[_builtins.str] region: Address region.
+        """
+        pulumi.set(__self__, "address_line1", address_line1)
+        pulumi.set(__self__, "country", country)
+        if address_line2 is not None:
+            pulumi.set(__self__, "address_line2", address_line2)
+        if address_line3 is not None:
+            pulumi.set(__self__, "address_line3", address_line3)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if is_valid_address is not None:
+            pulumi.set(__self__, "is_valid_address", is_valid_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine1")
+    def address_line1(self) -> pulumi.Input[_builtins.str]:
+        """
+        Address line 1.
+        """
+        return pulumi.get(self, "address_line1")
+
+    @address_line1.setter
+    def address_line1(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address_line1", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> pulumi.Input[_builtins.str]:
+        """
+        Country code uses ISO 3166-1 Alpha-2 format.
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "country", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine2")
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 2.
+        """
+        return pulumi.get(self, "address_line2")
+
+    @address_line2.setter
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine3")
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 3.
+        """
+        return pulumi.get(self, "address_line3")
+
+    @address_line3.setter
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line3", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address city.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "city", value)
+
+    @_builtins.property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Company name. Optional for MCA Individual (Pay-as-you-go).
+        """
+        return pulumi.get(self, "company_name")
+
+    @company_name.setter
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "company_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def district(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address district.
+        """
+        return pulumi.get(self, "district")
+
+    @district.setter
+    def district(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "district", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        First name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isValidAddress")
+    def is_valid_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if the address is incomplete.
+        """
+        return pulumi.get(self, "is_valid_address")
+
+    @is_valid_address.setter
+    def is_valid_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_valid_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Middle name.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @middle_name.setter
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "middle_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Phone number.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "phone_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
+class BillingProfilePropertiesCurrentPaymentTermArgsDict(TypedDict):
+    """
+    The current payment term of the billing profile.
+    """
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date on when the defined 'Payment Term' will end and is always in UTC.
+    """
+    start_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+    """
+    term: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Represents duration in netXX format. Always in days.
+    """
+
+@pulumi.input_type
+class BillingProfilePropertiesCurrentPaymentTermArgs:
+    def __init__(__self__, *,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 term: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The current payment term of the billing profile.
+
+        :param pulumi.Input[_builtins.str] end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
+        :param pulumi.Input[_builtins.str] start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+        :param pulumi.Input[_builtins.str] term: Represents duration in netXX format. Always in days.
+        """
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if term is not None:
+            pulumi.set(__self__, "term", term)
+
+    @_builtins.property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date on when the defined 'Payment Term' will end and is always in UTC.
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_date", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def term(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Represents duration in netXX format. Always in days.
+        """
+        return pulumi.get(self, "term")
+
+    @term.setter
+    def term(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "term", value)
+
+
+class BillingProfilePropertiesIndirectRelationshipInfoArgsDict(TypedDict):
+    """
+    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+    """
+    billing_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The billing account name of the partner or the customer for an indirect motion.
+    """
+    billing_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The billing profile name of the partner or the customer for an indirect motion.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the partner or customer for an indirect motion.
+    """
+
+@pulumi.input_type
+class BillingProfilePropertiesIndirectRelationshipInfoArgs:
+    def __init__(__self__, *,
+                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+
+        :param pulumi.Input[_builtins.str] billing_account_name: The billing account name of the partner or the customer for an indirect motion.
+        :param pulumi.Input[_builtins.str] billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the partner or customer for an indirect motion.
+        """
+        if billing_account_name is not None:
+            pulumi.set(__self__, "billing_account_name", billing_account_name)
+        if billing_profile_name is not None:
+            pulumi.set(__self__, "billing_profile_name", billing_profile_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="billingAccountName")
+    def billing_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The billing account name of the partner or the customer for an indirect motion.
+        """
+        return pulumi.get(self, "billing_account_name")
+
+    @billing_account_name.setter
+    def billing_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "billing_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="billingProfileName")
+    def billing_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The billing profile name of the partner or the customer for an indirect motion.
+        """
+        return pulumi.get(self, "billing_profile_name")
+
+    @billing_profile_name.setter
+    def billing_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "billing_profile_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the partner or customer for an indirect motion.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class BillingProfilePropertiesShipToArgsDict(TypedDict):
+    """
+    The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address region.
+    """
+
+@pulumi.input_type
+class BillingProfilePropertiesShipToArgs:
+    def __init__(__self__, *,
+                 address_line1: pulumi.Input[_builtins.str],
+                 country: pulumi.Input[_builtins.str],
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 district: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_valid_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+
+        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
+        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
+        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
+        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
+        :param pulumi.Input[_builtins.str] city: Address city.
+        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
+        :param pulumi.Input[_builtins.str] district: Address district.
+        :param pulumi.Input[_builtins.str] email: Email address.
+        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
+        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.str] middle_name: Middle name.
+        :param pulumi.Input[_builtins.str] phone_number: Phone number.
+        :param pulumi.Input[_builtins.str] postal_code: Postal code.
+        :param pulumi.Input[_builtins.str] region: Address region.
+        """
+        pulumi.set(__self__, "address_line1", address_line1)
+        pulumi.set(__self__, "country", country)
+        if address_line2 is not None:
+            pulumi.set(__self__, "address_line2", address_line2)
+        if address_line3 is not None:
+            pulumi.set(__self__, "address_line3", address_line3)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if is_valid_address is not None:
+            pulumi.set(__self__, "is_valid_address", is_valid_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine1")
+    def address_line1(self) -> pulumi.Input[_builtins.str]:
+        """
+        Address line 1.
+        """
+        return pulumi.get(self, "address_line1")
+
+    @address_line1.setter
+    def address_line1(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address_line1", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> pulumi.Input[_builtins.str]:
+        """
+        Country code uses ISO 3166-1 Alpha-2 format.
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "country", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine2")
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 2.
+        """
+        return pulumi.get(self, "address_line2")
+
+    @address_line2.setter
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine3")
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 3.
+        """
+        return pulumi.get(self, "address_line3")
+
+    @address_line3.setter
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line3", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address city.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "city", value)
+
+    @_builtins.property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Company name. Optional for MCA Individual (Pay-as-you-go).
+        """
+        return pulumi.get(self, "company_name")
+
+    @company_name.setter
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "company_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def district(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address district.
+        """
+        return pulumi.get(self, "district")
+
+    @district.setter
+    def district(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "district", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        First name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isValidAddress")
+    def is_valid_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if the address is incomplete.
+        """
+        return pulumi.get(self, "is_valid_address")
+
+    @is_valid_address.setter
+    def is_valid_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_valid_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Middle name.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @middle_name.setter
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "middle_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Phone number.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "phone_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
+class BillingProfilePropertiesSoldToArgsDict(TypedDict):
+    """
+    The address of the individual or organization that is responsible for the billing account.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address region.
+    """
+
+@pulumi.input_type
+class BillingProfilePropertiesSoldToArgs:
+    def __init__(__self__, *,
+                 address_line1: pulumi.Input[_builtins.str],
+                 country: pulumi.Input[_builtins.str],
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 district: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_valid_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The address of the individual or organization that is responsible for the billing account.
+
+        :param pulumi.Input[_builtins.str] address_line1: Address line 1.
+        :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
+        :param pulumi.Input[_builtins.str] address_line2: Address line 2.
+        :param pulumi.Input[_builtins.str] address_line3: Address line 3.
+        :param pulumi.Input[_builtins.str] city: Address city.
+        :param pulumi.Input[_builtins.str] company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
+        :param pulumi.Input[_builtins.str] district: Address district.
+        :param pulumi.Input[_builtins.str] email: Email address.
+        :param pulumi.Input[_builtins.str] first_name: First name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.bool] is_valid_address: Indicates if the address is incomplete.
+        :param pulumi.Input[_builtins.str] last_name: Last name. Optional for MCA Enterprise.
+        :param pulumi.Input[_builtins.str] middle_name: Middle name.
+        :param pulumi.Input[_builtins.str] phone_number: Phone number.
+        :param pulumi.Input[_builtins.str] postal_code: Postal code.
+        :param pulumi.Input[_builtins.str] region: Address region.
+        """
+        pulumi.set(__self__, "address_line1", address_line1)
+        pulumi.set(__self__, "country", country)
+        if address_line2 is not None:
+            pulumi.set(__self__, "address_line2", address_line2)
+        if address_line3 is not None:
+            pulumi.set(__self__, "address_line3", address_line3)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if is_valid_address is not None:
+            pulumi.set(__self__, "is_valid_address", is_valid_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine1")
+    def address_line1(self) -> pulumi.Input[_builtins.str]:
+        """
+        Address line 1.
+        """
+        return pulumi.get(self, "address_line1")
+
+    @address_line1.setter
+    def address_line1(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address_line1", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> pulumi.Input[_builtins.str]:
+        """
+        Country code uses ISO 3166-1 Alpha-2 format.
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "country", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine2")
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 2.
+        """
+        return pulumi.get(self, "address_line2")
+
+    @address_line2.setter
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine3")
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address line 3.
+        """
+        return pulumi.get(self, "address_line3")
+
+    @address_line3.setter
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_line3", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address city.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "city", value)
+
+    @_builtins.property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Company name. Optional for MCA Individual (Pay-as-you-go).
+        """
+        return pulumi.get(self, "company_name")
+
+    @company_name.setter
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "company_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def district(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address district.
+        """
+        return pulumi.get(self, "district")
+
+    @district.setter
+    def district(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "district", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        First name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isValidAddress")
+    def is_valid_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if the address is incomplete.
+        """
+        return pulumi.get(self, "is_valid_address")
+
+    @is_valid_address.setter
+    def is_valid_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_valid_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Middle name.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @middle_name.setter
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "middle_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Phone number.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "phone_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
@@ -1532,27 +1532,27 @@ class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
     """
     The ID of the role definition.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object id of the user to whom the role was assigned.
     """
-    principal_puid: NotRequired[pulumi.Input[_builtins.str]]
+    principal_puid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal PUID of the user to whom the role was assigned.
     """
-    principal_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal tenant id of the user to whom the role was assigned.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The scope at which the role was assigned.
     """
-    user_authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    user_authentication_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
     """
-    user_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    user_email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
     """
@@ -1561,12 +1561,12 @@ class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
 class BillingRoleAssignmentPropertiesArgs:
     def __init__(__self__, *,
                  role_definition_id: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_puid: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_email_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_puid: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_email_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of the billing role assignment.
 
@@ -1606,74 +1606,74 @@ class BillingRoleAssignmentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object id of the user to whom the role was assigned.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalPuid")
-    def principal_puid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_puid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal PUID of the user to whom the role was assigned.
         """
         return pulumi.get(self, "principal_puid")
 
     @principal_puid.setter
-    def principal_puid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_puid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_puid", value)
 
     @_builtins.property
     @pulumi.getter(name="principalTenantId")
-    def principal_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal tenant id of the user to whom the role was assigned.
         """
         return pulumi.get(self, "principal_tenant_id")
 
     @principal_tenant_id.setter
-    def principal_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope at which the role was assigned.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="userAuthenticationType")
-    def user_authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         """
         return pulumi.get(self, "user_authentication_type")
 
     @user_authentication_type.setter
-    def user_authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userEmailAddress")
-    def user_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         """
         return pulumi.get(self, "user_email_address")
 
     @user_email_address.setter
-    def user_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_email_address", value)
 
 
@@ -1681,23 +1681,23 @@ class InvoiceSectionPropertiesArgsDict(TypedDict):
     """
     An invoice section.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the invoice section.
     """
-    reason_code: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]
+    reason_code: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]]
     """
     Reason for the specified invoice section status.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionState']]]]
     """
     Identifies the status of an invoice section.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
     """
-    target_cloud: NotRequired[pulumi.Input[_builtins.str]]
+    target_cloud: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
     """
@@ -1705,11 +1705,11 @@ class InvoiceSectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class InvoiceSectionPropertiesArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason_code: Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_cloud: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason_code: pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_cloud: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An invoice section.
 
@@ -1732,62 +1732,62 @@ class InvoiceSectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the invoice section.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="reasonCode")
-    def reason_code(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]:
+    def reason_code(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]:
         """
         Reason for the specified invoice section status.
         """
         return pulumi.get(self, "reason_code")
 
     @reason_code.setter
-    def reason_code(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]):
+    def reason_code(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]):
         pulumi.set(self, "reason_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionState']]]:
         """
         Identifies the status of an invoice section.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InvoiceSectionState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCloud")
-    def target_cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
         """
         return pulumi.get(self, "target_cloud")
 
     @target_cloud.setter
-    def target_cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_cloud", value)
 
 

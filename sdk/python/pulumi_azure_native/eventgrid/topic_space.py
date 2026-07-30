@@ -22,9 +22,9 @@ class TopicSpaceArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TopicSpace resource.
 
@@ -33,7 +33,7 @@ class TopicSpaceArgs:
         :param pulumi.Input[_builtins.str] description: Description for the Topic Space resource.
         :param pulumi.Input[_builtins.str] topic_space_name: The topic space name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topic_templates: The topic filters in the topic space.
-               Example: "topicTemplates": [ 
+               Example: "topicTemplates": [
                              "devices/foo/bar",
                              "devices/topic1/+",
                              "devices/${principal.name}/${principal.attributes.keyName}" ].
@@ -73,34 +73,34 @@ class TopicSpaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the Topic Space resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="topicSpaceName")
-    def topic_space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic space name.
         """
         return pulumi.get(self, "topic_space_name")
 
     @topic_space_name.setter
-    def topic_space_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_space_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicTemplates")
-    def topic_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topic_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The topic filters in the topic space.
-        Example: "topicTemplates": [ 
+        Example: "topicTemplates": [
                       "devices/foo/bar",
                       "devices/topic1/+",
                       "devices/${principal.name}/${principal.attributes.keyName}" ].
@@ -108,7 +108,7 @@ class TopicSpaceArgs:
         return pulumi.get(self, "topic_templates")
 
     @topic_templates.setter
-    def topic_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topic_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topic_templates", value)
 
 
@@ -118,11 +118,11 @@ class TopicSpace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Topic space resource.
@@ -131,7 +131,6 @@ class TopicSpace(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the Topic Space resource.
@@ -139,7 +138,7 @@ class TopicSpace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.str] topic_space_name: The topic space name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topic_templates: The topic filters in the topic space.
-               Example: "topicTemplates": [ 
+               Example: "topicTemplates": [
                              "devices/foo/bar",
                              "devices/topic1/+",
                              "devices/${principal.name}/${principal.attributes.keyName}" ].
@@ -157,7 +156,6 @@ class TopicSpace(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TopicSpaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,11 +171,11 @@ class TopicSpace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,7 +277,7 @@ class TopicSpace(pulumi.CustomResource):
     def topic_templates(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         The topic filters in the topic space.
-        Example: "topicTemplates": [ 
+        Example: "topicTemplates": [
                       "devices/foo/bar",
                       "devices/topic1/+",
                       "devices/${principal.name}/${principal.attributes.keyName}" ].

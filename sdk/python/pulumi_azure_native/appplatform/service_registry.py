@@ -22,7 +22,7 @@ class ServiceRegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 service_registry_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_registry_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceRegistry resource.
 
@@ -61,14 +61,14 @@ class ServiceRegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistryName")
-    def service_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Service Registry.
         """
         return pulumi.get(self, "service_registry_name")
 
     @service_registry_name.setter
-    def service_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_registry_name", value)
 
 
@@ -78,9 +78,9 @@ class ServiceRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Service Registry resource
@@ -88,7 +88,6 @@ class ServiceRegistry(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +108,6 @@ class ServiceRegistry(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceRegistryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +123,9 @@ class ServiceRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

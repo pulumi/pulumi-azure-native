@@ -23,12 +23,12 @@ class IntegrationAccountCertificateArgs:
     def __init__(__self__, *,
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional['KeyVaultKeyReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountCertificate resource.
 
@@ -82,38 +82,38 @@ class IntegrationAccountCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account certificate name.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]:
+    def key(self) -> pulumi.Input[Optional['KeyVaultKeyReferenceArgs']]:
         """
         The key details in the key vault.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
+    def key(self, value: pulumi.Input[Optional['KeyVaultKeyReferenceArgs']]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
@@ -130,26 +130,26 @@ class IntegrationAccountCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public certificate.
         """
         return pulumi.get(self, "public_certificate")
 
     @public_certificate.setter
-    def public_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,14 +159,14 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The integration account certificate.
@@ -174,7 +174,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationAccountCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

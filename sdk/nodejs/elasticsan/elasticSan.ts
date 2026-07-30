@@ -191,7 +191,7 @@ export interface ElasticSanArgs {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -199,7 +199,7 @@ export interface ElasticSanArgs {
     /**
      * The name of the ElasticSan.
      */
-    elasticSanName?: pulumi.Input<string>;
+    elasticSanName?: pulumi.Input<string | undefined>;
     /**
      * Extended size of the Elastic San appliance in TiB.
      */
@@ -207,11 +207,11 @@ export interface ElasticSanArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.elasticsan.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.elasticsan.PublicNetworkAccess | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -223,5 +223,5 @@ export interface ElasticSanArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

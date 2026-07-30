@@ -26,15 +26,15 @@ class L3NetworkArgs:
                  l3_isolation_domain_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.float],
-                 hybrid_aks_ipam_enabled: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_allocation_type: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationType']]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 l3_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 hybrid_aks_ipam_enabled: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
+                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_allocation_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a L3Network resource.
 
@@ -133,55 +133,55 @@ class L3NetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="hybridAksIpamEnabled")
-    def hybrid_aks_ipam_enabled(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']]]:
+    def hybrid_aks_ipam_enabled(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]]:
         """
         Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
         """
         return pulumi.get(self, "hybrid_aks_ipam_enabled")
 
     @hybrid_aks_ipam_enabled.setter
-    def hybrid_aks_ipam_enabled(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']]]):
+    def hybrid_aks_ipam_enabled(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]]):
         pulumi.set(self, "hybrid_aks_ipam_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridAksPluginType")
-    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]]:
+    def hybrid_aks_plugin_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]]:
         """
         Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
     @hybrid_aks_plugin_type.setter
-    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]]):
+    def hybrid_aks_plugin_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]]):
         pulumi.set(self, "hybrid_aks_plugin_type", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         """
         return pulumi.get(self, "interface_name")
 
     @interface_name.setter
-    def interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAllocationType")
-    def ip_allocation_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationType']]]:
+    def ip_allocation_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]]:
         """
         The type of the IP address allocation, defaulted to "DualStack".
         """
         return pulumi.get(self, "ip_allocation_type")
 
     @ip_allocation_type.setter
-    def ip_allocation_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationType']]]):
+    def ip_allocation_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]]):
         pulumi.set(self, "ip_allocation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4ConnectedPrefix")
-    def ipv4_connected_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_connected_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
         is IPV4 or DualStack.
@@ -189,12 +189,12 @@ class L3NetworkArgs:
         return pulumi.get(self, "ipv4_connected_prefix")
 
     @ipv4_connected_prefix.setter
-    def ipv4_connected_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_connected_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_connected_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6ConnectedPrefix")
-    def ipv6_connected_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_connected_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
         is IPV6 or DualStack.
@@ -202,43 +202,43 @@ class L3NetworkArgs:
         return pulumi.get(self, "ipv6_connected_prefix")
 
     @ipv6_connected_prefix.setter
-    def ipv6_connected_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_connected_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_connected_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="l3NetworkName")
-    def l3_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def l3_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the L3 network.
         """
         return pulumi.get(self, "l3_network_name")
 
     @l3_network_name.setter
-    def l3_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def l3_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "l3_network_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -248,25 +248,24 @@ class L3Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hybrid_aks_ipam_enabled: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_allocation_type: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationType']]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 l3_isolation_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 l3_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hybrid_aks_ipam_enabled: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
+                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_allocation_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_isolation_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +296,6 @@ class L3Network(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param L3NetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,19 +311,19 @@ class L3Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hybrid_aks_ipam_enabled: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_allocation_type: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationType']]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 l3_isolation_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 l3_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hybrid_aks_ipam_enabled: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
+                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_allocation_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_isolation_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

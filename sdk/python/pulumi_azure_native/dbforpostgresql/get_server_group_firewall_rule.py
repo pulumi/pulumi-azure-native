@@ -145,7 +145,6 @@ def get_server_group_firewall_rule(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str firewall_rule_name: The name of the cluster firewall rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_server_group_firewall_rule(cluster_name: Optional[_builtins.str] = None,
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_group_firewall_rule_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_group_firewall_rule_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerGroupFirewallRuleResult]:
     """
     Gets information about a cluster firewall rule.
@@ -176,7 +175,6 @@ def get_server_group_firewall_rule_output(cluster_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2023-03-02-preview.
 
     Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str firewall_rule_name: The name of the cluster firewall rule.

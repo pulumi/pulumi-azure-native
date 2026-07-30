@@ -396,7 +396,6 @@ def get_scheduled_query_rule(resource_group_name: Optional[_builtins.str] = None
 
     Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_name: The name of the rule.
     """
@@ -436,8 +435,8 @@ def get_scheduled_query_rule(resource_group_name: Optional[_builtins.str] = None
         target_resource_types=pulumi.get(__ret__, 'target_resource_types'),
         type=pulumi.get(__ret__, 'type'),
         window_size=pulumi.get(__ret__, 'window_size'))
-def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduled_query_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
     Retrieve an scheduled query rule definition.
@@ -445,7 +444,6 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_name: The name of the rule.

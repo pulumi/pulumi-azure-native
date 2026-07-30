@@ -30,7 +30,7 @@ class HealthBotPropertiesArgsDict(TypedDict):
     """
     The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
     """
-    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     KeyVault properties for the resource encryption.
     """
@@ -38,7 +38,7 @@ class HealthBotPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HealthBotPropertiesArgs:
     def __init__(__self__, *,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None):
         """
         The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 
@@ -49,14 +49,14 @@ class HealthBotPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         KeyVault properties for the resource encryption.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
 
@@ -64,11 +64,11 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
     '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -77,8 +77,8 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -93,19 +93,19 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
         '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -113,7 +113,7 @@ class IdentityArgs:
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -129,11 +129,11 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     The Uri of the key vault.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the key vault key.
     """
-    user_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user assigned identity (ARM resource id) that has access to the key.
     """
@@ -143,8 +143,8 @@ class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_uri: pulumi.Input[_builtins.str],
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the key vault.
 
@@ -186,26 +186,26 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the key vault key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentity")
-    def user_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity (ARM resource id) that has access to the key.
         """
         return pulumi.get(self, "user_identity")
 
     @user_identity.setter
-    def user_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identity", value)
 
 

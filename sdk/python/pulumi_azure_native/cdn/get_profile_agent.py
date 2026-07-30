@@ -143,7 +143,6 @@ def get_profile_agent(agent_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01-preview.
 
-
     :param _builtins.str agent_name: Name of the web agent association.
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -164,15 +163,14 @@ def get_profile_agent(agent_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         web_agent=pulumi.get(__ret__, 'web_agent'))
-def get_profile_agent_output(agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_agent_output(agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileAgentResult]:
     """
     Gets an agent link (web agent association) within a CDN profile.
 
     Uses Azure REST API version 2025-09-01-preview.
-
 
     :param _builtins.str agent_name: Name of the web agent association.
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

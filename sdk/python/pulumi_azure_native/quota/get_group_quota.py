@@ -117,7 +117,6 @@ def get_group_quota(group_quota_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01, 2026-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
     :param _builtins.str management_group_id: Management Group Id.
     """
@@ -134,8 +133,8 @@ def get_group_quota(group_quota_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_group_quota_output(group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_quota_output(group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaResult]:
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
@@ -143,7 +142,6 @@ def get_group_quota_output(group_quota_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2025-03-01.
 
     Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01, 2026-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
     :param _builtins.str management_group_id: Management Group Id.

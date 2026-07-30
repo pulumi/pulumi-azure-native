@@ -191,7 +191,7 @@ export interface RackArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
      */
@@ -199,7 +199,7 @@ export interface RackArgs {
     /**
      * The name of the rack.
      */
-    rackName?: pulumi.Input<string>;
+    rackName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
      */
@@ -215,5 +215,5 @@ export interface RackArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

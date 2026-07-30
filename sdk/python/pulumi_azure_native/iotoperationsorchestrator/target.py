@@ -24,14 +24,14 @@ class TargetArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPropertiesArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_policy: Optional[pulumi.Input['ReconciliationPolicyArgs']] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topologies: Optional[pulumi.Input[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentPropertiesArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_policy: pulumi.Input[Optional['ReconciliationPolicyArgs']] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topologies: pulumi.Input[Optional[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
@@ -91,98 +91,98 @@ class TargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPropertiesArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentPropertiesArgs']]]]:
         """
         A list of components.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPropertiesArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentPropertiesArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of target.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reconciliationPolicy")
-    def reconciliation_policy(self) -> Optional[pulumi.Input['ReconciliationPolicyArgs']]:
+    def reconciliation_policy(self) -> pulumi.Input[Optional['ReconciliationPolicyArgs']]:
         """
         Reconciliation Policy.
         """
         return pulumi.get(self, "reconciliation_policy")
 
     @reconciliation_policy.setter
-    def reconciliation_policy(self, value: Optional[pulumi.Input['ReconciliationPolicyArgs']]):
+    def reconciliation_policy(self, value: pulumi.Input[Optional['ReconciliationPolicyArgs']]):
         pulumi.set(self, "reconciliation_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment scope (such as Kubernetes namespace).
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def topologies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]]:
+    def topologies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]]:
         """
         Defines the device topology for a target or instance.
         """
         return pulumi.get(self, "topologies")
 
     @topologies.setter
-    def topologies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]]):
+    def topologies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopologiesPropertiesArgs']]]]):
         pulumi.set(self, "topologies", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the particular resource.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -192,22 +192,21 @@ class Target(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentPropertiesArgs', 'ComponentPropertiesArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_policy: Optional[pulumi.Input[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topologies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopologiesPropertiesArgs', 'TopologiesPropertiesArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentPropertiesArgs', 'ComponentPropertiesArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_policy: pulumi.Input[Optional[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topologies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopologiesPropertiesArgs', 'TopologiesPropertiesArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Target resource belonging to an Instance resource.
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +232,6 @@ class Target(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,16 +247,16 @@ class Target(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentPropertiesArgs', 'ComponentPropertiesArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reconciliation_policy: Optional[pulumi.Input[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topologies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopologiesPropertiesArgs', 'TopologiesPropertiesArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentPropertiesArgs', 'ComponentPropertiesArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reconciliation_policy: pulumi.Input[Optional[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topologies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopologiesPropertiesArgs', 'TopologiesPropertiesArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

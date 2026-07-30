@@ -89,7 +89,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[_builtins.str]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
@@ -113,7 +113,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[_builtins.bool]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
@@ -129,7 +129,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[_builtins.str]:
         """
-        Date Package was last updated, found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
@@ -145,7 +145,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageApplications")
     def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsResponse']]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
@@ -153,7 +153,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageDependencies")
     def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesResponse']]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
@@ -161,7 +161,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageFamilyName")
     def package_family_name(self) -> Optional[_builtins.str]:
         """
-        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
@@ -169,7 +169,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[_builtins.str]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
@@ -177,7 +177,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageRelativePath")
     def package_relative_path(self) -> Optional[_builtins.str]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
@@ -201,7 +201,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        Package version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
 
@@ -241,7 +241,6 @@ def get_msix_package(host_pool_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group
     :param _builtins.str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -270,9 +269,9 @@ def get_msix_package(host_pool_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_msix_package_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            msix_package_full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_msix_package_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            msix_package_full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.
@@ -280,7 +279,6 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[_builtins.str]
     Uses Azure REST API version 2024-04-03.
 
     Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group
     :param _builtins.str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool

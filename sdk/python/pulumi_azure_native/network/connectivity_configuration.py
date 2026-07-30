@@ -26,11 +26,11 @@ class ConnectivityConfigurationArgs:
                  connectivity_topology: pulumi.Input[Union[_builtins.str, 'ConnectivityTopology']],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]] = None,
-                 is_global: Optional[pulumi.Input[Union[_builtins.str, 'IsGlobal']]] = None):
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_existing_peering: pulumi.Input[Optional[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hubs: pulumi.Input[Optional[Sequence[pulumi.Input['HubArgs']]]] = None,
+                 is_global: pulumi.Input[Optional[Union[_builtins.str, 'IsGlobal']]] = None):
         """
         The set of arguments for constructing a ConnectivityConfiguration resource.
 
@@ -109,62 +109,62 @@ class ConnectivityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network manager connectivity configuration.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteExistingPeering")
-    def delete_existing_peering(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeleteExistingPeering']]]:
+    def delete_existing_peering(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeleteExistingPeering']]]:
         """
         Flag if need to remove current existing peerings.
         """
         return pulumi.get(self, "delete_existing_peering")
 
     @delete_existing_peering.setter
-    def delete_existing_peering(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeleteExistingPeering']]]):
+    def delete_existing_peering(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeleteExistingPeering']]]):
         pulumi.set(self, "delete_existing_peering", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the connectivity configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]]:
+    def hubs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HubArgs']]]]:
         """
         List of hubItems
         """
         return pulumi.get(self, "hubs")
 
     @hubs.setter
-    def hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]]):
+    def hubs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HubArgs']]]]):
         pulumi.set(self, "hubs", value)
 
     @_builtins.property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IsGlobal']]]:
+    def is_global(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IsGlobal']]]:
         """
         Flag if global mesh is supported.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IsGlobal']]]):
+    def is_global(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IsGlobal']]]):
         pulumi.set(self, "is_global", value)
 
 
@@ -174,15 +174,15 @@ class ConnectivityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectivityGroupItemArgs', 'ConnectivityGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connectivity_topology: Optional[pulumi.Input[Union[_builtins.str, 'ConnectivityTopology']]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubArgs', 'HubArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[Union[_builtins.str, 'IsGlobal']]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectivityGroupItemArgs', 'ConnectivityGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connectivity_topology: pulumi.Input[Optional[Union[_builtins.str, 'ConnectivityTopology']]] = None,
+                 delete_existing_peering: pulumi.Input[Optional[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubArgs', 'HubArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[Union[_builtins.str, 'IsGlobal']]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The network manager connectivity configuration resource
@@ -190,7 +190,6 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class ConnectivityConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectivityConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class ConnectivityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectivityGroupItemArgs', 'ConnectivityGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connectivity_topology: Optional[pulumi.Input[Union[_builtins.str, 'ConnectivityTopology']]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubArgs', 'HubArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[Union[_builtins.str, 'IsGlobal']]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectivityGroupItemArgs', 'ConnectivityGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connectivity_topology: pulumi.Input[Optional[Union[_builtins.str, 'ConnectivityTopology']]] = None,
+                 delete_existing_peering: pulumi.Input[Optional[Union[_builtins.str, 'DeleteExistingPeering']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubArgs', 'HubArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[Union[_builtins.str, 'IsGlobal']]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -134,11 +134,11 @@ export interface FqdnListLocalRulestackArgs {
     /**
      * comment for this object
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * fqdn object description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * fqdn list
      */
@@ -150,7 +150,7 @@ export interface FqdnListLocalRulestackArgs {
     /**
      * fqdn list name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

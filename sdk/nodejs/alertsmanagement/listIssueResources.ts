@@ -67,7 +67,7 @@ export interface ListIssueResourcesOutputArgs {
     /**
      * The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'"
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * The name of the IssueResource
      */

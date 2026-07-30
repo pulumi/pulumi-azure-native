@@ -68,7 +68,6 @@ def list_storage_account_sas(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str i_p_address_or_range: An IP address or a range of IP addresses from which to accept requests.
     :param _builtins.str key_to_sign: The key to sign the account SAS token with.
@@ -96,16 +95,16 @@ def list_storage_account_sas(account_name: Optional[_builtins.str] = None,
 
     return AwaitableListStorageAccountSASResult(
         account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
-def list_storage_account_sas_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    i_p_address_or_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    key_to_sign: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    permissions: Optional[pulumi.Input[Union[_builtins.str, 'Permissions']]] = None,
-                                    protocols: Optional[pulumi.Input[Optional['HttpProtocol']]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_types: Optional[pulumi.Input[Union[_builtins.str, 'SignedResourceTypes']]] = None,
-                                    services: Optional[pulumi.Input[Union[_builtins.str, 'Services']]] = None,
-                                    shared_access_expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                    shared_access_start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_storage_account_sas_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    i_p_address_or_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    key_to_sign: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    permissions: pulumi.Input[Optional[Union[_builtins.str, 'Permissions']]] = None,
+                                    protocols: pulumi.Input[Optional[Optional['HttpProtocol']]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_types: pulumi.Input[Optional[Union[_builtins.str, 'SignedResourceTypes']]] = None,
+                                    services: pulumi.Input[Optional[Union[_builtins.str, 'Services']]] = None,
+                                    shared_access_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                    shared_access_start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountSASResult]:
     """
     List SAS credentials of a storage account.
@@ -113,7 +112,6 @@ def list_storage_account_sas_output(account_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str i_p_address_or_range: An IP address or a range of IP addresses from which to accept requests.

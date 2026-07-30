@@ -335,7 +335,6 @@ def get_role_assignment(assignment_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2017-04-26.
 
-
     :param _builtins.str assignment_name: The name of the role assignment.
     :param _builtins.str hub_name: The name of the hub.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -372,15 +371,14 @@ def get_role_assignment(assignment_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         views=pulumi.get(__ret__, 'views'),
         widget_types=pulumi.get(__ret__, 'widget_types'))
-def get_role_assignment_output(assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_assignment_output(assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Gets the role assignment in the hub.
 
     Uses Azure REST API version 2017-04-26.
-
 
     :param _builtins.str assignment_name: The name of the role assignment.
     :param _builtins.str hub_name: The name of the hub.

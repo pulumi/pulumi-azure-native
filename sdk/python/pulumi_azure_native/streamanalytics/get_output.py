@@ -169,7 +169,6 @@ def get_output(job_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str job_name: The name of the streaming job.
     :param _builtins.str output_name: The name of the output.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -192,9 +191,9 @@ def get_output(job_name: Optional[_builtins.str] = None,
         size_window=pulumi.get(__ret__, 'size_window'),
         time_window=pulumi.get(__ret__, 'time_window'),
         type=pulumi.get(__ret__, 'type'))
-def get_output_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      output_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_output_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      output_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutputResult]:
     """
     Gets details about the specified output.
@@ -202,7 +201,6 @@ def get_output_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str job_name: The name of the streaming job.
     :param _builtins.str output_name: The name of the output.

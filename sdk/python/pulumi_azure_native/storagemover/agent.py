@@ -26,9 +26,9 @@ class AgentArgs:
                  arc_vm_uuid: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_mover_name: pulumi.Input[_builtins.str],
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_limit_schedule: Optional[pulumi.Input['UploadLimitScheduleArgs']] = None):
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_limit_schedule: pulumi.Input[Optional['UploadLimitScheduleArgs']] = None):
         """
         The set of arguments for constructing a Agent resource.
 
@@ -101,38 +101,38 @@ class AgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Agent resource.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Agent.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadLimitSchedule")
-    def upload_limit_schedule(self) -> Optional[pulumi.Input['UploadLimitScheduleArgs']]:
+    def upload_limit_schedule(self) -> pulumi.Input[Optional['UploadLimitScheduleArgs']]:
         """
         The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
         """
         return pulumi.get(self, "upload_limit_schedule")
 
     @upload_limit_schedule.setter
-    def upload_limit_schedule(self, value: Optional[pulumi.Input['UploadLimitScheduleArgs']]):
+    def upload_limit_schedule(self, value: pulumi.Input[Optional['UploadLimitScheduleArgs']]):
         pulumi.set(self, "upload_limit_schedule", value)
 
 
@@ -142,13 +142,13 @@ class Agent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_vm_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_vm_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_limit_schedule: pulumi.Input[Optional[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         """
         The Agent resource.
@@ -156,7 +156,6 @@ class Agent(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class Agent(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class Agent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_vm_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_vm_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_limit_schedule: pulumi.Input[Optional[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

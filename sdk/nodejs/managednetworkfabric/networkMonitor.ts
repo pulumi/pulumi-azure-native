@@ -105,7 +105,7 @@ export class NetworkMonitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["annotation"] = args?.annotation;
-            resourceInputs["bmpConfiguration"] = args ? (args.bmpConfiguration ? pulumi.output(args.bmpConfiguration).apply(inputs.managednetworkfabric.bmpConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["bmpConfiguration"] = args ? pulumi.output(args.bmpConfiguration).apply(v => v === undefined ? undefined : inputs.managednetworkfabric.bmpConfigurationPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["networkMonitorName"] = args?.networkMonitorName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -146,19 +146,19 @@ export interface NetworkMonitorArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * BMP Configurations for the Network Fabric.
      */
-    bmpConfiguration?: pulumi.Input<inputs.managednetworkfabric.BmpConfigurationPropertiesArgs>;
+    bmpConfiguration?: pulumi.Input<inputs.managednetworkfabric.BmpConfigurationPropertiesArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Network Monitor.
      */
-    networkMonitorName?: pulumi.Input<string>;
+    networkMonitorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,5 +166,5 @@ export interface NetworkMonitorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -145,7 +145,7 @@ export interface VolumeArgs {
     /**
      * State of the operation on the resource.
      */
-    creationData?: pulumi.Input<inputs.elasticsan.SourceCreationDataArgs>;
+    creationData?: pulumi.Input<inputs.elasticsan.SourceCreationDataArgs | undefined>;
     /**
      * The name of the ElasticSan.
      */
@@ -153,7 +153,7 @@ export interface VolumeArgs {
     /**
      * Parent resource information.
      */
-    managedBy?: pulumi.Input<inputs.elasticsan.ManagedByInfoArgs>;
+    managedBy?: pulumi.Input<inputs.elasticsan.ManagedByInfoArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -169,5 +169,5 @@ export interface VolumeArgs {
     /**
      * The name of the Volume.
      */
-    volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
 }

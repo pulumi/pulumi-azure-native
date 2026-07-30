@@ -181,7 +181,6 @@ def list_product_details(product_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.
     :param _builtins.str resource_group: Name of the resource group.
@@ -205,9 +204,9 @@ def list_product_details(product_name: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'),
         vm_os_type=pulumi.get(__ret__, 'vm_os_type'),
         vm_scale_set_enabled=pulumi.get(__ret__, 'vm_scale_set_enabled'))
-def list_product_details_output(product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def list_product_details_output(product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductDetailsResult]:
     """
     Returns the extended properties of a product.
@@ -215,7 +214,6 @@ def list_product_details_output(product_name: Optional[pulumi.Input[_builtins.st
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.

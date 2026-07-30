@@ -384,7 +384,6 @@ def get_connected_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -423,8 +422,8 @@ def get_connected_cluster(cluster_name: Optional[_builtins.str] = None,
         total_core_count=pulumi.get(__ret__, 'total_core_count'),
         total_node_count=pulumi.get(__ret__, 'total_node_count'),
         type=pulumi.get(__ret__, 'type'))
-def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connected_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedClusterResult]:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
@@ -432,7 +431,6 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-02-01-preview.
 
     Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview, 2026-02-01-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

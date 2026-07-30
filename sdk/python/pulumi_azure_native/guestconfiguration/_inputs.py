@@ -28,11 +28,11 @@ class ConfigurationParameterArgsDict(TypedDict):
     """
     Represents a configuration parameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the configuration parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the configuration parameter.
     """
@@ -40,8 +40,8 @@ class ConfigurationParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a configuration parameter.
 
@@ -55,26 +55,26 @@ class ConfigurationParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the configuration parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the configuration parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -82,11 +82,11 @@ class GuestConfigurationAssignmentPropertiesArgsDict(TypedDict):
     """
     Guest configuration assignment properties.
     """
-    context: NotRequired[pulumi.Input[_builtins.str]]
+    context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source which initiated the guest configuration assignment. Ex: Azure Policy
     """
-    guest_configuration: NotRequired[pulumi.Input['GuestConfigurationNavigationArgsDict']]
+    guest_configuration: NotRequired[pulumi.Input[Optional['GuestConfigurationNavigationArgsDict']]]
     """
     The guest configuration to assign.
     """
@@ -94,8 +94,8 @@ class GuestConfigurationAssignmentPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class GuestConfigurationAssignmentPropertiesArgs:
     def __init__(__self__, *,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 guest_configuration: Optional[pulumi.Input['GuestConfigurationNavigationArgs']] = None):
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 guest_configuration: pulumi.Input[Optional['GuestConfigurationNavigationArgs']] = None):
         """
         Guest configuration assignment properties.
 
@@ -109,26 +109,26 @@ class GuestConfigurationAssignmentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source which initiated the guest configuration assignment. Ex: Azure Policy
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="guestConfiguration")
-    def guest_configuration(self) -> Optional[pulumi.Input['GuestConfigurationNavigationArgs']]:
+    def guest_configuration(self) -> pulumi.Input[Optional['GuestConfigurationNavigationArgs']]:
         """
         The guest configuration to assign.
         """
         return pulumi.get(self, "guest_configuration")
 
     @guest_configuration.setter
-    def guest_configuration(self, value: Optional[pulumi.Input['GuestConfigurationNavigationArgs']]):
+    def guest_configuration(self, value: pulumi.Input[Optional['GuestConfigurationNavigationArgs']]):
         pulumi.set(self, "guest_configuration", value)
 
 
@@ -136,39 +136,39 @@ class GuestConfigurationNavigationArgsDict(TypedDict):
     """
     Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
     """
-    assignment_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AssignmentType']]]
+    assignment_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AssignmentType']]]]
     """
     Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
     """
-    configuration_parameter: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]
+    configuration_parameter: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]]
     """
     The configuration parameters for the guest configuration.
     """
-    configuration_protected_parameter: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]
+    configuration_protected_parameter: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]]
     """
     The protected configuration parameters for the guest configuration.
     """
-    content_hash: NotRequired[pulumi.Input[_builtins.str]]
+    content_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Combined hash of the guest configuration package and configuration parameters.
     """
-    content_managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    content_managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Managed identity with storage access of the guest configuration package and configuration parameters.
     """
-    content_uri: NotRequired[pulumi.Input[_builtins.str]]
+    content_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of the storage where guest configuration package is uploaded.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'Kind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]]
     """
     Kind of the guest configuration. For example:DSC
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the guest configuration.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the guest configuration.
     """
@@ -176,15 +176,15 @@ class GuestConfigurationNavigationArgsDict(TypedDict):
 @pulumi.input_type
 class GuestConfigurationNavigationArgs:
     def __init__(__self__, *,
-                 assignment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentType']]] = None,
-                 configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
-                 configuration_protected_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
-                 content_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentType']]] = None,
+                 configuration_parameter: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+                 configuration_protected_parameter: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+                 content_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 
@@ -219,110 +219,110 @@ class GuestConfigurationNavigationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignmentType")
-    def assignment_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssignmentType']]]:
+    def assignment_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssignmentType']]]:
         """
         Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         """
         return pulumi.get(self, "assignment_type")
 
     @assignment_type.setter
-    def assignment_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentType']]]):
+    def assignment_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentType']]]):
         pulumi.set(self, "assignment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
+    def configuration_parameter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
         """
         The configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_parameter")
 
     @configuration_parameter.setter
-    def configuration_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
+    def configuration_parameter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
         pulumi.set(self, "configuration_parameter", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedParameter")
-    def configuration_protected_parameter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
+    def configuration_protected_parameter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
         """
         The protected configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_protected_parameter")
 
     @configuration_protected_parameter.setter
-    def configuration_protected_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
+    def configuration_protected_parameter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
         pulumi.set(self, "configuration_protected_parameter", value)
 
     @_builtins.property
     @pulumi.getter(name="contentHash")
-    def content_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Combined hash of the guest configuration package and configuration parameters.
         """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
-    def content_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="contentManagedIdentity")
-    def content_managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed identity with storage access of the guest configuration package and configuration parameters.
         """
         return pulumi.get(self, "content_managed_identity")
 
     @content_managed_identity.setter
-    def content_managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="contentUri")
-    def content_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of the storage where guest configuration package is uploaded.
         """
         return pulumi.get(self, "content_uri")
 
     @content_uri.setter
-    def content_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]:
         """
         Kind of the guest configuration. For example:DSC
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the guest configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the guest configuration.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 

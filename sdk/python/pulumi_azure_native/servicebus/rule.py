@@ -26,11 +26,11 @@ class RuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  subscription_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input['ActionArgs']] = None,
-                 correlation_filter: Optional[pulumi.Input['CorrelationFilterArgs']] = None,
-                 filter_type: Optional[pulumi.Input['FilterType']] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_filter: Optional[pulumi.Input['SqlFilterArgs']] = None):
+                 action: pulumi.Input[Optional['ActionArgs']] = None,
+                 correlation_filter: pulumi.Input[Optional['CorrelationFilterArgs']] = None,
+                 filter_type: pulumi.Input[Optional['FilterType']] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_filter: pulumi.Input[Optional['SqlFilterArgs']] = None):
         """
         The set of arguments for constructing a Rule resource.
 
@@ -109,62 +109,62 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['ActionArgs']]:
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['ActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationFilter")
-    def correlation_filter(self) -> Optional[pulumi.Input['CorrelationFilterArgs']]:
+    def correlation_filter(self) -> pulumi.Input[Optional['CorrelationFilterArgs']]:
         """
         Properties of correlationFilter
         """
         return pulumi.get(self, "correlation_filter")
 
     @correlation_filter.setter
-    def correlation_filter(self, value: Optional[pulumi.Input['CorrelationFilterArgs']]):
+    def correlation_filter(self, value: pulumi.Input[Optional['CorrelationFilterArgs']]):
         pulumi.set(self, "correlation_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input['FilterType']]:
+    def filter_type(self) -> pulumi.Input[Optional['FilterType']]:
         """
         Filter type that is evaluated against a BrokeredMessage.
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input['FilterType']]):
+    def filter_type(self, value: pulumi.Input[Optional['FilterType']]):
         pulumi.set(self, "filter_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule name.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlFilter")
-    def sql_filter(self) -> Optional[pulumi.Input['SqlFilterArgs']]:
+    def sql_filter(self) -> pulumi.Input[Optional['SqlFilterArgs']]:
         """
         Properties of sqlFilter
         """
         return pulumi.get(self, "sql_filter")
 
     @sql_filter.setter
-    def sql_filter(self, value: Optional[pulumi.Input['SqlFilterArgs']]):
+    def sql_filter(self, value: pulumi.Input[Optional['SqlFilterArgs']]):
         pulumi.set(self, "sql_filter", value)
 
 
@@ -174,15 +174,15 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
-                 correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input['FilterType']] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_filter: Optional[pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['ActionArgs', 'ActionArgsDict']]] = None,
+                 correlation_filter: pulumi.Input[Optional[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
+                 filter_type: pulumi.Input[Optional['FilterType']] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_filter: pulumi.Input[Optional[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of Rule Resource.
@@ -190,7 +190,6 @@ class Rule(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class Rule(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
-                 correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input['FilterType']] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_filter: Optional[pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['ActionArgs', 'ActionArgsDict']]] = None,
+                 correlation_filter: pulumi.Input[Optional[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
+                 filter_type: pulumi.Input[Optional['FilterType']] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_filter: pulumi.Input[Optional[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

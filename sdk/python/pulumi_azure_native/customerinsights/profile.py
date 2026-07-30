@@ -24,22 +24,22 @@ class ProfileArgs:
     def __init__(__self__, *,
                  hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 api_entity_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]]] = None,
-                 instances_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 large_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 medium_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_item_type_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 small_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input['StrongIdArgs']]]] = None,
-                 timestamp_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_entity_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 entity_type: pulumi.Input[Optional['EntityTypes']] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input['PropertyDefinitionArgs']]]] = None,
+                 instances_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 large_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 localized_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+                 medium_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_item_type_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 small_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_ids: pulumi.Input[Optional[Sequence[pulumi.Input['StrongIdArgs']]]] = None,
+                 timestamp_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -123,194 +123,194 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiEntitySetName")
-    def api_entity_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_entity_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
         """
         return pulumi.get(self, "api_entity_set_name")
 
     @api_entity_set_name.setter
-    def api_entity_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_entity_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_entity_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         The attributes for the Type.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized descriptions for the property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized display names for the property.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> Optional[pulumi.Input['EntityTypes']]:
+    def entity_type(self) -> pulumi.Input[Optional['EntityTypes']]:
         """
         Type of entity.
         """
         return pulumi.get(self, "entity_type")
 
     @entity_type.setter
-    def entity_type(self, value: Optional[pulumi.Input['EntityTypes']]):
+    def entity_type(self, value: pulumi.Input[Optional['EntityTypes']]):
         pulumi.set(self, "entity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]]]:
+    def fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PropertyDefinitionArgs']]]]:
         """
         The properties of the Profile.
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]]]):
+    def fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PropertyDefinitionArgs']]]]):
         pulumi.set(self, "fields", value)
 
     @_builtins.property
     @pulumi.getter(name="instancesCount")
-    def instances_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instances_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The instance count.
         """
         return pulumi.get(self, "instances_count")
 
     @instances_count.setter
-    def instances_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instances_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances_count", value)
 
     @_builtins.property
     @pulumi.getter(name="largeImage")
-    def large_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def large_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Large Image associated with the Property or EntityType.
         """
         return pulumi.get(self, "large_image")
 
     @large_image.setter
-    def large_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def large_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "large_image", value)
 
     @_builtins.property
     @pulumi.getter(name="localizedAttributes")
-    def localized_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+    def localized_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         Any custom localized attributes for the Type.
         """
         return pulumi.get(self, "localized_attributes")
 
     @localized_attributes.setter
-    def localized_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+    def localized_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "localized_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="mediumImage")
-    def medium_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def medium_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Medium Image associated with the Property or EntityType.
         """
         return pulumi.get(self, "medium_image")
 
     @medium_image.setter
-    def medium_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def medium_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "medium_image", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the profile.
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaItemTypeLink")
-    def schema_item_type_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_item_type_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema org link. This helps ACI identify and suggest semantic models.
         """
         return pulumi.get(self, "schema_item_type_link")
 
     @schema_item_type_link.setter
-    def schema_item_type_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_item_type_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_item_type_link", value)
 
     @_builtins.property
     @pulumi.getter(name="smallImage")
-    def small_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def small_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Small Image associated with the Property or EntityType.
         """
         return pulumi.get(self, "small_image")
 
     @small_image.setter
-    def small_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def small_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "small_image", value)
 
     @_builtins.property
     @pulumi.getter(name="strongIds")
-    def strong_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StrongIdArgs']]]]:
+    def strong_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StrongIdArgs']]]]:
         """
         The strong IDs.
         """
         return pulumi.get(self, "strong_ids")
 
     @strong_ids.setter
-    def strong_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StrongIdArgs']]]]):
+    def strong_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StrongIdArgs']]]]):
         pulumi.set(self, "strong_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampFieldName")
-    def timestamp_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp property name. Represents the time when the interaction or profile update happened.
         """
         return pulumi.get(self, "timestamp_field_name")
 
     @timestamp_field_name.setter
-    def timestamp_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the entity.
         """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
 
@@ -320,30 +320,29 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_entity_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 large_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 medium_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_item_type_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 small_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
-                 timestamp_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_entity_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 entity_type: pulumi.Input[Optional['EntityTypes']] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 large_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 localized_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+                 medium_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_item_type_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 small_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_ids: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
+                 timestamp_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The profile resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -377,7 +376,6 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -393,24 +391,24 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_entity_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 large_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 medium_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_item_type_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 small_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
-                 timestamp_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_entity_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 entity_type: pulumi.Input[Optional['EntityTypes']] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 large_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 localized_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+                 medium_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_item_type_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 small_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_ids: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
+                 timestamp_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

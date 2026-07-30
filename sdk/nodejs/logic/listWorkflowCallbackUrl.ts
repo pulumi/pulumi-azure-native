@@ -93,11 +93,11 @@ export interface ListWorkflowCallbackUrlOutputArgs {
     /**
      * The key type.
      */
-    keyType?: pulumi.Input<string | enums.logic.KeyType>;
+    keyType?: pulumi.Input<string | enums.logic.KeyType | undefined>;
     /**
      * The expiry time.
      */
-    notAfter?: pulumi.Input<string>;
+    notAfter?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

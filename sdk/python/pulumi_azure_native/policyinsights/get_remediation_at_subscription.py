@@ -263,7 +263,6 @@ def get_remediation_at_subscription(remediation_name: Optional[_builtins.str] = 
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str remediation_name: The name of the remediation.
     """
     __args__ = dict()
@@ -290,7 +289,7 @@ def get_remediation_at_subscription(remediation_name: Optional[_builtins.str] = 
         status_message=pulumi.get(__ret__, 'status_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_remediation_at_subscription_output(remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
     """
     Gets an existing remediation at subscription scope.
@@ -298,7 +297,6 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str remediation_name: The name of the remediation.
     """

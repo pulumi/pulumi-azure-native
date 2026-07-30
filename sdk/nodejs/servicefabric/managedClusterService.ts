@@ -132,11 +132,11 @@ export interface ManagedClusterServiceArgs {
     /**
      * Resource location depends on the parent resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The service resource properties.
      */
-    properties?: pulumi.Input<inputs.servicefabric.StatefulServicePropertiesArgs | inputs.servicefabric.StatelessServicePropertiesArgs>;
+    properties?: pulumi.Input<inputs.servicefabric.StatefulServicePropertiesArgs | inputs.servicefabric.StatelessServicePropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -144,9 +144,9 @@ export interface ManagedClusterServiceArgs {
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -23,16 +23,16 @@ __all__ = ['VirtualMachineInstanceArgs', 'VirtualMachineInstance']
 class VirtualMachineInstanceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 hardware_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']] = None,
-                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 network_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs']] = None):
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 hardware_profile: pulumi.Input[Optional['VirtualMachineInstancePropertiesHardwareProfileArgs']] = None,
+                 http_proxy_config: pulumi.Input[Optional['HttpProxyConfigurationArgs']] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 network_profile: pulumi.Input[Optional['VirtualMachineInstancePropertiesNetworkProfileArgs']] = None,
+                 os_profile: pulumi.Input[Optional['VirtualMachineInstancePropertiesOsProfileArgs']] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile: pulumi.Input[Optional['VirtualMachineInstancePropertiesSecurityProfileArgs']] = None,
+                 storage_profile: pulumi.Input[Optional['VirtualMachineInstancePropertiesStorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
 
@@ -86,122 +86,122 @@ class VirtualMachineInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="createFromLocal")
-    def create_from_local(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_from_local(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether this is an existing local virtual machine or if one should be created.
         """
         return pulumi.get(self, "create_from_local")
 
     @create_from_local.setter
-    def create_from_local(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_from_local(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_from_local", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['VirtualMachineInstancePropertiesHardwareProfileArgs']]:
         """
         HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['VirtualMachineInstancePropertiesHardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
+    def http_proxy_config(self) -> pulumi.Input[Optional['HttpProxyConfigurationArgs']]:
         """
         HTTP Proxy configuration for the VM.
         """
         return pulumi.get(self, "http_proxy_config")
 
     @http_proxy_config.setter
-    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
+    def http_proxy_config(self, value: pulumi.Input[Optional['HttpProxyConfigurationArgs']]):
         pulumi.set(self, "http_proxy_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['VirtualMachineInstancePropertiesNetworkProfileArgs']]:
         """
         NetworkProfile - describes the network configuration the virtual machine instance
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['VirtualMachineInstancePropertiesNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['VirtualMachineInstancePropertiesOsProfileArgs']]:
         """
         OsProfile - describes the configuration of the operating system and sets login data
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['VirtualMachineInstancePropertiesOsProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUid")
-    def resource_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier defined by ARC to identify the guest of the VM.
         """
         return pulumi.get(self, "resource_uid")
 
     @resource_uid.setter
-    def resource_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_uid", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['VirtualMachineInstancePropertiesSecurityProfileArgs']]:
         """
         SecurityProfile - Specifies the security settings for the virtual machine instance.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['VirtualMachineInstancePropertiesSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['VirtualMachineInstancePropertiesStorageProfileArgs']]:
         """
         StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['VirtualMachineInstancePropertiesStorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
 
@@ -211,17 +211,17 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesSecurityProfileArgs', 'VirtualMachineInstancePropertiesSecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesStorageProfileArgs', 'VirtualMachineInstancePropertiesStorageProfileArgsDict']]] = None,
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
+                 http_proxy_config: pulumi.Input[Optional[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesSecurityProfileArgs', 'VirtualMachineInstancePropertiesSecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesStorageProfileArgs', 'VirtualMachineInstancePropertiesStorageProfileArgsDict']]] = None,
                  __props__=None):
         """
         The virtual machine instance resource definition.
@@ -229,7 +229,6 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
         Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,7 +257,6 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,17 +272,17 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesSecurityProfileArgs', 'VirtualMachineInstancePropertiesSecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesStorageProfileArgs', 'VirtualMachineInstancePropertiesStorageProfileArgsDict']]] = None,
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
+                 http_proxy_config: pulumi.Input[Optional[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesSecurityProfileArgs', 'VirtualMachineInstancePropertiesSecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['VirtualMachineInstancePropertiesStorageProfileArgs', 'VirtualMachineInstancePropertiesStorageProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

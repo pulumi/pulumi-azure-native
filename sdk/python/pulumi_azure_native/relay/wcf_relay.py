@@ -23,11 +23,11 @@ class WCFRelayArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_type: Optional[pulumi.Input['Relaytype']] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 requires_transport_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_type: pulumi.Input[Optional['Relaytype']] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 requires_transport_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WCFRelay resource.
 
@@ -78,62 +78,62 @@ class WCFRelayArgs:
 
     @_builtins.property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relay name.
         """
         return pulumi.get(self, "relay_name")
 
     @relay_name.setter
-    def relay_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="relayType")
-    def relay_type(self) -> Optional[pulumi.Input['Relaytype']]:
+    def relay_type(self) -> pulumi.Input[Optional['Relaytype']]:
         """
         WCF relay type.
         """
         return pulumi.get(self, "relay_type")
 
     @relay_type.setter
-    def relay_type(self, value: Optional[pulumi.Input['Relaytype']]):
+    def relay_type(self, value: pulumi.Input[Optional['Relaytype']]):
         pulumi.set(self, "relay_type", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_client_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Returns true if client authorization is needed for this relay; otherwise, false.
         """
         return pulumi.get(self, "requires_client_authorization")
 
     @requires_client_authorization.setter
-    def requires_client_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_client_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_client_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresTransportSecurity")
-    def requires_transport_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_transport_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Returns true if transport security is needed for this relay; otherwise, false.
         """
         return pulumi.get(self, "requires_transport_security")
 
     @requires_transport_security.setter
-    def requires_transport_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_transport_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_transport_security", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         return pulumi.get(self, "user_metadata")
 
     @user_metadata.setter
-    def user_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_metadata", value)
 
 
@@ -143,13 +143,13 @@ class WCFRelay(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_type: Optional[pulumi.Input['Relaytype']] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 requires_transport_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_type: pulumi.Input[Optional['Relaytype']] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 requires_transport_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of the WCF relay resource.
@@ -157,7 +157,6 @@ class WCFRelay(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class WCFRelay(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WCFRelayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class WCFRelay(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_type: Optional[pulumi.Input['Relaytype']] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 requires_transport_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_type: pulumi.Input[Optional['Relaytype']] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 requires_transport_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

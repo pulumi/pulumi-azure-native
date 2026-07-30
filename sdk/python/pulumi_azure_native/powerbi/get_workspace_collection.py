@@ -133,7 +133,6 @@ def get_workspace_collection(resource_group_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2016-01-29.
 
-
     :param _builtins.str resource_group_name: Azure resource group
     :param _builtins.str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
@@ -152,14 +151,13 @@ def get_workspace_collection(resource_group_name: Optional[_builtins.str] = None
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    workspace_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_collection_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    workspace_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
     """
     Retrieves an existing Power BI Workspace Collection.
 
     Uses Azure REST API version 2016-01-29.
-
 
     :param _builtins.str resource_group_name: Azure resource group
     :param _builtins.str workspace_collection_name: Power BI Embedded Workspace Collection name

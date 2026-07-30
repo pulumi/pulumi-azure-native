@@ -215,7 +215,6 @@ def get_image(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str image_name: Image name. Use an image GUID for GA versions of the API.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -242,15 +241,14 @@ def get_image(catalog_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
-def get_image_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Get a Image
 
     Uses Azure REST API version 2024-04-01.
-
 
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str image_name: Image name. Use an image GUID for GA versions of the API.

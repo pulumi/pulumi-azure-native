@@ -1539,8 +1539,7 @@ class AllFeaturesResponse(dict):
     def __init__(__self__, *,
                  filter_type: _builtins.str):
         """
-        :param _builtins.str filter_type: 
-               Expected value is 'AllFeatures'.
+        :param _builtins.str filter_type: Expected value is 'AllFeatures'.
         """
         pulumi.set(__self__, "filter_type", 'AllFeatures')
 
@@ -1548,7 +1547,6 @@ class AllFeaturesResponse(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> _builtins.str:
         """
-
         Expected value is 'AllFeatures'.
         """
         return pulumi.get(self, "filter_type")
@@ -5089,8 +5087,7 @@ class BanditPolicyResponse(dict):
         """
         Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
 
-        :param _builtins.str policy_type: 
-               Expected value is 'Bandit'.
+        :param _builtins.str policy_type: Expected value is 'Bandit'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
         :param _builtins.int evaluation_interval: Interval (number of runs) between policy evaluations.
         :param _builtins.float slack_amount: Absolute distance allowed from the best performing run.
@@ -5118,7 +5115,6 @@ class BanditPolicyResponse(dict):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> _builtins.str:
         """
-
         Expected value is 'Bandit'.
         """
         return pulumi.get(self, "policy_type")
@@ -5776,8 +5772,7 @@ class BayesianSamplingAlgorithmResponse(dict):
         """
         Defines a Sampling Algorithm that generates values based on previous values
 
-        :param _builtins.str sampling_algorithm_type: 
-               Expected value is 'Bayesian'.
+        :param _builtins.str sampling_algorithm_type: Expected value is 'Bayesian'.
         """
         pulumi.set(__self__, "sampling_algorithm_type", 'Bayesian')
 
@@ -5785,7 +5780,6 @@ class BayesianSamplingAlgorithmResponse(dict):
     @pulumi.getter(name="samplingAlgorithmType")
     def sampling_algorithm_type(self) -> _builtins.str:
         """
-
         Expected value is 'Bayesian'.
         """
         return pulumi.get(self, "sampling_algorithm_type")
@@ -6164,8 +6158,7 @@ class CategoricalDataDriftMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Categorical'.
+        :param _builtins.str data_type: Expected value is 'Categorical'.
         :param _builtins.str metric: [Required] The categorical data drift metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -6178,7 +6171,6 @@ class CategoricalDataDriftMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Categorical'.
         """
         return pulumi.get(self, "data_type")
@@ -6224,8 +6216,7 @@ class CategoricalDataQualityMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Categorical'.
+        :param _builtins.str data_type: Expected value is 'Categorical'.
         :param _builtins.str metric: [Required] The categorical data quality metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -6238,7 +6229,6 @@ class CategoricalDataQualityMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Categorical'.
         """
         return pulumi.get(self, "data_type")
@@ -6284,8 +6274,7 @@ class CategoricalPredictionDriftMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Categorical'.
+        :param _builtins.str data_type: Expected value is 'Categorical'.
         :param _builtins.str metric: [Required] The categorical prediction drift metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -6298,7 +6287,6 @@ class CategoricalPredictionDriftMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Categorical'.
         """
         return pulumi.get(self, "data_type")
@@ -7520,8 +7508,7 @@ class CommandJobLimitsResponse(dict):
         """
         Command Job limit class.
 
-        :param _builtins.str job_limits_type: 
-               Expected value is 'Command'.
+        :param _builtins.str job_limits_type: Expected value is 'Command'.
         :param _builtins.str timeout: The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
         """
         pulumi.set(__self__, "job_limits_type", 'Command')
@@ -7532,7 +7519,6 @@ class CommandJobLimitsResponse(dict):
     @pulumi.getter(name="jobLimitsType")
     def job_limits_type(self) -> _builtins.str:
         """
-
         Expected value is 'Command'.
         """
         return pulumi.get(self, "job_limits_type")
@@ -9933,8 +9919,7 @@ class CreateMonitorActionResponse(dict):
                  action_type: _builtins.str,
                  monitor_definition: 'outputs.MonitorDefinitionResponse'):
         """
-        :param _builtins.str action_type: 
-               Expected value is 'CreateMonitor'.
+        :param _builtins.str action_type: Expected value is 'CreateMonitor'.
         :param 'MonitorDefinitionResponse' monitor_definition: [Required] Defines the monitor.
         """
         pulumi.set(__self__, "action_type", 'CreateMonitor')
@@ -9944,7 +9929,6 @@ class CreateMonitorActionResponse(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-
         Expected value is 'CreateMonitor'.
         """
         return pulumi.get(self, "action_type")
@@ -10065,8 +10049,7 @@ class CronTriggerResponse(dict):
         """
         :param _builtins.str expression: [Required] Specifies cron expression of schedule.
                The expression should follow NCronTab format.
-        :param _builtins.str trigger_type: 
-               Expected value is 'Cron'.
+        :param _builtins.str trigger_type: Expected value is 'Cron'.
         :param _builtins.str end_time: Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.
                Recommented format would be "2022-06-01T00:00:01"
                If not present, the schedule will run indefinitely
@@ -10098,7 +10081,6 @@ class CronTriggerResponse(dict):
     @pulumi.getter(name="triggerType")
     def trigger_type(self) -> _builtins.str:
         """
-
         Expected value is 'Cron'.
         """
         return pulumi.get(self, "trigger_type")
@@ -10603,8 +10585,7 @@ class CustomMonitoringSignalResponse(dict):
         """
         :param _builtins.str component_id: [Required] Reference to the component asset used to calculate the custom metrics.
         :param Sequence['CustomMetricThresholdResponse'] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
-        :param _builtins.str signal_type: 
-               Expected value is 'Custom'.
+        :param _builtins.str signal_type: Expected value is 'Custom'.
         :param Mapping[str, Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse']] input_assets: Monitoring assets to take as input. Key is the component input port name, value is the data asset.
         :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Extra component parameters to take as input. Key is the component literal input port name, value is the parameter value.
         :param Sequence[_builtins.str] notification_types: The current notification mode for this signal.
@@ -10642,7 +10623,6 @@ class CustomMonitoringSignalResponse(dict):
     @pulumi.getter(name="signalType")
     def signal_type(self) -> _builtins.str:
         """
-
         Expected value is 'Custom'.
         """
         return pulumi.get(self, "signal_type")
@@ -11156,8 +11136,7 @@ class DataDriftMonitoringSignalResponse(dict):
         :param Sequence[Union['CategoricalDataDriftMetricThresholdResponse', 'NumericalDataDriftMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data which drift will be calculated for.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
-        :param _builtins.str signal_type: 
-               Expected value is 'DataDrift'.
+        :param _builtins.str signal_type: Expected value is 'DataDrift'.
         :param Mapping[str, _builtins.str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
         :param 'FeatureImportanceSettingsResponse' feature_importance_settings: The settings for computing feature importance.
         :param Union['AllFeaturesResponse', 'FeatureSubsetResponse', 'TopNFeaturesByAttributionResponse'] features: The feature filter which identifies which feature to calculate drift over.
@@ -11207,7 +11186,6 @@ class DataDriftMonitoringSignalResponse(dict):
     @pulumi.getter(name="signalType")
     def signal_type(self) -> _builtins.str:
         """
-
         Expected value is 'DataDrift'.
         """
         return pulumi.get(self, "signal_type")
@@ -11732,8 +11710,7 @@ class DataQualityMonitoringSignalResponse(dict):
         :param Sequence[Union['CategoricalDataQualityMetricThresholdResponse', 'NumericalDataQualityMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data produced by the production service which drift will be calculated for.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
-        :param _builtins.str signal_type: 
-               Expected value is 'DataQuality'.
+        :param _builtins.str signal_type: Expected value is 'DataQuality'.
         :param Mapping[str, _builtins.str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
         :param 'FeatureImportanceSettingsResponse' feature_importance_settings: The settings for computing feature importance.
         :param Union['AllFeaturesResponse', 'FeatureSubsetResponse', 'TopNFeaturesByAttributionResponse'] features: The features to calculate drift over.
@@ -11783,7 +11760,6 @@ class DataQualityMonitoringSignalResponse(dict):
     @pulumi.getter(name="signalType")
     def signal_type(self) -> _builtins.str:
         """
-
         Expected value is 'DataQuality'.
         """
         return pulumi.get(self, "signal_type")
@@ -13106,8 +13082,7 @@ class DefaultScaleSettingsResponse(dict):
     def __init__(__self__, *,
                  scale_type: _builtins.str):
         """
-        :param _builtins.str scale_type: 
-               Expected value is 'Default'.
+        :param _builtins.str scale_type: Expected value is 'Default'.
         """
         pulumi.set(__self__, "scale_type", 'Default')
 
@@ -13115,7 +13090,6 @@ class DefaultScaleSettingsResponse(dict):
     @pulumi.getter(name="scaleType")
     def scale_type(self) -> _builtins.str:
         """
-
         Expected value is 'Default'.
         """
         return pulumi.get(self, "scale_type")
@@ -14109,8 +14083,7 @@ class EndpointScheduleActionResponse(dict):
                  action_type: _builtins.str,
                  endpoint_invocation_definition: Any):
         """
-        :param _builtins.str action_type: 
-               Expected value is 'InvokeBatchEndpoint'.
+        :param _builtins.str action_type: Expected value is 'InvokeBatchEndpoint'.
         :param Any endpoint_invocation_definition: [Required] Defines Schedule action definition details.
                <see href="TBD" />
         """
@@ -14121,7 +14094,6 @@ class EndpointScheduleActionResponse(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-
         Expected value is 'InvokeBatchEndpoint'.
         """
         return pulumi.get(self, "action_type")
@@ -15146,8 +15118,7 @@ class FeatureAttributionDriftMonitoringSignalResponse(dict):
         :param 'FeatureAttributionMetricThresholdResponse' metric_threshold: [Required] A list of metrics to calculate and their associated thresholds.
         :param Sequence[Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse']] production_data: [Required] The data which drift will be calculated for.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
-        :param _builtins.str signal_type: 
-               Expected value is 'FeatureAttributionDrift'.
+        :param _builtins.str signal_type: Expected value is 'FeatureAttributionDrift'.
         :param Mapping[str, _builtins.str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
         :param Sequence[_builtins.str] notification_types: The current notification mode for this signal.
         :param Mapping[str, _builtins.str] properties: Property dictionary. Properties can be added, but not removed or altered.
@@ -15200,7 +15171,6 @@ class FeatureAttributionDriftMonitoringSignalResponse(dict):
     @pulumi.getter(name="signalType")
     def signal_type(self) -> _builtins.str:
         """
-
         Expected value is 'FeatureAttributionDrift'.
         """
         return pulumi.get(self, "signal_type")
@@ -15446,8 +15416,7 @@ class FeatureSubsetResponse(dict):
                  filter_type: _builtins.str):
         """
         :param Sequence[_builtins.str] features: [Required] The list of features to include.
-        :param _builtins.str filter_type: 
-               Expected value is 'FeatureSubset'.
+        :param _builtins.str filter_type: Expected value is 'FeatureSubset'.
         """
         pulumi.set(__self__, "features", features)
         pulumi.set(__self__, "filter_type", 'FeatureSubset')
@@ -15464,7 +15433,6 @@ class FeatureSubsetResponse(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> _builtins.str:
         """
-
         Expected value is 'FeatureSubset'.
         """
         return pulumi.get(self, "filter_type")
@@ -17124,8 +17092,7 @@ class GridSamplingAlgorithmResponse(dict):
         """
         Defines a Sampling Algorithm that exhaustively generates every value combination in the space
 
-        :param _builtins.str sampling_algorithm_type: 
-               Expected value is 'Grid'.
+        :param _builtins.str sampling_algorithm_type: Expected value is 'Grid'.
         """
         pulumi.set(__self__, "sampling_algorithm_type", 'Grid')
 
@@ -17133,7 +17100,6 @@ class GridSamplingAlgorithmResponse(dict):
     @pulumi.getter(name="samplingAlgorithmType")
     def sampling_algorithm_type(self) -> _builtins.str:
         """
-
         Expected value is 'Grid'.
         """
         return pulumi.get(self, "sampling_algorithm_type")
@@ -18595,7 +18561,7 @@ class ImageModelDistributionSettingsClassificationResponse(dict):
     For more details on how to compose distribution expressions please check the documentation:
     https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
     For more information on the available settings please visit the official documentation:
-    https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+    https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
     """
     @staticmethod
     def __key_warning(key: str):
@@ -18707,7 +18673,7 @@ class ImageModelDistributionSettingsClassificationResponse(dict):
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
-        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
 
         :param _builtins.str ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
@@ -19098,7 +19064,7 @@ class ImageModelDistributionSettingsObjectDetectionResponse(dict):
     For more details on how to compose distribution expressions please check the documentation:
     https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
     For more information on the available settings please visit the official documentation:
-    https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+    https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
     """
     @staticmethod
     def __key_warning(key: str):
@@ -19237,7 +19203,7 @@ class ImageModelDistributionSettingsObjectDetectionResponse(dict):
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
-        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
 
         :param _builtins.str ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
@@ -22100,8 +22066,7 @@ class JobScheduleActionResponse(dict):
                  action_type: _builtins.str,
                  job_definition: Any):
         """
-        :param _builtins.str action_type: 
-               Expected value is 'CreateJob'.
+        :param _builtins.str action_type: Expected value is 'CreateJob'.
         :param Union['AutoMLJobResponse', 'CommandJobResponse', 'PipelineJobResponse', 'SparkJobResponse', 'SweepJobResponse'] job_definition: [Required] Defines Schedule action definition details.
         """
         pulumi.set(__self__, "action_type", 'CreateJob')
@@ -22111,7 +22076,6 @@ class JobScheduleActionResponse(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-
         Expected value is 'CreateJob'.
         """
         return pulumi.get(self, "action_type")
@@ -24033,8 +23997,7 @@ class MLAssistConfigurationDisabledResponse(dict):
         """
         Labeling MLAssist configuration definition when MLAssist is disabled
 
-        :param _builtins.str ml_assist: 
-               Expected value is 'Disabled'.
+        :param _builtins.str ml_assist: Expected value is 'Disabled'.
         """
         pulumi.set(__self__, "ml_assist", 'Disabled')
 
@@ -24042,7 +24005,6 @@ class MLAssistConfigurationDisabledResponse(dict):
     @pulumi.getter(name="mlAssist")
     def ml_assist(self) -> _builtins.str:
         """
-
         Expected value is 'Disabled'.
         """
         return pulumi.get(self, "ml_assist")
@@ -24082,8 +24044,7 @@ class MLAssistConfigurationEnabledResponse(dict):
         Labeling MLAssist configuration definition when MLAssist is enabled
 
         :param _builtins.str inferencing_compute_binding: [Required] AML compute binding used in inferencing.
-        :param _builtins.str ml_assist: 
-               Expected value is 'Enabled'.
+        :param _builtins.str ml_assist: Expected value is 'Enabled'.
         :param _builtins.str training_compute_binding: [Required] AML compute binding used in training.
         """
         pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
@@ -24102,7 +24063,6 @@ class MLAssistConfigurationEnabledResponse(dict):
     @pulumi.getter(name="mlAssist")
     def ml_assist(self) -> _builtins.str:
         """
-
         Expected value is 'Enabled'.
         """
         return pulumi.get(self, "ml_assist")
@@ -25890,8 +25850,7 @@ class MedianStoppingPolicyResponse(dict):
         """
         Defines an early termination policy based on running averages of the primary metric of all runs
 
-        :param _builtins.str policy_type: 
-               Expected value is 'MedianStopping'.
+        :param _builtins.str policy_type: Expected value is 'MedianStopping'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
         :param _builtins.int evaluation_interval: Interval (number of runs) between policy evaluations.
         """
@@ -25909,7 +25868,6 @@ class MedianStoppingPolicyResponse(dict):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> _builtins.str:
         """
-
         Expected value is 'MedianStopping'.
         """
         return pulumi.get(self, "policy_type")
@@ -27233,8 +27191,7 @@ class NumericalDataDriftMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Numerical'.
+        :param _builtins.str data_type: Expected value is 'Numerical'.
         :param _builtins.str metric: [Required] The numerical data drift metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -27247,7 +27204,6 @@ class NumericalDataDriftMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Numerical'.
         """
         return pulumi.get(self, "data_type")
@@ -27293,8 +27249,7 @@ class NumericalDataQualityMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Numerical'.
+        :param _builtins.str data_type: Expected value is 'Numerical'.
         :param _builtins.str metric: [Required] The numerical data quality metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -27307,7 +27262,6 @@ class NumericalDataQualityMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Numerical'.
         """
         return pulumi.get(self, "data_type")
@@ -27353,8 +27307,7 @@ class NumericalPredictionDriftMetricThresholdResponse(dict):
                  metric: _builtins.str,
                  threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
         """
-        :param _builtins.str data_type: 
-               Expected value is 'Numerical'.
+        :param _builtins.str data_type: Expected value is 'Numerical'.
         :param _builtins.str metric: [Required] The numerical prediction drift metric to calculate.
         :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
         """
@@ -27367,7 +27320,6 @@ class NumericalPredictionDriftMetricThresholdResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> _builtins.str:
         """
-
         Expected value is 'Numerical'.
         """
         return pulumi.get(self, "data_type")
@@ -28820,8 +28772,7 @@ class PredictionDriftMonitoringSignalResponse(dict):
         :param Sequence[Union['CategoricalPredictionDriftMetricThresholdResponse', 'NumericalPredictionDriftMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data which drift will be calculated for.
         :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
-        :param _builtins.str signal_type: 
-               Expected value is 'PredictionDrift'.
+        :param _builtins.str signal_type: Expected value is 'PredictionDrift'.
         :param Mapping[str, _builtins.str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
         :param Sequence[_builtins.str] notification_types: The current notification mode for this signal.
         :param Mapping[str, _builtins.str] properties: Property dictionary. Properties can be added, but not removed or altered.
@@ -28865,7 +28816,6 @@ class PredictionDriftMonitoringSignalResponse(dict):
     @pulumi.getter(name="signalType")
     def signal_type(self) -> _builtins.str:
         """
-
         Expected value is 'PredictionDrift'.
         """
         return pulumi.get(self, "signal_type")
@@ -29968,8 +29918,7 @@ class RandomSamplingAlgorithmResponse(dict):
         """
         Defines a Sampling Algorithm that generates values randomly
 
-        :param _builtins.str sampling_algorithm_type: 
-               Expected value is 'Random'.
+        :param _builtins.str sampling_algorithm_type: Expected value is 'Random'.
         :param _builtins.str rule: The specific type of random algorithm
         :param _builtins.int seed: An optional integer to use as the seed for random number generation
         """
@@ -29985,7 +29934,6 @@ class RandomSamplingAlgorithmResponse(dict):
     @pulumi.getter(name="samplingAlgorithmType")
     def sampling_algorithm_type(self) -> _builtins.str:
         """
-
         Expected value is 'Random'.
         """
         return pulumi.get(self, "sampling_algorithm_type")
@@ -30210,8 +30158,7 @@ class RecurrenceTriggerResponse(dict):
         """
         :param _builtins.str frequency: [Required] The frequency to trigger schedule.
         :param _builtins.int interval: [Required] Specifies schedule interval in conjunction with frequency
-        :param _builtins.str trigger_type: 
-               Expected value is 'Recurrence'.
+        :param _builtins.str trigger_type: Expected value is 'Recurrence'.
         :param _builtins.str end_time: Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.
                Recommented format would be "2022-06-01T00:00:01"
                If not present, the schedule will run indefinitely
@@ -30254,7 +30201,6 @@ class RecurrenceTriggerResponse(dict):
     @pulumi.getter(name="triggerType")
     def trigger_type(self) -> _builtins.str:
         """
-
         Expected value is 'Recurrence'.
         """
         return pulumi.get(self, "trigger_type")
@@ -32904,7 +32850,7 @@ class SkuResponse(dict):
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -32945,7 +32891,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
@@ -32982,8 +32928,7 @@ class SparkJobPythonEntryResponse(dict):
                  spark_job_entry_type: _builtins.str):
         """
         :param _builtins.str file: [Required] Relative python file path for job entry point.
-        :param _builtins.str spark_job_entry_type: 
-               Expected value is 'SparkJobPythonEntry'.
+        :param _builtins.str spark_job_entry_type: Expected value is 'SparkJobPythonEntry'.
         """
         pulumi.set(__self__, "file", file)
         pulumi.set(__self__, "spark_job_entry_type", 'SparkJobPythonEntry')
@@ -33000,7 +32945,6 @@ class SparkJobPythonEntryResponse(dict):
     @pulumi.getter(name="sparkJobEntryType")
     def spark_job_entry_type(self) -> _builtins.str:
         """
-
         Expected value is 'SparkJobPythonEntry'.
         """
         return pulumi.get(self, "spark_job_entry_type")
@@ -33413,8 +33357,7 @@ class SparkJobScalaEntryResponse(dict):
                  spark_job_entry_type: _builtins.str):
         """
         :param _builtins.str class_name: [Required] Scala class name used as entry point.
-        :param _builtins.str spark_job_entry_type: 
-               Expected value is 'SparkJobScalaEntry'.
+        :param _builtins.str spark_job_entry_type: Expected value is 'SparkJobScalaEntry'.
         """
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "spark_job_entry_type", 'SparkJobScalaEntry')
@@ -33431,7 +33374,6 @@ class SparkJobScalaEntryResponse(dict):
     @pulumi.getter(name="sparkJobEntryType")
     def spark_job_entry_type(self) -> _builtins.str:
         """
-
         Expected value is 'SparkJobScalaEntry'.
         """
         return pulumi.get(self, "spark_job_entry_type")
@@ -34078,8 +34020,7 @@ class SweepJobLimitsResponse(dict):
         """
         Sweep Job limit class.
 
-        :param _builtins.str job_limits_type: 
-               Expected value is 'Sweep'.
+        :param _builtins.str job_limits_type: Expected value is 'Sweep'.
         :param _builtins.int max_concurrent_trials: Sweep Job max concurrent trials.
         :param _builtins.int max_total_trials: Sweep Job max total trials.
         :param _builtins.str timeout: The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
@@ -34099,7 +34040,6 @@ class SweepJobLimitsResponse(dict):
     @pulumi.getter(name="jobLimitsType")
     def job_limits_type(self) -> _builtins.str:
         """
-
         Expected value is 'Sweep'.
         """
         return pulumi.get(self, "job_limits_type")
@@ -35418,8 +35358,7 @@ class TargetUtilizationScaleSettingsResponse(dict):
                  polling_interval: Optional[_builtins.str] = None,
                  target_utilization_percentage: Optional[_builtins.int] = None):
         """
-        :param _builtins.str scale_type: 
-               Expected value is 'TargetUtilization'.
+        :param _builtins.str scale_type: Expected value is 'TargetUtilization'.
         :param _builtins.int max_instances: The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
         :param _builtins.int min_instances: The minimum number of instances to always be present.
         :param _builtins.str polling_interval: The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
@@ -35447,7 +35386,6 @@ class TargetUtilizationScaleSettingsResponse(dict):
     @pulumi.getter(name="scaleType")
     def scale_type(self) -> _builtins.str:
         """
-
         Expected value is 'TargetUtilization'.
         """
         return pulumi.get(self, "scale_type")
@@ -36040,8 +35978,7 @@ class TopNFeaturesByAttributionResponse(dict):
                  filter_type: _builtins.str,
                  top: Optional[_builtins.int] = None):
         """
-        :param _builtins.str filter_type: 
-               Expected value is 'TopNByAttribution'.
+        :param _builtins.str filter_type: Expected value is 'TopNByAttribution'.
         :param _builtins.int top: The number of top features to include.
         """
         pulumi.set(__self__, "filter_type", 'TopNByAttribution')
@@ -36054,7 +35991,6 @@ class TopNFeaturesByAttributionResponse(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> _builtins.str:
         """
-
         Expected value is 'TopNByAttribution'.
         """
         return pulumi.get(self, "filter_type")
@@ -36370,8 +36306,7 @@ class TruncationSelectionPolicyResponse(dict):
         """
         Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 
-        :param _builtins.str policy_type: 
-               Expected value is 'TruncationSelection'.
+        :param _builtins.str policy_type: Expected value is 'TruncationSelection'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
         :param _builtins.int evaluation_interval: Interval (number of runs) between policy evaluations.
         :param _builtins.int truncation_percentage: The percentage of runs to cancel at each evaluation interval.
@@ -36394,7 +36329,6 @@ class TruncationSelectionPolicyResponse(dict):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> _builtins.str:
         """
-
         Expected value is 'TruncationSelection'.
         """
         return pulumi.get(self, "policy_type")

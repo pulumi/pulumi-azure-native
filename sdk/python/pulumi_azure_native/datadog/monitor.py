@@ -23,12 +23,12 @@ __all__ = ['MonitorArgs', 'Monitor']
 class MonitorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['MonitorPropertiesArgs']] = None,
-                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['MonitorPropertiesArgs']] = None,
+                 sku: pulumi.Input[Optional['ResourceSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -64,62 +64,62 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Monitor resource name
         """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
-    def monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MonitorPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['MonitorPropertiesArgs']]:
         """
         Properties specific to the monitor resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MonitorPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['MonitorPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ResourceSkuArgs']]:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ResourceSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -129,19 +129,18 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MonitorPropertiesArgs', 'MonitorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MonitorPropertiesArgs', 'MonitorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview, 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class Monitor(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview, 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,13 +174,13 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MonitorPropertiesArgs', 'MonitorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MonitorPropertiesArgs', 'MonitorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

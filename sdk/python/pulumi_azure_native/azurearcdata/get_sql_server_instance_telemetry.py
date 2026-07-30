@@ -91,7 +91,6 @@ def get_sql_server_instance_telemetry(aggregation_type: Optional[Union[_builtins
 
     Other available API versions: 2024-01-01, 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union[_builtins.str, 'AggregationType'] aggregation_type: The aggregation type to use for the numerical columns in the dataset.
     :param Sequence[_builtins.str] database_names: The list of database names to return telemetry for. If not specified, telemetry for all databases will be aggregated and returned.
     :param _builtins.str dataset_name: The name of the telemetry dataset to retrieve.
@@ -117,14 +116,14 @@ def get_sql_server_instance_telemetry(aggregation_type: Optional[Union[_builtins
         columns=pulumi.get(__ret__, 'columns'),
         next_link=pulumi.get(__ret__, 'next_link'),
         rows=pulumi.get(__ret__, 'rows'))
-def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'AggregationType']]]] = None,
-                                             database_names: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                             dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             end_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             interval: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             sql_server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_sql_server_instance_telemetry_output(aggregation_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'AggregationType']]]] = None,
+                                             database_names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                             dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             end_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             interval: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             sql_server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceTelemetryResult]:
     """
     Retrieves SQL Server instance telemetry
@@ -132,7 +131,6 @@ def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.I
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2024-01-01, 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union[_builtins.str, 'AggregationType'] aggregation_type: The aggregation type to use for the numerical columns in the dataset.
     :param Sequence[_builtins.str] database_names: The list of database names to return telemetry for. If not specified, telemetry for all databases will be aggregated and returned.

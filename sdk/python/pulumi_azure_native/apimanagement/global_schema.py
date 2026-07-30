@@ -23,8 +23,8 @@ class GlobalSchemaArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[Union[_builtins.str, 'SchemaType']],
                  service_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None):
         """
         The set of arguments for constructing a GlobalSchema resource.
@@ -84,26 +84,26 @@ class GlobalSchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Free-form schema entity description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schema id identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_id", value)
 
     @_builtins.property
@@ -125,11 +125,11 @@ class GlobalSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None,
                  __props__=None):
         """
@@ -138,7 +138,6 @@ class GlobalSchema(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class GlobalSchema(pulumi.CustomResource):
 
         Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GlobalSchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,11 +176,11 @@ class GlobalSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

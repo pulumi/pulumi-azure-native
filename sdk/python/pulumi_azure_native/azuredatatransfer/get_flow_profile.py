@@ -157,7 +157,6 @@ def get_flow_profile(flow_profile_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
     :param _builtins.str pipeline_name: The name of the pipeline on which to operate.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,9 +178,9 @@ def get_flow_profile(flow_profile_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_flow_profile_output(flow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_profile_output(flow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowProfileResult]:
     """
     Retrieves the specified FlowProfile resource.
@@ -189,7 +188,6 @@ def get_flow_profile_output(flow_profile_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2025-05-30-preview.
 
     Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
     :param _builtins.str pipeline_name: The name of the pipeline on which to operate.

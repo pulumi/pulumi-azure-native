@@ -1003,7 +1003,7 @@ export namespace agricultureplatform {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -2327,8 +2327,8 @@ export namespace apimanagement {
          */
         type: string;
         /**
-         * The list of user identities associated with the resource. The user identity 
-         * dictionary key references will be ARM resource ids in the form: 
+         * The list of user identities associated with the resource. The user identity
+         * dictionary key references will be ARM resource ids in the form:
          * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
          *     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
@@ -2360,7 +2360,7 @@ export namespace apimanagement {
     }
 
     /**
-     * An API Version Set contains the common configuration for a set of API Versions relating 
+     * An API Version Set contains the common configuration for a set of API Versions relating
      */
     export interface ApiVersionSetContractDetailsResponse {
         /**
@@ -3753,7 +3753,7 @@ export namespace app {
     }
 
     /**
-     * Configuration of Application Insights 
+     * Configuration of Application Insights
      */
     export interface AppInsightsConfigurationResponse {
         /**
@@ -3872,7 +3872,7 @@ export namespace app {
     export interface AzureActiveDirectoryRegistrationResponse {
         /**
          * The Client ID of this relying party application, known as the client_id.
-         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
          * other 3rd party OpenID Connect providers.
          * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
          */
@@ -4498,7 +4498,7 @@ export namespace app {
          */
         allowedOrigins: string[];
         /**
-         * Specifies the content for the access-control-expose-headers header 
+         * Specifies the content for the access-control-expose-headers header
          */
         exposeHeaders?: string[];
         /**
@@ -4948,7 +4948,7 @@ export namespace app {
     }
 
     /**
-     * Configuration of datadog 
+     * Configuration of datadog
      */
     export interface DataDogConfigurationResponse {
         /**
@@ -6645,7 +6645,7 @@ export namespace app {
     }
 
     /**
-     * Configuration of otlp 
+     * Configuration of otlp
      */
     export interface OtlpConfigurationResponse {
         /**
@@ -9365,12 +9365,12 @@ export namespace appplatform {
      */
     export interface BuildResourceRequestsResponse {
         /**
-         * Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+         * Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m.
          * The default value is 1, this should not exceed build service agent pool cpu size.
          */
         cpu?: string;
         /**
-         * Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+         * Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi.
          * The default value is 2Gi, this should not exceed build service agent pool memory size.
          */
         memory?: string;
@@ -14512,7 +14512,7 @@ export namespace avs {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -15518,7 +15518,7 @@ export namespace awsconnector {
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The behavior if the user is not authenticated. The following are possible values:  +  deny```` - Return an HTTP 401 Unauthorized error.  +  allow```` - Allow the request to be forwarded to the target.  +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         * The behavior if the user is not authenticated. The following are possible values:  +  deny````  - Return an HTTP 401 Unauthorized error.  +  allow ```` - Allow the request to be forwarded to the target.  +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
          */
         onUnauthenticatedRequest?: string;
         /**
@@ -15572,7 +15572,7 @@ export namespace awsconnector {
          */
         issuer?: string;
         /**
-         * The behavior if the user is not authenticated. The following are possible values:  +  deny```` - Return an HTTP 401 Unauthorized error.  +  allow```` - Allow the request to be forwarded to the target.  +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         * The behavior if the user is not authenticated. The following are possible values:  +  deny````  - Return an HTTP 401 Unauthorized error.  +  allow ```` - Allow the request to be forwarded to the target.  +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
          */
         onUnauthenticatedRequest?: string;
         /**
@@ -38237,7 +38237,7 @@ export namespace azurearcdata {
          */
         capacity?: number;
         /**
-         * Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+         * Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
          */
         dev?: boolean;
         /**
@@ -38249,7 +38249,7 @@ export namespace azurearcdata {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -38667,7 +38667,7 @@ export namespace azurearcdata {
          */
         capacity?: number;
         /**
-         * Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+         * Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
          */
         dev?: boolean;
         /**
@@ -38679,7 +38679,7 @@ export namespace azurearcdata {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -40274,7 +40274,7 @@ export namespace azuredatatransfer {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: string;
         /**
@@ -40910,7 +40910,7 @@ export namespace azurefleet {
          */
         location: string;
         /**
-         * An override for computeProfile.baseVirtualMachineProfile specific to this region. 
+         * An override for computeProfile.baseVirtualMachineProfile specific to this region.
          * This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
          */
         virtualMachineProfileOverride?: outputs.azurefleet.BaseVirtualMachineProfileResponse;
@@ -41003,7 +41003,7 @@ export namespace azurefleet {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: string;
         /**
@@ -41346,24 +41346,24 @@ export namespace azurefleet {
     export interface VMAttributesResponse {
         /**
          * The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorCount?: outputs.azurefleet.VMAttributeMinMaxIntegerResponse;
         /**
-         * The accelerator manufacturers specified as a list. 
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The accelerator manufacturers specified as a list.
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorManufacturers?: string[];
         /**
          * Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorSupport?: string;
         /**
-         * The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorTypes?: string[];
@@ -41388,12 +41388,12 @@ export namespace azurefleet {
          */
         excludedVMSizes?: string[];
         /**
-         * The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If localStorageSupport is "Excluded", this VMAttribute can not be used.
          */
         localStorageDiskTypes?: string[];
         /**
-         * LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If localStorageSupport is "Excluded", this VMAttribute can not be used.
          */
         localStorageInGiB?: outputs.azurefleet.VMAttributeMinMaxDoubleResponse;
@@ -41420,7 +41420,7 @@ export namespace azurefleet {
         networkInterfaceCount?: outputs.azurefleet.VMAttributeMinMaxIntegerResponse;
         /**
          * The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
-         * rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * rdmaSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If rdmaSupport is "Excluded", this VMAttribute can not be used.
          */
         rdmaNetworkInterfaceCount?: outputs.azurefleet.VMAttributeMinMaxIntegerResponse;
@@ -44268,7 +44268,7 @@ export namespace azurestackhci {
          */
         witnessPath?: string;
         /**
-         * Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+         * Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'.
          */
         witnessType?: string;
     }
@@ -44282,7 +44282,7 @@ export namespace azurestackhci {
          */
         scaleUnits: outputs.azurestackhci.ScaleUnitsResponse[];
         /**
-         * deployment template version 
+         * deployment template version
          */
         version?: string;
     }
@@ -44292,7 +44292,7 @@ export namespace azurestackhci {
      */
     export interface DeploymentDataResponse {
         /**
-         * The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+         * The path to the Active Directory Organizational Unit container object prepared for the deployment.
          */
         adouPath?: string;
         /**
@@ -44366,7 +44366,7 @@ export namespace azurestackhci {
      */
     export interface DeploymentSecuritySettingsResponse {
         /**
-         * When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+         * When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent.
          */
         bitlockerBootVolume?: boolean;
         /**
@@ -44877,7 +44877,7 @@ export namespace azurestackhci {
          */
         lastSyncTimestamp: string;
         /**
-         * OS configuration status details 
+         * OS configuration status details
          */
         machineState: string;
         /**
@@ -45240,7 +45240,7 @@ export namespace azurestackhci {
          */
         privateIPAllocationMethod?: string;
         /**
-         * Public IP 
+         * Public IP
          */
         publicIPAddress?: outputs.azurestackhci.PublicIPAddressArmReferenceResponse;
         /**
@@ -46944,7 +46944,7 @@ export namespace azurestackhci {
     }
 
     /**
-     * Provisioning status of Nat Gateway 
+     * Provisioning status of Nat Gateway
      */
     export interface NatGatewayStatusProvisioningStatusResponse {
         /**
@@ -48312,7 +48312,7 @@ export namespace azurestackhci {
          */
         storageAdapterIPInfo: outputs.azurestackhci.StorageAdapterIPInfoHciEdgeDeviceResponse[];
         /**
-         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
          */
         storageVlanId: string;
     }
@@ -48334,7 +48334,7 @@ export namespace azurestackhci {
          */
         storageAdapterIPInfo?: outputs.azurestackhci.StorageAdapterIPInfoResponse[];
         /**
-         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic.
          */
         vlanId?: string;
     }
@@ -49143,7 +49143,7 @@ export namespace azurestackhci {
          */
         osType?: string;
         /**
-         * Windows Configuration for the virtual machine 
+         * Windows Configuration for the virtual machine
          */
         windowsConfiguration?: outputs.azurestackhci.VirtualMachinePropertiesResponseWindowsConfiguration;
     }
@@ -49226,7 +49226,7 @@ export namespace azurestackhci {
     }
 
     /**
-     * Windows Configuration for the virtual machine 
+     * Windows Configuration for the virtual machine
      */
     export interface VirtualMachinePropertiesResponseWindowsConfiguration {
         /**
@@ -55392,7 +55392,6 @@ export namespace cdn {
          */
         cacheType: string;
         /**
-         *
          * Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
          */
         typeName: "DeliveryRuleCacheExpirationActionParameters";
@@ -55411,7 +55410,6 @@ export namespace cdn {
          */
         queryStringBehavior: string;
         /**
-         *
          * Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
          */
         typeName: "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters";
@@ -55426,7 +55424,6 @@ export namespace cdn {
          */
         certificateType: string;
         /**
-         *
          * Expected value is 'CdnCertificateSourceParameters'.
          */
         typeName: "CdnCertificateSourceParameters";
@@ -55486,7 +55483,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleClientPortConditionParameters'.
          */
         typeName: "DeliveryRuleClientPortConditionParameters";
@@ -55540,7 +55536,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleCookiesConditionParameters'.
          */
         typeName: "DeliveryRuleCookiesConditionParameters";
@@ -56372,7 +56367,6 @@ export namespace cdn {
          */
         headerName: string;
         /**
-         *
          * Expected value is 'DeliveryRuleHeaderActionParameters'.
          */
         typeName: "DeliveryRuleHeaderActionParameters";
@@ -56425,7 +56419,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleHostNameConditionParameters'.
          */
         typeName: "DeliveryRuleHostNameConditionParameters";
@@ -56475,7 +56468,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleHttpVersionConditionParameters'.
          */
         typeName: "DeliveryRuleHttpVersionConditionParameters";
@@ -56511,7 +56503,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
          */
         typeName: "DeliveryRuleIsDeviceConditionParameters";
@@ -56551,7 +56542,6 @@ export namespace cdn {
          */
         subscriptionId: string;
         /**
-         *
          * Expected value is 'KeyVaultCertificateSourceParameters'.
          */
         typeName: "KeyVaultCertificateSourceParameters";
@@ -56772,7 +56762,6 @@ export namespace cdn {
          */
         originGroup: outputs.cdn.ResourceReferenceResponse;
         /**
-         *
          * Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
          */
         typeName: "DeliveryRuleOriginGroupOverrideActionParameters";
@@ -56858,7 +56847,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRulePostArgsConditionParameters'.
          */
         typeName: "DeliveryRulePostArgsConditionParameters";
@@ -56930,7 +56918,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleQueryStringConditionParameters'.
          */
         typeName: "DeliveryRuleQueryStringConditionParameters";
@@ -57010,7 +56997,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRemoteAddressConditionParameters'.
          */
         typeName: "DeliveryRuleRemoteAddressConditionParameters";
@@ -57046,7 +57032,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRequestBodyConditionParameters'.
          */
         typeName: "DeliveryRuleRequestBodyConditionParameters";
@@ -57086,7 +57071,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
          */
         typeName: "DeliveryRuleRequestHeaderConditionParameters";
@@ -57122,7 +57106,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRequestMethodConditionParameters'.
          */
         typeName: "DeliveryRuleRequestMethodConditionParameters";
@@ -57158,7 +57141,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
          */
         typeName: "DeliveryRuleRequestSchemeConditionParameters";
@@ -57194,7 +57176,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleRequestUriConditionParameters'.
          */
         typeName: "DeliveryRuleRequestUriConditionParameters";
@@ -57250,7 +57231,6 @@ export namespace cdn {
          */
         originGroupOverride?: outputs.cdn.OriginGroupOverrideResponse;
         /**
-         *
          * Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
          */
         typeName: "DeliveryRuleRouteConfigurationOverrideActionParameters";
@@ -57310,7 +57290,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleServerPortConditionParameters'.
          */
         typeName: "DeliveryRuleServerPortConditionParameters";
@@ -57408,7 +57387,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleSocketAddrConditionParameters'.
          */
         typeName: "DeliveryRuleSocketAddrConditionParameters";
@@ -57444,7 +57422,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
          */
         typeName: "DeliveryRuleSslProtocolConditionParameters";
@@ -57524,7 +57501,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleUrlFileExtensionMatchConditionParameters'.
          */
         typeName: "DeliveryRuleUrlFileExtensionMatchConditionParameters";
@@ -57560,7 +57536,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleUrlFilenameConditionParameters'.
          */
         typeName: "DeliveryRuleUrlFilenameConditionParameters";
@@ -57596,7 +57571,6 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         *
          * Expected value is 'DeliveryRuleUrlPathMatchConditionParameters'.
          */
         typeName: "DeliveryRuleUrlPathMatchConditionParameters";
@@ -57640,7 +57614,6 @@ export namespace cdn {
          */
         redirectType: string;
         /**
-         *
          * Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
          */
         typeName: "DeliveryRuleUrlRedirectActionParameters";
@@ -57678,7 +57651,6 @@ export namespace cdn {
          */
         sourcePattern: string;
         /**
-         *
          * Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
          */
         typeName: "DeliveryRuleUrlRewriteActionParameters";
@@ -57712,7 +57684,6 @@ export namespace cdn {
          */
         parameterNameOverride?: outputs.cdn.UrlSigningParamIdentifierResponse[];
         /**
-         *
          * Expected value is 'DeliveryRuleUrlSigningActionParameters'.
          */
         typeName: "DeliveryRuleUrlSigningActionParameters";
@@ -59815,7 +59786,7 @@ export namespace cloudngfw {
          */
         ipOfTrustSubnetForUdr?: outputs.cloudngfw.IPAddressResponse;
         /**
-         * Network Virtual Appliance resource ID 
+         * Network Virtual Appliance resource ID
          */
         networkVirtualApplianceId?: string;
         /**
@@ -60324,19 +60295,19 @@ export namespace cognitiveservices {
      *     AuthType:= ApiKey (as type discriminator)
      *     Credentials:= {ApiKey} as .ApiKey
      *     Target:= {ApiBase}
-     *             
+     *
      * CognitiveService:
      *     Category:= CognitiveService
      *     AuthType:= ApiKey (as type discriminator)
      *     Credentials:= {SubscriptionKey} as ApiKey
      *     Target:= ServiceRegion={serviceRegion}
-     *             
+     *
      * CognitiveSearch:
      *     Category:= CognitiveSearch
      *     AuthType:= ApiKey (as type discriminator)
      *     Credentials:= {Key} as ApiKey
      *     Target:= {Endpoint}
-     *             
+     *
      * Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
      */
     export interface ApiKeyAuthConnectionPropertiesResponse {
@@ -62126,7 +62097,7 @@ export namespace cognitiveservices {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -62541,7 +62512,7 @@ export namespace community {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -64151,7 +64122,7 @@ export namespace compute {
      */
     export interface HardwareProfileResponse {
         /**
-         * Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
+         * Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
          */
         vmSize?: string;
         /**
@@ -68036,7 +68007,7 @@ export namespace computebulkactions {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: string;
         /**
@@ -68387,24 +68358,24 @@ export namespace computebulkactions {
     export interface VMAttributesResponse {
         /**
          * The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
         /**
-         * The accelerator manufacturers specified as a list. 
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The accelerator manufacturers specified as a list.
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorManufacturers?: string[];
         /**
          * Specifies whether the VMSize supporting accelerator should be used to launch instances or not.
-         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorSupport?: string;
         /**
-         * The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
          */
         acceleratorTypes?: string[];
@@ -68437,12 +68408,12 @@ export namespace computebulkactions {
          */
         hyperVGenerations?: string[];
         /**
-         * The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If localStorageSupport is "Excluded", this VMAttribute can not be used.
          */
         localStorageDiskTypes?: string[];
         /**
-         * LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If localStorageSupport is "Excluded", this VMAttribute can not be used.
          */
         localStorageInGiB?: outputs.computebulkactions.VMAttributeMinMaxDoubleResponse;
@@ -68469,7 +68440,7 @@ export namespace computebulkactions {
         networkInterfaceCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
         /**
          * The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
-         * rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * rdmaSupport should be set to "Included" or "Required" to use this VMAttribute.
          * If rdmaSupport is "Excluded", this VMAttribute can not be used.
          */
         rdmaNetworkInterfaceCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
@@ -74174,12 +74145,12 @@ export namespace containerregistry {
          * Indicates the managed identity assigned to the custom credential. If a user-assigned identity
          * this value is the Client ID. If a system-assigned identity, the value will be `system`. In
          * the case of a system-assigned identity, the Client ID will be determined by the runner. This
-         * identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+         * identity may be used to authenticate to key vault to retrieve credentials or it may be the only
          * source of authentication used for accessing the registry.
          */
         identity?: string;
         /**
-         * The password for logging into the custom registry. The password is a secret 
+         * The password for logging into the custom registry. The password is a secret
          * object that allows multiple ways of providing the value for it.
          */
         password?: outputs.containerregistry.SecretObjectResponse;
@@ -74736,8 +74707,8 @@ export namespace containerregistry {
          */
         type?: string;
         /**
-         * The list of user identities associated with the resource. The user identity 
-         * dictionary key references will be ARM resource ids in the form: 
+         * The list of user identities associated with the resource. The user identity
+         * dictionary key references will be ARM resource ids in the form:
          * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
          *     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
@@ -74944,7 +74915,7 @@ export namespace containerregistry {
      */
     export interface PipelineRunRequestResponse {
         /**
-         * List of source artifacts to be transferred by the pipeline. 
+         * List of source artifacts to be transferred by the pipeline.
          * Specify an image by repository ('hello-world'). This will use the 'latest' tag.
          * Specify an image by tag ('hello-world:latest').
          * Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
@@ -77780,11 +77751,11 @@ export namespace containerservice {
      */
     export interface ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
         /**
-         * The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+         * The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
          */
         count?: number;
         /**
-         * The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
+         * The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
          */
         countIPv6?: number;
     }
@@ -77824,7 +77795,7 @@ export namespace containerservice {
      */
     export interface ManagedClusterManagedOutboundIPProfileResponse {
         /**
-         * The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+         * The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
          */
         count?: number;
     }
@@ -79175,7 +79146,7 @@ export namespace containerservice {
     export interface UpdateGroupResponse {
         /**
          * Name of the group.
-         * It must match a group name of an existing fleet member. 
+         * It must match a group name of an existing fleet member.
          */
         name: string;
     }
@@ -80065,7 +80036,7 @@ export namespace cosmosdb {
          */
         includedPaths: outputs.cosmosdb.ClientEncryptionIncludedPathResponse[];
         /**
-         * Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+         * Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption.
          */
         policyFormatVersion: number;
     }
@@ -82149,7 +82120,7 @@ export namespace costmanagement {
          *
          *  Supported for CategoryType(s): Cost, ReservationUtilization.
          *
-         * Supported dimension names for **CategoryType: ReservationUtilization** 
+         * Supported dimension names for **CategoryType: ReservationUtilization**
          * - ReservationId
          * - ReservedResourceType
          */
@@ -82179,7 +82150,7 @@ export namespace costmanagement {
          *
          *  Supported for CategoryType(s): Cost, ReservationUtilization.
          *
-         * Supported dimension names for **CategoryType: ReservationUtilization** 
+         * Supported dimension names for **CategoryType: ReservationUtilization**
          * - ReservationId
          * - ReservedResourceType
          */
@@ -82733,7 +82704,7 @@ export namespace costmanagement {
          */
         frequency?: string;
         /**
-         * Language in which the recipient will receive the notification, 
+         * Language in which the recipient will receive the notification,
          *
          *  Supported for CategoryType(s): Cost, ReservationUtilization.
          */
@@ -85198,7 +85169,7 @@ export namespace databox {
          */
         invalidFilesProcessed: number;
         /**
-         * To indicate if enumeration of data is in progress. 
+         * To indicate if enumeration of data is in progress.
          * Until this is true, the TotalBytesToProcess may not be valid.
          */
         isEnumerationInProgress: boolean;
@@ -85350,7 +85321,7 @@ export namespace databox {
          */
         invalidFilesProcessed: number;
         /**
-         * To indicate if enumeration of data is in progress. 
+         * To indicate if enumeration of data is in progress.
          * Until this is true, the TotalBytesToProcess may not be valid.
          */
         isEnumerationInProgress: boolean;
@@ -85637,7 +85608,7 @@ export namespace databox {
          */
         invalidFilesProcessed: number;
         /**
-         * To indicate if enumeration of data is in progress. 
+         * To indicate if enumeration of data is in progress.
          * Until this is true, the TotalBytesToProcess may not be valid.
          */
         isEnumerationInProgress: boolean;
@@ -117697,7 +117668,7 @@ export namespace datamigration {
          */
         state: string;
         /**
-         * Task id 
+         * Task id
          */
         taskId?: string;
         /**
@@ -118536,7 +118507,6 @@ export namespace datamigration {
          */
         endedOn: string;
         /**
-         *
          * Expected value is 'SqlDb'.
          */
         kind: "SqlDb";
@@ -118619,7 +118589,6 @@ export namespace datamigration {
          */
         endedOn: string;
         /**
-         *
          * Expected value is 'SqlMi'.
          */
         kind: "SqlMi";
@@ -118694,7 +118663,6 @@ export namespace datamigration {
          */
         endedOn: string;
         /**
-         *
          * Expected value is 'SqlVm'.
          */
         kind: "SqlVm";
@@ -119372,7 +119340,7 @@ export namespace datamigration {
          */
         state: string;
         /**
-         * Task id 
+         * Task id
          */
         taskId?: string;
         /**
@@ -119832,7 +119800,7 @@ export namespace datamigration {
          */
         state: string;
         /**
-         * Task id 
+         * Task id
          */
         taskId?: string;
         /**
@@ -121223,8 +121191,8 @@ export namespace datamigration {
          */
         targetConnectionInfo: outputs.datamigration.SqlConnectionInfoResponse;
         /**
-         * Options for enabling various post migration validations. Available options, 
-         *  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+         * Options for enabling various post migration validations. Available options,
+         *  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
          *  2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
          */
         validationOptions?: outputs.datamigration.MigrationValidationOptionsResponse;
@@ -122721,7 +122689,7 @@ export namespace datamigration {
          */
         connectionString: string;
         /**
-         * Data source 
+         * Data source
          */
         dataSource?: string;
         /**
@@ -123136,7 +123104,7 @@ export namespace datamigration {
          */
         authentication?: string;
         /**
-         * Data source 
+         * Data source
          */
         dataSource?: string;
         /**
@@ -123312,7 +123280,7 @@ export namespace datamigration {
          */
         authentication?: string;
         /**
-         * Data source 
+         * Data source
          */
         dataSource?: string;
         /**
@@ -124350,7 +124318,7 @@ export namespace datamigration {
          */
         waitCount?: number;
         /**
-         * Total wait time in millisecond(s) 
+         * Total wait time in millisecond(s)
          */
         waitTimeMs?: number;
         /**
@@ -124440,7 +124408,6 @@ export namespace dataprotection {
         dataStore: outputs.dataprotection.DataStoreInfoBaseResponse;
         name: string;
         /**
-         *
          * Expected value is 'AzureBackupRule'.
          */
         objectType: "AzureBackupRule";
@@ -124484,7 +124451,6 @@ export namespace dataprotection {
         lifecycles: outputs.dataprotection.SourceLifeCycleResponse[];
         name: string;
         /**
-         *
          * Expected value is 'AzureRetentionRule'.
          */
         objectType: "AzureRetentionRule";
@@ -124555,7 +124521,6 @@ export namespace dataprotection {
          */
         datasourceTypes: string[];
         /**
-         *
          * Expected value is 'BackupPolicy'.
          */
         objectType: "BackupPolicy";
@@ -129109,15 +129074,15 @@ export namespace desktopvirtualization {
      */
     export interface AppAttachPackageInfoPropertiesResponse {
         /**
-         * Date certificate expires, found in the appxmanifest.xml. 
+         * Date certificate expires, found in the appxmanifest.xml.
          */
         certificateExpiry?: string;
         /**
-         * Certificate name found in the appxmanifest.xml. 
+         * Certificate name found in the appxmanifest.xml.
          */
         certificateName?: string;
         /**
-         * User friendly Name to be displayed in the portal. 
+         * User friendly Name to be displayed in the portal.
          */
         displayName?: string;
         /**
@@ -129125,7 +129090,7 @@ export namespace desktopvirtualization {
          */
         imagePath?: string;
         /**
-         * Make this version of the package the active one across the hostpool. 
+         * Make this version of the package the active one across the hostpool.
          */
         isActive?: boolean;
         /**
@@ -129137,7 +129102,7 @@ export namespace desktopvirtualization {
          */
         isRegularRegistration?: boolean;
         /**
-         * Date Package was last updated, found in the appxmanifest.xml. 
+         * Date Package was last updated, found in the appxmanifest.xml.
          */
         lastUpdated?: string;
         /**
@@ -129145,31 +129110,31 @@ export namespace desktopvirtualization {
          */
         packageAlias?: string;
         /**
-         * List of package applications. 
+         * List of package applications.
          */
         packageApplications?: outputs.desktopvirtualization.MsixPackageApplicationsResponse[];
         /**
-         * List of package dependencies. 
+         * List of package dependencies.
          */
         packageDependencies?: outputs.desktopvirtualization.MsixPackageDependenciesResponse[];
         /**
-         * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+         * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
          */
         packageFamilyName?: string;
         /**
-         * Package Full Name from appxmanifest.xml. 
+         * Package Full Name from appxmanifest.xml.
          */
         packageFullName?: string;
         /**
-         * Package Name from appxmanifest.xml. 
+         * Package Name from appxmanifest.xml.
          */
         packageName?: string;
         /**
-         * Relative Path to the package inside the image. 
+         * Relative Path to the package inside the image.
          */
         packageRelativePath?: string;
         /**
-         * Package version found in the appxmanifest.xml. 
+         * Package version found in the appxmanifest.xml.
          */
         version?: string;
     }
@@ -129385,7 +129350,7 @@ export namespace desktopvirtualization {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: string;
         /**
@@ -129416,7 +129381,7 @@ export namespace desktopvirtualization {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -129727,7 +129692,7 @@ export namespace devcenter {
          */
         resourceType: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -130045,7 +130010,7 @@ export namespace devcenter {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -140052,7 +140017,7 @@ export namespace eventgrid {
          */
         azureSubscriptionId?: string;
         /**
-         * Event Type Information for the partner topic. This information is provided by the publisher and can be used by the 
+         * Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
          * subscriber to view different types of events that are published.
          */
         eventTypeInfo?: outputs.eventgrid.EventTypeInfoResponse;
@@ -140844,7 +140809,7 @@ export namespace eventhub {
          */
         destination?: outputs.eventhub.DestinationResponse;
         /**
-         * A value that indicates whether capture description is enabled. 
+         * A value that indicates whether capture description is enabled.
          */
         enabled?: boolean;
         /**
@@ -141098,7 +141063,7 @@ export namespace eventhub {
          */
         cleanupPolicy?: string;
         /**
-         * Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+         * Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue
          */
         retentionTimeInHours?: number;
         /**
@@ -142176,7 +142141,6 @@ export namespace frontdoor {
          */
         forwardingProtocol?: string;
         /**
-         *
          * Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
          */
         odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration";
@@ -142637,7 +142601,6 @@ export namespace frontdoor {
          */
         customQueryString?: string;
         /**
-         *
          * Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
          */
         odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration";
@@ -144171,7 +144134,7 @@ export namespace hdinsight {
          */
         privateLink?: string;
         /**
-         * Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+         * Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
          */
         publicIpTag?: outputs.hdinsight.IpTagResponse;
         /**
@@ -144480,7 +144443,7 @@ export namespace hdinsight {
          */
         container?: string;
         /**
-         * Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+         * Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
          */
         enableSecureChannel?: boolean;
         /**
@@ -148876,7 +148839,7 @@ export namespace impact {
          */
         connectivity?: outputs.impact.ConnectivityResponse;
         /**
-         * Time at which impact has ended 
+         * Time at which impact has ended
          */
         endDateTime?: string;
         /**
@@ -148916,7 +148879,7 @@ export namespace impact {
          */
         reportedTimeUtc: string;
         /**
-         * Time at which impact was observed 
+         * Time at which impact was observed
          */
         startDateTime: string;
         /**
@@ -149007,7 +148970,7 @@ export namespace importexport {
          */
         errorLogUri?: string;
         /**
-         * The relative path of the manifest file on the drive. 
+         * The relative path of the manifest file on the drive.
          */
         manifestFile?: string;
         /**
@@ -149015,19 +148978,19 @@ export namespace importexport {
          */
         manifestHash?: string;
         /**
-         * A URI that points to the blob containing the drive manifest file. 
+         * A URI that points to the blob containing the drive manifest file.
          */
         manifestUri?: string;
         /**
-         * Percentage completed for the drive. 
+         * Percentage completed for the drive.
          */
         percentComplete?: number;
         /**
-         * The drive's current state. 
+         * The drive's current state.
          */
         state?: string;
         /**
-         * A URI that points to the blob containing the verbose log for the data transfer operation. 
+         * A URI that points to the blob containing the verbose log for the data transfer operation.
          */
         verboseLogUri?: string;
     }
@@ -149050,11 +149013,11 @@ export namespace importexport {
          */
         kekType?: string;
         /**
-         * Specifies the url for kek encryption key. 
+         * Specifies the url for kek encryption key.
          */
         kekUrl?: string;
         /**
-         * Specifies the keyvault resource id for kek encryption key. 
+         * Specifies the keyvault resource id for kek encryption key.
          */
         kekVaultResourceID?: string;
     }
@@ -149073,7 +149036,7 @@ export namespace importexport {
      */
     export interface ExportResponse {
         /**
-         * The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+         * The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
          */
         blobListBlobPath?: string;
         /**
@@ -149087,15 +149050,15 @@ export namespace importexport {
     }
 
     /**
-     * Specifies the identity properties. 
+     * Specifies the identity properties.
      */
     export interface IdentityDetailsResponse {
         /**
-         * Specifies the principal id for the identity for the job. 
+         * Specifies the principal id for the identity for the job.
          */
         principalId: string;
         /**
-         * Specifies the tenant id for the identity for the job. 
+         * Specifies the tenant id for the identity for the job.
          */
         tenantId: string;
         /**
@@ -149126,7 +149089,7 @@ export namespace importexport {
          */
         cancelRequested?: boolean;
         /**
-         * Contains information about the package being shipped by the customer to the Microsoft data center. 
+         * Contains information about the package being shipped by the customer to the Microsoft data center.
          */
         deliveryPackage?: outputs.importexport.DeliveryPackageInformationResponse;
         /**
@@ -149166,19 +149129,19 @@ export namespace importexport {
          */
         provisioningState?: string;
         /**
-         * Specifies the return address information for the job. 
+         * Specifies the return address information for the job.
          */
         returnAddress?: outputs.importexport.ReturnAddressResponse;
         /**
-         * Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
+         * Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
          */
         returnPackage?: outputs.importexport.PackageInformationResponse;
         /**
-         * Specifies the return carrier and customer's account with the carrier. 
+         * Specifies the return carrier and customer's account with the carrier.
          */
         returnShipping?: outputs.importexport.ReturnShippingResponse;
         /**
-         * Contains information about the Microsoft datacenter to which the drives should be shipped. 
+         * Contains information about the Microsoft datacenter to which the drives should be shipped.
          */
         shippingInformation?: outputs.importexport.ShippingInformationResponse;
         /**
@@ -149234,7 +149197,7 @@ export namespace importexport {
          */
         city: string;
         /**
-         * The country or region to use when returning the drives. 
+         * The country or region to use when returning the drives.
          */
         countryOrRegion: string;
         /**
@@ -149250,7 +149213,7 @@ export namespace importexport {
          */
         postalCode: string;
         /**
-         * The name of the recipient who will receive the hard drives when they are returned. 
+         * The name of the recipient who will receive the hard drives when they are returned.
          */
         recipientName: string;
         /**
@@ -149258,11 +149221,11 @@ export namespace importexport {
          */
         stateOrProvince?: string;
         /**
-         * The first line of the street address to use when returning the drives. 
+         * The first line of the street address to use when returning the drives.
          */
         streetAddress1: string;
         /**
-         * The second line of the street address to use when returning the drives. 
+         * The second line of the street address to use when returning the drives.
          */
         streetAddress2?: string;
     }
@@ -149294,7 +149257,7 @@ export namespace importexport {
          */
         city?: string;
         /**
-         * The country or region to use when returning the drives. 
+         * The country or region to use when returning the drives.
          */
         countryOrRegion?: string;
         /**
@@ -149306,7 +149269,7 @@ export namespace importexport {
          */
         postalCode?: string;
         /**
-         * The name of the recipient who will receive the hard drives when they are returned. 
+         * The name of the recipient who will receive the hard drives when they are returned.
          */
         recipientName?: string;
         /**
@@ -149314,11 +149277,11 @@ export namespace importexport {
          */
         stateOrProvince?: string;
         /**
-         * The first line of the street address to use when returning the drives. 
+         * The first line of the street address to use when returning the drives.
          */
         streetAddress1?: string;
         /**
-         * The second line of the street address to use when returning the drives. 
+         * The second line of the street address to use when returning the drives.
          */
         streetAddress2?: string;
     }
@@ -150406,7 +150369,7 @@ export namespace iothub {
          */
         authenticationType?: string;
         /**
-         * The connection string of the event hub endpoint. 
+         * The connection string of the event hub endpoint.
          */
         connectionString?: string;
         /**
@@ -157050,7 +157013,7 @@ export namespace kubernetesconfiguration {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: string;
         /**
@@ -157204,11 +157167,11 @@ export namespace kubernetesconfiguration {
      */
     export interface ServicePrincipalDefinitionResponse {
         /**
-         * Base64-encoded certificate used to authenticate a Service Principal 
+         * Base64-encoded certificate used to authenticate a Service Principal
          */
         clientCertificate?: string;
         /**
-         * The password for the certificate used to authenticate a Service Principal 
+         * The password for the certificate used to authenticate a Service Principal
          */
         clientCertificatePassword?: string;
         /**
@@ -158135,7 +158098,7 @@ export namespace labservices {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -161416,7 +161379,6 @@ export namespace machinelearningservices {
 
     export interface AllFeaturesResponse {
         /**
-         *
          * Expected value is 'AllFeatures'.
          */
         filterType: "AllFeatures";
@@ -162512,7 +162474,6 @@ export namespace machinelearningservices {
          */
         evaluationInterval?: number;
         /**
-         *
          * Expected value is 'Bandit'.
          */
         policyType: "Bandit";
@@ -162739,7 +162700,6 @@ export namespace machinelearningservices {
      */
     export interface BayesianSamplingAlgorithmResponse {
         /**
-         *
          * Expected value is 'Bayesian'.
          */
         samplingAlgorithmType: "Bayesian";
@@ -162858,7 +162818,6 @@ export namespace machinelearningservices {
 
     export interface CategoricalDataDriftMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Categorical'.
          */
         dataType: "Categorical";
@@ -162874,7 +162833,6 @@ export namespace machinelearningservices {
 
     export interface CategoricalDataQualityMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Categorical'.
          */
         dataType: "Categorical";
@@ -162890,7 +162848,6 @@ export namespace machinelearningservices {
 
     export interface CategoricalPredictionDriftMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Categorical'.
          */
         dataType: "Categorical";
@@ -163291,7 +163248,6 @@ export namespace machinelearningservices {
      */
     export interface CommandJobLimitsResponse {
         /**
-         *
          * Expected value is 'Command'.
          */
         jobLimitsType: "Command";
@@ -164062,7 +164018,6 @@ export namespace machinelearningservices {
 
     export interface CreateMonitorActionResponse {
         /**
-         *
          * Expected value is 'CreateMonitor'.
          */
         actionType: "CreateMonitor";
@@ -164123,7 +164078,6 @@ export namespace machinelearningservices {
          */
         timeZone?: string;
         /**
-         *
          * Expected value is 'Cron'.
          */
         triggerType: "Cron";
@@ -164302,7 +164256,6 @@ export namespace machinelearningservices {
          */
         properties?: {[key: string]: string};
         /**
-         *
          * Expected value is 'Custom'.
          */
         signalType: "Custom";
@@ -164507,7 +164460,6 @@ export namespace machinelearningservices {
          */
         referenceData: outputs.machinelearningservices.FixedInputDataResponse | outputs.machinelearningservices.RollingInputDataResponse | outputs.machinelearningservices.StaticInputDataResponse;
         /**
-         *
          * Expected value is 'DataDrift'.
          */
         signalType: "DataDrift";
@@ -164677,7 +164629,6 @@ export namespace machinelearningservices {
          */
         referenceData: outputs.machinelearningservices.FixedInputDataResponse | outputs.machinelearningservices.RollingInputDataResponse | outputs.machinelearningservices.StaticInputDataResponse;
         /**
-         *
          * Expected value is 'DataQuality'.
          */
         signalType: "DataQuality";
@@ -165065,7 +165016,6 @@ export namespace machinelearningservices {
 
     export interface DefaultScaleSettingsResponse {
         /**
-         *
          * Expected value is 'Default'.
          */
         scaleType: "Default";
@@ -165387,7 +165337,6 @@ export namespace machinelearningservices {
 
     export interface EndpointScheduleActionResponse {
         /**
-         *
          * Expected value is 'InvokeBatchEndpoint'.
          */
         actionType: "InvokeBatchEndpoint";
@@ -165774,7 +165723,6 @@ export namespace machinelearningservices {
          */
         referenceData: outputs.machinelearningservices.FixedInputDataResponse | outputs.machinelearningservices.RollingInputDataResponse | outputs.machinelearningservices.StaticInputDataResponse;
         /**
-         *
          * Expected value is 'FeatureAttributionDrift'.
          */
         signalType: "FeatureAttributionDrift";
@@ -165863,7 +165811,6 @@ export namespace machinelearningservices {
          */
         features: string[];
         /**
-         *
          * Expected value is 'FeatureSubset'.
          */
         filterType: "FeatureSubset";
@@ -166441,7 +166388,6 @@ export namespace machinelearningservices {
      */
     export interface GridSamplingAlgorithmResponse {
         /**
-         *
          * Expected value is 'Grid'.
          */
         samplingAlgorithmType: "Grid";
@@ -166924,7 +166870,7 @@ export namespace machinelearningservices {
      * For more details on how to compose distribution expressions please check the documentation:
      * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
      * For more information on the available settings please visit the official documentation:
-     * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+     * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
      */
     export interface ImageModelDistributionSettingsClassificationResponse {
         /**
@@ -167079,7 +167025,7 @@ export namespace machinelearningservices {
      * For more details on how to compose distribution expressions please check the documentation:
      * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
      * For more information on the available settings please visit the official documentation:
-     * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+     * https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.```
      */
     export interface ImageModelDistributionSettingsObjectDetectionResponse {
         /**
@@ -168040,7 +167986,6 @@ export namespace machinelearningservices {
 
     export interface JobScheduleActionResponse {
         /**
-         *
          * Expected value is 'CreateJob'.
          */
         actionType: "CreateJob";
@@ -168670,7 +168615,6 @@ export namespace machinelearningservices {
      */
     export interface MLAssistConfigurationDisabledResponse {
         /**
-         *
          * Expected value is 'Disabled'.
          */
         mlAssist: "Disabled";
@@ -168685,7 +168629,6 @@ export namespace machinelearningservices {
          */
         inferencingComputeBinding: string;
         /**
-         *
          * Expected value is 'Enabled'.
          */
         mlAssist: "Enabled";
@@ -169242,7 +169185,6 @@ export namespace machinelearningservices {
          */
         evaluationInterval?: number;
         /**
-         *
          * Expected value is 'MedianStopping'.
          */
         policyType: "MedianStopping";
@@ -169612,7 +169554,6 @@ export namespace machinelearningservices {
 
     export interface NumericalDataDriftMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Numerical'.
          */
         dataType: "Numerical";
@@ -169628,7 +169569,6 @@ export namespace machinelearningservices {
 
     export interface NumericalDataQualityMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Numerical'.
          */
         dataType: "Numerical";
@@ -169644,7 +169584,6 @@ export namespace machinelearningservices {
 
     export interface NumericalPredictionDriftMetricThresholdResponse {
         /**
-         *
          * Expected value is 'Numerical'.
          */
         dataType: "Numerical";
@@ -170092,7 +170031,6 @@ export namespace machinelearningservices {
          */
         referenceData: outputs.machinelearningservices.FixedInputDataResponse | outputs.machinelearningservices.RollingInputDataResponse | outputs.machinelearningservices.StaticInputDataResponse;
         /**
-         *
          * Expected value is 'PredictionDrift'.
          */
         signalType: "PredictionDrift";
@@ -170407,7 +170345,6 @@ export namespace machinelearningservices {
          */
         rule?: string;
         /**
-         *
          * Expected value is 'Random'.
          */
         samplingAlgorithmType: "Random";
@@ -170510,7 +170447,6 @@ export namespace machinelearningservices {
          */
         timeZone?: string;
         /**
-         *
          * Expected value is 'Recurrence'.
          */
         triggerType: "Recurrence";
@@ -171301,7 +171237,7 @@ export namespace machinelearningservices {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -171316,7 +171252,6 @@ export namespace machinelearningservices {
          */
         file: string;
         /**
-         *
          * Expected value is 'SparkJobPythonEntry'.
          */
         sparkJobEntryType: "SparkJobPythonEntry";
@@ -171457,7 +171392,6 @@ export namespace machinelearningservices {
          */
         className: string;
         /**
-         *
          * Expected value is 'SparkJobScalaEntry'.
          */
         sparkJobEntryType: "SparkJobScalaEntry";
@@ -171651,7 +171585,6 @@ export namespace machinelearningservices {
      */
     export interface SweepJobLimitsResponse {
         /**
-         *
          * Expected value is 'Sweep'.
          */
         jobLimitsType: "Sweep";
@@ -172071,7 +172004,6 @@ export namespace machinelearningservices {
          */
         pollingInterval?: string;
         /**
-         *
          * Expected value is 'TargetUtilization'.
          */
         scaleType: "TargetUtilization";
@@ -172293,7 +172225,6 @@ export namespace machinelearningservices {
 
     export interface TopNFeaturesByAttributionResponse {
         /**
-         *
          * Expected value is 'TopNByAttribution'.
          */
         filterType: "TopNByAttribution";
@@ -172426,7 +172357,6 @@ export namespace machinelearningservices {
          */
         evaluationInterval?: number;
         /**
-         *
          * Expected value is 'TruncationSelection'.
          */
         policyType: "TruncationSelection";
@@ -173881,7 +173811,7 @@ export namespace managednetworkfabric {
          */
         egressAclId?: string;
         /**
-         * Fabric ASN number. Example 65001 
+         * Fabric ASN number. Example 65001
          */
         fabricASN: number;
         /**
@@ -174179,7 +174109,7 @@ export namespace managednetworkfabric {
          */
         condition?: string;
         /**
-         * Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+         * Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
          */
         networkPrefix: string;
         /**
@@ -176078,7 +176008,7 @@ export namespace manufacturingplatform {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: string;
         /**
@@ -176177,11 +176107,11 @@ export namespace maps {
     }
 
     /**
-     * Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+     * Sets the CORS rules. You can include up to five CorsRule elements in the request.
      */
     export interface CorsRulesResponse {
         /**
-         * The list of CORS rules. You can include up to five CorsRule elements in the request. 
+         * The list of CORS rules. You can include up to five CorsRule elements in the request.
          */
         corsRules?: outputs.maps.CorsRuleResponse[];
     }
@@ -179152,7 +179082,7 @@ export namespace migrate {
          */
         applicationDisplayName: string;
         /**
-         * Application id 
+         * Application id
          */
         applicationId: string;
         /**
@@ -179194,7 +179124,7 @@ export namespace migrate {
          */
         associatedAssessmentId?: string;
         /**
-         * inventory resource id 
+         * inventory resource id
          */
         associatedInventoryResourceId: string;
         /**
@@ -180823,7 +180753,7 @@ export namespace migrate {
          */
         description?: string;
         /**
-         * Task Dislay Name 
+         * Task Dislay Name
          */
         displayName: string;
         /**
@@ -182473,9 +182403,9 @@ export namespace monitor {
      * Each condition can be of one of the following types:
      * __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
      *    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-     *   _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+     *        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
      *   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-     *   _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+     *       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
      */
     export interface AlertRuleAnyOfOrLeafConditionResponse {
         /**
@@ -183352,7 +183282,7 @@ export namespace monitor {
     }
 
     /**
-     * The specification of data sources. 
+     * The specification of data sources.
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
     export interface DataCollectionRuleResponseDataSources {
@@ -183485,7 +183415,7 @@ export namespace monitor {
          */
         consumerGroup?: string;
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -183537,7 +183467,7 @@ export namespace monitor {
      */
     export interface DestinationsSpecResponseAzureMonitorMetrics {
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -183872,7 +183802,7 @@ export namespace monitor {
          */
         eventHubResourceId?: string;
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -183884,7 +183814,7 @@ export namespace monitor {
          */
         eventHubResourceId?: string;
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184010,7 +183940,7 @@ export namespace monitor {
          */
         inputDataSources?: string[];
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184084,7 +184014,7 @@ export namespace monitor {
          */
         logDirectories?: string[];
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184320,7 +184250,7 @@ export namespace monitor {
      */
     export interface LogAnalyticsDestinationResponse {
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184435,7 +184365,7 @@ export namespace monitor {
          */
         format: string;
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184599,7 +184529,7 @@ export namespace monitor {
      */
     export interface MetricAlertMultipleResourceMultipleMetricCriteriaResponse {
         /**
-         * the list of multiple metric criteria for this 'all of' operation. 
+         * the list of multiple metric criteria for this 'all of' operation.
          */
         allOf?: (outputs.monitor.DynamicMetricCriteriaResponse | outputs.monitor.MetricCriteriaResponse)[];
         /**
@@ -184614,7 +184544,7 @@ export namespace monitor {
      */
     export interface MetricAlertSingleResourceMultipleMetricCriteriaResponse {
         /**
-         * The list of metric criteria for this 'all of' operation. 
+         * The list of metric criteria for this 'all of' operation.
          */
         allOf?: outputs.monitor.MetricCriteriaResponse[];
         /**
@@ -184806,7 +184736,7 @@ export namespace monitor {
          */
         accountResourceId?: string;
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184888,7 +184818,7 @@ export namespace monitor {
          */
         counterSpecifiers?: string[];
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -184978,7 +184908,7 @@ export namespace monitor {
      */
     export interface PlatformTelemetryDataSourceResponse {
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -185151,7 +185081,7 @@ export namespace monitor {
          */
         labelIncludeFilter?: {[key: string]: string};
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -185925,7 +185855,7 @@ export namespace monitor {
          */
         containerName?: string;
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -185937,7 +185867,7 @@ export namespace monitor {
 
     export interface StorageTableDestinationResponse {
         /**
-         * A friendly name for the destination. 
+         * A friendly name for the destination.
          * This name should be unique across all destinations (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -185993,7 +185923,7 @@ export namespace monitor {
          */
         logLevels?: string[];
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -186341,7 +186271,7 @@ export namespace monitor {
      */
     export interface WindowsEventLogDataSourceResponse {
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -186361,7 +186291,7 @@ export namespace monitor {
      */
     export interface WindowsFirewallLogsDataSourceResponse {
         /**
-         * A friendly name for the data source. 
+         * A friendly name for the data source.
          * This name should be unique across all data sources (regardless of type) within the data collection rule.
          */
         name?: string;
@@ -187709,7 +187639,7 @@ export namespace netapp {
     }
 
     /**
-     * LDAP search scope 
+     * LDAP search scope
      */
     export interface LdapSearchScopeOptResponse {
         /**
@@ -188153,7 +188083,7 @@ export namespace netapp {
          */
         coolAccess?: boolean;
         /**
-         * coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+         * coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          *  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          *  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          *  Never - No client-driven data is pulled from cool tier to standard storage.
@@ -200130,7 +200060,7 @@ export namespace network {
          */
         fqdn?: string;
         /**
-         * Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+         * Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
          */
         reverseFqdn?: string;
     }
@@ -201994,7 +201924,7 @@ export namespace network {
          */
         provisioningState?: string;
         /**
-         * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+         * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
          */
         sourceAddressPrefix?: string;
         /**
@@ -203129,7 +203059,7 @@ export namespace network {
          */
         id?: string;
         /**
-         * An array of references to interface endpoints 
+         * An array of references to interface endpoints
          */
         interfaceEndpoints: outputs.network.InterfaceEndpointResponse[];
         /**
@@ -208148,7 +208078,7 @@ export namespace offazure {
          */
         applianceName?: string;
         /**
-         *  Gets or sets the service principal identity details used by agent for  communication              to the service.  
+         *  Gets or sets the service principal identity details used by agent for  communication              to the service.
          */
         servicePrincipalIdentityDetails?: outputs.offazure.SiteSpnPropertiesResponse;
     }
@@ -208247,7 +208177,7 @@ export namespace offazure {
          * Gets or sets the application/client Id for the service principal with which
          * the
          *             on-premise management/data plane components would communicate
-         * with our Azure 
+         * with our Azure
          *             services.
          */
         applicationId?: string;
@@ -209427,7 +209357,7 @@ export namespace operationsmanagement {
          */
         name?: string;
         /**
-         * value for the parameter. In Jtoken 
+         * value for the parameter. In Jtoken
          */
         value?: string;
     }
@@ -226608,7 +226538,7 @@ export namespace resources {
     }
 
     /**
-     * The alias type. 
+     * The alias type.
      */
     export interface AliasResponse {
         /**
@@ -226847,11 +226777,11 @@ export namespace resources {
          */
         outputs: any;
         /**
-         * Deployment parameters. 
+         * Deployment parameters.
          */
         parameters: any;
         /**
-         * The URI referencing the parameters. 
+         * The URI referencing the parameters.
          */
         parametersLink: outputs.resources.ParametersLinkResponse;
         /**
@@ -227597,7 +227527,7 @@ export namespace resources {
     }
 
     /**
-     * The provider extended location. 
+     * The provider extended location.
      */
     export interface ProviderExtendedLocationResponse {
         /**
@@ -227692,7 +227622,7 @@ export namespace resources {
      */
     export interface ResourceGroupPropertiesResponse {
         /**
-         * The provisioning state. 
+         * The provisioning state.
          */
         provisioningState: string;
     }
@@ -228511,7 +228441,7 @@ export namespace scom {
      */
     export interface DomainControllerPropertiesResponse {
         /**
-         * IP address of DNS server 
+         * IP address of DNS server
          */
         dnsServer?: string;
         /**
@@ -228542,11 +228472,11 @@ export namespace scom {
          */
         keyVaultUrl?: string;
         /**
-         * Domain Password secret 
+         * Domain Password secret
          */
         passwordSecret?: string;
         /**
-         * Domain user name secret 
+         * Domain user name secret
          */
         userNameSecret?: string;
     }
@@ -229892,7 +229822,7 @@ export namespace security {
         categoryConfigurations?: outputs.security.CategoryConfigurationResponse[];
         /**
          * Update Settings.
-         * 
+         *
          * Enabled - Resource should inherit configurations from parent.
          * Disabled - Resource should not inherit configurations from parent.
          */
@@ -230074,7 +230004,7 @@ export namespace security {
     export interface AuthorizationResponse {
         /**
          * Gets or sets one-time OAuth code to exchange for refresh and access tokens.
-         * 
+         *
          * Only used during PUT/PATCH operations. The secret is cleared during GET.
          */
         code?: string;
@@ -230269,7 +230199,7 @@ export namespace security {
         actionableRemediation?: outputs.security.ActionableRemediationResponse;
         /**
          * Details about resource onboarding status across all connectors.
-         * 
+         *
          * OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
          * Onboarded - this resource has already been onboarded by the specified connector.
          * NotOnboarded - this resource has not been onboarded to any connector.
@@ -230278,7 +230208,7 @@ export namespace security {
         onboardingState?: string;
         /**
          * The provisioning state of the resource.
-         * 
+         *
          * Pending - Provisioning pending.
          * Failed - Provisioning failed.
          * Succeeded - Successful provisioning.
@@ -231598,7 +231528,7 @@ export namespace security {
         capabilities: outputs.security.DevOpsCapabilityResponse[];
         /**
          * The provisioning state of the resource.
-         * 
+         *
          * Pending - Provisioning pending.
          * Failed - Provisioning failed.
          * Succeeded - Successful provisioning.
@@ -231765,7 +231695,7 @@ export namespace security {
         gitHubInternalId: string;
         /**
          * Details about resource onboarding status across all connectors.
-         * 
+         *
          * OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
          * Onboarded - this resource has already been onboarded by the specified connector.
          * NotOnboarded - this resource has not been onboarded to any connector.
@@ -231778,7 +231708,7 @@ export namespace security {
         ownerUrl: string;
         /**
          * The provisioning state of the resource.
-         * 
+         *
          * Pending - Provisioning pending.
          * Failed - Provisioning failed.
          * Succeeded - Successful provisioning.
@@ -231830,19 +231760,19 @@ export namespace security {
     export interface GitLabGroupPropertiesResponse {
         /**
          * Gets or sets the human readable fully-qualified name of the Group object.
-         * 
+         *
          * This contains the entire namespace hierarchy as seen on GitLab UI where namespaces are separated by the '/' character.
          */
         fullyQualifiedFriendlyName: string;
         /**
          * Gets or sets the fully-qualified name of the Group object.
-         * 
+         *
          * This contains the entire namespace hierarchy where namespaces are separated by the '$' character.
          */
         fullyQualifiedName: string;
         /**
          * Details about resource onboarding status across all connectors.
-         * 
+         *
          * OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
          * Onboarded - this resource has already been onboarded by the specified connector.
          * NotOnboarded - this resource has not been onboarded to any connector.
@@ -231851,7 +231781,7 @@ export namespace security {
         onboardingState?: string;
         /**
          * The provisioning state of the resource.
-         * 
+         *
          * Pending - Provisioning pending.
          * Failed - Provisioning failed.
          * Succeeded - Successful provisioning.
@@ -232677,7 +232607,7 @@ export namespace security {
     export interface TargetBranchConfigurationResponse {
         /**
          * Configuration of PR Annotations on default branch.
-         * 
+         *
          * Enabled - PR Annotations are enabled on the resource's default branch.
          * Disabled - PR Annotations are disabled on the resource's default branch.
          */
@@ -233452,7 +233382,6 @@ export namespace securityinsights {
          */
         conditionProperties?: outputs.securityinsights.AutomationRuleBooleanConditionResponse;
         /**
-         *
          * Expected value is 'Boolean'.
          */
         conditionType: "Boolean";
@@ -234783,7 +234712,6 @@ export namespace securityinsights {
     export interface PropertyArrayChangedConditionPropertiesResponse {
         conditionProperties?: outputs.securityinsights.AutomationRulePropertyArrayChangedValuesConditionResponse;
         /**
-         *
          * Expected value is 'PropertyArrayChanged'.
          */
         conditionType: "PropertyArrayChanged";
@@ -234798,7 +234726,6 @@ export namespace securityinsights {
          */
         conditionProperties?: outputs.securityinsights.AutomationRulePropertyArrayValuesConditionResponse;
         /**
-         *
          * Expected value is 'PropertyArray'.
          */
         conditionType: "PropertyArray";
@@ -234810,7 +234737,6 @@ export namespace securityinsights {
     export interface PropertyChangedConditionPropertiesResponse {
         conditionProperties?: outputs.securityinsights.AutomationRulePropertyValuesChangedConditionResponse;
         /**
-         *
          * Expected value is 'PropertyChanged'.
          */
         conditionType: "PropertyChanged";
@@ -234822,7 +234748,6 @@ export namespace securityinsights {
     export interface PropertyConditionPropertiesResponse {
         conditionProperties?: outputs.securityinsights.AutomationRulePropertyValuesConditionResponse;
         /**
-         *
          * Expected value is 'Property'.
          */
         conditionType: "Property";
@@ -236317,7 +236242,7 @@ export namespace servicefabric {
          */
         applicationGatewayBackendAddressPools?: outputs.servicefabric.SubResourceResponse[];
         /**
-         * Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+         * Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
          */
         loadBalancerBackendAddressPools?: outputs.servicefabric.SubResourceResponse[];
         /**
@@ -236755,7 +236680,7 @@ export namespace servicefabric {
     }
 
     /**
-     * Describes the policy to be used for placement of a Service Fabric service where the service's 
+     * Describes the policy to be used for placement of a Service Fabric service where the service's
      * Primary replicas should optimally be placed in a particular domain.
      *
      * This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -238274,7 +238199,7 @@ export namespace servicelinker {
          */
         configurationInfo?: outputs.servicelinker.ConfigurationInfoResponse;
         /**
-         * The provisioning state. 
+         * The provisioning state.
          */
         provisioningState: string;
         /**
@@ -238587,7 +238512,7 @@ export namespace servicelinker {
          */
         principalId: string;
         /**
-         * Optional, this value specifies the Azure roles to be assigned. Automatically 
+         * Optional, this value specifies the Azure roles to be assigned. Automatically
          */
         roles?: string[];
     }
@@ -238618,7 +238543,7 @@ export namespace servicelinker {
          */
         principalId: string;
         /**
-         * Optional, this value specifies the Azure roles to be assigned. Automatically 
+         * Optional, this value specifies the Azure roles to be assigned. Automatically
          */
         roles?: string[];
         /**
@@ -238736,7 +238661,7 @@ export namespace servicelinker {
          */
         principalId?: string;
         /**
-         * Optional, this value specifies the Azure roles to be assigned. Automatically 
+         * Optional, this value specifies the Azure roles to be assigned. Automatically
          */
         roles?: string[];
         /**
@@ -239132,7 +239057,7 @@ export namespace signalrservice {
         /**
          * Optional, integer. The unit count of the resource.
          * 1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-         * 
+         *
          * If present, following values are allowed:
          *     Free_F1: 1;
          *     Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
@@ -239146,7 +239071,7 @@ export namespace signalrservice {
         family: string;
         /**
          * The name of the SKU. Required.
-         * 
+         *
          * Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
          */
         name: string;
@@ -239155,8 +239080,8 @@ export namespace signalrservice {
          */
         size: string;
         /**
-         * Optional tier of this particular SKU. 'Standard' or 'Free'. 
-         * 
+         * Optional tier of this particular SKU. 'Standard' or 'Free'.
+         *
          * `Basic` is deprecated, use `Standard` instead.
          */
         tier?: string;
@@ -241028,7 +240953,7 @@ export namespace sql {
          */
         actionInitiatedBy: string;
         /**
-         * Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
+         * Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
          */
         currentValue: string;
         /**
@@ -242345,11 +242270,11 @@ export namespace storage {
     }
 
     /**
-     * Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+     * Sets the CORS rules. You can include up to five CorsRule elements in the request.
      */
     export interface CorsRulesResponse {
         /**
-         * The List of CORS rules. You can include up to five CorsRule elements in the request. 
+         * The List of CORS rules. You can include up to five CorsRule elements in the request.
          */
         corsRules?: outputs.storage.CorsRuleResponse[];
     }
@@ -242964,7 +242889,7 @@ export namespace storage {
     }
 
     /**
-     * Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+     * Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters.
      */
     export interface ManagementPolicyFilterResponse {
         /**
@@ -243707,7 +243632,7 @@ export namespace storage {
          */
         storageAccountId: string;
         /**
-         * Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account. 
+         * Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account.
          */
         summaryReportPath: string;
         /**
@@ -253389,7 +253314,7 @@ export namespace web {
          * - If the property is null or empty (default), all hosts(or lack of) are allowed.
          * - A value is compared using ordinal-ignore-case (excluding port number).
          * - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         * but not the root domain contoso.com or multi-level foo.bar.contoso.com
+         *   but not the root domain contoso.com or multi-level foo.bar.contoso.com
          * - Unicode host names are allowed but are converted to Punycode for matching.
          *
          * X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -253759,7 +253684,7 @@ export namespace web {
         /**
          * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
          * Tags can consist of alphanumeric characters and the following:
-         * '_', '@', '#', '.', ':', '-'. 
+         * '_', '@', '#', '.', ':', '-'.
          * Validation should be performed at the PushRequestHandler.
          */
         tagsRequiringAuth?: string;
@@ -255044,7 +254969,7 @@ export namespace webpubsub {
     }
 
     /**
-     * An Event Hub endpoint. 
+     * An Event Hub endpoint.
      * The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
      */
     export interface EventHubEndpointResponse {
@@ -255057,7 +254982,6 @@ export namespace webpubsub {
          */
         fullyQualifiedNamespace: string;
         /**
-         *
          * Expected value is 'EventHub'.
          */
         type: "EventHub";
@@ -255086,7 +255010,6 @@ export namespace webpubsub {
          */
         systemEvents?: string[];
         /**
-         *
          * Expected value is 'EventName'.
          */
         type: "EventName";
@@ -255337,7 +255260,7 @@ export namespace webpubsub {
         /**
          * Optional, integer. The unit count of the resource.
          * 1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-         * 
+         *
          * If present, following values are allowed:
          *     Free_F1: 1;
          *     Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
@@ -255351,7 +255274,7 @@ export namespace webpubsub {
         family: string;
         /**
          * The name of the SKU. Required.
-         * 
+         *
          * Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
          */
         name: string;
@@ -255360,8 +255283,8 @@ export namespace webpubsub {
          */
         size: string;
         /**
-         * Optional tier of this particular SKU. 'Standard' or 'Free'. 
-         * 
+         * Optional tier of this particular SKU. 'Standard' or 'Free'.
+         *
          * `Basic` is deprecated, use `Standard` instead.
          */
         tier?: string;
@@ -255529,7 +255452,7 @@ export namespace webpubsub {
      */
     export interface WebPubSubSocketIOSettingsResponse {
         /**
-         * The service mode of Web PubSub for Socket.IO. Values allowed: 
+         * The service mode of Web PubSub for Socket.IO. Values allowed:
          * "Default": have your own backend Socket.IO server
          * "Serverless": your application doesn't have a backend server
          */

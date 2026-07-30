@@ -139,11 +139,11 @@ export interface VariableArgs {
     /**
      * Gets or sets the description of the variable.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the encrypted flag of the variable.
      */
-    isEncrypted?: pulumi.Input<boolean>;
+    isEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets the name of the variable.
      */
@@ -155,9 +155,9 @@ export interface VariableArgs {
     /**
      * Gets or sets the value of the variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The name of variable.
      */
-    variableName?: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
 }

@@ -74,7 +74,6 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str management_group_id: Management group ID.
     :param _builtins.str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param _builtins.str remediation_name: The name of the remediation.
@@ -91,10 +90,10 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     return AwaitableListRemediationDeploymentsAtManagementGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_remediation_deployments_at_management_group_output(management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_remediation_deployments_at_management_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
     """
     Gets all deployments for a remediation at management group scope.
@@ -102,7 +101,6 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str management_group_id: Management group ID.
     :param _builtins.str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.

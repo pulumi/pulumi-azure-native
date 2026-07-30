@@ -202,7 +202,6 @@ def get_afd_endpoint(endpoint_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -228,9 +227,9 @@ def get_afd_endpoint(endpoint_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_afd_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDEndpointResult]:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
@@ -238,7 +237,6 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2025-06-01.
 
     Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

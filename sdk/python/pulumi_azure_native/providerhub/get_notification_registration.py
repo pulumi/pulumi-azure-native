@@ -117,7 +117,6 @@ def get_notification_registration(notification_registration_name: Optional[_buil
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str notification_registration_name: The notification registration.
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
@@ -134,8 +133,8 @@ def get_notification_registration(notification_registration_name: Optional[_buil
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_notification_registration_output(notification_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+def get_notification_registration_output(notification_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationRegistrationResult]:
     """
     Gets the notification registration details.
@@ -143,7 +142,6 @@ def get_notification_registration_output(notification_registration_name: Optiona
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str notification_registration_name: The notification registration.
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.

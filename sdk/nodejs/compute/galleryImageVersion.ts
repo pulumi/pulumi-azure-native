@@ -173,7 +173,7 @@ export interface GalleryImageVersionArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName?: pulumi.Input<string>;
+    galleryImageVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -181,11 +181,11 @@ export interface GalleryImageVersionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The publishing profile of a gallery image Version.
      */
-    publishingProfile?: pulumi.Input<inputs.compute.GalleryImageVersionPublishingProfileArgs>;
+    publishingProfile?: pulumi.Input<inputs.compute.GalleryImageVersionPublishingProfileArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -193,15 +193,15 @@ export interface GalleryImageVersionArgs {
     /**
      * Indicates if this is a soft-delete resource restoration request.
      */
-    restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean | undefined>;
     /**
      * This is the safety profile of the Gallery Image Version.
      */
-    safetyProfile?: pulumi.Input<inputs.compute.GalleryImageVersionSafetyProfileArgs>;
+    safetyProfile?: pulumi.Input<inputs.compute.GalleryImageVersionSafetyProfileArgs | undefined>;
     /**
      * The security profile of a gallery image version
      */
-    securityProfile?: pulumi.Input<inputs.compute.ImageVersionSecurityProfileArgs>;
+    securityProfile?: pulumi.Input<inputs.compute.ImageVersionSecurityProfileArgs | undefined>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */
@@ -209,5 +209,5 @@ export interface GalleryImageVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

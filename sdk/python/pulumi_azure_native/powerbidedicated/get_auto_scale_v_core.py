@@ -178,7 +178,6 @@ def get_auto_scale_v_core(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-01-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
     """
@@ -200,14 +199,13 @@ def get_auto_scale_v_core(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 vcore_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auto_scale_v_core_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
     """
     Gets details about the specified auto scale v-core.
 
     Uses Azure REST API version 2021-01-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.

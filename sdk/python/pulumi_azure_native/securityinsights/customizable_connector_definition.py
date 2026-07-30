@@ -26,10 +26,10 @@ class CustomizableConnectorDefinitionArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 connections_config: Optional[pulumi.Input['CustomizableConnectionsConfigArgs']] = None,
-                 created_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_utc: Optional[pulumi.Input[_builtins.str]] = None):
+                 connections_config: pulumi.Input[Optional['CustomizableConnectionsConfigArgs']] = None,
+                 created_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_utc: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizableConnectorDefinition resource.
 
@@ -107,50 +107,50 @@ class CustomizableConnectorDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionsConfig")
-    def connections_config(self) -> Optional[pulumi.Input['CustomizableConnectionsConfigArgs']]:
+    def connections_config(self) -> pulumi.Input[Optional['CustomizableConnectionsConfigArgs']]:
         """
         The UiConfig for 'Customizable' connector definition kind.
         """
         return pulumi.get(self, "connections_config")
 
     @connections_config.setter
-    def connections_config(self, value: Optional[pulumi.Input['CustomizableConnectionsConfigArgs']]):
+    def connections_config(self, value: pulumi.Input[Optional['CustomizableConnectionsConfigArgs']]):
         pulumi.set(self, "connections_config", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the connector definition created date in UTC format.
         """
         return pulumi.get(self, "created_time_utc")
 
     @created_time_utc.setter
-    def created_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorDefinitionName")
-    def data_connector_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data connector definition name.
         """
         return pulumi.get(self, "data_connector_definition_name")
 
     @data_connector_definition_name.setter
-    def data_connector_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUtc")
-    def last_modified_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the connector definition last modified date in UTC format.
         """
         return pulumi.get(self, "last_modified_utc")
 
     @last_modified_utc.setter
-    def last_modified_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_utc", value)
 
 
@@ -160,20 +160,19 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_config: Optional[pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
-                 connector_ui_config: Optional[pulumi.Input[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
-                 created_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connections_config: pulumi.Input[Optional[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
+                 connector_ui_config: pulumi.Input[Optional[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
+                 created_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Connector definition for kind 'Customizable'.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param CustomizableConnectorDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_config: Optional[pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
-                 connector_ui_config: Optional[pulumi.Input[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
-                 created_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connections_config: pulumi.Input[Optional[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
+                 connector_ui_config: pulumi.Input[Optional[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
+                 created_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

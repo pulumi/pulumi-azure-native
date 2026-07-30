@@ -112,7 +112,7 @@ export interface SiteReferenceArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SiteReferencePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SiteReferencePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SiteReferenceArgs {
     /**
      * The name of the SiteReference
      */
-    siteReferenceName?: pulumi.Input<string>;
+    siteReferenceName?: pulumi.Input<string | undefined>;
 }

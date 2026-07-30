@@ -25,9 +25,9 @@ class ObjectReplicationPolicyArgs:
                  destination_account: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_account: pulumi.Input[_builtins.str],
-                 metrics: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
-                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
+                 metrics: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
+                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ObjectReplicationPolicy resource.
 
@@ -100,38 +100,38 @@ class ObjectReplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]:
+    def metrics(self) -> pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']]:
         """
         Optional. The object replication policy metrics feature options.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]):
+    def metrics(self, value: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="objectReplicationPolicyId")
-    def object_replication_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_replication_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         """
         return pulumi.get(self, "object_replication_policy_id")
 
     @object_replication_policy_id.setter
-    def object_replication_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_replication_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]:
         """
         The storage account object replication rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -141,13 +141,13 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
-                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
+                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
@@ -155,7 +155,6 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ObjectReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
-                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
+                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

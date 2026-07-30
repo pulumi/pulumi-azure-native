@@ -140,11 +140,11 @@ export interface SystemTopicArgs {
     /**
      * Identity information for the resource.
      */
-    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs | undefined>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -152,17 +152,17 @@ export interface SystemTopicArgs {
     /**
      * Source for the system topic.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Name of the system topic.
      */
-    systemTopicName?: pulumi.Input<string>;
+    systemTopicName?: pulumi.Input<string | undefined>;
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * TopicType for the system topic.
      */
-    topicType?: pulumi.Input<string>;
+    topicType?: pulumi.Input<string | undefined>;
 }

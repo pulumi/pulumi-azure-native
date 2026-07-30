@@ -154,11 +154,11 @@ export interface ScheduleArgs {
     /**
      * Notes for this schedule.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The recurrence pattern of the scheduled actions.
      */
-    recurrencePattern?: pulumi.Input<inputs.labservices.RecurrencePatternArgs>;
+    recurrencePattern?: pulumi.Input<inputs.labservices.RecurrencePatternArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,11 +166,11 @@ export interface ScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    scheduleName?: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string | undefined>;
     /**
      * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
      */
-    startAt?: pulumi.Input<string>;
+    startAt?: pulumi.Input<string | undefined>;
     /**
      * When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
      */

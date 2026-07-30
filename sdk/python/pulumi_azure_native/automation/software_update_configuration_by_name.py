@@ -26,9 +26,9 @@ class SoftwareUpdateConfigurationByNameArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_info: pulumi.Input['SUCSchedulePropertiesArgs'],
                  update_configuration: pulumi.Input['UpdateConfigurationArgs'],
-                 error: Optional[pulumi.Input['AutomationErrorResponseArgs']] = None,
-                 software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tasks: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']] = None):
+                 error: pulumi.Input[Optional['AutomationErrorResponseArgs']] = None,
+                 software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tasks: pulumi.Input[Optional['SoftwareUpdateConfigurationTasksArgs']] = None):
         """
         The set of arguments for constructing a SoftwareUpdateConfigurationByName resource.
 
@@ -101,38 +101,38 @@ class SoftwareUpdateConfigurationByNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input['AutomationErrorResponseArgs']]:
+    def error(self) -> pulumi.Input[Optional['AutomationErrorResponseArgs']]:
         """
         Details of provisioning error
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input['AutomationErrorResponseArgs']]):
+    def error(self, value: pulumi.Input[Optional['AutomationErrorResponseArgs']]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareUpdateConfigurationName")
-    def software_update_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def software_update_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the software update configuration to be created.
         """
         return pulumi.get(self, "software_update_configuration_name")
 
     @software_update_configuration_name.setter
-    def software_update_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def software_update_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "software_update_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tasks(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]:
+    def tasks(self) -> pulumi.Input[Optional['SoftwareUpdateConfigurationTasksArgs']]:
         """
         Tasks information for the Software update configuration.
         """
         return pulumi.get(self, "tasks")
 
     @tasks.setter
-    def tasks(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]):
+    def tasks(self, value: pulumi.Input[Optional['SoftwareUpdateConfigurationTasksArgs']]):
         pulumi.set(self, "tasks", value)
 
 
@@ -142,13 +142,13 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error: Optional[pulumi.Input[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_info: Optional[pulumi.Input[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
-                 software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tasks: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
-                 update_configuration: Optional[pulumi.Input[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 error: pulumi.Input[Optional[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_info: pulumi.Input[Optional[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
+                 software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tasks: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
+                 update_configuration: pulumi.Input[Optional[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Software update configuration properties.
@@ -156,7 +156,6 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SoftwareUpdateConfigurationByNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error: Optional[pulumi.Input[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_info: Optional[pulumi.Input[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
-                 software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tasks: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
-                 update_configuration: Optional[pulumi.Input[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 error: pulumi.Input[Optional[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_info: pulumi.Input[Optional[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
+                 software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tasks: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
+                 update_configuration: pulumi.Input[Optional[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

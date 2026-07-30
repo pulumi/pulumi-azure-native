@@ -54,7 +54,7 @@ class ARecordArgsDict(TypedDict):
     """
     An A record.
     """
-    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    ipv4_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 address of this A record.
     """
@@ -62,7 +62,7 @@ class ARecordArgsDict(TypedDict):
 @pulumi.input_type
 class ARecordArgs:
     def __init__(__self__, *,
-                 ipv4_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv4_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An A record.
 
@@ -73,14 +73,14 @@ class ARecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address of this A record.
         """
         return pulumi.get(self, "ipv4_address")
 
     @ipv4_address.setter
-    def ipv4_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_address", value)
 
 
@@ -88,7 +88,7 @@ class AaaaRecordArgsDict(TypedDict):
     """
     An AAAA record.
     """
-    ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv6 address of this AAAA record.
     """
@@ -96,7 +96,7 @@ class AaaaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class AaaaRecordArgs:
     def __init__(__self__, *,
-                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv6_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An AAAA record.
 
@@ -107,14 +107,14 @@ class AaaaRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address of this AAAA record.
         """
         return pulumi.get(self, "ipv6_address")
 
     @ipv6_address.setter
-    def ipv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_address", value)
 
 
@@ -122,15 +122,15 @@ class CaaRecordArgsDict(TypedDict):
     """
     A CAA record.
     """
-    flags: NotRequired[pulumi.Input[_builtins.int]]
+    flags: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The flags for this CAA record as an integer between 0 and 255.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tag for this CAA record.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value for this CAA record.
     """
@@ -138,9 +138,9 @@ class CaaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class CaaRecordArgs:
     def __init__(__self__, *,
-                 flags: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 flags: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A CAA record.
 
@@ -157,38 +157,38 @@ class CaaRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def flags(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def flags(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The flags for this CAA record as an integer between 0 and 255.
         """
         return pulumi.get(self, "flags")
 
     @flags.setter
-    def flags(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def flags(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "flags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tag for this CAA record.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value for this CAA record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -196,7 +196,7 @@ class CnameRecordArgsDict(TypedDict):
     """
     A CNAME record.
     """
-    cname: NotRequired[pulumi.Input[_builtins.str]]
+    cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The canonical name for this CNAME record.
     """
@@ -204,7 +204,7 @@ class CnameRecordArgsDict(TypedDict):
 @pulumi.input_type
 class CnameRecordArgs:
     def __init__(__self__, *,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None):
+                 cname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A CNAME record.
 
@@ -215,14 +215,14 @@ class CnameRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The canonical name for this CNAME record.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
 
@@ -230,11 +230,11 @@ class DigestArgsDict(TypedDict):
     """
     A digest.
     """
-    algorithm_type: NotRequired[pulumi.Input[_builtins.int]]
+    algorithm_type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
     """
@@ -242,8 +242,8 @@ class DigestArgsDict(TypedDict):
 @pulumi.input_type
 class DigestArgs:
     def __init__(__self__, *,
-                 algorithm_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A digest.
 
@@ -257,26 +257,26 @@ class DigestArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmType")
-    def algorithm_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def algorithm_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
         """
         return pulumi.get(self, "algorithm_type")
 
     @algorithm_type.setter
-    def algorithm_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def algorithm_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "algorithm_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -284,15 +284,15 @@ class DsRecordArgsDict(TypedDict):
     """
     A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
     """
-    algorithm: NotRequired[pulumi.Input[_builtins.int]]
+    algorithm: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
     """
-    digest: NotRequired[pulumi.Input['DigestArgsDict']]
+    digest: NotRequired[pulumi.Input[Optional['DigestArgsDict']]]
     """
     The digest entity.
     """
-    key_tag: NotRequired[pulumi.Input[_builtins.int]]
+    key_tag: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
     """
@@ -300,9 +300,9 @@ class DsRecordArgsDict(TypedDict):
 @pulumi.input_type
 class DsRecordArgs:
     def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[_builtins.int]] = None,
-                 digest: Optional[pulumi.Input['DigestArgs']] = None,
-                 key_tag: Optional[pulumi.Input[_builtins.int]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.int]] = None,
+                 digest: pulumi.Input[Optional['DigestArgs']] = None,
+                 key_tag: pulumi.Input[Optional[_builtins.int]] = None):
         """
         A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
 
@@ -319,38 +319,38 @@ class DsRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def digest(self) -> Optional[pulumi.Input['DigestArgs']]:
+    def digest(self) -> pulumi.Input[Optional['DigestArgs']]:
         """
         The digest entity.
         """
         return pulumi.get(self, "digest")
 
     @digest.setter
-    def digest(self, value: Optional[pulumi.Input['DigestArgs']]):
+    def digest(self, value: pulumi.Input[Optional['DigestArgs']]):
         pulumi.set(self, "digest", value)
 
     @_builtins.property
     @pulumi.getter(name="keyTag")
-    def key_tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
         """
         return pulumi.get(self, "key_tag")
 
     @key_tag.setter
-    def key_tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_tag", value)
 
 
@@ -358,11 +358,11 @@ class MxRecordArgsDict(TypedDict):
     """
     An MX record.
     """
-    exchange: NotRequired[pulumi.Input[_builtins.str]]
+    exchange: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the mail host for this MX record.
     """
-    preference: NotRequired[pulumi.Input[_builtins.int]]
+    preference: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The preference value for this MX record.
     """
@@ -370,8 +370,8 @@ class MxRecordArgsDict(TypedDict):
 @pulumi.input_type
 class MxRecordArgs:
     def __init__(__self__, *,
-                 exchange: Optional[pulumi.Input[_builtins.str]] = None,
-                 preference: Optional[pulumi.Input[_builtins.int]] = None):
+                 exchange: pulumi.Input[Optional[_builtins.str]] = None,
+                 preference: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An MX record.
 
@@ -385,26 +385,26 @@ class MxRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exchange(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exchange(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the mail host for this MX record.
         """
         return pulumi.get(self, "exchange")
 
     @exchange.setter
-    def exchange(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exchange(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exchange", value)
 
     @_builtins.property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preference(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The preference value for this MX record.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preference(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preference", value)
 
 
@@ -412,27 +412,27 @@ class NaptrRecordArgsDict(TypedDict):
     """
     A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
     """
-    flags: NotRequired[pulumi.Input[_builtins.str]]
+    flags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
     """
-    preference: NotRequired[pulumi.Input[_builtins.int]]
+    preference: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
     """
-    regexp: NotRequired[pulumi.Input[_builtins.str]]
+    regexp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
     """
-    replacement: NotRequired[pulumi.Input[_builtins.str]]
+    replacement: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
     """
-    services: NotRequired[pulumi.Input[_builtins.str]]
+    services: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The services specific to DDDS applications. Enclose Services in quotation marks.
     """
@@ -440,12 +440,12 @@ class NaptrRecordArgsDict(TypedDict):
 @pulumi.input_type
 class NaptrRecordArgs:
     def __init__(__self__, *,
-                 flags: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 preference: Optional[pulumi.Input[_builtins.int]] = None,
-                 regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 replacement: Optional[pulumi.Input[_builtins.str]] = None,
-                 services: Optional[pulumi.Input[_builtins.str]] = None):
+                 flags: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 preference: pulumi.Input[Optional[_builtins.int]] = None,
+                 regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 replacement: pulumi.Input[Optional[_builtins.str]] = None,
+                 services: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
 
@@ -471,74 +471,74 @@ class NaptrRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def flags(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
         """
         return pulumi.get(self, "flags")
 
     @flags.setter
-    def flags(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flags(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flags", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preference(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preference(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def regexp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regexp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
         """
         return pulumi.get(self, "regexp")
 
     @regexp.setter
-    def regexp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regexp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regexp", value)
 
     @_builtins.property
     @pulumi.getter
-    def replacement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replacement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
         """
         return pulumi.get(self, "replacement")
 
     @replacement.setter
-    def replacement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replacement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replacement", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def services(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The services specific to DDDS applications. Enclose Services in quotation marks.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def services(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "services", value)
 
 
@@ -546,7 +546,7 @@ class NsRecordArgsDict(TypedDict):
     """
     An NS record.
     """
-    nsdname: NotRequired[pulumi.Input[_builtins.str]]
+    nsdname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name server name for this NS record.
     """
@@ -554,7 +554,7 @@ class NsRecordArgsDict(TypedDict):
 @pulumi.input_type
 class NsRecordArgs:
     def __init__(__self__, *,
-                 nsdname: Optional[pulumi.Input[_builtins.str]] = None):
+                 nsdname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An NS record.
 
@@ -565,14 +565,14 @@ class NsRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def nsdname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsdname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name server name for this NS record.
         """
         return pulumi.get(self, "nsdname")
 
     @nsdname.setter
-    def nsdname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsdname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsdname", value)
 
 
@@ -580,7 +580,7 @@ class PtrRecordArgsDict(TypedDict):
     """
     A PTR record.
     """
-    ptrdname: NotRequired[pulumi.Input[_builtins.str]]
+    ptrdname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The PTR target domain name for this PTR record.
     """
@@ -588,7 +588,7 @@ class PtrRecordArgsDict(TypedDict):
 @pulumi.input_type
 class PtrRecordArgs:
     def __init__(__self__, *,
-                 ptrdname: Optional[pulumi.Input[_builtins.str]] = None):
+                 ptrdname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A PTR record.
 
@@ -599,14 +599,14 @@ class PtrRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ptrdname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ptrdname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The PTR target domain name for this PTR record.
         """
         return pulumi.get(self, "ptrdname")
 
     @ptrdname.setter
-    def ptrdname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ptrdname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ptrdname", value)
 
 
@@ -614,31 +614,31 @@ class SoaRecordArgsDict(TypedDict):
     """
     An SOA record.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email contact for this SOA record.
     """
-    expire_time: NotRequired[pulumi.Input[_builtins.float]]
+    expire_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The expire time for this SOA record.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the authoritative name server for this SOA record.
     """
-    minimum_ttl: NotRequired[pulumi.Input[_builtins.float]]
+    minimum_ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
     """
-    refresh_time: NotRequired[pulumi.Input[_builtins.float]]
+    refresh_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The refresh value for this SOA record.
     """
-    retry_time: NotRequired[pulumi.Input[_builtins.float]]
+    retry_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The retry time for this SOA record.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.float]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The serial number for this SOA record.
     """
@@ -646,13 +646,13 @@ class SoaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class SoaRecordArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[_builtins.float]] = None,
-                 refresh_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 retry_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.float]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_ttl: pulumi.Input[Optional[_builtins.float]] = None,
+                 refresh_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 retry_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.float]] = None):
         """
         An SOA record.
 
@@ -681,86 +681,86 @@ class SoaRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email contact for this SOA record.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def expire_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The expire time for this SOA record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def expire_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "expire_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the authoritative name server for this SOA record.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def minimum_ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def minimum_ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def refresh_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The refresh value for this SOA record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def refresh_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "refresh_time", value)
 
     @_builtins.property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The retry time for this SOA record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The serial number for this SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "serial_number", value)
 
 
@@ -768,19 +768,19 @@ class SrvRecordArgsDict(TypedDict):
     """
     An SRV record.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port value for this SRV record.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority value for this SRV record.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target domain name for this SRV record.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight value for this SRV record.
     """
@@ -788,10 +788,10 @@ class SrvRecordArgsDict(TypedDict):
 @pulumi.input_type
 class SrvRecordArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An SRV record.
 
@@ -811,50 +811,50 @@ class SrvRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port value for this SRV record.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority value for this SRV record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target domain name for this SRV record.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight value for this SRV record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -905,7 +905,7 @@ class SubResourceArgsDict(TypedDict):
     """
     A reference to a another resource
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
     An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -916,7 +916,7 @@ class SubResourceArgsDict(TypedDict):
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A reference to a another resource
 
@@ -930,7 +930,7 @@ class SubResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
         An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -940,7 +940,7 @@ class SubResourceArgs:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -948,19 +948,19 @@ class TlsaRecordArgsDict(TypedDict):
     """
     A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
     """
-    cert_association_data: NotRequired[pulumi.Input[_builtins.str]]
+    cert_association_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This specifies the certificate association data to be matched.
     """
-    matching_type: NotRequired[pulumi.Input[_builtins.int]]
+    matching_type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The matching type specifies how the certificate association is presented.
     """
-    selector: NotRequired[pulumi.Input[_builtins.int]]
+    selector: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
     """
-    usage: NotRequired[pulumi.Input[_builtins.int]]
+    usage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
     """
@@ -968,10 +968,10 @@ class TlsaRecordArgsDict(TypedDict):
 @pulumi.input_type
 class TlsaRecordArgs:
     def __init__(__self__, *,
-                 cert_association_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 matching_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 selector: Optional[pulumi.Input[_builtins.int]] = None,
-                 usage: Optional[pulumi.Input[_builtins.int]] = None):
+                 cert_association_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 matching_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 selector: pulumi.Input[Optional[_builtins.int]] = None,
+                 usage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
 
@@ -991,50 +991,50 @@ class TlsaRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="certAssociationData")
-    def cert_association_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_association_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the certificate association data to be matched.
         """
         return pulumi.get(self, "cert_association_data")
 
     @cert_association_data.setter
-    def cert_association_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_association_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_association_data", value)
 
     @_builtins.property
     @pulumi.getter(name="matchingType")
-    def matching_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def matching_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The matching type specifies how the certificate association is presented.
         """
         return pulumi.get(self, "matching_type")
 
     @matching_type.setter
-    def matching_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def matching_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "matching_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def selector(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def selector(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
         """
         return pulumi.get(self, "selector")
 
     @selector.setter
-    def selector(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def selector(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "selector", value)
 
     @_builtins.property
     @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def usage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
         """
         return pulumi.get(self, "usage")
 
     @usage.setter
-    def usage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def usage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "usage", value)
 
 
@@ -1042,7 +1042,7 @@ class TxtRecordArgsDict(TypedDict):
     """
     A TXT record.
     """
-    value: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The text value of this TXT record.
     """
@@ -1050,7 +1050,7 @@ class TxtRecordArgsDict(TypedDict):
 @pulumi.input_type
 class TxtRecordArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A TXT record.
 
@@ -1061,14 +1061,14 @@ class TxtRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The text value of this TXT record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "value", value)
 
 

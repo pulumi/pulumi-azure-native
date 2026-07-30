@@ -118,7 +118,6 @@ def get_api_collection(api_collection_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-11-20-preview.
 
-
     :param _builtins.str api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -137,15 +136,14 @@ def get_api_collection(api_collection_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_collection_output(api_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_collection_output(api_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAPICollectionResult]:
     """
     Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
 
     Uses Azure REST API version 2022-11-20-preview.
-
 
     :param _builtins.str api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

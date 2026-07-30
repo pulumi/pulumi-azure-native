@@ -24,11 +24,11 @@ class TransitHubArgs:
     def __init__(__self__, *,
                  community_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'TransitHubState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transit_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_option: Optional[pulumi.Input['TransitOptionArgs']] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transit_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_option: pulumi.Input[Optional['TransitOptionArgs']] = None):
         """
         The set of arguments for constructing a TransitHub resource.
 
@@ -79,62 +79,62 @@ class TransitHubArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TransitHubState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]]:
         """
         The state of the transitHub.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TransitHubState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitHubName")
-    def transit_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the TransitHub Resource
         """
         return pulumi.get(self, "transit_hub_name")
 
     @transit_hub_name.setter
-    def transit_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="transitOption")
-    def transit_option(self) -> Optional[pulumi.Input['TransitOptionArgs']]:
+    def transit_option(self) -> pulumi.Input[Optional['TransitOptionArgs']]:
         """
         The TransitOption of the transitHub.
         """
         return pulumi.get(self, "transit_option")
 
     @transit_option.setter
-    def transit_option(self, value: Optional[pulumi.Input['TransitOptionArgs']]):
+    def transit_option(self, value: pulumi.Input[Optional['TransitOptionArgs']]):
         pulumi.set(self, "transit_option", value)
 
 
@@ -144,13 +144,13 @@ class TransitHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'TransitHubState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transit_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_option: Optional[pulumi.Input[Union['TransitOptionArgs', 'TransitOptionArgsDict']]] = None,
+                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transit_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_option: pulumi.Input[Optional[Union['TransitOptionArgs', 'TransitOptionArgsDict']]] = None,
                  __props__=None):
         """
         TransitHub Model Resource
@@ -158,7 +158,6 @@ class TransitHub(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +182,6 @@ class TransitHub(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TransitHubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +197,13 @@ class TransitHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'TransitHubState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transit_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_option: Optional[pulumi.Input[Union['TransitOptionArgs', 'TransitOptionArgsDict']]] = None,
+                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'TransitHubState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transit_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_option: pulumi.Input[Optional[Union['TransitOptionArgs', 'TransitOptionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

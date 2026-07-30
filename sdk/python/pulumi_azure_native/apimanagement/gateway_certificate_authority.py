@@ -22,8 +22,8 @@ class GatewayCertificateAuthorityArgs:
                  gateway_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayCertificateAuthority resource.
 
@@ -79,26 +79,26 @@ class GatewayCertificateAuthorityArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the certificate entity. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isTrusted")
-    def is_trusted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_trusted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether certificate authority is trusted.
         """
         return pulumi.get(self, "is_trusted")
 
     @is_trusted.setter
-    def is_trusted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_trusted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_trusted", value)
 
 
@@ -108,11 +108,11 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Gateway certificate authority details.
@@ -120,7 +120,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GatewayCertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

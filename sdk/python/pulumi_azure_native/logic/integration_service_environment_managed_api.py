@@ -23,11 +23,11 @@ class IntegrationServiceEnvironmentManagedApiArgs:
     def __init__(__self__, *,
                  integration_service_environment_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_parameters: Optional[pulumi.Input['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']] = None,
-                 integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_parameters: pulumi.Input[Optional['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']] = None,
+                 integration_service_environment: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
 
@@ -78,62 +78,62 @@ class IntegrationServiceEnvironmentManagedApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The api name.
         """
         return pulumi.get(self, "api_name")
 
     @api_name.setter
-    def api_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentParameters")
-    def deployment_parameters(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']]:
+    def deployment_parameters(self) -> pulumi.Input[Optional['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']]:
         """
         The integration service environment managed api deployment parameters.
         """
         return pulumi.get(self, "deployment_parameters")
 
     @deployment_parameters.setter
-    def deployment_parameters(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']]):
+    def deployment_parameters(self, value: pulumi.Input[Optional['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']]):
         pulumi.set(self, "deployment_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def integration_service_environment(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         The integration service environment reference.
         """
         return pulumi.get(self, "integration_service_environment")
 
     @integration_service_environment.setter
-    def integration_service_environment(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def integration_service_environment(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "integration_service_environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,19 +143,18 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_parameters: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs', 'IntegrationServiceEnvironmentManagedApiDeploymentParametersArgsDict']]] = None,
-                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 integration_service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_parameters: pulumi.Input[Optional[Union['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs', 'IntegrationServiceEnvironmentManagedApiDeploymentParametersArgsDict']]] = None,
+                 integration_service_environment: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 integration_service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The integration service environment managed api.
 
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationServiceEnvironmentManagedApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_parameters: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs', 'IntegrationServiceEnvironmentManagedApiDeploymentParametersArgsDict']]] = None,
-                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 integration_service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_parameters: pulumi.Input[Optional[Union['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs', 'IntegrationServiceEnvironmentManagedApiDeploymentParametersArgsDict']]] = None,
+                 integration_service_environment: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 integration_service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

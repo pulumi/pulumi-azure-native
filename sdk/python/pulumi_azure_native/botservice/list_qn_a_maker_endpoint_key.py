@@ -95,7 +95,6 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authkey: Subscription key which provides access to this API.
     :param _builtins.str hostname: the host name of the QnA Maker endpoint
     """
@@ -110,8 +109,8 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[_builtins.str] = None,
         last_stable_version=pulumi.get(__ret__, 'last_stable_version'),
         primary_endpoint_key=pulumi.get(__ret__, 'primary_endpoint_key'),
         secondary_endpoint_key=pulumi.get(__ret__, 'secondary_endpoint_key'))
-def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_qn_a_maker_endpoint_key_output(authkey: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
     """
     Lists the QnA Maker endpoint keys
@@ -119,7 +118,6 @@ def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[
     Uses Azure REST API version 2023-09-15-preview.
 
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authkey: Subscription key which provides access to this API.
     :param _builtins.str hostname: the host name of the QnA Maker endpoint

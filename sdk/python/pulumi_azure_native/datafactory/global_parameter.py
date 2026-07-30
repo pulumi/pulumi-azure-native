@@ -25,7 +25,7 @@ class GlobalParameterArgs:
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 global_parameter_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 global_parameter_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalParameter resource.
 
@@ -78,14 +78,14 @@ class GlobalParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="globalParameterName")
-    def global_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The global parameter name.
         """
         return pulumi.get(self, "global_parameter_name")
 
     @global_parameter_name.setter
-    def global_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_parameter_name", value)
 
 
@@ -95,16 +95,15 @@ class GlobalParameter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Global parameters resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class GlobalParameter(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param GlobalParameterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class GlobalParameter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,13 +25,13 @@ class JobArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  transfer_type: pulumi.Input[Union[_builtins.str, 'TransferType']],
-                 delivery_info: Optional[pulumi.Input['JobDeliveryInfoArgs']] = None,
-                 delivery_type: Optional[pulumi.Input[Union[_builtins.str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 delivery_info: pulumi.Input[Optional['JobDeliveryInfoArgs']] = None,
+                 delivery_type: pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]] = None,
+                 details: pulumi.Input[Optional[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
+                 identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Job resource.
 
@@ -104,86 +104,86 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> Optional[pulumi.Input['JobDeliveryInfoArgs']]:
+    def delivery_info(self) -> pulumi.Input[Optional['JobDeliveryInfoArgs']]:
         """
         Delivery Info of Job.
         """
         return pulumi.get(self, "delivery_info")
 
     @delivery_info.setter
-    def delivery_info(self, value: Optional[pulumi.Input['JobDeliveryInfoArgs']]):
+    def delivery_info(self, value: pulumi.Input[Optional['JobDeliveryInfoArgs']]):
         pulumi.set(self, "delivery_info", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryType")
-    def delivery_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JobDeliveryType']]]:
+    def delivery_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]]:
         """
         Delivery type of Job.
         """
         return pulumi.get(self, "delivery_type")
 
     @delivery_type.setter
-    def delivery_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JobDeliveryType']]]):
+    def delivery_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]]):
         pulumi.set(self, "delivery_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
+    def details(self) -> pulumi.Input[Optional[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
+    def details(self, value: pulumi.Input[Optional[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
         pulumi.set(self, "details", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ResourceIdentityArgs']]:
         """
         Msi identity of the resource
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="jobName")
-    def job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         """
         return pulumi.get(self, "job_name")
 
     @job_name.setter
-    def job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,16 +193,16 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_info: Optional[pulumi.Input[Union['JobDeliveryInfoArgs', 'JobDeliveryInfoArgsDict']]] = None,
-                 delivery_type: Optional[pulumi.Input[Union[_builtins.str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxCustomerDiskJobDetailsArgsDict'], Union['DataBoxDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgsDict'], Union['DataBoxHeavyJobDetailsArgs', 'DataBoxHeavyJobDetailsArgsDict'], Union['DataBoxJobDetailsArgs', 'DataBoxJobDetailsArgsDict']]]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transfer_type: Optional[pulumi.Input[Union[_builtins.str, 'TransferType']]] = None,
+                 delivery_info: pulumi.Input[Optional[Union['JobDeliveryInfoArgs', 'JobDeliveryInfoArgsDict']]] = None,
+                 delivery_type: pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]] = None,
+                 details: pulumi.Input[Optional[Union[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxCustomerDiskJobDetailsArgsDict'], Union['DataBoxDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgsDict'], Union['DataBoxHeavyJobDetailsArgs', 'DataBoxHeavyJobDetailsArgsDict'], Union['DataBoxJobDetailsArgs', 'DataBoxJobDetailsArgsDict']]]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transfer_type: pulumi.Input[Optional[Union[_builtins.str, 'TransferType']]] = None,
                  __props__=None):
         """
         Job Resource.
@@ -210,7 +210,6 @@ class Job(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +237,6 @@ class Job(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,16 +252,16 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_info: Optional[pulumi.Input[Union['JobDeliveryInfoArgs', 'JobDeliveryInfoArgsDict']]] = None,
-                 delivery_type: Optional[pulumi.Input[Union[_builtins.str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxCustomerDiskJobDetailsArgsDict'], Union['DataBoxDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgsDict'], Union['DataBoxHeavyJobDetailsArgs', 'DataBoxHeavyJobDetailsArgsDict'], Union['DataBoxJobDetailsArgs', 'DataBoxJobDetailsArgsDict']]]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transfer_type: Optional[pulumi.Input[Union[_builtins.str, 'TransferType']]] = None,
+                 delivery_info: pulumi.Input[Optional[Union['JobDeliveryInfoArgs', 'JobDeliveryInfoArgsDict']]] = None,
+                 delivery_type: pulumi.Input[Optional[Union[_builtins.str, 'JobDeliveryType']]] = None,
+                 details: pulumi.Input[Optional[Union[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxCustomerDiskJobDetailsArgsDict'], Union['DataBoxDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgsDict'], Union['DataBoxHeavyJobDetailsArgs', 'DataBoxHeavyJobDetailsArgsDict'], Union['DataBoxJobDetailsArgs', 'DataBoxJobDetailsArgsDict']]]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transfer_type: pulumi.Input[Optional[Union[_builtins.str, 'TransferType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

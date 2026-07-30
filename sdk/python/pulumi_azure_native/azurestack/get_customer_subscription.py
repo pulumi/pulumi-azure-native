@@ -120,7 +120,6 @@ def get_customer_subscription(customer_subscription_name: Optional[_builtins.str
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str customer_subscription_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.
     :param _builtins.str resource_group: Name of the resource group.
@@ -139,9 +138,9 @@ def get_customer_subscription(customer_subscription_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_customer_subscription_output(customer_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_customer_subscription_output(customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
     """
     Returns the specified product.
@@ -149,7 +148,6 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str customer_subscription_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.

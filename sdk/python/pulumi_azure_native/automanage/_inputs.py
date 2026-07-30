@@ -25,7 +25,7 @@ class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
     """
     Automanage configuration profile assignment properties.
     """
-    configuration_profile: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Automanage configurationProfile ARM Resource URI.
     """
@@ -33,7 +33,7 @@ class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationProfileAssignmentPropertiesArgs:
     def __init__(__self__, *,
-                 configuration_profile: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_profile: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Automanage configuration profile assignment properties.
 
@@ -44,14 +44,14 @@ class ConfigurationProfileAssignmentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProfile")
-    def configuration_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Automanage configurationProfile ARM Resource URI.
         """
         return pulumi.get(self, "configuration_profile")
 
     @configuration_profile.setter
-    def configuration_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_profile", value)
 
 

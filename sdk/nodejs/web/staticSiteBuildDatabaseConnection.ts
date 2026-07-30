@@ -147,15 +147,15 @@ export interface StaticSiteBuildDatabaseConnectionArgs {
     /**
      * If present, the identity is used in conjunction with connection string to connect to the database. Use of the system-assigned managed identity is indicated with the string 'SystemAssigned', while use of a user-assigned managed identity is indicated with the resource id of the managed identity resource.
      */
-    connectionIdentity?: pulumi.Input<string>;
+    connectionIdentity?: pulumi.Input<string | undefined>;
     /**
      * The connection string to use to connect to the database.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * Name of the database connection.
      */
-    databaseConnectionName?: pulumi.Input<string>;
+    databaseConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The stage site identifier.
      */
@@ -163,7 +163,7 @@ export interface StaticSiteBuildDatabaseConnectionArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site
      */

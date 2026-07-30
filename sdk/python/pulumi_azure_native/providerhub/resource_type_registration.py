@@ -23,9 +23,9 @@ __all__ = ['ResourceTypeRegistrationInitArgs', 'ResourceTypeRegistration']
 class ResourceTypeRegistrationInitArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceTypeRegistration resource.
 
@@ -57,35 +57,35 @@ class ResourceTypeRegistrationInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]:
         """
         Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource type.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
 
@@ -95,10 +95,10 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -106,7 +106,6 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

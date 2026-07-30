@@ -23,22 +23,22 @@ __all__ = ['CustomIPPrefixArgs', 'CustomIPPrefix']
 class CustomIPPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioned_state: Optional[pulumi.Input[Union[_builtins.str, 'CommissionedState']]] = None,
-                 custom_ip_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_ip_prefix_parent: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 express_route_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 geo: Optional[pulumi.Input[Union[_builtins.str, 'Geo']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_internet_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_type: Optional[pulumi.Input[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
-                 signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioned_state: pulumi.Input[Optional[Union[_builtins.str, 'CommissionedState']]] = None,
+                 custom_ip_prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ip_prefix_parent: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 express_route_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 geo: pulumi.Input[Optional[Union[_builtins.str, 'Geo']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_internet_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_type: pulumi.Input[Optional[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
+                 signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomIPPrefix resource.
 
@@ -108,194 +108,194 @@ class CustomIPPrefixArgs:
 
     @_builtins.property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ASN for CIDR advertising. Should be an integer as string.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asn", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationMessage")
-    def authorization_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization message for WAN validation.
         """
         return pulumi.get(self, "authorization_message")
 
     @authorization_message.setter
-    def authorization_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix range in CIDR notation. Should include the start address and the prefix length.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="commissionedState")
-    def commissioned_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CommissionedState']]]:
+    def commissioned_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CommissionedState']]]:
         """
         The commissioned state of the Custom IP Prefix.
         """
         return pulumi.get(self, "commissioned_state")
 
     @commissioned_state.setter
-    def commissioned_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CommissionedState']]]):
+    def commissioned_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CommissionedState']]]):
         pulumi.set(self, "commissioned_state", value)
 
     @_builtins.property
     @pulumi.getter(name="customIpPrefixName")
-    def custom_ip_prefix_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ip_prefix_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom IP prefix.
         """
         return pulumi.get(self, "custom_ip_prefix_name")
 
     @custom_ip_prefix_name.setter
-    def custom_ip_prefix_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ip_prefix_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ip_prefix_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customIpPrefixParent")
-    def custom_ip_prefix_parent(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def custom_ip_prefix_parent(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
         """
         return pulumi.get(self, "custom_ip_prefix_parent")
 
     @custom_ip_prefix_parent.setter
-    def custom_ip_prefix_parent(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def custom_ip_prefix_parent(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "custom_ip_prefix_parent", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteAdvertise")
-    def express_route_advertise(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def express_route_advertise(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to do express route advertise.
         """
         return pulumi.get(self, "express_route_advertise")
 
     @express_route_advertise.setter
-    def express_route_advertise(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def express_route_advertise(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "express_route_advertise", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location of the custom IP prefix.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def geo(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Geo']]]:
+    def geo(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Geo']]]:
         """
         The Geo for CIDR advertising. Should be an Geo code.
         """
         return pulumi.get(self, "geo")
 
     @geo.setter
-    def geo(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Geo']]]):
+    def geo(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Geo']]]):
         pulumi.set(self, "geo", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="noInternetAdvertise")
-    def no_internet_advertise(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_internet_advertise(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to Advertise the range to Internet.
         """
         return pulumi.get(self, "no_internet_advertise")
 
     @no_internet_advertise.setter
-    def no_internet_advertise(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_internet_advertise(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_internet_advertise", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomIpPrefixType']]]:
+    def prefix_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CustomIpPrefixType']]]:
         """
         Type of custom IP prefix. Should be Singular, Parent, or Child.
         """
         return pulumi.get(self, "prefix_type")
 
     @prefix_type.setter
-    def prefix_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomIpPrefixType']]]):
+    def prefix_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CustomIpPrefixType']]]):
         pulumi.set(self, "prefix_type", value)
 
     @_builtins.property
     @pulumi.getter(name="signedMessage")
-    def signed_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signed_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Signed message for WAN validation.
         """
         return pulumi.get(self, "signed_message")
 
     @signed_message.setter
-    def signed_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signed_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signed_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -305,23 +305,23 @@ class CustomIPPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioned_state: Optional[pulumi.Input[Union[_builtins.str, 'CommissionedState']]] = None,
-                 custom_ip_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_ip_prefix_parent: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 express_route_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 geo: Optional[pulumi.Input[Union[_builtins.str, 'Geo']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_internet_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_type: Optional[pulumi.Input[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioned_state: pulumi.Input[Optional[Union[_builtins.str, 'CommissionedState']]] = None,
+                 custom_ip_prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ip_prefix_parent: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 express_route_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 geo: pulumi.Input[Optional[Union[_builtins.str, 'Geo']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_internet_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_type: pulumi.Input[Optional[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Custom IP prefix resource.
@@ -329,7 +329,6 @@ class CustomIPPrefix(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,7 +363,6 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,23 +378,23 @@ class CustomIPPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioned_state: Optional[pulumi.Input[Union[_builtins.str, 'CommissionedState']]] = None,
-                 custom_ip_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_ip_prefix_parent: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 express_route_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 geo: Optional[pulumi.Input[Union[_builtins.str, 'Geo']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_internet_advertise: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_type: Optional[pulumi.Input[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioned_state: pulumi.Input[Optional[Union[_builtins.str, 'CommissionedState']]] = None,
+                 custom_ip_prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ip_prefix_parent: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 express_route_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 geo: pulumi.Input[Optional[Union[_builtins.str, 'Geo']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_internet_advertise: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_type: pulumi.Input[Optional[Union[_builtins.str, 'CustomIpPrefixType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

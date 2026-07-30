@@ -25,12 +25,12 @@ class PeeringArgs:
                  kind: pulumi.Input[Union[_builtins.str, 'Kind']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['PeeringSkuArgs'],
-                 direct: Optional[pulumi.Input['PeeringPropertiesDirectArgs']] = None,
-                 exchange: Optional[pulumi.Input['PeeringPropertiesExchangeArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 direct: pulumi.Input[Optional['PeeringPropertiesDirectArgs']] = None,
+                 exchange: pulumi.Input[Optional['PeeringPropertiesExchangeArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Peering resource.
 
@@ -98,74 +98,74 @@ class PeeringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def direct(self) -> Optional[pulumi.Input['PeeringPropertiesDirectArgs']]:
+    def direct(self) -> pulumi.Input[Optional['PeeringPropertiesDirectArgs']]:
         """
         The properties that define a direct peering.
         """
         return pulumi.get(self, "direct")
 
     @direct.setter
-    def direct(self, value: Optional[pulumi.Input['PeeringPropertiesDirectArgs']]):
+    def direct(self, value: pulumi.Input[Optional['PeeringPropertiesDirectArgs']]):
         pulumi.set(self, "direct", value)
 
     @_builtins.property
     @pulumi.getter
-    def exchange(self) -> Optional[pulumi.Input['PeeringPropertiesExchangeArgs']]:
+    def exchange(self) -> pulumi.Input[Optional['PeeringPropertiesExchangeArgs']]:
         """
         The properties that define an exchange peering.
         """
         return pulumi.get(self, "exchange")
 
     @exchange.setter
-    def exchange(self, value: Optional[pulumi.Input['PeeringPropertiesExchangeArgs']]):
+    def exchange(self, value: pulumi.Input[Optional['PeeringPropertiesExchangeArgs']]):
         pulumi.set(self, "exchange", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peering_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the peering.
         """
         return pulumi.get(self, "peering_location")
 
     @peering_location.setter
-    def peering_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peering_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_location", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringName")
-    def peering_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the peering.
         """
         return pulumi.get(self, "peering_name")
 
     @peering_name.setter
-    def peering_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,15 +175,15 @@ class Peering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 direct: Optional[pulumi.Input[Union['PeeringPropertiesDirectArgs', 'PeeringPropertiesDirectArgsDict']]] = None,
-                 exchange: Optional[pulumi.Input[Union['PeeringPropertiesExchangeArgs', 'PeeringPropertiesExchangeArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['PeeringSkuArgs', 'PeeringSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 direct: pulumi.Input[Optional[Union['PeeringPropertiesDirectArgs', 'PeeringPropertiesDirectArgsDict']]] = None,
+                 exchange: pulumi.Input[Optional[Union['PeeringPropertiesExchangeArgs', 'PeeringPropertiesExchangeArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['PeeringSkuArgs', 'PeeringSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
@@ -191,7 +191,6 @@ class Peering(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class Peering(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PeeringArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,15 +232,15 @@ class Peering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 direct: Optional[pulumi.Input[Union['PeeringPropertiesDirectArgs', 'PeeringPropertiesDirectArgsDict']]] = None,
-                 exchange: Optional[pulumi.Input[Union['PeeringPropertiesExchangeArgs', 'PeeringPropertiesExchangeArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['PeeringSkuArgs', 'PeeringSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 direct: pulumi.Input[Optional[Union['PeeringPropertiesDirectArgs', 'PeeringPropertiesDirectArgsDict']]] = None,
+                 exchange: pulumi.Input[Optional[Union['PeeringPropertiesExchangeArgs', 'PeeringPropertiesExchangeArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['PeeringSkuArgs', 'PeeringSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

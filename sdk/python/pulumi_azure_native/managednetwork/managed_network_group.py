@@ -24,13 +24,13 @@ class ManagedNetworkGroupArgs:
     def __init__(__self__, *,
                  managed_network_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         The set of arguments for constructing a ManagedNetworkGroup resource.
 
@@ -87,86 +87,86 @@ class ManagedNetworkGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]:
         """
         Responsibility role under which this Managed Network Group will be created
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedNetworkGroupName")
-    def managed_network_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_network_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Managed Network Group.
         """
         return pulumi.get(self, "managed_network_group_name")
 
     @managed_network_group_name.setter
-    def managed_network_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_network_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_network_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
+    def management_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of management groups covered by the Managed Network
         """
         return pulumi.get(self, "management_groups")
 
     @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
+    def management_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "management_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of  subnets covered by the Managed Network
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
+    def subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of subscriptions covered by the Managed Network
         """
         return pulumi.get(self, "subscriptions")
 
     @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
+    def subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "subscriptions", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
+    def virtual_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of virtual nets covered by the Managed Network
         """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
+    def virtual_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 
@@ -176,21 +176,20 @@ class ManagedNetworkGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  __props__=None):
         """
         The Managed Network Group resource
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedNetworkGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class ManagedNetworkGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'Kind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

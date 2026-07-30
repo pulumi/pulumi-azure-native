@@ -104,11 +104,11 @@ export interface GoalAssignmentArgs {
     /**
      * The name of the GoalAssignment
      */
-    goalAssignmentName?: pulumi.Input<string>;
+    goalAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azureresiliencemanagement.GoalAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azureresiliencemanagement.GoalAssignmentPropertiesArgs | undefined>;
     /**
      * The name of the service group.
      */

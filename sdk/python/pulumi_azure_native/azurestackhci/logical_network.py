@@ -23,13 +23,13 @@ __all__ = ['LogicalNetworkArgs', 'LogicalNetwork']
 class LogicalNetworkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dhcp_options: Optional[pulumi.Input['LogicalNetworkPropertiesDhcpOptionsArgs']] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_switch_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dhcp_options: pulumi.Input[Optional['LogicalNetworkPropertiesDhcpOptionsArgs']] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_switch_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogicalNetwork resource.
 
@@ -72,86 +72,86 @@ class LogicalNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional[pulumi.Input['LogicalNetworkPropertiesDhcpOptionsArgs']]:
+    def dhcp_options(self) -> pulumi.Input[Optional['LogicalNetworkPropertiesDhcpOptionsArgs']]:
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         """
         return pulumi.get(self, "dhcp_options")
 
     @dhcp_options.setter
-    def dhcp_options(self, value: Optional[pulumi.Input['LogicalNetworkPropertiesDhcpOptionsArgs']]):
+    def dhcp_options(self, value: pulumi.Input[Optional['LogicalNetworkPropertiesDhcpOptionsArgs']]):
         pulumi.set(self, "dhcp_options", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalNetworkName")
-    def logical_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the logical network
         """
         return pulumi.get(self, "logical_network_name")
 
     @logical_network_name.setter
-    def logical_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_network_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]:
         """
         Subnet - list of subnets under the logical network
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSwitchName")
-    def vm_switch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_switch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the network switch to be used for VMs
         """
         return pulumi.get(self, "vm_switch_name")
 
     @vm_switch_name.setter
-    def vm_switch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_switch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_switch_name", value)
 
 
@@ -161,14 +161,14 @@ class LogicalNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dhcp_options: Optional[pulumi.Input[Union['LogicalNetworkPropertiesDhcpOptionsArgs', 'LogicalNetworkPropertiesDhcpOptionsArgsDict']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_switch_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dhcp_options: pulumi.Input[Optional[Union['LogicalNetworkPropertiesDhcpOptionsArgs', 'LogicalNetworkPropertiesDhcpOptionsArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The logical network resource definition.
@@ -176,7 +176,6 @@ class LogicalNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class LogicalNetwork(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LogicalNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class LogicalNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dhcp_options: Optional[pulumi.Input[Union['LogicalNetworkPropertiesDhcpOptionsArgs', 'LogicalNetworkPropertiesDhcpOptionsArgsDict']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_switch_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dhcp_options: pulumi.Input[Optional[Union['LogicalNetworkPropertiesDhcpOptionsArgs', 'LogicalNetworkPropertiesDhcpOptionsArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

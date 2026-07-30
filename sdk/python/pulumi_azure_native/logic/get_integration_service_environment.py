@@ -154,7 +154,6 @@ def get_integration_service_environment(integration_service_environment_name: Op
 
     Uses Azure REST API version 2019-05-01.
 
-
     :param _builtins.str integration_service_environment_name: The integration service environment name.
     :param _builtins.str resource_group: The resource group.
     """
@@ -174,14 +173,13 @@ def get_integration_service_environment(integration_service_environment_name: Op
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_service_environment_output(integration_service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_service_environment_output(integration_service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
     """
     Gets an integration service environment.
 
     Uses Azure REST API version 2019-05-01.
-
 
     :param _builtins.str integration_service_environment_name: The integration service environment name.
     :param _builtins.str resource_group: The resource group.

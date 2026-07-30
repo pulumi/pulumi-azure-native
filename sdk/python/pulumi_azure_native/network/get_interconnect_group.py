@@ -190,7 +190,6 @@ def get_interconnect_group(interconnect_group_name: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2025-07-01.
 
-
     :param _builtins.str interconnect_group_name: The name of the interconnect group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -213,14 +212,13 @@ def get_interconnect_group(interconnect_group_name: Optional[_builtins.str] = No
         subgroups=pulumi.get(__ret__, 'subgroups'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_interconnect_group_output(interconnect_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_interconnect_group_output(interconnect_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInterconnectGroupResult]:
     """
     Gets information about the specified interconnect group.
 
     Uses Azure REST API version 2025-07-01.
-
 
     :param _builtins.str interconnect_group_name: The name of the interconnect group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -131,7 +131,6 @@ def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history(cache_nod
 
     Uses Azure REST API version 2024-11-30-preview.
 
-
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,15 +150,14 @@ def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history(cache_nod
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history_output(cache_node_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                              customer_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history_output(cache_node_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                              customer_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryResult]:
     """
     This api gets ispCacheNode resource issues details histrory information
 
     Uses Azure REST API version 2024-11-30-preview.
-
 
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource

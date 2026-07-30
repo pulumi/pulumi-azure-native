@@ -28,10 +28,10 @@ __all__ = [
     'DenySettingsArgsDict',
     'DeploymentExtensionConfigItemArgs',
     'DeploymentExtensionConfigItemArgsDict',
-    'DeploymentExternalInputDefinitionArgs',
-    'DeploymentExternalInputDefinitionArgsDict',
     'DeploymentExternalInputArgs',
     'DeploymentExternalInputArgsDict',
+    'DeploymentExternalInputDefinitionArgs',
+    'DeploymentExternalInputDefinitionArgsDict',
     'DeploymentParameterArgs',
     'DeploymentParameterArgsDict',
     'DeploymentPropertiesArgs',
@@ -84,15 +84,15 @@ class ActionOnUnmanageArgsDict(TypedDict):
     """
     Specifies an action for a newly unmanaged resource.
     """
-    management_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]
+    management_groups: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]]
     """
     Specifies an action for a newly unmanaged resource management group.
     """
-    resource_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]]
     """
     Specifies an action for a newly unmanaged resource group.
     """
-    resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]
+    resources_without_delete_support: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]]
     """
     Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
     """
@@ -101,9 +101,9 @@ class ActionOnUnmanageArgsDict(TypedDict):
 class ActionOnUnmanageArgs:
     def __init__(__self__, *,
                  resources: pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']],
-                 management_groups: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]] = None,
-                 resource_groups: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]] = None,
-                 resources_without_delete_support: Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]] = None):
+                 management_groups: pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]] = None,
+                 resource_groups: pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]] = None,
+                 resources_without_delete_support: pulumi.Input[Optional[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
 
@@ -134,38 +134,38 @@ class ActionOnUnmanageArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]:
+    def management_groups(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]:
         """
         Specifies an action for a newly unmanaged resource management group.
         """
         return pulumi.get(self, "management_groups")
 
     @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]):
+    def management_groups(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]):
         pulumi.set(self, "management_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]:
         """
         Specifies an action for a newly unmanaged resource group.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesWithoutDeleteSupport")
-    def resources_without_delete_support(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]:
+    def resources_without_delete_support(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]:
         """
         Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         return pulumi.get(self, "resources_without_delete_support")
 
     @resources_without_delete_support.setter
-    def resources_without_delete_support(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]):
+    def resources_without_delete_support(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]):
         pulumi.set(self, "resources_without_delete_support", value)
 
 
@@ -173,11 +173,11 @@ class ContainerConfigurationArgsDict(TypedDict):
     """
     Settings to customize ACI container instance.
     """
-    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]]
     """
     The subnet resource IDs for a container group.
     """
@@ -185,8 +185,8 @@ class ContainerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerConfigurationArgs:
     def __init__(__self__, *,
-                 container_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None):
+                 container_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None):
         """
         Settings to customize ACI container instance.
 
@@ -200,26 +200,26 @@ class ContainerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerGroupName")
-    def container_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         """
         return pulumi.get(self, "container_group_name")
 
     @container_group_name.setter
-    def container_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
         """
         The subnet resource IDs for a container group.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -231,7 +231,7 @@ class ContainerGroupSubnetIdArgsDict(TypedDict):
     """
     Resource ID of subnet.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Friendly name for the subnet.
     """
@@ -240,7 +240,7 @@ class ContainerGroupSubnetIdArgsDict(TypedDict):
 class ContainerGroupSubnetIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Container group subnet information.
 
@@ -265,14 +265,14 @@ class ContainerGroupSubnetIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name for the subnet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -280,7 +280,7 @@ class DebugSettingArgsDict(TypedDict):
     """
     The debug setting.
     """
-    detail_level: NotRequired[pulumi.Input[_builtins.str]]
+    detail_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
     """
@@ -288,7 +288,7 @@ class DebugSettingArgsDict(TypedDict):
 @pulumi.input_type
 class DebugSettingArgs:
     def __init__(__self__, *,
-                 detail_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 detail_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The debug setting.
 
@@ -299,14 +299,14 @@ class DebugSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="detailLevel")
-    def detail_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detail_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
         """
         return pulumi.get(self, "detail_level")
 
     @detail_level.setter
-    def detail_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detail_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detail_level", value)
 
 
@@ -318,15 +318,15 @@ class DenySettingsArgsDict(TypedDict):
     """
     denySettings Mode that defines denied actions.
     """
-    apply_to_child_scopes: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_to_child_scopes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
     """
-    excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
     """
-    excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_principals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
     """
@@ -335,9 +335,9 @@ class DenySettingsArgsDict(TypedDict):
 class DenySettingsArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[Union[_builtins.str, 'DenySettingsMode']],
-                 apply_to_child_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 apply_to_child_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 excluded_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines how resources deployed by the Deployment stack are locked.
 
@@ -368,38 +368,38 @@ class DenySettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyToChildScopes")
-    def apply_to_child_scopes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_to_child_scopes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         """
         return pulumi.get(self, "apply_to_child_scopes")
 
     @apply_to_child_scopes.setter
-    def apply_to_child_scopes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_to_child_scopes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_to_child_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedActions")
-    def excluded_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         """
         return pulumi.get(self, "excluded_actions")
 
     @excluded_actions.setter
-    def excluded_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedPrincipals")
-    def excluded_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
         return pulumi.get(self, "excluded_principals")
 
     @excluded_principals.setter
-    def excluded_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_principals", value)
 
 
@@ -407,7 +407,7 @@ class DeploymentExtensionConfigItemArgsDict(TypedDict):
     """
     The value or how to get a value for an extension config property.
     """
-    key_vault_reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+    key_vault_reference: NotRequired[pulumi.Input[Optional['KeyVaultParameterReferenceArgsDict']]]
     """
     The key vault reference of the config item.
     """
@@ -419,7 +419,7 @@ class DeploymentExtensionConfigItemArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentExtensionConfigItemArgs:
     def __init__(__self__, *,
-                 key_vault_reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
+                 key_vault_reference: pulumi.Input[Optional['KeyVaultParameterReferenceArgs']] = None,
                  value: Optional[Any] = None):
         """
         The value or how to get a value for an extension config property.
@@ -434,14 +434,14 @@ class DeploymentExtensionConfigItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]:
+    def key_vault_reference(self) -> pulumi.Input[Optional['KeyVaultParameterReferenceArgs']]:
         """
         The key vault reference of the config item.
         """
         return pulumi.get(self, "key_vault_reference")
 
     @key_vault_reference.setter
-    def key_vault_reference(self, value: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]):
+    def key_vault_reference(self, value: pulumi.Input[Optional['KeyVaultParameterReferenceArgs']]):
         pulumi.set(self, "key_vault_reference", value)
 
     @_builtins.property
@@ -454,6 +454,39 @@ class DeploymentExtensionConfigItemArgs:
 
     @value.setter
     def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
+
+
+class DeploymentExternalInputArgsDict(TypedDict):
+    """
+    Deployment external input for parameterization.
+    """
+    value: Any
+    """
+    External input value.
+    """
+
+@pulumi.input_type
+class DeploymentExternalInputArgs:
+    def __init__(__self__, *,
+                 value: Any):
+        """
+        Deployment external input for parameterization.
+
+        :param Any value: External input value.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        External input value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Any):
         pulumi.set(self, "value", value)
 
 
@@ -510,52 +543,19 @@ class DeploymentExternalInputDefinitionArgs:
         pulumi.set(self, "config", value)
 
 
-class DeploymentExternalInputArgsDict(TypedDict):
-    """
-    Deployment external input for parameterization.
-    """
-    value: Any
-    """
-    External input value.
-    """
-
-@pulumi.input_type
-class DeploymentExternalInputArgs:
-    def __init__(__self__, *,
-                 value: Any):
-        """
-        Deployment external input for parameterization.
-
-        :param Any value: External input value.
-        """
-        pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Any:
-        """
-        External input value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Any):
-        pulumi.set(self, "value", value)
-
-
 class DeploymentParameterArgsDict(TypedDict):
     """
     Deployment parameter for the template.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Input expression to the parameter.
     """
-    reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+    reference: NotRequired[pulumi.Input[Optional['KeyVaultParameterReferenceArgsDict']]]
     """
     Azure Key Vault parameter reference.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the value.
     """
@@ -567,9 +567,9 @@ class DeploymentParameterArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentParameterArgs:
     def __init__(__self__, *,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional['KeyVaultParameterReferenceArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None):
         """
         Deployment parameter for the template.
@@ -590,38 +590,38 @@ class DeploymentParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Input expression to the parameter.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def reference(self) -> Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]:
+    def reference(self) -> pulumi.Input[Optional['KeyVaultParameterReferenceArgs']]:
         """
         Azure Key Vault parameter reference.
         """
         return pulumi.get(self, "reference")
 
     @reference.setter
-    def reference(self, value: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]):
+    def reference(self, value: pulumi.Input[Optional['KeyVaultParameterReferenceArgs']]):
         pulumi.set(self, "reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the value.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -645,23 +645,23 @@ class DeploymentPropertiesArgsDict(TypedDict):
     """
     The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
     """
-    debug_setting: NotRequired[pulumi.Input['DebugSettingArgsDict']]
+    debug_setting: NotRequired[pulumi.Input[Optional['DebugSettingArgsDict']]]
     """
     The debug setting of the deployment.
     """
-    expression_evaluation_options: NotRequired[pulumi.Input['ExpressionEvaluationOptionsArgsDict']]
+    expression_evaluation_options: NotRequired[pulumi.Input[Optional['ExpressionEvaluationOptionsArgsDict']]]
     """
     Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
     """
-    on_error_deployment: NotRequired[pulumi.Input['OnErrorDeploymentArgsDict']]
+    on_error_deployment: NotRequired[pulumi.Input[Optional['OnErrorDeploymentArgsDict']]]
     """
     The deployment on error behavior.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]]
     """
     Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
     """
-    parameters_link: NotRequired[pulumi.Input['ParametersLinkArgsDict']]
+    parameters_link: NotRequired[pulumi.Input[Optional['ParametersLinkArgsDict']]]
     """
     The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
     """
@@ -669,7 +669,7 @@ class DeploymentPropertiesArgsDict(TypedDict):
     """
     The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
     """
-    template_link: NotRequired[pulumi.Input['TemplateLinkArgsDict']]
+    template_link: NotRequired[pulumi.Input[Optional['TemplateLinkArgsDict']]]
     """
     The URI of the template. Use either the templateLink property or the template property, but not both.
     """
@@ -678,13 +678,13 @@ class DeploymentPropertiesArgsDict(TypedDict):
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['DeploymentMode'],
-                 debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
-                 expression_evaluation_options: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']] = None,
-                 on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
-                 parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
+                 debug_setting: pulumi.Input[Optional['DebugSettingArgs']] = None,
+                 expression_evaluation_options: pulumi.Input[Optional['ExpressionEvaluationOptionsArgs']] = None,
+                 on_error_deployment: pulumi.Input[Optional['OnErrorDeploymentArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
+                 parameters_link: pulumi.Input[Optional['ParametersLinkArgs']] = None,
                  template: Optional[Any] = None,
-                 template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
+                 template_link: pulumi.Input[Optional['TemplateLinkArgs']] = None):
         """
         Deployment properties.
 
@@ -727,62 +727,62 @@ class DeploymentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="debugSetting")
-    def debug_setting(self) -> Optional[pulumi.Input['DebugSettingArgs']]:
+    def debug_setting(self) -> pulumi.Input[Optional['DebugSettingArgs']]:
         """
         The debug setting of the deployment.
         """
         return pulumi.get(self, "debug_setting")
 
     @debug_setting.setter
-    def debug_setting(self, value: Optional[pulumi.Input['DebugSettingArgs']]):
+    def debug_setting(self, value: pulumi.Input[Optional['DebugSettingArgs']]):
         pulumi.set(self, "debug_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="expressionEvaluationOptions")
-    def expression_evaluation_options(self) -> Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]:
+    def expression_evaluation_options(self) -> pulumi.Input[Optional['ExpressionEvaluationOptionsArgs']]:
         """
         Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
         """
         return pulumi.get(self, "expression_evaluation_options")
 
     @expression_evaluation_options.setter
-    def expression_evaluation_options(self, value: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]):
+    def expression_evaluation_options(self, value: pulumi.Input[Optional['ExpressionEvaluationOptionsArgs']]):
         pulumi.set(self, "expression_evaluation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="onErrorDeployment")
-    def on_error_deployment(self) -> Optional[pulumi.Input['OnErrorDeploymentArgs']]:
+    def on_error_deployment(self) -> pulumi.Input[Optional['OnErrorDeploymentArgs']]:
         """
         The deployment on error behavior.
         """
         return pulumi.get(self, "on_error_deployment")
 
     @on_error_deployment.setter
-    def on_error_deployment(self, value: Optional[pulumi.Input['OnErrorDeploymentArgs']]):
+    def on_error_deployment(self, value: pulumi.Input[Optional['OnErrorDeploymentArgs']]):
         pulumi.set(self, "on_error_deployment", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
         """
         Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="parametersLink")
-    def parameters_link(self) -> Optional[pulumi.Input['ParametersLinkArgs']]:
+    def parameters_link(self) -> pulumi.Input[Optional['ParametersLinkArgs']]:
         """
         The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters_link")
 
     @parameters_link.setter
-    def parameters_link(self, value: Optional[pulumi.Input['ParametersLinkArgs']]):
+    def parameters_link(self, value: pulumi.Input[Optional['ParametersLinkArgs']]):
         pulumi.set(self, "parameters_link", value)
 
     @_builtins.property
@@ -799,14 +799,14 @@ class DeploymentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateLink")
-    def template_link(self) -> Optional[pulumi.Input['TemplateLinkArgs']]:
+    def template_link(self) -> pulumi.Input[Optional['TemplateLinkArgs']]:
         """
         The URI of the template. Use either the templateLink property or the template property, but not both.
         """
         return pulumi.get(self, "template_link")
 
     @template_link.setter
-    def template_link(self, value: Optional[pulumi.Input['TemplateLinkArgs']]):
+    def template_link(self, value: pulumi.Input[Optional['TemplateLinkArgs']]):
         pulumi.set(self, "template_link", value)
 
 
@@ -814,7 +814,7 @@ class DeploymentStacksDebugSettingArgsDict(TypedDict):
     """
     The debug setting.
     """
-    detail_level: NotRequired[pulumi.Input[_builtins.str]]
+    detail_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
     """
@@ -822,7 +822,7 @@ class DeploymentStacksDebugSettingArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentStacksDebugSettingArgs:
     def __init__(__self__, *,
-                 detail_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 detail_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The debug setting.
 
@@ -833,14 +833,14 @@ class DeploymentStacksDebugSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="detailLevel")
-    def detail_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detail_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
         """
         return pulumi.get(self, "detail_level")
 
     @detail_level.setter
-    def detail_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detail_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detail_level", value)
 
 
@@ -852,7 +852,7 @@ class DeploymentStacksParametersLinkArgsDict(TypedDict):
     """
     The URI of the parameters file.
     """
-    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    content_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If included, must match the ContentVersion in the template.
     """
@@ -861,7 +861,7 @@ class DeploymentStacksParametersLinkArgsDict(TypedDict):
 class DeploymentStacksParametersLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Entity representing the reference to the deployment parameters.
 
@@ -886,14 +886,14 @@ class DeploymentStacksParametersLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
 
@@ -901,23 +901,23 @@ class DeploymentStacksTemplateLinkArgsDict(TypedDict):
     """
     Entity representing the reference to the template.
     """
-    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    content_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If included, must match the ContentVersion in the template.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resourceId of a Template Spec. Use either the id or uri property, but not both.
     """
-    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The query string (for example, a SAS token) to be used with the templateLink URI.
     """
-    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    relative_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the template to deploy. Use either the uri or id property, but not both.
     """
@@ -925,11 +925,11 @@ class DeploymentStacksTemplateLinkArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentStacksTemplateLinkArgs:
     def __init__(__self__, *,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Entity representing the reference to the template.
 
@@ -952,62 +952,62 @@ class DeploymentStacksTemplateLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resourceId of a Template Spec. Use either the id or uri property, but not both.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query string (for example, a SAS token) to be used with the templateLink URI.
         """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="relativePath")
-    def relative_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
         """
         return pulumi.get(self, "relative_path")
 
     @relative_path.setter
-    def relative_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -1031,35 +1031,35 @@ class DeploymentStacksWhatIfResultPropertiesArgsDict(TypedDict):
     """
     The interval to persist the deployment stack what-if result in ISO 8601 format.
     """
-    debug_setting: NotRequired[pulumi.Input['DeploymentStacksDebugSettingArgsDict']]
+    debug_setting: NotRequired[pulumi.Input[Optional['DeploymentStacksDebugSettingArgsDict']]]
     """
     The debug setting of the deployment.
     """
-    deployment_scope: NotRequired[pulumi.Input[_builtins.str]]
+    deployment_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Deployment stack description. Max length of 4096 characters.
     """
-    extension_configs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgsDict']]]]]]
+    extension_configs: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgsDict']]]]]]]
     """
     The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
     """
-    external_input_definitions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgsDict']]]]
+    external_input_definitions: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgsDict']]]]]
     """
     External input definitions, used by external tooling to define expected external input values.
     """
-    external_inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgsDict']]]]
+    external_inputs: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputArgsDict']]]]]
     """
     External input values, used by external tooling for parameter evaluation.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]]
     """
     Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
     """
-    parameters_link: NotRequired[pulumi.Input['DeploymentStacksParametersLinkArgsDict']]
+    parameters_link: NotRequired[pulumi.Input[Optional['DeploymentStacksParametersLinkArgsDict']]]
     """
     The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
     """
@@ -1067,11 +1067,11 @@ class DeploymentStacksWhatIfResultPropertiesArgsDict(TypedDict):
     """
     The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
     """
-    template_link: NotRequired[pulumi.Input['DeploymentStacksTemplateLinkArgsDict']]
+    template_link: NotRequired[pulumi.Input[Optional['DeploymentStacksTemplateLinkArgsDict']]]
     """
     The URI of the template. Use either the templateLink property or the template property, but not both.
     """
-    validation_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]
+    validation_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ValidationLevel']]]]
     """
     The validation level of the deployment stack
     """
@@ -1083,17 +1083,17 @@ class DeploymentStacksWhatIfResultPropertiesArgs:
                  deny_settings: pulumi.Input['DenySettingsArgs'],
                  deployment_stack_resource_id: pulumi.Input[_builtins.str],
                  retention_interval: pulumi.Input[_builtins.str],
-                 debug_setting: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']] = None,
-                 deployment_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]] = None,
-                 external_input_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]] = None,
-                 external_inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
-                 parameters_link: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']] = None,
+                 debug_setting: pulumi.Input[Optional['DeploymentStacksDebugSettingArgs']] = None,
+                 deployment_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_configs: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]] = None,
+                 external_input_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]] = None,
+                 external_inputs: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
+                 parameters_link: pulumi.Input[Optional['DeploymentStacksParametersLinkArgs']] = None,
                  template: Optional[Any] = None,
-                 template_link: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']] = None,
-                 validation_level: Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]] = None):
+                 template_link: pulumi.Input[Optional['DeploymentStacksTemplateLinkArgs']] = None,
+                 validation_level: pulumi.Input[Optional[Union[_builtins.str, 'ValidationLevel']]] = None):
         """
         DeploymentStack WhatIfResult Properties
 
@@ -1190,98 +1190,98 @@ class DeploymentStacksWhatIfResultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="debugSetting")
-    def debug_setting(self) -> Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']]:
+    def debug_setting(self) -> pulumi.Input[Optional['DeploymentStacksDebugSettingArgs']]:
         """
         The debug setting of the deployment.
         """
         return pulumi.get(self, "debug_setting")
 
     @debug_setting.setter
-    def debug_setting(self, value: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']]):
+    def debug_setting(self, value: pulumi.Input[Optional['DeploymentStacksDebugSettingArgs']]):
         pulumi.set(self, "debug_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentScope")
-    def deployment_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         """
         return pulumi.get(self, "deployment_scope")
 
     @deployment_scope.setter
-    def deployment_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment stack description. Max length of 4096 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionConfigs")
-    def extension_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]:
+    def extension_configs(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]:
         """
         The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
         """
         return pulumi.get(self, "extension_configs")
 
     @extension_configs.setter
-    def extension_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]):
+    def extension_configs(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]):
         pulumi.set(self, "extension_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="externalInputDefinitions")
-    def external_input_definitions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]:
+    def external_input_definitions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]:
         """
         External input definitions, used by external tooling to define expected external input values.
         """
         return pulumi.get(self, "external_input_definitions")
 
     @external_input_definitions.setter
-    def external_input_definitions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]):
+    def external_input_definitions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]):
         pulumi.set(self, "external_input_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="externalInputs")
-    def external_inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]:
+    def external_inputs(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]:
         """
         External input values, used by external tooling for parameter evaluation.
         """
         return pulumi.get(self, "external_inputs")
 
     @external_inputs.setter
-    def external_inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]):
+    def external_inputs(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]):
         pulumi.set(self, "external_inputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
         """
         Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="parametersLink")
-    def parameters_link(self) -> Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']]:
+    def parameters_link(self) -> pulumi.Input[Optional['DeploymentStacksParametersLinkArgs']]:
         """
         The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters_link")
 
     @parameters_link.setter
-    def parameters_link(self, value: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']]):
+    def parameters_link(self, value: pulumi.Input[Optional['DeploymentStacksParametersLinkArgs']]):
         pulumi.set(self, "parameters_link", value)
 
     @_builtins.property
@@ -1298,26 +1298,26 @@ class DeploymentStacksWhatIfResultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateLink")
-    def template_link(self) -> Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']]:
+    def template_link(self) -> pulumi.Input[Optional['DeploymentStacksTemplateLinkArgs']]:
         """
         The URI of the template. Use either the templateLink property or the template property, but not both.
         """
         return pulumi.get(self, "template_link")
 
     @template_link.setter
-    def template_link(self, value: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']]):
+    def template_link(self, value: pulumi.Input[Optional['DeploymentStacksTemplateLinkArgs']]):
         pulumi.set(self, "template_link", value)
 
     @_builtins.property
     @pulumi.getter(name="validationLevel")
-    def validation_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]:
+    def validation_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ValidationLevel']]]:
         """
         The validation level of the deployment stack
         """
         return pulumi.get(self, "validation_level")
 
     @validation_level.setter
-    def validation_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]):
+    def validation_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ValidationLevel']]]):
         pulumi.set(self, "validation_level", value)
 
 
@@ -1329,11 +1329,11 @@ class EnvironmentVariableArgsDict(TypedDict):
     """
     The name of the environment variable.
     """
-    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    secure_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the secure environment variable.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the environment variable.
     """
@@ -1342,8 +1342,8 @@ class EnvironmentVariableArgsDict(TypedDict):
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 secure_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 secure_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The environment variable to pass to the script in the container instance.
 
@@ -1371,26 +1371,26 @@ class EnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="secureValue")
-    def secure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
 
     @secure_value.setter
-    def secure_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the environment variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1398,7 +1398,7 @@ class ExpressionEvaluationOptionsArgsDict(TypedDict):
     """
     Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
     """
-    scope: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]
+    scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]]
     """
     The scope to be used for evaluation of parameters, variables and functions in a nested template.
     """
@@ -1406,7 +1406,7 @@ class ExpressionEvaluationOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressionEvaluationOptionsArgs:
     def __init__(__self__, *,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]] = None):
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]] = None):
         """
         Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
 
@@ -1417,14 +1417,14 @@ class ExpressionEvaluationOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]:
         """
         The scope to be used for evaluation of parameters, variables and functions in a nested template.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]):
         pulumi.set(self, "scope", value)
 
 
@@ -1432,11 +1432,11 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     Resource extended location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended location name.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]]
     """
     The extended location type.
     """
@@ -1444,8 +1444,8 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]] = None):
         """
         Resource extended location.
 
@@ -1459,26 +1459,26 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended location name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]:
         """
         The extended location type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1486,11 +1486,11 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -1498,8 +1498,8 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -1513,26 +1513,26 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1548,7 +1548,7 @@ class KeyVaultParameterReferenceArgsDict(TypedDict):
     """
     Azure Key Vault secret name.
     """
-    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    secret_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Key Vault secret version.
     """
@@ -1558,7 +1558,7 @@ class KeyVaultParameterReferenceArgs:
     def __init__(__self__, *,
                  key_vault: pulumi.Input['KeyVaultReferenceArgs'],
                  secret_name: pulumi.Input[_builtins.str],
-                 secret_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 secret_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Key Vault parameter reference.
 
@@ -1597,14 +1597,14 @@ class KeyVaultParameterReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Key Vault secret version.
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -1697,11 +1697,11 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Describes the managed identities for an Azure resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]]
     """
     Type of the managed identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
     """
@@ -1709,8 +1709,8 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes the managed identities for an Azure resource.
 
@@ -1724,26 +1724,26 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]:
         """
         Type of the managed identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1751,11 +1751,11 @@ class OnErrorDeploymentArgsDict(TypedDict):
     """
     Deployment on error behavior.
     """
-    deployment_name: NotRequired[pulumi.Input[_builtins.str]]
+    deployment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deployment to be used on error case.
     """
-    type: NotRequired[pulumi.Input['OnErrorDeploymentType']]
+    type: NotRequired[pulumi.Input[Optional['OnErrorDeploymentType']]]
     """
     The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
     """
@@ -1763,8 +1763,8 @@ class OnErrorDeploymentArgsDict(TypedDict):
 @pulumi.input_type
 class OnErrorDeploymentArgs:
     def __init__(__self__, *,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['OnErrorDeploymentType']] = None):
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['OnErrorDeploymentType']] = None):
         """
         Deployment on error behavior.
 
@@ -1778,26 +1778,26 @@ class OnErrorDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment to be used on error case.
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['OnErrorDeploymentType']]:
+    def type(self) -> pulumi.Input[Optional['OnErrorDeploymentType']]:
         """
         The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['OnErrorDeploymentType']]):
+    def type(self, value: pulumi.Input[Optional['OnErrorDeploymentType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1809,7 +1809,7 @@ class ParametersLinkArgsDict(TypedDict):
     """
     The URI of the parameters file.
     """
-    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    content_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If included, must match the ContentVersion in the template.
     """
@@ -1818,7 +1818,7 @@ class ParametersLinkArgsDict(TypedDict):
 class ParametersLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Entity representing the reference to the deployment parameters.
 
@@ -1843,14 +1843,14 @@ class ParametersLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
 
@@ -1858,23 +1858,23 @@ class PlanArgsDict(TypedDict):
     """
     Plan for the resource.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plan ID.
     """
-    product: NotRequired[pulumi.Input[_builtins.str]]
+    product: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offer ID.
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The promotion code.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher ID.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plan's version.
     """
@@ -1882,11 +1882,11 @@ class PlanArgsDict(TypedDict):
 @pulumi.input_type
 class PlanArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan for the resource.
 
@@ -1909,62 +1909,62 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plan ID.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer ID.
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product", value)
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The promotion code.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher ID.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plan's version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1972,27 +1972,27 @@ class SkuArgsDict(TypedDict):
     """
     SKU for the resource.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SKU capacity.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU family.
     """
-    model: NotRequired[pulumi.Input[_builtins.str]]
+    model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU model.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU name.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU size.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU tier.
     """
@@ -2000,12 +2000,12 @@ class SkuArgsDict(TypedDict):
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         SKU for the resource.
 
@@ -2031,74 +2031,74 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SKU capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU family.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU model.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU size.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -2106,11 +2106,11 @@ class StorageAccountConfigurationArgsDict(TypedDict):
     """
     Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
     """
-    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage account access key.
     """
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage account name.
     """
@@ -2118,8 +2118,8 @@ class StorageAccountConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StorageAccountConfigurationArgs:
     def __init__(__self__, *,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 
@@ -2133,26 +2133,26 @@ class StorageAccountConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account access key.
         """
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account name.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
@@ -2160,12 +2160,12 @@ class TagsArgsDict(TypedDict):
     """
     A dictionary of name and value pairs.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TagsArgs:
     def __init__(__self__, *,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A dictionary of name and value pairs.
         """
@@ -2174,11 +2174,11 @@ class TagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -2186,23 +2186,23 @@ class TemplateLinkArgsDict(TypedDict):
     """
     Entity representing the reference to the template.
     """
-    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    content_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If included, must match the ContentVersion in the template.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource id of a Template Spec. Use either the id or uri property, but not both.
     """
-    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The query string (for example, a SAS token) to be used with the templateLink URI.
     """
-    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    relative_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the template to deploy. Use either the uri or id property, but not both.
     """
@@ -2210,11 +2210,11 @@ class TemplateLinkArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateLinkArgs:
     def __init__(__self__, *,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Entity representing the reference to the template.
 
@@ -2237,62 +2237,62 @@ class TemplateLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of a Template Spec. Use either the id or uri property, but not both.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query string (for example, a SAS token) to be used with the templateLink URI.
         """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="relativePath")
-    def relative_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         """
         return pulumi.get(self, "relative_path")
 
     @relative_path.setter
-    def relative_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 

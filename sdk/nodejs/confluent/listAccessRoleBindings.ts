@@ -83,5 +83,5 @@ export interface ListAccessRoleBindingsOutputArgs {
     /**
      * Search filters for the request
      */
-    searchFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    searchFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

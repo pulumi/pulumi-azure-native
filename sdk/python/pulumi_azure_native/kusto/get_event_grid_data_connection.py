@@ -276,7 +276,6 @@ def get_event_grid_data_connection(cluster_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-13.
 
-
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str data_connection_name: The name of the data connection.
     :param _builtins.str database_name: The name of the database in the Kusto cluster.
@@ -310,16 +309,15 @@ def get_event_grid_data_connection(cluster_name: Optional[_builtins.str] = None,
         storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_grid_data_connection_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
 
     Uses Azure REST API version 2024-04-13.
-
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str data_connection_name: The name of the data connection.

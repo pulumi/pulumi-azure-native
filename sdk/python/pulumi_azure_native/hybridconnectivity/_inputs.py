@@ -28,11 +28,11 @@ class AwsCloudProfileArgsDict(TypedDict):
     """
     Account id for the AWS account.
     """
-    excluded_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of AWS accounts which need to be excluded.
     """
-    is_organizational_account: NotRequired[pulumi.Input[_builtins.bool]]
+    is_organizational_account: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
     """
@@ -41,8 +41,8 @@ class AwsCloudProfileArgsDict(TypedDict):
 class AwsCloudProfileArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
-                 excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_organizational_account: Optional[pulumi.Input[_builtins.bool]] = None):
+                 excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_organizational_account: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         cloud profile for AWS.
 
@@ -72,26 +72,26 @@ class AwsCloudProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedAccounts")
-    def excluded_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS accounts which need to be excluded.
         """
         return pulumi.get(self, "excluded_accounts")
 
     @excluded_accounts.setter
-    def excluded_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="isOrganizationalAccount")
-    def is_organizational_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_organizational_account(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
         """
         return pulumi.get(self, "is_organizational_account")
 
     @is_organizational_account.setter
-    def is_organizational_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_organizational_account(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_organizational_account", value)
 
 

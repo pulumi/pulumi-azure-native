@@ -142,7 +142,6 @@ def get_server_communication_link(communication_link_name: Optional[_builtins.st
 
     Uses Azure REST API version 2014-04-01.
 
-
     :param _builtins.str communication_link_name: The name of the server communication link.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str server_name: The name of the server.
@@ -163,15 +162,14 @@ def get_server_communication_link(communication_link_name: Optional[_builtins.st
         partner_server=pulumi.get(__ret__, 'partner_server'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_communication_link_output(communication_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_communication_link_output(communication_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCommunicationLinkResult]:
     """
     Returns a server communication link.
 
     Uses Azure REST API version 2014-04-01.
-
 
     :param _builtins.str communication_link_name: The name of the server communication link.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -26,13 +26,13 @@ class ProjectArgs:
                  service_name: pulumi.Input[_builtins.str],
                  source_platform: pulumi.Input[Union[_builtins.str, 'ProjectSourcePlatform']],
                  target_platform: pulumi.Input[Union[_builtins.str, 'ProjectTargetPlatform']],
-                 azure_authentication_info: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
-                 databases_info: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None):
+                 azure_authentication_info: pulumi.Input[Optional['AzureActiveDirectoryAppArgs']] = None,
+                 databases_info: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_connection_info: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_connection_info: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -115,80 +115,80 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureAuthenticationInfo")
-    def azure_authentication_info(self) -> Optional[pulumi.Input['AzureActiveDirectoryAppArgs']]:
+    def azure_authentication_info(self) -> pulumi.Input[Optional['AzureActiveDirectoryAppArgs']]:
         """
         Field that defines the Azure active directory application info, used to connect to the target Azure resource
         """
         return pulumi.get(self, "azure_authentication_info")
 
     @azure_authentication_info.setter
-    def azure_authentication_info(self, value: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']]):
+    def azure_authentication_info(self, value: pulumi.Input[Optional['AzureActiveDirectoryAppArgs']]):
         pulumi.set(self, "azure_authentication_info", value)
 
     @_builtins.property
     @pulumi.getter(name="databasesInfo")
-    def databases_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]]:
+    def databases_info(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseInfoArgs']]]]:
         """
         List of DatabaseInfo
         """
         return pulumi.get(self, "databases_info")
 
     @databases_info.setter
-    def databases_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]]):
+    def databases_info(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseInfoArgs']]]]):
         pulumi.set(self, "databases_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the project
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceConnectionInfo")
-    def source_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
+    def source_connection_info(self) -> pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
         """
         Information for connecting to source
         """
         return pulumi.get(self, "source_connection_info")
 
     @source_connection_info.setter
-    def source_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
+    def source_connection_info(self, value: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
         pulumi.set(self, "source_connection_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetConnectionInfo")
-    def target_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
+    def target_connection_info(self) -> pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
         """
         Information for connecting to target
         """
         return pulumi.get(self, "target_connection_info")
 
     @target_connection_info.setter
-    def target_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
+    def target_connection_info(self, value: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
         pulumi.set(self, "target_connection_info", value)
 
 
@@ -198,17 +198,17 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_authentication_info: Optional[pulumi.Input[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
-                 databases_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
-                 source_platform: Optional[pulumi.Input[Union[_builtins.str, 'ProjectSourcePlatform']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
-                 target_platform: Optional[pulumi.Input[Union[_builtins.str, 'ProjectTargetPlatform']]] = None,
+                 azure_authentication_info: pulumi.Input[Optional[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
+                 databases_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_connection_info: pulumi.Input[Optional[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
+                 source_platform: pulumi.Input[Optional[Union[_builtins.str, 'ProjectSourcePlatform']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_connection_info: pulumi.Input[Optional[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
+                 target_platform: pulumi.Input[Optional[Union[_builtins.str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
         """
         A project resource
@@ -216,7 +216,6 @@ class Project(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,7 +242,6 @@ class Project(pulumi.CustomResource):
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,17 +257,17 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_authentication_info: Optional[pulumi.Input[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
-                 databases_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
-                 source_platform: Optional[pulumi.Input[Union[_builtins.str, 'ProjectSourcePlatform']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
-                 target_platform: Optional[pulumi.Input[Union[_builtins.str, 'ProjectTargetPlatform']]] = None,
+                 azure_authentication_info: pulumi.Input[Optional[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
+                 databases_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_connection_info: pulumi.Input[Optional[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
+                 source_platform: pulumi.Input[Optional[Union[_builtins.str, 'ProjectSourcePlatform']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_connection_info: pulumi.Input[Optional[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]]] = None,
+                 target_platform: pulumi.Input[Optional[Union[_builtins.str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

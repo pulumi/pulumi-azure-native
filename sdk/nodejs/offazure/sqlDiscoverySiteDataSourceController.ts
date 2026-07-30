@@ -118,11 +118,11 @@ export interface SqlDiscoverySiteDataSourceControllerArgs {
     /**
      * SQL Discovery site data source name.
      */
-    discoverySiteDataSourceName?: pulumi.Input<string>;
+    discoverySiteDataSourceName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the discovery site Id.
      */
-    discoverySiteId?: pulumi.Input<string>;
+    discoverySiteId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

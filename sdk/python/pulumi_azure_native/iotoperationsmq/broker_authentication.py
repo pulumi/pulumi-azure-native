@@ -28,9 +28,9 @@ class BrokerAuthenticationArgs:
                  listener_ref: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthentication resource.
 
@@ -131,38 +131,38 @@ class BrokerAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ broker/authentication resource
         """
         return pulumi.get(self, "authentication_name")
 
     @authentication_name.setter
-    def authentication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -172,21 +172,20 @@ class BrokerAuthentication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]]] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 listener_ref: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 listener_ref: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MQ broker/authentication resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class BrokerAuthentication(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param BrokerAuthenticationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,15 +225,15 @@ class BrokerAuthentication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]]] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 listener_ref: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 listener_ref: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

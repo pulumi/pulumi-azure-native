@@ -239,51 +239,51 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[] | undefined>;
     /**
      * Full view of the custom domain suffix configuration for ASEv3.
      */
-    customDnsSuffixConfiguration?: pulumi.Input<inputs.web.CustomDnsSuffixConfigurationArgs>;
+    customDnsSuffixConfiguration?: pulumi.Input<inputs.web.CustomDnsSuffixConfigurationArgs | undefined>;
     /**
      * Dedicated Host Count
      */
-    dedicatedHostCount?: pulumi.Input<number>;
+    dedicatedHostCount?: pulumi.Input<number | undefined>;
     /**
      * DNS suffix of the App Service Environment.
      */
-    dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string | undefined>;
     /**
      * Scale factor for front-ends.
      */
-    frontEndScaleFactor?: pulumi.Input<number>;
+    frontEndScaleFactor?: pulumi.Input<number | undefined>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    internalLoadBalancingMode?: pulumi.Input<string | enums.web.LoadBalancingMode>;
+    internalLoadBalancingMode?: pulumi.Input<string | enums.web.LoadBalancingMode | undefined>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
-    ipsslAddressCount?: pulumi.Input<number>;
+    ipsslAddressCount?: pulumi.Input<number | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Front-end VM size, e.g. "Medium", "Large".
      */
-    multiSize?: pulumi.Input<string>;
+    multiSize?: pulumi.Input<string | undefined>;
     /**
      * Name of the App Service Environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Full view of networking configuration for an ASE.
      */
-    networkingConfiguration?: pulumi.Input<inputs.web.AseV3NetworkingConfigurationArgs>;
+    networkingConfiguration?: pulumi.Input<inputs.web.AseV3NetworkingConfigurationArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -291,15 +291,15 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Upgrade Preference
      */
-    upgradePreference?: pulumi.Input<string | enums.web.UpgradePreference>;
+    upgradePreference?: pulumi.Input<string | enums.web.UpgradePreference | undefined>;
     /**
      * User added ip ranges to whitelist on ASE db
      */
-    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the Virtual Network.
      */
@@ -307,5 +307,5 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Whether or not this App Service Environment is zone-redundant.
      */
-    zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean | undefined>;
 }

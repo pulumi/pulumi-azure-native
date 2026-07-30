@@ -168,7 +168,7 @@ export interface TopicArgs {
     /**
      * Config Specification of the topic
      */
-    configs?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs>;
+    configs?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs | undefined>;
     /**
      * Confluent environment id
      */
@@ -176,15 +176,15 @@ export interface TopicArgs {
     /**
      * Input Config Specification of the topic
      */
-    inputConfigs?: pulumi.Input<pulumi.Input<inputs.confluent.TopicsInputConfigArgs>[]>;
+    inputConfigs?: pulumi.Input<pulumi.Input<inputs.confluent.TopicsInputConfigArgs>[] | undefined>;
     /**
      * Type of topic
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Metadata of the record
      */
-    metadata?: pulumi.Input<inputs.confluent.TopicMetadataEntityArgs>;
+    metadata?: pulumi.Input<inputs.confluent.TopicMetadataEntityArgs | undefined>;
     /**
      * Organization resource name
      */
@@ -192,19 +192,19 @@ export interface TopicArgs {
     /**
      * Partition Specification of the topic
      */
-    partitions?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs>;
+    partitions?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs | undefined>;
     /**
      * Partition count of the topic
      */
-    partitionsCount?: pulumi.Input<string>;
+    partitionsCount?: pulumi.Input<string | undefined>;
     /**
      * Partition Reassignment Specification of the topic
      */
-    partitionsReassignments?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs>;
+    partitionsReassignments?: pulumi.Input<inputs.confluent.TopicsRelatedLinkArgs | undefined>;
     /**
      * Replication factor of the topic
      */
-    replicationFactor?: pulumi.Input<string>;
+    replicationFactor?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -212,9 +212,9 @@ export interface TopicArgs {
     /**
      * Topic Id returned by Confluent
      */
-    topicId?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string | undefined>;
     /**
      * Confluent kafka or schema registry topic name
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

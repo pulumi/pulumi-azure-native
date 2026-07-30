@@ -61,7 +61,6 @@ def get_sap_virtual_instance_invoke_availability_zone_details(app_location: Opti
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str app_location: The geo-location where the SAP resources will be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type. Eg: HANA, DB2, etc
     :param _builtins.str location: The name of the Azure region.
@@ -77,16 +76,15 @@ def get_sap_virtual_instance_invoke_availability_zone_details(app_location: Opti
 
     return AwaitableGetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult(
         availability_zone_pairs=pulumi.get(__ret__, 'availability_zone_pairs'))
-def get_sap_virtual_instance_invoke_availability_zone_details_output(app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                     database_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]] = None,
-                                                                     location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                     sap_product: Optional[pulumi.Input[Union[_builtins.str, 'SAPProductType']]] = None,
+def get_sap_virtual_instance_invoke_availability_zone_details_output(app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                     database_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseType']]] = None,
+                                                                     location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                     sap_product: pulumi.Input[Optional[Union[_builtins.str, 'SAPProductType']]] = None,
                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult]:
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str app_location: The geo-location where the SAP resources will be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type. Eg: HANA, DB2, etc

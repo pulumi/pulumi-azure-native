@@ -26,7 +26,7 @@ class ImageDefinitionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_type: pulumi.Input[Union[_builtins.str, 'ImageSecurityType']],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 image_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageDefinition resource.
 
@@ -107,14 +107,14 @@ class ImageDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageDefinitionName")
-    def image_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name of the test base image definition.
         """
         return pulumi.get(self, "image_definition_name")
 
     @image_definition_name.setter
-    def image_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_definition_name", value)
 
 
@@ -124,18 +124,17 @@ class ImageDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'ImageArchitecture']]] = None,
-                 image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_state: Optional[pulumi.Input[Union[_builtins.str, 'ImageOSState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[Union[_builtins.str, 'ImageSecurityType']]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'ImageArchitecture']]] = None,
+                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_state: pulumi.Input[Optional[Union[_builtins.str, 'ImageOSState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[Union[_builtins.str, 'ImageSecurityType']]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The test base image definition resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class ImageDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ImageDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class ImageDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'ImageArchitecture']]] = None,
-                 image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_state: Optional[pulumi.Input[Union[_builtins.str, 'ImageOSState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[Union[_builtins.str, 'ImageSecurityType']]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'ImageArchitecture']]] = None,
+                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_state: pulumi.Input[Optional[Union[_builtins.str, 'ImageOSState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[Union[_builtins.str, 'ImageSecurityType']]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -118,7 +118,7 @@ export interface WorkspaceNotificationRecipientUserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

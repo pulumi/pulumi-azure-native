@@ -24,10 +24,10 @@ class CredentialSetArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]]] = None,
-                 credential_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['AuthCredentialArgs']]]] = None,
+                 credential_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialSet resource.
 
@@ -76,7 +76,7 @@ class CredentialSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="authCredentials")
-    def auth_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]]]:
+    def auth_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthCredentialArgs']]]]:
         """
         List of authentication credentials stored for an upstream.
         Usually consists of a primary and an optional secondary credential.
@@ -84,43 +84,43 @@ class CredentialSetArgs:
         return pulumi.get(self, "auth_credentials")
 
     @auth_credentials.setter
-    def auth_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]]]):
+    def auth_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthCredentialArgs']]]]):
         pulumi.set(self, "auth_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialSetName")
-    def credential_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the credential set.
         """
         return pulumi.get(self, "credential_set_name")
 
     @credential_set_name.setter
-    def credential_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         """
         Identities associated with the resource. This is used to access the KeyVault secrets.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials are stored for this upstream or login server.
         """
         return pulumi.get(self, "login_server")
 
     @login_server.setter
-    def login_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_server", value)
 
 
@@ -130,12 +130,12 @@ class CredentialSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
-                 credential_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
+                 credential_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a credential set resource for a container registry.
@@ -143,7 +143,6 @@ class CredentialSet(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +167,6 @@ class CredentialSet(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CredentialSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,12 +182,12 @@ class CredentialSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
-                 credential_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
+                 credential_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -252,7 +252,6 @@ def get_job(job_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str job_name: Job Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -280,8 +279,8 @@ def get_job(job_name: Optional[_builtins.str] = None,
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
-def get_job_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Container App Job
@@ -289,7 +288,6 @@ def get_job_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str job_name: Job Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

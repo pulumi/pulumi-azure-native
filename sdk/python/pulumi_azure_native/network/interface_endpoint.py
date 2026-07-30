@@ -23,13 +23,13 @@ __all__ = ['InterfaceEndpointArgs', 'InterfaceEndpoint']
 class InterfaceEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 endpoint_service: Optional[pulumi.Input['EndpointServiceArgs']] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['SubnetArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 endpoint_service: pulumi.Input[Optional['EndpointServiceArgs']] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional['SubnetArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InterfaceEndpoint resource.
 
@@ -72,86 +72,86 @@ class InterfaceEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointService")
-    def endpoint_service(self) -> Optional[pulumi.Input['EndpointServiceArgs']]:
+    def endpoint_service(self) -> pulumi.Input[Optional['EndpointServiceArgs']]:
         """
         A reference to the service being brought into the virtual network.
         """
         return pulumi.get(self, "endpoint_service")
 
     @endpoint_service.setter
-    def endpoint_service(self, value: Optional[pulumi.Input['EndpointServiceArgs']]):
+    def endpoint_service(self, value: pulumi.Input[Optional['EndpointServiceArgs']]):
         pulumi.set(self, "endpoint_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceEndpointName")
-    def interface_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the interface endpoint.
         """
         return pulumi.get(self, "interface_endpoint_name")
 
     @interface_endpoint_name.setter
-    def interface_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubnetArgs']]:
         """
         The ID of the subnet from which the private IP will be allocated.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class InterfaceEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_service: Optional[pulumi.Input[Union['EndpointServiceArgs', 'EndpointServiceArgsDict']]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 endpoint_service: pulumi.Input[Optional[Union['EndpointServiceArgs', 'EndpointServiceArgsDict']]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Interface endpoint resource.
@@ -176,7 +176,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param InterfaceEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class InterfaceEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_service: Optional[pulumi.Input[Union['EndpointServiceArgs', 'EndpointServiceArgsDict']]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 endpoint_service: pulumi.Input[Optional[Union['EndpointServiceArgs', 'EndpointServiceArgsDict']]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

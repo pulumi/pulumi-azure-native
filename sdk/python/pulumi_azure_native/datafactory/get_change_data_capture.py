@@ -203,7 +203,6 @@ def get_change_data_capture(change_data_capture_name: Optional[_builtins.str] = 
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str change_data_capture_name: The change data capture name.
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -229,15 +228,14 @@ def get_change_data_capture(change_data_capture_name: Optional[_builtins.str] = 
         system_data=pulumi.get(__ret__, 'system_data'),
         target_connections_info=pulumi.get(__ret__, 'target_connections_info'),
         type=pulumi.get(__ret__, 'type'))
-def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_change_data_capture_output(change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChangeDataCaptureResult]:
     """
     Gets a change data capture.
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str change_data_capture_name: The change data capture name.
     :param _builtins.str factory_name: The factory name.

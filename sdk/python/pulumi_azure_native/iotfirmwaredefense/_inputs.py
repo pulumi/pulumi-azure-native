@@ -24,11 +24,11 @@ class StatusMessageArgsDict(TypedDict):
     """
     Error and status message
     """
-    error_code: NotRequired[pulumi.Input[_builtins.float]]
+    error_code: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The error code
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error or status message
     """
@@ -36,8 +36,8 @@ class StatusMessageArgsDict(TypedDict):
 @pulumi.input_type
 class StatusMessageArgs:
     def __init__(__self__, *,
-                 error_code: Optional[pulumi.Input[_builtins.float]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_code: pulumi.Input[Optional[_builtins.float]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Error and status message
 
@@ -51,26 +51,26 @@ class StatusMessageArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def error_code(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The error code
         """
         return pulumi.get(self, "error_code")
 
     @error_code.setter
-    def error_code(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def error_code(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "error_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error or status message
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 

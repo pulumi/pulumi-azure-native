@@ -1576,7 +1576,7 @@ class IpConfigurationResponse(dict):
 
         :param _builtins.str name: Name of the network interface.
         :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
-        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param _builtins.str private_ip_address_version: Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
         :param 'IpConfigurationResponsePublicIPAddressConfiguration' public_ip_address_configuration: The public IP address configuration of the network interface.
@@ -1618,7 +1618,7 @@ class IpConfigurationResponse(dict):
     @pulumi.getter(name="loadBalancerBackendAddressPools")
     def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
@@ -2960,7 +2960,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's 
+    Describes the policy to be used for placement of a Service Fabric service where the service's
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2990,7 +2990,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
                  domain_name: _builtins.str,
                  type: _builtins.str):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric

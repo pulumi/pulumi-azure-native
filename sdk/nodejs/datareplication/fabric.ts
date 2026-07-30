@@ -116,11 +116,11 @@ export interface FabricArgs {
     /**
      * The fabric name.
      */
-    fabricName?: pulumi.Input<string>;
+    fabricName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location of the fabric.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Fabric model properties.
      */
@@ -132,5 +132,5 @@ export interface FabricArgs {
     /**
      * Gets or sets the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

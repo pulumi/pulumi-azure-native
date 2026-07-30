@@ -26,11 +26,11 @@ class ConnectedRegistryArgs:
                  parent: pulumi.Input['ParentPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connected_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 garbage_collection: Optional[pulumi.Input['GarbageCollectionPropertiesArgs']] = None,
-                 logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None,
-                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 client_token_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connected_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 garbage_collection: pulumi.Input[Optional['GarbageCollectionPropertiesArgs']] = None,
+                 logging: pulumi.Input[Optional['LoggingPropertiesArgs']] = None,
+                 notifications_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedRegistry resource.
 
@@ -109,62 +109,62 @@ class ConnectedRegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientTokenIds")
-    def client_token_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_token_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         """
         return pulumi.get(self, "client_token_ids")
 
     @client_token_ids.setter
-    def client_token_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_token_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_token_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedRegistryName")
-    def connected_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connected_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connected registry.
         """
         return pulumi.get(self, "connected_registry_name")
 
     @connected_registry_name.setter
-    def connected_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connected_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connected_registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="garbageCollection")
-    def garbage_collection(self) -> Optional[pulumi.Input['GarbageCollectionPropertiesArgs']]:
+    def garbage_collection(self) -> pulumi.Input[Optional['GarbageCollectionPropertiesArgs']]:
         """
         The garbage collection properties of the connected registry.
         """
         return pulumi.get(self, "garbage_collection")
 
     @garbage_collection.setter
-    def garbage_collection(self, value: Optional[pulumi.Input['GarbageCollectionPropertiesArgs']]):
+    def garbage_collection(self, value: pulumi.Input[Optional['GarbageCollectionPropertiesArgs']]):
         pulumi.set(self, "garbage_collection", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['LoggingPropertiesArgs']]:
+    def logging(self) -> pulumi.Input[Optional['LoggingPropertiesArgs']]:
         """
         The logging properties of the connected registry.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['LoggingPropertiesArgs']]):
+    def logging(self, value: pulumi.Input[Optional['LoggingPropertiesArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationsList")
-    def notifications_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notifications_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of notifications subscription information for the connected registry.
         """
         return pulumi.get(self, "notifications_list")
 
     @notifications_list.setter
-    def notifications_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notifications_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notifications_list", value)
 
 
@@ -174,15 +174,15 @@ class ConnectedRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connected_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 garbage_collection: Optional[pulumi.Input[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
-                 logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedRegistryMode']]] = None,
-                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parent: Optional[pulumi.Input[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_token_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connected_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 garbage_collection: pulumi.Input[Optional[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedRegistryMode']]] = None,
+                 notifications_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parent: pulumi.Input[Optional[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a connected registry for a container registry.
@@ -190,7 +190,6 @@ class ConnectedRegistry(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class ConnectedRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connected_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 garbage_collection: Optional[pulumi.Input[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
-                 logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'ConnectedRegistryMode']]] = None,
-                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parent: Optional[pulumi.Input[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_token_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connected_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 garbage_collection: pulumi.Input[Optional[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'ConnectedRegistryMode']]] = None,
+                 notifications_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parent: pulumi.Input[Optional[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

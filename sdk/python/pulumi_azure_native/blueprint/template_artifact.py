@@ -26,11 +26,11 @@ class TemplateArtifactArgs:
                  parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]],
                  resource_scope: pulumi.Input[_builtins.str],
                  template: Any,
-                 artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateArtifact resource.
 
@@ -125,62 +125,62 @@ class TemplateArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactName")
-    def artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the blueprint artifact.
         """
         return pulumi.get(self, "artifact_name")
 
     @artifact_name.setter
-    def artifact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Artifacts which need to be deployed before the specified artifact.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Multi-line explain this resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One-liner string explain this resource.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
 
@@ -190,22 +190,21 @@ class TemplateArtifact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  template: Optional[Any] = None,
                  __props__=None):
         """
         Blueprint artifact that deploys a Resource Manager template.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,7 +231,6 @@ class TemplateArtifact(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param TemplateArtifactArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,15 +246,15 @@ class TemplateArtifact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  template: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

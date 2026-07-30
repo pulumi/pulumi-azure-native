@@ -24,11 +24,11 @@ class CollectorPolicyArgs:
     def __init__(__self__, *,
                  azure_traffic_collector_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 collector_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
-                 ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 collector_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emission_policies: pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
+                 ingestion_policy: pulumi.Input[Optional['IngestionPolicyPropertiesFormatArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CollectorPolicy resource.
 
@@ -79,62 +79,62 @@ class CollectorPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectorPolicyName")
-    def collector_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collector_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collector Policy Name
         """
         return pulumi.get(self, "collector_policy_name")
 
     @collector_policy_name.setter
-    def collector_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collector_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collector_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emissionPolicies")
-    def emission_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]:
+    def emission_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]:
         """
         Emission policies.
         """
         return pulumi.get(self, "emission_policies")
 
     @emission_policies.setter
-    def emission_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]):
+    def emission_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]):
         pulumi.set(self, "emission_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionPolicy")
-    def ingestion_policy(self) -> Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']]:
+    def ingestion_policy(self) -> pulumi.Input[Optional['IngestionPolicyPropertiesFormatArgs']]:
         """
         Ingestion policies.
         """
         return pulumi.get(self, "ingestion_policy")
 
     @ingestion_policy.setter
-    def ingestion_policy(self, value: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']]):
+    def ingestion_policy(self, value: pulumi.Input[Optional['IngestionPolicyPropertiesFormatArgs']]):
         pulumi.set(self, "ingestion_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,19 +144,18 @@ class CollectorPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_traffic_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 collector_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
-                 ingestion_policy: Optional[pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_traffic_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 collector_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emission_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
+                 ingestion_policy: pulumi.Input[Optional[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Collector policy resource.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class CollectorPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
-
         :param str resource_name: The name of the resource.
         :param CollectorPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class CollectorPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_traffic_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 collector_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
-                 ingestion_policy: Optional[pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_traffic_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 collector_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emission_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
+                 ingestion_policy: pulumi.Input[Optional[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

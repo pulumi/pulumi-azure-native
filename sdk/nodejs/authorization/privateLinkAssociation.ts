@@ -98,9 +98,9 @@ export interface PrivateLinkAssociationArgs {
     /**
      * The ID of the PLA
      */
-    plaId?: pulumi.Input<string>;
+    plaId?: pulumi.Input<string | undefined>;
     /**
      * The properties of the PrivateLinkAssociation.
      */
-    properties?: pulumi.Input<inputs.authorization.PrivateLinkAssociationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.authorization.PrivateLinkAssociationPropertiesArgs | undefined>;
 }

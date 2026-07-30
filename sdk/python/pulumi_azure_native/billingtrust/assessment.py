@@ -23,7 +23,7 @@ __all__ = ['AssessmentArgs', 'Assessment']
 class AssessmentArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['AssessmentPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['AssessmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -48,14 +48,14 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AssessmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['AssessmentPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AssessmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['AssessmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -65,14 +65,13 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['AssessmentPropertiesArgs', 'AssessmentPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AssessmentPropertiesArgs', 'AssessmentPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A billing trust assessment. An assessment runs a set of rules to evaluate trust attributes of a billing account. The assessment is a singleton per parent resource and is always named 'default'. Re-issuing PUT with the same `assessmentType` is idempotent; changing `assessmentType` after the assessment exists is not supported.
 
         Uses Azure REST API version 2026-03-17-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,7 +89,6 @@ class Assessment(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-03-17-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,8 +104,8 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['AssessmentPropertiesArgs', 'AssessmentPropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AssessmentPropertiesArgs', 'AssessmentPropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

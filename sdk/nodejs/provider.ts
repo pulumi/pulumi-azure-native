@@ -68,85 +68,85 @@ export interface ProviderArgs {
     /**
      * Any additional Tenant IDs which should be used for authentication.
      */
-    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      */
-    clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      */
-    clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string | undefined>;
     /**
      * The Client ID which should be used.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
      */
-    disableInstanceDiscovery?: pulumi.Input<boolean>;
+    disableInstanceDiscovery?: pulumi.Input<boolean | undefined>;
     /**
      * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
      */
-    disablePulumiPartnerId?: pulumi.Input<boolean>;
+    disablePulumiPartnerId?: pulumi.Input<boolean | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Hostname of the Azure Metadata Service.
      */
-    metadataHost?: pulumi.Input<string>;
+    metadataHost?: pulumi.Input<string | undefined>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
-    msiEndpoint?: pulumi.Input<string>;
+    msiEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
      */
-    oidcRequestToken?: pulumi.Input<string>;
+    oidcRequestToken?: pulumi.Input<string | undefined>;
     /**
      * The URL to initiate the `oidcRequestToken` OIDC token exchange.
      */
-    oidcRequestUrl?: pulumi.Input<string>;
+    oidcRequestUrl?: pulumi.Input<string | undefined>;
     /**
      * The OIDC token to exchange for an Azure token.
      */
-    oidcToken?: pulumi.Input<string>;
+    oidcToken?: pulumi.Input<string | undefined>;
     /**
      * The path to a file containing an OIDC token to exchange for an Azure token.
      */
-    oidcTokenFilePath?: pulumi.Input<string>;
+    oidcTokenFilePath?: pulumi.Input<string | undefined>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string | undefined>;
     /**
      * The Subscription ID which should be used.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID which should be used.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
      */
-    useDefaultAzureCredential?: pulumi.Input<boolean>;
+    useDefaultAzureCredential?: pulumi.Input<boolean | undefined>;
     /**
      * Allow Managed Service Identity to be used for Authentication.
      */
-    useMsi?: pulumi.Input<boolean>;
+    useMsi?: pulumi.Input<boolean | undefined>;
     /**
      * Allow OpenID Connect (OIDC) to be used for Authentication.
      */
-    useOidc?: pulumi.Input<boolean>;
+    useOidc?: pulumi.Input<boolean | undefined>;
 }

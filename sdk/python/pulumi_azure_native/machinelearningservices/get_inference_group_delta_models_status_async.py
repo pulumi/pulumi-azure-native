@@ -112,7 +112,6 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
 
     Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Sequence[_builtins.str] delta_models: Gets or sets collection of delta models to retrieve status for.
     :param _builtins.str group_name: InferenceGroup name.
     :param _builtins.str pool_name: InferencePool name.
@@ -136,12 +135,12 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
         expected_instance_count=pulumi.get(__ret__, 'expected_instance_count'),
         revision_id=pulumi.get(__ret__, 'revision_id'),
         target_base_model=pulumi.get(__ret__, 'target_base_model'))
-def get_inference_group_delta_models_status_async_output(delta_models: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                                         group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         target_base_model: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inference_group_delta_models_status_async_output(delta_models: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                                         group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         target_base_model: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupDeltaModelsStatusAsyncResult]:
     """
     Contract returning to user the delta models.
@@ -149,7 +148,6 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Sequence[_builtins.str] delta_models: Gets or sets collection of delta models to retrieve status for.
     :param _builtins.str group_name: InferenceGroup name.

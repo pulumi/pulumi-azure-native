@@ -25,21 +25,21 @@ class SubscriptionArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affine_properties: Optional[pulumi.Input['SBClientAffinePropertiesArgs']] = None,
-                 dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_client_affine: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input['EntityStatus']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affine_properties: pulumi.Input[Optional['SBClientAffinePropertiesArgs']] = None,
+                 dead_lettering_on_filter_evaluation_exceptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_client_affine: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional['EntityStatus']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
 
@@ -134,182 +134,182 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_delete_on_idle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
     @auto_delete_on_idle.setter
-    def auto_delete_on_idle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_delete_on_idle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffineProperties")
-    def client_affine_properties(self) -> Optional[pulumi.Input['SBClientAffinePropertiesArgs']]:
+    def client_affine_properties(self) -> pulumi.Input[Optional['SBClientAffinePropertiesArgs']]:
         """
         Properties specific to client affine subscriptions.
         """
         return pulumi.get(self, "client_affine_properties")
 
     @client_affine_properties.setter
-    def client_affine_properties(self, value: Optional[pulumi.Input['SBClientAffinePropertiesArgs']]):
+    def client_affine_properties(self, value: pulumi.Input[Optional['SBClientAffinePropertiesArgs']]):
         pulumi.set(self, "client_affine_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationExceptions")
-    def dead_lettering_on_filter_evaluation_exceptions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_filter_evaluation_exceptions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         """
         return pulumi.get(self, "dead_lettering_on_filter_evaluation_exceptions")
 
     @dead_lettering_on_filter_evaluation_exceptions.setter
-    def dead_lettering_on_filter_evaluation_exceptions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_filter_evaluation_exceptions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_filter_evaluation_exceptions", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether a subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
     @dead_lettering_on_message_expiration.setter
-    def dead_lettering_on_message_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_message_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_message_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMessageTimeToLive")
-    def default_message_time_to_live(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_message_time_to_live(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
         return pulumi.get(self, "default_message_time_to_live")
 
     @default_message_time_to_live.setter
-    def default_message_time_to_live(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_message_time_to_live(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_message_time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duplicate_detection_history_time_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
     @duplicate_detection_history_time_window.setter
-    def duplicate_detection_history_time_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duplicate_detection_history_time_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duplicate_detection_history_time_window", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_batched_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether server-side batched operations are enabled.
         """
         return pulumi.get(self, "enable_batched_operations")
 
     @enable_batched_operations.setter
-    def enable_batched_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_batched_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_batched_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Queue/Topic name to forward the Dead Letter message
         """
         return pulumi.get(self, "forward_dead_lettered_messages_to")
 
     @forward_dead_lettered_messages_to.setter
-    def forward_dead_lettered_messages_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_dead_lettered_messages_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_dead_lettered_messages_to", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Queue/Topic name to forward the messages
         """
         return pulumi.get(self, "forward_to")
 
     @forward_to.setter
-    def forward_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_to", value)
 
     @_builtins.property
     @pulumi.getter(name="isClientAffine")
-    def is_client_affine(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_client_affine(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the subscription has an affinity to the client id.
         """
         return pulumi.get(self, "is_client_affine")
 
     @is_client_affine.setter
-    def is_client_affine(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_client_affine(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_client_affine", value)
 
     @_builtins.property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         """
         return pulumi.get(self, "lock_duration")
 
     @lock_duration.setter
-    def lock_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delivery_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of maximum deliveries.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delivery_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_session(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value indicating if a subscription supports the concept of sessions.
         """
         return pulumi.get(self, "requires_session")
 
     @requires_session.setter
-    def requires_session(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_session(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_session", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['EntityStatus']]:
+    def status(self) -> pulumi.Input[Optional['EntityStatus']]:
         """
         Enumerates the possible values for the status of a messaging entity.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['EntityStatus']]):
+    def status(self, value: pulumi.Input[Optional['EntityStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription name.
         """
         return pulumi.get(self, "subscription_name")
 
     @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_name", value)
 
 
@@ -319,24 +319,24 @@ class Subscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affine_properties: Optional[pulumi.Input[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
-                 dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_client_affine: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['EntityStatus']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affine_properties: pulumi.Input[Optional[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
+                 dead_lettering_on_filter_evaluation_exceptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_client_affine: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['EntityStatus']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of subscription resource.
@@ -344,7 +344,6 @@ class Subscription(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,7 +379,6 @@ class Subscription(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,24 +394,24 @@ class Subscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affine_properties: Optional[pulumi.Input[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
-                 dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_client_affine: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['EntityStatus']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affine_properties: pulumi.Input[Optional[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
+                 dead_lettering_on_filter_evaluation_exceptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_client_affine: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['EntityStatus']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

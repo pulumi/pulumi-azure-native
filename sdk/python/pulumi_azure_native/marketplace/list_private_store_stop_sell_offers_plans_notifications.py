@@ -57,7 +57,6 @@ def list_private_store_stop_sell_offers_plans_notifications(private_store_id: Op
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
     """
     __args__ = dict()
@@ -68,8 +67,8 @@ def list_private_store_stop_sell_offers_plans_notifications(private_store_id: Op
 
     return AwaitableListPrivateStoreStopSellOffersPlansNotificationsResult(
         stop_sell_notifications=pulumi.get(__ret__, 'stop_sell_notifications'))
-def list_private_store_stop_sell_offers_plans_notifications_output(private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                   subscriptions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def list_private_store_stop_sell_offers_plans_notifications_output(private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                   subscriptions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreStopSellOffersPlansNotificationsResult]:
     """
     List stop sell notifications for both stop sell offers and stop sell plans
@@ -77,7 +76,6 @@ def list_private_store_stop_sell_offers_plans_notifications_output(private_store
     Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
     """

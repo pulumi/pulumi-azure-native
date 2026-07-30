@@ -40,7 +40,7 @@ class AzureBareMetalStorageInstanceIdentityArgsDict(TypedDict):
     """
     Identity for Azure Bare Metal Storage Instance.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]]
     """
     The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
     """
@@ -48,7 +48,7 @@ class AzureBareMetalStorageInstanceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class AzureBareMetalStorageInstanceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]] = None):
         """
         Identity for Azure Bare Metal Storage Instance.
 
@@ -59,14 +59,14 @@ class AzureBareMetalStorageInstanceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]:
         """
         The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -74,11 +74,11 @@ class DiskArgsDict(TypedDict):
     """
     Specifies the disk information fo the Azure Bare Metal Instance
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the size of an empty data disk in gigabytes.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The disk name.
     """
@@ -86,8 +86,8 @@ class DiskArgsDict(TypedDict):
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the disk information fo the Azure Bare Metal Instance
 
@@ -101,26 +101,26 @@ class DiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of an empty data disk in gigabytes.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -128,11 +128,11 @@ class HardwareProfileArgsDict(TypedDict):
     """
     Specifies the hardware settings for the Azure Bare Metal Instance.
     """
-    azure_bare_metal_instance_size: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]
+    azure_bare_metal_instance_size: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]]
     """
     Specifies the Azure Bare Metal Instance SKU.
     """
-    hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]
+    hardware_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]]
     """
     Name of the hardware type (vendor and/or their product name)
     """
@@ -140,8 +140,8 @@ class HardwareProfileArgsDict(TypedDict):
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
-                 azure_bare_metal_instance_size: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]] = None,
-                 hardware_type: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]] = None):
+                 azure_bare_metal_instance_size: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]] = None,
+                 hardware_type: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]] = None):
         """
         Specifies the hardware settings for the Azure Bare Metal Instance.
 
@@ -155,26 +155,26 @@ class HardwareProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBareMetalInstanceSize")
-    def azure_bare_metal_instance_size(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]:
+    def azure_bare_metal_instance_size(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]:
         """
         Specifies the Azure Bare Metal Instance SKU.
         """
         return pulumi.get(self, "azure_bare_metal_instance_size")
 
     @azure_bare_metal_instance_size.setter
-    def azure_bare_metal_instance_size(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]):
+    def azure_bare_metal_instance_size(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]):
         pulumi.set(self, "azure_bare_metal_instance_size", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareType")
-    def hardware_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]:
+    def hardware_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]:
         """
         Name of the hardware type (vendor and/or their product name)
         """
         return pulumi.get(self, "hardware_type")
 
     @hardware_type.setter
-    def hardware_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]):
+    def hardware_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]):
         pulumi.set(self, "hardware_type", value)
 
 
@@ -182,7 +182,7 @@ class NetworkInterfaceArgsDict(TypedDict):
     """
     Specifies the network interfaces of a bare metal resource.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the IP address of the network interface.
     """
@@ -190,7 +190,7 @@ class NetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the network interfaces of a bare metal resource.
 
@@ -201,14 +201,14 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address of the network interface.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
 
@@ -216,11 +216,11 @@ class NetworkProfileArgsDict(TypedDict):
     """
     Specifies the network settings for the Azure Bare Metal Instance disks.
     """
-    circuit_id: NotRequired[pulumi.Input[_builtins.str]]
+    circuit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the circuit id for connecting to express route.
     """
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]]
     """
     Specifies the network interfaces for the Azure Bare Metal Instance.
     """
@@ -228,8 +228,8 @@ class NetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 circuit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None):
+                 circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None):
         """
         Specifies the network settings for the Azure Bare Metal Instance disks.
 
@@ -243,26 +243,26 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="circuitId")
-    def circuit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def circuit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the circuit id for connecting to express route.
         """
         return pulumi.get(self, "circuit_id")
 
     @circuit_id.setter
-    def circuit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def circuit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "circuit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         Specifies the network interfaces for the Azure Bare Metal Instance.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
 
@@ -270,19 +270,19 @@ class OSProfileArgsDict(TypedDict):
     """
     Specifies the operating system settings for the Azure Bare Metal instance.
     """
-    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    computer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the host OS name of the Azure Bare Metal instance.
     """
-    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    os_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This property allows you to specify the type of the OS.
     """
-    ssh_public_key: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_public_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the SSH public key used to access the operating system.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies version of operating system.
     """
@@ -290,10 +290,10 @@ class OSProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OSProfileArgs:
     def __init__(__self__, *,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the operating system settings for the Azure Bare Metal instance.
 
@@ -313,50 +313,50 @@ class OSProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host OS name of the Azure Bare Metal instance.
         """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This property allows you to specify the type of the OS.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SSH public key used to access the operating system.
         """
         return pulumi.get(self, "ssh_public_key")
 
     @ssh_public_key.setter
-    def ssh_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_public_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies version of operating system.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -364,11 +364,11 @@ class StorageBillingPropertiesArgsDict(TypedDict):
     """
     Describes the billing related details of the AzureBareMetalStorageInstance.
     """
-    azure_bare_metal_storage_instance_size: NotRequired[pulumi.Input[_builtins.str]]
+    azure_bare_metal_storage_instance_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the SKU type that is provisioned
     """
-    billing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    billing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the billing mode for the storage instance
     """
@@ -376,8 +376,8 @@ class StorageBillingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StorageBillingPropertiesArgs:
     def __init__(__self__, *,
-                 azure_bare_metal_storage_instance_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_bare_metal_storage_instance_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the billing related details of the AzureBareMetalStorageInstance.
 
@@ -391,26 +391,26 @@ class StorageBillingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBareMetalStorageInstanceSize")
-    def azure_bare_metal_storage_instance_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_bare_metal_storage_instance_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the SKU type that is provisioned
         """
         return pulumi.get(self, "azure_bare_metal_storage_instance_size")
 
     @azure_bare_metal_storage_instance_size.setter
-    def azure_bare_metal_storage_instance_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_bare_metal_storage_instance_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_bare_metal_storage_instance_size", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
-    def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the billing mode for the storage instance
         """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_mode", value)
 
 
@@ -418,11 +418,11 @@ class StorageProfileArgsDict(TypedDict):
     """
     Specifies the storage settings for the Azure Bare Metal instance disks.
     """
-    nfs_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    nfs_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Address to connect to storage.
     """
-    os_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    os_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgsDict']]]]]
     """
     Specifies information about the operating system disk used by bare metal instance.
     """
@@ -430,8 +430,8 @@ class StorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 nfs_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
+                 nfs_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disks: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]] = None):
         """
         Specifies the storage settings for the Azure Bare Metal instance disks.
 
@@ -445,26 +445,26 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="nfsIpAddress")
-    def nfs_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nfs_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address to connect to storage.
         """
         return pulumi.get(self, "nfs_ip_address")
 
     @nfs_ip_address.setter
-    def nfs_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nfs_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nfs_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisks")
-    def os_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+    def os_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]:
         """
         Specifies information about the operating system disk used by bare metal instance.
         """
         return pulumi.get(self, "os_disks")
 
     @os_disks.setter
-    def os_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+    def os_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]):
         pulumi.set(self, "os_disks", value)
 
 
@@ -472,31 +472,31 @@ class StoragePropertiesArgsDict(TypedDict):
     """
     described the storage properties of the azure bare metal storage instance
     """
-    generation: NotRequired[pulumi.Input[_builtins.str]]
+    generation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the kind of storage instance
     """
-    hardware_type: NotRequired[pulumi.Input[_builtins.str]]
+    hardware_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the hardware type of the storage instance
     """
-    offering_type: NotRequired[pulumi.Input[_builtins.str]]
+    offering_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the offering type for which the resource is getting provisioned
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]]
     """
     State of provisioning of the AzureBareMetalStorageInstance
     """
-    storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
+    storage_billing_properties: NotRequired[pulumi.Input[Optional['StorageBillingPropertiesArgsDict']]]
     """
     the billing related information for the resource
     """
-    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    storage_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the storage protocol for which the resource is getting provisioned
     """
-    workload_type: NotRequired[pulumi.Input[_builtins.str]]
+    workload_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the workload for which the resource is getting provisioned
     """
@@ -504,13 +504,13 @@ class StoragePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StoragePropertiesArgs:
     def __init__(__self__, *,
-                 generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 storage_billing_properties: Optional[pulumi.Input['StorageBillingPropertiesArgs']] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 storage_billing_properties: pulumi.Input[Optional['StorageBillingPropertiesArgs']] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         described the storage properties of the azure bare metal storage instance
 
@@ -539,86 +539,86 @@ class StoragePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the kind of storage instance
         """
         return pulumi.get(self, "generation")
 
     @generation.setter
-    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareType")
-    def hardware_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hardware_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the hardware type of the storage instance
         """
         return pulumi.get(self, "hardware_type")
 
     @hardware_type.setter
-    def hardware_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hardware_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hardware_type", value)
 
     @_builtins.property
     @pulumi.getter(name="offeringType")
-    def offering_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the offering type for which the resource is getting provisioned
         """
         return pulumi.get(self, "offering_type")
 
     @offering_type.setter
-    def offering_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         State of provisioning of the AzureBareMetalStorageInstance
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="storageBillingProperties")
-    def storage_billing_properties(self) -> Optional[pulumi.Input['StorageBillingPropertiesArgs']]:
+    def storage_billing_properties(self) -> pulumi.Input[Optional['StorageBillingPropertiesArgs']]:
         """
         the billing related information for the resource
         """
         return pulumi.get(self, "storage_billing_properties")
 
     @storage_billing_properties.setter
-    def storage_billing_properties(self, value: Optional[pulumi.Input['StorageBillingPropertiesArgs']]):
+    def storage_billing_properties(self, value: pulumi.Input[Optional['StorageBillingPropertiesArgs']]):
         pulumi.set(self, "storage_billing_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the storage protocol for which the resource is getting provisioned
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the workload for which the resource is getting provisioned
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_type", value)
 
 

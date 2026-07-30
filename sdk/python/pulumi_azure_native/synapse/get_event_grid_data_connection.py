@@ -242,7 +242,6 @@ def get_event_grid_data_connection(data_connection_name: Optional[_builtins.str]
 
     Uses Azure REST API version 2021-06-01-preview.
 
-
     :param _builtins.str data_connection_name: The name of the data connection.
     :param _builtins.str database_name: The name of the database in the Kusto pool.
     :param _builtins.str kusto_pool_name: The name of the Kusto pool.
@@ -275,17 +274,16 @@ def get_event_grid_data_connection(data_connection_name: Optional[_builtins.str]
         system_data=pulumi.get(__ret__, 'system_data'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_event_grid_data_connection_output(data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_grid_data_connection_output(data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
 
     Uses Azure REST API version 2021-06-01-preview.
-
 
     :param _builtins.str data_connection_name: The name of the data connection.
     :param _builtins.str database_name: The name of the database in the Kusto pool.

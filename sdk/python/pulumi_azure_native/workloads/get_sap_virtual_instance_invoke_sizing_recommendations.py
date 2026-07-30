@@ -66,7 +66,6 @@ def get_sap_virtual_instance_invoke_sizing_recommendations(app_location: Optiona
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str app_location: The geo-location where the resource is to be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type.
     :param _builtins.float db_memory: The database memory configuration.
@@ -94,22 +93,21 @@ def get_sap_virtual_instance_invoke_sizing_recommendations(app_location: Optiona
 
     return AwaitableGetSapVirtualInstanceInvokeSizingRecommendationsResult(
         deployment_type=pulumi.get(__ret__, 'deployment_type'))
-def get_sap_virtual_instance_invoke_sizing_recommendations_output(app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  database_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]] = None,
-                                                                  db_memory: Optional[pulumi.Input[_builtins.float]] = None,
-                                                                  db_scale_method: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseScaleMethod']]]] = None,
-                                                                  deployment_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDeploymentType']]] = None,
-                                                                  environment: Optional[pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
-                                                                  high_availability_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
-                                                                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  sap_product: Optional[pulumi.Input[Union[_builtins.str, 'SAPProductType']]] = None,
-                                                                  saps: Optional[pulumi.Input[_builtins.float]] = None,
+def get_sap_virtual_instance_invoke_sizing_recommendations_output(app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                  database_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseType']]] = None,
+                                                                  db_memory: pulumi.Input[Optional[_builtins.float]] = None,
+                                                                  db_scale_method: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SAPDatabaseScaleMethod']]]] = None,
+                                                                  deployment_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDeploymentType']]] = None,
+                                                                  environment: pulumi.Input[Optional[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
+                                                                  high_availability_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
+                                                                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                  sap_product: pulumi.Input[Optional[Union[_builtins.str, 'SAPProductType']]] = None,
+                                                                  saps: pulumi.Input[Optional[_builtins.float]] = None,
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSizingRecommendationsResult]:
     """
     Gets the sizing recommendations.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str app_location: The geo-location where the resource is to be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type.

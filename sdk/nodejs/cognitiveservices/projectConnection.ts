@@ -113,7 +113,7 @@ export interface ProjectConnectionArgs {
     /**
      * Friendly name of the connection
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */

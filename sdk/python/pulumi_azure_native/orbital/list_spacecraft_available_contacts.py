@@ -75,7 +75,6 @@ def list_spacecraft_available_contacts(contact_profile: Optional[Union['ContactP
 
     Uses Azure REST API version 2022-11-01.
 
-
     :param Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict'] contact_profile: The reference to the contact profile resource.
     :param _builtins.str end_time: End time of a contact (ISO 8601 UTC standard).
     :param _builtins.str ground_station_name: Name of Azure Ground Station.
@@ -96,18 +95,17 @@ def list_spacecraft_available_contacts(contact_profile: Optional[Union['ContactP
     return AwaitableListSpacecraftAvailableContactsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.Input[Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict']]] = None,
-                                              end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                              ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              spacecraft_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              start_time: Optional[pulumi.Input[_builtins.str]] = None,
+def list_spacecraft_available_contacts_output(contact_profile: pulumi.Input[Optional[Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict']]] = None,
+                                              end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                              ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              spacecraft_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              start_time: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
     """
     Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
 
     Uses Azure REST API version 2022-11-01.
-
 
     :param Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict'] contact_profile: The reference to the contact profile resource.
     :param _builtins.str end_time: End time of a contact (ISO 8601 UTC standard).

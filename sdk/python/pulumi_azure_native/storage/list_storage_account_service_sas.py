@@ -78,7 +78,6 @@ def list_storage_account_service_sas(account_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str cache_control: The response header override for cache control.
     :param _builtins.str canonicalized_resource: The canonical path to the signed resource.
@@ -126,26 +125,26 @@ def list_storage_account_service_sas(account_name: Optional[_builtins.str] = Non
 
     return AwaitableListStorageAccountServiceSASResult(
         service_sas_token=pulumi.get(__ret__, 'service_sas_token'))
-def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            cache_control: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            canonicalized_resource: Optional[pulumi.Input[_builtins.str]] = None,
-                                            content_disposition: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            content_encoding: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            content_language: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            content_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            i_p_address_or_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            identifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            key_to_sign: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            partition_key_end: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            partition_key_start: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            permissions: Optional[pulumi.Input[Optional[Union[_builtins.str, 'Permissions']]]] = None,
-                                            protocols: Optional[pulumi.Input[Optional['HttpProtocol']]] = None,
-                                            resource: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SignedResource']]]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            row_key_end: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            row_key_start: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            shared_access_expiry_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            shared_access_start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_storage_account_service_sas_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            cache_control: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            canonicalized_resource: pulumi.Input[Optional[_builtins.str]] = None,
+                                            content_disposition: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            content_encoding: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            content_language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            content_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            i_p_address_or_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            key_to_sign: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            partition_key_end: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            partition_key_start: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            permissions: pulumi.Input[Optional[Optional[Union[_builtins.str, 'Permissions']]]] = None,
+                                            protocols: pulumi.Input[Optional[Optional['HttpProtocol']]] = None,
+                                            resource: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SignedResource']]]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            row_key_end: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            row_key_start: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            shared_access_expiry_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            shared_access_start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountServiceSASResult]:
     """
     List service SAS credentials of a specific resource.
@@ -153,7 +152,6 @@ def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str cache_control: The response header override for cache control.

@@ -219,23 +219,23 @@ export interface RoleAssignmentArgs {
     /**
      * The assignment name
      */
-    assignmentName?: pulumi.Input<string>;
+    assignmentName?: pulumi.Input<string | undefined>;
     /**
      * Widget types set for the assignment.
      */
-    conflationPolicies?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    conflationPolicies?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Connectors set for the assignment.
      */
-    connectors?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    connectors?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Localized description for the metadata.
      */
-    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Localized display names for the metadata.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the hub.
      */
@@ -243,15 +243,15 @@ export interface RoleAssignmentArgs {
     /**
      * Interactions set for the assignment.
      */
-    interactions?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    interactions?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Kpis set for the assignment.
      */
-    kpis?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    kpis?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Links set for the assignment.
      */
-    links?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    links?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * The principals being assigned to.
      */
@@ -259,15 +259,15 @@ export interface RoleAssignmentArgs {
     /**
      * Profiles set for the assignment.
      */
-    profiles?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    profiles?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * The Role assignments set for the relationship links.
      */
-    relationshipLinks?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    relationshipLinks?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * The Role assignments set for the relationships.
      */
-    relationships?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    relationships?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -279,21 +279,21 @@ export interface RoleAssignmentArgs {
     /**
      * The Role assignments set for the assignment.
      */
-    roleAssignments?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    roleAssignments?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Sas Policies set for the assignment.
      */
-    sasPolicies?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    sasPolicies?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * The Role assignments set for the assignment.
      */
-    segments?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    segments?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Views set for the assignment.
      */
-    views?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    views?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
     /**
      * Widget types set for the assignment.
      */
-    widgetTypes?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs>;
+    widgetTypes?: pulumi.Input<inputs.customerinsights.ResourceSetDescriptionArgs | undefined>;
 }

@@ -22,45 +22,45 @@ class WebAppAuthSettingsArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 aad_claims_authorization: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_login_params: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_provider: Optional[pulumi.Input['BuiltInAuthenticationProvider']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facebook_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 git_hub_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 google_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_auth_from_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_refresh_extension_hours: Optional[pulumi.Input[_builtins.float]] = None,
-                 token_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_consumer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
-                 validate_issuer: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aad_claims_authorization: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_login_params: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_external_redirect_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_provider: pulumi.Input[Optional['BuiltInAuthenticationProvider']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facebook_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 git_hub_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 google_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_auth_from_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_refresh_extension_hours: pulumi.Input[Optional[_builtins.float]] = None,
+                 token_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_consumer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unauthenticated_client_action: pulumi.Input[Optional['UnauthenticatedClientAction']] = None,
+                 validate_issuer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WebAppAuthSettings resource.
 
@@ -265,19 +265,19 @@ class WebAppAuthSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadClaimsAuthorization")
-    def aad_claims_authorization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_claims_authorization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets a JSON string containing the Azure AD Acl settings.
         """
         return pulumi.get(self, "aad_claims_authorization")
 
     @aad_claims_authorization.setter
-    def aad_claims_authorization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_claims_authorization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_claims_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalLoginParams")
-    def additional_login_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_login_params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Login parameters to send to the OpenID Connect authorization endpoint when
         a user logs in. Each parameter must be in the form "key=value".
@@ -285,12 +285,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "additional_login_params")
 
     @additional_login_params.setter
-    def additional_login_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_login_params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_login_params", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed audience values to consider when validating JSON Web Tokens issued by
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
@@ -299,12 +299,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_external_redirect_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
         This is an advanced setting typically only needed by Windows Store application backends.
@@ -313,12 +313,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_external_redirect_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="authFilePath")
-    def auth_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the config file containing auth settings.
         If the path is relative, base will the site's root directory.
@@ -326,12 +326,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "auth_file_path")
 
     @auth_file_path.setter
-    def auth_file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of this relying party application, known as the client_id.
         This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
@@ -341,12 +341,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
         This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
@@ -356,12 +356,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
-    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
         a replacement for the Client Secret. It is also optional.
@@ -369,24 +369,24 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
-    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret of the relying party application.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="configVersion")
-    def config_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ConfigVersion of the Authentication / Authorization feature in use for the current app.
         The setting in this value can control the behavior of the control plane for Authentication / Authorization.
@@ -394,12 +394,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "config_version")
 
     @config_version.setter
-    def config_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_version", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultProvider")
-    def default_provider(self) -> Optional[pulumi.Input['BuiltInAuthenticationProvider']]:
+    def default_provider(self) -> pulumi.Input[Optional['BuiltInAuthenticationProvider']]:
         """
         The default authentication provider to use when multiple providers are configured.
         This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -408,24 +408,24 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "default_provider")
 
     @default_provider.setter
-    def default_provider(self, value: Optional[pulumi.Input['BuiltInAuthenticationProvider']]):
+    def default_provider(self, value: pulumi.Input[Optional['BuiltInAuthenticationProvider']]):
         pulumi.set(self, "default_provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookAppId")
-    def facebook_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facebook_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The App ID of the Facebook app used for login.
         This setting is required for enabling Facebook Login.
@@ -434,12 +434,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "facebook_app_id")
 
     @facebook_app_id.setter
-    def facebook_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facebook_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facebook_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookAppSecret")
-    def facebook_app_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facebook_app_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The App Secret of the Facebook app used for Facebook Login.
         This setting is required for enabling Facebook Login.
@@ -448,24 +448,24 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "facebook_app_secret")
 
     @facebook_app_secret.setter
-    def facebook_app_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facebook_app_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facebook_app_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookAppSecretSettingName")
-    def facebook_app_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facebook_app_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the app secret used for Facebook Login.
         """
         return pulumi.get(self, "facebook_app_secret_setting_name")
 
     @facebook_app_secret_setting_name.setter
-    def facebook_app_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facebook_app_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facebook_app_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookOAuthScopes")
-    def facebook_o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def facebook_o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
         This setting is optional.
@@ -474,12 +474,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "facebook_o_auth_scopes")
 
     @facebook_o_auth_scopes.setter
-    def facebook_o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def facebook_o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "facebook_o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubClientId")
-    def git_hub_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_hub_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Id of the GitHub app used for login.
         This setting is required for enabling Github login
@@ -487,12 +487,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "git_hub_client_id")
 
     @git_hub_client_id.setter
-    def git_hub_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_hub_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_hub_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubClientSecret")
-    def git_hub_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_hub_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Secret of the GitHub app used for Github Login.
         This setting is required for enabling Github login.
@@ -500,12 +500,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "git_hub_client_secret")
 
     @git_hub_client_secret.setter
-    def git_hub_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_hub_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_hub_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubClientSecretSettingName")
-    def git_hub_client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_hub_client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret of the Github
         app used for GitHub Login.
@@ -513,12 +513,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "git_hub_client_secret_setting_name")
 
     @git_hub_client_secret_setting_name.setter
-    def git_hub_client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_hub_client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_hub_client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubOAuthScopes")
-    def git_hub_o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def git_hub_o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
         This setting is optional
@@ -526,12 +526,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "git_hub_o_auth_scopes")
 
     @git_hub_o_auth_scopes.setter
-    def git_hub_o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def git_hub_o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "git_hub_o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="googleClientId")
-    def google_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenID Connect Client ID for the Google web application.
         This setting is required for enabling Google Sign-In.
@@ -540,12 +540,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "google_client_id")
 
     @google_client_id.setter
-    def google_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="googleClientSecret")
-    def google_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret associated with the Google web application.
         This setting is required for enabling Google Sign-In.
@@ -554,12 +554,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "google_client_secret")
 
     @google_client_secret.setter
-    def google_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="googleClientSecretSettingName")
-    def google_client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the client secret associated with
         the Google web application.
@@ -567,12 +567,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "google_client_secret_setting_name")
 
     @google_client_secret_setting_name.setter
-    def google_client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="googleOAuthScopes")
-    def google_o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def google_o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
         This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
@@ -581,12 +581,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "google_o_auth_scopes")
 
     @google_o_auth_scopes.setter
-    def google_o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def google_o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "google_o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="isAuthFromFile")
-    def is_auth_from_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_auth_from_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         "true" if the auth config settings should be read from a file,
         "false" otherwise
@@ -594,12 +594,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "is_auth_from_file")
 
     @is_auth_from_file.setter
-    def is_auth_from_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_auth_from_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_auth_from_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
@@ -609,24 +609,24 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAccountClientId")
-    def microsoft_account_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_account_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 2.0 client ID that was created for the app used for authentication.
         This setting is required for enabling Microsoft Account authentication.
@@ -635,12 +635,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "microsoft_account_client_id")
 
     @microsoft_account_client_id.setter
-    def microsoft_account_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_account_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_account_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAccountClientSecret")
-    def microsoft_account_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_account_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 2.0 client secret that was created for the app used for authentication.
         This setting is required for enabling Microsoft Account authentication.
@@ -649,12 +649,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "microsoft_account_client_secret")
 
     @microsoft_account_client_secret.setter
-    def microsoft_account_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_account_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_account_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAccountClientSecretSettingName")
-    def microsoft_account_client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_account_client_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the
         app used for authentication.
@@ -662,12 +662,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "microsoft_account_client_secret_setting_name")
 
     @microsoft_account_client_secret_setting_name.setter
-    def microsoft_account_client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_account_client_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_account_client_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAccountOAuthScopes")
-    def microsoft_account_o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def microsoft_account_o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
         This setting is optional. If not specified, "wl.basic" is used as the default scope.
@@ -676,12 +676,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "microsoft_account_o_auth_scopes")
 
     @microsoft_account_o_auth_scopes.setter
-    def microsoft_account_o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def microsoft_account_o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "microsoft_account_o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
@@ -689,12 +689,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenRefreshExtensionHours")
-    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def token_refresh_extension_hours(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of hours after session token expiration that a session token can be used to
         call the token refresh API. The default is 72 hours.
@@ -702,12 +702,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "token_refresh_extension_hours")
 
     @token_refresh_extension_hours.setter
-    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def token_refresh_extension_hours(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "token_refresh_extension_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenStoreEnabled")
-    def token_store_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def token_store_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
         The default is <code>false</code>.
@@ -715,12 +715,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "token_store_enabled")
 
     @token_store_enabled.setter
-    def token_store_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def token_store_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "token_store_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="twitterConsumerKey")
-    def twitter_consumer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def twitter_consumer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         This setting is required for enabling Twitter Sign-In.
@@ -729,12 +729,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "twitter_consumer_key")
 
     @twitter_consumer_key.setter
-    def twitter_consumer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def twitter_consumer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "twitter_consumer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="twitterConsumerSecret")
-    def twitter_consumer_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def twitter_consumer_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
         This setting is required for enabling Twitter Sign-In.
@@ -743,12 +743,12 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "twitter_consumer_secret")
 
     @twitter_consumer_secret.setter
-    def twitter_consumer_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def twitter_consumer_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "twitter_consumer_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="twitterConsumerSecretSettingName")
-    def twitter_consumer_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def twitter_consumer_secret_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
         application used for sign-in.
@@ -756,31 +756,31 @@ class WebAppAuthSettingsArgs:
         return pulumi.get(self, "twitter_consumer_secret_setting_name")
 
     @twitter_consumer_secret_setting_name.setter
-    def twitter_consumer_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def twitter_consumer_secret_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "twitter_consumer_secret_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="unauthenticatedClientAction")
-    def unauthenticated_client_action(self) -> Optional[pulumi.Input['UnauthenticatedClientAction']]:
+    def unauthenticated_client_action(self) -> pulumi.Input[Optional['UnauthenticatedClientAction']]:
         """
         The action to take when an unauthenticated client attempts to access the app.
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
     @unauthenticated_client_action.setter
-    def unauthenticated_client_action(self, value: Optional[pulumi.Input['UnauthenticatedClientAction']]):
+    def unauthenticated_client_action(self, value: pulumi.Input[Optional['UnauthenticatedClientAction']]):
         pulumi.set(self, "unauthenticated_client_action", value)
 
     @_builtins.property
     @pulumi.getter(name="validateIssuer")
-    def validate_issuer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_issuer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
         return pulumi.get(self, "validate_issuer")
 
     @validate_issuer.setter
-    def validate_issuer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_issuer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_issuer", value)
 
 
@@ -790,47 +790,47 @@ class WebAppAuthSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_claims_authorization: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_login_params: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_provider: Optional[pulumi.Input['BuiltInAuthenticationProvider']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facebook_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 git_hub_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 google_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_auth_from_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_refresh_extension_hours: Optional[pulumi.Input[_builtins.float]] = None,
-                 token_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_consumer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
-                 validate_issuer: Optional[pulumi.Input[_builtins.bool]] = None,
+                 aad_claims_authorization: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_login_params: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_external_redirect_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_provider: pulumi.Input[Optional['BuiltInAuthenticationProvider']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facebook_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 git_hub_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 google_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_auth_from_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_refresh_extension_hours: pulumi.Input[Optional[_builtins.float]] = None,
+                 token_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_consumer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unauthenticated_client_action: pulumi.Input[Optional['UnauthenticatedClientAction']] = None,
+                 validate_issuer: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
@@ -838,7 +838,6 @@ class WebAppAuthSettings(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -949,7 +948,6 @@ class WebAppAuthSettings(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -965,47 +963,47 @@ class WebAppAuthSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_claims_authorization: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_login_params: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_provider: Optional[pulumi.Input['BuiltInAuthenticationProvider']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facebook_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_app_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 git_hub_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 google_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_auth_from_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_account_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_refresh_extension_hours: Optional[pulumi.Input[_builtins.float]] = None,
-                 token_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_consumer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 twitter_consumer_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
-                 validate_issuer: Optional[pulumi.Input[_builtins.bool]] = None,
+                 aad_claims_authorization: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_login_params: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_external_redirect_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_provider: pulumi.Input[Optional['BuiltInAuthenticationProvider']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facebook_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_app_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 git_hub_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 google_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_auth_from_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_client_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_account_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_refresh_extension_hours: pulumi.Input[Optional[_builtins.float]] = None,
+                 token_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_consumer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 twitter_consumer_secret_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unauthenticated_client_action: pulumi.Input[Optional['UnauthenticatedClientAction']] = None,
+                 validate_issuer: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

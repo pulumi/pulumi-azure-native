@@ -181,7 +181,6 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: Name of the cluster
     :param _builtins.str private_cloud_name: Name of the private cloud
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,9 +204,9 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vsan_datastore_name=pulumi.get(__ret__, 'vsan_datastore_name'))
-def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get a Cluster
@@ -215,7 +214,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: Name of the cluster
     :param _builtins.str private_cloud_name: Name of the private cloud

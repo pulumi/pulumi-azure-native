@@ -58,7 +58,6 @@ def list_secret_value(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str resource_group_name: Azure resource group name
     :param _builtins.str secret_resource_name: The name of the secret resource.
     :param _builtins.str secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
@@ -72,15 +71,14 @@ def list_secret_value(resource_group_name: Optional[_builtins.str] = None,
 
     return AwaitableListSecretValueResult(
         value=pulumi.get(__ret__, 'value'))
-def list_secret_value_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             secret_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             secret_value_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_secret_value_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             secret_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             secret_value_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSecretValueResult]:
     """
     Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str resource_group_name: Azure resource group name
     :param _builtins.str secret_resource_name: The name of the secret resource.

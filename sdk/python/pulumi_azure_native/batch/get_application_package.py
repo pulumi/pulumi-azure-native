@@ -194,7 +194,6 @@ def get_application_package(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -221,10 +220,10 @@ def get_application_package(account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_package_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   version_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_package_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationPackageResult]:
     """
     Gets information about the specified application package.
@@ -232,7 +231,6 @@ def get_application_package_output(account_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2024-07-01.
 
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.

@@ -193,7 +193,6 @@ def get_nat_rule(gateway_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str gateway_name: The name of the gateway.
     :param _builtins.str nat_rule_name: The name of the nat rule.
     :param _builtins.str resource_group_name: The resource group name of the VpnGateway.
@@ -218,9 +217,9 @@ def get_nat_rule(gateway_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_nat_rule_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        nat_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nat_rule_output(gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatRuleResult]:
     """
     Retrieves the details of a nat ruleGet.
@@ -228,7 +227,6 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = No
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str gateway_name: The name of the gateway.
     :param _builtins.str nat_rule_name: The name of the nat rule.

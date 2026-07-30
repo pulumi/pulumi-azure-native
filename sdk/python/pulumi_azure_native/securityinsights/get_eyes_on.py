@@ -144,7 +144,6 @@ def get_eyes_on(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-01-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param _builtins.str workspace_name: The name of the workspace.
@@ -165,15 +164,14 @@ def get_eyes_on(resource_group_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_eyes_on_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEyesOnResult]:
     """
     Gets a setting.
 
     Uses Azure REST API version 2025-01-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba

@@ -148,15 +148,15 @@ export interface DedicatedHubArgs {
     /**
      * The name of the Dedicated Hub Resource
      */
-    dedicatedHubName?: pulumi.Input<string>;
+    dedicatedHubName?: pulumi.Input<string | undefined>;
     /**
      * Designation of hub resource allocation (Pooled or Reserved)
      */
-    designation?: pulumi.Input<string | enums.mission.Designation>;
+    designation?: pulumi.Input<string | enums.mission.Designation | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,5 +164,5 @@ export interface DedicatedHubArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

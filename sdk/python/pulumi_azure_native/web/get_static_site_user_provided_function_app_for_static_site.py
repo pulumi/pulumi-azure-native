@@ -157,7 +157,6 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
 
     Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str function_app_name: Name of the function app registered with the static site.
     :param _builtins.str name: Name of the static site.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,9 +178,9 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_site_user_provided_function_app_for_static_site_output(function_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_site_user_provided_function_app_for_static_site_output(function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site
@@ -189,7 +188,6 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str function_app_name: Name of the function app registered with the static site.
     :param _builtins.str name: Name of the static site.

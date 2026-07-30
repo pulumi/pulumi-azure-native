@@ -112,7 +112,7 @@ class GetScalingPlanResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -291,7 +291,6 @@ def get_scaling_plan(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str scaling_plan_name: The name of the scaling plan.
     """
@@ -323,8 +322,8 @@ def get_scaling_plan(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scaling_plan_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
     Get a scaling plan.
@@ -332,7 +331,6 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2024-04-03.
 
     Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str scaling_plan_name: The name of the scaling plan.

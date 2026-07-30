@@ -358,7 +358,7 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * This determines if traffic is allowed over public network. By default it is enabled. 
+ * This determines if traffic is allowed over public network. By default it is enabled.
  * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];

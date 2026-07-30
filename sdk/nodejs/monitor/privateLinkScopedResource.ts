@@ -125,15 +125,15 @@ export interface PrivateLinkScopedResourceArgs {
     /**
      * The kind of scoped Azure monitor resource.
      */
-    kind?: pulumi.Input<string | enums.monitor.ScopedResourceKind>;
+    kind?: pulumi.Input<string | enums.monitor.ScopedResourceKind | undefined>;
     /**
      * The resource id of the scoped Azure monitor resource.
      */
-    linkedResourceId?: pulumi.Input<string>;
+    linkedResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the scoped resource object.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -145,5 +145,5 @@ export interface PrivateLinkScopedResourceArgs {
     /**
      * The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
      */
-    subscriptionLocation?: pulumi.Input<string>;
+    subscriptionLocation?: pulumi.Input<string | undefined>;
 }

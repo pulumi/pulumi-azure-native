@@ -218,7 +218,6 @@ def get_database_account_gremlin_graph(account_name: Optional[_builtins.str] = N
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str database_name: Cosmos DB database name.
     :param _builtins.str graph_name: Cosmos DB graph name.
@@ -247,10 +246,10 @@ def get_database_account_gremlin_graph(account_name: Optional[_builtins.str] = N
         ts=pulumi.get(__ret__, 'ts'),
         type=pulumi.get(__ret__, 'type'),
         unique_key_policy=pulumi.get(__ret__, 'unique_key_policy'))
-def get_database_account_gremlin_graph_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_gremlin_graph_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountGremlinGraphResult]:
     """
     Gets the Gremlin graph under an existing Azure Cosmos DB database account.
@@ -258,7 +257,6 @@ def get_database_account_gremlin_graph_output(account_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2016-03-31.
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str database_name: Cosmos DB database name.

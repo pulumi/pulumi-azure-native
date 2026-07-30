@@ -106,7 +106,6 @@ def get_trusted_id_provider(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-11-01.
 
-
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
     :param _builtins.str trusted_id_provider_name: The name of the trusted identity provider to retrieve.
@@ -124,15 +123,14 @@ def get_trusted_id_provider(account_name: Optional[_builtins.str] = None,
         id_provider=pulumi.get(__ret__, 'id_provider'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_trusted_id_provider_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trusted_id_provider_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
     """
     Gets the specified Data Lake Store trusted identity provider.
 
     Uses Azure REST API version 2016-11-01.
-
 
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.

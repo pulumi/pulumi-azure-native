@@ -106,11 +106,11 @@ class AutoPausePropertiesArgsDict(TypedDict):
     """
     Auto-pausing properties of a Big Data pool powered by Apache Spark
     """
-    delay_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    delay_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of minutes of idle time before the Big Data pool is automatically paused.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether auto-pausing is enabled for the Big Data pool.
     """
@@ -118,8 +118,8 @@ class AutoPausePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AutoPausePropertiesArgs:
     def __init__(__self__, *,
-                 delay_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Auto-pausing properties of a Big Data pool powered by Apache Spark
 
@@ -133,26 +133,26 @@ class AutoPausePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="delayInMinutes")
-    def delay_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delay_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes of idle time before the Big Data pool is automatically paused.
         """
         return pulumi.get(self, "delay_in_minutes")
 
     @delay_in_minutes.setter
-    def delay_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delay_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delay_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto-pausing is enabled for the Big Data pool.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -160,15 +160,15 @@ class AutoScalePropertiesArgsDict(TypedDict):
     """
     Auto-scaling properties of a Big Data pool powered by Apache Spark
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether automatic scaling is enabled for the Big Data pool.
     """
-    max_node_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_node_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of nodes the Big Data pool can support.
     """
-    min_node_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_node_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of nodes the Big Data pool can support.
     """
@@ -176,9 +176,9 @@ class AutoScalePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AutoScalePropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_node_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_node_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Auto-scaling properties of a Big Data pool powered by Apache Spark
 
@@ -195,38 +195,38 @@ class AutoScalePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether automatic scaling is enabled for the Big Data pool.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "max_node_count")
 
     @max_node_count.setter
-    def max_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_node_count", value)
 
 
@@ -242,7 +242,7 @@ class AzureSkuArgsDict(TypedDict):
     """
     SKU size.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of instances of the cluster.
     """
@@ -252,7 +252,7 @@ class AzureSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']],
                  size: pulumi.Input[Union[_builtins.str, 'SkuSize']],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Azure SKU definition.
 
@@ -291,14 +291,14 @@ class AzureSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -408,7 +408,7 @@ class ComponentSetupArgsDict(TypedDict):
     The type of custom setup.
     Expected value is 'ComponentSetup'.
     """
-    license_key: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    license_key: NotRequired[pulumi.Input[Optional['SecureStringArgsDict']]]
     """
     The license key to activate the component.
     """
@@ -418,7 +418,7 @@ class ComponentSetupArgs:
     def __init__(__self__, *,
                  component_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 license_key: Optional[pulumi.Input['SecureStringArgs']] = None):
+                 license_key: pulumi.Input[Optional['SecureStringArgs']] = None):
         """
         The custom setup of installing 3rd party components.
 
@@ -459,14 +459,14 @@ class ComponentSetupArgs:
 
     @_builtins.property
     @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+    def license_key(self) -> pulumi.Input[Optional['SecureStringArgs']]:
         """
         The license key to activate the component.
         """
         return pulumi.get(self, "license_key")
 
     @license_key.setter
-    def license_key(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+    def license_key(self, value: pulumi.Input[Optional['SecureStringArgs']]):
         pulumi.set(self, "license_key", value)
 
 
@@ -474,7 +474,7 @@ class CspWorkspaceAdminPropertiesArgsDict(TypedDict):
     """
     Initial workspace AAD admin properties for a CSP subscription
     """
-    initial_workspace_admin_object_id: NotRequired[pulumi.Input[_builtins.str]]
+    initial_workspace_admin_object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AAD object ID of initial workspace admin
     """
@@ -482,7 +482,7 @@ class CspWorkspaceAdminPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class CspWorkspaceAdminPropertiesArgs:
     def __init__(__self__, *,
-                 initial_workspace_admin_object_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 initial_workspace_admin_object_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Initial workspace AAD admin properties for a CSP subscription
 
@@ -493,14 +493,14 @@ class CspWorkspaceAdminPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialWorkspaceAdminObjectId")
-    def initial_workspace_admin_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_workspace_admin_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AAD object ID of initial workspace admin
         """
         return pulumi.get(self, "initial_workspace_admin_object_id")
 
     @initial_workspace_admin_object_id.setter
-    def initial_workspace_admin_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_workspace_admin_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_workspace_admin_object_id", value)
 
 
@@ -508,11 +508,11 @@ class CustomerManagedKeyDetailsArgsDict(TypedDict):
     """
     Details of the customer managed key associated with the workspace
     """
-    kek_identity: NotRequired[pulumi.Input['KekIdentityPropertiesArgsDict']]
+    kek_identity: NotRequired[pulumi.Input[Optional['KekIdentityPropertiesArgsDict']]]
     """
     Key encryption key
     """
-    key: NotRequired[pulumi.Input['WorkspaceKeyDetailsArgsDict']]
+    key: NotRequired[pulumi.Input[Optional['WorkspaceKeyDetailsArgsDict']]]
     """
     The key object of the workspace
     """
@@ -520,8 +520,8 @@ class CustomerManagedKeyDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerManagedKeyDetailsArgs:
     def __init__(__self__, *,
-                 kek_identity: Optional[pulumi.Input['KekIdentityPropertiesArgs']] = None,
-                 key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None):
+                 kek_identity: pulumi.Input[Optional['KekIdentityPropertiesArgs']] = None,
+                 key: pulumi.Input[Optional['WorkspaceKeyDetailsArgs']] = None):
         """
         Details of the customer managed key associated with the workspace
 
@@ -535,26 +535,26 @@ class CustomerManagedKeyDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="kekIdentity")
-    def kek_identity(self) -> Optional[pulumi.Input['KekIdentityPropertiesArgs']]:
+    def kek_identity(self) -> pulumi.Input[Optional['KekIdentityPropertiesArgs']]:
         """
         Key encryption key
         """
         return pulumi.get(self, "kek_identity")
 
     @kek_identity.setter
-    def kek_identity(self, value: Optional[pulumi.Input['KekIdentityPropertiesArgs']]):
+    def kek_identity(self, value: pulumi.Input[Optional['KekIdentityPropertiesArgs']]):
         pulumi.set(self, "kek_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]:
+    def key(self) -> pulumi.Input[Optional['WorkspaceKeyDetailsArgs']]:
         """
         The key object of the workspace
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]):
+    def key(self, value: pulumi.Input[Optional['WorkspaceKeyDetailsArgs']]):
         pulumi.set(self, "key", value)
 
 
@@ -562,19 +562,19 @@ class DataLakeStorageAccountDetailsArgsDict(TypedDict):
     """
     Details of the data lake storage account associated with the workspace
     """
-    account_url: NotRequired[pulumi.Input[_builtins.str]]
+    account_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Account URL
     """
-    create_managed_private_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    create_managed_private_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Create managed private endpoint to this storage account or not
     """
-    filesystem: NotRequired[pulumi.Input[_builtins.str]]
+    filesystem: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Filesystem name
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource Id of this storage account
     """
@@ -582,10 +582,10 @@ class DataLakeStorageAccountDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
-                 account_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_managed_private_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filesystem: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_managed_private_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filesystem: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the data lake storage account associated with the workspace
 
@@ -605,50 +605,50 @@ class DataLakeStorageAccountDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountUrl")
-    def account_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account URL
         """
         return pulumi.get(self, "account_url")
 
     @account_url.setter
-    def account_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_url", value)
 
     @_builtins.property
     @pulumi.getter(name="createManagedPrivateEndpoint")
-    def create_managed_private_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_managed_private_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Create managed private endpoint to this storage account or not
         """
         return pulumi.get(self, "create_managed_private_endpoint")
 
     @create_managed_private_endpoint.setter
-    def create_managed_private_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_managed_private_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_managed_private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def filesystem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filesystem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filesystem name
         """
         return pulumi.get(self, "filesystem")
 
     @filesystem.setter
-    def filesystem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filesystem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filesystem", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource Id of this storage account
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -656,15 +656,15 @@ class DynamicExecutorAllocationArgsDict(TypedDict):
     """
     Dynamic Executor Allocation Properties
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether Dynamic Executor Allocation is enabled or not.
     """
-    max_executors: NotRequired[pulumi.Input[_builtins.int]]
+    max_executors: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of executors alloted
     """
-    min_executors: NotRequired[pulumi.Input[_builtins.int]]
+    min_executors: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of executors alloted
     """
@@ -672,9 +672,9 @@ class DynamicExecutorAllocationArgsDict(TypedDict):
 @pulumi.input_type
 class DynamicExecutorAllocationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_executors: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_executors: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_executors: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_executors: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Dynamic Executor Allocation Properties
 
@@ -691,38 +691,38 @@ class DynamicExecutorAllocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxExecutors")
-    def max_executors(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_executors(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of executors alloted
         """
         return pulumi.get(self, "max_executors")
 
     @max_executors.setter
-    def max_executors(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_executors(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_executors", value)
 
     @_builtins.property
     @pulumi.getter(name="minExecutors")
-    def min_executors(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_executors(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of executors alloted
         """
         return pulumi.get(self, "min_executors")
 
     @min_executors.setter
-    def min_executors(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_executors(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_executors", value)
 
 
@@ -730,7 +730,7 @@ class EncryptionDetailsArgsDict(TypedDict):
     """
     Details of the encryption associated with the workspace
     """
-    cmk: NotRequired[pulumi.Input['CustomerManagedKeyDetailsArgsDict']]
+    cmk: NotRequired[pulumi.Input[Optional['CustomerManagedKeyDetailsArgsDict']]]
     """
     Customer Managed Key Details
     """
@@ -738,7 +738,7 @@ class EncryptionDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionDetailsArgs:
     def __init__(__self__, *,
-                 cmk: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']] = None):
+                 cmk: pulumi.Input[Optional['CustomerManagedKeyDetailsArgs']] = None):
         """
         Details of the encryption associated with the workspace
 
@@ -749,14 +749,14 @@ class EncryptionDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cmk(self) -> Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]:
+    def cmk(self) -> pulumi.Input[Optional['CustomerManagedKeyDetailsArgs']]:
         """
         Customer Managed Key Details
         """
         return pulumi.get(self, "cmk")
 
     @cmk.setter
-    def cmk(self, value: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]):
+    def cmk(self, value: pulumi.Input[Optional['CustomerManagedKeyDetailsArgs']]):
         pulumi.set(self, "cmk", value)
 
 
@@ -764,11 +764,11 @@ class EntityReferenceArgsDict(TypedDict):
     """
     The entity reference.
     """
-    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    reference_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of this referenced entity.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]]
     """
     The type of this referenced entity.
     """
@@ -776,8 +776,8 @@ class EntityReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class EntityReferenceArgs:
     def __init__(__self__, *,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]] = None):
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]] = None):
         """
         The entity reference.
 
@@ -791,26 +791,26 @@ class EntityReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this referenced entity.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]:
         """
         The type of this referenced entity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -892,27 +892,27 @@ class IntegrationRuntimeComputePropertiesArgsDict(TypedDict):
     """
     The compute resource properties for managed integration runtime.
     """
-    data_flow_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgsDict']]
+    data_flow_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeDataFlowPropertiesArgsDict']]]
     """
     Data flow properties for managed integration runtime.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
     """
-    max_parallel_executions_per_node: NotRequired[pulumi.Input[_builtins.int]]
+    max_parallel_executions_per_node: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum parallel executions count per node for managed integration runtime.
     """
-    node_size: NotRequired[pulumi.Input[_builtins.str]]
+    node_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The node size requirement to managed integration runtime.
     """
-    number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The required number of nodes for managed integration runtime.
     """
-    v_net_properties: NotRequired[pulumi.Input['IntegrationRuntimeVNetPropertiesArgsDict']]
+    v_net_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeVNetPropertiesArgsDict']]]
     """
     VNet properties for managed integration runtime.
     """
@@ -920,12 +920,12 @@ class IntegrationRuntimeComputePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeComputePropertiesArgs:
     def __init__(__self__, *,
-                 data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None):
+                 data_flow_properties: pulumi.Input[Optional['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 v_net_properties: pulumi.Input[Optional['IntegrationRuntimeVNetPropertiesArgs']] = None):
         """
         The compute resource properties for managed integration runtime.
 
@@ -951,74 +951,74 @@ class IntegrationRuntimeComputePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataFlowProperties")
-    def data_flow_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']]:
+    def data_flow_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeDataFlowPropertiesArgs']]:
         """
         Data flow properties for managed integration runtime.
         """
         return pulumi.get(self, "data_flow_properties")
 
     @data_flow_properties.setter
-    def data_flow_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']]):
+    def data_flow_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeDataFlowPropertiesArgs']]):
         pulumi.set(self, "data_flow_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallel_executions_per_node(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum parallel executions count per node for managed integration runtime.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
     @max_parallel_executions_per_node.setter
-    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallel_executions_per_node(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallel_executions_per_node", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSize")
-    def node_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The node size requirement to managed integration runtime.
         """
         return pulumi.get(self, "node_size")
 
     @node_size.setter
-    def node_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_size", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The required number of nodes for managed integration runtime.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="vNetProperties")
-    def v_net_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']]:
+    def v_net_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeVNetPropertiesArgs']]:
         """
         VNet properties for managed integration runtime.
         """
         return pulumi.get(self, "v_net_properties")
 
     @v_net_properties.setter
-    def v_net_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']]):
+    def v_net_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeVNetPropertiesArgs']]):
         pulumi.set(self, "v_net_properties", value)
 
 
@@ -1026,11 +1026,11 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgsDict(TypedDict):
     """
     Custom setup script properties for a managed dedicated integration runtime.
     """
-    blob_container_uri: NotRequired[pulumi.Input[_builtins.str]]
+    blob_container_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the Azure blob container that contains the custom setup script.
     """
-    sas_token: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    sas_token: NotRequired[pulumi.Input[Optional['SecureStringArgsDict']]]
     """
     The SAS token of the Azure blob container.
     """
@@ -1038,8 +1038,8 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
     def __init__(__self__, *,
-                 blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input['SecureStringArgs']] = None):
+                 blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional['SecureStringArgs']] = None):
         """
         Custom setup script properties for a managed dedicated integration runtime.
 
@@ -1053,26 +1053,26 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobContainerUri")
-    def blob_container_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_container_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Azure blob container that contains the custom setup script.
         """
         return pulumi.get(self, "blob_container_uri")
 
     @blob_container_uri.setter
-    def blob_container_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_container_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_container_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+    def sas_token(self) -> pulumi.Input[Optional['SecureStringArgs']]:
         """
         The SAS token of the Azure blob container.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+    def sas_token(self, value: pulumi.Input[Optional['SecureStringArgs']]):
         pulumi.set(self, "sas_token", value)
 
 
@@ -1080,7 +1080,7 @@ class IntegrationRuntimeCustomerVirtualNetworkArgsDict(TypedDict):
     """
     The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of subnet to which Azure-SSIS integration runtime will join.
     """
@@ -1088,7 +1088,7 @@ class IntegrationRuntimeCustomerVirtualNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeCustomerVirtualNetworkArgs:
     def __init__(__self__, *,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
 
@@ -1099,14 +1099,14 @@ class IntegrationRuntimeCustomerVirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of subnet to which Azure-SSIS integration runtime will join.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -1114,15 +1114,15 @@ class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
     """
     Data flow properties for managed integration runtime.
     """
-    compute_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]]
+    compute_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataFlowComputeType']]]]
     """
     Compute type of the cluster which will execute data flow job.
     """
-    core_count: NotRequired[pulumi.Input[_builtins.int]]
+    core_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
     """
-    time_to_live: NotRequired[pulumi.Input[_builtins.int]]
+    time_to_live: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time to live (in minutes) setting of the cluster which will execute data flow job.
     """
@@ -1130,9 +1130,9 @@ class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
-                 compute_type: Optional[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.int]] = None):
+                 compute_type: pulumi.Input[Optional[Union[_builtins.str, 'DataFlowComputeType']]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Data flow properties for managed integration runtime.
 
@@ -1149,38 +1149,38 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]]:
+    def compute_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataFlowComputeType']]]:
         """
         Compute type of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]]):
+    def compute_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataFlowComputeType']]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live", value)
 
 
@@ -1188,15 +1188,15 @@ class IntegrationRuntimeDataProxyPropertiesArgsDict(TypedDict):
     """
     Data proxy properties for a managed dedicated integration runtime.
     """
-    connect_via: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+    connect_via: NotRequired[pulumi.Input[Optional['EntityReferenceArgsDict']]]
     """
     The self-hosted integration runtime reference.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to contain the staged data in the Blob storage.
     """
-    staging_linked_service: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+    staging_linked_service: NotRequired[pulumi.Input[Optional['EntityReferenceArgsDict']]]
     """
     The staging linked service reference.
     """
@@ -1204,9 +1204,9 @@ class IntegrationRuntimeDataProxyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeDataProxyPropertiesArgs:
     def __init__(__self__, *,
-                 connect_via: Optional[pulumi.Input['EntityReferenceArgs']] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 staging_linked_service: Optional[pulumi.Input['EntityReferenceArgs']] = None):
+                 connect_via: pulumi.Input[Optional['EntityReferenceArgs']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 staging_linked_service: pulumi.Input[Optional['EntityReferenceArgs']] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
 
@@ -1223,38 +1223,38 @@ class IntegrationRuntimeDataProxyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectVia")
-    def connect_via(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
+    def connect_via(self) -> pulumi.Input[Optional['EntityReferenceArgs']]:
         """
         The self-hosted integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
 
     @connect_via.setter
-    def connect_via(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
+    def connect_via(self, value: pulumi.Input[Optional['EntityReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to contain the staged data in the Blob storage.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingLinkedService")
-    def staging_linked_service(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
+    def staging_linked_service(self) -> pulumi.Input[Optional['EntityReferenceArgs']]:
         """
         The staging linked service reference.
         """
         return pulumi.get(self, "staging_linked_service")
 
     @staging_linked_service.setter
-    def staging_linked_service(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
+    def staging_linked_service(self, value: pulumi.Input[Optional['EntityReferenceArgs']]):
         pulumi.set(self, "staging_linked_service", value)
 
 
@@ -1262,19 +1262,19 @@ class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
     """
     Catalog information for managed dedicated integration runtime.
     """
-    catalog_admin_password: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    catalog_admin_password: NotRequired[pulumi.Input[Optional['SecureStringArgsDict']]]
     """
     The password of the administrator user account of the catalog database.
     """
-    catalog_admin_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_admin_user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The administrator user name of catalog database.
     """
-    catalog_pricing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]
+    catalog_pricing_tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]]
     """
     The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
     """
-    catalog_server_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_server_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The catalog database server URL.
     """
@@ -1282,10 +1282,10 @@ class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisCatalogInfoArgs:
     def __init__(__self__, *,
-                 catalog_admin_password: Optional[pulumi.Input['SecureStringArgs']] = None,
-                 catalog_admin_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_pricing_tier: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
-                 catalog_server_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_admin_password: pulumi.Input[Optional['SecureStringArgs']] = None,
+                 catalog_admin_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_pricing_tier: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
+                 catalog_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Catalog information for managed dedicated integration runtime.
 
@@ -1305,50 +1305,50 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogAdminPassword")
-    def catalog_admin_password(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+    def catalog_admin_password(self) -> pulumi.Input[Optional['SecureStringArgs']]:
         """
         The password of the administrator user account of the catalog database.
         """
         return pulumi.get(self, "catalog_admin_password")
 
     @catalog_admin_password.setter
-    def catalog_admin_password(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+    def catalog_admin_password(self, value: pulumi.Input[Optional['SecureStringArgs']]):
         pulumi.set(self, "catalog_admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogAdminUserName")
-    def catalog_admin_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_admin_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator user name of catalog database.
         """
         return pulumi.get(self, "catalog_admin_user_name")
 
     @catalog_admin_user_name.setter
-    def catalog_admin_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_admin_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_admin_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogPricingTier")
-    def catalog_pricing_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]:
+    def catalog_pricing_tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]:
         """
         The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         """
         return pulumi.get(self, "catalog_pricing_tier")
 
     @catalog_pricing_tier.setter
-    def catalog_pricing_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]):
+    def catalog_pricing_tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]):
         pulumi.set(self, "catalog_pricing_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogServerEndpoint")
-    def catalog_server_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_server_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The catalog database server URL.
         """
         return pulumi.get(self, "catalog_server_endpoint")
 
     @catalog_server_endpoint.setter
-    def catalog_server_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_server_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_server_endpoint", value)
 
 
@@ -1356,27 +1356,27 @@ class IntegrationRuntimeSsisPropertiesArgsDict(TypedDict):
     """
     SSIS properties for managed integration runtime.
     """
-    catalog_info: NotRequired[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgsDict']]
+    catalog_info: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgsDict']]]
     """
     Catalog information for managed dedicated integration runtime.
     """
-    custom_setup_script_properties: NotRequired[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgsDict']]
+    custom_setup_script_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeCustomSetupScriptPropertiesArgsDict']]]
     """
     Custom setup script properties for a managed dedicated integration runtime.
     """
-    data_proxy_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgsDict']]
+    data_proxy_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeDataProxyPropertiesArgsDict']]]
     """
     Data proxy properties for a managed dedicated integration runtime.
     """
-    edition: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]]
+    edition: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEdition']]]]
     """
     The edition for the SSIS Integration Runtime
     """
-    express_custom_setup_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgsDict', 'ComponentSetupArgsDict', 'EnvironmentVariableSetupArgsDict']]]]]
+    express_custom_setup_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['CmdkeySetupArgsDict', 'ComponentSetupArgsDict', 'EnvironmentVariableSetupArgsDict']]]]]]
     """
     Custom setup without script properties for a SSIS integration runtime.
     """
-    license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]
+    license_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]]
     """
     License type for bringing your own license scenario.
     """
@@ -1384,12 +1384,12 @@ class IntegrationRuntimeSsisPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisPropertiesArgs:
     def __init__(__self__, *,
-                 catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
-                 custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
-                 data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
-                 edition: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]] = None,
-                 express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]] = None):
+                 catalog_info: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 custom_setup_script_properties: pulumi.Input[Optional['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
+                 data_proxy_properties: pulumi.Input[Optional['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
+                 edition: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEdition']]] = None,
+                 express_custom_setup_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]] = None):
         """
         SSIS properties for managed integration runtime.
 
@@ -1415,74 +1415,74 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogInfo")
-    def catalog_info(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]:
+    def catalog_info(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]:
         """
         Catalog information for managed dedicated integration runtime.
         """
         return pulumi.get(self, "catalog_info")
 
     @catalog_info.setter
-    def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
+    def catalog_info(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
 
     @_builtins.property
     @pulumi.getter(name="customSetupScriptProperties")
-    def custom_setup_script_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]:
+    def custom_setup_script_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]:
         """
         Custom setup script properties for a managed dedicated integration runtime.
         """
         return pulumi.get(self, "custom_setup_script_properties")
 
     @custom_setup_script_properties.setter
-    def custom_setup_script_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]):
+    def custom_setup_script_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]):
         pulumi.set(self, "custom_setup_script_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProxyProperties")
-    def data_proxy_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']]:
+    def data_proxy_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeDataProxyPropertiesArgs']]:
         """
         Data proxy properties for a managed dedicated integration runtime.
         """
         return pulumi.get(self, "data_proxy_properties")
 
     @data_proxy_properties.setter
-    def data_proxy_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']]):
+    def data_proxy_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeDataProxyPropertiesArgs']]):
         pulumi.set(self, "data_proxy_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]]:
+    def edition(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEdition']]]:
         """
         The edition for the SSIS Integration Runtime
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]]):
+    def edition(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeEdition']]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter(name="expressCustomSetupProperties")
-    def express_custom_setup_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
+    def express_custom_setup_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
         """
         Custom setup without script properties for a SSIS integration runtime.
         """
         return pulumi.get(self, "express_custom_setup_properties")
 
     @express_custom_setup_properties.setter
-    def express_custom_setup_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
+    def express_custom_setup_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
         pulumi.set(self, "express_custom_setup_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]:
         """
         License type for bringing your own license scenario.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
 
@@ -1490,19 +1490,19 @@ class IntegrationRuntimeVNetPropertiesArgsDict(TypedDict):
     """
     VNet properties for managed integration runtime.
     """
-    public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Resource IDs of the public IP addresses that this integration runtime will use.
     """
-    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    subnet: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the subnet this integration runtime will join.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
     """
-    v_net_id: NotRequired[pulumi.Input[_builtins.str]]
+    v_net_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VNet that this integration runtime will join.
     """
@@ -1510,10 +1510,10 @@ class IntegrationRuntimeVNetPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeVNetPropertiesArgs:
     def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 v_net_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 v_net_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         VNet properties for managed integration runtime.
 
@@ -1533,50 +1533,50 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Resource IDs of the public IP addresses that this integration runtime will use.
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_ips", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subnet this integration runtime will join.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vNetId")
-    def v_net_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def v_net_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VNet that this integration runtime will join.
         """
         return pulumi.get(self, "v_net_id")
 
     @v_net_id.setter
-    def v_net_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def v_net_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "v_net_id", value)
 
 
@@ -1588,7 +1588,7 @@ class KekIdentityPropertiesArgsDict(TypedDict):
     """
     Boolean specifying whether to use system assigned identity or not
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity resource Id
     """
@@ -1597,7 +1597,7 @@ class KekIdentityPropertiesArgsDict(TypedDict):
 class KekIdentityPropertiesArgs:
     def __init__(__self__, *,
                  use_system_assigned_identity: Optional[Any] = None,
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Key encryption key properties
 
@@ -1623,14 +1623,14 @@ class KekIdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity resource Id
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -1638,19 +1638,19 @@ class LibraryInfoArgsDict(TypedDict):
     """
     Library/package information of a Big Data pool powered by Apache Spark
     """
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage blob container name.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the library.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage blob path of library.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the library.
     """
@@ -1658,10 +1658,10 @@ class LibraryInfoArgsDict(TypedDict):
 @pulumi.input_type
 class LibraryInfoArgs:
     def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Library/package information of a Big Data pool powered by Apache Spark
 
@@ -1681,50 +1681,50 @@ class LibraryInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage blob container name.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the library.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage blob path of library.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the library.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1732,11 +1732,11 @@ class LibraryRequirementsArgsDict(TypedDict):
     """
     Library requirements for a Big Data pool powered by Apache Spark
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The library requirements.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the library requirements file.
     """
@@ -1744,8 +1744,8 @@ class LibraryRequirementsArgsDict(TypedDict):
 @pulumi.input_type
 class LibraryRequirementsArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Library requirements for a Big Data pool powered by Apache Spark
 
@@ -1759,26 +1759,26 @@ class LibraryRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The library requirements.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the library requirements file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
 
@@ -1896,11 +1896,11 @@ class ManagedIdentityArgsDict(TypedDict):
     """
     The workspace managed identity
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The type of managed identity for the workspace
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The user assigned managed identities.
     """
@@ -1908,8 +1908,8 @@ class ManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The workspace managed identity
 
@@ -1923,26 +1923,26 @@ class ManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The type of managed identity for the workspace
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1955,27 +1955,27 @@ class ManagedIntegrationRuntimeArgsDict(TypedDict):
     The type of integration runtime.
     Expected value is 'Managed'.
     """
-    compute_properties: NotRequired[pulumi.Input['IntegrationRuntimeComputePropertiesArgsDict']]
+    compute_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeComputePropertiesArgsDict']]]
     """
     The compute resource for managed integration runtime.
     """
-    customer_virtual_network: NotRequired[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgsDict']]
+    customer_virtual_network: NotRequired[pulumi.Input[Optional['IntegrationRuntimeCustomerVirtualNetworkArgsDict']]]
     """
     The name of virtual network to which Azure-SSIS integration runtime will join
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Integration runtime description.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the managed virtual network.
     """
-    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    reference_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference name of the managed virtual network
     """
-    ssis_properties: NotRequired[pulumi.Input['IntegrationRuntimeSsisPropertiesArgsDict']]
+    ssis_properties: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisPropertiesArgsDict']]]
     """
     SSIS properties for managed integration runtime.
     """
@@ -1984,12 +1984,12 @@ class ManagedIntegrationRuntimeArgsDict(TypedDict):
 class ManagedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
-                 customer_virtual_network: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
+                 compute_properties: pulumi.Input[Optional['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 customer_virtual_network: pulumi.Input[Optional['IntegrationRuntimeCustomerVirtualNetworkArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssis_properties: pulumi.Input[Optional['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 
@@ -2031,74 +2031,74 @@ class ManagedIntegrationRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeProperties")
-    def compute_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]:
+    def compute_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeComputePropertiesArgs']]:
         """
         The compute resource for managed integration runtime.
         """
         return pulumi.get(self, "compute_properties")
 
     @compute_properties.setter
-    def compute_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]):
+    def compute_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeComputePropertiesArgs']]):
         pulumi.set(self, "compute_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="customerVirtualNetwork")
-    def customer_virtual_network(self) -> Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]:
+    def customer_virtual_network(self) -> pulumi.Input[Optional['IntegrationRuntimeCustomerVirtualNetworkArgs']]:
         """
         The name of virtual network to which Azure-SSIS integration runtime will join
         """
         return pulumi.get(self, "customer_virtual_network")
 
     @customer_virtual_network.setter
-    def customer_virtual_network(self, value: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]):
+    def customer_virtual_network(self, value: pulumi.Input[Optional['IntegrationRuntimeCustomerVirtualNetworkArgs']]):
         pulumi.set(self, "customer_virtual_network", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the managed virtual network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference name of the managed virtual network
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ssisProperties")
-    def ssis_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]:
+    def ssis_properties(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisPropertiesArgs']]:
         """
         SSIS properties for managed integration runtime.
         """
         return pulumi.get(self, "ssis_properties")
 
     @ssis_properties.setter
-    def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
+    def ssis_properties(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisPropertiesArgs']]):
         pulumi.set(self, "ssis_properties", value)
 
 
@@ -2106,15 +2106,15 @@ class ManagedVirtualNetworkSettingsArgsDict(TypedDict):
     """
     Managed Virtual Network Settings
     """
-    allowed_aad_tenant_ids_for_linking: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_aad_tenant_ids_for_linking: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed Aad Tenant Ids For Linking
     """
-    linked_access_check_on_target_resource: NotRequired[pulumi.Input[_builtins.bool]]
+    linked_access_check_on_target_resource: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Linked Access Check On Target Resource
     """
-    prevent_data_exfiltration: NotRequired[pulumi.Input[_builtins.bool]]
+    prevent_data_exfiltration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Prevent Data Exfiltration
     """
@@ -2122,9 +2122,9 @@ class ManagedVirtualNetworkSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedVirtualNetworkSettingsArgs:
     def __init__(__self__, *,
-                 allowed_aad_tenant_ids_for_linking: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 linked_access_check_on_target_resource: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prevent_data_exfiltration: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_aad_tenant_ids_for_linking: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 linked_access_check_on_target_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prevent_data_exfiltration: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Managed Virtual Network Settings
 
@@ -2141,38 +2141,38 @@ class ManagedVirtualNetworkSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAadTenantIdsForLinking")
-    def allowed_aad_tenant_ids_for_linking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_aad_tenant_ids_for_linking(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed Aad Tenant Ids For Linking
         """
         return pulumi.get(self, "allowed_aad_tenant_ids_for_linking")
 
     @allowed_aad_tenant_ids_for_linking.setter
-    def allowed_aad_tenant_ids_for_linking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_aad_tenant_ids_for_linking(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_aad_tenant_ids_for_linking", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccessCheckOnTargetResource")
-    def linked_access_check_on_target_resource(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def linked_access_check_on_target_resource(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Linked Access Check On Target Resource
         """
         return pulumi.get(self, "linked_access_check_on_target_resource")
 
     @linked_access_check_on_target_resource.setter
-    def linked_access_check_on_target_resource(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def linked_access_check_on_target_resource(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "linked_access_check_on_target_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="preventDataExfiltration")
-    def prevent_data_exfiltration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prevent_data_exfiltration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prevent Data Exfiltration
         """
         return pulumi.get(self, "prevent_data_exfiltration")
 
     @prevent_data_exfiltration.setter
-    def prevent_data_exfiltration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prevent_data_exfiltration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prevent_data_exfiltration", value)
 
 
@@ -2270,7 +2270,7 @@ class PrivateEndpointConnectionArgsDict(TypedDict):
     """
     A private endpoint connection
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgsDict']]]
     """
     Connection state of the private endpoint connection.
     """
@@ -2278,7 +2278,7 @@ class PrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+                 private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         A private endpoint connection
 
@@ -2289,14 +2289,14 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]:
         """
         Connection state of the private endpoint connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
@@ -2304,11 +2304,11 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     Connection state details of the private endpoint
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection description.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection status.
     """
@@ -2316,8 +2316,8 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connection state details of the private endpoint
 
@@ -2331,26 +2331,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -2358,7 +2358,7 @@ class PurviewConfigurationArgsDict(TypedDict):
     """
     Purview Configuration
     """
-    purview_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    purview_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Purview Resource ID
     """
@@ -2366,7 +2366,7 @@ class PurviewConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class PurviewConfigurationArgs:
     def __init__(__self__, *,
-                 purview_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 purview_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Purview Configuration
 
@@ -2377,14 +2377,14 @@ class PurviewConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="purviewResourceId")
-    def purview_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def purview_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Purview Resource ID
         """
         return pulumi.get(self, "purview_resource_id")
 
     @purview_resource_id.setter
-    def purview_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def purview_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "purview_resource_id", value)
 
 
@@ -2452,11 +2452,11 @@ class SelfHostedIntegrationRuntimeArgsDict(TypedDict):
     The type of integration runtime.
     Expected value is 'SelfHosted'.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Integration runtime description.
     """
-    linked_info: NotRequired[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgsDict', 'LinkedIntegrationRuntimeRbacAuthorizationArgsDict']]]
+    linked_info: NotRequired[pulumi.Input[Optional[Union['LinkedIntegrationRuntimeKeyAuthorizationArgsDict', 'LinkedIntegrationRuntimeRbacAuthorizationArgsDict']]]]
     """
     Linked integration runtime type from data factory
     """
@@ -2465,8 +2465,8 @@ class SelfHostedIntegrationRuntimeArgsDict(TypedDict):
 class SelfHostedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_info: pulumi.Input[Optional[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
         """
         Self-hosted integration runtime.
 
@@ -2496,26 +2496,26 @@ class SelfHostedIntegrationRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedInfo")
-    def linked_info(self) -> Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]:
+    def linked_info(self) -> pulumi.Input[Optional[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]:
         """
         Linked integration runtime type from data factory
         """
         return pulumi.get(self, "linked_info")
 
     @linked_info.setter
-    def linked_info(self, value: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]):
+    def linked_info(self, value: pulumi.Input[Optional[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]):
         pulumi.set(self, "linked_info", value)
 
 
@@ -2523,15 +2523,15 @@ class SkuArgsDict(TypedDict):
     """
     SQL pool SKU
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU name
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service tier
     """
@@ -2539,9 +2539,9 @@ class SkuArgsDict(TypedDict):
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         SQL pool SKU
 
@@ -2558,38 +2558,38 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service tier
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -2597,15 +2597,15 @@ class SparkConfigPropertiesArgsDict(TypedDict):
     """
     SparkConfig Properties for a Big Data pool powered by Apache Spark
     """
-    configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]
+    configuration_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ConfigurationType']]]]
     """
     The type of the spark config properties file.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The spark config properties.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the spark config properties file.
     """
@@ -2613,9 +2613,9 @@ class SparkConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SparkConfigPropertiesArgs:
     def __init__(__self__, *,
-                 configuration_type: Optional[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_type: pulumi.Input[Optional[Union[_builtins.str, 'ConfigurationType']]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None):
         """
         SparkConfig Properties for a Big Data pool powered by Apache Spark
 
@@ -2632,38 +2632,38 @@ class SparkConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationType")
-    def configuration_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]:
+    def configuration_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConfigurationType']]]:
         """
         The type of the spark config properties file.
         """
         return pulumi.get(self, "configuration_type")
 
     @configuration_type.setter
-    def configuration_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]):
+    def configuration_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConfigurationType']]]):
         pulumi.set(self, "configuration_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The spark config properties.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the spark config properties file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
 
@@ -2704,27 +2704,27 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
     """
     Tables that will be included and excluded in the follower database
     """
-    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables exclude from the follower database
     """
-    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables to include in the follower database
     """
-    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views exclude from the follower database
     """
-    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views to include in the follower database
     """
-    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to exclude from the follower database
     """
-    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to include in the follower database
     """
@@ -2732,12 +2732,12 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
     def __init__(__self__, *,
-                 external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 external_tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Tables that will be included and excluded in the follower database
 
@@ -2763,74 +2763,74 @@ class TableLevelSharingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToExclude")
-    def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables exclude from the follower database
         """
         return pulumi.get(self, "external_tables_to_exclude")
 
     @external_tables_to_exclude.setter
-    def external_tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToInclude")
-    def external_tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables to include in the follower database
         """
         return pulumi.get(self, "external_tables_to_include")
 
     @external_tables_to_include.setter
-    def external_tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExclude")
-    def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views exclude from the follower database
         """
         return pulumi.get(self, "materialized_views_to_exclude")
 
     @materialized_views_to_exclude.setter
-    def materialized_views_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToInclude")
-    def materialized_views_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views to include in the follower database
         """
         return pulumi.get(self, "materialized_views_to_include")
 
     @materialized_views_to_include.setter
-    def materialized_views_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToExclude")
-    def tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to exclude from the follower database
         """
         return pulumi.get(self, "tables_to_exclude")
 
     @tables_to_exclude.setter
-    def tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToInclude")
-    def tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to include in the follower database
         """
         return pulumi.get(self, "tables_to_include")
 
     @tables_to_include.setter
-    def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_include", value)
 
 
@@ -2838,7 +2838,7 @@ class VirtualNetworkProfileArgsDict(TypedDict):
     """
     Virtual Network Profile
     """
-    compute_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    compute_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subnet ID used for computes in workspace
     """
@@ -2846,7 +2846,7 @@ class VirtualNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
-                 compute_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Virtual Network Profile
 
@@ -2857,14 +2857,14 @@ class VirtualNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeSubnetId")
-    def compute_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet ID used for computes in workspace
         """
         return pulumi.get(self, "compute_subnet_id")
 
     @compute_subnet_id.setter
-    def compute_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_subnet_id", value)
 
 
@@ -2872,15 +2872,15 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
     """
     Properties of a Vulnerability Assessment recurring scans.
     """
-    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies that the schedule scan notification will be is sent to the subscription administrators.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of e-mail addresses to which the scan notification is sent.
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Recurring scans state.
     """
@@ -2888,9 +2888,9 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
-                 email_subscription_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
 
@@ -2909,38 +2909,38 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdmins")
-    def email_subscription_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the schedule scan notification will be is sent to the subscription administrators.
         """
         return pulumi.get(self, "email_subscription_admins")
 
     @email_subscription_admins.setter
-    def email_subscription_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Recurring scans state.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
 
@@ -2948,11 +2948,11 @@ class WorkspaceKeyDetailsArgsDict(TypedDict):
     """
     Details of the customer managed key associated with the workspace
     """
-    key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Workspace Key sub-resource key vault url
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Workspace Key sub-resource name
     """
@@ -2960,8 +2960,8 @@ class WorkspaceKeyDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceKeyDetailsArgs:
     def __init__(__self__, *,
-                 key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the customer managed key associated with the workspace
 
@@ -2975,26 +2975,26 @@ class WorkspaceKeyDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUrl")
-    def key_vault_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workspace Key sub-resource key vault url
         """
         return pulumi.get(self, "key_vault_url")
 
     @key_vault_url.setter
-    def key_vault_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workspace Key sub-resource name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -3002,39 +3002,39 @@ class WorkspaceRepositoryConfigurationArgsDict(TypedDict):
     """
     Git integration settings
     """
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Account name
     """
-    collaboration_branch: NotRequired[pulumi.Input[_builtins.str]]
+    collaboration_branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Collaboration branch
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GitHub Enterprise host name. For example: `https://github.mydomain.com`
     """
-    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    last_commit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last commit ID
     """
-    project_name: NotRequired[pulumi.Input[_builtins.str]]
+    project_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     VSTS project name
     """
-    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    repository_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Repository name
     """
-    root_folder: NotRequired[pulumi.Input[_builtins.str]]
+    root_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Root folder to use in the repository
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The VSTS tenant ID
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
     """
@@ -3042,15 +3042,15 @@ class WorkspaceRepositoryConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceRepositoryConfigurationArgs:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaboration_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaboration_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Git integration settings
 
@@ -3085,110 +3085,110 @@ class WorkspaceRepositoryConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account name
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="collaborationBranch")
-    def collaboration_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collaboration_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collaboration branch
         """
         return pulumi.get(self, "collaboration_branch")
 
     @collaboration_branch.setter
-    def collaboration_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collaboration_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collaboration_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GitHub Enterprise host name. For example: `https://github.mydomain.com`
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastCommitId")
-    def last_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last commit ID
         """
         return pulumi.get(self, "last_commit_id")
 
     @last_commit_id.setter
-    def last_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VSTS project name
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository name
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootFolder")
-    def root_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Root folder to use in the repository
         """
         return pulumi.get(self, "root_folder")
 
     @root_folder.setter
-    def root_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_folder", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VSTS tenant ID
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

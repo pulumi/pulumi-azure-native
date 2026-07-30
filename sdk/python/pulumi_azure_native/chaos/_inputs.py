@@ -36,10 +36,10 @@ __all__ = [
     'ListSelectorArgsDict',
     'QuerySelectorArgs',
     'QuerySelectorArgsDict',
-    'SimpleFilterParametersArgs',
-    'SimpleFilterParametersArgsDict',
     'SimpleFilterArgs',
     'SimpleFilterArgsDict',
+    'SimpleFilterParametersArgs',
+    'SimpleFilterParametersArgsDict',
     'StepArgs',
     'StepArgsDict',
     'TargetReferenceArgs',
@@ -214,11 +214,11 @@ class CustomerDataStoragePropertiesArgsDict(TypedDict):
     """
     Model that represents the Customer Managed Storage for an Experiment.
     """
-    blob_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    blob_container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Azure Blob Storage container to use or create.
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Resource ID of the Storage account to use for Customer Data storage.
     """
@@ -226,8 +226,8 @@ class CustomerDataStoragePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerDataStoragePropertiesArgs:
     def __init__(__self__, *,
-                 blob_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Model that represents the Customer Managed Storage for an Experiment.
 
@@ -241,26 +241,26 @@ class CustomerDataStoragePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobContainerName")
-    def blob_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Azure Blob Storage container to use or create.
         """
         return pulumi.get(self, "blob_container_name")
 
     @blob_container_name.setter
-    def blob_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource ID of the Storage account to use for Customer Data storage.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
 
@@ -439,7 +439,7 @@ class ExperimentIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -448,7 +448,7 @@ class ExperimentIdentityArgsDict(TypedDict):
 class ExperimentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The identity of the experiment resource.
 
@@ -473,14 +473,14 @@ class ExperimentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -496,7 +496,7 @@ class ExperimentPropertiesArgsDict(TypedDict):
     """
     List of steps.
     """
-    customer_data_storage: NotRequired[pulumi.Input['CustomerDataStoragePropertiesArgsDict']]
+    customer_data_storage: NotRequired[pulumi.Input[Optional['CustomerDataStoragePropertiesArgsDict']]]
     """
     Optional customer-managed Storage account where Experiment schema will be stored.
     """
@@ -506,7 +506,7 @@ class ExperimentPropertiesArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]],
                  steps: pulumi.Input[Sequence[pulumi.Input['StepArgs']]],
-                 customer_data_storage: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']] = None):
+                 customer_data_storage: pulumi.Input[Optional['CustomerDataStoragePropertiesArgs']] = None):
         """
         Model that represents the Experiment properties model.
 
@@ -545,14 +545,14 @@ class ExperimentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerDataStorage")
-    def customer_data_storage(self) -> Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']]:
+    def customer_data_storage(self) -> pulumi.Input[Optional['CustomerDataStoragePropertiesArgs']]:
         """
         Optional customer-managed Storage account where Experiment schema will be stored.
         """
         return pulumi.get(self, "customer_data_storage")
 
     @customer_data_storage.setter
-    def customer_data_storage(self, value: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']]):
+    def customer_data_storage(self, value: pulumi.Input[Optional['CustomerDataStoragePropertiesArgs']]):
         pulumi.set(self, "customer_data_storage", value)
 
 
@@ -625,7 +625,7 @@ class ListSelectorArgsDict(TypedDict):
     Enum of the selector type.
     Expected value is 'List'.
     """
-    filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['SimpleFilterArgsDict']]]
     """
     Model that represents available filter types that can be applied to a targets list.
     """
@@ -636,7 +636,7 @@ class ListSelectorArgs:
                  id: pulumi.Input[_builtins.str],
                  targets: pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
+                 filter: pulumi.Input[Optional['SimpleFilterArgs']] = None):
         """
         Model that represents a list selector.
 
@@ -691,14 +691,14 @@ class ListSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['SimpleFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['SimpleFilterArgs']]:
         """
         Model that represents available filter types that can be applied to a targets list.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['SimpleFilterArgs']]):
         pulumi.set(self, "filter", value)
 
 
@@ -723,7 +723,7 @@ class QuerySelectorArgsDict(TypedDict):
     Enum of the selector type.
     Expected value is 'Query'.
     """
-    filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['SimpleFilterArgsDict']]]
     """
     Model that represents available filter types that can be applied to a targets list.
     """
@@ -735,7 +735,7 @@ class QuerySelectorArgs:
                  query_string: pulumi.Input[_builtins.str],
                  subscription_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str],
-                 filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
+                 filter: pulumi.Input[Optional['SimpleFilterArgs']] = None):
         """
         Model that represents a query selector.
 
@@ -804,49 +804,15 @@ class QuerySelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['SimpleFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['SimpleFilterArgs']]:
         """
         Model that represents available filter types that can be applied to a targets list.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['SimpleFilterArgs']]):
         pulumi.set(self, "filter", value)
-
-
-class SimpleFilterParametersArgsDict(TypedDict):
-    """
-    Model that represents the Simple filter parameters.
-    """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    List of Azure availability zones to filter targets by.
-    """
-
-@pulumi.input_type
-class SimpleFilterParametersArgs:
-    def __init__(__self__, *,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Model that represents the Simple filter parameters.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: List of Azure availability zones to filter targets by.
-        """
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Azure availability zones to filter targets by.
-        """
-        return pulumi.get(self, "zones")
-
-    @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "zones", value)
 
 
 class SimpleFilterArgsDict(TypedDict):
@@ -858,7 +824,7 @@ class SimpleFilterArgsDict(TypedDict):
     Enum that discriminates between filter types. Currently only `Simple` type is supported.
     Expected value is 'Simple'.
     """
-    parameters: NotRequired[pulumi.Input['SimpleFilterParametersArgsDict']]
+    parameters: NotRequired[pulumi.Input[Optional['SimpleFilterParametersArgsDict']]]
     """
     Model that represents the Simple filter parameters.
     """
@@ -867,7 +833,7 @@ class SimpleFilterArgsDict(TypedDict):
 class SimpleFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input['SimpleFilterParametersArgs']] = None):
+                 parameters: pulumi.Input[Optional['SimpleFilterParametersArgs']] = None):
         """
         Model that represents a simple target filter.
 
@@ -894,15 +860,49 @@ class SimpleFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['SimpleFilterParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['SimpleFilterParametersArgs']]:
         """
         Model that represents the Simple filter parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['SimpleFilterParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['SimpleFilterParametersArgs']]):
         pulumi.set(self, "parameters", value)
+
+
+class SimpleFilterParametersArgsDict(TypedDict):
+    """
+    Model that represents the Simple filter parameters.
+    """
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of Azure availability zones to filter targets by.
+    """
+
+@pulumi.input_type
+class SimpleFilterParametersArgs:
+    def __init__(__self__, *,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Model that represents the Simple filter parameters.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: List of Azure availability zones to filter targets by.
+        """
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of Azure availability zones to filter targets by.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class StepArgsDict(TypedDict):

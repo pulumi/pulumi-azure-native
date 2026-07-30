@@ -22,7 +22,7 @@ class TrustedIdProviderArgs:
                  account_name: pulumi.Input[_builtins.str],
                  id_provider: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustedIdProvider resource.
 
@@ -75,14 +75,14 @@ class TrustedIdProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedIdProviderName")
-    def trusted_id_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_id_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
         return pulumi.get(self, "trusted_id_provider_name")
 
     @trusted_id_provider_name.setter
-    def trusted_id_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_id_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_id_provider_name", value)
 
 
@@ -92,16 +92,15 @@ class TrustedIdProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Data Lake Store trusted identity provider information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +120,6 @@ class TrustedIdProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
-
         :param str resource_name: The name of the resource.
         :param TrustedIdProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,10 +135,10 @@ class TrustedIdProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

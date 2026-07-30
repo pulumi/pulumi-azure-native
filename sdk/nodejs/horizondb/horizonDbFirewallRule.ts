@@ -114,7 +114,7 @@ export interface HorizonDbFirewallRuleArgs {
     /**
      * The name of the HorizonDB firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the HorizonDB pool.
      */
@@ -122,7 +122,7 @@ export interface HorizonDbFirewallRuleArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.horizondb.HorizonDbFirewallRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.horizondb.HorizonDbFirewallRulePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

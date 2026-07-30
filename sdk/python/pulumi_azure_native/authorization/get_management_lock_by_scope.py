@@ -142,9 +142,8 @@ def get_management_lock_by_scope(lock_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str lock_name: The name of lock.
-    :param _builtins.str scope: The scope for the lock. 
+    :param _builtins.str scope: The scope for the lock.
     """
     __args__ = dict()
     __args__['lockName'] = lock_name
@@ -161,17 +160,16 @@ def get_management_lock_by_scope(lock_name: Optional[_builtins.str] = None,
         owners=pulumi.get(__ret__, 'owners'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_lock_by_scope_output(lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        scope: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
     """
     Get a management lock by scope.
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str lock_name: The name of lock.
-    :param _builtins.str scope: The scope for the lock. 
+    :param _builtins.str scope: The scope for the lock.
     """
     __args__ = dict()
     __args__['lockName'] = lock_name

@@ -28,23 +28,23 @@ class ClusterArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 analytics_output_settings: Optional[pulumi.Input['AnalyticsOutputSettingsArgs']] = None,
-                 analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_service_principal: Optional[pulumi.Input['ServicePrincipalInformationArgs']] = None,
-                 command_output_settings: Optional[pulumi.Input['CommandOutputSettingsArgs']] = None,
-                 compute_deployment_threshold: Optional[pulumi.Input['ValidationThresholdArgs']] = None,
-                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
-                 runtime_protection_configuration: Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']] = None,
-                 secret_archive: Optional[pulumi.Input['ClusterSecretArchiveArgs']] = None,
-                 secret_archive_settings: Optional[pulumi.Input['SecretArchiveSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_strategy: Optional[pulumi.Input['ClusterUpdateStrategyArgs']] = None,
-                 vulnerability_scanning_settings: Optional[pulumi.Input['VulnerabilityScanningSettingsArgs']] = None):
+                 analytics_output_settings: pulumi.Input[Optional['AnalyticsOutputSettingsArgs']] = None,
+                 analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_service_principal: pulumi.Input[Optional['ServicePrincipalInformationArgs']] = None,
+                 command_output_settings: pulumi.Input[Optional['CommandOutputSettingsArgs']] = None,
+                 compute_deployment_threshold: pulumi.Input[Optional['ValidationThresholdArgs']] = None,
+                 compute_rack_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
+                 runtime_protection_configuration: pulumi.Input[Optional['RuntimeProtectionConfigurationArgs']] = None,
+                 secret_archive: pulumi.Input[Optional['ClusterSecretArchiveArgs']] = None,
+                 secret_archive_settings: pulumi.Input[Optional['SecretArchiveSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_strategy: pulumi.Input[Optional['ClusterUpdateStrategyArgs']] = None,
+                 vulnerability_scanning_settings: pulumi.Input[Optional['VulnerabilityScanningSettingsArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -188,91 +188,91 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyticsOutputSettings")
-    def analytics_output_settings(self) -> Optional[pulumi.Input['AnalyticsOutputSettingsArgs']]:
+    def analytics_output_settings(self) -> pulumi.Input[Optional['AnalyticsOutputSettingsArgs']]:
         """
         The settings for the log analytics workspace used for output of logs from this cluster.
         """
         return pulumi.get(self, "analytics_output_settings")
 
     @analytics_output_settings.setter
-    def analytics_output_settings(self, value: Optional[pulumi.Input['AnalyticsOutputSettingsArgs']]):
+    def analytics_output_settings(self, value: pulumi.Input[Optional['AnalyticsOutputSettingsArgs']]):
         pulumi.set(self, "analytics_output_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         """
         return pulumi.get(self, "analytics_workspace_id")
 
     @analytics_workspace_id.setter
-    def analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterLocation")
-    def cluster_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer-provided location information to identify where the cluster resides.
         """
         return pulumi.get(self, "cluster_location")
 
     @cluster_location.setter
-    def cluster_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_location", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterServicePrincipal")
-    def cluster_service_principal(self) -> Optional[pulumi.Input['ServicePrincipalInformationArgs']]:
+    def cluster_service_principal(self) -> pulumi.Input[Optional['ServicePrincipalInformationArgs']]:
         """
         The service principal to be used by the cluster during Arc Appliance installation.
         """
         return pulumi.get(self, "cluster_service_principal")
 
     @cluster_service_principal.setter
-    def cluster_service_principal(self, value: Optional[pulumi.Input['ServicePrincipalInformationArgs']]):
+    def cluster_service_principal(self, value: pulumi.Input[Optional['ServicePrincipalInformationArgs']]):
         pulumi.set(self, "cluster_service_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="commandOutputSettings")
-    def command_output_settings(self) -> Optional[pulumi.Input['CommandOutputSettingsArgs']]:
+    def command_output_settings(self) -> pulumi.Input[Optional['CommandOutputSettingsArgs']]:
         """
         The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
         """
         return pulumi.get(self, "command_output_settings")
 
     @command_output_settings.setter
-    def command_output_settings(self, value: Optional[pulumi.Input['CommandOutputSettingsArgs']]):
+    def command_output_settings(self, value: pulumi.Input[Optional['CommandOutputSettingsArgs']]):
         pulumi.set(self, "command_output_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="computeDeploymentThreshold")
-    def compute_deployment_threshold(self) -> Optional[pulumi.Input['ValidationThresholdArgs']]:
+    def compute_deployment_threshold(self) -> pulumi.Input[Optional['ValidationThresholdArgs']]:
         """
         The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         """
         return pulumi.get(self, "compute_deployment_threshold")
 
     @compute_deployment_threshold.setter
-    def compute_deployment_threshold(self, value: Optional[pulumi.Input['ValidationThresholdArgs']]):
+    def compute_deployment_threshold(self, value: pulumi.Input[Optional['ValidationThresholdArgs']]):
         pulumi.set(self, "compute_deployment_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="computeRackDefinitions")
-    def compute_rack_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]]:
+    def compute_rack_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RackDefinitionArgs']]]]:
         """
         The list of rack definitions for the compute racks in a multi-rack
         cluster, or an empty list in a single-rack cluster.
@@ -280,115 +280,115 @@ class ClusterArgs:
         return pulumi.get(self, "compute_rack_definitions")
 
     @compute_rack_definitions.setter
-    def compute_rack_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]]):
+    def compute_rack_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RackDefinitionArgs']]]]):
         pulumi.set(self, "compute_rack_definitions", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]:
         """
         The configuration of the managed resource group associated with the resource.
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeProtectionConfiguration")
-    def runtime_protection_configuration(self) -> Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']]:
+    def runtime_protection_configuration(self) -> pulumi.Input[Optional['RuntimeProtectionConfigurationArgs']]:
         """
         The settings for cluster runtime protection.
         """
         return pulumi.get(self, "runtime_protection_configuration")
 
     @runtime_protection_configuration.setter
-    def runtime_protection_configuration(self, value: Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']]):
+    def runtime_protection_configuration(self, value: pulumi.Input[Optional['RuntimeProtectionConfigurationArgs']]):
         pulumi.set(self, "runtime_protection_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArchive")
-    def secret_archive(self) -> Optional[pulumi.Input['ClusterSecretArchiveArgs']]:
+    def secret_archive(self) -> pulumi.Input[Optional['ClusterSecretArchiveArgs']]:
         """
         The configuration for use of a key vault to store secrets for later retrieval by the operator.
         """
         return pulumi.get(self, "secret_archive")
 
     @secret_archive.setter
-    def secret_archive(self, value: Optional[pulumi.Input['ClusterSecretArchiveArgs']]):
+    def secret_archive(self, value: pulumi.Input[Optional['ClusterSecretArchiveArgs']]):
         pulumi.set(self, "secret_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArchiveSettings")
-    def secret_archive_settings(self) -> Optional[pulumi.Input['SecretArchiveSettingsArgs']]:
+    def secret_archive_settings(self) -> pulumi.Input[Optional['SecretArchiveSettingsArgs']]:
         """
         The settings for the secret archive used to hold credentials for the cluster.
         """
         return pulumi.get(self, "secret_archive_settings")
 
     @secret_archive_settings.setter
-    def secret_archive_settings(self, value: Optional[pulumi.Input['SecretArchiveSettingsArgs']]):
+    def secret_archive_settings(self, value: pulumi.Input[Optional['SecretArchiveSettingsArgs']]):
         pulumi.set(self, "secret_archive_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategy")
-    def update_strategy(self) -> Optional[pulumi.Input['ClusterUpdateStrategyArgs']]:
+    def update_strategy(self) -> pulumi.Input[Optional['ClusterUpdateStrategyArgs']]:
         """
         The strategy for updating the cluster.
         """
         return pulumi.get(self, "update_strategy")
 
     @update_strategy.setter
-    def update_strategy(self, value: Optional[pulumi.Input['ClusterUpdateStrategyArgs']]):
+    def update_strategy(self, value: pulumi.Input[Optional['ClusterUpdateStrategyArgs']]):
         pulumi.set(self, "update_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityScanningSettings")
-    def vulnerability_scanning_settings(self) -> Optional[pulumi.Input['VulnerabilityScanningSettingsArgs']]:
+    def vulnerability_scanning_settings(self) -> pulumi.Input[Optional['VulnerabilityScanningSettingsArgs']]:
         """
         The settings for how security vulnerability scanning is applied to the cluster.
         """
         return pulumi.get(self, "vulnerability_scanning_settings")
 
     @vulnerability_scanning_settings.setter
-    def vulnerability_scanning_settings(self, value: Optional[pulumi.Input['VulnerabilityScanningSettingsArgs']]):
+    def vulnerability_scanning_settings(self, value: pulumi.Input[Optional['VulnerabilityScanningSettingsArgs']]):
         pulumi.set(self, "vulnerability_scanning_settings", value)
 
 
@@ -398,35 +398,34 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregator_or_single_rack_definition: Optional[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
-                 analytics_output_settings: Optional[pulumi.Input[Union['AnalyticsOutputSettingsArgs', 'AnalyticsOutputSettingsArgsDict']]] = None,
-                 analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_service_principal: Optional[pulumi.Input[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
-                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_output_settings: Optional[pulumi.Input[Union['CommandOutputSettingsArgs', 'CommandOutputSettingsArgsDict']]] = None,
-                 compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
-                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_protection_configuration: Optional[pulumi.Input[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
-                 secret_archive: Optional[pulumi.Input[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
-                 secret_archive_settings: Optional[pulumi.Input[Union['SecretArchiveSettingsArgs', 'SecretArchiveSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_strategy: Optional[pulumi.Input[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
-                 vulnerability_scanning_settings: Optional[pulumi.Input[Union['VulnerabilityScanningSettingsArgs', 'VulnerabilityScanningSettingsArgsDict']]] = None,
+                 aggregator_or_single_rack_definition: pulumi.Input[Optional[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
+                 analytics_output_settings: pulumi.Input[Optional[Union['AnalyticsOutputSettingsArgs', 'AnalyticsOutputSettingsArgsDict']]] = None,
+                 analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_service_principal: pulumi.Input[Optional[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
+                 cluster_type: pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_output_settings: pulumi.Input[Optional[Union['CommandOutputSettingsArgs', 'CommandOutputSettingsArgsDict']]] = None,
+                 compute_deployment_threshold: pulumi.Input[Optional[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
+                 compute_rack_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_protection_configuration: pulumi.Input[Optional[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
+                 secret_archive: pulumi.Input[Optional[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
+                 secret_archive_settings: pulumi.Input[Optional[Union['SecretArchiveSettingsArgs', 'SecretArchiveSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_strategy: pulumi.Input[Optional[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
+                 vulnerability_scanning_settings: pulumi.Input[Optional[Union['VulnerabilityScanningSettingsArgs', 'VulnerabilityScanningSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -466,7 +465,6 @@ class Cluster(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,29 +480,29 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregator_or_single_rack_definition: Optional[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
-                 analytics_output_settings: Optional[pulumi.Input[Union['AnalyticsOutputSettingsArgs', 'AnalyticsOutputSettingsArgsDict']]] = None,
-                 analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_service_principal: Optional[pulumi.Input[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
-                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_output_settings: Optional[pulumi.Input[Union['CommandOutputSettingsArgs', 'CommandOutputSettingsArgsDict']]] = None,
-                 compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
-                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_protection_configuration: Optional[pulumi.Input[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
-                 secret_archive: Optional[pulumi.Input[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
-                 secret_archive_settings: Optional[pulumi.Input[Union['SecretArchiveSettingsArgs', 'SecretArchiveSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_strategy: Optional[pulumi.Input[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
-                 vulnerability_scanning_settings: Optional[pulumi.Input[Union['VulnerabilityScanningSettingsArgs', 'VulnerabilityScanningSettingsArgsDict']]] = None,
+                 aggregator_or_single_rack_definition: pulumi.Input[Optional[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
+                 analytics_output_settings: pulumi.Input[Optional[Union['AnalyticsOutputSettingsArgs', 'AnalyticsOutputSettingsArgsDict']]] = None,
+                 analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_service_principal: pulumi.Input[Optional[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
+                 cluster_type: pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_output_settings: pulumi.Input[Optional[Union['CommandOutputSettingsArgs', 'CommandOutputSettingsArgsDict']]] = None,
+                 compute_deployment_threshold: pulumi.Input[Optional[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
+                 compute_rack_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_protection_configuration: pulumi.Input[Optional[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
+                 secret_archive: pulumi.Input[Optional[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
+                 secret_archive_settings: pulumi.Input[Optional[Union['SecretArchiveSettingsArgs', 'SecretArchiveSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_strategy: pulumi.Input[Optional[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
+                 vulnerability_scanning_settings: pulumi.Input[Optional[Union['VulnerabilityScanningSettingsArgs', 'VulnerabilityScanningSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

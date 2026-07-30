@@ -181,7 +181,6 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[_builtins.str] = N
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param _builtins.str forwarding_rule_name: The name of the forwarding rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,9 +204,9 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[_builtins.str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'),
         type=pulumi.get(__ret__, 'type'))
-def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               forwarding_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_forwarding_rule_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               forwarding_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetForwardingRuleResult]:
     """
     Gets properties of a forwarding rule in a DNS forwarding ruleset.
@@ -215,7 +214,6 @@ def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param _builtins.str forwarding_rule_name: The name of the forwarding rule.

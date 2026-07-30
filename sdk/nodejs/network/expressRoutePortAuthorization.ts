@@ -124,7 +124,7 @@ export interface ExpressRoutePortAuthorizationArgs {
     /**
      * The name of the authorization.
      */
-    authorizationName?: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the express route port.
      */
@@ -132,11 +132,11 @@ export interface ExpressRoutePortAuthorizationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

@@ -23,8 +23,8 @@ class SqlPoolTransparentDataEncryptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_pool_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
 
@@ -80,26 +80,26 @@ class SqlPoolTransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]:
         """
         The status of the database transparent data encryption.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentDataEncryptionName")
-    def transparent_data_encryption_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent_data_encryption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the transparent data encryption configuration.
         """
         return pulumi.get(self, "transparent_data_encryption_name")
 
     @transparent_data_encryption_name.setter
-    def transparent_data_encryption_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent_data_encryption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_data_encryption_name", value)
 
 
@@ -109,11 +109,11 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Sql pool transparent data encryption configuration.
@@ -121,7 +121,6 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SqlPoolTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

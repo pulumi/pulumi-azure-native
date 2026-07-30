@@ -157,7 +157,6 @@ def get_provider_instance(monitor_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str monitor_name: Name of the SAP monitor resource.
     :param _builtins.str provider_instance_name: Name of the provider instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,9 +178,9 @@ def get_provider_instance(monitor_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_provider_instance_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 provider_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_provider_instance_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
@@ -189,7 +188,6 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-02-01-preview.
 
     Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str monitor_name: Name of the SAP monitor resource.
     :param _builtins.str provider_instance_name: Name of the provider instance.

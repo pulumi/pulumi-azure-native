@@ -28,7 +28,7 @@ class FileImportArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 file_import_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_import_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileImport resource.
 
@@ -123,14 +123,14 @@ class FileImportArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileImportId")
-    def file_import_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_import_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File import ID
         """
         return pulumi.get(self, "file_import_id")
 
     @file_import_id.setter
-    def file_import_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_import_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_import_id", value)
 
 
@@ -140,13 +140,13 @@ class FileImport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'FileImportContentType']]] = None,
-                 file_import_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_file: Optional[pulumi.Input[Union['FileMetadataArgs', 'FileMetadataArgsDict']]] = None,
-                 ingestion_mode: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[Union[_builtins.str, 'FileImportContentType']]] = None,
+                 file_import_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_file: pulumi.Input[Optional[Union['FileMetadataArgs', 'FileMetadataArgsDict']]] = None,
+                 ingestion_mode: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a file import in Azure Security Insights.
@@ -154,7 +154,6 @@ class FileImport(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class FileImport(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FileImportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class FileImport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'FileImportContentType']]] = None,
-                 file_import_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_file: Optional[pulumi.Input[Union['FileMetadataArgs', 'FileMetadataArgsDict']]] = None,
-                 ingestion_mode: Optional[pulumi.Input[Union[_builtins.str, 'IngestionMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[Union[_builtins.str, 'FileImportContentType']]] = None,
+                 file_import_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_file: pulumi.Input[Optional[Union['FileMetadataArgs', 'FileMetadataArgsDict']]] = None,
+                 ingestion_mode: pulumi.Input[Optional[Union[_builtins.str, 'IngestionMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

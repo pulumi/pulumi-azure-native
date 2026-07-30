@@ -112,7 +112,7 @@ export interface ProtectedItemArgs {
     /**
      * The protected item name.
      */
-    protectedItemName?: pulumi.Input<string>;
+    protectedItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

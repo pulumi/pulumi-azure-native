@@ -27,17 +27,17 @@ class WebAppSiteContainerSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 auth_type: Optional[pulumi.Input['AuthType']] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_up_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+                 auth_type: pulumi.Input[Optional['AuthType']] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 inherit_app_settings_and_connection_strings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_up_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         The set of arguments for constructing a WebAppSiteContainerSlot resource.
 
@@ -148,134 +148,134 @@ class WebAppSiteContainerSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input['AuthType']]:
+    def auth_type(self) -> pulumi.Input[Optional['AuthType']]:
         """
         Auth Type
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input['AuthType']]):
+    def auth_type(self, value: pulumi.Input[Optional['AuthType']]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Site Container Name
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         List of environment variables
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritAppSettingsAndConnectionStrings")
-    def inherit_app_settings_and_connection_strings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inherit_app_settings_and_connection_strings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
         """
         return pulumi.get(self, "inherit_app_settings_and_connection_strings")
 
     @inherit_app_settings_and_connection_strings.setter
-    def inherit_app_settings_and_connection_strings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inherit_app_settings_and_connection_strings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inherit_app_settings_and_connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordSecret")
-    def password_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password Secret
         """
         return pulumi.get(self, "password_secret")
 
     @password_secret.setter
-    def password_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="startUpCommand")
-    def start_up_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_up_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         StartUp Command
         """
         return pulumi.get(self, "start_up_command")
 
     @start_up_command.setter
-    def start_up_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_up_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_up_command", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPort")
-    def target_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target Port
         """
         return pulumi.get(self, "target_port")
 
     @target_port.setter
-    def target_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_port", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedIdentityClientId")
-    def user_managed_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_managed_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UserManagedIdentity ClientId
         """
         return pulumi.get(self, "user_managed_identity_client_id")
 
     @user_managed_identity_client_id.setter
-    def user_managed_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_managed_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_managed_identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Name
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+    def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]:
         """
         List of volume mounts
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+    def volume_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
 
 
@@ -285,22 +285,22 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['AuthType']] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_main: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_up_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['AuthType']] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_app_settings_and_connection_strings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_main: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_up_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
                  __props__=None):
         """
         Container of a site
@@ -308,7 +308,6 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
         Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,7 +341,6 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppSiteContainerSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,22 +356,22 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['AuthType']] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_main: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_up_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['AuthType']] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_app_settings_and_connection_strings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_main: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_up_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

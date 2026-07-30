@@ -181,7 +181,6 @@ def get_inventory_item(inventory_item_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str inventory_item_name: Name of the inventoryItem.
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str vmm_server_name: Name of the VMMServer.
@@ -205,9 +204,9 @@ def get_inventory_item(inventory_item_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              vmm_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inventory_item_output(inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              vmm_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Shows an inventory item.
@@ -215,7 +214,6 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str inventory_item_name: Name of the inventoryItem.
     :param _builtins.str resource_group_name: The name of the resource group.

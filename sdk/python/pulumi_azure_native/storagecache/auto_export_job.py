@@ -23,12 +23,12 @@ class AutoExportJobArgs:
     def __init__(__self__, *,
                  aml_filesystem_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 admin_status: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
-                 auto_export_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_export_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 admin_status: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
+                 auto_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_export_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoExportJob resource.
 
@@ -84,74 +84,74 @@ class AutoExportJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminStatus")
-    def admin_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']]]:
+    def admin_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]]:
         """
         The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
         """
         return pulumi.get(self, "admin_status")
 
     @admin_status.setter
-    def admin_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']]]):
+    def admin_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]]):
         pulumi.set(self, "admin_status", value)
 
     @_builtins.property
     @pulumi.getter(name="autoExportJobName")
-    def auto_export_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_export_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         """
         return pulumi.get(self, "auto_export_job_name")
 
     @auto_export_job_name.setter
-    def auto_export_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_export_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_export_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoExportPrefixes")
-    def auto_export_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_export_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of blob paths/prefixes that get auto exported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths for now is 1.
         """
         return pulumi.get(self, "auto_export_prefixes")
 
     @auto_export_prefixes.setter
-    def auto_export_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_export_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_export_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]]:
         """
         The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class AutoExportJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_status: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_export_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_export_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_status: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_export_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An auto export job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -176,7 +176,6 @@ class AutoExportJob(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01.
 
         Other available API versions: 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class AutoExportJob(pulumi.CustomResource):
 
         Other available API versions: 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AutoExportJobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class AutoExportJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_status: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_export_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_export_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AutoExportStatusType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_status: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportJobAdminStatus']]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_export_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AutoExportStatusType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

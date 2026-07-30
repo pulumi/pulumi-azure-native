@@ -60,7 +60,6 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 
     Other available API versions: 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Sequence[Union['SubResource', 'SubResourceDict']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
     __args__ = dict()
@@ -70,7 +69,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 
     return AwaitableGetDnsResourceReferenceByTarResourcesResult(
         dns_resource_references=pulumi.get(__ret__, 'dns_resource_references'))
-def get_dns_resource_reference_by_tar_resources_output(target_resources: Optional[pulumi.Input[Optional[Sequence[Union['SubResource', 'SubResourceDict']]]]] = None,
+def get_dns_resource_reference_by_tar_resources_output(target_resources: pulumi.Input[Optional[Optional[Sequence[Union['SubResource', 'SubResourceDict']]]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResourceReferenceByTarResourcesResult]:
     """
     Returns the DNS records specified by the referencing targetResourceIds.
@@ -78,7 +77,6 @@ def get_dns_resource_reference_by_tar_resources_output(target_resources: Optiona
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Sequence[Union['SubResource', 'SubResourceDict']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """

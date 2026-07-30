@@ -205,7 +205,6 @@ def get_order_item(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: $expand is supported on parent device details, device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Parent Device Details for order item provides details on the devices of the product, Device Details for order item provides details on the devices of the child configurations of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
     :param _builtins.str order_item_name: The name of the order item.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -231,9 +230,9 @@ def get_order_item(expand: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_order_item_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          order_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_order_item_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          order_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderItemResult]:
     """
     Get an order item.
@@ -241,7 +240,6 @@ def get_order_item_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: $expand is supported on parent device details, device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Parent Device Details for order item provides details on the devices of the product, Device Details for order item provides details on the devices of the child configurations of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
     :param _builtins.str order_item_name: The name of the order item.

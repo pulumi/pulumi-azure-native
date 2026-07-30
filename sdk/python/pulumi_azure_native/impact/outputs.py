@@ -913,13 +913,13 @@ class WorkloadImpactPropertiesResponse(dict):
         :param _builtins.str impacted_resource_id: Azure resource id of the impacted resource
         :param _builtins.str provisioning_state: Resource provisioning state.
         :param _builtins.str reported_time_utc: Time at which impact is reported
-        :param _builtins.str start_date_time: Time at which impact was observed 
+        :param _builtins.str start_date_time: Time at which impact was observed
         :param Any additional_properties: Additional fields related to impact, applicable fields per resource type are list under /impactCategories API
         :param Sequence[_builtins.str] arm_correlation_ids: The ARM correlation ids, this is important field for control plane related impacts
         :param 'ClientIncidentDetailsResponse' client_incident_details: Client incident details ex: incidentId , incident source
         :param _builtins.str confidence_level: Degree of confidence on the impact being a platform issue
         :param 'ConnectivityResponse' connectivity: Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
-        :param _builtins.str end_date_time: Time at which impact has ended 
+        :param _builtins.str end_date_time: Time at which impact has ended
         :param 'ErrorDetailPropertiesResponse' error_details: ARM error code and error message associated with the impact
         :param _builtins.str impact_description: A detailed description of the impact
         :param _builtins.str impact_group_id: Use this field to group impacts
@@ -999,7 +999,7 @@ class WorkloadImpactPropertiesResponse(dict):
     @pulumi.getter(name="startDateTime")
     def start_date_time(self) -> _builtins.str:
         """
-        Time at which impact was observed 
+        Time at which impact was observed
         """
         return pulumi.get(self, "start_date_time")
 
@@ -1047,7 +1047,7 @@ class WorkloadImpactPropertiesResponse(dict):
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> Optional[_builtins.str]:
         """
-        Time at which impact has ended 
+        Time at which impact has ended
         """
         return pulumi.get(self, "end_date_time")
 

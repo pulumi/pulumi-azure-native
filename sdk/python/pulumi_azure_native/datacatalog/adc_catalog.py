@@ -23,15 +23,15 @@ __all__ = ['ADCCatalogArgs', 'ADCCatalog']
 class ADCCatalogArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_unit_adjustment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'SkuType']]] = None,
-                 successfully_provisioned: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 units: Optional[pulumi.Input[_builtins.int]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]] = None):
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_unit_adjustment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]] = None,
+                 successfully_provisioned: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 units: pulumi.Input[Optional[_builtins.int]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]] = None):
         """
         The set of arguments for constructing a ADCCatalog resource.
 
@@ -80,110 +80,110 @@ class ADCCatalogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]]:
+    def admins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]]:
         """
         Azure data catalog admin list.
         """
         return pulumi.get(self, "admins")
 
     @admins.setter
-    def admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]]):
+    def admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]]):
         pulumi.set(self, "admins", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data catalog in the specified subscription and resource group.
         """
         return pulumi.get(self, "catalog_name")
 
     @catalog_name.setter
-    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUnitAdjustment")
-    def enable_automatic_unit_adjustment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_unit_adjustment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatic unit adjustment enabled or not.
         """
         return pulumi.get(self, "enable_automatic_unit_adjustment")
 
     @enable_automatic_unit_adjustment.setter
-    def enable_automatic_unit_adjustment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_unit_adjustment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_unit_adjustment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuType']]]:
+    def sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]]:
         """
         Azure data catalog SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuType']]]):
+    def sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="successfullyProvisioned")
-    def successfully_provisioned(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def successfully_provisioned(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Azure data catalog provision status.
         """
         return pulumi.get(self, "successfully_provisioned")
 
     @successfully_provisioned.setter
-    def successfully_provisioned(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def successfully_provisioned(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "successfully_provisioned", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Azure data catalog units.
         """
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "units", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]]:
         """
         Azure data catalog user list.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]]):
         pulumi.set(self, "users", value)
 
 
@@ -193,22 +193,21 @@ class ADCCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_unit_adjustment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'SkuType']]] = None,
-                 successfully_provisioned: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 units: Optional[pulumi.Input[_builtins.int]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_unit_adjustment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]] = None,
+                 successfully_provisioned: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 units: pulumi.Input[Optional[_builtins.int]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  __props__=None):
         """
         Azure Data Catalog.
 
         Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +233,6 @@ class ADCCatalog(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
 
-
         :param str resource_name: The name of the resource.
         :param ADCCatalogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,16 +248,16 @@ class ADCCatalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_unit_adjustment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'SkuType']]] = None,
-                 successfully_provisioned: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 units: Optional[pulumi.Input[_builtins.int]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_unit_adjustment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]] = None,
+                 successfully_provisioned: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 units: pulumi.Input[Optional[_builtins.int]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

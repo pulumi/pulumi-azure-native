@@ -26,11 +26,11 @@ class InstancePoolArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  v_cores: pulumi.Input[_builtins.int],
-                 instance_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 instance_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstancePool resource.
 
@@ -109,62 +109,62 @@ class InstancePoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="instancePoolName")
-    def instance_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the instance pool to be created or updated.
         """
         return pulumi.get(self, "instance_pool_name")
 
     @instance_pool_name.setter
-    def instance_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies maintenance configuration id to apply to this managed instance.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The name and tier of the SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,15 +174,15 @@ class InstancePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'InstancePoolLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v_cores: Optional[pulumi.Input[_builtins.int]] = None,
+                 instance_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'InstancePoolLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 v_cores: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         An Azure SQL instance pool.
@@ -190,7 +190,6 @@ class InstancePool(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class InstancePool(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param InstancePoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class InstancePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'InstancePoolLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v_cores: Optional[pulumi.Input[_builtins.int]] = None,
+                 instance_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'InstancePoolLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 v_cores: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

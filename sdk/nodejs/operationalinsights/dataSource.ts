@@ -126,7 +126,7 @@ export interface DataSourceArgs {
     /**
      * The name of the datasource resource.
      */
-    dataSourceName?: pulumi.Input<string>;
+    dataSourceName?: pulumi.Input<string | undefined>;
     /**
      * The kind of the DataSource.
      */
@@ -142,7 +142,7 @@ export interface DataSourceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the workspace.
      */

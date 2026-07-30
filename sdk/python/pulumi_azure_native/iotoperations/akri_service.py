@@ -24,8 +24,8 @@ class AkriServiceArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 akri_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None):
+                 akri_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a AkriService resource.
 
@@ -67,26 +67,26 @@ class AkriServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="akriServiceName")
-    def akri_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def akri_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of AkriService resource.
         """
         return pulumi.get(self, "akri_service_name")
 
     @akri_service_name.setter
-    def akri_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def akri_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "akri_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         Edge location of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
 
@@ -96,10 +96,10 @@ class AkriService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 akri_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 akri_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AkriService resource.
@@ -107,7 +107,6 @@ class AkriService(pulumi.CustomResource):
         Uses Azure REST API version 2026-03-01.
 
         Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class AkriService(pulumi.CustomResource):
 
         Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AkriServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class AkriService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 akri_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 akri_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

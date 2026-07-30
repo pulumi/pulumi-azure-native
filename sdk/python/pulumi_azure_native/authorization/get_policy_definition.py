@@ -215,7 +215,6 @@ def get_policy_definition(policy_definition_name: Optional[_builtins.str] = None
 
     Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str policy_definition_name: The name of the policy definition to get.
     """
     __args__ = dict()
@@ -238,7 +237,7 @@ def get_policy_definition(policy_definition_name: Optional[_builtins.str] = None
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_definition_output(policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
     """
     This operation retrieves the policy definition in the given subscription with the given name.
@@ -246,7 +245,6 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str policy_definition_name: The name of the policy definition to get.
     """

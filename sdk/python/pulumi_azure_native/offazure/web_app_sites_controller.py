@@ -24,9 +24,9 @@ class WebAppSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
-                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
-                 web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
+                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
+                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSitesController resource.
 
@@ -34,7 +34,7 @@ class WebAppSitesControllerArgs:
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']] discovery_scenario: Gets or sets the discovery scenario.
         :param pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]] site_appliance_properties_collection: Gets or sets the appliance details used by service to communicate
-                          
+               
                to the appliance.
         :param pulumi.Input[_builtins.str] web_app_site_name: Web app site name.
         """
@@ -73,40 +73,40 @@ class WebAppSitesControllerArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveryScenario")
-    def discovery_scenario(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]]:
+    def discovery_scenario(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]]:
         """
         Gets or sets the discovery scenario.
         """
         return pulumi.get(self, "discovery_scenario")
 
     @discovery_scenario.setter
-    def discovery_scenario(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]]):
+    def discovery_scenario(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]]):
         pulumi.set(self, "discovery_scenario", value)
 
     @_builtins.property
     @pulumi.getter(name="siteAppliancePropertiesCollection")
-    def site_appliance_properties_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]:
+    def site_appliance_properties_collection(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]:
         """
         Gets or sets the appliance details used by service to communicate
-                   
+
         to the appliance.
         """
         return pulumi.get(self, "site_appliance_properties_collection")
 
     @site_appliance_properties_collection.setter
-    def site_appliance_properties_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
+    def site_appliance_properties_collection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
         pulumi.set(self, "site_appliance_properties_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="webAppSiteName")
-    def web_app_site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_app_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Web app site name.
         """
         return pulumi.get(self, "web_app_site_name")
 
     @web_app_site_name.setter
-    def web_app_site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_app_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_app_site_name", value)
 
 
@@ -116,11 +116,11 @@ class WebAppSitesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         WebApp site web model.
@@ -129,13 +129,12 @@ class WebAppSitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']] discovery_scenario: Gets or sets the discovery scenario.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]] site_appliance_properties_collection: Gets or sets the appliance details used by service to communicate
-                          
+               
                to the appliance.
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] web_app_site_name: Web app site name.
@@ -153,7 +152,6 @@ class WebAppSitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppSitesControllerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,11 +167,11 @@ class WebAppSitesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,7 +275,7 @@ class WebAppSitesController(pulumi.CustomResource):
     def site_appliance_properties_collection(self) -> pulumi.Output[Optional[Sequence['outputs.SiteAppliancePropertiesResponse']]]:
         """
         Gets or sets the appliance details used by service to communicate
-                   
+
         to the appliance.
         """
         return pulumi.get(self, "site_appliance_properties_collection")

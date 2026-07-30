@@ -122,15 +122,15 @@ export interface VirtualNetworkRetrieveArgs {
     /**
      * Extended location pointing to the underlying infrastructure
      */
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of the virtual network resource
      */
-    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,9 +138,9 @@ export interface VirtualNetworkRetrieveArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Parameter for the name of the virtual network
      */
-    virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
 }

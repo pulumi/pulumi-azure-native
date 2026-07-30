@@ -215,7 +215,6 @@ def get_vm_instance_guest_agent(resource_uri: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """
     __args__ = dict()
@@ -238,7 +237,7 @@ def get_vm_instance_guest_agent(resource_uri: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vm_instance_guest_agent_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
     """
     Implements GuestAgent GET method.
@@ -246,7 +245,6 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """

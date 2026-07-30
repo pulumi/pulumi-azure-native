@@ -241,7 +241,6 @@ def get_webhook(automation_account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-10-31, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str webhook_name: The webhook name.
@@ -270,9 +269,9 @@ def get_webhook(automation_account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
-def get_webhook_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_webhook_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Retrieve the webhook identified by webhook name.
@@ -280,7 +279,6 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2015-10-31, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -59,7 +59,6 @@ def list_namespace_credential(namespace_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-02-02-preview.
 
-
     :param _builtins.str namespace_name: The name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the managed cluster resource.
@@ -73,15 +72,14 @@ def list_namespace_credential(namespace_name: Optional[_builtins.str] = None,
 
     return AwaitableListNamespaceCredentialResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_namespace_credential_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_namespace_credential_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceCredentialResult]:
     """
     The list credential result response.
 
     Uses Azure REST API version 2025-02-02-preview.
-
 
     :param _builtins.str namespace_name: The name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'VirtualNetworkExtendedLocationArgs',
     'VirtualNetworkExtendedLocationArgsDict',
+    'VirtualNetworkPropertiesArgs',
+    'VirtualNetworkPropertiesArgsDict',
     'VirtualNetworkPropertiesHciArgs',
     'VirtualNetworkPropertiesHciArgsDict',
     'VirtualNetworkPropertiesInfraVnetProfileArgs',
@@ -26,19 +28,17 @@ __all__ = [
     'VirtualNetworkPropertiesVipPoolArgsDict',
     'VirtualNetworkPropertiesVmipPoolArgs',
     'VirtualNetworkPropertiesVmipPoolArgsDict',
-    'VirtualNetworkPropertiesArgs',
-    'VirtualNetworkPropertiesArgsDict',
 ]
 
 class VirtualNetworkExtendedLocationArgsDict(TypedDict):
     """
     Extended location pointing to the underlying infrastructure
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Id of the extended location.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]]
     """
     The extended location type. Allowed value: 'CustomLocation'
     """
@@ -46,8 +46,8 @@ class VirtualNetworkExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
         """
         Extended location pointing to the underlying infrastructure
 
@@ -61,256 +61,55 @@ class VirtualNetworkExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Id of the extended location.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]:
         """
         The extended location type. Allowed value: 'CustomLocation'
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
-
-
-class VirtualNetworkPropertiesHciArgsDict(TypedDict):
-    """
-    Infrastructure network profile for HCI platform
-    """
-    moc_group: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Group in MOC(Microsoft On-premises Cloud)
-    """
-    moc_location: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Location in MOC(Microsoft On-premises Cloud)
-    """
-    moc_vnet_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Virtual Network name in MOC(Microsoft On-premises Cloud)
-    """
-
-@pulumi.input_type
-class VirtualNetworkPropertiesHciArgs:
-    def __init__(__self__, *,
-                 moc_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 moc_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 moc_vnet_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Infrastructure network profile for HCI platform
-
-        :param pulumi.Input[_builtins.str] moc_group: Group in MOC(Microsoft On-premises Cloud)
-        :param pulumi.Input[_builtins.str] moc_location: Location in MOC(Microsoft On-premises Cloud)
-        :param pulumi.Input[_builtins.str] moc_vnet_name: Virtual Network name in MOC(Microsoft On-premises Cloud)
-        """
-        if moc_group is not None:
-            pulumi.set(__self__, "moc_group", moc_group)
-        if moc_location is not None:
-            pulumi.set(__self__, "moc_location", moc_location)
-        if moc_vnet_name is not None:
-            pulumi.set(__self__, "moc_vnet_name", moc_vnet_name)
-
-    @_builtins.property
-    @pulumi.getter(name="mocGroup")
-    def moc_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Group in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_group")
-
-    @moc_group.setter
-    def moc_group(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "moc_group", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mocLocation")
-    def moc_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_location")
-
-    @moc_location.setter
-    def moc_location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "moc_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mocVnetName")
-    def moc_vnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Virtual Network name in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_vnet_name")
-
-    @moc_vnet_name.setter
-    def moc_vnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "moc_vnet_name", value)
-
-
-class VirtualNetworkPropertiesInfraVnetProfileArgsDict(TypedDict):
-    hci: NotRequired[pulumi.Input['VirtualNetworkPropertiesHciArgsDict']]
-    """
-    Infrastructure network profile for HCI platform
-    """
-
-@pulumi.input_type
-class VirtualNetworkPropertiesInfraVnetProfileArgs:
-    def __init__(__self__, *,
-                 hci: Optional[pulumi.Input['VirtualNetworkPropertiesHciArgs']] = None):
-        """
-        :param pulumi.Input['VirtualNetworkPropertiesHciArgs'] hci: Infrastructure network profile for HCI platform
-        """
-        if hci is not None:
-            pulumi.set(__self__, "hci", hci)
-
-    @_builtins.property
-    @pulumi.getter
-    def hci(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesHciArgs']]:
-        """
-        Infrastructure network profile for HCI platform
-        """
-        return pulumi.get(self, "hci")
-
-    @hci.setter
-    def hci(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesHciArgs']]):
-        pulumi.set(self, "hci", value)
-
-
-class VirtualNetworkPropertiesVipPoolArgsDict(TypedDict):
-    end_ip: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Ending IP address for the IP Pool
-    """
-    start_ip: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Starting IP address for the IP Pool
-    """
-
-@pulumi.input_type
-class VirtualNetworkPropertiesVipPoolArgs:
-    def __init__(__self__, *,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_ip: Ending IP address for the IP Pool
-        :param pulumi.Input[_builtins.str] start_ip: Starting IP address for the IP Pool
-        """
-        if end_ip is not None:
-            pulumi.set(__self__, "end_ip", end_ip)
-        if start_ip is not None:
-            pulumi.set(__self__, "start_ip", start_ip)
-
-    @_builtins.property
-    @pulumi.getter(name="endIP")
-    def end_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Ending IP address for the IP Pool
-        """
-        return pulumi.get(self, "end_ip")
-
-    @end_ip.setter
-    def end_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "end_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="startIP")
-    def start_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Starting IP address for the IP Pool
-        """
-        return pulumi.get(self, "start_ip")
-
-    @start_ip.setter
-    def start_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "start_ip", value)
-
-
-class VirtualNetworkPropertiesVmipPoolArgsDict(TypedDict):
-    end_ip: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Ending IP address for the IP Pool
-    """
-    start_ip: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Starting IP address for the IP Pool
-    """
-
-@pulumi.input_type
-class VirtualNetworkPropertiesVmipPoolArgs:
-    def __init__(__self__, *,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_ip: Ending IP address for the IP Pool
-        :param pulumi.Input[_builtins.str] start_ip: Starting IP address for the IP Pool
-        """
-        if end_ip is not None:
-            pulumi.set(__self__, "end_ip", end_ip)
-        if start_ip is not None:
-            pulumi.set(__self__, "start_ip", start_ip)
-
-    @_builtins.property
-    @pulumi.getter(name="endIP")
-    def end_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Ending IP address for the IP Pool
-        """
-        return pulumi.get(self, "end_ip")
-
-    @end_ip.setter
-    def end_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "end_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="startIP")
-    def start_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Starting IP address for the IP Pool
-        """
-        return pulumi.get(self, "start_ip")
-
-    @start_ip.setter
-    def start_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "start_ip", value)
 
 
 class VirtualNetworkPropertiesArgsDict(TypedDict):
     """
     Properties of the virtual network resource
     """
-    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of DNS server IP Addresses associated with the network
     """
-    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    gateway: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Address of the Gateway associated with the network
     """
-    infra_vnet_profile: NotRequired[pulumi.Input['VirtualNetworkPropertiesInfraVnetProfileArgsDict']]
-    ip_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    infra_vnet_profile: NotRequired[pulumi.Input[Optional['VirtualNetworkPropertiesInfraVnetProfileArgsDict']]]
+    ip_address_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Address Prefix of the network
     """
-    vip_pool: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgsDict']]]]
+    vip_pool: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgsDict']]]]]
     """
     Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
     """
-    vlan_id: NotRequired[pulumi.Input[_builtins.int]]
+    vlan_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     VLAN Id used by the network
     """
-    vmip_pool: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgsDict']]]]
+    vmip_pool: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgsDict']]]]]
     """
     Range of IP Addresses for Kubernetes node VMs
     """
@@ -318,13 +117,13 @@ class VirtualNetworkPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkPropertiesArgs:
     def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gateway: Optional[pulumi.Input[_builtins.str]] = None,
-                 infra_vnet_profile: Optional[pulumi.Input['VirtualNetworkPropertiesInfraVnetProfileArgs']] = None,
-                 ip_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 vip_pool: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]] = None,
-                 vlan_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 vmip_pool: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]] = None):
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway: pulumi.Input[Optional[_builtins.str]] = None,
+                 infra_vnet_profile: pulumi.Input[Optional['VirtualNetworkPropertiesInfraVnetProfileArgs']] = None,
+                 ip_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 vip_pool: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]] = None,
+                 vlan_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 vmip_pool: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]] = None):
         """
         Properties of the virtual network resource
 
@@ -352,83 +151,284 @@ class VirtualNetworkPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of DNS server IP Addresses associated with the network
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address of the Gateway associated with the network
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="infraVnetProfile")
-    def infra_vnet_profile(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesInfraVnetProfileArgs']]:
+    def infra_vnet_profile(self) -> pulumi.Input[Optional['VirtualNetworkPropertiesInfraVnetProfileArgs']]:
         return pulumi.get(self, "infra_vnet_profile")
 
     @infra_vnet_profile.setter
-    def infra_vnet_profile(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesInfraVnetProfileArgs']]):
+    def infra_vnet_profile(self, value: pulumi.Input[Optional['VirtualNetworkPropertiesInfraVnetProfileArgs']]):
         pulumi.set(self, "infra_vnet_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressPrefix")
-    def ip_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address Prefix of the network
         """
         return pulumi.get(self, "ip_address_prefix")
 
     @ip_address_prefix.setter
-    def ip_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="vipPool")
-    def vip_pool(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]]:
+    def vip_pool(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]]:
         """
         Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
         """
         return pulumi.get(self, "vip_pool")
 
     @vip_pool.setter
-    def vip_pool(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]]):
+    def vip_pool(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgs']]]]):
         pulumi.set(self, "vip_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanID")
-    def vlan_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vlan_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         VLAN Id used by the network
         """
         return pulumi.get(self, "vlan_id")
 
     @vlan_id.setter
-    def vlan_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vlan_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vlan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmipPool")
-    def vmip_pool(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]]:
+    def vmip_pool(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]]:
         """
         Range of IP Addresses for Kubernetes node VMs
         """
         return pulumi.get(self, "vmip_pool")
 
     @vmip_pool.setter
-    def vmip_pool(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]]):
+    def vmip_pool(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgs']]]]):
         pulumi.set(self, "vmip_pool", value)
+
+
+class VirtualNetworkPropertiesHciArgsDict(TypedDict):
+    """
+    Infrastructure network profile for HCI platform
+    """
+    moc_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Group in MOC(Microsoft On-premises Cloud)
+    """
+    moc_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Location in MOC(Microsoft On-premises Cloud)
+    """
+    moc_vnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Virtual Network name in MOC(Microsoft On-premises Cloud)
+    """
+
+@pulumi.input_type
+class VirtualNetworkPropertiesHciArgs:
+    def __init__(__self__, *,
+                 moc_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 moc_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 moc_vnet_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Infrastructure network profile for HCI platform
+
+        :param pulumi.Input[_builtins.str] moc_group: Group in MOC(Microsoft On-premises Cloud)
+        :param pulumi.Input[_builtins.str] moc_location: Location in MOC(Microsoft On-premises Cloud)
+        :param pulumi.Input[_builtins.str] moc_vnet_name: Virtual Network name in MOC(Microsoft On-premises Cloud)
+        """
+        if moc_group is not None:
+            pulumi.set(__self__, "moc_group", moc_group)
+        if moc_location is not None:
+            pulumi.set(__self__, "moc_location", moc_location)
+        if moc_vnet_name is not None:
+            pulumi.set(__self__, "moc_vnet_name", moc_vnet_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mocGroup")
+    def moc_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_group")
+
+    @moc_group.setter
+    def moc_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "moc_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mocLocation")
+    def moc_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Location in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_location")
+
+    @moc_location.setter
+    def moc_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "moc_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mocVnetName")
+    def moc_vnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Virtual Network name in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_vnet_name")
+
+    @moc_vnet_name.setter
+    def moc_vnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "moc_vnet_name", value)
+
+
+class VirtualNetworkPropertiesInfraVnetProfileArgsDict(TypedDict):
+    hci: NotRequired[pulumi.Input[Optional['VirtualNetworkPropertiesHciArgsDict']]]
+    """
+    Infrastructure network profile for HCI platform
+    """
+
+@pulumi.input_type
+class VirtualNetworkPropertiesInfraVnetProfileArgs:
+    def __init__(__self__, *,
+                 hci: pulumi.Input[Optional['VirtualNetworkPropertiesHciArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNetworkPropertiesHciArgs'] hci: Infrastructure network profile for HCI platform
+        """
+        if hci is not None:
+            pulumi.set(__self__, "hci", hci)
+
+    @_builtins.property
+    @pulumi.getter
+    def hci(self) -> pulumi.Input[Optional['VirtualNetworkPropertiesHciArgs']]:
+        """
+        Infrastructure network profile for HCI platform
+        """
+        return pulumi.get(self, "hci")
+
+    @hci.setter
+    def hci(self, value: pulumi.Input[Optional['VirtualNetworkPropertiesHciArgs']]):
+        pulumi.set(self, "hci", value)
+
+
+class VirtualNetworkPropertiesVipPoolArgsDict(TypedDict):
+    end_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ending IP address for the IP Pool
+    """
+    start_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Starting IP address for the IP Pool
+    """
+
+@pulumi.input_type
+class VirtualNetworkPropertiesVipPoolArgs:
+    def __init__(__self__, *,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_ip: Ending IP address for the IP Pool
+        :param pulumi.Input[_builtins.str] start_ip: Starting IP address for the IP Pool
+        """
+        if end_ip is not None:
+            pulumi.set(__self__, "end_ip", end_ip)
+        if start_ip is not None:
+            pulumi.set(__self__, "start_ip", start_ip)
+
+    @_builtins.property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ending IP address for the IP Pool
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Starting IP address for the IP Pool
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_ip", value)
+
+
+class VirtualNetworkPropertiesVmipPoolArgsDict(TypedDict):
+    end_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ending IP address for the IP Pool
+    """
+    start_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Starting IP address for the IP Pool
+    """
+
+@pulumi.input_type
+class VirtualNetworkPropertiesVmipPoolArgs:
+    def __init__(__self__, *,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_ip: Ending IP address for the IP Pool
+        :param pulumi.Input[_builtins.str] start_ip: Starting IP address for the IP Pool
+        """
+        if end_ip is not None:
+            pulumi.set(__self__, "end_ip", end_ip)
+        if start_ip is not None:
+            pulumi.set(__self__, "start_ip", start_ip)
+
+    @_builtins.property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ending IP address for the IP Pool
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Starting IP address for the IP Pool
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_ip", value)
 
 

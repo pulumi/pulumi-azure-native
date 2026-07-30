@@ -21,7 +21,7 @@ __all__ = ['ConsoleWithLocationArgs', 'ConsoleWithLocation']
 class ConsoleWithLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 console_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 console_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsoleWithLocation resource.
 
@@ -46,14 +46,14 @@ class ConsoleWithLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="consoleName")
-    def console_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def console_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the console
         """
         return pulumi.get(self, "console_name")
 
     @console_name.setter
-    def console_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def console_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "console_name", value)
 
 
@@ -63,14 +63,13 @@ class ConsoleWithLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 console_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 console_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Cloud shell console
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,7 +87,6 @@ class ConsoleWithLocation(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
 
-
         :param str resource_name: The name of the resource.
         :param ConsoleWithLocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,8 +102,8 @@ class ConsoleWithLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 console_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 console_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

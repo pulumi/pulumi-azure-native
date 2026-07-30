@@ -25,12 +25,12 @@ class AccessBridgeArgs:
                  extended_location: pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'],
                  network_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_bridge_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessBridge resource.
 
@@ -98,74 +98,74 @@ class AccessBridgeArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessBridgeName")
-    def access_bridge_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_bridge_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access bridge.
         """
         return pulumi.get(self, "access_bridge_name")
 
     @access_bridge_name.setter
-    def access_bridge_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_bridge_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_bridge_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4ConnectedPrefix")
-    def ipv4_connected_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_connected_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         """
         return pulumi.get(self, "ipv4_connected_prefix")
 
     @ipv4_connected_prefix.setter
-    def ipv4_connected_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_connected_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_connected_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6ConnectedPrefix")
-    def ipv6_connected_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_connected_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         """
         return pulumi.get(self, "ipv6_connected_prefix")
 
     @ipv6_connected_prefix.setter
-    def ipv6_connected_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_connected_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_connected_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]]:
+    def security_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]]:
         """
         The list of security rules enforced by the access bridge.
         """
         return pulumi.get(self, "security_rules")
 
     @security_rules.setter
-    def security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]]):
+    def security_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]]]):
         pulumi.set(self, "security_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,15 +175,15 @@ class AccessBridge(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessBridgeSecurityRuleArgs', 'AccessBridgeSecurityRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_bridge_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessBridgeSecurityRuleArgs', 'AccessBridgeSecurityRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         AccessBridge represents a managed access bridge resource.
@@ -191,7 +191,6 @@ class AccessBridge(pulumi.CustomResource):
         Uses Azure REST API version 2026-01-01-preview.
 
         Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class AccessBridge(pulumi.CustomResource):
 
         Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccessBridgeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,15 +232,15 @@ class AccessBridge(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessBridgeSecurityRuleArgs', 'AccessBridgeSecurityRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_bridge_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessBridgeSecurityRuleArgs', 'AccessBridgeSecurityRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

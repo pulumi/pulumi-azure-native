@@ -168,7 +168,6 @@ def get_move_collection(move_collection_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str move_collection_name: The Move Collection Name.
     :param _builtins.str resource_group_name: The Resource Group Name.
     """
@@ -189,8 +188,8 @@ def get_move_collection(move_collection_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_move_collection_output(move_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_move_collection_output(move_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMoveCollectionResult]:
     """
     Gets the move collection.
@@ -198,7 +197,6 @@ def get_move_collection_output(move_collection_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str move_collection_name: The Move Collection Name.
     :param _builtins.str resource_group_name: The Resource Group Name.

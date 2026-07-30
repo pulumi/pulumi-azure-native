@@ -112,13 +112,13 @@ export interface SubscriptionRaiPolicyArgs {
     /**
      * Properties of Cognitive Services RaiPolicy.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiPolicyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiPolicyPropertiesArgs | undefined>;
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName?: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

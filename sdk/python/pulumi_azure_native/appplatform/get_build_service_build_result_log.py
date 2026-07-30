@@ -62,7 +62,6 @@ def get_build_service_build_result_log(build_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_name: The name of the build resource.
     :param _builtins.str build_result_name: The name of the build result resource.
     :param _builtins.str build_service_name: The name of the build service resource.
@@ -80,11 +79,11 @@ def get_build_service_build_result_log(build_name: Optional[_builtins.str] = Non
 
     return AwaitableGetBuildServiceBuildResultLogResult(
         blob_url=pulumi.get(__ret__, 'blob_url'))
-def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              build_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_build_service_build_result_log_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              build_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildServiceBuildResultLogResult]:
     """
     Get a KPack build result log download URL.
@@ -92,7 +91,6 @@ def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_name: The name of the build resource.
     :param _builtins.str build_result_name: The name of the build result resource.

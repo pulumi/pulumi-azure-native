@@ -22,9 +22,9 @@ class DatabaseArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 charset: Optional[pulumi.Input[_builtins.str]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 charset: pulumi.Input[Optional[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -69,38 +69,38 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def charset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def charset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Character set of the database.
         """
         return pulumi.get(self, "charset")
 
     @charset.setter
-    def charset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def charset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "charset", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collation of the database.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
 
@@ -110,11 +110,11 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 charset: Optional[pulumi.Input[_builtins.str]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 charset: pulumi.Input[Optional[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a database.
@@ -122,7 +122,6 @@ class Database(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class Database(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 charset: Optional[pulumi.Input[_builtins.str]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 charset: pulumi.Input[Optional[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -109,23 +109,23 @@ export interface ListListSchemaOutputArgs {
     /**
      * Connection ID associated with this schema
      */
-    connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string | undefined>;
     /**
      * Content of the schema
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The direction of the schema.
      */
-    direction?: pulumi.Input<string | enums.azuredatatransfer.SchemaDirection>;
+    direction?: pulumi.Input<string | enums.azuredatatransfer.SchemaDirection | undefined>;
     /**
      * ID associated with this schema
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the schema
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name for the pipeline that is to be requested.
      */
@@ -137,13 +137,13 @@ export interface ListListSchemaOutputArgs {
     /**
      * The Schema Type
      */
-    schemaType?: pulumi.Input<string | enums.azuredatatransfer.SchemaType>;
+    schemaType?: pulumi.Input<string | enums.azuredatatransfer.SchemaType | undefined>;
     /**
      * Uri containing SAS token for the zipped schema
      */
-    schemaUri?: pulumi.Input<string>;
+    schemaUri?: pulumi.Input<string | undefined>;
     /**
      * Status of the schema
      */
-    status?: pulumi.Input<string | enums.azuredatatransfer.SchemaStatus>;
+    status?: pulumi.Input<string | enums.azuredatatransfer.SchemaStatus | undefined>;
 }

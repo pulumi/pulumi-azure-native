@@ -184,15 +184,15 @@ export interface SecurityRuleArgs {
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The destination port ranges. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
@@ -200,7 +200,7 @@ export interface SecurityRuleArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * Name of the network security group
      */
@@ -220,13 +220,13 @@ export interface SecurityRuleArgs {
     /**
      * Name of the security rule.
      */
-    securityRuleName?: pulumi.Input<string>;
+    securityRuleName?: pulumi.Input<string | undefined>;
     /**
      * The CIDR or source IP ranges.
      */
-    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The source port ranges. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

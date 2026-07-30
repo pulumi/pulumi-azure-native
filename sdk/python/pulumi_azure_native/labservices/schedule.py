@@ -26,10 +26,10 @@ class ScheduleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  stop_at: pulumi.Input[_builtins.str],
                  time_zone_id: pulumi.Input[_builtins.str],
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_pattern: Optional[pulumi.Input['RecurrencePatternArgs']] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_pattern: pulumi.Input[Optional['RecurrencePatternArgs']] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
 
@@ -105,50 +105,50 @@ class ScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notes for this schedule.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="recurrencePattern")
-    def recurrence_pattern(self) -> Optional[pulumi.Input['RecurrencePatternArgs']]:
+    def recurrence_pattern(self) -> pulumi.Input[Optional['RecurrencePatternArgs']]:
         """
         The recurrence pattern of the scheduled actions.
         """
         return pulumi.get(self, "recurrence_pattern")
 
     @recurrence_pattern.setter
-    def recurrence_pattern(self, value: Optional[pulumi.Input['RecurrencePatternArgs']]):
+    def recurrence_pattern(self, value: pulumi.Input[Optional['RecurrencePatternArgs']]):
         pulumi.set(self, "recurrence_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
-    def schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startAt")
-    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
         """
         return pulumi.get(self, "start_at")
 
     @start_at.setter
-    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_at", value)
 
 
@@ -158,14 +158,14 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_pattern: Optional[pulumi.Input[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_pattern: pulumi.Input[Optional[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
@@ -173,7 +173,6 @@ class Schedule(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +198,6 @@ class Schedule(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,14 +213,14 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_pattern: Optional[pulumi.Input[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_pattern: pulumi.Input[Optional[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

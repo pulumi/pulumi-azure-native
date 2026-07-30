@@ -155,7 +155,6 @@ def get_machine_learning_dataset(dataset_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-05-01-preview.
 
-
     :param _builtins.str dataset_name: The Dataset name.
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.
     :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
@@ -177,15 +176,14 @@ def get_machine_learning_dataset(dataset_name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_machine_learning_dataset_output(dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
     """
     Get a Dataset by name.
 
     Uses Azure REST API version 2020-05-01-preview.
-
 
     :param _builtins.str dataset_name: The Dataset name.
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.

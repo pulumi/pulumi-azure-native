@@ -157,8 +157,7 @@ def get_application_group(application_group_name: Optional[_builtins.str] = None
 
     Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
-    :param _builtins.str application_group_name: The Application Group name 
+    :param _builtins.str application_group_name: The Application Group name
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.
     """
@@ -179,9 +178,9 @@ def get_application_group(application_group_name: Optional[_builtins.str] = None
         policies=pulumi.get(__ret__, 'policies'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_group_output(application_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_group_output(application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Gets an ApplicationGroup for a Namespace.
@@ -190,8 +189,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[_
 
     Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
-    :param _builtins.str application_group_name: The Application Group name 
+    :param _builtins.str application_group_name: The Application Group name
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.
     """

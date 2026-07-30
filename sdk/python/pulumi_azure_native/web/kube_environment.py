@@ -23,18 +23,18 @@ __all__ = ['KubeEnvironmentArgs', 'KubeEnvironment']
 class KubeEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 aks_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
-                 arc_configuration: Optional[pulumi.Input['ArcConfigurationArgs']] = None,
-                 container_apps_configuration: Optional[pulumi.Input['ContainerAppsConfigurationArgs']] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 aks_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_logs_configuration: pulumi.Input[Optional['AppLogsConfigurationArgs']] = None,
+                 arc_configuration: pulumi.Input[Optional['ArcConfigurationArgs']] = None,
+                 container_apps_configuration: pulumi.Input[Optional['ContainerAppsConfigurationArgs']] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubeEnvironment resource.
 
@@ -95,16 +95,16 @@ class KubeEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="aksResourceID")
-    def aks_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aks_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "aks_resource_id")
 
     @aks_resource_id.setter
-    def aks_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aks_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aks_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appLogsConfiguration")
-    def app_logs_configuration(self) -> Optional[pulumi.Input['AppLogsConfigurationArgs']]:
+    def app_logs_configuration(self) -> pulumi.Input[Optional['AppLogsConfigurationArgs']]:
         """
         Cluster configuration which enables the log daemon to export
         app logs to a destination. Currently only "log-analytics" is
@@ -113,12 +113,12 @@ class KubeEnvironmentArgs:
         return pulumi.get(self, "app_logs_configuration")
 
     @app_logs_configuration.setter
-    def app_logs_configuration(self, value: Optional[pulumi.Input['AppLogsConfigurationArgs']]):
+    def app_logs_configuration(self, value: pulumi.Input[Optional['AppLogsConfigurationArgs']]):
         pulumi.set(self, "app_logs_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="arcConfiguration")
-    def arc_configuration(self) -> Optional[pulumi.Input['ArcConfigurationArgs']]:
+    def arc_configuration(self) -> pulumi.Input[Optional['ArcConfigurationArgs']]:
         """
         Cluster configuration which determines the ARC cluster
         components types. Eg: Choosing between BuildService kind,
@@ -127,115 +127,115 @@ class KubeEnvironmentArgs:
         return pulumi.get(self, "arc_configuration")
 
     @arc_configuration.setter
-    def arc_configuration(self, value: Optional[pulumi.Input['ArcConfigurationArgs']]):
+    def arc_configuration(self, value: pulumi.Input[Optional['ArcConfigurationArgs']]):
         pulumi.set(self, "arc_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppsConfiguration")
-    def container_apps_configuration(self) -> Optional[pulumi.Input['ContainerAppsConfigurationArgs']]:
+    def container_apps_configuration(self) -> pulumi.Input[Optional['ContainerAppsConfigurationArgs']]:
         """
         Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
         """
         return pulumi.get(self, "container_apps_configuration")
 
     @container_apps_configuration.setter
-    def container_apps_configuration(self, value: Optional[pulumi.Input['ContainerAppsConfigurationArgs']]):
+    def container_apps_configuration(self, value: pulumi.Input[Optional['ContainerAppsConfigurationArgs']]):
         pulumi.set(self, "container_apps_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         """
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
-    def environment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         Extended Location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancerEnabled")
-    def internal_load_balancer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal_load_balancer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Only visible within Vnet/Subnet
         """
         return pulumi.get(self, "internal_load_balancer_enabled")
 
     @internal_load_balancer_enabled.setter
-    def internal_load_balancer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal_load_balancer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal_load_balancer_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Kubernetes Environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="staticIp")
-    def static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP of the KubeEnvironment
         """
         return pulumi.get(self, "static_ip")
 
     @static_ip.setter
-    def static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -245,19 +245,19 @@ class KubeEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aks_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
-                 arc_configuration: Optional[pulumi.Input[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
-                 container_apps_configuration: Optional[pulumi.Input[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aks_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_logs_configuration: pulumi.Input[Optional[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 arc_configuration: pulumi.Input[Optional[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
+                 container_apps_configuration: pulumi.Input[Optional[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
@@ -265,7 +265,6 @@ class KubeEnvironment(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,7 +298,6 @@ class KubeEnvironment(pulumi.CustomResource):
 
         Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param KubeEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,19 +313,19 @@ class KubeEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aks_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
-                 arc_configuration: Optional[pulumi.Input[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
-                 container_apps_configuration: Optional[pulumi.Input[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aks_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_logs_configuration: pulumi.Input[Optional[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 arc_configuration: pulumi.Input[Optional[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
+                 container_apps_configuration: pulumi.Input[Optional[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

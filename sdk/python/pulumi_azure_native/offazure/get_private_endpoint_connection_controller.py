@@ -157,7 +157,6 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[_bui
 
     Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str pe_connection_name:  Private link resource name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_name: Site name
@@ -179,9 +178,9 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[_bui
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_controller_output(pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_controller_output(pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerResult]:
     """
     Gets the private link resource.
@@ -189,7 +188,6 @@ def get_private_endpoint_connection_controller_output(pe_connection_name: Option
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str pe_connection_name:  Private link resource name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

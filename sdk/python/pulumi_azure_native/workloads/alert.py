@@ -24,11 +24,11 @@ class AlertArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 alert_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_properties: Optional[pulumi.Input['AlertRulePropertiesArgs']] = None,
-                 provider_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_properties: pulumi.Input[Optional['AlertRulePropertiesArgs']] = None,
+                 provider_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alert resource.
 
@@ -79,62 +79,62 @@ class AlertArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertName")
-    def alert_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SAP monitor alert resource.
         """
         return pulumi.get(self, "alert_name")
 
     @alert_name.setter
-    def alert_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_name", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleProperties")
-    def alert_rule_properties(self) -> Optional[pulumi.Input['AlertRulePropertiesArgs']]:
+    def alert_rule_properties(self) -> pulumi.Input[Optional['AlertRulePropertiesArgs']]:
         """
         Describes the properties of an alert.
         """
         return pulumi.get(self, "alert_rule_properties")
 
     @alert_rule_properties.setter
-    def alert_rule_properties(self, value: Optional[pulumi.Input['AlertRulePropertiesArgs']]):
+    def alert_rule_properties(self, value: pulumi.Input[Optional['AlertRulePropertiesArgs']]):
         pulumi.set(self, "alert_rule_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="providerNames")
-    def provider_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def provider_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Name of provider instances associated with the alert.
         """
         return pulumi.get(self, "provider_names")
 
     @provider_names.setter
-    def provider_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def provider_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provider_names", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider type for alert. For example, the value can be SapHana.
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the alert template from which it was created.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
@@ -144,19 +144,18 @@ class Alert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_properties: Optional[pulumi.Input[Union['AlertRulePropertiesArgs', 'AlertRulePropertiesArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_properties: pulumi.Input[Optional[Union['AlertRulePropertiesArgs', 'AlertRulePropertiesArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A alert associated with SAP monitor.
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class Alert(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class Alert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_properties: Optional[pulumi.Input[Union['AlertRulePropertiesArgs', 'AlertRulePropertiesArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_properties: pulumi.Input[Optional[Union['AlertRulePropertiesArgs', 'AlertRulePropertiesArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

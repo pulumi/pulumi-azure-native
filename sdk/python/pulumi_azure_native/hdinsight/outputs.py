@@ -2226,7 +2226,7 @@ class NetworkPropertiesResponse(dict):
 
         :param _builtins.str outbound_dependencies_managed_type: A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
         :param _builtins.str private_link: Indicates whether or not private link is enabled.
-        :param 'IpTagResponse' public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        :param 'IpTagResponse' public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
         :param _builtins.str resource_provider_connection: The direction for the resource provider connection.
         """
         if outbound_dependencies_managed_type is not None:
@@ -2258,7 +2258,7 @@ class NetworkPropertiesResponse(dict):
     @pulumi.getter(name="publicIpTag")
     def public_ip_tag(self) -> Optional['outputs.IpTagResponse']:
         """
-        Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.
         """
         return pulumi.get(self, "public_ip_tag")
 
@@ -3278,7 +3278,7 @@ class StorageAccountResponse(dict):
         The storage Account.
 
         :param _builtins.str container: The container in the storage account, only to be specified for WASB storage accounts.
-        :param _builtins.bool enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+        :param _builtins.bool enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
         :param _builtins.str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         :param _builtins.str fileshare: The file share name.
         :param _builtins.bool is_default: Whether or not the storage account is the default storage account.
@@ -3321,7 +3321,7 @@ class StorageAccountResponse(dict):
     @pulumi.getter(name="enableSecureChannel")
     def enable_secure_channel(self) -> Optional[_builtins.bool]:
         """
-        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 ,
         """
         return pulumi.get(self, "enable_secure_channel")
 

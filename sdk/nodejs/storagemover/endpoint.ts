@@ -111,7 +111,7 @@ export interface EndpointArgs {
     /**
      * The name of the Endpoint resource.
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The resource specific properties for the Storage Mover resource.
      */

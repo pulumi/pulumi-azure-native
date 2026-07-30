@@ -72,7 +72,6 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[_builti
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_runtime_name: Integration runtime name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -87,9 +86,9 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[_builti
     return AwaitableListIntegrationRuntimeAuthKeyResult(
         auth_key1=pulumi.get(__ret__, 'auth_key1'),
         auth_key2=pulumi.get(__ret__, 'auth_key2'))
-def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_integration_runtime_auth_key_output(integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeyResult]:
     """
     List authentication keys in an integration runtime
@@ -97,7 +96,6 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
     Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_runtime_name: Integration runtime name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

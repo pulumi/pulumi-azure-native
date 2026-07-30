@@ -36,7 +36,7 @@ class ApiEntityReferenceArgsDict(TypedDict):
     """
     The API entity reference.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
     """
@@ -44,7 +44,7 @@ class ApiEntityReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ApiEntityReferenceArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The API entity reference.
 
@@ -55,14 +55,14 @@ class ApiEntityReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -78,7 +78,7 @@ class CloudHsmClusterSkuArgsDict(TypedDict):
     """
     Sku name of the Cloud HSM Cluster
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sku capacity
     """
@@ -88,7 +88,7 @@ class CloudHsmClusterSkuArgs:
     def __init__(__self__, *,
                  family: pulumi.Input[Union[_builtins.str, 'CloudHsmClusterSkuFamily']],
                  name: pulumi.Input['CloudHsmClusterSkuName'],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Cloud Hsm Cluster SKU information
 
@@ -127,14 +127,14 @@ class CloudHsmClusterSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sku capacity
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -146,7 +146,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -155,7 +155,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -180,14 +180,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -195,7 +195,7 @@ class NetworkInterfaceArgsDict(TypedDict):
     """
     The network interface definition.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Ip address of the interface
     """
@@ -203,7 +203,7 @@ class NetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The network interface definition.
 
@@ -214,14 +214,14 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Ip address of the interface
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
 
@@ -229,11 +229,11 @@ class NetworkProfileArgsDict(TypedDict):
     """
     The network profile definition.
     """
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]]
     """
     Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
     """
-    subnet: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['ApiEntityReferenceArgsDict']]]
     """
     Specifies the identifier of the subnet.
     """
@@ -241,8 +241,8 @@ class NetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
-                 subnet: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+                 subnet: pulumi.Input[Optional['ApiEntityReferenceArgs']] = None):
         """
         The network profile definition.
 
@@ -256,26 +256,26 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['ApiEntityReferenceArgs']]:
         """
         Specifies the identifier of the subnet.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['ApiEntityReferenceArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -283,15 +283,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -299,9 +299,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -318,38 +318,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -357,7 +357,7 @@ class SkuArgsDict(TypedDict):
     """
     SKU of the dedicated HSM
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]]
     """
     SKU of the dedicated HSM
     """
@@ -365,7 +365,7 @@ class SkuArgsDict(TypedDict):
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]] = None):
         """
         SKU of the dedicated HSM
 
@@ -376,14 +376,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]:
         """
         SKU of the dedicated HSM
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
 

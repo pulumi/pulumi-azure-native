@@ -191,39 +191,39 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The GatewayManager Etag.
      */
-    gatewayManagerEtag?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 peering configuration.
      */
-    ipv6PeeringConfig?: pulumi.Input<inputs.network.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
+    ipv6PeeringConfig?: pulumi.Input<inputs.network.Ipv6ExpressRouteCircuitPeeringConfigArgs | undefined>;
     /**
      * The Microsoft peering configuration.
      */
-    microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringConfigArgs>;
+    microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringConfigArgs | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The peer ASN.
      */
-    peerASN?: pulumi.Input<number>;
+    peerASN?: pulumi.Input<number | undefined>;
     /**
      * The name of the peering.
      */
-    peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string | undefined>;
     /**
      * The peering type.
      */
-    peeringType?: pulumi.Input<string | enums.network.ExpressRoutePeeringType>;
+    peeringType?: pulumi.Input<string | enums.network.ExpressRoutePeeringType | undefined>;
     /**
      * The primary address prefix.
      */
-    primaryPeerAddressPrefix?: pulumi.Input<string>;
+    primaryPeerAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -231,17 +231,17 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The secondary address prefix.
      */
-    secondaryPeerAddressPrefix?: pulumi.Input<string>;
+    secondaryPeerAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The shared key.
      */
-    sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string | undefined>;
     /**
      * The peering state.
      */
-    state?: pulumi.Input<string | enums.network.ExpressRoutePeeringState>;
+    state?: pulumi.Input<string | enums.network.ExpressRoutePeeringState | undefined>;
     /**
      * The VLAN ID.
      */
-    vlanId?: pulumi.Input<number>;
+    vlanId?: pulumi.Input<number | undefined>;
 }

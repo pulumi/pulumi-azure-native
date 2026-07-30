@@ -26,11 +26,11 @@ class ProtectedItemArgs:
                  fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]] = None,
-                 protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]] = None,
+                 protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProtectedItem resource.
 
@@ -109,62 +109,62 @@ class ProtectedItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional ETag.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]]:
         """
         ProtectedItemResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedItemName")
-    def protected_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protected_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Item name to be backed up.
         """
         return pulumi.get(self, "protected_item_name")
 
     @protected_item_name.setter
-    def protected_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protected_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protected_item_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,15 +174,15 @@ class ProtectedItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureFileshareProtectedItemArgs', 'AzureFileshareProtectedItemArgsDict'], Union['AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgsDict'], Union['AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgsDict'], Union['AzureIaaSVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgsDict'], Union['AzureSqlProtectedItemArgs', 'AzureSqlProtectedItemArgsDict'], Union['AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgsDict'], Union['AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgsDict'], Union['DPMProtectedItemArgs', 'DPMProtectedItemArgsDict'], Union['GenericProtectedItemArgs', 'GenericProtectedItemArgsDict'], Union['MabFileFolderProtectedItemArgs', 'MabFileFolderProtectedItemArgsDict']]]] = None,
-                 protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureFileshareProtectedItemArgs', 'AzureFileshareProtectedItemArgsDict'], Union['AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgsDict'], Union['AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgsDict'], Union['AzureIaaSVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgsDict'], Union['AzureSqlProtectedItemArgs', 'AzureSqlProtectedItemArgsDict'], Union['AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgsDict'], Union['AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgsDict'], Union['DPMProtectedItemArgs', 'DPMProtectedItemArgsDict'], Union['GenericProtectedItemArgs', 'GenericProtectedItemArgsDict'], Union['MabFileFolderProtectedItemArgs', 'MabFileFolderProtectedItemArgsDict']]]] = None,
+                 protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Base class for backup items.
@@ -190,7 +190,6 @@ class ProtectedItem(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01, 2026-01-01, 2026-01-31-preview, 2026-02-01, 2026-03-31-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class ProtectedItem(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01, 2026-01-01, 2026-01-31-preview, 2026-02-01, 2026-03-31-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProtectedItemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class ProtectedItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureFileshareProtectedItemArgs', 'AzureFileshareProtectedItemArgsDict'], Union['AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgsDict'], Union['AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgsDict'], Union['AzureIaaSVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgsDict'], Union['AzureSqlProtectedItemArgs', 'AzureSqlProtectedItemArgsDict'], Union['AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgsDict'], Union['AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgsDict'], Union['DPMProtectedItemArgs', 'DPMProtectedItemArgsDict'], Union['GenericProtectedItemArgs', 'GenericProtectedItemArgsDict'], Union['MabFileFolderProtectedItemArgs', 'MabFileFolderProtectedItemArgsDict']]]] = None,
-                 protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AzureFileshareProtectedItemArgs', 'AzureFileshareProtectedItemArgsDict'], Union['AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgsDict'], Union['AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgsDict'], Union['AzureIaaSVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgsDict'], Union['AzureSqlProtectedItemArgs', 'AzureSqlProtectedItemArgsDict'], Union['AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgsDict'], Union['AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict'], Union['AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict'], Union['AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgsDict'], Union['DPMProtectedItemArgs', 'DPMProtectedItemArgsDict'], Union['GenericProtectedItemArgs', 'GenericProtectedItemArgsDict'], Union['MabFileFolderProtectedItemArgs', 'MabFileFolderProtectedItemArgsDict']]]] = None,
+                 protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

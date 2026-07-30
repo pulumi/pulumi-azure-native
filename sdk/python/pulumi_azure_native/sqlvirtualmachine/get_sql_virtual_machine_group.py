@@ -216,7 +216,6 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[_builtins.str] =
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
@@ -241,8 +240,8 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[_builtins.str] =
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         wsfc_domain_profile=pulumi.get(__ret__, 'wsfc_domain_profile'))
-def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         sql_virtual_machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_virtual_machine_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         sql_virtual_machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
     Gets a SQL virtual machine group.
@@ -250,7 +249,6 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
     Uses Azure REST API version 2023-10-01.
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.

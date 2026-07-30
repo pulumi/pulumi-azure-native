@@ -25,17 +25,17 @@ class VirtualMachineScheduleArgs:
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_name: pulumi.Input[_builtins.str],
-                 daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
-                 hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
+                 daily_recurrence: pulumi.Input[Optional['DayDetailsArgs']] = None,
+                 hourly_recurrence: pulumi.Input[Optional['HourDetailsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional['NotificationSettingsArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_recurrence: pulumi.Input[Optional['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineSchedule resource.
 
@@ -120,134 +120,134 @@ class VirtualMachineScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional[pulumi.Input['DayDetailsArgs']]:
+    def daily_recurrence(self) -> pulumi.Input[Optional['DayDetailsArgs']]:
         """
         If the schedule will occur once each day of the week, specify the daily recurrence.
         """
         return pulumi.get(self, "daily_recurrence")
 
     @daily_recurrence.setter
-    def daily_recurrence(self, value: Optional[pulumi.Input['DayDetailsArgs']]):
+    def daily_recurrence(self, value: pulumi.Input[Optional['DayDetailsArgs']]):
         pulumi.set(self, "daily_recurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional[pulumi.Input['HourDetailsArgs']]:
+    def hourly_recurrence(self) -> pulumi.Input[Optional['HourDetailsArgs']]:
         """
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
         return pulumi.get(self, "hourly_recurrence")
 
     @hourly_recurrence.setter
-    def hourly_recurrence(self, value: Optional[pulumi.Input['HourDetailsArgs']]):
+    def hourly_recurrence(self, value: pulumi.Input[Optional['HourDetailsArgs']]):
         pulumi.set(self, "hourly_recurrence", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Schedule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input['NotificationSettingsArgs']]:
+    def notification_settings(self) -> pulumi.Input[Optional['NotificationSettingsArgs']]:
         """
         Notification settings.
         """
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input['NotificationSettingsArgs']]):
+    def notification_settings(self, value: pulumi.Input[Optional['NotificationSettingsArgs']]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]:
         """
         The status of the schedule (i.e. Enabled, Disabled)
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID to which the schedule belongs
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_type", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZoneId")
-    def time_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 
     @time_zone_id.setter
-    def time_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional[pulumi.Input['WeekDetailsArgs']]:
+    def weekly_recurrence(self) -> pulumi.Input[Optional['WeekDetailsArgs']]:
         """
         If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         return pulumi.get(self, "weekly_recurrence")
 
     @weekly_recurrence.setter
-    def weekly_recurrence(self, value: Optional[pulumi.Input['WeekDetailsArgs']]):
+    def weekly_recurrence(self, value: pulumi.Input[Optional['WeekDetailsArgs']]):
         pulumi.set(self, "weekly_recurrence", value)
 
 
@@ -257,26 +257,25 @@ class VirtualMachineSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: Optional[pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
-                 hourly_recurrence: Optional[pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
+                 daily_recurrence: pulumi.Input[Optional[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
+                 hourly_recurrence: pulumi.Input[Optional[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_recurrence: pulumi.Input[Optional[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
                  __props__=None):
         """
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,7 +305,6 @@ class VirtualMachineSchedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,20 +320,20 @@ class VirtualMachineSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: Optional[pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
-                 hourly_recurrence: Optional[pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
+                 daily_recurrence: pulumi.Input[Optional[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
+                 hourly_recurrence: pulumi.Input[Optional[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_recurrence: pulumi.Input[Optional[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

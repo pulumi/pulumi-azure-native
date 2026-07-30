@@ -27,11 +27,11 @@ class ScheduledActionArgs:
                  schedule: pulumi.Input['SchedulePropertiesArgs'],
                  status: pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']],
                  view_id: pulumi.Input[_builtins.str],
-                 file_destination: Optional[pulumi.Input['FileDestinationArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_destination: pulumi.Input[Optional['FileDestinationArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
 
@@ -124,62 +124,62 @@ class ScheduledActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileDestination")
-    def file_destination(self) -> Optional[pulumi.Input['FileDestinationArgs']]:
+    def file_destination(self) -> pulumi.Input[Optional['FileDestinationArgs']]:
         """
         Destination format of the view data. This is optional.
         """
         return pulumi.get(self, "file_destination")
 
     @file_destination.setter
-    def file_destination(self, value: Optional[pulumi.Input['FileDestinationArgs']]):
+    def file_destination(self, value: pulumi.Input[Optional['FileDestinationArgs']]):
         pulumi.set(self, "file_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]]:
         """
         Kind of the scheduled action.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scheduled action name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
-    def notification_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the point of contact that should get the unsubscribe requests and notification emails.
         """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
-    def notification_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -189,16 +189,16 @@ class ScheduledAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
-                 view_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_destination: pulumi.Input[Optional[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
+                 view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Scheduled action definition.
@@ -206,7 +206,6 @@ class ScheduledAction(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +233,6 @@ class ScheduledAction(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,16 +248,16 @@ class ScheduledAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
-                 view_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_destination: pulumi.Input[Optional[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
+                 view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -114,7 +114,7 @@ export class Formula extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args?.description;
-            resourceInputs["formulaContent"] = args ? (args.formulaContent ? pulumi.output(args.formulaContent).apply(inputs.devtestlab.labVirtualMachineCreationParameterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["formulaContent"] = args ? pulumi.output(args.formulaContent).apply(v => v === undefined ? undefined : inputs.devtestlab.labVirtualMachineCreationParameterArgsProvideDefaults(v)) : undefined;
             resourceInputs["labName"] = args?.labName;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -159,11 +159,11 @@ export interface FormulaArgs {
     /**
      * The description of the formula.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The content of the formula.
      */
-    formulaContent?: pulumi.Input<inputs.devtestlab.LabVirtualMachineCreationParameterArgs>;
+    formulaContent?: pulumi.Input<inputs.devtestlab.LabVirtualMachineCreationParameterArgs | undefined>;
     /**
      * The name of the lab.
      */
@@ -171,15 +171,15 @@ export interface FormulaArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the formula.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The OS type of the formula.
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,9 +187,9 @@ export interface FormulaArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Information about a VM from which a formula is to be created.
      */
-    vm?: pulumi.Input<inputs.devtestlab.FormulaPropertiesFromVmArgs>;
+    vm?: pulumi.Input<inputs.devtestlab.FormulaPropertiesFromVmArgs | undefined>;
 }

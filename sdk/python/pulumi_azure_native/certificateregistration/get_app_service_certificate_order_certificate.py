@@ -168,7 +168,6 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str certificate_order_name: Name of the certificate order.
     :param _builtins.str name: Name of the certificate.
     :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
@@ -191,9 +190,9 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_app_service_certificate_order_certificate_output(certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_certificate_order_certificate_output(certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Description for Get the certificate associated with a certificate order.
@@ -201,7 +200,6 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str certificate_order_name: Name of the certificate order.
     :param _builtins.str name: Name of the certificate.

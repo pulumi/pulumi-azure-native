@@ -21,17 +21,17 @@ __all__ = ['TenantActionGroupArgs', 'TenantActionGroup']
 @pulumi.input_type
 class TenantActionGroupArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_short_name: pulumi.Input[_builtins.str],
                  management_group_id: pulumi.Input[_builtins.str],
-                 azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]] = None,
-                 email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_action_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]]] = None,
-                 webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None):
+                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]] = None,
+                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['SmsReceiverArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceReceiverArgs']]]] = None,
+                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None):
         """
         The set of arguments for constructing a TenantActionGroup resource.
 
@@ -107,98 +107,98 @@ class TenantActionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureAppPushReceivers")
-    def azure_app_push_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]]:
+    def azure_app_push_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]]:
         """
         The list of AzureAppPush receivers that are part of this tenant action group.
         """
         return pulumi.get(self, "azure_app_push_receivers")
 
     @azure_app_push_receivers.setter
-    def azure_app_push_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]]):
+    def azure_app_push_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzureAppPushReceiverArgs']]]]):
         pulumi.set(self, "azure_app_push_receivers", value)
 
     @_builtins.property
     @pulumi.getter(name="emailReceivers")
-    def email_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]]:
+    def email_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailReceiverArgs']]]]:
         """
         The list of email receivers that are part of this tenant action group.
         """
         return pulumi.get(self, "email_receivers")
 
     @email_receivers.setter
-    def email_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]]):
+    def email_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailReceiverArgs']]]]):
         pulumi.set(self, "email_receivers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="smsReceivers")
-    def sms_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]]]:
+    def sms_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SmsReceiverArgs']]]]:
         """
         The list of SMS receivers that are part of this tenant action group.
         """
         return pulumi.get(self, "sms_receivers")
 
     @sms_receivers.setter
-    def sms_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]]]):
+    def sms_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SmsReceiverArgs']]]]):
         pulumi.set(self, "sms_receivers", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantActionGroupName")
-    def tenant_action_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_action_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the action group.
         """
         return pulumi.get(self, "tenant_action_group_name")
 
     @tenant_action_group_name.setter
-    def tenant_action_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_action_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_action_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceReceivers")
-    def voice_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]]]:
+    def voice_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VoiceReceiverArgs']]]]:
         """
         The list of voice receivers that are part of this tenant action group.
         """
         return pulumi.get(self, "voice_receivers")
 
     @voice_receivers.setter
-    def voice_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]]]):
+    def voice_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceReceiverArgs']]]]):
         pulumi.set(self, "voice_receivers", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]]:
+    def webhook_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookReceiverArgs']]]]:
         """
         The list of webhook receivers that are part of this tenant action group.
         """
         return pulumi.get(self, "webhook_receivers")
 
     @webhook_receivers.setter
-    def webhook_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]]):
+    def webhook_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookReceiverArgs']]]]):
         pulumi.set(self, "webhook_receivers", value)
 
 
@@ -208,23 +208,22 @@ class TenantActionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]]] = None,
-                 email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailReceiverArgs', 'EmailReceiverArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SmsReceiverArgs', 'SmsReceiverArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_action_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceReceiverArgs', 'VoiceReceiverArgsDict']]]]] = None,
-                 webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookReceiverArgs', 'WebhookReceiverArgsDict']]]]] = None,
+                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]]] = None,
+                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailReceiverArgs', 'EmailReceiverArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SmsReceiverArgs', 'SmsReceiverArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceReceiverArgs', 'VoiceReceiverArgsDict']]]]] = None,
+                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookReceiverArgs', 'WebhookReceiverArgsDict']]]]] = None,
                  __props__=None):
         """
         A tenant action group resource.
 
         Uses Azure REST API version 2023-05-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +250,6 @@ class TenantActionGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param TenantActionGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,17 +265,17 @@ class TenantActionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]]] = None,
-                 email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailReceiverArgs', 'EmailReceiverArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SmsReceiverArgs', 'SmsReceiverArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_action_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceReceiverArgs', 'VoiceReceiverArgsDict']]]]] = None,
-                 webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookReceiverArgs', 'WebhookReceiverArgsDict']]]]] = None,
+                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]]] = None,
+                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailReceiverArgs', 'EmailReceiverArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SmsReceiverArgs', 'SmsReceiverArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceReceiverArgs', 'VoiceReceiverArgsDict']]]]] = None,
+                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookReceiverArgs', 'WebhookReceiverArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

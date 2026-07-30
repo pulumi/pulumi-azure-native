@@ -74,7 +74,6 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
 
     Other available API versions: 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_group_name: The name of the network group.
     :param _builtins.str network_manager_name: The name of the network manager.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -91,10 +90,10 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
     return AwaitableListListEffectiveVirtualNetworkByNetworkGroupResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_list_effective_virtual_network_by_network_group_output(network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_list_effective_virtual_network_by_network_group_output(network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListEffectiveVirtualNetworkByNetworkGroupResult]:
     """
     Lists all effective virtual networks by specified network group.
@@ -102,7 +101,6 @@ def list_list_effective_virtual_network_by_network_group_output(network_group_na
     Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_group_name: The name of the network group.
     :param _builtins.str network_manager_name: The name of the network manager.

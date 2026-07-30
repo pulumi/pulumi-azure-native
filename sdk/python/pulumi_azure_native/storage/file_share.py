@@ -24,17 +24,17 @@ class FileShareArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_tier: Optional[pulumi.Input[Union[_builtins.str, 'ShareAccessTier']]] = None,
-                 enabled_protocols: Optional[pulumi.Input[Union[_builtins.str, 'EnabledProtocols']]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_paid_bursting: Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 provisioned_bandwidth_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 root_squash: Optional[pulumi.Input[Union[_builtins.str, 'RootSquashType']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]] = None):
+                 access_tier: pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]] = None,
+                 enabled_protocols: pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_paid_bursting: pulumi.Input[Optional['FileSharePropertiesFileSharePaidBurstingArgs']] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 provisioned_bandwidth_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 root_squash: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['SignedIdentifierArgs']]]] = None):
         """
         The set of arguments for constructing a FileShare resource.
 
@@ -103,134 +103,134 @@ class FileShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ShareAccessTier']]]:
+    def access_tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]]:
         """
         Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ShareAccessTier']]]):
+    def access_tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledProtocols")
-    def enabled_protocols(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnabledProtocols']]]:
+    def enabled_protocols(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]]:
         """
         The authentication protocol that is used for the file share. Can only be specified when creating a share.
         """
         return pulumi.get(self, "enabled_protocols")
 
     @enabled_protocols.setter
-    def enabled_protocols(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnabledProtocols']]]):
+    def enabled_protocols(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]]):
         pulumi.set(self, "enabled_protocols", value)
 
     @_builtins.property
     @pulumi.getter
-    def expand(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expand(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
         """
         return pulumi.get(self, "expand")
 
     @expand.setter
-    def expand(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expand(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expand", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSharePaidBursting")
-    def file_share_paid_bursting(self) -> Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']]:
+    def file_share_paid_bursting(self) -> pulumi.Input[Optional['FileSharePropertiesFileSharePaidBurstingArgs']]:
         """
         File Share Paid Bursting properties.
         """
         return pulumi.get(self, "file_share_paid_bursting")
 
     @file_share_paid_bursting.setter
-    def file_share_paid_bursting(self, value: Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']]):
+    def file_share_paid_bursting(self, value: pulumi.Input[Optional['FileSharePropertiesFileSharePaidBurstingArgs']]):
         pulumi.set(self, "file_share_paid_bursting", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A name-value pair to associate with the share as metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedBandwidthMibps")
-    def provisioned_bandwidth_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provisioned_bandwidth_mibps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
         """
         return pulumi.get(self, "provisioned_bandwidth_mibps")
 
     @provisioned_bandwidth_mibps.setter
-    def provisioned_bandwidth_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provisioned_bandwidth_mibps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provisioned_bandwidth_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedIops")
-    def provisioned_iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provisioned_iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
         """
         return pulumi.get(self, "provisioned_iops")
 
     @provisioned_iops.setter
-    def provisioned_iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provisioned_iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provisioned_iops", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquash")
-    def root_squash(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RootSquashType']]]:
+    def root_squash(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]]:
         """
         The property is for NFS share only. The default is NoRootSquash.
         """
         return pulumi.get(self, "root_squash")
 
     @root_squash.setter
-    def root_squash(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RootSquashType']]]):
+    def root_squash(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]]):
         pulumi.set(self, "root_squash", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def share_quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         """
         return pulumi.get(self, "share_quota")
 
     @share_quota.setter
-    def share_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def share_quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "share_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="signedIdentifiers")
-    def signed_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]]:
+    def signed_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignedIdentifierArgs']]]]:
         """
         List of stored access policies specified on the share.
         """
         return pulumi.get(self, "signed_identifiers")
 
     @signed_identifiers.setter
-    def signed_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]]):
+    def signed_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignedIdentifierArgs']]]]):
         pulumi.set(self, "signed_identifiers", value)
 
 
@@ -240,19 +240,19 @@ class FileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[Union[_builtins.str, 'ShareAccessTier']]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_protocols: Optional[pulumi.Input[Union[_builtins.str, 'EnabledProtocols']]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_paid_bursting: Optional[pulumi.Input[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 provisioned_bandwidth_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input[Union[_builtins.str, 'RootSquashType']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
+                 access_tier: pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_protocols: pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_paid_bursting: pulumi.Input[Optional[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 provisioned_bandwidth_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
                  __props__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
@@ -260,7 +260,6 @@ class FileShare(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,7 +290,6 @@ class FileShare(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FileShareArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,19 +305,19 @@ class FileShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[Union[_builtins.str, 'ShareAccessTier']]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_protocols: Optional[pulumi.Input[Union[_builtins.str, 'EnabledProtocols']]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_paid_bursting: Optional[pulumi.Input[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 provisioned_bandwidth_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input[Union[_builtins.str, 'RootSquashType']]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
+                 access_tier: pulumi.Input[Optional[Union[_builtins.str, 'ShareAccessTier']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_protocols: pulumi.Input[Optional[Union[_builtins.str, 'EnabledProtocols']]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_paid_bursting: pulumi.Input[Optional[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 provisioned_bandwidth_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional[Union[_builtins.str, 'RootSquashType']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 signed_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

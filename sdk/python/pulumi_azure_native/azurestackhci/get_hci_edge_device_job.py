@@ -132,7 +132,6 @@ def get_hci_edge_device_job(edge_device_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-12-01-preview.
 
-
     :param _builtins.str edge_device_name: The name of the EdgeDevice
     :param _builtins.str jobs_name: Name of EdgeDevice Job
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -152,15 +151,14 @@ def get_hci_edge_device_job(edge_device_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hci_edge_device_job_output(edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHciEdgeDeviceJobResult]:
     """
     Get a EdgeDeviceJob
 
     Uses Azure REST API version 2024-12-01-preview.
-
 
     :param _builtins.str edge_device_name: The name of the EdgeDevice
     :param _builtins.str jobs_name: Name of EdgeDevice Job

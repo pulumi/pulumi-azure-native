@@ -140,19 +140,19 @@ export interface GatewayArgs {
     /**
      * Specifies the list of features that are enabled for this Gateway.
      */
-    allowedFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedFeatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Gateway.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * The type of the Gateway resource.
      */
-    gatewayType?: pulumi.Input<string | enums.hybridcompute.GatewayType>;
+    gatewayType?: pulumi.Input<string | enums.hybridcompute.GatewayType | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,5 +160,5 @@ export interface GatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

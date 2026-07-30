@@ -217,7 +217,6 @@ def get_blob_service_properties(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -244,9 +243,9 @@ def get_blob_service_properties(account_name: Optional[_builtins.str] = None,
         restore_policy=pulumi.get(__ret__, 'restore_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
-def get_blob_service_properties_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       blob_services_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blob_service_properties_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       blob_services_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
@@ -254,7 +253,6 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'

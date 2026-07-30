@@ -372,7 +372,6 @@ def get_account(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -410,8 +409,8 @@ def get_account(account_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_endpoint_state=pulumi.get(__ret__, 'tenant_endpoint_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get an account
@@ -419,7 +418,6 @@ def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

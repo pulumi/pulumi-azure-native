@@ -22,8 +22,8 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  network_device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
@@ -65,26 +65,26 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Interface.
         """
         return pulumi.get(self, "network_interface_name")
 
     @network_interface_name.setter
-    def network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_name", value)
 
 
@@ -94,10 +94,10 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the NetworkInterface resource.
@@ -105,7 +105,6 @@ class NetworkInterface(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class NetworkInterface(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

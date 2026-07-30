@@ -124,7 +124,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             resourceInputs["containerName"] = args?.containerName;
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["options"] = args?.options;
-            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.cosmosdb.sqlContainerResourceArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resource"] = args ? pulumi.output(args.resource).apply(inputs.cosmosdb.sqlContainerResourceArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
@@ -172,7 +172,7 @@ export interface DatabaseAccountSqlContainerArgs {
     /**
      * Cosmos DB container name.
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB database name.
      */

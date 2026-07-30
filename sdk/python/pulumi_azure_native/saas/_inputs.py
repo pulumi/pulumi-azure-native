@@ -24,51 +24,51 @@ class SaasCreationPropertiesArgsDict(TypedDict):
     """
     properties for creation saas
     """
-    auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_renew: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the SaaS subscription will auto renew upon term end.
     """
-    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    offer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offer id.
     """
-    payment_channel_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    payment_channel_metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
     """
-    payment_channel_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]]
+    payment_channel_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PaymentChannelType']]]]
     """
     The Payment channel for the SaasSubscription.
     """
-    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher id.
     """
-    publisher_test_environment: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_test_environment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The environment in the publisher side for this resource.
     """
-    quantity: NotRequired[pulumi.Input[_builtins.float]]
+    quantity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The seat count.
     """
-    saas_resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    saas_resource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SaaS resource name.
     """
-    saas_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    saas_session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The saas session id used for dev service migration request.
     """
-    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    saas_subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The saas subscription id used for tenant to subscription level migration request.
     """
-    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    sku_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plan id.
     """
-    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    term_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current Term id.
     """
@@ -76,18 +76,18 @@ class SaasCreationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SaasCreationPropertiesArgs:
     def __init__(__self__, *,
-                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 payment_channel_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 payment_channel_type: Optional[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_test_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 quantity: Optional[pulumi.Input[_builtins.float]] = None,
-                 saas_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 payment_channel_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 payment_channel_type: pulumi.Input[Optional[Union[_builtins.str, 'PaymentChannelType']]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_test_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 quantity: pulumi.Input[Optional[_builtins.float]] = None,
+                 saas_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         properties for creation saas
 
@@ -131,146 +131,146 @@ class SaasCreationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_renew(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the SaaS subscription will auto renew upon term end.
         """
         return pulumi.get(self, "auto_renew")
 
     @auto_renew.setter
-    def auto_renew(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_renew(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_renew", value)
 
     @_builtins.property
     @pulumi.getter(name="offerId")
-    def offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer id.
         """
         return pulumi.get(self, "offer_id")
 
     @offer_id.setter
-    def offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="paymentChannelMetadata")
-    def payment_channel_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def payment_channel_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
         """
         return pulumi.get(self, "payment_channel_metadata")
 
     @payment_channel_metadata.setter
-    def payment_channel_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def payment_channel_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "payment_channel_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="paymentChannelType")
-    def payment_channel_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]]:
+    def payment_channel_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PaymentChannelType']]]:
         """
         The Payment channel for the SaasSubscription.
         """
         return pulumi.get(self, "payment_channel_type")
 
     @payment_channel_type.setter
-    def payment_channel_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]]):
+    def payment_channel_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PaymentChannelType']]]):
         pulumi.set(self, "payment_channel_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher id.
         """
         return pulumi.get(self, "publisher_id")
 
     @publisher_id.setter
-    def publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherTestEnvironment")
-    def publisher_test_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_test_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment in the publisher side for this resource.
         """
         return pulumi.get(self, "publisher_test_environment")
 
     @publisher_test_environment.setter
-    def publisher_test_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_test_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_test_environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def quantity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def quantity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The seat count.
         """
         return pulumi.get(self, "quantity")
 
     @quantity.setter
-    def quantity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def quantity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "quantity", value)
 
     @_builtins.property
     @pulumi.getter(name="saasResourceName")
-    def saas_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SaaS resource name.
         """
         return pulumi.get(self, "saas_resource_name")
 
     @saas_resource_name.setter
-    def saas_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="saasSessionId")
-    def saas_session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The saas session id used for dev service migration request.
         """
         return pulumi.get(self, "saas_session_id")
 
     @saas_session_id.setter
-    def saas_session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_session_id", value)
 
     @_builtins.property
     @pulumi.getter(name="saasSubscriptionId")
-    def saas_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saas_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The saas subscription id used for tenant to subscription level migration request.
         """
         return pulumi.get(self, "saas_subscription_id")
 
     @saas_subscription_id.setter
-    def saas_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saas_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saas_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skuId")
-    def sku_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plan id.
         """
         return pulumi.get(self, "sku_id")
 
     @sku_id.setter
-    def sku_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_id", value)
 
     @_builtins.property
     @pulumi.getter(name="termId")
-    def term_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def term_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current Term id.
         """
         return pulumi.get(self, "term_id")
 
     @term_id.setter
-    def term_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def term_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "term_id", value)
 
 

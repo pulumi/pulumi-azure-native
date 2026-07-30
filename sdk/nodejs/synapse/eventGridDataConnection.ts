@@ -187,7 +187,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of blob storage event type to process.
      */
-    blobStorageEventType?: pulumi.Input<string | enums.synapse.BlobStorageEventType>;
+    blobStorageEventType?: pulumi.Input<string | enums.synapse.BlobStorageEventType | undefined>;
     /**
      * The event hub consumer group.
      */
@@ -195,11 +195,11 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    dataFormat?: pulumi.Input<string | enums.synapse.EventGridDataFormat>;
+    dataFormat?: pulumi.Input<string | enums.synapse.EventGridDataFormat | undefined>;
     /**
      * The name of the database in the Kusto pool.
      */
@@ -211,7 +211,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
      */
-    ignoreFirstRecord?: pulumi.Input<boolean>;
+    ignoreFirstRecord?: pulumi.Input<boolean | undefined>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'EventGrid'.
@@ -224,11 +224,11 @@ export interface EventGridDataConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -240,7 +240,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

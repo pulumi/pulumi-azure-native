@@ -372,7 +372,7 @@ class PersistedConnectionStatus(_builtins.str, Enum):
 @pulumi.type_token("azure-native:eventgrid:PublicNetworkAccess")
 class PublicNetworkAccess(_builtins.str, Enum):
     """
-    This determines if traffic is allowed over public network. By default it is enabled. 
+    This determines if traffic is allowed over public network. By default it is enabled.
     You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
     """
     ENABLED = "Enabled"

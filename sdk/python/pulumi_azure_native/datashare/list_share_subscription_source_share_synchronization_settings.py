@@ -72,7 +72,6 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str share_subscription_name: The name of the shareSubscription.
@@ -89,16 +88,15 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
     return AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_share_subscription_source_share_synchronization_settings_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                         share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                         skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_share_subscription_source_share_synchronization_settings_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                         share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                         skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSubscriptionSourceShareSynchronizationSettingsResult]:
     """
     Get synchronization settings set on a share
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str resource_group_name: The resource group name.

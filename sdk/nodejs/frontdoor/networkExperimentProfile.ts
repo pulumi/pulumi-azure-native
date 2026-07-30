@@ -122,15 +122,15 @@ export interface NetworkExperimentProfileArgs {
     /**
      * The state of the Experiment
      */
-    enabledState?: pulumi.Input<string | enums.frontdoor.State>;
+    enabledState?: pulumi.Input<string | enums.frontdoor.State | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,5 +138,5 @@ export interface NetworkExperimentProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

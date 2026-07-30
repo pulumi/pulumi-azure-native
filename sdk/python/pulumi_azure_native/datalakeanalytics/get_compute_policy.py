@@ -142,7 +142,6 @@ def get_compute_policy(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-11-01-preview.
 
-
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str compute_policy_name: The name of the compute policy to retrieve.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
@@ -163,15 +162,14 @@ def get_compute_policy(account_name: Optional[_builtins.str] = None,
         object_id=pulumi.get(__ret__, 'object_id'),
         object_type=pulumi.get(__ret__, 'object_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_compute_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              compute_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputePolicyResult]:
     """
     Gets the specified Data Lake Analytics compute policy.
 
     Uses Azure REST API version 2019-11-01-preview.
-
 
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str compute_policy_name: The name of the compute policy to retrieve.

@@ -424,7 +424,6 @@ export const WellKnownCommunities = {
 } as const;
 
 /**
- *
  * `Internet` - Advertise routes to internet community.
  *  `LocalAS` - Advertise routes to only localAS peers.
  *  `NoAdvertise` - Don't advertise routes to any peer.

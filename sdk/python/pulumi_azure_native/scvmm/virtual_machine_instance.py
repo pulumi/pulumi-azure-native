@@ -24,12 +24,12 @@ class VirtualMachineInstanceArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_uri: pulumi.Input[_builtins.str],
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]] = None,
-                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 infrastructure_profile: Optional[pulumi.Input['InfrastructureProfileArgs']] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileForVMInstanceArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
+                 availability_sets: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]] = None,
+                 hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
+                 infrastructure_profile: pulumi.Input[Optional['InfrastructureProfileArgs']] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 os_profile: pulumi.Input[Optional['OsProfileForVMInstanceArgs']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
 
@@ -83,74 +83,74 @@ class VirtualMachineInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]:
+    def availability_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]:
         """
         Availability Sets in vm.
         """
         return pulumi.get(self, "availability_sets")
 
     @availability_sets.setter
-    def availability_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]):
+    def availability_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]):
         pulumi.set(self, "availability_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['HardwareProfileArgs']]:
         """
         Hardware properties.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureProfile")
-    def infrastructure_profile(self) -> Optional[pulumi.Input['InfrastructureProfileArgs']]:
+    def infrastructure_profile(self) -> pulumi.Input[Optional['InfrastructureProfileArgs']]:
         """
         Gets the infrastructure profile.
         """
         return pulumi.get(self, "infrastructure_profile")
 
     @infrastructure_profile.setter
-    def infrastructure_profile(self, value: Optional[pulumi.Input['InfrastructureProfileArgs']]):
+    def infrastructure_profile(self, value: pulumi.Input[Optional['InfrastructureProfileArgs']]):
         pulumi.set(self, "infrastructure_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
         """
         Network properties.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OsProfileForVMInstanceArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OsProfileForVMInstanceArgs']]:
         """
         OS properties.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OsProfileForVMInstanceArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OsProfileForVMInstanceArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Storage properties.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
 
@@ -160,14 +160,14 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineInstancePropertiesAvailabilitySetsArgs', 'VirtualMachineInstancePropertiesAvailabilitySetsArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 availability_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineInstancePropertiesAvailabilitySetsArgs', 'VirtualMachineInstancePropertiesAvailabilitySetsArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: pulumi.Input[Optional[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         """
         Define the virtualMachineInstance.
@@ -175,7 +175,6 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineInstancePropertiesAvailabilitySetsArgs', 'VirtualMachineInstancePropertiesAvailabilitySetsArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 availability_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineInstancePropertiesAvailabilitySetsArgs', 'VirtualMachineInstancePropertiesAvailabilitySetsArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: pulumi.Input[Optional[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

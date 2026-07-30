@@ -74,7 +74,6 @@ def list_catalog_device_insights(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str filter: Filter the result list using the given expression
     :param _builtins.int maxpagesize: The maximum number of result items per page.
@@ -95,18 +94,17 @@ def list_catalog_device_insights(catalog_name: Optional[_builtins.str] = None,
     return AwaitableListCatalogDeviceInsightsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_catalog_device_insights_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        maxpagesize: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        skip: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                        top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_catalog_device_insights_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        maxpagesize: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        skip: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                        top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCatalogDeviceInsightsResult]:
     """
     Lists device insights for catalog.
 
     Uses Azure REST API version 2024-04-01.
-
 
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str filter: Filter the result list using the given expression

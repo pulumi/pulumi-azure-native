@@ -25,9 +25,9 @@ class KnowledgeSourceArgs:
                  source_type: pulumi.Input[Union[_builtins.str, 'KnowledgeSourceType']],
                  url: pulumi.Input[_builtins.str],
                  web_agent_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_frequency: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_frequency: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None):
         """
         The set of arguments for constructing a KnowledgeSource resource.
 
@@ -100,38 +100,38 @@ class KnowledgeSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the knowledge source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeSourceName")
-    def knowledge_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def knowledge_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the knowledge source.
         """
         return pulumi.get(self, "knowledge_source_name")
 
     @knowledge_source_name.setter
-    def knowledge_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def knowledge_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "knowledge_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="updateFrequency")
-    def update_frequency(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]]:
+    def update_frequency(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]]:
         """
         Specifies the units of time for scheduling update intervals for the knowledge source.
         """
         return pulumi.get(self, "update_frequency")
 
     @update_frequency.setter
-    def update_frequency(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]]):
+    def update_frequency(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]]):
         pulumi.set(self, "update_frequency", value)
 
 
@@ -141,19 +141,18 @@ class KnowledgeSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceType']]] = None,
-                 update_frequency: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceType']]] = None,
+                 update_frequency: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a knowledge source resource for a web agent.
 
         Uses Azure REST API version 2025-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +175,6 @@ class KnowledgeSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param KnowledgeSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,13 +190,13 @@ class KnowledgeSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceType']]] = None,
-                 update_frequency: Optional[pulumi.Input[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceType']]] = None,
+                 update_frequency: pulumi.Input[Optional[Union[_builtins.str, 'KnowledgeSourceUpdateFrequency']]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

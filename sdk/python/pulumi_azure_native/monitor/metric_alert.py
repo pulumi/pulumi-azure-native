@@ -29,14 +29,14 @@ class MetricAlertArgs:
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  severity: pulumi.Input[_builtins.int],
                  window_size: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
-                 auto_mitigate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+                 auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricAlert resource.
 
@@ -166,98 +166,98 @@ class MetricAlertArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMitigate")
-    def auto_mitigate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_mitigate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         the flag that indicates whether the alert should be auto resolved or not. The default is true.
         """
         return pulumi.get(self, "auto_mitigate")
 
     @auto_mitigate.setter
-    def auto_mitigate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_mitigate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_mitigate", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the description of the metric alert that will be included in the alert email.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceRegion")
-    def target_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_region")
 
     @target_resource_region.setter
-    def target_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
 
@@ -267,21 +267,21 @@ class MetricAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
-                 auto_mitigate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 criteria: Optional[pulumi.Input[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
+                 auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 criteria: pulumi.Input[Optional[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The metric alert resource.
@@ -289,7 +289,6 @@ class MetricAlert(pulumi.CustomResource):
         Uses Azure REST API version 2018-03-01.
 
         Other available API versions: 2024-03-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,7 +321,6 @@ class MetricAlert(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MetricAlertArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,21 +336,21 @@ class MetricAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
-                 auto_mitigate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 criteria: Optional[pulumi.Input[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
+                 auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 criteria: pulumi.Input[Optional[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

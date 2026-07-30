@@ -69,7 +69,6 @@ def get_workspace_shared_keys(resource_group_name: Optional[_builtins.str] = Non
 
     Uses Azure REST API version 2015-11-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param _builtins.str workspace_name: Name of the Log Analytics Workspace.
     """
@@ -82,14 +81,13 @@ def get_workspace_shared_keys(resource_group_name: Optional[_builtins.str] = Non
     return AwaitableGetWorkspaceSharedKeysResult(
         primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
         secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'))
-def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_shared_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceSharedKeysResult]:
     """
     Gets the shared keys for a workspace.
 
     Uses Azure REST API version 2015-11-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param _builtins.str workspace_name: Name of the Log Analytics Workspace.

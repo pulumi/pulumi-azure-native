@@ -1620,7 +1620,7 @@ class PlanResponse(dict):
         Plan for the resource.
 
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param _builtins.str version: The version of the desired product/artifact.
@@ -1645,7 +1645,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> _builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -2148,8 +2148,8 @@ class ServicePrincipalDefinitionResponse(dict):
         """
         Parameters to authenticate using Service Principal.
 
-        :param _builtins.str client_certificate: Base64-encoded certificate used to authenticate a Service Principal 
-        :param _builtins.str client_certificate_password: The password for the certificate used to authenticate a Service Principal 
+        :param _builtins.str client_certificate: Base64-encoded certificate used to authenticate a Service Principal
+        :param _builtins.str client_certificate_password: The password for the certificate used to authenticate a Service Principal
         :param _builtins.bool client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
         :param _builtins.str client_id: The client Id for authenticating a Service Principal.
         :param _builtins.str client_secret: The client secret for authenticating a Service Principal
@@ -2174,7 +2174,7 @@ class ServicePrincipalDefinitionResponse(dict):
     @pulumi.getter(name="clientCertificate")
     def client_certificate(self) -> Optional[_builtins.str]:
         """
-        Base64-encoded certificate used to authenticate a Service Principal 
+        Base64-encoded certificate used to authenticate a Service Principal
         """
         return pulumi.get(self, "client_certificate")
 
@@ -2182,7 +2182,7 @@ class ServicePrincipalDefinitionResponse(dict):
     @pulumi.getter(name="clientCertificatePassword")
     def client_certificate_password(self) -> Optional[_builtins.str]:
         """
-        The password for the certificate used to authenticate a Service Principal 
+        The password for the certificate used to authenticate a Service Principal
         """
         return pulumi.get(self, "client_certificate_password")
 

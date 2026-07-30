@@ -159,7 +159,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["alternateName"] = args?.alternateName;
             resourceInputs["clusterArmId"] = args?.clusterArmId;
             resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
-            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.eventhub.encryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["encryption"] = args ? pulumi.output(args.encryption).apply(v => v === undefined ? undefined : inputs.eventhub.encryptionArgsProvideDefaults(v)) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["isAutoInflateEnabled"] = args?.isAutoInflateEnabled;
             resourceInputs["kafkaEnabled"] = args?.kafkaEnabled;
@@ -224,56 +224,56 @@ export interface NamespaceArgs {
     /**
      * Alternate name specified when alias and namespace names are same.
      */
-    alternateName?: pulumi.Input<string>;
+    alternateName?: pulumi.Input<string | undefined>;
     /**
      * Cluster ARM ID of the Namespace.
      */
-    clusterArmId?: pulumi.Input<string>;
+    clusterArmId?: pulumi.Input<string | undefined>;
     /**
      * This property disables SAS authentication for the Event Hubs namespace.
      */
-    disableLocalAuth?: pulumi.Input<boolean>;
+    disableLocalAuth?: pulumi.Input<boolean | undefined>;
     /**
      * Properties of BYOK Encryption description
      */
-    encryption?: pulumi.Input<inputs.eventhub.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.eventhub.EncryptionArgs | undefined>;
     /**
      * Properties of BYOK Identity description
      */
-    identity?: pulumi.Input<inputs.eventhub.IdentityArgs>;
+    identity?: pulumi.Input<inputs.eventhub.IdentityArgs | undefined>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
-    isAutoInflateEnabled?: pulumi.Input<boolean>;
+    isAutoInflateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
-    kafkaEnabled?: pulumi.Input<boolean>;
+    kafkaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
      */
-    maximumThroughputUnits?: pulumi.Input<number>;
+    maximumThroughputUnits?: pulumi.Input<number | undefined>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    minimumTlsVersion?: pulumi.Input<string | enums.eventhub.TlsVersion>;
+    minimumTlsVersion?: pulumi.Input<string | enums.eventhub.TlsVersion | undefined>;
     /**
      * The Namespace name
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * List of private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventhub.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventhub.PrivateEndpointConnectionArgs>[] | undefined>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccess | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -281,13 +281,13 @@ export interface NamespaceArgs {
     /**
      * Properties of sku resource
      */
-    sku?: pulumi.Input<inputs.eventhub.SkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
      */
-    zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean | undefined>;
 }

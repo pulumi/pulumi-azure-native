@@ -240,7 +240,6 @@ def get_private_zone(private_zone_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -267,8 +266,8 @@ def get_private_zone(private_zone_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_zone_output(private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_zone_output(private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateZoneResult]:
     """
     Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
@@ -276,7 +275,6 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-06-01.
 
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

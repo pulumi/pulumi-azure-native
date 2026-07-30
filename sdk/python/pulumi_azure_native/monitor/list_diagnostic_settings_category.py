@@ -57,7 +57,6 @@ def list_diagnostic_settings_category(resource_uri: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2021-05-01-preview.
 
-
     :param _builtins.str resource_uri: The identifier of the resource.
     """
     __args__ = dict()
@@ -67,13 +66,12 @@ def list_diagnostic_settings_category(resource_uri: Optional[_builtins.str] = No
 
     return AwaitableListDiagnosticSettingsCategoryResult(
         value=pulumi.get(__ret__, 'value'))
-def list_diagnostic_settings_category_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_diagnostic_settings_category_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
     """
     Lists the diagnostic settings categories for the specified resource.
 
     Uses Azure REST API version 2021-05-01-preview.
-
 
     :param _builtins.str resource_uri: The identifier of the resource.
     """

@@ -24,14 +24,14 @@ class ScriptExecutionArgs:
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  timeout: pulumi.Input[_builtins.str],
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
-                 named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 output: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
-                 retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_cmdlet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_execution_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
+                 named_outputs: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 output: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
+                 retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_cmdlet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_execution_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScriptExecution resource.
 
@@ -107,7 +107,7 @@ class ScriptExecutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message if the script was able to run, but if the script itself had
         errors or powershell threw an exception
@@ -115,12 +115,12 @@ class ScriptExecutionArgs:
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="hiddenParameters")
-    def hidden_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]:
+    def hidden_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]:
         """
         Parameters that will be hidden/not visible to ARM, such as passwords and
         credentials
@@ -128,79 +128,79 @@ class ScriptExecutionArgs:
         return pulumi.get(self, "hidden_parameters")
 
     @hidden_parameters.setter
-    def hidden_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]):
+    def hidden_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]):
         pulumi.set(self, "hidden_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="namedOutputs")
-    def named_outputs(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def named_outputs(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
         User-defined dictionary.
         """
         return pulumi.get(self, "named_outputs")
 
     @named_outputs.setter
-    def named_outputs(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def named_outputs(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "named_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def output(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def output(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Standard output stream from the powershell execution
         """
         return pulumi.get(self, "output")
 
     @output.setter
-    def output(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def output(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "output", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]:
         """
         Parameters the script will accept
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time to live for the resource. If not provided, will be available for 60 days
         """
         return pulumi.get(self, "retention")
 
     @retention.setter
-    def retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retention", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptCmdletId")
-    def script_cmdlet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_cmdlet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A reference to the script cmdlet resource if user is running a AVS script
         """
         return pulumi.get(self, "script_cmdlet_id")
 
     @script_cmdlet_id.setter
-    def script_cmdlet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_cmdlet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_cmdlet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptExecutionName")
-    def script_execution_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_execution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the script cmdlet.
         """
         return pulumi.get(self, "script_execution_name")
 
     @script_execution_name.setter
-    def script_execution_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_execution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_execution_name", value)
 
 
@@ -210,17 +210,17 @@ class ScriptExecution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
-                 named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 output: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_cmdlet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
+                 named_outputs: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 output: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_cmdlet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An instance of a script executed by a user - custom or AVS
@@ -228,7 +228,6 @@ class ScriptExecution(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,7 +258,6 @@ class ScriptExecution(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScriptExecutionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,17 +273,17 @@ class ScriptExecution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
-                 named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 output: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_cmdlet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
+                 named_outputs: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 output: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_cmdlet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

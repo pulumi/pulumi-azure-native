@@ -76,10 +76,10 @@ __all__ = [
     'CircuitBreakerRuleArgsDict',
     'ConfigurationApiArgs',
     'ConfigurationApiArgsDict',
-    'DataMaskingEntityArgs',
-    'DataMaskingEntityArgsDict',
     'DataMaskingArgs',
     'DataMaskingArgsDict',
+    'DataMaskingEntityArgs',
+    'DataMaskingEntityArgsDict',
     'EmailTemplateParametersContractPropertiesArgs',
     'EmailTemplateParametersContractPropertiesArgsDict',
     'FailureStatusCodeRangeArgs',
@@ -146,23 +146,23 @@ class AdditionalLocationArgsDict(TypedDict):
     """
     SKU properties of the API Management service.
     """
-    disable_gateway: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_gateway: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
     """
-    nat_gateway_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]]
+    nat_gateway_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NatGatewayState']]]]
     """
     Property can be used to enable NAT Gateway for this API Management service.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
     """
-    virtual_network_configuration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
+    virtual_network_configuration: NotRequired[pulumi.Input[Optional['VirtualNetworkConfigurationArgsDict']]]
     """
     Virtual network configuration for the location.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of availability zones denoting where the resource needs to come from.
     """
@@ -172,11 +172,11 @@ class AdditionalLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
-                 disable_gateway: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nat_gateway_state: Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_gateway: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_gateway_state: pulumi.Input[Optional[Union[_builtins.str, 'NatGatewayState']]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_configuration: pulumi.Input[Optional['VirtualNetworkConfigurationArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Description of an additional API Management resource location.
 
@@ -231,62 +231,62 @@ class AdditionalLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableGateway")
-    def disable_gateway(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_gateway(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         """
         return pulumi.get(self, "disable_gateway")
 
     @disable_gateway.setter
-    def disable_gateway(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_gateway(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayState")
-    def nat_gateway_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]]:
+    def nat_gateway_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NatGatewayState']]]:
         """
         Property can be used to enable NAT Gateway for this API Management service.
         """
         return pulumi.get(self, "nat_gateway_state")
 
     @nat_gateway_state.setter
-    def nat_gateway_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]]):
+    def nat_gateway_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NatGatewayState']]]):
         pulumi.set(self, "nat_gateway_state", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
+    def virtual_network_configuration(self) -> pulumi.Input[Optional['VirtualNetworkConfigurationArgs']]:
         """
         Virtual network configuration for the location.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
+    def virtual_network_configuration(self, value: pulumi.Input[Optional['VirtualNetworkConfigurationArgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -294,15 +294,15 @@ class ApiContactInformationArgsDict(TypedDict):
     """
     API contact information
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address of the contact person/organization. MUST be in the format of an email address
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifying name of the contact person/organization
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL pointing to the contact information. MUST be in the format of a URL
     """
@@ -310,9 +310,9 @@ class ApiContactInformationArgsDict(TypedDict):
 @pulumi.input_type
 class ApiContactInformationArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API contact information
 
@@ -329,38 +329,38 @@ class ApiContactInformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the contact person/organization. MUST be in the format of an email address
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifying name of the contact person/organization
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL pointing to the contact information. MUST be in the format of a URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -368,11 +368,11 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
     """
     Criteria to limit import of WSDL to a subset of the document.
     """
-    wsdl_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    wsdl_endpoint_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of endpoint(port) to import from WSDL
     """
-    wsdl_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    wsdl_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of service to import from WSDL
     """
@@ -380,8 +380,8 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     def __init__(__self__, *,
-                 wsdl_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 wsdl_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 wsdl_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 wsdl_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Criteria to limit import of WSDL to a subset of the document.
 
@@ -395,26 +395,26 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="wsdlEndpointName")
-    def wsdl_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wsdl_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of endpoint(port) to import from WSDL
         """
         return pulumi.get(self, "wsdl_endpoint_name")
 
     @wsdl_endpoint_name.setter
-    def wsdl_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wsdl_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wsdl_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="wsdlServiceName")
-    def wsdl_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wsdl_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of service to import from WSDL
         """
         return pulumi.get(self, "wsdl_service_name")
 
     @wsdl_service_name.setter
-    def wsdl_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wsdl_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wsdl_service_name", value)
 
 
@@ -422,11 +422,11 @@ class ApiLicenseInformationArgsDict(TypedDict):
     """
     API license information
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The license name used for the API
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A URL to the license used for the API. MUST be in the format of a URL
     """
@@ -434,8 +434,8 @@ class ApiLicenseInformationArgsDict(TypedDict):
 @pulumi.input_type
 class ApiLicenseInformationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API license information
 
@@ -449,26 +449,26 @@ class ApiLicenseInformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The license name used for the API
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL to the license used for the API. MUST be in the format of a URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -480,7 +480,7 @@ class ApiManagementGatewaySkuPropertiesArgsDict(TypedDict):
     """
     Name of the Sku.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Capacity of the SKU (number of deployed units of the SKU)
     """
@@ -489,7 +489,7 @@ class ApiManagementGatewaySkuPropertiesArgsDict(TypedDict):
 class ApiManagementGatewaySkuPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'ApiGatewaySkuType']],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         API Management gateway resource SKU properties.
 
@@ -514,14 +514,14 @@ class ApiManagementGatewaySkuPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity of the SKU (number of deployed units of the SKU)
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -533,10 +533,10 @@ class ApiManagementServiceIdentityArgsDict(TypedDict):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]]
     """
-    The list of user identities associated with the resource. The user identity 
-    dictionary key references will be ARM resource ids in the form: 
+    The list of user identities associated with the resource. The user identity
+    dictionary key references will be ARM resource ids in the form:
     '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
         providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -545,13 +545,13 @@ class ApiManagementServiceIdentityArgsDict(TypedDict):
 class ApiManagementServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ApimIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
         """
         Identity properties of the Api Management service resource.
 
         :param pulumi.Input[Union[_builtins.str, 'ApimIdentityType']] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity 
-               dictionary key references will be ARM resource ids in the form: 
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity
+               dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -573,17 +573,17 @@ class ApiManagementServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]]:
         """
-        The list of user identities associated with the resource. The user identity 
-        dictionary key references will be ARM resource ids in the form: 
+        The list of user identities associated with the resource. The user identity
+        dictionary key references will be ARM resource ids in the form:
         '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
             providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -643,7 +643,7 @@ class ApiVersionConstraintArgsDict(TypedDict):
     """
     Control Plane Apis version constraint for the API Management service.
     """
-    min_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    min_api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Limit control plane API calls to API Management service with version equal to or newer than this value.
     """
@@ -651,7 +651,7 @@ class ApiVersionConstraintArgsDict(TypedDict):
 @pulumi.input_type
 class ApiVersionConstraintArgs:
     def __init__(__self__, *,
-                 min_api_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 min_api_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Control Plane Apis version constraint for the API Management service.
 
@@ -662,42 +662,42 @@ class ApiVersionConstraintArgs:
 
     @_builtins.property
     @pulumi.getter(name="minApiVersion")
-    def min_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Limit control plane API calls to API Management service with version equal to or newer than this value.
         """
         return pulumi.get(self, "min_api_version")
 
     @min_api_version.setter
-    def min_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_api_version", value)
 
 
 class ApiVersionSetContractDetailsArgsDict(TypedDict):
     """
-    An API Version Set contains the common configuration for a set of API Versions relating 
+    An API Version Set contains the common configuration for a set of API Versions relating
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of API Version Set.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier for existing API Version Set. Omit this value to create a new Version Set.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display Name of the API Version Set.
     """
-    version_header_name: NotRequired[pulumi.Input[_builtins.str]]
+    version_header_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
     """
-    version_query_name: NotRequired[pulumi.Input[_builtins.str]]
+    version_query_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
     """
-    versioning_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]]
+    versioning_scheme: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'VersioningScheme']]]]
     """
     An value that determines where the API Version identifier will be located in a HTTP request.
     """
@@ -705,14 +705,14 @@ class ApiVersionSetContractDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ApiVersionSetContractDetailsArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_scheme: Optional[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_scheme: pulumi.Input[Optional[Union[_builtins.str, 'VersioningScheme']]] = None):
         """
-        An API Version Set contains the common configuration for a set of API Versions relating 
+        An API Version Set contains the common configuration for a set of API Versions relating
 
         :param pulumi.Input[_builtins.str] description: Description of API Version Set.
         :param pulumi.Input[_builtins.str] id: Identifier for existing API Version Set. Omit this value to create a new Version Set.
@@ -736,74 +736,74 @@ class ApiVersionSetContractDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of API Version Set.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for existing API Version Set. Omit this value to create a new Version Set.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display Name of the API Version Set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionHeaderName")
-    def version_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         """
         return pulumi.get(self, "version_header_name")
 
     @version_header_name.setter
-    def version_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionQueryName")
-    def version_query_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_query_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         """
         return pulumi.get(self, "version_query_name")
 
     @version_query_name.setter
-    def version_query_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_query_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningScheme")
-    def versioning_scheme(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]]:
+    def versioning_scheme(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VersioningScheme']]]:
         """
         An value that determines where the API Version identifier will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
 
     @versioning_scheme.setter
-    def versioning_scheme(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]]):
+    def versioning_scheme(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VersioningScheme']]]):
         pulumi.set(self, "versioning_scheme", value)
 
 
@@ -811,19 +811,19 @@ class AuthenticationSettingsContractArgsDict(TypedDict):
     """
     API Authentication Settings.
     """
-    o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
+    o_auth2: NotRequired[pulumi.Input[Optional['OAuth2AuthenticationSettingsContractArgsDict']]]
     """
     OAuth2 Authentication settings
     """
-    o_auth2_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]]]
+    o_auth2_authentication_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]]]]
     """
     Collection of OAuth2 authentication settings included into this API.
     """
-    openid: NotRequired[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]
+    openid: NotRequired[pulumi.Input[Optional['OpenIdAuthenticationSettingsContractArgsDict']]]
     """
     OpenID Connect Authentication Settings
     """
-    openid_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]]]
+    openid_authentication_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]]]]
     """
     Collection of Open ID Connect authentication settings included into this API.
     """
@@ -831,10 +831,10 @@ class AuthenticationSettingsContractArgsDict(TypedDict):
 @pulumi.input_type
 class AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
-                 o_auth2: Optional[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']] = None,
-                 o_auth2_authentication_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]] = None,
-                 openid: Optional[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']] = None,
-                 openid_authentication_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]] = None):
+                 o_auth2: pulumi.Input[Optional['OAuth2AuthenticationSettingsContractArgs']] = None,
+                 o_auth2_authentication_settings: pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]] = None,
+                 openid: pulumi.Input[Optional['OpenIdAuthenticationSettingsContractArgs']] = None,
+                 openid_authentication_settings: pulumi.Input[Optional[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]] = None):
         """
         API Authentication Settings.
 
@@ -854,50 +854,50 @@ class AuthenticationSettingsContractArgs:
 
     @_builtins.property
     @pulumi.getter(name="oAuth2")
-    def o_auth2(self) -> Optional[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]:
+    def o_auth2(self) -> pulumi.Input[Optional['OAuth2AuthenticationSettingsContractArgs']]:
         """
         OAuth2 Authentication settings
         """
         return pulumi.get(self, "o_auth2")
 
     @o_auth2.setter
-    def o_auth2(self, value: Optional[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]):
+    def o_auth2(self, value: pulumi.Input[Optional['OAuth2AuthenticationSettingsContractArgs']]):
         pulumi.set(self, "o_auth2", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2AuthenticationSettings")
-    def o_auth2_authentication_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]]:
+    def o_auth2_authentication_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]]:
         """
         Collection of OAuth2 authentication settings included into this API.
         """
         return pulumi.get(self, "o_auth2_authentication_settings")
 
     @o_auth2_authentication_settings.setter
-    def o_auth2_authentication_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]]):
+    def o_auth2_authentication_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]]]):
         pulumi.set(self, "o_auth2_authentication_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def openid(self) -> Optional[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]:
+    def openid(self) -> pulumi.Input[Optional['OpenIdAuthenticationSettingsContractArgs']]:
         """
         OpenID Connect Authentication Settings
         """
         return pulumi.get(self, "openid")
 
     @openid.setter
-    def openid(self, value: Optional[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]):
+    def openid(self, value: pulumi.Input[Optional['OpenIdAuthenticationSettingsContractArgs']]):
         pulumi.set(self, "openid", value)
 
     @_builtins.property
     @pulumi.getter(name="openidAuthenticationSettings")
-    def openid_authentication_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]]:
+    def openid_authentication_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]]:
         """
         Collection of Open ID Connect authentication settings included into this API.
         """
         return pulumi.get(self, "openid_authentication_settings")
 
     @openid_authentication_settings.setter
-    def openid_authentication_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]]):
+    def openid_authentication_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]]):
         pulumi.set(self, "openid_authentication_settings", value)
 
 
@@ -905,11 +905,11 @@ class AuthorizationErrorArgsDict(TypedDict):
     """
     Authorization error details.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error code
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message
     """
@@ -917,8 +917,8 @@ class AuthorizationErrorArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizationErrorArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authorization error details.
 
@@ -932,26 +932,26 @@ class AuthorizationErrorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error code
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
@@ -959,11 +959,11 @@ class AuthorizationProviderOAuth2GrantTypesArgsDict(TypedDict):
     """
     Authorization Provider oauth2 grant types settings
     """
-    authorization_code: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authorization_code: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     OAuth2 authorization code grant parameters
     """
-    client_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    client_credentials: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     OAuth2 client credential grant parameters
     """
@@ -971,8 +971,8 @@ class AuthorizationProviderOAuth2GrantTypesArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizationProviderOAuth2GrantTypesArgs:
     def __init__(__self__, *,
-                 authorization_code: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 client_credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authorization_code: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Authorization Provider oauth2 grant types settings
 
@@ -986,26 +986,26 @@ class AuthorizationProviderOAuth2GrantTypesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationCode")
-    def authorization_code(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization_code(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         OAuth2 authorization code grant parameters
         """
         return pulumi.get(self, "authorization_code")
 
     @authorization_code.setter
-    def authorization_code(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization_code(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_code", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCredentials")
-    def client_credentials(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_credentials(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         OAuth2 client credential grant parameters
         """
         return pulumi.get(self, "client_credentials")
 
     @client_credentials.setter
-    def client_credentials(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_credentials(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_credentials", value)
 
 
@@ -1013,11 +1013,11 @@ class AuthorizationProviderOAuth2SettingsArgsDict(TypedDict):
     """
     OAuth2 settings details
     """
-    grant_types: NotRequired[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgsDict']]
+    grant_types: NotRequired[pulumi.Input[Optional['AuthorizationProviderOAuth2GrantTypesArgsDict']]]
     """
     OAuth2 settings
     """
-    redirect_url: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Redirect URL to be set in the OAuth application.
     """
@@ -1025,8 +1025,8 @@ class AuthorizationProviderOAuth2SettingsArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizationProviderOAuth2SettingsArgs:
     def __init__(__self__, *,
-                 grant_types: Optional[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgs']] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 grant_types: pulumi.Input[Optional['AuthorizationProviderOAuth2GrantTypesArgs']] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         OAuth2 settings details
 
@@ -1040,26 +1040,26 @@ class AuthorizationProviderOAuth2SettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> Optional[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgs']]:
+    def grant_types(self) -> pulumi.Input[Optional['AuthorizationProviderOAuth2GrantTypesArgs']]:
         """
         OAuth2 settings
         """
         return pulumi.get(self, "grant_types")
 
     @grant_types.setter
-    def grant_types(self, value: Optional[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgs']]):
+    def grant_types(self, value: pulumi.Input[Optional['AuthorizationProviderOAuth2GrantTypesArgs']]):
         pulumi.set(self, "grant_types", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redirect URL to be set in the OAuth application.
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
 
@@ -1116,7 +1116,7 @@ class BackendAuthorizationHeaderCredentialsArgs:
 
 
 class BackendBaseParametersPoolArgsDict(TypedDict):
-    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgsDict']]]]
+    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BackendPoolItemArgsDict']]]]]
     """
     The list of backend entities belonging to a pool.
     """
@@ -1124,7 +1124,7 @@ class BackendBaseParametersPoolArgsDict(TypedDict):
 @pulumi.input_type
 class BackendBaseParametersPoolArgs:
     def __init__(__self__, *,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]] = None):
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input['BackendPoolItemArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]] services: The list of backend entities belonging to a pool.
         """
@@ -1133,14 +1133,14 @@ class BackendBaseParametersPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]]:
+    def services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackendPoolItemArgs']]]]:
         """
         The list of backend entities belonging to a pool.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]]):
+    def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackendPoolItemArgs']]]]):
         pulumi.set(self, "services", value)
 
 
@@ -1148,7 +1148,7 @@ class BackendCircuitBreakerArgsDict(TypedDict):
     """
     The configuration of the backend circuit breaker
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CircuitBreakerRuleArgsDict']]]]]
     """
     The rules for tripping the backend.
     """
@@ -1156,7 +1156,7 @@ class BackendCircuitBreakerArgsDict(TypedDict):
 @pulumi.input_type
 class BackendCircuitBreakerArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]] = None):
         """
         The configuration of the backend circuit breaker
 
@@ -1167,14 +1167,14 @@ class BackendCircuitBreakerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]:
         """
         The rules for tripping the backend.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -1182,7 +1182,7 @@ class BackendConfigurationArgsDict(TypedDict):
     """
     Information regarding how the gateway should integrate with backend systems.
     """
-    subnet: NotRequired[pulumi.Input['BackendSubnetConfigurationArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['BackendSubnetConfigurationArgsDict']]]
     """
     The default hostname of the data-plane gateway to which requests can be sent.
     """
@@ -1190,7 +1190,7 @@ class BackendConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class BackendConfigurationArgs:
     def __init__(__self__, *,
-                 subnet: Optional[pulumi.Input['BackendSubnetConfigurationArgs']] = None):
+                 subnet: pulumi.Input[Optional['BackendSubnetConfigurationArgs']] = None):
         """
         Information regarding how the gateway should integrate with backend systems.
 
@@ -1201,14 +1201,14 @@ class BackendConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['BackendSubnetConfigurationArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['BackendSubnetConfigurationArgs']]:
         """
         The default hostname of the data-plane gateway to which requests can be sent.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['BackendSubnetConfigurationArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['BackendSubnetConfigurationArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -1216,23 +1216,23 @@ class BackendCredentialsContractArgsDict(TypedDict):
     """
     Details of the Credentials used to connect to Backend.
     """
-    authorization: NotRequired[pulumi.Input['BackendAuthorizationHeaderCredentialsArgsDict']]
+    authorization: NotRequired[pulumi.Input[Optional['BackendAuthorizationHeaderCredentialsArgsDict']]]
     """
     Authorization header authentication
     """
-    certificate: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    certificate: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
     """
-    certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    certificate_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Client Certificate Ids.
     """
-    header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    header: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]]
     """
     Header Parameter description.
     """
-    query: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    query: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]]
     """
     Query Parameter description.
     """
@@ -1240,11 +1240,11 @@ class BackendCredentialsContractArgsDict(TypedDict):
 @pulumi.input_type
 class BackendCredentialsContractArgs:
     def __init__(__self__, *,
-                 authorization: Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']] = None,
-                 certificate: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 header: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 query: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
+                 authorization: pulumi.Input[Optional['BackendAuthorizationHeaderCredentialsArgs']] = None,
+                 certificate: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 header: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 query: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         Details of the Credentials used to connect to Backend.
 
@@ -1267,62 +1267,62 @@ class BackendCredentialsContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']]:
+    def authorization(self) -> pulumi.Input[Optional['BackendAuthorizationHeaderCredentialsArgs']]:
         """
         Authorization header authentication
         """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']]):
+    def authorization(self, value: pulumi.Input[Optional['BackendAuthorizationHeaderCredentialsArgs']]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateIds")
-    def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Client Certificate Ids.
         """
         return pulumi.get(self, "certificate_ids")
 
     @certificate_ids.setter
-    def certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def header(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def header(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Header Parameter description.
         """
         return pulumi.get(self, "header")
 
     @header.setter
-    def header(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def header(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "header", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def query(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Query Parameter description.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def query(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "query", value)
 
 
@@ -1334,11 +1334,11 @@ class BackendPoolItemArgsDict(TypedDict):
     """
     The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
     """
@@ -1347,8 +1347,8 @@ class BackendPoolItemArgsDict(TypedDict):
 class BackendPoolItemArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Backend pool service information
 
@@ -1376,26 +1376,26 @@ class BackendPoolItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -1403,7 +1403,7 @@ class BackendPropertiesArgsDict(TypedDict):
     """
     Properties specific to the Backend Type.
     """
-    service_fabric_cluster: NotRequired[pulumi.Input['BackendServiceFabricClusterPropertiesArgsDict']]
+    service_fabric_cluster: NotRequired[pulumi.Input[Optional['BackendServiceFabricClusterPropertiesArgsDict']]]
     """
     Backend Service Fabric Cluster Properties
     """
@@ -1411,7 +1411,7 @@ class BackendPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BackendPropertiesArgs:
     def __init__(__self__, *,
-                 service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']] = None):
+                 service_fabric_cluster: pulumi.Input[Optional['BackendServiceFabricClusterPropertiesArgs']] = None):
         """
         Properties specific to the Backend Type.
 
@@ -1422,14 +1422,14 @@ class BackendPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceFabricCluster")
-    def service_fabric_cluster(self) -> Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']]:
+    def service_fabric_cluster(self) -> pulumi.Input[Optional['BackendServiceFabricClusterPropertiesArgs']]:
         """
         Backend Service Fabric Cluster Properties
         """
         return pulumi.get(self, "service_fabric_cluster")
 
     @service_fabric_cluster.setter
-    def service_fabric_cluster(self, value: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']]):
+    def service_fabric_cluster(self, value: pulumi.Input[Optional['BackendServiceFabricClusterPropertiesArgs']]):
         pulumi.set(self, "service_fabric_cluster", value)
 
 
@@ -1441,11 +1441,11 @@ class BackendProxyContractArgsDict(TypedDict):
     """
     WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password to connect to the WebProxy Server
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Username to connect to the WebProxy server
     """
@@ -1454,8 +1454,8 @@ class BackendProxyContractArgsDict(TypedDict):
 class BackendProxyContractArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the Backend WebProxy Server to use in the Request to Backend.
 
@@ -1483,26 +1483,26 @@ class BackendProxyContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to connect to the WebProxy Server
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username to connect to the WebProxy server
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -1514,23 +1514,23 @@ class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
     """
     The cluster management endpoint.
     """
-    client_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client certificate id for the management endpoint.
     """
-    client_certificatethumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificatethumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
     """
-    max_partition_resolution_retries: NotRequired[pulumi.Input[_builtins.int]]
+    max_partition_resolution_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of retries while attempting resolve the partition.
     """
-    server_certificate_thumbprints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    server_certificate_thumbprints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Thumbprints of certificates cluster management service uses for tls communication
     """
-    server_x509_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]
+    server_x509_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]]
     """
     Server X509 Certificate Names Collection
     """
@@ -1539,11 +1539,11 @@ class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
 class BackendServiceFabricClusterPropertiesArgs:
     def __init__(__self__, *,
                  management_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificatethumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_partition_resolution_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]] = None):
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificatethumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_partition_resolution_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_certificate_thumbprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_x509_names: pulumi.Input[Optional[Sequence[pulumi.Input['X509CertificateNameArgs']]]] = None):
         """
         Properties of the Service Fabric Type Backend.
 
@@ -1580,62 +1580,62 @@ class BackendServiceFabricClusterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
-    def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client certificate id for the management endpoint.
         """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
-    def client_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatethumbprint")
-    def client_certificatethumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificatethumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
         """
         return pulumi.get(self, "client_certificatethumbprint")
 
     @client_certificatethumbprint.setter
-    def client_certificatethumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificatethumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificatethumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPartitionResolutionRetries")
-    def max_partition_resolution_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_partition_resolution_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of retries while attempting resolve the partition.
         """
         return pulumi.get(self, "max_partition_resolution_retries")
 
     @max_partition_resolution_retries.setter
-    def max_partition_resolution_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_partition_resolution_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_partition_resolution_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateThumbprints")
-    def server_certificate_thumbprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_certificate_thumbprints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Thumbprints of certificates cluster management service uses for tls communication
         """
         return pulumi.get(self, "server_certificate_thumbprints")
 
     @server_certificate_thumbprints.setter
-    def server_certificate_thumbprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_certificate_thumbprints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_certificate_thumbprints", value)
 
     @_builtins.property
     @pulumi.getter(name="serverX509Names")
-    def server_x509_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]]:
+    def server_x509_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['X509CertificateNameArgs']]]]:
         """
         Server X509 Certificate Names Collection
         """
         return pulumi.get(self, "server_x509_names")
 
     @server_x509_names.setter
-    def server_x509_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]]):
+    def server_x509_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['X509CertificateNameArgs']]]]):
         pulumi.set(self, "server_x509_names", value)
 
 
@@ -1643,7 +1643,7 @@ class BackendSubnetConfigurationArgsDict(TypedDict):
     """
     Information regarding how the subnet to which the gateway should be injected.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM ID of the subnet in which the backend systems are hosted.
     """
@@ -1651,7 +1651,7 @@ class BackendSubnetConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class BackendSubnetConfigurationArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information regarding how the subnet to which the gateway should be injected.
 
@@ -1662,14 +1662,14 @@ class BackendSubnetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM ID of the subnet in which the backend systems are hosted.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1677,11 +1677,11 @@ class BackendTlsPropertiesArgsDict(TypedDict):
     """
     Properties controlling TLS Certificate Validation.
     """
-    validate_certificate_chain: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_certificate_chain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
     """
-    validate_certificate_name: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_certificate_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
     """
@@ -1689,8 +1689,8 @@ class BackendTlsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BackendTlsPropertiesArgs:
     def __init__(__self__, *,
-                 validate_certificate_chain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_certificate_name: Optional[pulumi.Input[_builtins.bool]] = None):
+                 validate_certificate_chain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_certificate_name: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties controlling TLS Certificate Validation.
 
@@ -1708,26 +1708,26 @@ class BackendTlsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="validateCertificateChain")
-    def validate_certificate_chain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_certificate_chain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
         """
         return pulumi.get(self, "validate_certificate_chain")
 
     @validate_certificate_chain.setter
-    def validate_certificate_chain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_certificate_chain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="validateCertificateName")
-    def validate_certificate_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_certificate_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
         return pulumi.get(self, "validate_certificate_name")
 
     @validate_certificate_name.setter
-    def validate_certificate_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_certificate_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_certificate_name", value)
 
 
@@ -1735,7 +1735,7 @@ class BodyDiagnosticSettingsArgsDict(TypedDict):
     """
     Body logging settings.
     """
-    bytes: NotRequired[pulumi.Input[_builtins.int]]
+    bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of request body bytes to log.
     """
@@ -1743,7 +1743,7 @@ class BodyDiagnosticSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class BodyDiagnosticSettingsArgs:
     def __init__(__self__, *,
-                 bytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 bytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Body logging settings.
 
@@ -1754,14 +1754,14 @@ class BodyDiagnosticSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of request body bytes to log.
         """
         return pulumi.get(self, "bytes")
 
     @bytes.setter
-    def bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bytes", value)
 
 
@@ -1773,15 +1773,15 @@ class CertificateConfigurationArgsDict(TypedDict):
     """
     The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
     """
-    certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+    certificate: NotRequired[pulumi.Input[Optional['CertificateInformationArgsDict']]]
     """
     Certificate information.
     """
-    certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Certificate Password.
     """
-    encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    encoded_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64 Encoded certificate.
     """
@@ -1790,9 +1790,9 @@ class CertificateConfigurationArgsDict(TypedDict):
 class CertificateConfigurationArgs:
     def __init__(__self__, *,
                  store_name: pulumi.Input[_builtins.str],
-                 certificate: Optional[pulumi.Input['CertificateInformationArgs']] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate: pulumi.Input[Optional['CertificateInformationArgs']] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Certificate configuration which consist of non-trusted intermediates and root certificates.
 
@@ -1823,38 +1823,38 @@ class CertificateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertificateInformationArgs']]:
+    def certificate(self) -> pulumi.Input[Optional['CertificateInformationArgs']]:
         """
         Certificate information.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertificateInformationArgs']]):
+    def certificate(self, value: pulumi.Input[Optional['CertificateInformationArgs']]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate Password.
         """
         return pulumi.get(self, "certificate_password")
 
     @certificate_password.setter
-    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="encodedCertificate")
-    def encoded_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoded_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 Encoded certificate.
         """
         return pulumi.get(self, "encoded_certificate")
 
     @encoded_certificate.setter
-    def encoded_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoded_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoded_certificate", value)
 
 
@@ -1933,23 +1933,23 @@ class CircuitBreakerFailureConditionArgsDict(TypedDict):
     """
     The trip conditions of the circuit breaker
     """
-    count: NotRequired[pulumi.Input[_builtins.float]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The threshold for opening the circuit.
     """
-    error_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    error_reasons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The error reasons which are considered as failure.
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The interval during which the failures are counted.
     """
-    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The threshold for opening the circuit.
     """
-    status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgsDict']]]]
+    status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FailureStatusCodeRangeArgsDict']]]]]
     """
     The status code ranges which are considered as failure.
     """
@@ -1957,11 +1957,11 @@ class CircuitBreakerFailureConditionArgsDict(TypedDict):
 @pulumi.input_type
 class CircuitBreakerFailureConditionArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.float]] = None,
-                 error_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]] = None):
+                 count: pulumi.Input[Optional[_builtins.float]] = None,
+                 error_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 status_code_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]] = None):
         """
         The trip conditions of the circuit breaker
 
@@ -1984,62 +1984,62 @@ class CircuitBreakerFailureConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The threshold for opening the circuit.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="errorReasons")
-    def error_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def error_reasons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The error reasons which are considered as failure.
         """
         return pulumi.get(self, "error_reasons")
 
     @error_reasons.setter
-    def error_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def error_reasons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "error_reasons", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interval during which the failures are counted.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The threshold for opening the circuit.
         """
         return pulumi.get(self, "percentage")
 
     @percentage.setter
-    def percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCodeRanges")
-    def status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]:
+    def status_code_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]:
         """
         The status code ranges which are considered as failure.
         """
         return pulumi.get(self, "status_code_ranges")
 
     @status_code_ranges.setter
-    def status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]):
+    def status_code_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]):
         pulumi.set(self, "status_code_ranges", value)
 
 
@@ -2047,19 +2047,19 @@ class CircuitBreakerRuleArgsDict(TypedDict):
     """
     Rule configuration to trip the backend.
     """
-    accept_retry_after: NotRequired[pulumi.Input[_builtins.bool]]
+    accept_retry_after: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     flag to accept Retry-After header from the backend.
     """
-    failure_condition: NotRequired[pulumi.Input['CircuitBreakerFailureConditionArgsDict']]
+    failure_condition: NotRequired[pulumi.Input[Optional['CircuitBreakerFailureConditionArgsDict']]]
     """
     The conditions for tripping the circuit breaker.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule name.
     """
-    trip_duration: NotRequired[pulumi.Input[_builtins.str]]
+    trip_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration for which the circuit will be tripped.
     """
@@ -2067,10 +2067,10 @@ class CircuitBreakerRuleArgsDict(TypedDict):
 @pulumi.input_type
 class CircuitBreakerRuleArgs:
     def __init__(__self__, *,
-                 accept_retry_after: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_condition: Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trip_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_retry_after: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_condition: pulumi.Input[Optional['CircuitBreakerFailureConditionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trip_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Rule configuration to trip the backend.
 
@@ -2090,50 +2090,50 @@ class CircuitBreakerRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptRetryAfter")
-    def accept_retry_after(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_retry_after(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         flag to accept Retry-After header from the backend.
         """
         return pulumi.get(self, "accept_retry_after")
 
     @accept_retry_after.setter
-    def accept_retry_after(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_retry_after(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_retry_after", value)
 
     @_builtins.property
     @pulumi.getter(name="failureCondition")
-    def failure_condition(self) -> Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']]:
+    def failure_condition(self) -> pulumi.Input[Optional['CircuitBreakerFailureConditionArgs']]:
         """
         The conditions for tripping the circuit breaker.
         """
         return pulumi.get(self, "failure_condition")
 
     @failure_condition.setter
-    def failure_condition(self, value: Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']]):
+    def failure_condition(self, value: pulumi.Input[Optional['CircuitBreakerFailureConditionArgs']]):
         pulumi.set(self, "failure_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tripDuration")
-    def trip_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trip_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration for which the circuit will be tripped.
         """
         return pulumi.get(self, "trip_duration")
 
     @trip_duration.setter
-    def trip_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trip_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trip_duration", value)
 
 
@@ -2141,7 +2141,7 @@ class ConfigurationApiArgsDict(TypedDict):
     """
     Information regarding the Configuration API of the API Management service.
     """
-    legacy_api: NotRequired[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]
+    legacy_api: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LegacyApiState']]]]
     """
     Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
     """
@@ -2149,7 +2149,7 @@ class ConfigurationApiArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationApiArgs:
     def __init__(__self__, *,
-                 legacy_api: Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]] = None):
+                 legacy_api: pulumi.Input[Optional[Union[_builtins.str, 'LegacyApiState']]] = None):
         """
         Information regarding the Configuration API of the API Management service.
 
@@ -2162,72 +2162,23 @@ class ConfigurationApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="legacyApi")
-    def legacy_api(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]:
+    def legacy_api(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LegacyApiState']]]:
         """
         Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
         """
         return pulumi.get(self, "legacy_api")
 
     @legacy_api.setter
-    def legacy_api(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]):
+    def legacy_api(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LegacyApiState']]]):
         pulumi.set(self, "legacy_api", value)
 
 
-class DataMaskingEntityArgsDict(TypedDict):
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]
-    """
-    Data masking mode.
-    """
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of an entity to mask (e.g. a name of a header or a query parameter).
-    """
-
-@pulumi.input_type
-class DataMaskingEntityArgs:
-    def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Union[_builtins.str, 'DataMaskingMode']] mode: Data masking mode.
-        :param pulumi.Input[_builtins.str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
-        """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]:
-        """
-        Data masking mode.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]):
-        pulumi.set(self, "mode", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of an entity to mask (e.g. a name of a header or a query parameter).
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
 class DataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]]
     """
     Masking settings for headers
     """
-    query_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]]
     """
     Masking settings for Url query parameters
     """
@@ -2235,8 +2186,8 @@ class DataMaskingArgsDict(TypedDict):
 @pulumi.input_type
 class DataMaskingArgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None):
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
+                 query_params: pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] headers: Masking settings for headers
         :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] query_params: Masking settings for Url query parameters
@@ -2248,42 +2199,91 @@ class DataMaskingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
         """
         Masking settings for headers
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+    def query_params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
         """
         Masking settings for Url query parameters
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+    def query_params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
         pulumi.set(self, "query_params", value)
+
+
+class DataMaskingEntityArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataMaskingMode']]]]
+    """
+    Data masking mode.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an entity to mask (e.g. a name of a header or a query parameter).
+    """
+
+@pulumi.input_type
+class DataMaskingEntityArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'DataMaskingMode']]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Union[_builtins.str, 'DataMaskingMode']] mode: Data masking mode.
+        :param pulumi.Input[_builtins.str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataMaskingMode']]]:
+        """
+        Data masking mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataMaskingMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class EmailTemplateParametersContractPropertiesArgsDict(TypedDict):
     """
     Email Template Parameter contract.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Template parameter description.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Template parameter name.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Template parameter title.
     """
@@ -2291,9 +2291,9 @@ class EmailTemplateParametersContractPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailTemplateParametersContractPropertiesArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Email Template Parameter contract.
 
@@ -2310,38 +2310,38 @@ class EmailTemplateParametersContractPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template parameter description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template parameter name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template parameter title.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -2349,11 +2349,11 @@ class FailureStatusCodeRangeArgsDict(TypedDict):
     """
     The failure http status code range
     """
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum http status code.
     """
-    min: NotRequired[pulumi.Input[_builtins.int]]
+    min: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum http status code.
     """
@@ -2361,8 +2361,8 @@ class FailureStatusCodeRangeArgsDict(TypedDict):
 @pulumi.input_type
 class FailureStatusCodeRangeArgs:
     def __init__(__self__, *,
-                 max: Optional[pulumi.Input[_builtins.int]] = None,
-                 min: Optional[pulumi.Input[_builtins.int]] = None):
+                 max: pulumi.Input[Optional[_builtins.int]] = None,
+                 min: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The failure http status code range
 
@@ -2376,26 +2376,26 @@ class FailureStatusCodeRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum http status code.
         """
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max", value)
 
     @_builtins.property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum http status code.
         """
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min", value)
 
 
@@ -2404,7 +2404,7 @@ class GatewayHostnameBindingKeyVaultArgsDict(TypedDict):
     """
     The current provisioning state of the API Management gateway hostname binding.
     """
-    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default hostname of the data-plane gateway.
     """
@@ -2413,7 +2413,7 @@ class GatewayHostnameBindingKeyVaultArgsDict(TypedDict):
 class GatewayHostnameBindingKeyVaultArgs:
     def __init__(__self__, *,
                  secret_id: pulumi.Input[_builtins.str],
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] secret_id: The current provisioning state of the API Management gateway hostname binding.
         :param pulumi.Input[_builtins.str] identity_client_id: The default hostname of the data-plane gateway.
@@ -2436,14 +2436,14 @@ class GatewayHostnameBindingKeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default hostname of the data-plane gateway.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
 
@@ -2459,39 +2459,39 @@ class HostnameConfigurationArgsDict(TypedDict):
     """
     Hostname type.
     """
-    certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+    certificate: NotRequired[pulumi.Input[Optional['CertificateInformationArgsDict']]]
     """
     Certificate information.
     """
-    certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Certificate Password.
     """
-    certificate_source: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateSource']]]
+    certificate_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CertificateSource']]]]
     """
     Certificate Source.
     """
-    certificate_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]]
+    certificate_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CertificateStatus']]]]
     """
     Certificate Status.
     """
-    default_ssl_binding: NotRequired[pulumi.Input[_builtins.bool]]
+    default_ssl_binding: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
     """
-    encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    encoded_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64 Encoded certificate.
     """
-    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
     """
-    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
     """
-    negotiate_client_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    negotiate_client_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify true to always negotiate client certificate on the hostname. Default Value is false.
     """
@@ -2501,15 +2501,15 @@ class HostnameConfigurationArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'HostnameType']],
-                 certificate: Optional[pulumi.Input['CertificateInformationArgs']] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_source: Optional[pulumi.Input[Union[_builtins.str, 'CertificateSource']]] = None,
-                 certificate_status: Optional[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]] = None,
-                 default_ssl_binding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 negotiate_client_certificate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate: pulumi.Input[Optional['CertificateInformationArgs']] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_source: pulumi.Input[Optional[Union[_builtins.str, 'CertificateSource']]] = None,
+                 certificate_status: pulumi.Input[Optional[Union[_builtins.str, 'CertificateStatus']]] = None,
+                 default_ssl_binding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 negotiate_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Custom hostname configuration.
 
@@ -2576,110 +2576,110 @@ class HostnameConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertificateInformationArgs']]:
+    def certificate(self) -> pulumi.Input[Optional['CertificateInformationArgs']]:
         """
         Certificate information.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertificateInformationArgs']]):
+    def certificate(self, value: pulumi.Input[Optional['CertificateInformationArgs']]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate Password.
         """
         return pulumi.get(self, "certificate_password")
 
     @certificate_password.setter
-    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSource")
-    def certificate_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CertificateSource']]]:
+    def certificate_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CertificateSource']]]:
         """
         Certificate Source.
         """
         return pulumi.get(self, "certificate_source")
 
     @certificate_source.setter
-    def certificate_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CertificateSource']]]):
+    def certificate_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CertificateSource']]]):
         pulumi.set(self, "certificate_source", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateStatus")
-    def certificate_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]]:
+    def certificate_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CertificateStatus']]]:
         """
         Certificate Status.
         """
         return pulumi.get(self, "certificate_status")
 
     @certificate_status.setter
-    def certificate_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]]):
+    def certificate_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CertificateStatus']]]):
         pulumi.set(self, "certificate_status", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSslBinding")
-    def default_ssl_binding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_ssl_binding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
         """
         return pulumi.get(self, "default_ssl_binding")
 
     @default_ssl_binding.setter
-    def default_ssl_binding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_ssl_binding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_ssl_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="encodedCertificate")
-    def encoded_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoded_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 Encoded certificate.
         """
         return pulumi.get(self, "encoded_certificate")
 
     @encoded_certificate.setter
-    def encoded_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoded_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoded_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="negotiateClientCertificate")
-    def negotiate_client_certificate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negotiate_client_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true to always negotiate client certificate on the hostname. Default Value is false.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
     @negotiate_client_certificate.setter
-    def negotiate_client_certificate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negotiate_client_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negotiate_client_certificate", value)
 
 
@@ -2687,15 +2687,15 @@ class HttpMessageDiagnosticArgsDict(TypedDict):
     """
     Http message diagnostic settings.
     """
-    body: NotRequired[pulumi.Input['BodyDiagnosticSettingsArgsDict']]
+    body: NotRequired[pulumi.Input[Optional['BodyDiagnosticSettingsArgsDict']]]
     """
     Body logging settings.
     """
-    data_masking: NotRequired[pulumi.Input['DataMaskingArgsDict']]
+    data_masking: NotRequired[pulumi.Input[Optional['DataMaskingArgsDict']]]
     """
     Data masking settings.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of HTTP Headers to log.
     """
@@ -2703,9 +2703,9 @@ class HttpMessageDiagnosticArgsDict(TypedDict):
 @pulumi.input_type
 class HttpMessageDiagnosticArgs:
     def __init__(__self__, *,
-                 body: Optional[pulumi.Input['BodyDiagnosticSettingsArgs']] = None,
-                 data_masking: Optional[pulumi.Input['DataMaskingArgs']] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 body: pulumi.Input[Optional['BodyDiagnosticSettingsArgs']] = None,
+                 data_masking: pulumi.Input[Optional['DataMaskingArgs']] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Http message diagnostic settings.
 
@@ -2722,38 +2722,38 @@ class HttpMessageDiagnosticArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input['BodyDiagnosticSettingsArgs']]:
+    def body(self) -> pulumi.Input[Optional['BodyDiagnosticSettingsArgs']]:
         """
         Body logging settings.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input['BodyDiagnosticSettingsArgs']]):
+    def body(self, value: pulumi.Input[Optional['BodyDiagnosticSettingsArgs']]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['DataMaskingArgs']]:
+    def data_masking(self) -> pulumi.Input[Optional['DataMaskingArgs']]:
         """
         Data masking settings.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['DataMaskingArgs']]):
+    def data_masking(self, value: pulumi.Input[Optional['DataMaskingArgs']]):
         pulumi.set(self, "data_masking", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of HTTP Headers to log.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
 
@@ -2761,11 +2761,11 @@ class KeyVaultContractCreatePropertiesArgsDict(TypedDict):
     """
     Create keyVault contract details.
     """
-    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
     """
-    secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    secret_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
     """
@@ -2773,8 +2773,8 @@ class KeyVaultContractCreatePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultContractCreatePropertiesArgs:
     def __init__(__self__, *,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Create keyVault contract details.
 
@@ -2788,26 +2788,26 @@ class KeyVaultContractCreatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretIdentifier")
-    def secret_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         return pulumi.get(self, "secret_identifier")
 
     @secret_identifier.setter
-    def secret_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_identifier", value)
 
 
@@ -2815,11 +2815,11 @@ class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
     """
     API OAuth2 Authentication settings details.
     """
-    authorization_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_server_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth authorization server identifier.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     operations scope.
     """
@@ -2827,8 +2827,8 @@ class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
 @pulumi.input_type
 class OAuth2AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
-                 authorization_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API OAuth2 Authentication settings details.
 
@@ -2842,26 +2842,26 @@ class OAuth2AuthenticationSettingsContractArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerId")
-    def authorization_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth authorization server identifier.
         """
         return pulumi.get(self, "authorization_server_id")
 
     @authorization_server_id.setter
-    def authorization_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         operations scope.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -2869,11 +2869,11 @@ class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
     """
     API OAuth2 Authentication settings details.
     """
-    bearer_token_sending_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]
+    bearer_token_sending_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]]
     """
     How to send token to the server.
     """
-    openid_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    openid_provider_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth authorization server identifier.
     """
@@ -2881,8 +2881,8 @@ class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
     def __init__(__self__, *,
-                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]] = None,
-                 openid_provider_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bearer_token_sending_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]] = None,
+                 openid_provider_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         API OAuth2 Authentication settings details.
 
@@ -2896,26 +2896,26 @@ class OpenIdAuthenticationSettingsContractArgs:
 
     @_builtins.property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]:
+    def bearer_token_sending_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]:
         """
         How to send token to the server.
         """
         return pulumi.get(self, "bearer_token_sending_methods")
 
     @bearer_token_sending_methods.setter
-    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]):
+    def bearer_token_sending_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]):
         pulumi.set(self, "bearer_token_sending_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="openidProviderId")
-    def openid_provider_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def openid_provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth authorization server identifier.
         """
         return pulumi.get(self, "openid_provider_id")
 
     @openid_provider_id.setter
-    def openid_provider_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def openid_provider_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "openid_provider_id", value)
 
 
@@ -2931,31 +2931,31 @@ class ParameterContractArgsDict(TypedDict):
     """
     Parameter type.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default parameter value.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Parameter description.
     """
-    examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+    examples: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]]
     """
     Exampled defined for the parameter.
     """
-    required: NotRequired[pulumi.Input[_builtins.bool]]
+    required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether parameter is required or not.
     """
-    schema_id: NotRequired[pulumi.Input[_builtins.str]]
+    schema_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schema identifier.
     """
-    type_name: NotRequired[pulumi.Input[_builtins.str]]
+    type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type name defined by the schema.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Parameter values.
     """
@@ -2965,13 +2965,13 @@ class ParameterContractArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 examples: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 examples: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Operation parameters details.
 
@@ -3028,86 +3028,86 @@ class ParameterContractArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default parameter value.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
+    def examples(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
         """
         Exampled defined for the parameter.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
+    def examples(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
         pulumi.set(self, "examples", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether parameter is required or not.
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schema identifier.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type name defined by the schema.
         """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Parameter values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3115,15 +3115,15 @@ class ParameterExampleContractArgsDict(TypedDict):
     """
     Parameter example.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Long description for the example
     """
-    external_value: NotRequired[pulumi.Input[_builtins.str]]
+    external_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A URL that points to the literal example
     """
-    summary: NotRequired[pulumi.Input[_builtins.str]]
+    summary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Short description for the example
     """
@@ -3135,9 +3135,9 @@ class ParameterExampleContractArgsDict(TypedDict):
 @pulumi.input_type
 class ParameterExampleContractArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None):
         """
         Parameter example.
@@ -3158,38 +3158,38 @@ class ParameterExampleContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Long description for the example
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalValue")
-    def external_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL that points to the literal example
         """
         return pulumi.get(self, "external_value")
 
     @external_value.setter
-    def external_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description for the example
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
     @_builtins.property
@@ -3209,11 +3209,11 @@ class PipelineDiagnosticSettingsArgsDict(TypedDict):
     """
     Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
     """
-    request: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+    request: NotRequired[pulumi.Input[Optional['HttpMessageDiagnosticArgsDict']]]
     """
     Diagnostic settings for request.
     """
-    response: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+    response: NotRequired[pulumi.Input[Optional['HttpMessageDiagnosticArgsDict']]]
     """
     Diagnostic settings for response.
     """
@@ -3221,8 +3221,8 @@ class PipelineDiagnosticSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineDiagnosticSettingsArgs:
     def __init__(__self__, *,
-                 request: Optional[pulumi.Input['HttpMessageDiagnosticArgs']] = None,
-                 response: Optional[pulumi.Input['HttpMessageDiagnosticArgs']] = None):
+                 request: pulumi.Input[Optional['HttpMessageDiagnosticArgs']] = None,
+                 response: pulumi.Input[Optional['HttpMessageDiagnosticArgs']] = None):
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 
@@ -3236,26 +3236,26 @@ class PipelineDiagnosticSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input['HttpMessageDiagnosticArgs']]:
+    def request(self) -> pulumi.Input[Optional['HttpMessageDiagnosticArgs']]:
         """
         Diagnostic settings for request.
         """
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input['HttpMessageDiagnosticArgs']]):
+    def request(self, value: pulumi.Input[Optional['HttpMessageDiagnosticArgs']]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input['HttpMessageDiagnosticArgs']]:
+    def response(self) -> pulumi.Input[Optional['HttpMessageDiagnosticArgs']]:
         """
         Diagnostic settings for response.
         """
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input['HttpMessageDiagnosticArgs']]):
+    def response(self, value: pulumi.Input[Optional['HttpMessageDiagnosticArgs']]):
         pulumi.set(self, "response", value)
 
 
@@ -3263,7 +3263,7 @@ class PrivateEndpointConnectionRequestPropertiesArgsDict(TypedDict):
     """
     The connection state of the private endpoint connection.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgsDict']]]
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
@@ -3271,7 +3271,7 @@ class PrivateEndpointConnectionRequestPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionRequestPropertiesArgs:
     def __init__(__self__, *,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+                 private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         The connection state of the private endpoint connection.
 
@@ -3282,14 +3282,14 @@ class PrivateEndpointConnectionRequestPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
@@ -3297,15 +3297,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -3313,9 +3313,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -3332,38 +3332,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -3375,15 +3375,15 @@ class RemotePrivateEndpointConnectionWrapperArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Endpoint connection resource id
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Endpoint Connection Name
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private Endpoint Connection Resource Type
     """
@@ -3392,9 +3392,9 @@ class RemotePrivateEndpointConnectionWrapperArgsDict(TypedDict):
 class RemotePrivateEndpointConnectionWrapperArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Remote Private Endpoint Connection resource.
 
@@ -3425,38 +3425,38 @@ class RemotePrivateEndpointConnectionWrapperArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Endpoint connection resource id
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Endpoint Connection Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private Endpoint Connection Resource Type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3468,19 +3468,19 @@ class RepresentationContractArgsDict(TypedDict):
     """
     Specifies a registered or custom content type for this representation, e.g. application/xml.
     """
-    examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+    examples: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]]
     """
     Exampled defined for the representation.
     """
-    form_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    form_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgsDict']]]]]
     """
     Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
     """
-    schema_id: NotRequired[pulumi.Input[_builtins.str]]
+    schema_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
     """
-    type_name: NotRequired[pulumi.Input[_builtins.str]]
+    type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
     """
@@ -3489,10 +3489,10 @@ class RepresentationContractArgsDict(TypedDict):
 class RepresentationContractArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[_builtins.str],
-                 examples: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
-                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 examples: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
+                 form_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Operation request/response representation details.
 
@@ -3526,50 +3526,50 @@ class RepresentationContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
+    def examples(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
         """
         Exampled defined for the representation.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
+    def examples(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
         pulumi.set(self, "examples", value)
 
     @_builtins.property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
+    def form_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]:
         """
         Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         """
         return pulumi.get(self, "form_parameters")
 
     @form_parameters.setter
-    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
+    def form_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]):
         pulumi.set(self, "form_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
 
@@ -3577,19 +3577,19 @@ class RequestContractArgsDict(TypedDict):
     """
     Operation request details.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Operation request description.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgsDict']]]]]
     """
     Collection of operation request headers.
     """
-    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgsDict']]]]]
     """
     Collection of operation request query parameters.
     """
-    representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]]
     """
     Collection of operation request representations.
     """
@@ -3597,10 +3597,10 @@ class RequestContractArgsDict(TypedDict):
 @pulumi.input_type
 class RequestContractArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
-                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
-                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
+                 query_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
+                 representations: pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
         """
         Operation request details.
 
@@ -3620,50 +3620,50 @@ class RequestContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation request description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]:
         """
         Collection of operation request headers.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
+    def query_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]:
         """
         Collection of operation request query parameters.
         """
         return pulumi.get(self, "query_parameters")
 
     @query_parameters.setter
-    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
+    def query_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]):
         pulumi.set(self, "query_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]]:
+    def representations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]]:
         """
         Collection of operation request representations.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]]):
+    def representations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]]):
         pulumi.set(self, "representations", value)
 
 
@@ -3675,15 +3675,15 @@ class ResourceLocationDataContractArgsDict(TypedDict):
     """
     A canonical name for the geographic or physical location.
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city or locality where the resource is located.
     """
-    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    country_or_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country or region where the resource is located.
     """
-    district: NotRequired[pulumi.Input[_builtins.str]]
+    district: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The district, state, or province where the resource is located.
     """
@@ -3692,9 +3692,9 @@ class ResourceLocationDataContractArgsDict(TypedDict):
 class ResourceLocationDataContractArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 district: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 district: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource location data properties.
 
@@ -3725,38 +3725,38 @@ class ResourceLocationDataContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city or locality where the resource is located.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_or_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country or region where the resource is located.
         """
         return pulumi.get(self, "country_or_region")
 
     @country_or_region.setter
-    def country_or_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_or_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_or_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def district(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The district, state, or province where the resource is located.
         """
         return pulumi.get(self, "district")
 
     @district.setter
-    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def district(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "district", value)
 
 
@@ -3768,15 +3768,15 @@ class ResponseContractArgsDict(TypedDict):
     """
     Operation response HTTP status code.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Operation response description.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgsDict']]]]]
     """
     Collection of operation response headers.
     """
-    representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]]
     """
     Collection of operation response representations.
     """
@@ -3785,9 +3785,9 @@ class ResponseContractArgsDict(TypedDict):
 class ResponseContractArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
-                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
+                 representations: pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
         """
         Operation response details.
 
@@ -3818,38 +3818,38 @@ class ResponseContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation response description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]:
         """
         Collection of operation response headers.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterContractArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]]:
+    def representations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]]:
         """
         Collection of operation response representations.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]]):
+    def representations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepresentationContractArgs']]]]):
         pulumi.set(self, "representations", value)
 
 
@@ -3857,11 +3857,11 @@ class SamplingSettingsArgsDict(TypedDict):
     """
     Sampling settings for Diagnostic.
     """
-    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Rate of sampling for fixed-rate sampling.
     """
-    sampling_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SamplingType']]]
+    sampling_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]]
     """
     Sampling type.
     """
@@ -3869,8 +3869,8 @@ class SamplingSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SamplingSettingsArgs:
     def __init__(__self__, *,
-                 percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 sampling_type: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]] = None):
+                 percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 sampling_type: pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]] = None):
         """
         Sampling settings for Diagnostic.
 
@@ -3884,26 +3884,26 @@ class SamplingSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Rate of sampling for fixed-rate sampling.
         """
         return pulumi.get(self, "percentage")
 
     @percentage.setter
-    def percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingType")
-    def sampling_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]:
+    def sampling_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]:
         """
         Sampling type.
         """
         return pulumi.get(self, "sampling_type")
 
     @sampling_type.setter
-    def sampling_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]):
+    def sampling_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]):
         pulumi.set(self, "sampling_type", value)
 
 
@@ -3911,11 +3911,11 @@ class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
     """
     Subscription key parameter names details.
     """
-    header: NotRequired[pulumi.Input[_builtins.str]]
+    header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription key header name.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription key query string parameter name.
     """
@@ -3923,8 +3923,8 @@ class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionKeyParameterNamesContractArgs:
     def __init__(__self__, *,
-                 header: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None):
+                 header: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Subscription key parameter names details.
 
@@ -3938,26 +3938,26 @@ class SubscriptionKeyParameterNamesContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription key header name.
         """
         return pulumi.get(self, "header")
 
     @header.setter
-    def header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "header", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription key query string parameter name.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
 
@@ -4017,11 +4017,11 @@ class UserIdentityContractArgsDict(TypedDict):
     """
     User identity details.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier value within provider.
     """
-    provider: NotRequired[pulumi.Input[_builtins.str]]
+    provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identity provider name.
     """
@@ -4029,8 +4029,8 @@ class UserIdentityContractArgsDict(TypedDict):
 @pulumi.input_type
 class UserIdentityContractArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User identity details.
 
@@ -4044,35 +4044,35 @@ class UserIdentityContractArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier value within provider.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity provider name.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider", value)
 
 
 class UserIdentityPropertiesArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client id of user assigned identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of user assigned identity.
     """
@@ -4080,8 +4080,8 @@ class UserIdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class UserIdentityPropertiesArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The client id of user assigned identity.
         :param pulumi.Input[_builtins.str] principal_id: The principal id of user assigned identity.
@@ -4093,26 +4093,26 @@ class UserIdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id of user assigned identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
 
@@ -4120,7 +4120,7 @@ class VirtualNetworkConfigurationArgsDict(TypedDict):
     """
     Configuration of a virtual network to which API Management service is deployed.
     """
-    subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full resource ID of a subnet in a virtual network to deploy the API Management service in.
     """
@@ -4128,7 +4128,7 @@ class VirtualNetworkConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration of a virtual network to which API Management service is deployed.
 
@@ -4139,14 +4139,14 @@ class VirtualNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetResourceId")
-    def subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full resource ID of a subnet in a virtual network to deploy the API Management service in.
         """
         return pulumi.get(self, "subnet_resource_id")
 
     @subnet_resource_id.setter
-    def subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_resource_id", value)
 
 
@@ -4154,7 +4154,7 @@ class WikiDocumentationContractArgsDict(TypedDict):
     """
     Wiki documentation details.
     """
-    documentation_id: NotRequired[pulumi.Input[_builtins.str]]
+    documentation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Documentation Identifier
     """
@@ -4162,7 +4162,7 @@ class WikiDocumentationContractArgsDict(TypedDict):
 @pulumi.input_type
 class WikiDocumentationContractArgs:
     def __init__(__self__, *,
-                 documentation_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 documentation_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Wiki documentation details.
 
@@ -4173,14 +4173,14 @@ class WikiDocumentationContractArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentationId")
-    def documentation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Documentation Identifier
         """
         return pulumi.get(self, "documentation_id")
 
     @documentation_id.setter
-    def documentation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_id", value)
 
 
@@ -4188,11 +4188,11 @@ class X509CertificateNameArgsDict(TypedDict):
     """
     Properties of server X509Names.
     """
-    issuer_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_certificate_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Thumbprint for the Issuer of the Certificate.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Common Name of the Certificate.
     """
@@ -4200,8 +4200,8 @@ class X509CertificateNameArgsDict(TypedDict):
 @pulumi.input_type
 class X509CertificateNameArgs:
     def __init__(__self__, *,
-                 issuer_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 issuer_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of server X509Names.
 
@@ -4215,26 +4215,26 @@ class X509CertificateNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="issuerCertificateThumbprint")
-    def issuer_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thumbprint for the Issuer of the Certificate.
         """
         return pulumi.get(self, "issuer_certificate_thumbprint")
 
     @issuer_certificate_thumbprint.setter
-    def issuer_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Common Name of the Certificate.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

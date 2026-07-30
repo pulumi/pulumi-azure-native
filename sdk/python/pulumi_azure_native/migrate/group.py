@@ -24,8 +24,8 @@ class GroupArgs:
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['GroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -81,26 +81,26 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name of a group within a project.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
 
@@ -110,17 +110,16 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A group created in a Migration project.
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class Group(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
-
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

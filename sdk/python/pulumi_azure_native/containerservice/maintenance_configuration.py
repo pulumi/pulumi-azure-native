@@ -24,10 +24,10 @@ class MaintenanceConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['MaintenanceWindowArgs']] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
         """
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
@@ -75,50 +75,50 @@ class MaintenanceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configName")
-    def config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the maintenance configuration.
         """
         return pulumi.get(self, "config_name")
 
     @config_name.setter
-    def config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['MaintenanceWindowArgs']]:
         """
         Maintenance window for the maintenance configuration.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['MaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['MaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="notAllowedTime")
-    def not_allowed_time(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]:
+    def not_allowed_time(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]]:
         """
         Time slots on which upgrade is not allowed.
         """
         return pulumi.get(self, "not_allowed_time")
 
     @not_allowed_time.setter
-    def not_allowed_time(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]):
+    def not_allowed_time(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]]):
         pulumi.set(self, "not_allowed_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInWeek")
-    def time_in_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]:
+    def time_in_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]]:
         """
         Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
         return pulumi.get(self, "time_in_week")
 
     @time_in_week.setter
-    def time_in_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]):
+    def time_in_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]]):
         pulumi.set(self, "time_in_week", value)
 
 
@@ -128,12 +128,12 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         """
         Planned maintenance configuration, used to configure when updates can be deployed to a Managed Cluster. See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
@@ -141,7 +141,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview, 2026-01-01, 2026-01-02-preview, 2026-02-01, 2026-02-02-preview, 2026-03-01, 2026-03-02-preview, 2026-04-01, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview, 2026-01-01, 2026-01-02-preview, 2026-02-01, 2026-02-02-preview, 2026-03-01, 2026-03-02-preview, 2026-04-01, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

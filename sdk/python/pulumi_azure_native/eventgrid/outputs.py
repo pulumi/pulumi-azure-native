@@ -3362,7 +3362,7 @@ class PartnerTopicInfoResponse(dict):
 
         :param _builtins.str azure_subscription_id: Azure subscription ID of the subscriber. The partner topic associated with the channel will be
                created under this Azure subscription.
-        :param 'EventTypeInfoResponse' event_type_info: Event Type Information for the partner topic. This information is provided by the publisher and can be used by the 
+        :param 'EventTypeInfoResponse' event_type_info: Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
                subscriber to view different types of events that are published.
         :param _builtins.str name: Name of the partner topic associated with the channel.
         :param _builtins.str resource_group_name: Azure Resource Group of the subscriber. The partner topic associated with the channel will be
@@ -3395,7 +3395,7 @@ class PartnerTopicInfoResponse(dict):
     @pulumi.getter(name="eventTypeInfo")
     def event_type_info(self) -> Optional['outputs.EventTypeInfoResponse']:
         """
-        Event Type Information for the partner topic. This information is provided by the publisher and can be used by the 
+        Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
         subscriber to view different types of events that are published.
         """
         return pulumi.get(self, "event_type_info")

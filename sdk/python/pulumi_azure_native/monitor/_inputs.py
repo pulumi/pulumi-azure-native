@@ -16,10 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AccessModeSettingsExclusionArgs',
-    'AccessModeSettingsExclusionArgsDict',
     'AccessModeSettingsArgs',
     'AccessModeSettingsArgsDict',
+    'AccessModeSettingsExclusionArgs',
+    'AccessModeSettingsExclusionArgsDict',
     'ActionGroupArgs',
     'ActionGroupArgsDict',
     'ActionListArgs',
@@ -60,10 +60,10 @@ __all__ = [
     'AzureResourceManagerCommonTypesExtendedLocationArgsDict',
     'AzureResourceSignalGroupArgs',
     'AzureResourceSignalGroupArgsDict',
-    'BaselinePropertiesArgs',
-    'BaselinePropertiesArgsDict',
     'BaselineArgs',
     'BaselineArgsDict',
+    'BaselinePropertiesArgs',
+    'BaselinePropertiesArgsDict',
     'BatchProcessorArgs',
     'BatchProcessorArgsDict',
     'CacheConfigurationArgs',
@@ -72,12 +72,12 @@ __all__ = [
     'ColumnDefinitionArgsDict',
     'ConcurrencyConfigurationArgs',
     'ConcurrencyConfigurationArgsDict',
+    'ConditionArgs',
+    'ConditionArgsDict',
     'ConditionFailingPeriodsArgs',
     'ConditionFailingPeriodsArgsDict',
     'ConditionV1Args',
     'ConditionV1ArgsDict',
-    'ConditionArgs',
-    'ConditionArgsDict',
     'DataCollectionEndpointNetworkAclsArgs',
     'DataCollectionEndpointNetworkAclsArgsDict',
     'DataCollectionEndpointResourceIdentityArgs',
@@ -156,10 +156,10 @@ __all__ = [
     'LogAnalyticsSignalGroupArgsDict',
     'LogFileSettingsTextArgs',
     'LogFileSettingsTextArgsDict',
-    'LogFilesDataSourceSettingsArgs',
-    'LogFilesDataSourceSettingsArgsDict',
     'LogFilesDataSourceArgs',
     'LogFilesDataSourceArgsDict',
+    'LogFilesDataSourceSettingsArgs',
+    'LogFilesDataSourceSettingsArgsDict',
     'LogSettingsArgs',
     'LogSettingsArgsDict',
     'LogicAppReceiverArgs',
@@ -200,10 +200,10 @@ __all__ = [
     'PerfCounterDataSourceArgsDict',
     'PersistenceConfigurationsArgs',
     'PersistenceConfigurationsArgsDict',
-    'PipelineGroupPropertiesArgs',
-    'PipelineGroupPropertiesArgsDict',
     'PipelineArgs',
     'PipelineArgsDict',
+    'PipelineGroupPropertiesArgs',
+    'PipelineGroupPropertiesArgsDict',
     'PlatformTelemetryDataSourceArgs',
     'PlatformTelemetryDataSourceArgsDict',
     'PredictiveAutoscalePolicyArgs',
@@ -240,10 +240,10 @@ __all__ = [
     'ScaleActionArgsDict',
     'ScaleCapacityArgs',
     'ScaleCapacityArgsDict',
-    'ScaleRuleMetricDimensionArgs',
-    'ScaleRuleMetricDimensionArgsDict',
     'ScaleRuleArgs',
     'ScaleRuleArgsDict',
+    'ScaleRuleMetricDimensionArgs',
+    'ScaleRuleMetricDimensionArgsDict',
     'ScheduledQueryRuleCriteriaArgs',
     'ScheduledQueryRuleCriteriaArgsDict',
     'SchemaMapArgs',
@@ -252,14 +252,14 @@ __all__ = [
     'ScopeMapArgsDict',
     'ServiceArgs',
     'ServiceArgsDict',
+    'SignalArgs',
+    'SignalArgsDict',
     'SignalAssignmentArgs',
     'SignalAssignmentArgsDict',
     'SignalGroupArgs',
     'SignalGroupArgsDict',
     'SignalSourceArgs',
     'SignalSourceArgsDict',
-    'SignalArgs',
-    'SignalArgsDict',
     'SliPropertiesArgs',
     'SliPropertiesArgsDict',
     'SliResourceArgs',
@@ -306,80 +306,6 @@ __all__ = [
     'WindowsFirewallLogsDataSourceArgsDict',
 ]
 
-class AccessModeSettingsExclusionArgsDict(TypedDict):
-    """
-    Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
-    """
-    ingestion_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
-    """
-    Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-    """
-    private_endpoint_connection_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
-    """
-    query_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
-    """
-    Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-    """
-
-@pulumi.input_type
-class AccessModeSettingsExclusionArgs:
-    def __init__(__self__, *,
-                 ingestion_access_mode: Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_access_mode: Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]] = None):
-        """
-        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
-
-        :param pulumi.Input[Union[_builtins.str, 'AccessMode']] ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
-        :param pulumi.Input[Union[_builtins.str, 'AccessMode']] query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-        """
-        if ingestion_access_mode is not None:
-            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
-        if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
-        if query_access_mode is not None:
-            pulumi.set(__self__, "query_access_mode", query_access_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="ingestionAccessMode")
-    def ingestion_access_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]]:
-        """
-        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-        """
-        return pulumi.get(self, "ingestion_access_mode")
-
-    @ingestion_access_mode.setter
-    def ingestion_access_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]]):
-        pulumi.set(self, "ingestion_access_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="queryAccessMode")
-    def query_access_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]]:
-        """
-        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-        """
-        return pulumi.get(self, "query_access_mode")
-
-    @query_access_mode.setter
-    def query_access_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]]):
-        pulumi.set(self, "query_access_mode", value)
-
-
 class AccessModeSettingsArgsDict(TypedDict):
     """
     Properties that define the scope private link mode settings.
@@ -392,7 +318,7 @@ class AccessModeSettingsArgsDict(TypedDict):
     """
     Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
     """
-    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]]
     """
     List of exclusions that override the default access mode settings for specific private endpoint connections.
     """
@@ -402,7 +328,7 @@ class AccessModeSettingsArgs:
     def __init__(__self__, *,
                  ingestion_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']],
                  query_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]] = None):
+                 exclusions: pulumi.Input[Optional[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]] = None):
         """
         Properties that define the scope private link mode settings.
 
@@ -441,15 +367,89 @@ class AccessModeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]:
+    def exclusions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]:
         """
         List of exclusions that override the default access mode settings for specific private endpoint connections.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]):
+    def exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
+
+
+class AccessModeSettingsExclusionArgsDict(TypedDict):
+    """
+    Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+    """
+    ingestion_access_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]]
+    """
+    Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+    """
+    private_endpoint_connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+    """
+    query_access_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]]
+    """
+    Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+    """
+
+@pulumi.input_type
+class AccessModeSettingsExclusionArgs:
+    def __init__(__self__, *,
+                 ingestion_access_mode: pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_access_mode: pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]] = None):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+
+        :param pulumi.Input[Union[_builtins.str, 'AccessMode']] ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        :param pulumi.Input[Union[_builtins.str, 'AccessMode']] query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]:
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @ingestion_access_mode.setter
+    def ingestion_access_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]):
+        pulumi.set(self, "ingestion_access_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]:
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @query_access_mode.setter
+    def query_access_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessMode']]]):
+        pulumi.set(self, "query_access_mode", value)
 
 
 class ActionGroupArgsDict(TypedDict):
@@ -460,7 +460,7 @@ class ActionGroupArgsDict(TypedDict):
     """
     The resource ID of the Action Group. This cannot be null or empty.
     """
-    webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    webhook_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
     """
@@ -469,7 +469,7 @@ class ActionGroupArgsDict(TypedDict):
 class ActionGroupArgs:
     def __init__(__self__, *,
                  action_group_id: pulumi.Input[_builtins.str],
-                 webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 webhook_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A pointer to an Azure Action Group.
 
@@ -494,14 +494,14 @@ class ActionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="webhookProperties")
-    def webhook_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def webhook_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         return pulumi.get(self, "webhook_properties")
 
     @webhook_properties.setter
-    def webhook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def webhook_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "webhook_properties", value)
 
 
@@ -509,7 +509,7 @@ class ActionListArgsDict(TypedDict):
     """
     A list of Activity Log Alert rule actions.
     """
-    action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgsDict']]]]
+    action_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ActionGroupArgsDict']]]]]
     """
     The list of the Action Groups.
     """
@@ -517,7 +517,7 @@ class ActionListArgsDict(TypedDict):
 @pulumi.input_type
 class ActionListArgs:
     def __init__(__self__, *,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgs']]]] = None):
+                 action_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ActionGroupArgs']]]] = None):
         """
         A list of Activity Log Alert rule actions.
 
@@ -528,14 +528,14 @@ class ActionListArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgs']]]]:
+    def action_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionGroupArgs']]]]:
         """
         The list of the Action Groups.
         """
         return pulumi.get(self, "action_groups")
 
     @action_groups.setter
-    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgs']]]]):
+    def action_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionGroupArgs']]]]):
         pulumi.set(self, "action_groups", value)
 
 
@@ -543,15 +543,15 @@ class ActionsArgsDict(TypedDict):
     """
     Actions to invoke when the alert fires.
     """
-    action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    action_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Action Group resource Ids to invoke when the alert fires.
     """
-    action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    action_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The properties of an action properties.
     """
-    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The properties of an alert payload.
     """
@@ -559,9 +559,9 @@ class ActionsArgsDict(TypedDict):
 @pulumi.input_type
 class ActionsArgs:
     def __init__(__self__, *,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 action_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 action_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Actions to invoke when the alert fires.
 
@@ -578,38 +578,38 @@ class ActionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def action_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Action Group resource Ids to invoke when the alert fires.
         """
         return pulumi.get(self, "action_groups")
 
     @action_groups.setter
-    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def action_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="actionProperties")
-    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def action_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The properties of an action properties.
         """
         return pulumi.get(self, "action_properties")
 
     @action_properties.setter
-    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def action_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The properties of an alert payload.
         """
         return pulumi.get(self, "custom_properties")
 
     @custom_properties.setter
-    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_properties", value)
 
 
@@ -621,11 +621,11 @@ class AlertConfigurationArgsDict(TypedDict):
     """
     The severity of triggered alert.
     """
-    action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    action_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Optional list of action group resource IDs to be notified when the alert is triggered.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alert rule description.
     """
@@ -634,8 +634,8 @@ class AlertConfigurationArgsDict(TypedDict):
 class AlertConfigurationArgs:
     def __init__(__self__, *,
                  severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']],
-                 action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Alert configuration details
 
@@ -663,26 +663,26 @@ class AlertConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroupIds")
-    def action_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def action_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional list of action group resource IDs to be notified when the alert is triggered.
         """
         return pulumi.get(self, "action_group_ids")
 
     @action_group_ids.setter
-    def action_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def action_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -725,23 +725,23 @@ class AlertRuleAnyOfOrLeafConditionArgsDict(TypedDict):
     Each condition can be of one of the following types:
     __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
        * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-      _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+           _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
       * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-      _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
     """
-    any_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgsDict']]]]
+    any_of: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleLeafConditionArgsDict']]]]]
     """
     An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
     """
-    contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contains_any: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
     """
-    equals: NotRequired[pulumi.Input[_builtins.str]]
+    equals: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
     """
-    field: NotRequired[pulumi.Input[_builtins.str]]
+    field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Activity Log event's field that this condition will examine.
     The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
@@ -750,18 +750,18 @@ class AlertRuleAnyOfOrLeafConditionArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnyOfOrLeafConditionArgs:
     def __init__(__self__, *,
-                 any_of: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]] = None,
-                 contains_any: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 equals: Optional[pulumi.Input[_builtins.str]] = None,
-                 field: Optional[pulumi.Input[_builtins.str]] = None):
+                 any_of: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]] = None,
+                 contains_any: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: pulumi.Input[Optional[_builtins.str]] = None,
+                 field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Activity Log Alert rule condition that is met when all its member conditions are met.
         Each condition can be of one of the following types:
         __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
            * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-          _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+               _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+              _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 
 
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
@@ -781,43 +781,43 @@ class AlertRuleAnyOfOrLeafConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="anyOf")
-    def any_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]]:
+    def any_of(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]]:
         """
         An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
         """
         return pulumi.get(self, "any_of")
 
     @any_of.setter
-    def any_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]]):
+    def any_of(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]]]):
         pulumi.set(self, "any_of", value)
 
     @_builtins.property
     @pulumi.getter(name="containsAny")
-    def contains_any(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contains_any(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         """
         return pulumi.get(self, "contains_any")
 
     @contains_any.setter
-    def contains_any(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contains_any(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contains_any", value)
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def equals(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         """
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def equals(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter
-    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Activity Log event's field that this condition will examine.
         The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
@@ -825,7 +825,7 @@ class AlertRuleAnyOfOrLeafConditionArgs:
         return pulumi.get(self, "field")
 
     @field.setter
-    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field", value)
 
 
@@ -834,15 +834,15 @@ class AlertRuleLeafConditionArgsDict(TypedDict):
     An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
     This condition must contain 'field' and either 'equals' or 'containsAny'.
     """
-    contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contains_any: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
     """
-    equals: NotRequired[pulumi.Input[_builtins.str]]
+    equals: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
     """
-    field: NotRequired[pulumi.Input[_builtins.str]]
+    field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Activity Log event's field that this condition will examine.
     The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
@@ -851,9 +851,9 @@ class AlertRuleLeafConditionArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleLeafConditionArgs:
     def __init__(__self__, *,
-                 contains_any: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 equals: Optional[pulumi.Input[_builtins.str]] = None,
-                 field: Optional[pulumi.Input[_builtins.str]] = None):
+                 contains_any: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: pulumi.Input[Optional[_builtins.str]] = None,
+                 field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
         This condition must contain 'field' and either 'equals' or 'containsAny'.
@@ -872,31 +872,31 @@ class AlertRuleLeafConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="containsAny")
-    def contains_any(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contains_any(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         """
         return pulumi.get(self, "contains_any")
 
     @contains_any.setter
-    def contains_any(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contains_any(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contains_any", value)
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def equals(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         """
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def equals(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter
-    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Activity Log event's field that this condition will examine.
         The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
@@ -904,7 +904,7 @@ class AlertRuleLeafConditionArgs:
         return pulumi.get(self, "field")
 
     @field.setter
-    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field", value)
 
 
@@ -985,7 +985,7 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict(TypedDict):
     Discovery rule relationship discovery behavior
     Expected value is 'ApplicationInsightsTopology'.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
@@ -998,7 +998,7 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesArgs:
                  authentication_setting: pulumi.Input[_builtins.str],
                  discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']],
                  discovery_rule_kind: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Discovery rule properties for an Application Insights topology query
 
@@ -1081,14 +1081,14 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -1104,7 +1104,7 @@ class ArmRoleReceiverArgsDict(TypedDict):
     """
     The arm role id.
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -1114,7 +1114,7 @@ class ArmRoleReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  role_id: pulumi.Input[_builtins.str],
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An arm role receiver.
 
@@ -1155,14 +1155,14 @@ class ArmRoleReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -1186,19 +1186,19 @@ class AutomationRunbookReceiverArgsDict(TypedDict):
     """
     The resource id for webhook linked to this runbook.
     """
-    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates name of the webhook.
     """
-    service_uri: NotRequired[pulumi.Input[_builtins.str]]
+    service_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI where webhooks should be sent.
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -1210,10 +1210,10 @@ class AutomationRunbookReceiverArgs:
                  is_global_runbook: pulumi.Input[_builtins.bool],
                  runbook_name: pulumi.Input[_builtins.str],
                  webhook_resource_id: pulumi.Input[_builtins.str],
-                 managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The Azure Automation Runbook notification receiver.
 
@@ -1291,50 +1291,50 @@ class AutomationRunbookReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates name of the webhook.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceUri")
-    def service_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI where webhooks should be sent.
         """
         return pulumi.get(self, "service_uri")
 
     @service_uri.setter
-    def service_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -1346,11 +1346,11 @@ class AutoscaleNotificationArgsDict(TypedDict):
     """
     the operation associated with the notification and its value must be "scale"
     """
-    email: NotRequired[pulumi.Input['EmailNotificationArgsDict']]
+    email: NotRequired[pulumi.Input[Optional['EmailNotificationArgsDict']]]
     """
     the email notification.
     """
-    webhooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgsDict']]]]
+    webhooks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebhookNotificationArgsDict']]]]]
     """
     the collection of webhook notifications.
     """
@@ -1359,8 +1359,8 @@ class AutoscaleNotificationArgsDict(TypedDict):
 class AutoscaleNotificationArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input['OperationType'],
-                 email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
-                 webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
+                 email: pulumi.Input[Optional['EmailNotificationArgs']] = None,
+                 webhooks: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
 
@@ -1388,26 +1388,26 @@ class AutoscaleNotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input['EmailNotificationArgs']]:
+    def email(self) -> pulumi.Input[Optional['EmailNotificationArgs']]:
         """
         the email notification.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input['EmailNotificationArgs']]):
+    def email(self, value: pulumi.Input[Optional['EmailNotificationArgs']]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def webhooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]:
+    def webhooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookNotificationArgs']]]]:
         """
         the collection of webhook notifications.
         """
         return pulumi.get(self, "webhooks")
 
     @webhooks.setter
-    def webhooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]):
+    def webhooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookNotificationArgs']]]]):
         pulumi.set(self, "webhooks", value)
 
 
@@ -1427,11 +1427,11 @@ class AutoscaleProfileArgsDict(TypedDict):
     """
     the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
     """
-    fixed_date: NotRequired[pulumi.Input['TimeWindowArgsDict']]
+    fixed_date: NotRequired[pulumi.Input[Optional['TimeWindowArgsDict']]]
     """
     the specific date-time for the profile. This element is not used if the Recurrence element is used.
     """
-    recurrence: NotRequired[pulumi.Input['RecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['RecurrenceArgsDict']]]
     """
     the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
     """
@@ -1442,8 +1442,8 @@ class AutoscaleProfileArgs:
                  capacity: pulumi.Input['ScaleCapacityArgs'],
                  name: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]],
-                 fixed_date: Optional[pulumi.Input['TimeWindowArgs']] = None,
-                 recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None):
+                 fixed_date: pulumi.Input[Optional['TimeWindowArgs']] = None,
+                 recurrence: pulumi.Input[Optional['RecurrenceArgs']] = None):
         """
         Autoscale profile.
 
@@ -1499,26 +1499,26 @@ class AutoscaleProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fixedDate")
-    def fixed_date(self) -> Optional[pulumi.Input['TimeWindowArgs']]:
+    def fixed_date(self) -> pulumi.Input[Optional['TimeWindowArgs']]:
         """
         the specific date-time for the profile. This element is not used if the Recurrence element is used.
         """
         return pulumi.get(self, "fixed_date")
 
     @fixed_date.setter
-    def fixed_date(self, value: Optional[pulumi.Input['TimeWindowArgs']]):
+    def fixed_date(self, value: pulumi.Input[Optional['TimeWindowArgs']]):
         pulumi.set(self, "fixed_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['RecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['RecurrenceArgs']]:
         """
         the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['RecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['RecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -1594,11 +1594,11 @@ class AzureFunctionReceiverArgsDict(TypedDict):
     """
     The name of the azure function receiver. Names must be unique across all receivers within an action group.
     """
-    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -1610,8 +1610,8 @@ class AzureFunctionReceiverArgs:
                  function_name: pulumi.Input[_builtins.str],
                  http_trigger_url: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An azure function receiver.
 
@@ -1683,26 +1683,26 @@ class AzureFunctionReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -1804,11 +1804,11 @@ class AzureMonitorWorkspaceLogsExporterArgsDict(TypedDict):
     """
     API configurations for Azure Monitor workspace exporter.
     """
-    cache: NotRequired[pulumi.Input['CacheConfigurationArgsDict']]
+    cache: NotRequired[pulumi.Input[Optional['CacheConfigurationArgsDict']]]
     """
     Cache configurations.
     """
-    concurrency: NotRequired[pulumi.Input['ConcurrencyConfigurationArgsDict']]
+    concurrency: NotRequired[pulumi.Input[Optional['ConcurrencyConfigurationArgsDict']]]
     """
     Concurrency configuration for the exporter.
     """
@@ -1817,8 +1817,8 @@ class AzureMonitorWorkspaceLogsExporterArgsDict(TypedDict):
 class AzureMonitorWorkspaceLogsExporterArgs:
     def __init__(__self__, *,
                  api: pulumi.Input['AzureMonitorWorkspaceLogsApiConfigArgs'],
-                 cache: Optional[pulumi.Input['CacheConfigurationArgs']] = None,
-                 concurrency: Optional[pulumi.Input['ConcurrencyConfigurationArgs']] = None):
+                 cache: pulumi.Input[Optional['CacheConfigurationArgs']] = None,
+                 concurrency: pulumi.Input[Optional['ConcurrencyConfigurationArgs']] = None):
         """
         Azure Monitor Workspace Logs specific configurations.
 
@@ -1846,26 +1846,26 @@ class AzureMonitorWorkspaceLogsExporterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['CacheConfigurationArgs']]:
+    def cache(self) -> pulumi.Input[Optional['CacheConfigurationArgs']]:
         """
         Cache configurations.
         """
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['CacheConfigurationArgs']]):
+    def cache(self, value: pulumi.Input[Optional['CacheConfigurationArgs']]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter
-    def concurrency(self) -> Optional[pulumi.Input['ConcurrencyConfigurationArgs']]:
+    def concurrency(self) -> pulumi.Input[Optional['ConcurrencyConfigurationArgs']]:
         """
         Concurrency configuration for the exporter.
         """
         return pulumi.get(self, "concurrency")
 
     @concurrency.setter
-    def concurrency(self, value: Optional[pulumi.Input['ConcurrencyConfigurationArgs']]):
+    def concurrency(self, value: pulumi.Input[Optional['ConcurrencyConfigurationArgs']]):
         pulumi.set(self, "concurrency", value)
 
 
@@ -1881,7 +1881,7 @@ class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
     """
     Azure Monitor workspace resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -1891,7 +1891,7 @@ class AzureMonitorWorkspaceSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
 
@@ -1930,14 +1930,14 @@ class AzureMonitorWorkspaceSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
 
 
@@ -2005,7 +2005,7 @@ class AzureResourceSignalGroupArgsDict(TypedDict):
     """
     Azure resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -2015,7 +2015,7 @@ class AzureResourceSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  azure_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for an Azure resource
 
@@ -2054,48 +2054,15 @@ class AzureResourceSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
-
-
-class BaselinePropertiesArgsDict(TypedDict):
-    """
-    Defines the properties of a baseline.
-    """
-    baseline: pulumi.Input['BaselineArgsDict']
-    """
-    Defines the baseline target, which is compared against the SLI value to determine compliance.
-    """
-
-@pulumi.input_type
-class BaselinePropertiesArgs:
-    def __init__(__self__, *,
-                 baseline: pulumi.Input['BaselineArgs']):
-        """
-        Defines the properties of a baseline.
-
-        :param pulumi.Input['BaselineArgs'] baseline: Defines the baseline target, which is compared against the SLI value to determine compliance.
-        """
-        pulumi.set(__self__, "baseline", baseline)
-
-    @_builtins.property
-    @pulumi.getter
-    def baseline(self) -> pulumi.Input['BaselineArgs']:
-        """
-        Defines the baseline target, which is compared against the SLI value to determine compliance.
-        """
-        return pulumi.get(self, "baseline")
-
-    @baseline.setter
-    def baseline(self, value: pulumi.Input['BaselineArgs']):
-        pulumi.set(self, "baseline", value)
 
 
 class BaselineArgsDict(TypedDict):
@@ -2169,15 +2136,48 @@ class BaselineArgs:
         pulumi.set(self, "value", value)
 
 
+class BaselinePropertiesArgsDict(TypedDict):
+    """
+    Defines the properties of a baseline.
+    """
+    baseline: pulumi.Input['BaselineArgsDict']
+    """
+    Defines the baseline target, which is compared against the SLI value to determine compliance.
+    """
+
+@pulumi.input_type
+class BaselinePropertiesArgs:
+    def __init__(__self__, *,
+                 baseline: pulumi.Input['BaselineArgs']):
+        """
+        Defines the properties of a baseline.
+
+        :param pulumi.Input['BaselineArgs'] baseline: Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        pulumi.set(__self__, "baseline", baseline)
+
+    @_builtins.property
+    @pulumi.getter
+    def baseline(self) -> pulumi.Input['BaselineArgs']:
+        """
+        Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        return pulumi.get(self, "baseline")
+
+    @baseline.setter
+    def baseline(self, value: pulumi.Input['BaselineArgs']):
+        pulumi.set(self, "baseline", value)
+
+
 class BatchProcessorArgsDict(TypedDict):
     """
     Batch processor.
     """
-    batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of the batch.
     """
-    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout in milliseconds.
     """
@@ -2185,8 +2185,8 @@ class BatchProcessorArgsDict(TypedDict):
 @pulumi.input_type
 class BatchProcessorArgs:
     def __init__(__self__, *,
-                 batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Batch processor.
 
@@ -2204,26 +2204,26 @@ class BatchProcessorArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the batch.
         """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
-    def batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timeout in milliseconds.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
@@ -2231,11 +2231,11 @@ class CacheConfigurationArgsDict(TypedDict):
     """
     Cache configurations.
     """
-    max_storage_usage: NotRequired[pulumi.Input[_builtins.int]]
+    max_storage_usage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Max storage usage in megabytes.
     """
-    retention_period: NotRequired[pulumi.Input[_builtins.int]]
+    retention_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retention period in minutes.
     """
@@ -2243,8 +2243,8 @@ class CacheConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CacheConfigurationArgs:
     def __init__(__self__, *,
-                 max_storage_usage: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_storage_usage: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Cache configurations.
 
@@ -2258,26 +2258,26 @@ class CacheConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxStorageUsage")
-    def max_storage_usage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_storage_usage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max storage usage in megabytes.
         """
         return pulumi.get(self, "max_storage_usage")
 
     @max_storage_usage.setter
-    def max_storage_usage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_storage_usage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_storage_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention period in minutes.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
 
@@ -2285,11 +2285,11 @@ class ColumnDefinitionArgsDict(TypedDict):
     """
     Definition of custom data column.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the column.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KnownColumnDefinitionType']]]]
     """
     The type of the column data.
     """
@@ -2297,8 +2297,8 @@ class ColumnDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ColumnDefinitionArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'KnownColumnDefinitionType']]] = None):
         """
         Definition of custom data column.
 
@@ -2312,26 +2312,26 @@ class ColumnDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the column.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KnownColumnDefinitionType']]]:
         """
         The type of the column data.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KnownColumnDefinitionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -2339,11 +2339,11 @@ class ConcurrencyConfigurationArgsDict(TypedDict):
     """
     Concurrent publishing configuration.
     """
-    batch_queue_size: NotRequired[pulumi.Input[_builtins.int]]
+    batch_queue_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of the queue for log batches.
     """
-    worker_count: NotRequired[pulumi.Input[_builtins.int]]
+    worker_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of parallel workers processing the log queues.
     """
@@ -2351,8 +2351,8 @@ class ConcurrencyConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ConcurrencyConfigurationArgs:
     def __init__(__self__, *,
-                 batch_queue_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 batch_queue_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Concurrent publishing configuration.
 
@@ -2370,252 +2370,82 @@ class ConcurrencyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchQueueSize")
-    def batch_queue_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_queue_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the queue for log batches.
         """
         return pulumi.get(self, "batch_queue_size")
 
     @batch_queue_size.setter
-    def batch_queue_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_queue_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_queue_size", value)
 
     @_builtins.property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of parallel workers processing the log queues.
         """
         return pulumi.get(self, "worker_count")
 
     @worker_count.setter
-    def worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "worker_count", value)
-
-
-class ConditionFailingPeriodsArgsDict(TypedDict):
-    """
-    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-    """
-    min_failing_periods_to_alert: NotRequired[pulumi.Input[_builtins.float]]
-    """
-    The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-    """
-    number_of_evaluation_periods: NotRequired[pulumi.Input[_builtins.float]]
-    """
-    The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-    """
-
-@pulumi.input_type
-class ConditionFailingPeriodsArgs:
-    def __init__(__self__, *,
-                 min_failing_periods_to_alert: Optional[pulumi.Input[_builtins.float]] = None,
-                 number_of_evaluation_periods: Optional[pulumi.Input[_builtins.float]] = None):
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-
-        :param pulumi.Input[_builtins.float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        :param pulumi.Input[_builtins.float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        if min_failing_periods_to_alert is None:
-            min_failing_periods_to_alert = 1
-        if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
-        if number_of_evaluation_periods is None:
-            number_of_evaluation_periods = 1
-        if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
-
-    @_builtins.property
-    @pulumi.getter(name="minFailingPeriodsToAlert")
-    def min_failing_periods_to_alert(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        """
-        return pulumi.get(self, "min_failing_periods_to_alert")
-
-    @min_failing_periods_to_alert.setter
-    def min_failing_periods_to_alert(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "min_failing_periods_to_alert", value)
-
-    @_builtins.property
-    @pulumi.getter(name="numberOfEvaluationPeriods")
-    def number_of_evaluation_periods(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        return pulumi.get(self, "number_of_evaluation_periods")
-
-    @number_of_evaluation_periods.setter
-    def number_of_evaluation_periods(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "number_of_evaluation_periods", value)
-
-
-class ConditionV1ArgsDict(TypedDict):
-    """
-    Represents a filtering condition.
-    """
-    operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]
-    """
-    Operator used in the filtering condition.
-    """
-    value: pulumi.Input[_builtins.str]
-    """
-    Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
-    """
-    dimension_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Dimension name used in filtering.
-    """
-    sampling_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SamplingType']]]
-    """
-    Defines the sampling type.
-    """
-    scalar_function: NotRequired[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]
-    """
-    Scalar function applied for filtering.
-    """
-
-@pulumi.input_type
-class ConditionV1Args:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']],
-                 value: pulumi.Input[_builtins.str],
-                 dimension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_type: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]] = None,
-                 scalar_function: Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]] = None):
-        """
-        Represents a filtering condition.
-
-        :param pulumi.Input[Union[_builtins.str, 'ConditionOperator']] operator: Operator used in the filtering condition.
-        :param pulumi.Input[_builtins.str] value: Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
-        :param pulumi.Input[_builtins.str] dimension_name: Dimension name used in filtering.
-        :param pulumi.Input[Union[_builtins.str, 'SamplingType']] sampling_type: Defines the sampling type.
-        :param pulumi.Input[Union[_builtins.str, 'ScalarFunction']] scalar_function: Scalar function applied for filtering.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "value", value)
-        if dimension_name is not None:
-            pulumi.set(__self__, "dimension_name", dimension_name)
-        if sampling_type is not None:
-            pulumi.set(__self__, "sampling_type", sampling_type)
-        if scalar_function is not None:
-            pulumi.set(__self__, "scalar_function", scalar_function)
-
-    @_builtins.property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[Union[_builtins.str, 'ConditionOperator']]:
-        """
-        Operator used in the filtering condition.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]):
-        pulumi.set(self, "operator", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dimensionName")
-    def dimension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Dimension name used in filtering.
-        """
-        return pulumi.get(self, "dimension_name")
-
-    @dimension_name.setter
-    def dimension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "dimension_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="samplingType")
-    def sampling_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]:
-        """
-        Defines the sampling type.
-        """
-        return pulumi.get(self, "sampling_type")
-
-    @sampling_type.setter
-    def sampling_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]):
-        pulumi.set(self, "sampling_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scalarFunction")
-    def scalar_function(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]:
-        """
-        Scalar function applied for filtering.
-        """
-        return pulumi.get(self, "scalar_function")
-
-    @scalar_function.setter
-    def scalar_function(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]):
-        pulumi.set(self, "scalar_function", value)
 
 
 class ConditionArgsDict(TypedDict):
     """
     A condition of the scheduled query rule.
     """
-    alert_sensitivity: NotRequired[pulumi.Input[_builtins.str]]
+    alert_sensitivity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
     """
-    criterion_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CriterionType']]]
+    criterion_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CriterionType']]]]
     """
     Specifies the type of threshold criteria
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgsDict']]]]]
     """
     List of Dimensions conditions
     """
-    failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
+    failing_periods: NotRequired[pulumi.Input[Optional['ConditionFailingPeriodsArgsDict']]]
     """
     The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
     """
-    ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
+    ignore_data_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
     """
-    metric_measure_column: NotRequired[pulumi.Input[_builtins.str]]
+    metric_measure_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
     """
-    min_recurrence_count: NotRequired[pulumi.Input[_builtins.float]]
+    min_recurrence_count: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
     """
-    operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]]
+    operator: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ConditionOperator']]]]
     """
     The criteria operator. Relevant and required only for rules of the kind LogAlert.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Log query alert
     """
-    resource_id_column: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
     """
-    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
     """
-    time_aggregation: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]]
+    time_aggregation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TimeAggregation']]]]
     """
     Aggregation type. Relevant and required only for rules of the kind LogAlert.
     """
@@ -2623,19 +2453,19 @@ class ConditionArgsDict(TypedDict):
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
-                 alert_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-                 criterion_type: Optional[pulumi.Input[Union[_builtins.str, 'CriterionType']]] = None,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
-                 failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
-                 ignore_data_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_measure_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_recurrence_count: Optional[pulumi.Input[_builtins.float]] = None,
-                 operator: Optional[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 time_aggregation: Optional[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]] = None):
+                 alert_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+                 criterion_type: pulumi.Input[Optional[Union[_builtins.str, 'CriterionType']]] = None,
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgs']]]] = None,
+                 failing_periods: pulumi.Input[Optional['ConditionFailingPeriodsArgs']] = None,
+                 ignore_data_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_measure_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_recurrence_count: pulumi.Input[Optional[_builtins.float]] = None,
+                 operator: pulumi.Input[Optional[Union[_builtins.str, 'ConditionOperator']]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 time_aggregation: pulumi.Input[Optional[Union[_builtins.str, 'TimeAggregation']]] = None):
         """
         A condition of the scheduled query rule.
 
@@ -2682,166 +2512,336 @@ class ConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertSensitivity")
-    def alert_sensitivity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_sensitivity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "alert_sensitivity")
 
     @alert_sensitivity.setter
-    def alert_sensitivity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_sensitivity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_sensitivity", value)
 
     @_builtins.property
     @pulumi.getter(name="criterionType")
-    def criterion_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CriterionType']]]:
+    def criterion_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CriterionType']]]:
         """
         Specifies the type of threshold criteria
         """
         return pulumi.get(self, "criterion_type")
 
     @criterion_type.setter
-    def criterion_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CriterionType']]]):
+    def criterion_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CriterionType']]]):
         pulumi.set(self, "criterion_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgs']]]]:
         """
         List of Dimensions conditions
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="failingPeriods")
-    def failing_periods(self) -> Optional[pulumi.Input['ConditionFailingPeriodsArgs']]:
+    def failing_periods(self) -> pulumi.Input[Optional['ConditionFailingPeriodsArgs']]:
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "failing_periods")
 
     @failing_periods.setter
-    def failing_periods(self, value: Optional[pulumi.Input['ConditionFailingPeriodsArgs']]):
+    def failing_periods(self, value: pulumi.Input[Optional['ConditionFailingPeriodsArgs']]):
         pulumi.set(self, "failing_periods", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDataBefore")
-    def ignore_data_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_data_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "ignore_data_before")
 
     @ignore_data_before.setter
-    def ignore_data_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_data_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_data_before", value)
 
     @_builtins.property
     @pulumi.getter(name="metricMeasureColumn")
-    def metric_measure_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_measure_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "metric_measure_column")
 
     @metric_measure_column.setter
-    def metric_measure_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_measure_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_measure_column", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minRecurrenceCount")
-    def min_recurrence_count(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_recurrence_count(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
         """
         return pulumi.get(self, "min_recurrence_count")
 
     @min_recurrence_count.setter
-    def min_recurrence_count(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_recurrence_count(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_recurrence_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]]:
+    def operator(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConditionOperator']]]:
         """
         The criteria operator. Relevant and required only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]]):
+    def operator(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConditionOperator']]]):
         pulumi.set(self, "operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Log query alert
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdColumn")
-    def resource_id_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "resource_id_column")
 
     @resource_id_column.setter
-    def resource_id_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id_column", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]]:
+    def time_aggregation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TimeAggregation']]]:
         """
         Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]]):
+    def time_aggregation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TimeAggregation']]]):
         pulumi.set(self, "time_aggregation", value)
+
+
+class ConditionFailingPeriodsArgsDict(TypedDict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    min_failing_periods_to_alert: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+    """
+    number_of_evaluation_periods: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+    """
+
+@pulumi.input_type
+class ConditionFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: pulumi.Input[Optional[_builtins.float]] = None,
+                 number_of_evaluation_periods: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+
+        :param pulumi.Input[_builtins.float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param pulumi.Input[_builtins.float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @_builtins.property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @min_failing_periods_to_alert.setter
+    def min_failing_periods_to_alert(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "min_failing_periods_to_alert", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
+
+
+class ConditionV1ArgsDict(TypedDict):
+    """
+    Represents a filtering condition.
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]
+    """
+    Operator used in the filtering condition.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+    """
+    dimension_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Dimension name used in filtering.
+    """
+    sampling_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]]
+    """
+    Defines the sampling type.
+    """
+    scalar_function: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScalarFunction']]]]
+    """
+    Scalar function applied for filtering.
+    """
+
+@pulumi.input_type
+class ConditionV1Args:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']],
+                 value: pulumi.Input[_builtins.str],
+                 dimension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_type: pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]] = None,
+                 scalar_function: pulumi.Input[Optional[Union[_builtins.str, 'ScalarFunction']]] = None):
+        """
+        Represents a filtering condition.
+
+        :param pulumi.Input[Union[_builtins.str, 'ConditionOperator']] operator: Operator used in the filtering condition.
+        :param pulumi.Input[_builtins.str] value: Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        :param pulumi.Input[_builtins.str] dimension_name: Dimension name used in filtering.
+        :param pulumi.Input[Union[_builtins.str, 'SamplingType']] sampling_type: Defines the sampling type.
+        :param pulumi.Input[Union[_builtins.str, 'ScalarFunction']] scalar_function: Scalar function applied for filtering.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+        if dimension_name is not None:
+            pulumi.set(__self__, "dimension_name", dimension_name)
+        if sampling_type is not None:
+            pulumi.set(__self__, "sampling_type", sampling_type)
+        if scalar_function is not None:
+            pulumi.set(__self__, "scalar_function", scalar_function)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[_builtins.str, 'ConditionOperator']]:
+        """
+        Operator used in the filtering condition.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Dimension name used in filtering.
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @dimension_name.setter
+    def dimension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dimension_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingType")
+    def sampling_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]:
+        """
+        Defines the sampling type.
+        """
+        return pulumi.get(self, "sampling_type")
+
+    @sampling_type.setter
+    def sampling_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]]):
+        pulumi.set(self, "sampling_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalarFunction")
+    def scalar_function(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScalarFunction']]]:
+        """
+        Scalar function applied for filtering.
+        """
+        return pulumi.get(self, "scalar_function")
+
+    @scalar_function.setter
+    def scalar_function(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScalarFunction']]]):
+        pulumi.set(self, "scalar_function", value)
 
 
 class DataCollectionEndpointNetworkAclsArgsDict(TypedDict):
     """
     Network access control rules for the endpoints.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]]
     """
     The configuration to set whether network access from public internet to the endpoints are allowed.
     """
@@ -2849,7 +2849,7 @@ class DataCollectionEndpointNetworkAclsArgsDict(TypedDict):
 @pulumi.input_type
 class DataCollectionEndpointNetworkAclsArgs:
     def __init__(__self__, *,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]] = None):
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]] = None):
         """
         Network access control rules for the endpoints.
 
@@ -2860,14 +2860,14 @@ class DataCollectionEndpointNetworkAclsArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]:
         """
         The configuration to set whether network access from public internet to the endpoints are allowed.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -2879,7 +2879,7 @@ class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -2888,7 +2888,7 @@ class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
 class DataCollectionEndpointResourceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
 
@@ -2913,59 +2913,59 @@ class DataCollectionEndpointResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
 class DataCollectionRuleDataSourcesArgsDict(TypedDict):
     """
-    The specification of data sources. 
+    The specification of data sources.
     This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
     """
-    data_imports: NotRequired[pulumi.Input['DataSourcesSpecDataImportsArgsDict']]
+    data_imports: NotRequired[pulumi.Input[Optional['DataSourcesSpecDataImportsArgsDict']]]
     """
     Specifications of pull based data sources
     """
-    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgsDict']]]]
+    extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionDataSourceArgsDict']]]]]
     """
     The list of Azure VM extension data source configurations.
     """
-    iis_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgsDict']]]]
+    iis_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IisLogsDataSourceArgsDict']]]]]
     """
     The list of IIS logs source configurations.
     """
-    log_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgsDict']]]]
+    log_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogFilesDataSourceArgsDict']]]]]
     """
     The list of Log files source configurations.
     """
-    performance_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgsDict']]]]
+    performance_counters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PerfCounterDataSourceArgsDict']]]]]
     """
     The list of performance counter data source configurations.
     """
-    platform_telemetry: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgsDict']]]]
+    platform_telemetry: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgsDict']]]]]
     """
     The list of platform telemetry configurations
     """
-    prometheus_forwarder: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgsDict']]]]
+    prometheus_forwarder: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgsDict']]]]]
     """
     The list of Prometheus forwarder data source configurations.
     """
-    syslog: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgsDict']]]]
+    syslog: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SyslogDataSourceArgsDict']]]]]
     """
     The list of Syslog data source configurations.
     """
-    windows_event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgsDict']]]]
+    windows_event_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsEventLogDataSourceArgsDict']]]]]
     """
     The list of Windows Event Log data source configurations.
     """
-    windows_firewall_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgsDict']]]]
+    windows_firewall_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgsDict']]]]]
     """
     The list of Windows Firewall logs source configurations.
     """
@@ -2973,18 +2973,18 @@ class DataCollectionRuleDataSourcesArgsDict(TypedDict):
 @pulumi.input_type
 class DataCollectionRuleDataSourcesArgs:
     def __init__(__self__, *,
-                 data_imports: Optional[pulumi.Input['DataSourcesSpecDataImportsArgs']] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]] = None,
-                 iis_logs: Optional[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]] = None,
-                 log_files: Optional[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]] = None,
-                 performance_counters: Optional[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]] = None,
-                 platform_telemetry: Optional[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]] = None,
-                 prometheus_forwarder: Optional[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]] = None,
-                 syslog: Optional[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgs']]]] = None,
-                 windows_event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]] = None,
-                 windows_firewall_logs: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]] = None):
+                 data_imports: pulumi.Input[Optional['DataSourcesSpecDataImportsArgs']] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]] = None,
+                 iis_logs: pulumi.Input[Optional[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]] = None,
+                 log_files: pulumi.Input[Optional[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]] = None,
+                 performance_counters: pulumi.Input[Optional[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]] = None,
+                 platform_telemetry: pulumi.Input[Optional[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]] = None,
+                 prometheus_forwarder: pulumi.Input[Optional[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]] = None,
+                 syslog: pulumi.Input[Optional[Sequence[pulumi.Input['SyslogDataSourceArgs']]]] = None,
+                 windows_event_logs: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]] = None,
+                 windows_firewall_logs: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]] = None):
         """
-        The specification of data sources. 
+        The specification of data sources.
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 
         :param pulumi.Input['DataSourcesSpecDataImportsArgs'] data_imports: Specifications of pull based data sources
@@ -3021,122 +3021,122 @@ class DataCollectionRuleDataSourcesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataImports")
-    def data_imports(self) -> Optional[pulumi.Input['DataSourcesSpecDataImportsArgs']]:
+    def data_imports(self) -> pulumi.Input[Optional['DataSourcesSpecDataImportsArgs']]:
         """
         Specifications of pull based data sources
         """
         return pulumi.get(self, "data_imports")
 
     @data_imports.setter
-    def data_imports(self, value: Optional[pulumi.Input['DataSourcesSpecDataImportsArgs']]):
+    def data_imports(self, value: pulumi.Input[Optional['DataSourcesSpecDataImportsArgs']]):
         pulumi.set(self, "data_imports", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]]:
         """
         The list of Azure VM extension data source configurations.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionDataSourceArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="iisLogs")
-    def iis_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]]:
+    def iis_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]]:
         """
         The list of IIS logs source configurations.
         """
         return pulumi.get(self, "iis_logs")
 
     @iis_logs.setter
-    def iis_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]]):
+    def iis_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IisLogsDataSourceArgs']]]]):
         pulumi.set(self, "iis_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="logFiles")
-    def log_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]]:
+    def log_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]]:
         """
         The list of Log files source configurations.
         """
         return pulumi.get(self, "log_files")
 
     @log_files.setter
-    def log_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]]):
+    def log_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogFilesDataSourceArgs']]]]):
         pulumi.set(self, "log_files", value)
 
     @_builtins.property
     @pulumi.getter(name="performanceCounters")
-    def performance_counters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]]:
+    def performance_counters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]]:
         """
         The list of performance counter data source configurations.
         """
         return pulumi.get(self, "performance_counters")
 
     @performance_counters.setter
-    def performance_counters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]]):
+    def performance_counters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PerfCounterDataSourceArgs']]]]):
         pulumi.set(self, "performance_counters", value)
 
     @_builtins.property
     @pulumi.getter(name="platformTelemetry")
-    def platform_telemetry(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]]:
+    def platform_telemetry(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]]:
         """
         The list of platform telemetry configurations
         """
         return pulumi.get(self, "platform_telemetry")
 
     @platform_telemetry.setter
-    def platform_telemetry(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]]):
+    def platform_telemetry(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgs']]]]):
         pulumi.set(self, "platform_telemetry", value)
 
     @_builtins.property
     @pulumi.getter(name="prometheusForwarder")
-    def prometheus_forwarder(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]]:
+    def prometheus_forwarder(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]]:
         """
         The list of Prometheus forwarder data source configurations.
         """
         return pulumi.get(self, "prometheus_forwarder")
 
     @prometheus_forwarder.setter
-    def prometheus_forwarder(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]]):
+    def prometheus_forwarder(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgs']]]]):
         pulumi.set(self, "prometheus_forwarder", value)
 
     @_builtins.property
     @pulumi.getter
-    def syslog(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgs']]]]:
+    def syslog(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyslogDataSourceArgs']]]]:
         """
         The list of Syslog data source configurations.
         """
         return pulumi.get(self, "syslog")
 
     @syslog.setter
-    def syslog(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgs']]]]):
+    def syslog(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyslogDataSourceArgs']]]]):
         pulumi.set(self, "syslog", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsEventLogs")
-    def windows_event_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]]:
+    def windows_event_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]]:
         """
         The list of Windows Event Log data source configurations.
         """
         return pulumi.get(self, "windows_event_logs")
 
     @windows_event_logs.setter
-    def windows_event_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]]):
+    def windows_event_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsEventLogDataSourceArgs']]]]):
         pulumi.set(self, "windows_event_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsFirewallLogs")
-    def windows_firewall_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]]:
+    def windows_firewall_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]]:
         """
         The list of Windows Firewall logs source configurations.
         """
         return pulumi.get(self, "windows_firewall_logs")
 
     @windows_firewall_logs.setter
-    def windows_firewall_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]]):
+    def windows_firewall_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgs']]]]):
         pulumi.set(self, "windows_firewall_logs", value)
 
 
@@ -3144,35 +3144,35 @@ class DataCollectionRuleDestinationsArgsDict(TypedDict):
     """
     The specification of destinations.
     """
-    azure_monitor_metrics: NotRequired[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgsDict']]
+    azure_monitor_metrics: NotRequired[pulumi.Input[Optional['DestinationsSpecAzureMonitorMetricsArgsDict']]]
     """
     Azure Monitor Metrics destination.
     """
-    event_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgsDict']]]]
+    event_hubs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDestinationArgsDict']]]]]
     """
     List of Event Hubs destinations.
     """
-    event_hubs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgsDict']]]]
+    event_hubs_direct: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDirectDestinationArgsDict']]]]]
     """
     List of Event Hubs Direct destinations.
     """
-    log_analytics: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgsDict']]]]
+    log_analytics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogAnalyticsDestinationArgsDict']]]]]
     """
     List of Log Analytics destinations.
     """
-    monitoring_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgsDict']]]]
+    monitoring_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringAccountDestinationArgsDict']]]]]
     """
     List of monitoring account destinations.
     """
-    storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+    storage_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]]
     """
     List of storage accounts destinations.
     """
-    storage_blobs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+    storage_blobs_direct: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]]
     """
     List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
     """
-    storage_tables_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgsDict']]]]
+    storage_tables_direct: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageTableDestinationArgsDict']]]]]
     """
     List of Storage Table Direct destinations.
     """
@@ -3180,14 +3180,14 @@ class DataCollectionRuleDestinationsArgsDict(TypedDict):
 @pulumi.input_type
 class DataCollectionRuleDestinationsArgs:
     def __init__(__self__, *,
-                 azure_monitor_metrics: Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']] = None,
-                 event_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgs']]]] = None,
-                 event_hubs_direct: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]] = None,
-                 log_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]] = None,
-                 monitoring_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]] = None,
-                 storage_blobs_direct: Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]] = None,
-                 storage_tables_direct: Optional[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgs']]]] = None):
+                 azure_monitor_metrics: pulumi.Input[Optional['DestinationsSpecAzureMonitorMetricsArgs']] = None,
+                 event_hubs: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDestinationArgs']]]] = None,
+                 event_hubs_direct: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]] = None,
+                 log_analytics: pulumi.Input[Optional[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]] = None,
+                 monitoring_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]] = None,
+                 storage_blobs_direct: pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]] = None,
+                 storage_tables_direct: pulumi.Input[Optional[Sequence[pulumi.Input['StorageTableDestinationArgs']]]] = None):
         """
         The specification of destinations.
 
@@ -3219,98 +3219,98 @@ class DataCollectionRuleDestinationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorMetrics")
-    def azure_monitor_metrics(self) -> Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']]:
+    def azure_monitor_metrics(self) -> pulumi.Input[Optional['DestinationsSpecAzureMonitorMetricsArgs']]:
         """
         Azure Monitor Metrics destination.
         """
         return pulumi.get(self, "azure_monitor_metrics")
 
     @azure_monitor_metrics.setter
-    def azure_monitor_metrics(self, value: Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']]):
+    def azure_monitor_metrics(self, value: pulumi.Input[Optional['DestinationsSpecAzureMonitorMetricsArgs']]):
         pulumi.set(self, "azure_monitor_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubs")
-    def event_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgs']]]]:
+    def event_hubs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDestinationArgs']]]]:
         """
         List of Event Hubs destinations.
         """
         return pulumi.get(self, "event_hubs")
 
     @event_hubs.setter
-    def event_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgs']]]]):
+    def event_hubs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDestinationArgs']]]]):
         pulumi.set(self, "event_hubs", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubsDirect")
-    def event_hubs_direct(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]]:
+    def event_hubs_direct(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]]:
         """
         List of Event Hubs Direct destinations.
         """
         return pulumi.get(self, "event_hubs_direct")
 
     @event_hubs_direct.setter
-    def event_hubs_direct(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]]):
+    def event_hubs_direct(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]]]):
         pulumi.set(self, "event_hubs_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalytics")
-    def log_analytics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]]:
+    def log_analytics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]]:
         """
         List of Log Analytics destinations.
         """
         return pulumi.get(self, "log_analytics")
 
     @log_analytics.setter
-    def log_analytics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]]):
+    def log_analytics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogAnalyticsDestinationArgs']]]]):
         pulumi.set(self, "log_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringAccounts")
-    def monitoring_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]]:
+    def monitoring_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]]:
         """
         List of monitoring account destinations.
         """
         return pulumi.get(self, "monitoring_accounts")
 
     @monitoring_accounts.setter
-    def monitoring_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]]):
+    def monitoring_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringAccountDestinationArgs']]]]):
         pulumi.set(self, "monitoring_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]:
         """
         List of storage accounts destinations.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="storageBlobsDirect")
-    def storage_blobs_direct(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]:
+    def storage_blobs_direct(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]:
         """
         List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
         """
         return pulumi.get(self, "storage_blobs_direct")
 
     @storage_blobs_direct.setter
-    def storage_blobs_direct(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]):
+    def storage_blobs_direct(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageBlobDestinationArgs']]]]):
         pulumi.set(self, "storage_blobs_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="storageTablesDirect")
-    def storage_tables_direct(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgs']]]]:
+    def storage_tables_direct(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageTableDestinationArgs']]]]:
         """
         List of Storage Table Direct destinations.
         """
         return pulumi.get(self, "storage_tables_direct")
 
     @storage_tables_direct.setter
-    def storage_tables_direct(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgs']]]]):
+    def storage_tables_direct(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageTableDestinationArgs']]]]):
         pulumi.set(self, "storage_tables_direct", value)
 
 
@@ -3322,7 +3322,7 @@ class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -3331,7 +3331,7 @@ class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
 class DataCollectionRuleResourceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
 
@@ -3356,14 +3356,14 @@ class DataCollectionRuleResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3371,23 +3371,23 @@ class DataFlowArgsDict(TypedDict):
     """
     Definition of which streams are sent to which destinations.
     """
-    built_in_transform: NotRequired[pulumi.Input[_builtins.str]]
+    built_in_transform: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The builtIn transform to transform stream data
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of destinations for this data flow.
     """
-    output_stream: NotRequired[pulumi.Input[_builtins.str]]
+    output_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The output stream of the transform. Only required if the transform changes data to a different stream.
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]]
     """
     List of streams for this data flow.
     """
-    transform_kql: NotRequired[pulumi.Input[_builtins.str]]
+    transform_kql: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KQL query to transform stream data.
     """
@@ -3395,11 +3395,11 @@ class DataFlowArgsDict(TypedDict):
 @pulumi.input_type
 class DataFlowArgs:
     def __init__(__self__, *,
-                 built_in_transform: Optional[pulumi.Input[_builtins.str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 output_stream: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]] = None,
-                 transform_kql: Optional[pulumi.Input[_builtins.str]] = None):
+                 built_in_transform: pulumi.Input[Optional[_builtins.str]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 output_stream: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]] = None,
+                 transform_kql: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Definition of which streams are sent to which destinations.
 
@@ -3422,62 +3422,62 @@ class DataFlowArgs:
 
     @_builtins.property
     @pulumi.getter(name="builtInTransform")
-    def built_in_transform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def built_in_transform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The builtIn transform to transform stream data
         """
         return pulumi.get(self, "built_in_transform")
 
     @built_in_transform.setter
-    def built_in_transform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def built_in_transform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "built_in_transform", value)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destinations for this data flow.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="outputStream")
-    def output_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output stream of the transform. Only required if the transform changes data to a different stream.
         """
         return pulumi.get(self, "output_stream")
 
     @output_stream.setter
-    def output_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_stream", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]:
         """
         List of streams for this data flow.
         """
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]):
         pulumi.set(self, "streams", value)
 
     @_builtins.property
     @pulumi.getter(name="transformKql")
-    def transform_kql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transform_kql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KQL query to transform stream data.
         """
         return pulumi.get(self, "transform_kql")
 
     @transform_kql.setter
-    def transform_kql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transform_kql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transform_kql", value)
 
 
@@ -3485,16 +3485,16 @@ class DataImportSourcesEventHubArgsDict(TypedDict):
     """
     Definition of Event Hub configuration.
     """
-    consumer_group: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Event Hub consumer group name
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    stream: NotRequired[pulumi.Input[_builtins.str]]
+    stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The stream to collect from EventHub
     """
@@ -3502,14 +3502,14 @@ class DataImportSourcesEventHubArgsDict(TypedDict):
 @pulumi.input_type
 class DataImportSourcesEventHubArgs:
     def __init__(__self__, *,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Definition of Event Hub configuration.
 
         :param pulumi.Input[_builtins.str] consumer_group: Event Hub consumer group name
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.str] stream: The stream to collect from EventHub
         """
@@ -3522,39 +3522,39 @@ class DataImportSourcesEventHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroup")
-    def consumer_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event Hub consumer group name
         """
         return pulumi.get(self, "consumer_group")
 
     @consumer_group.setter
-    def consumer_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stream to collect from EventHub
         """
         return pulumi.get(self, "stream")
 
     @stream.setter
-    def stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream", value)
 
 
@@ -3562,7 +3562,7 @@ class DataSourcesSpecDataImportsArgsDict(TypedDict):
     """
     Specifications of pull based data sources
     """
-    event_hub: NotRequired[pulumi.Input['DataImportSourcesEventHubArgsDict']]
+    event_hub: NotRequired[pulumi.Input[Optional['DataImportSourcesEventHubArgsDict']]]
     """
     Definition of Event Hub configuration.
     """
@@ -3570,7 +3570,7 @@ class DataSourcesSpecDataImportsArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourcesSpecDataImportsArgs:
     def __init__(__self__, *,
-                 event_hub: Optional[pulumi.Input['DataImportSourcesEventHubArgs']] = None):
+                 event_hub: pulumi.Input[Optional['DataImportSourcesEventHubArgs']] = None):
         """
         Specifications of pull based data sources
 
@@ -3581,14 +3581,14 @@ class DataSourcesSpecDataImportsArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventHub")
-    def event_hub(self) -> Optional[pulumi.Input['DataImportSourcesEventHubArgs']]:
+    def event_hub(self) -> pulumi.Input[Optional['DataImportSourcesEventHubArgs']]:
         """
         Definition of Event Hub configuration.
         """
         return pulumi.get(self, "event_hub")
 
     @event_hub.setter
-    def event_hub(self, value: Optional[pulumi.Input['DataImportSourcesEventHubArgs']]):
+    def event_hub(self, value: pulumi.Input[Optional['DataImportSourcesEventHubArgs']]):
         pulumi.set(self, "event_hub", value)
 
 
@@ -3600,11 +3600,11 @@ class DependenciesSignalGroupArgsDict(TypedDict):
     """
     Aggregation type for child dependencies.
     """
-    degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    degraded_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
     """
-    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    unhealthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
     """
@@ -3612,9 +3612,9 @@ class DependenciesSignalGroupArgsDict(TypedDict):
 @pulumi.input_type
 class DependenciesSignalGroupArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]] = None,
-                 degraded_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 unhealthy_threshold: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregation_type: pulumi.Input[Optional[Union[_builtins.str, 'DependenciesAggregationType']]] = None,
+                 degraded_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 unhealthy_threshold: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for dependent entities, i.e. child entities
 
@@ -3644,26 +3644,26 @@ class DependenciesSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="degradedThreshold")
-    def degraded_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def degraded_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         """
         return pulumi.get(self, "degraded_threshold")
 
     @degraded_threshold.setter
-    def degraded_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def degraded_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "degraded_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unhealthy_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unhealthy_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
@@ -3671,20 +3671,20 @@ class DestinationsSpecAzureMonitorMetricsArgsDict(TypedDict):
     """
     Azure Monitor Metrics destination.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
 
 @pulumi.input_type
 class DestinationsSpecAzureMonitorMetricsArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Monitor Metrics destination.
 
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if name is not None:
@@ -3692,15 +3692,15 @@ class DestinationsSpecAzureMonitorMetricsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -3791,7 +3791,7 @@ class DynamicDetectionRuleArgsDict(TypedDict):
     """
     ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
     """
-    training_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    training_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start time of the training in UTC.
     """
@@ -3802,7 +3802,7 @@ class DynamicDetectionRuleArgs:
                  dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']],
                  dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']],
                  model_sensitivity: pulumi.Input[_builtins.float],
-                 training_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 training_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ML-based evaluation rule for a signal definition
 
@@ -3855,14 +3855,14 @@ class DynamicDetectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="trainingStartTime")
-    def training_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def training_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start time of the training in UTC.
         """
         return pulumi.get(self, "training_start_time")
 
     @training_start_time.setter
-    def training_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def training_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "training_start_time", value)
 
 
@@ -3899,19 +3899,19 @@ class DynamicMetricCriteriaArgsDict(TypedDict):
     """
     the criteria time aggregation types.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]]
     """
     List of dimension conditions.
     """
-    ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
+    ignore_data_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
     """
-    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    metric_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Namespace of the metric.
     """
-    skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_metric_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
     """
@@ -3926,10 +3926,10 @@ class DynamicMetricCriteriaArgs:
                  name: pulumi.Input[_builtins.str],
                  operator: pulumi.Input[Union[_builtins.str, 'DynamicThresholdOperator']],
                  time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']],
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
-                 ignore_data_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_metric_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 ignore_data_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_metric_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Criterion for dynamic threshold.
 
@@ -4049,50 +4049,50 @@ class DynamicMetricCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
         """
         List of dimension conditions.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDataBefore")
-    def ignore_data_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_data_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         """
         return pulumi.get(self, "ignore_data_before")
 
     @ignore_data_before.setter
-    def ignore_data_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_data_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_data_before", value)
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
-    def metric_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
 
     @metric_namespace.setter
-    def metric_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="skipMetricValidation")
-    def skip_metric_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_metric_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         return pulumi.get(self, "skip_metric_validation")
 
     @skip_metric_validation.setter
-    def skip_metric_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_metric_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_metric_validation", value)
 
 
@@ -4152,15 +4152,15 @@ class EmailNotificationArgsDict(TypedDict):
     """
     Email notification of an autoscale event.
     """
-    custom_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
     """
-    send_to_subscription_administrator: NotRequired[pulumi.Input[_builtins.bool]]
+    send_to_subscription_administrator: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     a value indicating whether to send email to subscription administrator.
     """
-    send_to_subscription_co_administrators: NotRequired[pulumi.Input[_builtins.bool]]
+    send_to_subscription_co_administrators: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     a value indicating whether to send email to subscription co-administrators.
     """
@@ -4168,9 +4168,9 @@ class EmailNotificationArgsDict(TypedDict):
 @pulumi.input_type
 class EmailNotificationArgs:
     def __init__(__self__, *,
-                 custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 send_to_subscription_administrator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_to_subscription_co_administrators: Optional[pulumi.Input[_builtins.bool]] = None):
+                 custom_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 send_to_subscription_administrator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_to_subscription_co_administrators: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Email notification of an autoscale event.
 
@@ -4191,38 +4191,38 @@ class EmailNotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         """
         return pulumi.get(self, "custom_emails")
 
     @custom_emails.setter
-    def custom_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="sendToSubscriptionAdministrator")
-    def send_to_subscription_administrator(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_to_subscription_administrator(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         a value indicating whether to send email to subscription administrator.
         """
         return pulumi.get(self, "send_to_subscription_administrator")
 
     @send_to_subscription_administrator.setter
-    def send_to_subscription_administrator(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_to_subscription_administrator(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_to_subscription_administrator", value)
 
     @_builtins.property
     @pulumi.getter(name="sendToSubscriptionCoAdministrators")
-    def send_to_subscription_co_administrators(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_to_subscription_co_administrators(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         a value indicating whether to send email to subscription co-administrators.
         """
         return pulumi.get(self, "send_to_subscription_co_administrators")
 
     @send_to_subscription_co_administrators.setter
-    def send_to_subscription_co_administrators(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_to_subscription_co_administrators(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_to_subscription_co_administrators", value)
 
 
@@ -4238,7 +4238,7 @@ class EmailReceiverArgsDict(TypedDict):
     """
     The name of the email receiver. Names must be unique across all receivers within a tenant action group.
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -4248,7 +4248,7 @@ class EmailReceiverArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An email receiver.
 
@@ -4289,14 +4289,14 @@ class EmailReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -4304,11 +4304,11 @@ class EntityAlertsArgsDict(TypedDict):
     """
     Alert configuration for an entity
     """
-    degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    degraded: NotRequired[pulumi.Input[Optional['AlertConfigurationArgsDict']]]
     """
     Alert to be triggered on state change to degraded
     """
-    unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    unhealthy: NotRequired[pulumi.Input[Optional['AlertConfigurationArgsDict']]]
     """
     Alert to be triggered on state change to unhealthy
     """
@@ -4316,8 +4316,8 @@ class EntityAlertsArgsDict(TypedDict):
 @pulumi.input_type
 class EntityAlertsArgs:
     def __init__(__self__, *,
-                 degraded: Optional[pulumi.Input['AlertConfigurationArgs']] = None,
-                 unhealthy: Optional[pulumi.Input['AlertConfigurationArgs']] = None):
+                 degraded: pulumi.Input[Optional['AlertConfigurationArgs']] = None,
+                 unhealthy: pulumi.Input[Optional['AlertConfigurationArgs']] = None):
         """
         Alert configuration for an entity
 
@@ -4331,26 +4331,26 @@ class EntityAlertsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def degraded(self) -> Optional[pulumi.Input['AlertConfigurationArgs']]:
+    def degraded(self) -> pulumi.Input[Optional['AlertConfigurationArgs']]:
         """
         Alert to be triggered on state change to degraded
         """
         return pulumi.get(self, "degraded")
 
     @degraded.setter
-    def degraded(self, value: Optional[pulumi.Input['AlertConfigurationArgs']]):
+    def degraded(self, value: pulumi.Input[Optional['AlertConfigurationArgs']]):
         pulumi.set(self, "degraded", value)
 
     @_builtins.property
     @pulumi.getter
-    def unhealthy(self) -> Optional[pulumi.Input['AlertConfigurationArgs']]:
+    def unhealthy(self) -> pulumi.Input[Optional['AlertConfigurationArgs']]:
         """
         Alert to be triggered on state change to unhealthy
         """
         return pulumi.get(self, "unhealthy")
 
     @unhealthy.setter
-    def unhealthy(self, value: Optional[pulumi.Input['AlertConfigurationArgs']]):
+    def unhealthy(self, value: pulumi.Input[Optional['AlertConfigurationArgs']]):
         pulumi.set(self, "unhealthy", value)
 
 
@@ -4410,39 +4410,39 @@ class EntityPropertiesArgsDict(TypedDict):
     """
     Properties which are common across all kinds of entities
     """
-    alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
+    alerts: NotRequired[pulumi.Input[Optional['EntityAlertsArgsDict']]]
     """
     Alert configuration for this entity
     """
-    canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
+    canvas_position: NotRequired[pulumi.Input[Optional['EntityCoordinatesArgsDict']]]
     """
     Positioning of the entity on the model canvas
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    health_objective: NotRequired[pulumi.Input[_builtins.float]]
+    health_objective: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Health objective as a percentage of time the entity should be healthy.
     """
-    icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
+    icon: NotRequired[pulumi.Input[Optional['IconDefinitionArgsDict']]]
     """
     Visual icon definition. If not set, a default icon is used.
     """
-    impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
+    impact: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]]
     """
     Impact of the entity in health state propagation
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Entity kind
     """
-    signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
+    signals: NotRequired[pulumi.Input[Optional['SignalGroupArgsDict']]]
     """
     Signal groups which are assigned to this entity
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
@@ -4450,15 +4450,15 @@ class EntityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EntityPropertiesArgs:
     def __init__(__self__, *,
-                 alerts: Optional[pulumi.Input['EntityAlertsArgs']] = None,
-                 canvas_position: Optional[pulumi.Input['EntityCoordinatesArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_objective: Optional[pulumi.Input[_builtins.float]] = None,
-                 icon: Optional[pulumi.Input['IconDefinitionArgs']] = None,
-                 impact: Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 signals: Optional[pulumi.Input['SignalGroupArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 alerts: pulumi.Input[Optional['EntityAlertsArgs']] = None,
+                 canvas_position: pulumi.Input[Optional['EntityCoordinatesArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_objective: pulumi.Input[Optional[_builtins.float]] = None,
+                 icon: pulumi.Input[Optional['IconDefinitionArgs']] = None,
+                 impact: pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 signals: pulumi.Input[Optional['SignalGroupArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Properties which are common across all kinds of entities
 
@@ -4497,110 +4497,110 @@ class EntityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alerts(self) -> Optional[pulumi.Input['EntityAlertsArgs']]:
+    def alerts(self) -> pulumi.Input[Optional['EntityAlertsArgs']]:
         """
         Alert configuration for this entity
         """
         return pulumi.get(self, "alerts")
 
     @alerts.setter
-    def alerts(self, value: Optional[pulumi.Input['EntityAlertsArgs']]):
+    def alerts(self, value: pulumi.Input[Optional['EntityAlertsArgs']]):
         pulumi.set(self, "alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="canvasPosition")
-    def canvas_position(self) -> Optional[pulumi.Input['EntityCoordinatesArgs']]:
+    def canvas_position(self) -> pulumi.Input[Optional['EntityCoordinatesArgs']]:
         """
         Positioning of the entity on the model canvas
         """
         return pulumi.get(self, "canvas_position")
 
     @canvas_position.setter
-    def canvas_position(self, value: Optional[pulumi.Input['EntityCoordinatesArgs']]):
+    def canvas_position(self, value: pulumi.Input[Optional['EntityCoordinatesArgs']]):
         pulumi.set(self, "canvas_position", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthObjective")
-    def health_objective(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def health_objective(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Health objective as a percentage of time the entity should be healthy.
         """
         return pulumi.get(self, "health_objective")
 
     @health_objective.setter
-    def health_objective(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def health_objective(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "health_objective", value)
 
     @_builtins.property
     @pulumi.getter
-    def icon(self) -> Optional[pulumi.Input['IconDefinitionArgs']]:
+    def icon(self) -> pulumi.Input[Optional['IconDefinitionArgs']]:
         """
         Visual icon definition. If not set, a default icon is used.
         """
         return pulumi.get(self, "icon")
 
     @icon.setter
-    def icon(self, value: Optional[pulumi.Input['IconDefinitionArgs']]):
+    def icon(self, value: pulumi.Input[Optional['IconDefinitionArgs']]):
         pulumi.set(self, "icon", value)
 
     @_builtins.property
     @pulumi.getter
-    def impact(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]:
+    def impact(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]:
         """
         Impact of the entity in health state propagation
         """
         return pulumi.get(self, "impact")
 
     @impact.setter
-    def impact(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]):
+    def impact(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]):
         pulumi.set(self, "impact", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity kind
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def signals(self) -> Optional[pulumi.Input['SignalGroupArgs']]:
+    def signals(self) -> pulumi.Input[Optional['SignalGroupArgs']]:
         """
         Signal groups which are assigned to this entity
         """
         return pulumi.get(self, "signals")
 
     @signals.setter
-    def signals(self, value: Optional[pulumi.Input['SignalGroupArgs']]):
+    def signals(self, value: pulumi.Input[Optional['SignalGroupArgs']]):
         pulumi.set(self, "signals", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -4608,15 +4608,15 @@ class EvaluationRuleArgsDict(TypedDict):
     """
     Evaluation rule for a signal definition
     """
-    degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    degraded_rule: NotRequired[pulumi.Input[Optional['ThresholdRuleArgsDict']]]
     """
     Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
     """
-    dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
+    dynamic_detection_rule: NotRequired[pulumi.Input[Optional['DynamicDetectionRuleArgsDict']]]
     """
     Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
     """
-    unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    unhealthy_rule: NotRequired[pulumi.Input[Optional['ThresholdRuleArgsDict']]]
     """
     Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
     """
@@ -4624,9 +4624,9 @@ class EvaluationRuleArgsDict(TypedDict):
 @pulumi.input_type
 class EvaluationRuleArgs:
     def __init__(__self__, *,
-                 degraded_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None,
-                 dynamic_detection_rule: Optional[pulumi.Input['DynamicDetectionRuleArgs']] = None,
-                 unhealthy_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None):
+                 degraded_rule: pulumi.Input[Optional['ThresholdRuleArgs']] = None,
+                 dynamic_detection_rule: pulumi.Input[Optional['DynamicDetectionRuleArgs']] = None,
+                 unhealthy_rule: pulumi.Input[Optional['ThresholdRuleArgs']] = None):
         """
         Evaluation rule for a signal definition
 
@@ -4643,60 +4643,60 @@ class EvaluationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="degradedRule")
-    def degraded_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
+    def degraded_rule(self) -> pulumi.Input[Optional['ThresholdRuleArgs']]:
         """
         Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
         """
         return pulumi.get(self, "degraded_rule")
 
     @degraded_rule.setter
-    def degraded_rule(self, value: Optional[pulumi.Input['ThresholdRuleArgs']]):
+    def degraded_rule(self, value: pulumi.Input[Optional['ThresholdRuleArgs']]):
         pulumi.set(self, "degraded_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicDetectionRule")
-    def dynamic_detection_rule(self) -> Optional[pulumi.Input['DynamicDetectionRuleArgs']]:
+    def dynamic_detection_rule(self) -> pulumi.Input[Optional['DynamicDetectionRuleArgs']]:
         """
         Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         """
         return pulumi.get(self, "dynamic_detection_rule")
 
     @dynamic_detection_rule.setter
-    def dynamic_detection_rule(self, value: Optional[pulumi.Input['DynamicDetectionRuleArgs']]):
+    def dynamic_detection_rule(self, value: pulumi.Input[Optional['DynamicDetectionRuleArgs']]):
         pulumi.set(self, "dynamic_detection_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyRule")
-    def unhealthy_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
+    def unhealthy_rule(self) -> pulumi.Input[Optional['ThresholdRuleArgs']]:
         """
         Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
         """
         return pulumi.get(self, "unhealthy_rule")
 
     @unhealthy_rule.setter
-    def unhealthy_rule(self, value: Optional[pulumi.Input['ThresholdRuleArgs']]):
+    def unhealthy_rule(self, value: pulumi.Input[Optional['ThresholdRuleArgs']]):
         pulumi.set(self, "unhealthy_rule", value)
 
 
 class EventHubDestinationArgsDict(TypedDict):
-    event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    event_hub_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the event hub.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
 
 @pulumi.input_type
 class EventHubDestinationArgs:
     def __init__(__self__, *,
-                 event_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The resource ID of the event hub.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if event_hub_resource_id is not None:
@@ -4706,49 +4706,49 @@ class EventHubDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventHubResourceId")
-    def event_hub_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the event hub.
         """
         return pulumi.get(self, "event_hub_resource_id")
 
     @event_hub_resource_id.setter
-    def event_hub_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class EventHubDirectDestinationArgsDict(TypedDict):
-    event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    event_hub_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the event hub.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
 
 @pulumi.input_type
 class EventHubDirectDestinationArgs:
     def __init__(__self__, *,
-                 event_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The resource ID of the event hub.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if event_hub_resource_id is not None:
@@ -4758,27 +4758,27 @@ class EventHubDirectDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventHubResourceId")
-    def event_hub_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the event hub.
         """
         return pulumi.get(self, "event_hub_resource_id")
 
     @event_hub_resource_id.setter
-    def event_hub_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -4802,15 +4802,15 @@ class EventHubReceiverArgsDict(TypedDict):
     """
     The Id for the subscription containing this event hub
     """
-    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant Id for the subscription containing this event hub
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -4822,9 +4822,9 @@ class EventHubReceiverArgs:
                  event_hub_name_space: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  subscription_id: pulumi.Input[_builtins.str],
-                 managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An Event hub receiver.
 
@@ -4899,38 +4899,38 @@ class EventHubReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant Id for the subscription containing this event hub
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -4946,11 +4946,11 @@ class ExporterArgsDict(TypedDict):
     """
     The type of exporter.
     """
-    azure_monitor_workspace_logs: NotRequired[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgsDict']]
+    azure_monitor_workspace_logs: NotRequired[pulumi.Input[Optional['AzureMonitorWorkspaceLogsExporterArgsDict']]]
     """
     Azure Monitor Workspace Logs specific configurations.
     """
-    tcp: NotRequired[pulumi.Input['TcpExporterArgsDict']]
+    tcp: NotRequired[pulumi.Input[Optional['TcpExporterArgsDict']]]
     """
     TCP based exporter. Used for pipelineGroup exporter.
     """
@@ -4960,8 +4960,8 @@ class ExporterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ExporterType']],
-                 azure_monitor_workspace_logs: Optional[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgs']] = None,
-                 tcp: Optional[pulumi.Input['TcpExporterArgs']] = None):
+                 azure_monitor_workspace_logs: pulumi.Input[Optional['AzureMonitorWorkspaceLogsExporterArgs']] = None,
+                 tcp: pulumi.Input[Optional['TcpExporterArgs']] = None):
         """
         Exporter Info.
 
@@ -5003,26 +5003,26 @@ class ExporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspaceLogs")
-    def azure_monitor_workspace_logs(self) -> Optional[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgs']]:
+    def azure_monitor_workspace_logs(self) -> pulumi.Input[Optional['AzureMonitorWorkspaceLogsExporterArgs']]:
         """
         Azure Monitor Workspace Logs specific configurations.
         """
         return pulumi.get(self, "azure_monitor_workspace_logs")
 
     @azure_monitor_workspace_logs.setter
-    def azure_monitor_workspace_logs(self, value: Optional[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgs']]):
+    def azure_monitor_workspace_logs(self, value: pulumi.Input[Optional['AzureMonitorWorkspaceLogsExporterArgs']]):
         pulumi.set(self, "azure_monitor_workspace_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def tcp(self) -> Optional[pulumi.Input['TcpExporterArgs']]:
+    def tcp(self) -> pulumi.Input[Optional['TcpExporterArgs']]:
         """
         TCP based exporter. Used for pipelineGroup exporter.
         """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
-    def tcp(self, value: Optional[pulumi.Input['TcpExporterArgs']]):
+    def tcp(self, value: pulumi.Input[Optional['TcpExporterArgs']]):
         pulumi.set(self, "tcp", value)
 
 
@@ -5039,16 +5039,16 @@ class ExtensionDataSourceArgsDict(TypedDict):
     """
     The extension settings. The format is specific for particular extension.
     """
-    input_data_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    input_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of data sources this extension needs data from.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]]
     """
     List of streams that this data source will be sent to.
     A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -5059,9 +5059,9 @@ class ExtensionDataSourceArgs:
     def __init__(__self__, *,
                  extension_name: pulumi.Input[_builtins.str],
                  extension_settings: Optional[Any] = None,
-                 input_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]] = None):
+                 input_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
@@ -5069,7 +5069,7 @@ class ExtensionDataSourceArgs:
         :param pulumi.Input[_builtins.str] extension_name: The name of the VM extension.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] input_data_sources: The list of data sources this extension needs data from.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -5110,32 +5110,32 @@ class ExtensionDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputDataSources")
-    def input_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def input_data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of data sources this extension needs data from.
         """
         return pulumi.get(self, "input_data_sources")
 
     @input_data_sources.setter
-    def input_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def input_data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "input_data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -5143,7 +5143,7 @@ class ExtensionDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -5151,7 +5151,7 @@ class HealthModelPropertiesArgsDict(TypedDict):
     """
     HealthModel properties
     """
-    discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
+    discovery: NotRequired[pulumi.Input[Optional['ModelDiscoverySettingsArgsDict']]]
     """
     Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
     """
@@ -5159,7 +5159,7 @@ class HealthModelPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HealthModelPropertiesArgs:
     def __init__(__self__, *,
-                 discovery: Optional[pulumi.Input['ModelDiscoverySettingsArgs']] = None):
+                 discovery: pulumi.Input[Optional['ModelDiscoverySettingsArgs']] = None):
         """
         HealthModel properties
 
@@ -5170,14 +5170,14 @@ class HealthModelPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def discovery(self) -> Optional[pulumi.Input['ModelDiscoverySettingsArgs']]:
+    def discovery(self) -> pulumi.Input[Optional['ModelDiscoverySettingsArgs']]:
         """
         Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
         """
         return pulumi.get(self, "discovery")
 
     @discovery.setter
-    def discovery(self, value: Optional[pulumi.Input['ModelDiscoverySettingsArgs']]):
+    def discovery(self, value: pulumi.Input[Optional['ModelDiscoverySettingsArgs']]):
         pulumi.set(self, "discovery", value)
 
 
@@ -5189,7 +5189,7 @@ class IconDefinitionArgsDict(TypedDict):
     """
     Name of the built-in icon, or 'Custom' to use customData
     """
-    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    custom_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
     """
@@ -5198,7 +5198,7 @@ class IconDefinitionArgsDict(TypedDict):
 class IconDefinitionArgs:
     def __init__(__self__, *,
                  icon_name: pulumi.Input[_builtins.str],
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Visual icon definition of an entity
 
@@ -5223,14 +5223,14 @@ class IconDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
 
@@ -5242,13 +5242,13 @@ class IisLogsDataSourceArgsDict(TypedDict):
     """
     IIS streams
     """
-    log_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    log_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Absolute paths file location
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
 
@@ -5256,14 +5256,14 @@ class IisLogsDataSourceArgsDict(TypedDict):
 class IisLogsDataSourceArgs:
     def __init__(__self__, *,
                  streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 log_directories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_directories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Enables IIS logs to be collected by this data collection rule.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: IIS streams
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_directories: Absolute paths file location
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -5286,27 +5286,27 @@ class IisLogsDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="logDirectories")
-    def log_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_directories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Absolute paths file location
         """
         return pulumi.get(self, "log_directories")
 
     @log_directories.setter
-    def log_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_directories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_directories", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -5659,11 +5659,11 @@ class JsonArrayMapperArgsDict(TypedDict):
     """
     Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
     """
-    destination_field: NotRequired[pulumi.Input['JsonMapperDestinationFieldArgsDict']]
+    destination_field: NotRequired[pulumi.Input[Optional['JsonMapperDestinationFieldArgsDict']]]
     """
     Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
     """
-    source_field: NotRequired[pulumi.Input['JsonMapperSourceFieldArgsDict']]
+    source_field: NotRequired[pulumi.Input[Optional['JsonMapperSourceFieldArgsDict']]]
     """
     Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
     """
@@ -5672,8 +5672,8 @@ class JsonArrayMapperArgsDict(TypedDict):
 class JsonArrayMapperArgs:
     def __init__(__self__, *,
                  keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 destination_field: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']] = None,
-                 source_field: Optional[pulumi.Input['JsonMapperSourceFieldArgs']] = None):
+                 destination_field: pulumi.Input[Optional['JsonMapperDestinationFieldArgs']] = None,
+                 source_field: pulumi.Input[Optional['JsonMapperSourceFieldArgs']] = None):
         """
         A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
 
@@ -5701,26 +5701,26 @@ class JsonArrayMapperArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationField")
-    def destination_field(self) -> Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]:
+    def destination_field(self) -> pulumi.Input[Optional['JsonMapperDestinationFieldArgs']]:
         """
         Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
         """
         return pulumi.get(self, "destination_field")
 
     @destination_field.setter
-    def destination_field(self, value: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]):
+    def destination_field(self, value: pulumi.Input[Optional['JsonMapperDestinationFieldArgs']]):
         pulumi.set(self, "destination_field", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceField")
-    def source_field(self) -> Optional[pulumi.Input['JsonMapperSourceFieldArgs']]:
+    def source_field(self) -> pulumi.Input[Optional['JsonMapperSourceFieldArgs']]:
         """
         Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
         """
         return pulumi.get(self, "source_field")
 
     @source_field.setter
-    def source_field(self, value: Optional[pulumi.Input['JsonMapperSourceFieldArgs']]):
+    def source_field(self, value: pulumi.Input[Optional['JsonMapperSourceFieldArgs']]):
         pulumi.set(self, "source_field", value)
 
 
@@ -5728,11 +5728,11 @@ class JsonMapperDestinationFieldArgsDict(TypedDict):
     """
     JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
     """
-    destination: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]]
+    destination: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JsonMapperElement']]]]
     """
     Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
     """
-    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
     """
@@ -5740,8 +5740,8 @@ class JsonMapperDestinationFieldArgsDict(TypedDict):
 @pulumi.input_type
 class JsonMapperDestinationFieldArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]] = None,
-                 field_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[Union[_builtins.str, 'JsonMapperElement']]] = None,
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
 
@@ -5757,26 +5757,26 @@ class JsonMapperDestinationFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]]:
+    def destination(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JsonMapperElement']]]:
         """
         Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]]):
+    def destination(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JsonMapperElement']]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldName")
-    def field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
         """
         return pulumi.get(self, "field_name")
 
     @field_name.setter
-    def field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_name", value)
 
 
@@ -5784,7 +5784,7 @@ class JsonMapperSourceFieldArgsDict(TypedDict):
     """
     JsonArrayMapper source field used to describe the field from which the json array will be read.
     """
-    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
     """
@@ -5792,7 +5792,7 @@ class JsonMapperSourceFieldArgsDict(TypedDict):
 @pulumi.input_type
 class JsonMapperSourceFieldArgs:
     def __init__(__self__, *,
-                 field_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         JsonArrayMapper source field used to describe the field from which the json array will be read.
 
@@ -5803,14 +5803,14 @@ class JsonMapperSourceFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldName")
-    def field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
         """
         return pulumi.get(self, "field_name")
 
     @field_name.setter
-    def field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_name", value)
 
 
@@ -5818,12 +5818,12 @@ class LogAnalyticsDestinationArgsDict(TypedDict):
     """
     Log Analytics destination.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
-    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Log Analytics workspace.
     """
@@ -5831,12 +5831,12 @@ class LogAnalyticsDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class LogAnalyticsDestinationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Log Analytics destination.
 
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics workspace.
         """
@@ -5847,27 +5847,27 @@ class LogAnalyticsDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Log Analytics workspace.
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 
@@ -5888,27 +5888,27 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
     Supported signal kinds as discriminator
     Expected value is 'LogAnalyticsQuery'.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
     """
-    value_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    value_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
     """
@@ -5919,12 +5919,12 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
                  evaluation_rules: pulumi.Input['EvaluationRuleArgs'],
                  query_text: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_grain: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_column_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_column_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Log Analytics Query Signal Definition properties
 
@@ -5996,74 +5996,74 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
         """
         return pulumi.get(self, "time_grain")
 
     @time_grain.setter
-    def time_grain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_grain", value)
 
     @_builtins.property
     @pulumi.getter(name="valueColumnName")
-    def value_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
         """
         return pulumi.get(self, "value_column_name")
 
     @value_column_name.setter
-    def value_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_column_name", value)
 
 
@@ -6079,7 +6079,7 @@ class LogAnalyticsSignalGroupArgsDict(TypedDict):
     """
     Log Analytics Workspace resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -6089,7 +6089,7 @@ class LogAnalyticsSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  log_analytics_workspace_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
 
@@ -6128,14 +6128,14 @@ class LogAnalyticsSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
 
 
@@ -6172,40 +6172,6 @@ class LogFileSettingsTextArgs:
         pulumi.set(self, "record_start_timestamp_format", value)
 
 
-class LogFilesDataSourceSettingsArgsDict(TypedDict):
-    """
-    The log files specific settings.
-    """
-    text: NotRequired[pulumi.Input['LogFileSettingsTextArgsDict']]
-    """
-    Text settings
-    """
-
-@pulumi.input_type
-class LogFilesDataSourceSettingsArgs:
-    def __init__(__self__, *,
-                 text: Optional[pulumi.Input['LogFileSettingsTextArgs']] = None):
-        """
-        The log files specific settings.
-
-        :param pulumi.Input['LogFileSettingsTextArgs'] text: Text settings
-        """
-        if text is not None:
-            pulumi.set(__self__, "text", text)
-
-    @_builtins.property
-    @pulumi.getter
-    def text(self) -> Optional[pulumi.Input['LogFileSettingsTextArgs']]:
-        """
-        Text settings
-        """
-        return pulumi.get(self, "text")
-
-    @text.setter
-    def text(self, value: Optional[pulumi.Input['LogFileSettingsTextArgs']]):
-        pulumi.set(self, "text", value)
-
-
 class LogFilesDataSourceArgsDict(TypedDict):
     """
     Definition of which custom log files will be collected by this data collection rule
@@ -6223,12 +6189,12 @@ class LogFilesDataSourceArgsDict(TypedDict):
     List of streams that this data source will be sent to.
     A stream indicates what schema will be used for this data source
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    settings: NotRequired[pulumi.Input['LogFilesDataSourceSettingsArgsDict']]
+    settings: NotRequired[pulumi.Input[Optional['LogFilesDataSourceSettingsArgsDict']]]
     """
     The log files specific settings.
     """
@@ -6239,8 +6205,8 @@ class LogFilesDataSourceArgs:
                  file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  format: pulumi.Input[Union[_builtins.str, 'KnownLogFilesDataSourceFormat']],
                  streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['LogFilesDataSourceSettingsArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['LogFilesDataSourceSettingsArgs']] = None):
         """
         Definition of which custom log files will be collected by this data collection rule
 
@@ -6248,7 +6214,7 @@ class LogFilesDataSourceArgs:
         :param pulumi.Input[Union[_builtins.str, 'KnownLogFilesDataSourceFormat']] format: The data format of the log files
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data source
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input['LogFilesDataSourceSettingsArgs'] settings: The log files specific settings.
         """
@@ -6299,28 +6265,62 @@ class LogFilesDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['LogFilesDataSourceSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['LogFilesDataSourceSettingsArgs']]:
         """
         The log files specific settings.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['LogFilesDataSourceSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['LogFilesDataSourceSettingsArgs']]):
         pulumi.set(self, "settings", value)
+
+
+class LogFilesDataSourceSettingsArgsDict(TypedDict):
+    """
+    The log files specific settings.
+    """
+    text: NotRequired[pulumi.Input[Optional['LogFileSettingsTextArgsDict']]]
+    """
+    Text settings
+    """
+
+@pulumi.input_type
+class LogFilesDataSourceSettingsArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[Optional['LogFileSettingsTextArgs']] = None):
+        """
+        The log files specific settings.
+
+        :param pulumi.Input['LogFileSettingsTextArgs'] text: Text settings
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[Optional['LogFileSettingsTextArgs']]:
+        """
+        Text settings
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[Optional['LogFileSettingsTextArgs']]):
+        pulumi.set(self, "text", value)
 
 
 class LogSettingsArgsDict(TypedDict):
@@ -6331,15 +6331,15 @@ class LogSettingsArgsDict(TypedDict):
     """
     a value indicating whether this log is enabled.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
     """
-    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    category_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
     """
-    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    retention_policy: NotRequired[pulumi.Input[Optional['RetentionPolicyArgsDict']]]
     """
     the retention policy for this log.
     """
@@ -6348,9 +6348,9 @@ class LogSettingsArgsDict(TypedDict):
 class LogSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 category_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['RetentionPolicyArgs']] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 
@@ -6381,38 +6381,38 @@ class LogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         """
         return pulumi.get(self, "category_group")
 
     @category_group.setter
-    def category_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_group", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyArgs']]:
         """
         the retention policy for this log.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
 
@@ -6432,11 +6432,11 @@ class LogicAppReceiverArgsDict(TypedDict):
     """
     The azure resource id of the logic app receiver.
     """
-    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -6447,8 +6447,8 @@ class LogicAppReceiverArgs:
                  callback_url: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A logic app receiver.
 
@@ -6506,26 +6506,26 @@ class LogicAppReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -6542,7 +6542,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
     """
     Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
@@ -6552,7 +6552,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
     def __init__(__self__, *,
                  authentication_kind: pulumi.Input[_builtins.str],
                  managed_identity_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication setting properties for Azure Managed Identity
 
@@ -6593,14 +6593,14 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -6612,7 +6612,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -6621,7 +6621,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -6646,14 +6646,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -6665,11 +6665,11 @@ class ManagementGroupLogSettingsArgsDict(TypedDict):
     """
     a value indicating whether this log is enabled.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
     """
-    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    category_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
     """
@@ -6678,8 +6678,8 @@ class ManagementGroupLogSettingsArgsDict(TypedDict):
 class ManagementGroupLogSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 category_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 
@@ -6707,26 +6707,26 @@ class ManagementGroupLogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
         """
         return pulumi.get(self, "category_group")
 
     @category_group.setter
-    def category_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_group", value)
 
 
@@ -6734,11 +6734,11 @@ class MetricAlertActionArgsDict(TypedDict):
     """
     An alert action.
     """
-    action_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    action_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the id of the action group to use.
     """
-    web_hook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    web_hook_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
     """
@@ -6746,8 +6746,8 @@ class MetricAlertActionArgsDict(TypedDict):
 @pulumi.input_type
 class MetricAlertActionArgs:
     def __init__(__self__, *,
-                 action_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_hook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 action_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_hook_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         An alert action.
 
@@ -6761,26 +6761,26 @@ class MetricAlertActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroupId")
-    def action_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the id of the action group to use.
         """
         return pulumi.get(self, "action_group_id")
 
     @action_group_id.setter
-    def action_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="webHookProperties")
-    def web_hook_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def web_hook_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
         return pulumi.get(self, "web_hook_properties")
 
     @web_hook_properties.setter
-    def web_hook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def web_hook_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "web_hook_properties", value)
 
 
@@ -6793,22 +6793,22 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict(TypedDict):
     specifies the type of the alert criteria.
     Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
     """
-    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgsDict', 'MetricCriteriaArgsDict']]]]]
+    all_of: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgsDict', 'MetricCriteriaArgsDict']]]]]]
     """
-    the list of multiple metric criteria for this 'all of' operation. 
+    the list of multiple metric criteria for this 'all of' operation.
     """
 
 @pulumi.input_type
 class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[_builtins.str],
-                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
+                 all_of: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 
         :param pulumi.Input[_builtins.str] odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -6829,14 +6829,14 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]:
+    def all_of(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]:
         """
-        the list of multiple metric criteria for this 'all of' operation. 
+        the list of multiple metric criteria for this 'all of' operation.
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
+    def all_of(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -6849,22 +6849,22 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgsDict(TypedDict):
     specifies the type of the alert criteria.
     Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
     """
-    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgsDict']]]]
+    all_of: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricCriteriaArgsDict']]]]]
     """
-    The list of metric criteria for this 'all of' operation. 
+    The list of metric criteria for this 'all of' operation.
     """
 
 @pulumi.input_type
 class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[_builtins.str],
-                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]] = None):
+                 all_of: pulumi.Input[Optional[Sequence[pulumi.Input['MetricCriteriaArgs']]]] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 
         :param pulumi.Input[_builtins.str] odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
+        :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -6885,14 +6885,14 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]]:
+    def all_of(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricCriteriaArgs']]]]:
         """
-        The list of metric criteria for this 'all of' operation. 
+        The list of metric criteria for this 'all of' operation.
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]]):
+    def all_of(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricCriteriaArgs']]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -6925,15 +6925,15 @@ class MetricCriteriaArgsDict(TypedDict):
     """
     the criteria time aggregation types.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]]
     """
     List of dimension conditions.
     """
-    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    metric_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Namespace of the metric.
     """
-    skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_metric_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
     """
@@ -6947,9 +6947,9 @@ class MetricCriteriaArgs:
                  operator: pulumi.Input[Union[_builtins.str, 'Operator']],
                  threshold: pulumi.Input[_builtins.float],
                  time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']],
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
-                 metric_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_metric_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 metric_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_metric_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Criterion to filter metrics.
 
@@ -7052,38 +7052,38 @@ class MetricCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
         """
         List of dimension conditions.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
-    def metric_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
 
     @metric_namespace.setter
-    def metric_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="skipMetricValidation")
-    def skip_metric_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_metric_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         return pulumi.get(self, "skip_metric_validation")
 
     @skip_metric_validation.setter
-    def skip_metric_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_metric_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_metric_validation", value)
 
 
@@ -7166,15 +7166,15 @@ class MetricSettingsArgsDict(TypedDict):
     """
     a value indicating whether this category is enabled.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
     """
-    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    retention_policy: NotRequired[pulumi.Input[Optional['RetentionPolicyArgsDict']]]
     """
     the retention policy for this category.
     """
-    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the timegrain of the metric in ISO8601 format.
     """
@@ -7183,9 +7183,9 @@ class MetricSettingsArgsDict(TypedDict):
 class MetricSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
-                 time_grain: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['RetentionPolicyArgs']] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 
@@ -7216,38 +7216,38 @@ class MetricSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyArgs']]:
         """
         the retention policy for this category.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the timegrain of the metric in ISO8601 format.
         """
         return pulumi.get(self, "time_grain")
 
     @time_grain.setter
-    def time_grain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_grain", value)
 
 
@@ -7287,19 +7287,19 @@ class MetricTriggerArgsDict(TypedDict):
     """
     the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgsDict']]]]]
     """
     List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
     """
-    divide_per_instance: NotRequired[pulumi.Input[_builtins.bool]]
+    divide_per_instance: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     a value indicating whether metric should divide per instance.
     """
-    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    metric_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the namespace of the metric that defines what the rule monitors.
     """
-    metric_resource_location: NotRequired[pulumi.Input[_builtins.str]]
+    metric_resource_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the location of the resource the rule monitors.
     """
@@ -7315,10 +7315,10 @@ class MetricTriggerArgs:
                  time_aggregation: pulumi.Input['TimeAggregationType'],
                  time_grain: pulumi.Input[_builtins.str],
                  time_window: pulumi.Input[_builtins.str],
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
-                 divide_per_instance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_resource_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
+                 divide_per_instance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_resource_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The trigger that results in a scaling action.
 
@@ -7450,50 +7450,50 @@ class MetricTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
         """
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="dividePerInstance")
-    def divide_per_instance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def divide_per_instance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         a value indicating whether metric should divide per instance.
         """
         return pulumi.get(self, "divide_per_instance")
 
     @divide_per_instance.setter
-    def divide_per_instance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def divide_per_instance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "divide_per_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
-    def metric_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the namespace of the metric that defines what the rule monitors.
         """
         return pulumi.get(self, "metric_namespace")
 
     @metric_namespace.setter
-    def metric_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="metricResourceLocation")
-    def metric_resource_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_resource_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the location of the resource the rule monitors.
         """
         return pulumi.get(self, "metric_resource_location")
 
     @metric_resource_location.setter
-    def metric_resource_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_resource_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_resource_location", value)
 
 
@@ -7505,7 +7505,7 @@ class MicrosoftCommonIdentityArgsDict(TypedDict):
     """
     Type of managed service identity.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -7514,7 +7514,7 @@ class MicrosoftCommonIdentityArgsDict(TypedDict):
 class MicrosoftCommonIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['IdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -7539,14 +7539,14 @@ class MicrosoftCommonIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -7562,7 +7562,7 @@ class ModelDiscoverySettingsArgsDict(TypedDict):
     """
     The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
     """
-    identity: NotRequired[pulumi.Input[_builtins.str]]
+    identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
     """
@@ -7572,7 +7572,7 @@ class ModelDiscoverySettingsArgs:
     def __init__(__self__, *,
                  add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']],
                  scope: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings for automatically discovering entities for the health model.
 
@@ -7611,14 +7611,14 @@ class ModelDiscoverySettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity", value)
 
 
@@ -7626,26 +7626,26 @@ class MonitoringAccountDestinationArgsDict(TypedDict):
     """
     Monitoring account destination.
     """
-    account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the monitoring account.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
 
 @pulumi.input_type
 class MonitoringAccountDestinationArgs:
     def __init__(__self__, *,
-                 account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Monitoring account destination.
 
         :param pulumi.Input[_builtins.str] account_resource_id: The resource ID of the monitoring account.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         if account_resource_id is not None:
@@ -7655,27 +7655,27 @@ class MonitoringAccountDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountResourceId")
-    def account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the monitoring account.
         """
         return pulumi.get(self, "account_resource_id")
 
     @account_resource_id.setter
-    def account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -7691,7 +7691,7 @@ class NetworkingConfigurationArgsDict(TypedDict):
     """
     Networking routes configuration.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
     """
@@ -7701,7 +7701,7 @@ class NetworkingConfigurationArgs:
     def __init__(__self__, *,
                  external_networking_mode: pulumi.Input[Union[_builtins.str, 'ExternalNetworkingMode']],
                  routes: pulumi.Input[Sequence[pulumi.Input['NetworkingRouteArgs']]],
-                 host: Optional[pulumi.Input[_builtins.str]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Networking configuration for the pipeline group instance.
 
@@ -7740,14 +7740,14 @@ class NetworkingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
 
@@ -7759,15 +7759,15 @@ class NetworkingRouteArgsDict(TypedDict):
     """
     The name of the previously defined receiver.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Route path.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port that will be configured externally. If not specified, it will use the port from the receiver definition.
     """
-    subdomain: NotRequired[pulumi.Input[_builtins.str]]
+    subdomain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Route subdomain.
     """
@@ -7776,9 +7776,9 @@ class NetworkingRouteArgsDict(TypedDict):
 class NetworkingRouteArgs:
     def __init__(__self__, *,
                  receiver: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Networking route configuration.
 
@@ -7809,38 +7809,38 @@ class NetworkingRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route path.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that will be configured externally. If not specified, it will use the port from the receiver definition.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdomain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route subdomain.
         """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
-    def subdomain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdomain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdomain", value)
 
 
@@ -7882,22 +7882,22 @@ class PerfCounterDataSourceArgsDict(TypedDict):
     Definition of which performance counters will be collected and how they will be collected by this data collection rule.
     Collected from both Windows and Linux machines where the counter is present.
     """
-    counter_specifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    counter_specifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of specifier names of the performance counters you want to collect.
     Use a wildcard (*) to collect a counter for all instances.
     To get a list of performance counters on Windows, run the command 'typeperf'.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    sampling_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    sampling_frequency_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds between consecutive counter measurements (samples).
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]]
     """
     List of streams that this data source will be sent to.
     A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -7906,10 +7906,10 @@ class PerfCounterDataSourceArgsDict(TypedDict):
 @pulumi.input_type
 class PerfCounterDataSourceArgs:
     def __init__(__self__, *,
-                 counter_specifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_frequency_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]] = None):
+                 counter_specifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_frequency_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]] = None):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
@@ -7917,7 +7917,7 @@ class PerfCounterDataSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
@@ -7934,7 +7934,7 @@ class PerfCounterDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="counterSpecifiers")
-    def counter_specifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def counter_specifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of specifier names of the performance counters you want to collect.
         Use a wildcard (*) to collect a counter for all instances.
@@ -7943,37 +7943,37 @@ class PerfCounterDataSourceArgs:
         return pulumi.get(self, "counter_specifiers")
 
     @counter_specifiers.setter
-    def counter_specifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def counter_specifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "counter_specifiers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingFrequencyInSeconds")
-    def sampling_frequency_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_frequency_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds between consecutive counter measurements (samples).
         """
         return pulumi.get(self, "sampling_frequency_in_seconds")
 
     @sampling_frequency_in_seconds.setter
-    def sampling_frequency_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_frequency_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_frequency_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -7981,7 +7981,7 @@ class PerfCounterDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -8018,6 +8018,116 @@ class PersistenceConfigurationsArgs:
         pulumi.set(self, "persistent_volume_name", value)
 
 
+class PipelineArgsDict(TypedDict):
+    """
+    Pipeline Info.
+    """
+    exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Reference to exporters configured for the pipeline.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the pipeline.
+    """
+    receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Reference to receivers configured for the pipeline.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'PipelineType']]
+    """
+    The type of pipeline
+    """
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Reference to processors configured for the pipeline.
+    """
+
+@pulumi.input_type
+class PipelineArgs:
+    def __init__(__self__, *,
+                 exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[_builtins.str],
+                 receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[Union[_builtins.str, 'PipelineType']],
+                 processors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Pipeline Info.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exporters: Reference to exporters configured for the pipeline.
+        :param pulumi.Input[_builtins.str] name: Name of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] receivers: Reference to receivers configured for the pipeline.
+        :param pulumi.Input[Union[_builtins.str, 'PipelineType']] type: The type of pipeline
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] processors: Reference to processors configured for the pipeline.
+        """
+        pulumi.set(__self__, "exporters", exporters)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "receivers", receivers)
+        pulumi.set(__self__, "type", type)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+
+    @_builtins.property
+    @pulumi.getter
+    def exporters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Reference to exporters configured for the pipeline.
+        """
+        return pulumi.get(self, "exporters")
+
+    @exporters.setter
+    def exporters(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "exporters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Reference to receivers configured for the pipeline.
+        """
+        return pulumi.get(self, "receivers")
+
+    @receivers.setter
+    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "receivers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'PipelineType']]:
+        """
+        The type of pipeline
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'PipelineType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def processors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Reference to processors configured for the pipeline.
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "processors", value)
+
+
 class PipelineGroupPropertiesArgsDict(TypedDict):
     """
     Properties that need to be specified to create a new pipeline group instance.
@@ -8038,11 +8148,11 @@ class PipelineGroupPropertiesArgsDict(TypedDict):
     """
     The service section for a given pipeline group instance.
     """
-    networking_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]
+    networking_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]]
     """
     Networking configurations for the pipeline group instance.
     """
-    replicas: NotRequired[pulumi.Input[_builtins.int]]
+    replicas: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Defines the amount of replicas of the pipeline group instance.
     """
@@ -8054,8 +8164,8 @@ class PipelineGroupPropertiesArgs:
                  processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]],
                  receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]],
                  service: pulumi.Input['ServiceArgs'],
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
-                 replicas: Optional[pulumi.Input[_builtins.int]] = None):
+                 networking_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
+                 replicas: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Properties that need to be specified to create a new pipeline group instance.
 
@@ -8125,137 +8235,27 @@ class PipelineGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkingConfigurations")
-    def networking_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]:
+    def networking_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]:
         """
         Networking configurations for the pipeline group instance.
         """
         return pulumi.get(self, "networking_configurations")
 
     @networking_configurations.setter
-    def networking_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]):
+    def networking_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]):
         pulumi.set(self, "networking_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the amount of replicas of the pipeline group instance.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas", value)
-
-
-class PipelineArgsDict(TypedDict):
-    """
-    Pipeline Info.
-    """
-    exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    Reference to exporters configured for the pipeline.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of the pipeline.
-    """
-    receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    Reference to receivers configured for the pipeline.
-    """
-    type: pulumi.Input[Union[_builtins.str, 'PipelineType']]
-    """
-    The type of pipeline
-    """
-    processors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Reference to processors configured for the pipeline.
-    """
-
-@pulumi.input_type
-class PipelineArgs:
-    def __init__(__self__, *,
-                 exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 name: pulumi.Input[_builtins.str],
-                 receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 type: pulumi.Input[Union[_builtins.str, 'PipelineType']],
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Pipeline Info.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exporters: Reference to exporters configured for the pipeline.
-        :param pulumi.Input[_builtins.str] name: Name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] receivers: Reference to receivers configured for the pipeline.
-        :param pulumi.Input[Union[_builtins.str, 'PipelineType']] type: The type of pipeline
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] processors: Reference to processors configured for the pipeline.
-        """
-        pulumi.set(__self__, "exporters", exporters)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "receivers", receivers)
-        pulumi.set(__self__, "type", type)
-        if processors is not None:
-            pulumi.set(__self__, "processors", processors)
-
-    @_builtins.property
-    @pulumi.getter
-    def exporters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Reference to exporters configured for the pipeline.
-        """
-        return pulumi.get(self, "exporters")
-
-    @exporters.setter
-    def exporters(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "exporters", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the pipeline.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Reference to receivers configured for the pipeline.
-        """
-        return pulumi.get(self, "receivers")
-
-    @receivers.setter
-    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "receivers", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[_builtins.str, 'PipelineType']]:
-        """
-        The type of pipeline
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[_builtins.str, 'PipelineType']]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Reference to processors configured for the pipeline.
-        """
-        return pulumi.get(self, "processors")
-
-    @processors.setter
-    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "processors", value)
 
 
 class PlatformTelemetryDataSourceArgsDict(TypedDict):
@@ -8266,9 +8266,9 @@ class PlatformTelemetryDataSourceArgsDict(TypedDict):
     """
     List of platform telemetry streams to collect
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
 
@@ -8276,12 +8276,12 @@ class PlatformTelemetryDataSourceArgsDict(TypedDict):
 class PlatformTelemetryDataSourceArgs:
     def __init__(__self__, *,
                  streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Definition of platform telemetry data source configuration
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: List of platform telemetry streams to collect
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -8302,15 +8302,15 @@ class PlatformTelemetryDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -8322,7 +8322,7 @@ class PredictiveAutoscalePolicyArgsDict(TypedDict):
     """
     the predictive autoscale mode
     """
-    scale_look_ahead_time: NotRequired[pulumi.Input[_builtins.str]]
+    scale_look_ahead_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
     """
@@ -8331,7 +8331,7 @@ class PredictiveAutoscalePolicyArgsDict(TypedDict):
 class PredictiveAutoscalePolicyArgs:
     def __init__(__self__, *,
                  scale_mode: pulumi.Input['PredictiveAutoscalePolicyScaleMode'],
-                 scale_look_ahead_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 scale_look_ahead_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters for enabling predictive autoscale.
 
@@ -8356,14 +8356,14 @@ class PredictiveAutoscalePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="scaleLookAheadTime")
-    def scale_look_ahead_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_look_ahead_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
         """
         return pulumi.get(self, "scale_look_ahead_time")
 
     @scale_look_ahead_time.setter
-    def scale_look_ahead_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_look_ahead_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_look_ahead_time", value)
 
 
@@ -8371,15 +8371,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -8387,9 +8387,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -8406,38 +8406,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -8453,7 +8453,7 @@ class ProcessorArgsDict(TypedDict):
     """
     The type of processor.
     """
-    batch: NotRequired[pulumi.Input['BatchProcessorArgsDict']]
+    batch: NotRequired[pulumi.Input[Optional['BatchProcessorArgsDict']]]
     """
     Batch processor configurations.
     """
@@ -8463,7 +8463,7 @@ class ProcessorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ProcessorType']],
-                 batch: Optional[pulumi.Input['BatchProcessorArgs']] = None):
+                 batch: pulumi.Input[Optional['BatchProcessorArgs']] = None):
         """
         Processor Info.
 
@@ -8502,14 +8502,14 @@ class ProcessorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def batch(self) -> Optional[pulumi.Input['BatchProcessorArgs']]:
+    def batch(self) -> pulumi.Input[Optional['BatchProcessorArgs']]:
         """
         Batch processor configurations.
         """
         return pulumi.get(self, "batch")
 
     @batch.setter
-    def batch(self, value: Optional[pulumi.Input['BatchProcessorArgs']]):
+    def batch(self, value: pulumi.Input[Optional['BatchProcessorArgs']]):
         pulumi.set(self, "batch", value)
 
 
@@ -8517,18 +8517,18 @@ class PrometheusForwarderDataSourceArgsDict(TypedDict):
     """
     Definition of Prometheus metrics forwarding configuration.
     """
-    label_include_filter: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    label_include_filter: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The list of label inclusion filters in the form of label "name-value" pairs.
     Currently only one label is supported: 'microsoft_metrics_include_label'.
     Label values are matched case-insensitively.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]]
     """
     List of streams that this data source will be sent to.
     """
@@ -8536,16 +8536,16 @@ class PrometheusForwarderDataSourceArgsDict(TypedDict):
 @pulumi.input_type
 class PrometheusForwarderDataSourceArgs:
     def __init__(__self__, *,
-                 label_include_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]] = None):
+                 label_include_filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]] = None):
         """
         Definition of Prometheus metrics forwarding configuration.
 
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] label_include_filter: The list of label inclusion filters in the form of label "name-value" pairs.
                Currently only one label is supported: 'microsoft_metrics_include_label'.
                Label values are matched case-insensitively.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
         """
@@ -8558,7 +8558,7 @@ class PrometheusForwarderDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="labelIncludeFilter")
-    def label_include_filter(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def label_include_filter(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The list of label inclusion filters in the form of label "name-value" pairs.
         Currently only one label is supported: 'microsoft_metrics_include_label'.
@@ -8567,32 +8567,32 @@ class PrometheusForwarderDataSourceArgs:
         return pulumi.get(self, "label_include_filter")
 
     @label_include_filter.setter
-    def label_include_filter(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def label_include_filter(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "label_include_filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]:
         """
         List of streams that this data source will be sent to.
         """
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -8613,23 +8613,23 @@ class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
     Supported signal kinds as discriminator
     Expected value is 'PrometheusMetricsQuery'.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time range of signal. ISO duration format like PT10M.
     """
@@ -8640,11 +8640,11 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
                  evaluation_rules: pulumi.Input['EvaluationRuleArgs'],
                  query_text: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_grain: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Prometheus Metrics Signal Definition properties
 
@@ -8713,62 +8713,62 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time range of signal. ISO duration format like PT10M.
         """
         return pulumi.get(self, "time_grain")
 
     @time_grain.setter
-    def time_grain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_grain", value)
 
 
@@ -8784,15 +8784,15 @@ class ReceiverArgsDict(TypedDict):
     """
     The type of receiver.
     """
-    otlp: NotRequired[pulumi.Input['OtlpReceiverArgsDict']]
+    otlp: NotRequired[pulumi.Input[Optional['OtlpReceiverArgsDict']]]
     """
     OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
     """
-    syslog: NotRequired[pulumi.Input['SyslogReceiverArgsDict']]
+    syslog: NotRequired[pulumi.Input[Optional['SyslogReceiverArgsDict']]]
     """
     Syslog configurations. This field is mandatory for syslog type receivers.
     """
-    udp: NotRequired[pulumi.Input['UdpReceiverArgsDict']]
+    udp: NotRequired[pulumi.Input[Optional['UdpReceiverArgsDict']]]
     """
     UDP receiver configurations. This field is mandatory for UDP receivers.
     """
@@ -8802,9 +8802,9 @@ class ReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ReceiverType']],
-                 otlp: Optional[pulumi.Input['OtlpReceiverArgs']] = None,
-                 syslog: Optional[pulumi.Input['SyslogReceiverArgs']] = None,
-                 udp: Optional[pulumi.Input['UdpReceiverArgs']] = None):
+                 otlp: pulumi.Input[Optional['OtlpReceiverArgs']] = None,
+                 syslog: pulumi.Input[Optional['SyslogReceiverArgs']] = None,
+                 udp: pulumi.Input[Optional['UdpReceiverArgs']] = None):
         """
         Receiver Info.
 
@@ -8849,38 +8849,38 @@ class ReceiverArgs:
 
     @_builtins.property
     @pulumi.getter
-    def otlp(self) -> Optional[pulumi.Input['OtlpReceiverArgs']]:
+    def otlp(self) -> pulumi.Input[Optional['OtlpReceiverArgs']]:
         """
         OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
         """
         return pulumi.get(self, "otlp")
 
     @otlp.setter
-    def otlp(self, value: Optional[pulumi.Input['OtlpReceiverArgs']]):
+    def otlp(self, value: pulumi.Input[Optional['OtlpReceiverArgs']]):
         pulumi.set(self, "otlp", value)
 
     @_builtins.property
     @pulumi.getter
-    def syslog(self) -> Optional[pulumi.Input['SyslogReceiverArgs']]:
+    def syslog(self) -> pulumi.Input[Optional['SyslogReceiverArgs']]:
         """
         Syslog configurations. This field is mandatory for syslog type receivers.
         """
         return pulumi.get(self, "syslog")
 
     @syslog.setter
-    def syslog(self, value: Optional[pulumi.Input['SyslogReceiverArgs']]):
+    def syslog(self, value: pulumi.Input[Optional['SyslogReceiverArgs']]):
         pulumi.set(self, "syslog", value)
 
     @_builtins.property
     @pulumi.getter
-    def udp(self) -> Optional[pulumi.Input['UdpReceiverArgs']]:
+    def udp(self) -> pulumi.Input[Optional['UdpReceiverArgs']]:
         """
         UDP receiver configurations. This field is mandatory for UDP receivers.
         """
         return pulumi.get(self, "udp")
 
     @udp.setter
-    def udp(self, value: Optional[pulumi.Input['UdpReceiverArgs']]):
+    def udp(self, value: pulumi.Input[Optional['UdpReceiverArgs']]):
         pulumi.set(self, "udp", value)
 
 
@@ -9090,11 +9090,11 @@ class RelationshipPropertiesArgsDict(TypedDict):
     """
     Resource name of the parent entity
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
@@ -9104,8 +9104,8 @@ class RelationshipPropertiesArgs:
     def __init__(__self__, *,
                  child_entity_name: pulumi.Input[_builtins.str],
                  parent_entity_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Relationship properties
 
@@ -9147,26 +9147,26 @@ class RelationshipPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -9195,7 +9195,7 @@ class ResourceGraphQueryDiscoveryRulePropertiesArgsDict(TypedDict):
     """
     Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
@@ -9208,7 +9208,7 @@ class ResourceGraphQueryDiscoveryRulePropertiesArgs:
                  discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']],
                  discovery_rule_kind: pulumi.Input[_builtins.str],
                  resource_graph_query: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Discovery rule properties for an Azure Resource Graph query
 
@@ -9291,14 +9291,14 @@ class ResourceGraphQueryDiscoveryRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -9383,27 +9383,27 @@ class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
     """
     Time range of signal. ISO duration format like PT10M.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    dimension: NotRequired[pulumi.Input[_builtins.str]]
+    dimension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional: Dimension to split by
     """
-    dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
+    dimension_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
@@ -9417,12 +9417,12 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
                  metric_namespace: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
                  time_grain: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 dimension_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 dimension_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Resource Metric Signal Definition properties
 
@@ -9536,74 +9536,74 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dimension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional: Dimension to split by
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dimension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="dimensionFilter")
-    def dimension_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dimension_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
         """
         return pulumi.get(self, "dimension_filter")
 
     @dimension_filter.setter
-    def dimension_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dimension_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dimension_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -9663,11 +9663,11 @@ class RuleResolveConfigurationArgsDict(TypedDict):
     """
     TBD. Relevant only for rules of the kind LogAlert.
     """
-    auto_resolved: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_resolved: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag that indicates whether or not to auto resolve a fired alert.
     """
-    time_to_resolve: NotRequired[pulumi.Input[_builtins.str]]
+    time_to_resolve: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
     """
@@ -9675,8 +9675,8 @@ class RuleResolveConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RuleResolveConfigurationArgs:
     def __init__(__self__, *,
-                 auto_resolved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_to_resolve: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_resolved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_to_resolve: pulumi.Input[Optional[_builtins.str]] = None):
         """
         TBD. Relevant only for rules of the kind LogAlert.
 
@@ -9690,26 +9690,26 @@ class RuleResolveConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoResolved")
-    def auto_resolved(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_resolved(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag that indicates whether or not to auto resolve a fired alert.
         """
         return pulumi.get(self, "auto_resolved")
 
     @auto_resolved.setter
-    def auto_resolved(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_resolved(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_resolved", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToResolve")
-    def time_to_resolve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_to_resolve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
         """
         return pulumi.get(self, "time_to_resolve")
 
     @time_to_resolve.setter
-    def time_to_resolve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_to_resolve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_to_resolve", value)
 
 
@@ -9729,7 +9729,7 @@ class ScaleActionArgsDict(TypedDict):
     """
     the type of action that should occur when the scale rule fires.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
     """
@@ -9740,7 +9740,7 @@ class ScaleActionArgs:
                  cooldown: pulumi.Input[_builtins.str],
                  direction: pulumi.Input['ScaleDirection'],
                  type: pulumi.Input['ScaleType'],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters for the scaling action.
 
@@ -9795,14 +9795,14 @@ class ScaleActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -9877,6 +9877,58 @@ class ScaleCapacityArgs:
         pulumi.set(self, "minimum", value)
 
 
+class ScaleRuleArgsDict(TypedDict):
+    """
+    A rule that provide the triggers and parameters for the scaling action.
+    """
+    metric_trigger: pulumi.Input['MetricTriggerArgsDict']
+    """
+    the trigger that results in a scaling action.
+    """
+    scale_action: pulumi.Input['ScaleActionArgsDict']
+    """
+    the parameters for the scaling action.
+    """
+
+@pulumi.input_type
+class ScaleRuleArgs:
+    def __init__(__self__, *,
+                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
+                 scale_action: pulumi.Input['ScaleActionArgs']):
+        """
+        A rule that provide the triggers and parameters for the scaling action.
+
+        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
+        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
+        """
+        pulumi.set(__self__, "metric_trigger", metric_trigger)
+        pulumi.set(__self__, "scale_action", scale_action)
+
+    @_builtins.property
+    @pulumi.getter(name="metricTrigger")
+    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
+        """
+        the trigger that results in a scaling action.
+        """
+        return pulumi.get(self, "metric_trigger")
+
+    @metric_trigger.setter
+    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
+        pulumi.set(self, "metric_trigger", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleAction")
+    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
+        """
+        the parameters for the scaling action.
+        """
+        return pulumi.get(self, "scale_action")
+
+    @scale_action.setter
+    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
+        pulumi.set(self, "scale_action", value)
+
+
 class ScaleRuleMetricDimensionArgsDict(TypedDict):
     """
     Specifies an auto scale rule metric dimension.
@@ -9948,63 +10000,11 @@ class ScaleRuleMetricDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-class ScaleRuleArgsDict(TypedDict):
-    """
-    A rule that provide the triggers and parameters for the scaling action.
-    """
-    metric_trigger: pulumi.Input['MetricTriggerArgsDict']
-    """
-    the trigger that results in a scaling action.
-    """
-    scale_action: pulumi.Input['ScaleActionArgsDict']
-    """
-    the parameters for the scaling action.
-    """
-
-@pulumi.input_type
-class ScaleRuleArgs:
-    def __init__(__self__, *,
-                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
-                 scale_action: pulumi.Input['ScaleActionArgs']):
-        """
-        A rule that provide the triggers and parameters for the scaling action.
-
-        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
-        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
-        """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
-
-    @_builtins.property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
-        """
-        the trigger that results in a scaling action.
-        """
-        return pulumi.get(self, "metric_trigger")
-
-    @metric_trigger.setter
-    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
-        pulumi.set(self, "metric_trigger", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scaleAction")
-    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
-        """
-        the parameters for the scaling action.
-        """
-        return pulumi.get(self, "scale_action")
-
-    @scale_action.setter
-    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
-        pulumi.set(self, "scale_action", value)
-
-
 class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
     """
     The rule criteria that defines the conditions of the scheduled query rule.
     """
-    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+    all_of: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConditionArgsDict']]]]]
     """
     A list of conditions to evaluate against the specified scopes
     """
@@ -10012,7 +10012,7 @@ class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryRuleCriteriaArgs:
     def __init__(__self__, *,
-                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None):
+                 all_of: pulumi.Input[Optional[Sequence[pulumi.Input['ConditionArgs']]]] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
 
@@ -10023,14 +10023,14 @@ class ScheduledQueryRuleCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]:
+    def all_of(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConditionArgs']]]]:
         """
         A list of conditions to evaluate against the specified scopes
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]):
+    def all_of(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConditionArgs']]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -10042,11 +10042,11 @@ class SchemaMapArgsDict(TypedDict):
     """
     Record Map.
     """
-    resource_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgsDict']]]]
+    resource_map: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMapArgsDict']]]]]
     """
     Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
     """
-    scope_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgsDict']]]]
+    scope_map: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScopeMapArgsDict']]]]]
     """
     A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
     """
@@ -10055,8 +10055,8 @@ class SchemaMapArgsDict(TypedDict):
 class SchemaMapArgs:
     def __init__(__self__, *,
                  record_map: pulumi.Input[Sequence[pulumi.Input['RecordMapArgs']]],
-                 resource_map: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgs']]]] = None,
-                 scope_map: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgs']]]] = None):
+                 resource_map: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMapArgs']]]] = None,
+                 scope_map: pulumi.Input[Optional[Sequence[pulumi.Input['ScopeMapArgs']]]] = None):
         """
         Schema map for azure monitor for logs.
 
@@ -10084,26 +10084,26 @@ class SchemaMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceMap")
-    def resource_map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgs']]]]:
+    def resource_map(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMapArgs']]]]:
         """
         Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
         """
         return pulumi.get(self, "resource_map")
 
     @resource_map.setter
-    def resource_map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgs']]]]):
+    def resource_map(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMapArgs']]]]):
         pulumi.set(self, "resource_map", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeMap")
-    def scope_map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgs']]]]:
+    def scope_map(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScopeMapArgs']]]]:
         """
         A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
         """
         return pulumi.get(self, "scope_map")
 
     @scope_map.setter
-    def scope_map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgs']]]]):
+    def scope_map(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScopeMapArgs']]]]):
         pulumi.set(self, "scope_map", value)
 
 
@@ -10167,7 +10167,7 @@ class ServiceArgsDict(TypedDict):
     """
     Pipelines belonging to a given pipeline group.
     """
-    persistence: NotRequired[pulumi.Input['PersistenceConfigurationsArgsDict']]
+    persistence: NotRequired[pulumi.Input[Optional['PersistenceConfigurationsArgsDict']]]
     """
     Persistence options to all pipelines in the instance.
     """
@@ -10176,7 +10176,7 @@ class ServiceArgsDict(TypedDict):
 class ServiceArgs:
     def __init__(__self__, *,
                  pipelines: pulumi.Input[Sequence[pulumi.Input['PipelineArgs']]],
-                 persistence: Optional[pulumi.Input['PersistenceConfigurationsArgs']] = None):
+                 persistence: pulumi.Input[Optional['PersistenceConfigurationsArgs']] = None):
         """
         Service Info.
 
@@ -10201,15 +10201,67 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def persistence(self) -> Optional[pulumi.Input['PersistenceConfigurationsArgs']]:
+    def persistence(self) -> pulumi.Input[Optional['PersistenceConfigurationsArgs']]:
         """
         Persistence options to all pipelines in the instance.
         """
         return pulumi.get(self, "persistence")
 
     @persistence.setter
-    def persistence(self, value: Optional[pulumi.Input['PersistenceConfigurationsArgs']]):
+    def persistence(self, value: pulumi.Input[Optional['PersistenceConfigurationsArgs']]):
         pulumi.set(self, "persistence", value)
+
+
+class SignalArgsDict(TypedDict):
+    """
+    Represents a signal model used in SLI calculations.
+    """
+    signal_formula: pulumi.Input[_builtins.str]
+    """
+    Mathematical formula used to combine multiple metrics.
+    """
+    signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgsDict']]]
+    """
+    Sources of metrics used for SLIs.
+    """
+
+@pulumi.input_type
+class SignalArgs:
+    def __init__(__self__, *,
+                 signal_formula: pulumi.Input[_builtins.str],
+                 signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
+        """
+        Represents a signal model used in SLI calculations.
+
+        :param pulumi.Input[_builtins.str] signal_formula: Mathematical formula used to combine multiple metrics.
+        :param pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]] signal_sources: Sources of metrics used for SLIs.
+        """
+        pulumi.set(__self__, "signal_formula", signal_formula)
+        pulumi.set(__self__, "signal_sources", signal_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="signalFormula")
+    def signal_formula(self) -> pulumi.Input[_builtins.str]:
+        """
+        Mathematical formula used to combine multiple metrics.
+        """
+        return pulumi.get(self, "signal_formula")
+
+    @signal_formula.setter
+    def signal_formula(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "signal_formula", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signalSources")
+    def signal_sources(self) -> pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]:
+        """
+        Sources of metrics used for SLIs.
+        """
+        return pulumi.get(self, "signal_sources")
+
+    @signal_sources.setter
+    def signal_sources(self, value: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
+        pulumi.set(self, "signal_sources", value)
 
 
 class SignalAssignmentArgsDict(TypedDict):
@@ -10249,19 +10301,19 @@ class SignalGroupArgsDict(TypedDict):
     """
     Contains various signal groups that can be assigned to an entity
     """
-    azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
+    azure_log_analytics: NotRequired[pulumi.Input[Optional['LogAnalyticsSignalGroupArgsDict']]]
     """
     Log Analytics Signal Group
     """
-    azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
+    azure_monitor_workspace: NotRequired[pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgsDict']]]
     """
     Azure Monitor Workspace Signal Group
     """
-    azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
+    azure_resource: NotRequired[pulumi.Input[Optional['AzureResourceSignalGroupArgsDict']]]
     """
     Azure Resource Signal Group
     """
-    dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
+    dependencies: NotRequired[pulumi.Input[Optional['DependenciesSignalGroupArgsDict']]]
     """
     Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
     """
@@ -10269,10 +10321,10 @@ class SignalGroupArgsDict(TypedDict):
 @pulumi.input_type
 class SignalGroupArgs:
     def __init__(__self__, *,
-                 azure_log_analytics: Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']] = None,
-                 azure_monitor_workspace: Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']] = None,
-                 azure_resource: Optional[pulumi.Input['AzureResourceSignalGroupArgs']] = None,
-                 dependencies: Optional[pulumi.Input['DependenciesSignalGroupArgs']] = None):
+                 azure_log_analytics: pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']] = None,
+                 azure_monitor_workspace: pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']] = None,
+                 azure_resource: pulumi.Input[Optional['AzureResourceSignalGroupArgs']] = None,
+                 dependencies: pulumi.Input[Optional['DependenciesSignalGroupArgs']] = None):
         """
         Contains various signal groups that can be assigned to an entity
 
@@ -10292,50 +10344,50 @@ class SignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureLogAnalytics")
-    def azure_log_analytics(self) -> Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']]:
+    def azure_log_analytics(self) -> pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']]:
         """
         Log Analytics Signal Group
         """
         return pulumi.get(self, "azure_log_analytics")
 
     @azure_log_analytics.setter
-    def azure_log_analytics(self, value: Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']]):
+    def azure_log_analytics(self, value: pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']]):
         pulumi.set(self, "azure_log_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspace")
-    def azure_monitor_workspace(self) -> Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']]:
+    def azure_monitor_workspace(self) -> pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']]:
         """
         Azure Monitor Workspace Signal Group
         """
         return pulumi.get(self, "azure_monitor_workspace")
 
     @azure_monitor_workspace.setter
-    def azure_monitor_workspace(self, value: Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']]):
+    def azure_monitor_workspace(self, value: pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']]):
         pulumi.set(self, "azure_monitor_workspace", value)
 
     @_builtins.property
     @pulumi.getter(name="azureResource")
-    def azure_resource(self) -> Optional[pulumi.Input['AzureResourceSignalGroupArgs']]:
+    def azure_resource(self) -> pulumi.Input[Optional['AzureResourceSignalGroupArgs']]:
         """
         Azure Resource Signal Group
         """
         return pulumi.get(self, "azure_resource")
 
     @azure_resource.setter
-    def azure_resource(self, value: Optional[pulumi.Input['AzureResourceSignalGroupArgs']]):
+    def azure_resource(self, value: pulumi.Input[Optional['AzureResourceSignalGroupArgs']]):
         pulumi.set(self, "azure_resource", value)
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input['DependenciesSignalGroupArgs']]:
+    def dependencies(self) -> pulumi.Input[Optional['DependenciesSignalGroupArgs']]:
         """
         Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input['DependenciesSignalGroupArgs']]):
+    def dependencies(self, value: pulumi.Input[Optional['DependenciesSignalGroupArgs']]):
         pulumi.set(self, "dependencies", value)
 
 
@@ -10505,75 +10557,23 @@ class SignalSourceArgs:
         pulumi.set(self, "temporal_aggregation", value)
 
 
-class SignalArgsDict(TypedDict):
-    """
-    Represents a signal model used in SLI calculations.
-    """
-    signal_formula: pulumi.Input[_builtins.str]
-    """
-    Mathematical formula used to combine multiple metrics.
-    """
-    signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgsDict']]]
-    """
-    Sources of metrics used for SLIs.
-    """
-
-@pulumi.input_type
-class SignalArgs:
-    def __init__(__self__, *,
-                 signal_formula: pulumi.Input[_builtins.str],
-                 signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
-        """
-        Represents a signal model used in SLI calculations.
-
-        :param pulumi.Input[_builtins.str] signal_formula: Mathematical formula used to combine multiple metrics.
-        :param pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]] signal_sources: Sources of metrics used for SLIs.
-        """
-        pulumi.set(__self__, "signal_formula", signal_formula)
-        pulumi.set(__self__, "signal_sources", signal_sources)
-
-    @_builtins.property
-    @pulumi.getter(name="signalFormula")
-    def signal_formula(self) -> pulumi.Input[_builtins.str]:
-        """
-        Mathematical formula used to combine multiple metrics.
-        """
-        return pulumi.get(self, "signal_formula")
-
-    @signal_formula.setter
-    def signal_formula(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "signal_formula", value)
-
-    @_builtins.property
-    @pulumi.getter(name="signalSources")
-    def signal_sources(self) -> pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]:
-        """
-        Sources of metrics used for SLIs.
-        """
-        return pulumi.get(self, "signal_sources")
-
-    @signal_sources.setter
-    def signal_sources(self, value: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
-        pulumi.set(self, "signal_sources", value)
-
-
 class SliPropertiesArgsDict(TypedDict):
     """
     Defines the properties of an SLI.
     """
-    good_signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    good_signals: NotRequired[pulumi.Input[Optional['SignalArgsDict']]]
     """
     Represents good signals used in request-based SLI calculations.
     """
-    signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    signals: NotRequired[pulumi.Input[Optional['SignalArgsDict']]]
     """
     Signals used for window-based SLI calculations.
     """
-    total_signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    total_signals: NotRequired[pulumi.Input[Optional['SignalArgsDict']]]
     """
     Represents total signals used in request-based SLI calculations.
     """
-    window_uptime_criteria: NotRequired[pulumi.Input['WindowUptimeCriteriaArgsDict']]
+    window_uptime_criteria: NotRequired[pulumi.Input[Optional['WindowUptimeCriteriaArgsDict']]]
     """
     Defines the uptime criteria for window-based SLIs.
     """
@@ -10581,10 +10581,10 @@ class SliPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SliPropertiesArgs:
     def __init__(__self__, *,
-                 good_signals: Optional[pulumi.Input['SignalArgs']] = None,
-                 signals: Optional[pulumi.Input['SignalArgs']] = None,
-                 total_signals: Optional[pulumi.Input['SignalArgs']] = None,
-                 window_uptime_criteria: Optional[pulumi.Input['WindowUptimeCriteriaArgs']] = None):
+                 good_signals: pulumi.Input[Optional['SignalArgs']] = None,
+                 signals: pulumi.Input[Optional['SignalArgs']] = None,
+                 total_signals: pulumi.Input[Optional['SignalArgs']] = None,
+                 window_uptime_criteria: pulumi.Input[Optional['WindowUptimeCriteriaArgs']] = None):
         """
         Defines the properties of an SLI.
 
@@ -10604,50 +10604,50 @@ class SliPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="goodSignals")
-    def good_signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+    def good_signals(self) -> pulumi.Input[Optional['SignalArgs']]:
         """
         Represents good signals used in request-based SLI calculations.
         """
         return pulumi.get(self, "good_signals")
 
     @good_signals.setter
-    def good_signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+    def good_signals(self, value: pulumi.Input[Optional['SignalArgs']]):
         pulumi.set(self, "good_signals", value)
 
     @_builtins.property
     @pulumi.getter
-    def signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+    def signals(self) -> pulumi.Input[Optional['SignalArgs']]:
         """
         Signals used for window-based SLI calculations.
         """
         return pulumi.get(self, "signals")
 
     @signals.setter
-    def signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+    def signals(self, value: pulumi.Input[Optional['SignalArgs']]):
         pulumi.set(self, "signals", value)
 
     @_builtins.property
     @pulumi.getter(name="totalSignals")
-    def total_signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+    def total_signals(self) -> pulumi.Input[Optional['SignalArgs']]:
         """
         Represents total signals used in request-based SLI calculations.
         """
         return pulumi.get(self, "total_signals")
 
     @total_signals.setter
-    def total_signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+    def total_signals(self, value: pulumi.Input[Optional['SignalArgs']]):
         pulumi.set(self, "total_signals", value)
 
     @_builtins.property
     @pulumi.getter(name="windowUptimeCriteria")
-    def window_uptime_criteria(self) -> Optional[pulumi.Input['WindowUptimeCriteriaArgs']]:
+    def window_uptime_criteria(self) -> pulumi.Input[Optional['WindowUptimeCriteriaArgs']]:
         """
         Defines the uptime criteria for window-based SLIs.
         """
         return pulumi.get(self, "window_uptime_criteria")
 
     @window_uptime_criteria.setter
-    def window_uptime_criteria(self, value: Optional[pulumi.Input['WindowUptimeCriteriaArgs']]):
+    def window_uptime_criteria(self, value: pulumi.Input[Optional['WindowUptimeCriteriaArgs']]):
         pulumi.set(self, "window_uptime_criteria", value)
 
 
@@ -10922,16 +10922,16 @@ class SpatialAggregationArgs:
 
 
 class StorageBlobDestinationArgsDict(TypedDict):
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The container name of the Storage Blob.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the storage account.
     """
@@ -10939,12 +10939,12 @@ class StorageBlobDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class StorageBlobDestinationArgs:
     def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_name: The container name of the Storage Blob.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.str] storage_account_resource_id: The resource ID of the storage account.
         """
@@ -10957,53 +10957,53 @@ class StorageBlobDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The container name of the Storage Blob.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the storage account.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
 
 class StorageTableDestinationArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the destination. 
+    A friendly name for the destination.
     This name should be unique across all destinations (regardless of type) within the data collection rule.
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the storage account.
     """
-    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Storage Table.
     """
@@ -11011,11 +11011,11 @@ class StorageTableDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class StorageTableDestinationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the destination.
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.str] storage_account_resource_id: The resource ID of the storage account.
         :param pulumi.Input[_builtins.str] table_name: The name of the Storage Table.
@@ -11029,39 +11029,39 @@ class StorageTableDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the destination. 
+        A friendly name for the destination.
         This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the storage account.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Table.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -11069,7 +11069,7 @@ class StreamDeclarationArgsDict(TypedDict):
     """
     Declaration of a custom stream.
     """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgsDict']]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ColumnDefinitionArgsDict']]]]]
     """
     List of columns used by data in this stream.
     """
@@ -11077,7 +11077,7 @@ class StreamDeclarationArgsDict(TypedDict):
 @pulumi.input_type
 class StreamDeclarationArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['ColumnDefinitionArgs']]]] = None):
         """
         Declaration of a custom stream.
 
@@ -11088,14 +11088,14 @@ class StreamDeclarationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ColumnDefinitionArgs']]]]:
         """
         List of columns used by data in this stream.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ColumnDefinitionArgs']]]]):
         pulumi.set(self, "columns", value)
 
 
@@ -11107,11 +11107,11 @@ class SubscriptionLogSettingsArgsDict(TypedDict):
     """
     a value indicating whether this log is enabled.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
     """
-    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    category_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
     """
@@ -11120,8 +11120,8 @@ class SubscriptionLogSettingsArgsDict(TypedDict):
 class SubscriptionLogSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 category_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 
@@ -11149,26 +11149,26 @@ class SubscriptionLogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
         """
         return pulumi.get(self, "category_group")
 
     @category_group.setter
-    def category_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_group", value)
 
 
@@ -11177,20 +11177,20 @@ class SyslogDataSourceArgsDict(TypedDict):
     Definition of which syslog data will be collected and how it will be collected.
     Only collected from Linux machines.
     """
-    facility_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]
+    facility_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]]
     """
     The list of facility names.
     """
-    log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]]
     """
     The log levels to collect.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]]
     """
     List of streams that this data source will be sent to.
     A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -11199,17 +11199,17 @@ class SyslogDataSourceArgsDict(TypedDict):
 @pulumi.input_type
 class SyslogDataSourceArgs:
     def __init__(__self__, *,
-                 facility_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]] = None,
-                 log_levels: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]] = None):
+                 facility_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]] = None,
+                 log_levels: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]] = None):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
 
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]] facility_names: The list of facility names.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]] log_levels: The log levels to collect.
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -11225,44 +11225,44 @@ class SyslogDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="facilityNames")
-    def facility_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]:
+    def facility_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]:
         """
         The list of facility names.
         """
         return pulumi.get(self, "facility_names")
 
     @facility_names.setter
-    def facility_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]):
+    def facility_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]):
         pulumi.set(self, "facility_names", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
-    def log_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]:
+    def log_levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]:
         """
         The log levels to collect.
         """
         return pulumi.get(self, "log_levels")
 
     @log_levels.setter
-    def log_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]):
+    def log_levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]):
         pulumi.set(self, "log_levels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -11270,7 +11270,7 @@ class SyslogDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -11282,7 +11282,7 @@ class SyslogReceiverArgsDict(TypedDict):
     """
     Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SyslogProtocol']]]]
     """
     Protocol to parse syslog messages. Default rfc3164
     """
@@ -11291,7 +11291,7 @@ class SyslogReceiverArgsDict(TypedDict):
 class SyslogReceiverArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]] = None):
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'SyslogProtocol']]] = None):
         """
         Base receiver using TCP as transport protocol.
 
@@ -11318,14 +11318,14 @@ class SyslogReceiverArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SyslogProtocol']]]:
         """
         Protocol to parse syslog messages. Default rfc3164
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SyslogProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -11370,7 +11370,7 @@ class TemporalAggregationArgsDict(TypedDict):
     """
     Type of temporal aggregation.
     """
-    window_size_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    window_size_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time window size for aggregation, in minutes.
     """
@@ -11379,7 +11379,7 @@ class TemporalAggregationArgsDict(TypedDict):
 class TemporalAggregationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']],
-                 window_size_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 window_size_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Represents temporal aggregation settings.
 
@@ -11404,14 +11404,14 @@ class TemporalAggregationArgs:
 
     @_builtins.property
     @pulumi.getter(name="windowSizeMinutes")
-    def window_size_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def window_size_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time window size for aggregation, in minutes.
         """
         return pulumi.get(self, "window_size_minutes")
 
     @window_size_minutes.setter
-    def window_size_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def window_size_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "window_size_minutes", value)
 
 
@@ -11479,7 +11479,7 @@ class TimeWindowArgsDict(TypedDict):
     """
     the start time for the profile in ISO 8601 format.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
     """
@@ -11489,7 +11489,7 @@ class TimeWindowArgs:
     def __init__(__self__, *,
                  end: pulumi.Input[_builtins.str],
                  start: pulumi.Input[_builtins.str],
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A specific date-time for the profile.
 
@@ -11528,14 +11528,14 @@ class TimeWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -11547,15 +11547,15 @@ class UdpReceiverArgsDict(TypedDict):
     """
     TCP endpoint definition. Example: 0.0.0.0:<port>.
     """
-    encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]]
+    encoding: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StreamEncodingType']]]]
     """
     The encoding of the stream being received.
     """
-    json_array_mapper: NotRequired[pulumi.Input['JsonArrayMapperArgsDict']]
+    json_array_mapper: NotRequired[pulumi.Input[Optional['JsonArrayMapperArgsDict']]]
     """
     Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
     """
-    read_queue_length: NotRequired[pulumi.Input[_builtins.int]]
+    read_queue_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Max read queue length.
     """
@@ -11564,9 +11564,9 @@ class UdpReceiverArgsDict(TypedDict):
 class UdpReceiverArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]] = None,
-                 json_array_mapper: Optional[pulumi.Input['JsonArrayMapperArgs']] = None,
-                 read_queue_length: Optional[pulumi.Input[_builtins.int]] = None):
+                 encoding: pulumi.Input[Optional[Union[_builtins.str, 'StreamEncodingType']]] = None,
+                 json_array_mapper: pulumi.Input[Optional['JsonArrayMapperArgs']] = None,
+                 read_queue_length: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Receiver using UDP as transport protocol.
 
@@ -11601,38 +11601,38 @@ class UdpReceiverArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]]:
+    def encoding(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StreamEncodingType']]]:
         """
         The encoding of the stream being received.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]]):
+    def encoding(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StreamEncodingType']]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="jsonArrayMapper")
-    def json_array_mapper(self) -> Optional[pulumi.Input['JsonArrayMapperArgs']]:
+    def json_array_mapper(self) -> pulumi.Input[Optional['JsonArrayMapperArgs']]:
         """
         Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
         """
         return pulumi.get(self, "json_array_mapper")
 
     @json_array_mapper.setter
-    def json_array_mapper(self, value: Optional[pulumi.Input['JsonArrayMapperArgs']]):
+    def json_array_mapper(self, value: pulumi.Input[Optional['JsonArrayMapperArgs']]):
         pulumi.set(self, "json_array_mapper", value)
 
     @_builtins.property
     @pulumi.getter(name="readQueueLength")
-    def read_queue_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_queue_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max read queue length.
         """
         return pulumi.get(self, "read_queue_length")
 
     @read_queue_length.setter
-    def read_queue_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_queue_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_queue_length", value)
 
 
@@ -11711,11 +11711,11 @@ class WebhookNotificationArgsDict(TypedDict):
     """
     Webhook notification of an autoscale event.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     a property bag of settings. This value can be empty.
     """
-    service_uri: NotRequired[pulumi.Input[_builtins.str]]
+    service_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the service address to receive the notification.
     """
@@ -11723,8 +11723,8 @@ class WebhookNotificationArgsDict(TypedDict):
 @pulumi.input_type
 class WebhookNotificationArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Webhook notification of an autoscale event.
 
@@ -11738,26 +11738,26 @@ class WebhookNotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         a property bag of settings. This value can be empty.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceUri")
-    def service_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the service address to receive the notification.
         """
         return pulumi.get(self, "service_uri")
 
     @service_uri.setter
-    def service_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_uri", value)
 
 
@@ -11773,27 +11773,27 @@ class WebhookReceiverArgsDict(TypedDict):
     """
     The URI where webhooks should be sent.
     """
-    identifier_uri: NotRequired[pulumi.Input[_builtins.str]]
+    identifier_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the identifier uri for aad auth.
     """
-    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    managed_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the webhook app object Id for aad auth.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the tenant id for aad auth.
     """
-    use_aad_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    use_aad_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether or not use AAD authentication.
     """
-    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use common alert schema.
     """
@@ -11803,12 +11803,12 @@ class WebhookReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  service_uri: pulumi.Input[_builtins.str],
-                 identifier_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_aad_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
+                 identifier_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_aad_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A webhook receiver.
 
@@ -11866,74 +11866,74 @@ class WebhookReceiverArgs:
 
     @_builtins.property
     @pulumi.getter(name="identifierUri")
-    def identifier_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the identifier uri for aad auth.
         """
         return pulumi.get(self, "identifier_uri")
 
     @identifier_uri.setter
-    def identifier_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the webhook app object Id for aad auth.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the tenant id for aad auth.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="useAadAuth")
-    def use_aad_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_aad_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not use AAD authentication.
         """
         return pulumi.get(self, "use_aad_auth")
 
     @use_aad_auth.setter
-    def use_aad_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_aad_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_aad_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -12087,17 +12087,17 @@ class WindowsEventLogDataSourceArgsDict(TypedDict):
     Definition of which Windows Event Log events will be collected and how they will be collected.
     Only collected from Windows machines.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
-    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]
+    streams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]]
     """
     List of streams that this data source will be sent to.
     A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
     """
-    x_path_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_path_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Windows Event Log queries in XPATH format.
     """
@@ -12105,14 +12105,14 @@ class WindowsEventLogDataSourceArgsDict(TypedDict):
 @pulumi.input_type
 class WindowsEventLogDataSourceArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]] = None,
-                 x_path_queries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]] = None,
+                 x_path_queries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
 
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -12127,20 +12127,20 @@ class WindowsEventLogDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]:
+    def streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -12148,19 +12148,19 @@ class WindowsEventLogDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]):
+    def streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]):
         pulumi.set(self, "streams", value)
 
     @_builtins.property
     @pulumi.getter(name="xPathQueries")
-    def x_path_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_path_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Windows Event Log queries in XPATH format.
         """
         return pulumi.get(self, "x_path_queries")
 
     @x_path_queries.setter
-    def x_path_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_path_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_path_queries", value)
 
 
@@ -12172,9 +12172,9 @@ class WindowsFirewallLogsDataSourceArgsDict(TypedDict):
     """
     Firewall logs streams
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A friendly name for the data source. 
+    A friendly name for the data source.
     This name should be unique across all data sources (regardless of type) within the data collection rule.
     """
 
@@ -12182,12 +12182,12 @@ class WindowsFirewallLogsDataSourceArgsDict(TypedDict):
 class WindowsFirewallLogsDataSourceArgs:
     def __init__(__self__, *,
                  streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Enables Firewall logs to be collected by this data collection rule.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: Firewall logs streams
-        :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
+        :param pulumi.Input[_builtins.str] name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -12208,15 +12208,15 @@ class WindowsFirewallLogsDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

@@ -152,11 +152,11 @@ export interface ClusterArgs {
     /**
      * The name of the Event Hubs Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -164,13 +164,13 @@ export interface ClusterArgs {
     /**
      * Properties of the cluster SKU.
      */
-    sku?: pulumi.Input<inputs.eventhub.ClusterSkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.ClusterSkuArgs | undefined>;
     /**
      * A value that indicates whether Scaling is Supported.
      */
-    supportsScaling?: pulumi.Input<boolean>;
+    supportsScaling?: pulumi.Input<boolean | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

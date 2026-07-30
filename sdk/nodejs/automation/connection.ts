@@ -142,7 +142,7 @@ export interface ConnectionArgs {
     /**
      * The name of connection.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the connectionType of the connection.
      */
@@ -150,11 +150,11 @@ export interface ConnectionArgs {
     /**
      * Gets or sets the description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the field definition properties of the connection.
      */
-    fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the name of the connection.
      */

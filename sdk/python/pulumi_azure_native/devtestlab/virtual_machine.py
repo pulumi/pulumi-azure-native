@@ -24,32 +24,32 @@ class VirtualMachineArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input['GalleryImageReferenceArgs']] = None,
-                 is_authentication_with_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_image_reference: pulumi.Input[Optional['GalleryImageReferenceArgs']] = None,
+                 is_authentication_with_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional['NetworkInterfacePropertiesArgs']] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_user_principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
@@ -171,314 +171,314 @@ class VirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowClaim")
-    def allow_claim(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_claim(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether another user can take ownership of the virtual machine
         """
         return pulumi.get(self, "allow_claim")
 
     @allow_claim.setter
-    def allow_claim(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_claim(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_claim", value)
 
     @_builtins.property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
+    def artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
         """
         The artifacts to be installed on the virtual machine.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
+    def artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
         pulumi.set(self, "artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation date of the virtual machine.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="customImageId")
-    def custom_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom image identifier of the virtual machine.
         """
         return pulumi.get(self, "custom_image_id")
 
     @custom_image_id.setter
-    def custom_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskParameters")
-    def data_disk_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]:
+    def data_disk_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]:
         """
         New or existing data disks to attach to the virtual machine after creation
         """
         return pulumi.get(self, "data_disk_parameters")
 
     @data_disk_parameters.setter
-    def data_disk_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]):
+    def data_disk_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]):
         pulumi.set(self, "data_disk_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowPublicIpAddress")
-    def disallow_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disallow_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the virtual machine is to be created without a public IP address.
         """
         return pulumi.get(self, "disallow_public_ip_address")
 
     @disallow_public_ip_address.setter
-    def disallow_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disallow_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disallow_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the environment that contains this virtual machine, if any.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date for VM.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional[pulumi.Input['GalleryImageReferenceArgs']]:
+    def gallery_image_reference(self) -> pulumi.Input[Optional['GalleryImageReferenceArgs']]:
         """
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
         return pulumi.get(self, "gallery_image_reference")
 
     @gallery_image_reference.setter
-    def gallery_image_reference(self, value: Optional[pulumi.Input['GalleryImageReferenceArgs']]):
+    def gallery_image_reference(self, value: pulumi.Input[Optional['GalleryImageReferenceArgs']]):
         pulumi.set(self, "gallery_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="isAuthenticationWithSshKey")
-    def is_authentication_with_ssh_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_authentication_with_ssh_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this virtual machine uses an SSH key for authentication.
         """
         return pulumi.get(self, "is_authentication_with_ssh_key")
 
     @is_authentication_with_ssh_key.setter
-    def is_authentication_with_ssh_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_authentication_with_ssh_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_authentication_with_ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lab subnet name of the virtual machine.
         """
         return pulumi.get(self, "lab_subnet_name")
 
     @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labVirtualNetworkId")
-    def lab_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lab virtual network identifier of the virtual machine.
         """
         return pulumi.get(self, "lab_virtual_network_id")
 
     @lab_virtual_network_id.setter
-    def lab_virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional[pulumi.Input['NetworkInterfacePropertiesArgs']]:
+    def network_interface(self) -> pulumi.Input[Optional['NetworkInterfacePropertiesArgs']]:
         """
         The network interface properties.
         """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
-    def network_interface(self, value: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']]):
+    def network_interface(self, value: pulumi.Input[Optional['NetworkInterfacePropertiesArgs']]):
         pulumi.set(self, "network_interface", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notes of the virtual machine.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerObjectId")
-    def owner_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object identifier of the owner of the virtual machine.
         """
         return pulumi.get(self, "owner_object_id")
 
     @owner_object_id.setter
-    def owner_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerUserPrincipalName")
-    def owner_user_principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_user_principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user principal name of the virtual machine owner.
         """
         return pulumi.get(self, "owner_user_principal_name")
 
     @owner_user_principal_name.setter
-    def owner_user_principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_user_principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_user_principal_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the virtual machine administrator.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the plan associated with the virtual machine image
         """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleParameters")
-    def schedule_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]:
+    def schedule_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]:
         """
         Virtual Machine schedules to be created
         """
         return pulumi.get(self, "schedule_parameters")
 
     @schedule_parameters.setter
-    def schedule_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]):
+    def schedule_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]):
         pulumi.set(self, "schedule_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the virtual machine.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH key of the virtual machine administrator.
         """
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
-    def ssh_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type to use for virtual machine (i.e. Standard, Premium).
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name of the virtual machine.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -488,40 +488,39 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
-                 is_authentication_with_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_image_reference: pulumi.Input[Optional[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
+                 is_authentication_with_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_user_principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A virtual machine.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -565,7 +564,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -581,34 +579,34 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
-                 is_authentication_with_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_image_reference: pulumi.Input[Optional[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
+                 is_authentication_with_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_user_principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

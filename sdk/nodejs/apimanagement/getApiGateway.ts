@@ -98,7 +98,7 @@ export interface GetApiGatewayResult {
      */
     readonly type: string;
     /**
-     * The type of VPN in which API Management gateway needs to be configured in. 
+     * The type of VPN in which API Management gateway needs to be configured in.
      */
     readonly virtualNetworkType?: string;
 }

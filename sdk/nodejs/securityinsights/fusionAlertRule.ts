@@ -187,7 +187,7 @@ export interface FusionAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

@@ -25,8 +25,8 @@ class TargetArgs:
                  parent_resource_type: pulumi.Input[_builtins.str],
                  properties: Any,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
@@ -110,26 +110,26 @@ class TargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the target resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String that represents a Target resource name.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
 
@@ -139,13 +139,13 @@ class Target(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Model that represents a Target resource.
@@ -153,7 +153,6 @@ class Target(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-15-preview.
 
         Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class Target(pulumi.CustomResource):
 
         Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class Target(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

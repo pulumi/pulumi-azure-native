@@ -130,7 +130,6 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[_builtins.str] = 
 
     Uses Azure REST API version 2018-01-01-preview.
 
-
     :param _builtins.str ip_filter_rule_name: The IP Filter Rule name.
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
@@ -150,15 +149,14 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[_builtins.str] = 
         ip_mask=pulumi.get(__ret__, 'ip_mask'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_ip_filter_rule_output(ip_filter_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceIpFilterRuleResult]:
     """
     Gets an IpFilterRule for a Namespace by rule name.
 
     Uses Azure REST API version 2018-01-01-preview.
-
 
     :param _builtins.str ip_filter_rule_name: The IP Filter Rule name.
     :param _builtins.str namespace_name: The namespace name

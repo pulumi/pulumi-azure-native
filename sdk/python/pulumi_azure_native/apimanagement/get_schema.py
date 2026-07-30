@@ -130,7 +130,6 @@ def get_schema(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-04-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
     :param _builtins.str service_name: The name of the API Management service.
@@ -150,15 +149,14 @@ def get_schema(resource_group_name: Optional[_builtins.str] = None,
         schema_type=pulumi.get(__ret__, 'schema_type'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_schema_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      service_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Gets the details of the Schema specified by its identifier.
 
     Uses Azure REST API version 2021-04-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str schema_id: Schema id identifier. Must be unique in the current API Management service instance.

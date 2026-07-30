@@ -24,15 +24,15 @@ class WebAppHybridConnectionSlotArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_arm_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_arm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppHybridConnectionSlot resource.
 
@@ -124,79 +124,79 @@ class WebAppHybridConnectionSlotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname of the endpoint.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port of the endpoint.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="relayArmUri")
-    def relay_arm_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_arm_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM URI to the Service Bus relay.
         """
         return pulumi.get(self, "relay_arm_uri")
 
     @relay_arm_uri.setter
-    def relay_arm_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_arm_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_arm_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Service Bus relay.
         """
         return pulumi.get(self, "relay_name")
 
     @relay_name.setter
-    def relay_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendKeyName")
-    def send_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
         """
         return pulumi.get(self, "send_key_name")
 
     @send_key_name.setter
-    def send_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendKeyValue")
-    def send_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
         normally, use the POST /listKeys API instead.
@@ -204,31 +204,31 @@ class WebAppHybridConnectionSlotArgs:
         return pulumi.get(self, "send_key_value")
 
     @send_key_value.setter
-    def send_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_key_value", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusNamespace")
-    def service_bus_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Service Bus namespace.
         """
         return pulumi.get(self, "service_bus_namespace")
 
     @service_bus_namespace.setter
-    def service_bus_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusSuffix")
-    def service_bus_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
         return pulumi.get(self, "service_bus_suffix")
 
     @service_bus_suffix.setter
-    def service_bus_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_suffix", value)
 
 
@@ -238,19 +238,19 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_arm_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_arm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
@@ -258,7 +258,6 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +289,6 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppHybridConnectionSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,19 +304,19 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_arm_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_arm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

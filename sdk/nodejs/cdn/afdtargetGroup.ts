@@ -130,5 +130,5 @@ export interface AFDTargetGroupArgs {
     /**
      * Name of the Target Group under the profile.
      */
-    targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
 }

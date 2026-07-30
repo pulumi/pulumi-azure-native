@@ -31,8 +31,8 @@ class ADLSGen2FileDataSetMappingArgs:
                  share_subscription_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
                  subscription_id: pulumi.Input[_builtins.str],
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_type: Optional[pulumi.Input[Union[_builtins.str, 'OutputType']]] = None):
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_type: pulumi.Input[Optional[Union[_builtins.str, 'OutputType']]] = None):
         """
         The set of arguments for constructing a ADLSGen2FileDataSetMapping resource.
 
@@ -188,26 +188,26 @@ class ADLSGen2FileDataSetMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetMappingName")
-    def data_set_mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data set mapping to be created.
         """
         return pulumi.get(self, "data_set_mapping_name")
 
     @data_set_mapping_name.setter
-    def data_set_mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputType")
-    def output_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputType']]]:
+    def output_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OutputType']]]:
         """
         Type of output file
         """
         return pulumi.get(self, "output_type")
 
     @output_type.setter
-    def output_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OutputType']]]):
+    def output_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OutputType']]]):
         pulumi.set(self, "output_type", value)
 
 
@@ -217,24 +217,23 @@ class ADLSGen2FileDataSetMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_type: Optional[pulumi.Input[Union[_builtins.str, 'OutputType']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_type: pulumi.Input[Optional[Union[_builtins.str, 'OutputType']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An ADLS Gen2 file data set mapping.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,7 +262,6 @@ class ADLSGen2FileDataSetMapping(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param ADLSGen2FileDataSetMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,18 +277,18 @@ class ADLSGen2FileDataSetMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_type: Optional[pulumi.Input[Union[_builtins.str, 'OutputType']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_type: pulumi.Input[Optional[Union[_builtins.str, 'OutputType']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -216,7 +216,6 @@ def get_n_group(ngroups_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str ngroups_name: The NGroups name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -241,8 +240,8 @@ def get_n_group(ngroups_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         update_profile=pulumi.get(__ret__, 'update_profile'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_n_group_output(ngroups_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_n_group_output(ngroups_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNGroupResult]:
     """
     Get the properties of the specified NGroups resource.
@@ -250,7 +249,6 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2025-09-01.
 
     Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str ngroups_name: The NGroups name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

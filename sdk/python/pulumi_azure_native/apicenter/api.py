@@ -27,14 +27,14 @@ class ApiArgs:
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['ContactArgs']]]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input['ContactArgs']]]] = None,
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]]] = None,
-                 license: Optional[pulumi.Input['LicenseArgs']] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_of_service: Optional[pulumi.Input['TermsOfServiceArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_documentation: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalDocumentationArgs']]]] = None,
+                 license: pulumi.Input[Optional['LicenseArgs']] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_of_service: pulumi.Input[Optional['TermsOfServiceArgs']] = None):
         """
         The set of arguments for constructing a Api resource.
 
@@ -136,26 +136,26 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API.
         """
         return pulumi.get(self, "api_name")
 
     @api_name.setter
-    def api_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactArgs']]]]:
+    def contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContactArgs']]]]:
         """
         The set of contacts
         """
         return pulumi.get(self, "contacts")
 
     @contacts.setter
-    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactArgs']]]]):
+    def contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContactArgs']]]]):
         pulumi.set(self, "contacts", value)
 
     @_builtins.property
@@ -172,62 +172,62 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the API.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDocumentation")
-    def external_documentation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]]]:
+    def external_documentation(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalDocumentationArgs']]]]:
         """
         The set of external documentation
         """
         return pulumi.get(self, "external_documentation")
 
     @external_documentation.setter
-    def external_documentation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]]]):
+    def external_documentation(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalDocumentationArgs']]]]):
         pulumi.set(self, "external_documentation", value)
 
     @_builtins.property
     @pulumi.getter
-    def license(self) -> Optional[pulumi.Input['LicenseArgs']]:
+    def license(self) -> pulumi.Input[Optional['LicenseArgs']]:
         """
         The license information for the API.
         """
         return pulumi.get(self, "license")
 
     @license.setter
-    def license(self, value: Optional[pulumi.Input['LicenseArgs']]):
+    def license(self, value: pulumi.Input[Optional['LicenseArgs']]):
         pulumi.set(self, "license", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of the API.
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
     @_builtins.property
     @pulumi.getter(name="termsOfService")
-    def terms_of_service(self) -> Optional[pulumi.Input['TermsOfServiceArgs']]:
+    def terms_of_service(self) -> pulumi.Input[Optional['TermsOfServiceArgs']]:
         """
         Terms of service for the API.
         """
         return pulumi.get(self, "terms_of_service")
 
     @terms_of_service.setter
-    def terms_of_service(self, value: Optional[pulumi.Input['TermsOfServiceArgs']]):
+    def terms_of_service(self, value: pulumi.Input[Optional['TermsOfServiceArgs']]):
         pulumi.set(self, "terms_of_service", value)
 
 
@@ -237,19 +237,19 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ApiKind']]] = None,
-                 license: Optional[pulumi.Input[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_of_service: Optional[pulumi.Input[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_documentation: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ApiKind']]] = None,
+                 license: pulumi.Input[Optional[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_of_service: pulumi.Input[Optional[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         API entity.
@@ -257,7 +257,6 @@ class Api(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,7 +287,6 @@ class Api(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,19 +302,19 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ApiKind']]] = None,
-                 license: Optional[pulumi.Input[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_of_service: Optional[pulumi.Input[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_documentation: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ApiKind']]] = None,
+                 license: pulumi.Input[Optional[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_of_service: pulumi.Input[Optional[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

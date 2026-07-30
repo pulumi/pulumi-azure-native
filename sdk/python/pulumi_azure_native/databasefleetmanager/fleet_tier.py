@@ -24,8 +24,8 @@ class FleetTierArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['FleetTierPropertiesArgs']] = None,
-                 tier_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['FleetTierPropertiesArgs']] = None,
+                 tier_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetTier resource.
 
@@ -67,26 +67,26 @@ class FleetTierArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FleetTierPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FleetTierPropertiesArgs']]:
         """
         A Fleet tier properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FleetTierPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FleetTierPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="tierName")
-    def tier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the tier.
         """
         return pulumi.get(self, "tier_name")
 
     @tier_name.setter
-    def tier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier_name", value)
 
 
@@ -96,16 +96,15 @@ class FleetTier(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetTierPropertiesArgs', 'FleetTierPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetTierPropertiesArgs', 'FleetTierPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A SQL Database Fleet tier.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class FleetTier(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param FleetTierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class FleetTier(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetTierPropertiesArgs', 'FleetTierPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetTierPropertiesArgs', 'FleetTierPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

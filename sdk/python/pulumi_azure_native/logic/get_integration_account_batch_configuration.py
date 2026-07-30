@@ -133,7 +133,6 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str batch_configuration_name: The batch configuration name.
     :param _builtins.str integration_account_name: The integration account name.
     :param _builtins.str resource_group_name: The resource group name.
@@ -153,9 +152,9 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_account_batch_configuration_output(batch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_account_batch_configuration_output(batch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
     """
     Get a batch configuration for an integration account.
@@ -163,7 +162,6 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str batch_configuration_name: The batch configuration name.
     :param _builtins.str integration_account_name: The integration account name.

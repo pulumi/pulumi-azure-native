@@ -31,9 +31,9 @@ class StudentArgs:
                  invoice_section_name: pulumi.Input[_builtins.str],
                  last_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Union[_builtins.str, 'StudentRole']],
-                 student_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_invite_last_sent_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 student_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_invite_last_sent_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Student resource.
 
@@ -176,38 +176,38 @@ class StudentArgs:
 
     @_builtins.property
     @pulumi.getter(name="studentAlias")
-    def student_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def student_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The student alias.
         """
         return pulumi.get(self, "student_alias")
 
     @student_alias.setter
-    def student_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def student_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "student_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionAlias")
-    def subscription_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription alias
         """
         return pulumi.get(self, "subscription_alias")
 
     @subscription_alias.setter
-    def subscription_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionInviteLastSentDate")
-    def subscription_invite_last_sent_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_invite_last_sent_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         subscription invite last sent date
         """
         return pulumi.get(self, "subscription_invite_last_sent_date")
 
     @subscription_invite_last_sent_date.setter
-    def subscription_invite_last_sent_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_invite_last_sent_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_invite_last_sent_date", value)
 
 
@@ -217,24 +217,23 @@ class Student(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'StudentRole']]] = None,
-                 student_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_invite_last_sent_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget: pulumi.Input[Optional[Union['AmountArgs', 'AmountArgsDict']]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'StudentRole']]] = None,
+                 student_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_invite_last_sent_date: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Student details.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +261,6 @@ class Student(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param StudentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,18 +276,18 @@ class Student(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'StudentRole']]] = None,
-                 student_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_invite_last_sent_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget: pulumi.Input[Optional[Union['AmountArgs', 'AmountArgsDict']]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'StudentRole']]] = None,
+                 student_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_invite_last_sent_date: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

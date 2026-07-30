@@ -26,9 +26,9 @@ class DeploymentArgs:
                  device_group_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input['ImageArgs']]]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployed_images: pulumi.Input[Optional[Sequence[pulumi.Input['ImageArgs']]]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -101,38 +101,38 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deployedImages")
-    def deployed_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageArgs']]]]:
+    def deployed_images(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageArgs']]]]:
         """
         Images deployed
         """
         return pulumi.get(self, "deployed_images")
 
     @deployed_images.setter
-    def deployed_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageArgs']]]]):
+    def deployed_images(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageArgs']]]]):
         pulumi.set(self, "deployed_images", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment ID
         """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
 
@@ -142,19 +142,18 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployed_images: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An deployment resource belonging to a device group resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +176,6 @@ class Deployment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,13 +191,13 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployed_images: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

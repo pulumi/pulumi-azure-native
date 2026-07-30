@@ -75,7 +75,7 @@ class CaptureDescriptionResponse(dict):
         Properties to configure capture description for eventhub
 
         :param 'DestinationResponse' destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-        :param _builtins.bool enabled: A value that indicates whether capture description is enabled. 
+        :param _builtins.bool enabled: A value that indicates whether capture description is enabled.
         :param _builtins.str encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
         :param _builtins.int interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
         :param _builtins.int size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -106,7 +106,7 @@ class CaptureDescriptionResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         """
-        A value that indicates whether capture description is enabled. 
+        A value that indicates whether capture description is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -919,7 +919,7 @@ class RetentionDescriptionResponse(dict):
         Properties to configure retention settings for the  eventhub
 
         :param _builtins.str cleanup_policy: Enumerates the possible values for cleanup policy
-        :param _builtins.float retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        :param _builtins.float retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue
         :param _builtins.int tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
         if cleanup_policy is not None:
@@ -941,7 +941,7 @@ class RetentionDescriptionResponse(dict):
     @pulumi.getter(name="retentionTimeInHours")
     def retention_time_in_hours(self) -> Optional[_builtins.float]:
         """
-        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue
         """
         return pulumi.get(self, "retention_time_in_hours")
 

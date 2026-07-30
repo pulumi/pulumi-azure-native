@@ -27,9 +27,9 @@ class MachineLearningDatasetArgs:
                  registration: pulumi.Input['DatasetCreateRequestRegistrationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_series: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']] = None):
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_series: pulumi.Input[Optional['DatasetCreateRequestTimeSeriesArgs']] = None):
         """
         The set of arguments for constructing a MachineLearningDataset resource.
 
@@ -109,35 +109,35 @@ class MachineLearningDatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Dataset name.
         """
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
-    def dataset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
-    def skip_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip validation that ensures data can be loaded from the dataset before registration.
         """
         return pulumi.get(self, "skip_validation")
 
     @skip_validation.setter
-    def skip_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="timeSeries")
-    def time_series(self) -> Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']]:
+    def time_series(self) -> pulumi.Input[Optional['DatasetCreateRequestTimeSeriesArgs']]:
         return pulumi.get(self, "time_series")
 
     @time_series.setter
-    def time_series(self, value: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']]):
+    def time_series(self, value: pulumi.Input[Optional['DatasetCreateRequestTimeSeriesArgs']]):
         pulumi.set(self, "time_series", value)
 
 
@@ -147,20 +147,19 @@ class MachineLearningDataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_type: Optional[pulumi.Input[Union[_builtins.str, 'DatasetType']]] = None,
-                 parameters: Optional[pulumi.Input[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
-                 registration: Optional[pulumi.Input[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_series: Optional[pulumi.Input[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_type: pulumi.Input[Optional[Union[_builtins.str, 'DatasetType']]] = None,
+                 parameters: pulumi.Input[Optional[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
+                 registration: pulumi.Input[Optional[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_series: pulumi.Input[Optional[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Machine Learning dataset object wrapped into ARM resource envelope.
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class MachineLearningDataset(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MachineLearningDatasetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,14 +195,14 @@ class MachineLearningDataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_type: Optional[pulumi.Input[Union[_builtins.str, 'DatasetType']]] = None,
-                 parameters: Optional[pulumi.Input[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
-                 registration: Optional[pulumi.Input[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_series: Optional[pulumi.Input[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_type: pulumi.Input[Optional[Union[_builtins.str, 'DatasetType']]] = None,
+                 parameters: pulumi.Input[Optional[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
+                 registration: pulumi.Input[Optional[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_series: pulumi.Input[Optional[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

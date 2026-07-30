@@ -24,24 +24,24 @@ class RecordSetArgs:
                  record_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  zone_name: pulumi.Input[_builtins.str],
-                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
-                 aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
-                 caa_records: Optional[pulumi.Input[Sequence[pulumi.Input['CaaRecordArgs']]]] = None,
-                 cname_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
-                 ds_records: Optional[pulumi.Input[Sequence[pulumi.Input['DsRecordArgs']]]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mx_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
-                 naptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['NaptrRecordArgs']]]] = None,
-                 ns_records: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
-                 ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
-                 relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input['SoaRecordArgs']] = None,
-                 srv_records: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
-                 target_resource: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]]] = None,
-                 traffic_management_profile: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 ttl: Optional[pulumi.Input[_builtins.float]] = None,
-                 txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None):
+                 a_records: pulumi.Input[Optional[Sequence[pulumi.Input['ARecordArgs']]]] = None,
+                 aaaa_records: pulumi.Input[Optional[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
+                 caa_records: pulumi.Input[Optional[Sequence[pulumi.Input['CaaRecordArgs']]]] = None,
+                 cname_record: pulumi.Input[Optional['CnameRecordArgs']] = None,
+                 ds_records: pulumi.Input[Optional[Sequence[pulumi.Input['DsRecordArgs']]]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mx_records: pulumi.Input[Optional[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
+                 naptr_records: pulumi.Input[Optional[Sequence[pulumi.Input['NaptrRecordArgs']]]] = None,
+                 ns_records: pulumi.Input[Optional[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
+                 ptr_records: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
+                 relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional['SoaRecordArgs']] = None,
+                 srv_records: pulumi.Input[Optional[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
+                 target_resource: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 tlsa_records: pulumi.Input[Optional[Sequence[pulumi.Input['TlsaRecordArgs']]]] = None,
+                 traffic_management_profile: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None,
+                 txt_records: pulumi.Input[Optional[Sequence[pulumi.Input['TxtRecordArgs']]]] = None):
         """
         The set of arguments for constructing a RecordSet resource.
 
@@ -145,218 +145,218 @@ class RecordSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]]:
+    def a_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ARecordArgs']]]]:
         """
         The list of A records in the record set.
         """
         return pulumi.get(self, "a_records")
 
     @a_records.setter
-    def a_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]]):
+    def a_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ARecordArgs']]]]):
         pulumi.set(self, "a_records", value)
 
     @_builtins.property
     @pulumi.getter(name="aaaaRecords")
-    def aaaa_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]]:
+    def aaaa_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AaaaRecordArgs']]]]:
         """
         The list of AAAA records in the record set.
         """
         return pulumi.get(self, "aaaa_records")
 
     @aaaa_records.setter
-    def aaaa_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]]):
+    def aaaa_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AaaaRecordArgs']]]]):
         pulumi.set(self, "aaaa_records", value)
 
     @_builtins.property
     @pulumi.getter(name="caaRecords")
-    def caa_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CaaRecordArgs']]]]:
+    def caa_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CaaRecordArgs']]]]:
         """
         The list of CAA records in the record set.
         """
         return pulumi.get(self, "caa_records")
 
     @caa_records.setter
-    def caa_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CaaRecordArgs']]]]):
+    def caa_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CaaRecordArgs']]]]):
         pulumi.set(self, "caa_records", value)
 
     @_builtins.property
     @pulumi.getter(name="cnameRecord")
-    def cname_record(self) -> Optional[pulumi.Input['CnameRecordArgs']]:
+    def cname_record(self) -> pulumi.Input[Optional['CnameRecordArgs']]:
         """
         The CNAME record in the  record set.
         """
         return pulumi.get(self, "cname_record")
 
     @cname_record.setter
-    def cname_record(self, value: Optional[pulumi.Input['CnameRecordArgs']]):
+    def cname_record(self, value: pulumi.Input[Optional['CnameRecordArgs']]):
         pulumi.set(self, "cname_record", value)
 
     @_builtins.property
     @pulumi.getter(name="dsRecords")
-    def ds_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DsRecordArgs']]]]:
+    def ds_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DsRecordArgs']]]]:
         """
         The list of DS records in the record set.
         """
         return pulumi.get(self, "ds_records")
 
     @ds_records.setter
-    def ds_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DsRecordArgs']]]]):
+    def ds_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DsRecordArgs']]]]):
         pulumi.set(self, "ds_records", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata attached to the record set.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="mxRecords")
-    def mx_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]]:
+    def mx_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MxRecordArgs']]]]:
         """
         The list of MX records in the record set.
         """
         return pulumi.get(self, "mx_records")
 
     @mx_records.setter
-    def mx_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]]):
+    def mx_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MxRecordArgs']]]]):
         pulumi.set(self, "mx_records", value)
 
     @_builtins.property
     @pulumi.getter(name="naptrRecords")
-    def naptr_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NaptrRecordArgs']]]]:
+    def naptr_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NaptrRecordArgs']]]]:
         """
         The list of NAPTR records in the record set.
         """
         return pulumi.get(self, "naptr_records")
 
     @naptr_records.setter
-    def naptr_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NaptrRecordArgs']]]]):
+    def naptr_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NaptrRecordArgs']]]]):
         pulumi.set(self, "naptr_records", value)
 
     @_builtins.property
     @pulumi.getter(name="nsRecords")
-    def ns_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]]:
+    def ns_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NsRecordArgs']]]]:
         """
         The list of NS records in the record set.
         """
         return pulumi.get(self, "ns_records")
 
     @ns_records.setter
-    def ns_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]]):
+    def ns_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NsRecordArgs']]]]):
         pulumi.set(self, "ns_records", value)
 
     @_builtins.property
     @pulumi.getter(name="ptrRecords")
-    def ptr_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]]:
+    def ptr_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]]:
         """
         The list of PTR records in the record set.
         """
         return pulumi.get(self, "ptr_records")
 
     @ptr_records.setter
-    def ptr_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]]):
+    def ptr_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]]):
         pulumi.set(self, "ptr_records", value)
 
     @_builtins.property
     @pulumi.getter(name="relativeRecordSetName")
-    def relative_record_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_record_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the record set, relative to the name of the zone.
         """
         return pulumi.get(self, "relative_record_set_name")
 
     @relative_record_set_name.setter
-    def relative_record_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_record_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_record_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional[pulumi.Input['SoaRecordArgs']]:
+    def soa_record(self) -> pulumi.Input[Optional['SoaRecordArgs']]:
         """
         The SOA record in the record set.
         """
         return pulumi.get(self, "soa_record")
 
     @soa_record.setter
-    def soa_record(self, value: Optional[pulumi.Input['SoaRecordArgs']]):
+    def soa_record(self, value: pulumi.Input[Optional['SoaRecordArgs']]):
         pulumi.set(self, "soa_record", value)
 
     @_builtins.property
     @pulumi.getter(name="srvRecords")
-    def srv_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]]:
+    def srv_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SrvRecordArgs']]]]:
         """
         The list of SRV records in the record set.
         """
         return pulumi.get(self, "srv_records")
 
     @srv_records.setter
-    def srv_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]]):
+    def srv_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SrvRecordArgs']]]]):
         pulumi.set(self, "srv_records", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResource")
-    def target_resource(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def target_resource(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         A reference to an azure resource from where the dns resource value is taken.
         """
         return pulumi.get(self, "target_resource")
 
     @target_resource.setter
-    def target_resource(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def target_resource(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "target_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsaRecords")
-    def tlsa_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]]]:
+    def tlsa_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TlsaRecordArgs']]]]:
         """
         The list of TLSA records in the record set.
         """
         return pulumi.get(self, "tlsa_records")
 
     @tlsa_records.setter
-    def tlsa_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]]]):
+    def tlsa_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TlsaRecordArgs']]]]):
         pulumi.set(self, "tlsa_records", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficManagementProfile")
-    def traffic_management_profile(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def traffic_management_profile(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         A reference to an azure traffic manager profile resource from where the dns resource value is taken.
         """
         return pulumi.get(self, "traffic_management_profile")
 
     @traffic_management_profile.setter
-    def traffic_management_profile(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def traffic_management_profile(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "traffic_management_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The TTL (time-to-live) of the records in the record set.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="txtRecords")
-    def txt_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]]:
+    def txt_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TxtRecordArgs']]]]:
         """
         The list of TXT records in the record set.
         """
         return pulumi.get(self, "txt_records")
 
     @txt_records.setter
-    def txt_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]]):
+    def txt_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TxtRecordArgs']]]]):
         pulumi.set(self, "txt_records", value)
 
 
@@ -366,27 +366,27 @@ class RecordSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]]] = None,
-                 aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AaaaRecordArgs', 'AaaaRecordArgsDict']]]]] = None,
-                 caa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordArgs', 'CaaRecordArgsDict']]]]] = None,
-                 cname_record: Optional[pulumi.Input[Union['CnameRecordArgs', 'CnameRecordArgsDict']]] = None,
-                 ds_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DsRecordArgs', 'DsRecordArgsDict']]]]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mx_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MxRecordArgs', 'MxRecordArgsDict']]]]] = None,
-                 naptr_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NaptrRecordArgs', 'NaptrRecordArgsDict']]]]] = None,
-                 ns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NsRecordArgs', 'NsRecordArgsDict']]]]] = None,
-                 ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PtrRecordArgs', 'PtrRecordArgsDict']]]]] = None,
-                 record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input[Union['SoaRecordArgs', 'SoaRecordArgsDict']]] = None,
-                 srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordArgs', 'SrvRecordArgsDict']]]]] = None,
-                 target_resource: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsaRecordArgs', 'TlsaRecordArgsDict']]]]] = None,
-                 traffic_management_profile: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.float]] = None,
-                 txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordArgs', 'TxtRecordArgsDict']]]]] = None,
-                 zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 a_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]]] = None,
+                 aaaa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AaaaRecordArgs', 'AaaaRecordArgsDict']]]]] = None,
+                 caa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CaaRecordArgs', 'CaaRecordArgsDict']]]]] = None,
+                 cname_record: pulumi.Input[Optional[Union['CnameRecordArgs', 'CnameRecordArgsDict']]] = None,
+                 ds_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DsRecordArgs', 'DsRecordArgsDict']]]]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mx_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MxRecordArgs', 'MxRecordArgsDict']]]]] = None,
+                 naptr_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NaptrRecordArgs', 'NaptrRecordArgsDict']]]]] = None,
+                 ns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NsRecordArgs', 'NsRecordArgsDict']]]]] = None,
+                 ptr_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PtrRecordArgs', 'PtrRecordArgsDict']]]]] = None,
+                 record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional[Union['SoaRecordArgs', 'SoaRecordArgsDict']]] = None,
+                 srv_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SrvRecordArgs', 'SrvRecordArgsDict']]]]] = None,
+                 target_resource: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 tlsa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsaRecordArgs', 'TlsaRecordArgsDict']]]]] = None,
+                 traffic_management_profile: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None,
+                 txt_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordArgs', 'TxtRecordArgsDict']]]]] = None,
+                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
@@ -394,7 +394,6 @@ class RecordSet(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -433,7 +432,6 @@ class RecordSet(pulumi.CustomResource):
 
         Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RecordSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -449,27 +447,27 @@ class RecordSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]]] = None,
-                 aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AaaaRecordArgs', 'AaaaRecordArgsDict']]]]] = None,
-                 caa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordArgs', 'CaaRecordArgsDict']]]]] = None,
-                 cname_record: Optional[pulumi.Input[Union['CnameRecordArgs', 'CnameRecordArgsDict']]] = None,
-                 ds_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DsRecordArgs', 'DsRecordArgsDict']]]]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mx_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MxRecordArgs', 'MxRecordArgsDict']]]]] = None,
-                 naptr_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NaptrRecordArgs', 'NaptrRecordArgsDict']]]]] = None,
-                 ns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NsRecordArgs', 'NsRecordArgsDict']]]]] = None,
-                 ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PtrRecordArgs', 'PtrRecordArgsDict']]]]] = None,
-                 record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input[Union['SoaRecordArgs', 'SoaRecordArgsDict']]] = None,
-                 srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordArgs', 'SrvRecordArgsDict']]]]] = None,
-                 target_resource: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsaRecordArgs', 'TlsaRecordArgsDict']]]]] = None,
-                 traffic_management_profile: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.float]] = None,
-                 txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordArgs', 'TxtRecordArgsDict']]]]] = None,
-                 zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 a_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]]] = None,
+                 aaaa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AaaaRecordArgs', 'AaaaRecordArgsDict']]]]] = None,
+                 caa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CaaRecordArgs', 'CaaRecordArgsDict']]]]] = None,
+                 cname_record: pulumi.Input[Optional[Union['CnameRecordArgs', 'CnameRecordArgsDict']]] = None,
+                 ds_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DsRecordArgs', 'DsRecordArgsDict']]]]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mx_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MxRecordArgs', 'MxRecordArgsDict']]]]] = None,
+                 naptr_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NaptrRecordArgs', 'NaptrRecordArgsDict']]]]] = None,
+                 ns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NsRecordArgs', 'NsRecordArgsDict']]]]] = None,
+                 ptr_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PtrRecordArgs', 'PtrRecordArgsDict']]]]] = None,
+                 record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional[Union['SoaRecordArgs', 'SoaRecordArgsDict']]] = None,
+                 srv_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SrvRecordArgs', 'SrvRecordArgsDict']]]]] = None,
+                 target_resource: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 tlsa_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsaRecordArgs', 'TlsaRecordArgsDict']]]]] = None,
+                 traffic_management_profile: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None,
+                 txt_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordArgs', 'TxtRecordArgsDict']]]]] = None,
+                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

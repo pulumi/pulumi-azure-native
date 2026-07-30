@@ -180,7 +180,6 @@ def get_data_lake_connector_topic_map(data_lake_connector_name: Optional[_builti
 
     Uses Azure REST API version 2023-10-04-preview.
 
-
     :param _builtins.str data_lake_connector_name: Name of MQ dataLakeConnector resource
     :param _builtins.str mq_name: Name of MQ resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -206,16 +205,15 @@ def get_data_lake_connector_topic_map(data_lake_connector_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_lake_connector_topic_map_output(data_lake_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             topic_map_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_lake_connector_topic_map_output(data_lake_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             topic_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeConnectorTopicMapResult]:
     """
     Get a DataLakeTopicMapResource
 
     Uses Azure REST API version 2023-10-04-preview.
-
 
     :param _builtins.str data_lake_connector_name: Name of MQ dataLakeConnector resource
     :param _builtins.str mq_name: Name of MQ resource

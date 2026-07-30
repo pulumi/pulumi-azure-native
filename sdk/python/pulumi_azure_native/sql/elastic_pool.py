@@ -24,20 +24,20 @@ class ElasticPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 per_database_settings: pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
 
@@ -60,7 +60,7 @@ class ElasticPoolArgs:
                
                ```azurecli
                az sql elastic-pool list-editions -l <location> -o table
-               ````
+               ```
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
@@ -121,176 +121,176 @@ class ElasticPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoPauseDelay")
-    def auto_pause_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_pause_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
         """
         return pulumi.get(self, "auto_pause_delay")
 
     @auto_pause_delay.setter
-    def auto_pause_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_pause_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_pause_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]]:
+    def availability_zone(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]]:
         """
         Specifies the availability zone the pool's primary replica is pinned to.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]]):
+    def availability_zone(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the elastic pool.
         """
         return pulumi.get(self, "elastic_pool_name")
 
     @elastic_pool_name.setter
-    def elastic_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
-    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def high_availability_replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
     @high_availability_replica_count.setter
-    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def high_availability_replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]]:
         """
         The license type to apply for this elastic pool.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The storage limit for the database elastic pool in bytes.
         """
         return pulumi.get(self, "max_size_bytes")
 
     @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimal capacity that serverless pool will not shrink below, if not paused
         """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="perDatabaseSettings")
-    def per_database_settings(self) -> Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]:
+    def per_database_settings(self) -> pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']]:
         """
         The per database settings for the elastic pool.
         """
         return pulumi.get(self, "per_database_settings")
 
     @per_database_settings.setter
-    def per_database_settings(self, value: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]):
+    def per_database_settings(self, value: pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']]):
         pulumi.set(self, "per_database_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredEnclaveType")
-    def preferred_enclave_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]:
+    def preferred_enclave_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]:
         """
         Type of enclave requested on the elastic pool.
         """
         return pulumi.get(self, "preferred_enclave_type")
 
     @preferred_enclave_type.setter
-    def preferred_enclave_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]):
+    def preferred_enclave_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]):
         pulumi.set(self, "preferred_enclave_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The elastic pool SKU.
-        
+
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-        
+
         ```azurecli
         az sql elastic-pool list-editions -l <location> -o table
-        ````
+        ```
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -300,22 +300,22 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         An elastic pool.
@@ -323,7 +323,6 @@ class ElasticPool(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,7 +345,7 @@ class ElasticPool(pulumi.CustomResource):
                
                ```azurecli
                az sql elastic-pool list-editions -l <location> -o table
-               ````
+               ```
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
@@ -363,7 +362,6 @@ class ElasticPool(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,22 +377,22 @@ class ElasticPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -592,12 +590,12 @@ class ElasticPool(pulumi.CustomResource):
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The elastic pool SKU.
-        
+
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-        
+
         ```azurecli
         az sql elastic-pool list-editions -l <location> -o table
-        ````
+        ```
         """
         return pulumi.get(self, "sku")
 

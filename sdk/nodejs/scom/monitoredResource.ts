@@ -110,7 +110,7 @@ export interface MonitoredResourceArgs {
     /**
      * The monitored resource name.
      */
-    monitoredResourceName?: pulumi.Input<string>;
+    monitoredResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

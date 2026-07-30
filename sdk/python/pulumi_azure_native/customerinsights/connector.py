@@ -24,10 +24,10 @@ class ConnectorArgs:
                  connector_type: pulumi.Input[Union[_builtins.str, 'ConnectorTypes']],
                  hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_internal: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_internal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -103,50 +103,50 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connector.
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the connector.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the connector.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isInternal")
-    def is_internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If this is an internal connector.
         """
         return pulumi.get(self, "is_internal")
 
     @is_internal.setter
-    def is_internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_internal", value)
 
 
@@ -156,20 +156,19 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 connector_type: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorTypes']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 connector_type: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorTypes']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The connector resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +192,6 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,14 +207,14 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 connector_type: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorTypes']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 connector_type: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorTypes']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

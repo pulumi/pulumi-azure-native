@@ -23,33 +23,33 @@ __all__ = ['ServerGroupClusterArgs', 'ServerGroupCluster']
 class ServerGroupClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_config: Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']] = None,
-                 citus_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 coordinator_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_encryption: Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_geo_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ha: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shards_on_coordinator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 point_in_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 postgresql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_primary_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_config: pulumi.Input[Optional['ServerGroupClusterAuthConfigArgs']] = None,
+                 citus_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 coordinator_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 coordinator_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_encryption: pulumi.Input[Optional['ServerGroupClusterDataEncryptionArgs']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_geo_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ha: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shards_on_coordinator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['ServerGroupClusterMaintenanceWindowArgs']] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 point_in_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgresql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerGroupCluster resource.
 
@@ -152,326 +152,326 @@ class ServerGroupClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the administrator login. Required for creation.
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']]:
+    def auth_config(self) -> pulumi.Input[Optional['ServerGroupClusterAuthConfigArgs']]:
         """
         Authentication configuration of a cluster.
         """
         return pulumi.get(self, "auth_config")
 
     @auth_config.setter
-    def auth_config(self, value: Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']]):
+    def auth_config(self, value: pulumi.Input[Optional['ServerGroupClusterAuthConfigArgs']]):
         pulumi.set(self, "auth_config", value)
 
     @_builtins.property
     @pulumi.getter(name="citusVersion")
-    def citus_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def citus_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Citus extension version on all cluster servers.
         """
         return pulumi.get(self, "citus_version")
 
     @citus_version.setter
-    def citus_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def citus_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "citus_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="coordinatorEnablePublicIpAccess")
-    def coordinator_enable_public_ip_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def coordinator_enable_public_ip_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If public access is enabled on coordinator.
         """
         return pulumi.get(self, "coordinator_enable_public_ip_access")
 
     @coordinator_enable_public_ip_access.setter
-    def coordinator_enable_public_ip_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def coordinator_enable_public_ip_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "coordinator_enable_public_ip_access", value)
 
     @_builtins.property
     @pulumi.getter(name="coordinatorServerEdition")
-    def coordinator_server_edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def coordinator_server_edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         """
         return pulumi.get(self, "coordinator_server_edition")
 
     @coordinator_server_edition.setter
-    def coordinator_server_edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def coordinator_server_edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "coordinator_server_edition", value)
 
     @_builtins.property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def coordinator_storage_quota_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "coordinator_storage_quota_in_mb")
 
     @coordinator_storage_quota_in_mb.setter
-    def coordinator_storage_quota_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def coordinator_storage_quota_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "coordinator_storage_quota_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="coordinatorVCores")
-    def coordinator_v_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def coordinator_v_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "coordinator_v_cores")
 
     @coordinator_v_cores.setter
-    def coordinator_v_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def coordinator_v_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "coordinator_v_cores", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncryption")
-    def data_encryption(self) -> Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']]:
+    def data_encryption(self) -> pulumi.Input[Optional['ServerGroupClusterDataEncryptionArgs']]:
         """
         The data encryption properties of a cluster.
         """
         return pulumi.get(self, "data_encryption")
 
     @data_encryption.setter
-    def data_encryption(self, value: Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']]):
+    def data_encryption(self, value: pulumi.Input[Optional['ServerGroupClusterDataEncryptionArgs']]):
         pulumi.set(self, "data_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database name of the cluster. Only one database per cluster is supported.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableGeoBackup")
-    def enable_geo_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_geo_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
         """
         return pulumi.get(self, "enable_geo_backup")
 
     @enable_geo_backup.setter
-    def enable_geo_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_geo_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_geo_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHa")
-    def enable_ha(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ha(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If high availability (HA) is enabled or not for the cluster.
         """
         return pulumi.get(self, "enable_ha")
 
     @enable_ha.setter
-    def enable_ha(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ha(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ha", value)
 
     @_builtins.property
     @pulumi.getter(name="enableShardsOnCoordinator")
-    def enable_shards_on_coordinator(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_shards_on_coordinator(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
 
     @enable_shards_on_coordinator.setter
-    def enable_shards_on_coordinator(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_shards_on_coordinator(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_shards_on_coordinator", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         """
         Describes the identity of the cluster.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['ServerGroupClusterMaintenanceWindowArgs']]:
         """
         Maintenance window of a cluster.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['ServerGroupClusterMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeEnablePublicIpAccess")
-    def node_enable_public_ip_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def node_enable_public_ip_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If public access is enabled on worker nodes.
         """
         return pulumi.get(self, "node_enable_public_ip_access")
 
     @node_enable_public_ip_access.setter
-    def node_enable_public_ip_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def node_enable_public_ip_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "node_enable_public_ip_access", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeServerEdition")
-    def node_server_edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_server_edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The edition of a node server (default: MemoryOptimized).
         """
         return pulumi.get(self, "node_server_edition")
 
     @node_server_edition.setter
-    def node_server_edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_server_edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_server_edition", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeStorageQuotaInMb")
-    def node_storage_quota_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_storage_quota_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_storage_quota_in_mb")
 
     @node_storage_quota_in_mb.setter
-    def node_storage_quota_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_storage_quota_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_storage_quota_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeVCores")
-    def node_v_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_v_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_v_cores")
 
     @node_v_cores.setter
-    def node_v_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_v_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_v_cores", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeUTC")
-    def point_in_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def point_in_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in UTC (ISO8601 format) for cluster restore.
         """
         return pulumi.get(self, "point_in_time_utc")
 
     @point_in_time_utc.setter
-    def point_in_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def point_in_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "point_in_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="postgresqlVersion")
-    def postgresql_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postgresql_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The major PostgreSQL version on all cluster servers.
         """
         return pulumi.get(self, "postgresql_version")
 
     @postgresql_version.setter
-    def postgresql_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postgresql_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postgresql_version", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredPrimaryZone")
-    def preferred_primary_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_primary_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preferred primary availability zone (AZ) for all cluster servers.
         """
         return pulumi.get(self, "preferred_primary_zone")
 
     @preferred_primary_zone.setter
-    def preferred_primary_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_primary_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_primary_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure region of source cluster for read replica clusters.
         """
         return pulumi.get(self, "source_location")
 
     @source_location.setter
-    def source_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_location", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of source cluster for read replica clusters.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -481,34 +481,34 @@ class ServerGroupCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_config: Optional[pulumi.Input[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
-                 citus_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 coordinator_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_geo_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ha: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shards_on_coordinator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 point_in_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 postgresql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_primary_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_config: pulumi.Input[Optional[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
+                 citus_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 coordinator_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 coordinator_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_encryption: pulumi.Input[Optional[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_geo_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ha: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shards_on_coordinator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 point_in_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgresql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a cluster.
@@ -516,7 +516,6 @@ class ServerGroupCluster(pulumi.CustomResource):
         Uses Azure REST API version 2023-03-02-preview.
 
         Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -562,7 +561,6 @@ class ServerGroupCluster(pulumi.CustomResource):
 
         Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServerGroupClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -578,34 +576,34 @@ class ServerGroupCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_config: Optional[pulumi.Input[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
-                 citus_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 coordinator_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_geo_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ha: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shards_on_coordinator: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_enable_public_ip_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_server_edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 point_in_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 postgresql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_primary_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_config: pulumi.Input[Optional[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
+                 citus_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 coordinator_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 coordinator_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 coordinator_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_encryption: pulumi.Input[Optional[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_geo_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ha: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shards_on_coordinator: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_enable_public_ip_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 point_in_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgresql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

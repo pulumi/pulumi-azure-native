@@ -134,7 +134,7 @@ class CapabilityArgsDict(TypedDict):
     """
     Name of Capability
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]]
     """
     State of resource
     """
@@ -144,7 +144,7 @@ class CapabilityArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Capability, to match in Solution Templates & Targets
 
@@ -183,14 +183,14 @@ class CapabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]:
         """
         State of resource
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -231,7 +231,7 @@ class ConfigurationReferencePropertiesArgsDict(TypedDict):
     """
     Properties for ConfigurationReference Resource
     """
-    configuration_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ArmId of Configuration resource
     """
@@ -239,7 +239,7 @@ class ConfigurationReferencePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationReferencePropertiesArgs:
     def __init__(__self__, *,
-                 configuration_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for ConfigurationReference Resource
 
@@ -250,14 +250,14 @@ class ConfigurationReferencePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationResourceId")
-    def configuration_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ArmId of Configuration resource
         """
         return pulumi.get(self, "configuration_resource_id")
 
     @configuration_resource_id.setter
-    def configuration_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_resource_id", value)
 
 
@@ -383,11 +383,11 @@ class ErrorActionArgsDict(TypedDict):
     """
     Error Action Properties
     """
-    max_tolerated_failures: NotRequired[pulumi.Input[_builtins.int]]
+    max_tolerated_failures: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Max tolerated failures
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ErrorActionMode']]]]
     """
     Error action mode
     """
@@ -395,8 +395,8 @@ class ErrorActionArgsDict(TypedDict):
 @pulumi.input_type
 class ErrorActionArgs:
     def __init__(__self__, *,
-                 max_tolerated_failures: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]] = None):
+                 max_tolerated_failures: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'ErrorActionMode']]] = None):
         """
         Error Action Properties
 
@@ -412,26 +412,26 @@ class ErrorActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxToleratedFailures")
-    def max_tolerated_failures(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_tolerated_failures(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max tolerated failures
         """
         return pulumi.get(self, "max_tolerated_failures")
 
     @max_tolerated_failures.setter
-    def max_tolerated_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_tolerated_failures(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_tolerated_failures", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ErrorActionMode']]]:
         """
         Error action mode
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ErrorActionMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -496,7 +496,7 @@ class ExecutionV2PropertiesArgsDict(TypedDict):
     """
     ExecutionV2 specification
     """
-    workflow_version_id: NotRequired[pulumi.Input[_builtins.str]]
+    workflow_version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Workflow version of ExecutionV2
     """
@@ -505,7 +505,7 @@ class ExecutionV2PropertiesArgsDict(TypedDict):
 class ExecutionV2PropertiesArgs:
     def __init__(__self__, *,
                  specification: Optional[Any] = None,
-                 workflow_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 workflow_version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ExecutionV2 Properties
 
@@ -531,14 +531,14 @@ class ExecutionV2PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="workflowVersionId")
-    def workflow_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workflow version of ExecutionV2
         """
         return pulumi.get(self, "workflow_version_id")
 
     @workflow_version_id.setter
-    def workflow_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_version_id", value)
 
 
@@ -606,15 +606,15 @@ class InstancePropertiesArgsDict(TypedDict):
     """
     Target of instance
     """
-    active_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveState']]]
+    active_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActiveState']]]]
     """
     State of instance
     """
-    reconciliation_policy: NotRequired[pulumi.Input['ReconciliationPolicyPropertiesArgsDict']]
+    reconciliation_policy: NotRequired[pulumi.Input[Optional['ReconciliationPolicyPropertiesArgsDict']]]
     """
     Reconciliation policy of instance
     """
-    solution_scope: NotRequired[pulumi.Input[_builtins.str]]
+    solution_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Scope of instance
     """
@@ -624,9 +624,9 @@ class InstancePropertiesArgs:
     def __init__(__self__, *,
                  solution_version_id: pulumi.Input[_builtins.str],
                  target_id: pulumi.Input[_builtins.str],
-                 active_state: Optional[pulumi.Input[Union[_builtins.str, 'ActiveState']]] = None,
-                 reconciliation_policy: Optional[pulumi.Input['ReconciliationPolicyPropertiesArgs']] = None,
-                 solution_scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_state: pulumi.Input[Optional[Union[_builtins.str, 'ActiveState']]] = None,
+                 reconciliation_policy: pulumi.Input[Optional['ReconciliationPolicyPropertiesArgs']] = None,
+                 solution_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Instance Properties
 
@@ -671,38 +671,38 @@ class InstancePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeState")
-    def active_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActiveState']]]:
+    def active_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActiveState']]]:
         """
         State of instance
         """
         return pulumi.get(self, "active_state")
 
     @active_state.setter
-    def active_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActiveState']]]):
+    def active_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActiveState']]]):
         pulumi.set(self, "active_state", value)
 
     @_builtins.property
     @pulumi.getter(name="reconciliationPolicy")
-    def reconciliation_policy(self) -> Optional[pulumi.Input['ReconciliationPolicyPropertiesArgs']]:
+    def reconciliation_policy(self) -> pulumi.Input[Optional['ReconciliationPolicyPropertiesArgs']]:
         """
         Reconciliation policy of instance
         """
         return pulumi.get(self, "reconciliation_policy")
 
     @reconciliation_policy.setter
-    def reconciliation_policy(self, value: Optional[pulumi.Input['ReconciliationPolicyPropertiesArgs']]):
+    def reconciliation_policy(self, value: pulumi.Input[Optional['ReconciliationPolicyPropertiesArgs']]):
         pulumi.set(self, "reconciliation_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionScope")
-    def solution_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope of instance
         """
         return pulumi.get(self, "solution_scope")
 
     @solution_scope.setter
-    def solution_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_scope", value)
 
 
@@ -828,27 +828,27 @@ class SiteAddressPropertiesArgsDict(TypedDict):
     """
     Site address properties
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     City of the address
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Country of the address
     """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Postal or ZIP code of the address
     """
-    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    state_or_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State or province of the address
     """
-    street_address1: NotRequired[pulumi.Input[_builtins.str]]
+    street_address1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First line of the street address
     """
-    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    street_address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Second line of the street address
     """
@@ -856,12 +856,12 @@ class SiteAddressPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SiteAddressPropertiesArgs:
     def __init__(__self__, *,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address2: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address2: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Site address properties
 
@@ -887,74 +887,74 @@ class SiteAddressPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         City of the address
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of the address
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Postal or ZIP code of the address
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_or_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State or province of the address
         """
         return pulumi.get(self, "state_or_province")
 
     @state_or_province.setter
-    def state_or_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_or_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_or_province", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First line of the street address
         """
         return pulumi.get(self, "street_address1")
 
     @street_address1.setter
-    def street_address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address1", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress2")
-    def street_address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Second line of the street address
         """
         return pulumi.get(self, "street_address2")
 
     @street_address2.setter
-    def street_address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address2", value)
 
 
@@ -962,23 +962,23 @@ class SitePropertiesArgsDict(TypedDict):
     """
     Site properties
     """
-    address_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    address_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AddressResource ArmId of Site resource
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of Site resource
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     displayName of Site resource
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key-value pairs for labeling the site resource.
     """
-    site_address: NotRequired[pulumi.Input['SiteAddressPropertiesArgsDict']]
+    site_address: NotRequired[pulumi.Input[Optional['SiteAddressPropertiesArgsDict']]]
     """
     Physical address of the site
     """
@@ -986,11 +986,11 @@ class SitePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SitePropertiesArgs:
     def __init__(__self__, *,
-                 address_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 site_address: Optional[pulumi.Input['SiteAddressPropertiesArgs']] = None):
+                 address_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 site_address: pulumi.Input[Optional['SiteAddressPropertiesArgs']] = None):
         """
         Site properties
 
@@ -1013,62 +1013,62 @@ class SitePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressResourceId")
-    def address_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AddressResource ArmId of Site resource
         """
         return pulumi.get(self, "address_resource_id")
 
     @address_resource_id.setter
-    def address_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Site resource
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         displayName of Site resource
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs for labeling the site resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="siteAddress")
-    def site_address(self) -> Optional[pulumi.Input['SiteAddressPropertiesArgs']]:
+    def site_address(self) -> pulumi.Input[Optional['SiteAddressPropertiesArgs']]:
         """
         Physical address of the site
         """
         return pulumi.get(self, "site_address")
 
     @site_address.setter
-    def site_address(self, value: Optional[pulumi.Input['SiteAddressPropertiesArgs']]):
+    def site_address(self, value: pulumi.Input[Optional['SiteAddressPropertiesArgs']]):
         pulumi.set(self, "site_address", value)
 
 
@@ -1117,11 +1117,11 @@ class SolutionTemplatePropertiesArgsDict(TypedDict):
     """
     Description of Solution template
     """
-    enable_external_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_external_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to enable external validation
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]]
     """
     State of resource
     """
@@ -1131,8 +1131,8 @@ class SolutionTemplatePropertiesArgs:
     def __init__(__self__, *,
                  capabilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  description: pulumi.Input[_builtins.str],
-                 enable_external_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
+                 enable_external_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Solution Template Properties
 
@@ -1174,26 +1174,26 @@ class SolutionTemplatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableExternalValidation")
-    def enable_external_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_external_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable external validation
         """
         return pulumi.get(self, "enable_external_validation")
 
     @enable_external_validation.setter
-    def enable_external_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_external_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_external_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]:
         """
         State of resource
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -1242,11 +1242,11 @@ class StageSpecArgsDict(TypedDict):
     """
     Stage specification
     """
-    task_option: NotRequired[pulumi.Input['TaskOptionArgsDict']]
+    task_option: NotRequired[pulumi.Input[Optional['TaskOptionArgsDict']]]
     """
     Task option for the stage
     """
-    tasks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgsDict']]]]
+    tasks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskSpecArgsDict']]]]]
     """
     List of tasks in the stage
     """
@@ -1256,8 +1256,8 @@ class StageSpecArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  specification: Optional[Any] = None,
-                 task_option: Optional[pulumi.Input['TaskOptionArgs']] = None,
-                 tasks: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgs']]]] = None):
+                 task_option: pulumi.Input[Optional['TaskOptionArgs']] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSpecArgs']]]] = None):
         """
         Stage Properties
 
@@ -1300,26 +1300,26 @@ class StageSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="taskOption")
-    def task_option(self) -> Optional[pulumi.Input['TaskOptionArgs']]:
+    def task_option(self) -> pulumi.Input[Optional['TaskOptionArgs']]:
         """
         Task option for the stage
         """
         return pulumi.get(self, "task_option")
 
     @task_option.setter
-    def task_option(self, value: Optional[pulumi.Input['TaskOptionArgs']]):
+    def task_option(self, value: pulumi.Input[Optional['TaskOptionArgs']]):
         pulumi.set(self, "task_option", value)
 
     @_builtins.property
     @pulumi.getter
-    def tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgs']]]]:
+    def tasks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskSpecArgs']]]]:
         """
         List of tasks in the stage
         """
         return pulumi.get(self, "tasks")
 
     @tasks.setter
-    def tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgs']]]]):
+    def tasks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSpecArgs']]]]):
         pulumi.set(self, "tasks", value)
 
 
@@ -1351,11 +1351,11 @@ class TargetPropertiesArgsDict(TypedDict):
     """
     target spec
     """
-    solution_scope: NotRequired[pulumi.Input[_builtins.str]]
+    solution_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Scope of the target resource
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]]
     """
     State of resource
     """
@@ -1369,8 +1369,8 @@ class TargetPropertiesArgs:
                  display_name: pulumi.Input[_builtins.str],
                  hierarchy_level: pulumi.Input[_builtins.str],
                  target_specification: Any,
-                 solution_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
+                 solution_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Target Properties
 
@@ -1468,26 +1468,26 @@ class TargetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="solutionScope")
-    def solution_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope of the target resource
         """
         return pulumi.get(self, "solution_scope")
 
     @solution_scope.setter
-    def solution_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]:
         """
         State of resource
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -1495,11 +1495,11 @@ class TaskOptionArgsDict(TypedDict):
     """
     Task Option Properties
     """
-    concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    concurrency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Parallel worker numbers of the tasks
     """
-    error_action: NotRequired[pulumi.Input['ErrorActionArgsDict']]
+    error_action: NotRequired[pulumi.Input[Optional['ErrorActionArgsDict']]]
     """
     Error action for the tasks
     """
@@ -1507,8 +1507,8 @@ class TaskOptionArgsDict(TypedDict):
 @pulumi.input_type
 class TaskOptionArgs:
     def __init__(__self__, *,
-                 concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 error_action: Optional[pulumi.Input['ErrorActionArgs']] = None):
+                 concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 error_action: pulumi.Input[Optional['ErrorActionArgs']] = None):
         """
         Task Option Properties
 
@@ -1524,26 +1524,26 @@ class TaskOptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Parallel worker numbers of the tasks
         """
         return pulumi.get(self, "concurrency")
 
     @concurrency.setter
-    def concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional[pulumi.Input['ErrorActionArgs']]:
+    def error_action(self) -> pulumi.Input[Optional['ErrorActionArgs']]:
         """
         Error action for the tasks
         """
         return pulumi.get(self, "error_action")
 
     @error_action.setter
-    def error_action(self, value: Optional[pulumi.Input['ErrorActionArgs']]):
+    def error_action(self, value: pulumi.Input[Optional['ErrorActionArgs']]):
         pulumi.set(self, "error_action", value)
 
 
@@ -1559,7 +1559,7 @@ class TaskSpecArgsDict(TypedDict):
     """
     Task specification
     """
-    target_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target ARM id
     """
@@ -1569,7 +1569,7 @@ class TaskSpecArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  specification: Any,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Task Spec
 
@@ -1608,14 +1608,14 @@ class TaskSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target ARM id
         """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_id", value)
 
 

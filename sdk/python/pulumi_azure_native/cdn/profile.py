@@ -24,12 +24,12 @@ class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_scrubbing: Optional[pulumi.Input['ProfileLogScrubbingArgs']] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_scrubbing: pulumi.Input[Optional['ProfileLogScrubbingArgs']] = None,
+                 origin_response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -83,74 +83,74 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logScrubbing")
-    def log_scrubbing(self) -> Optional[pulumi.Input['ProfileLogScrubbingArgs']]:
+    def log_scrubbing(self) -> pulumi.Input[Optional['ProfileLogScrubbingArgs']]:
         """
         Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         """
         return pulumi.get(self, "log_scrubbing")
 
     @log_scrubbing.setter
-    def log_scrubbing(self, value: Optional[pulumi.Input['ProfileLogScrubbingArgs']]):
+    def log_scrubbing(self, value: pulumi.Input[Optional['ProfileLogScrubbingArgs']]):
         pulumi.set(self, "log_scrubbing", value)
 
     @_builtins.property
     @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def origin_response_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         """
         return pulumi.get(self, "origin_response_timeout_seconds")
 
     @origin_response_timeout_seconds.setter
-    def origin_response_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def origin_response_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "origin_response_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,14 +160,14 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
+                 origin_response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
@@ -175,7 +175,6 @@ class Profile(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class Profile(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
+                 origin_response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

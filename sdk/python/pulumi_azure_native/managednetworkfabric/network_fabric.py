@@ -30,13 +30,13 @@ class NetworkFabricArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_count_per_rack: pulumi.Input[_builtins.int],
                  terminal_server_configuration: pulumi.Input['TerminalServerConfigurationArgs'],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rack_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFabric resource.
 
@@ -177,86 +177,86 @@ class NetworkFabricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="fabricVersion")
-    def fabric_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Network Fabric.
         """
         return pulumi.get(self, "fabric_version")
 
     @fabric_version.setter
-    def fabric_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_version", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Prefix")
-    def ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         """
         return pulumi.get(self, "ipv6_prefix")
 
     @ipv6_prefix.setter
-    def ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFabricName")
-    def network_fabric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_name")
 
     @network_fabric_name.setter
-    def network_fabric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rackCount")
-    def rack_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rack_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of compute racks associated to Network Fabric.
         """
         return pulumi.get(self, "rack_count")
 
     @rack_count.setter
-    def rack_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rack_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rack_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -266,21 +266,21 @@ class NetworkFabric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_asn: Optional[pulumi.Input[_builtins.float]] = None,
-                 fabric_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
-                 network_fabric_controller_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 rack_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_count_per_rack: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_asn: pulumi.Input[Optional[_builtins.float]] = None,
+                 fabric_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_configuration: pulumi.Input[Optional[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
+                 network_fabric_controller_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_count_per_rack: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminal_server_configuration: pulumi.Input[Optional[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The Network Fabric resource definition.
@@ -288,7 +288,6 @@ class NetworkFabric(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,7 +320,6 @@ class NetworkFabric(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkFabricArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,21 +335,21 @@ class NetworkFabric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_asn: Optional[pulumi.Input[_builtins.float]] = None,
-                 fabric_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
-                 network_fabric_controller_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 rack_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_count_per_rack: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_asn: pulumi.Input[Optional[_builtins.float]] = None,
+                 fabric_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_configuration: pulumi.Input[Optional[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
+                 network_fabric_controller_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_count_per_rack: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminal_server_configuration: pulumi.Input[Optional[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

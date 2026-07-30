@@ -172,11 +172,11 @@ export interface NetworkBootstrapInterfaceArgs {
     /**
      * Additional description of the interface.
      */
-    additionalDescription?: pulumi.Input<string>;
+    additionalDescription?: pulumi.Input<string | undefined>;
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Name of the Network Bootstrap Device.
      */
@@ -184,7 +184,7 @@ export interface NetworkBootstrapInterfaceArgs {
     /**
      * Name of the Network Bootstrap Interface.
      */
-    networkBootstrapInterfaceName?: pulumi.Input<string>;
+    networkBootstrapInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -192,5 +192,5 @@ export interface NetworkBootstrapInterfaceArgs {
     /**
      * Serial number of the interface. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
 }

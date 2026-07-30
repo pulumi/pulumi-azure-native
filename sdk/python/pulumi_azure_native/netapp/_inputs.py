@@ -18,16 +18,16 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionArgs',
     'AccountEncryptionArgsDict',
-    'ActiveDirectoryConfigPropertiesArgs',
-    'ActiveDirectoryConfigPropertiesArgsDict',
     'ActiveDirectoryArgs',
     'ActiveDirectoryArgsDict',
+    'ActiveDirectoryConfigPropertiesArgs',
+    'ActiveDirectoryConfigPropertiesArgsDict',
     'BucketServerPropertiesArgs',
     'BucketServerPropertiesArgsDict',
-    'CachePropertiesExportPolicyArgs',
-    'CachePropertiesExportPolicyArgsDict',
     'CachePropertiesArgs',
     'CachePropertiesArgsDict',
+    'CachePropertiesExportPolicyArgs',
+    'CachePropertiesExportPolicyArgsDict',
     'CifsUserArgs',
     'CifsUserArgsDict',
     'DailyScheduleArgs',
@@ -40,16 +40,16 @@ __all__ = [
     'ElasticBackupPropertiesArgsDict',
     'ElasticCapacityPoolPropertiesArgs',
     'ElasticCapacityPoolPropertiesArgsDict',
+    'ElasticEncryptionArgs',
+    'ElasticEncryptionArgsDict',
     'ElasticEncryptionConfigurationArgs',
     'ElasticEncryptionConfigurationArgsDict',
     'ElasticEncryptionIdentityArgs',
     'ElasticEncryptionIdentityArgsDict',
-    'ElasticEncryptionArgs',
-    'ElasticEncryptionArgsDict',
-    'ElasticExportPolicyRuleArgs',
-    'ElasticExportPolicyRuleArgsDict',
     'ElasticExportPolicyArgs',
     'ElasticExportPolicyArgsDict',
+    'ElasticExportPolicyRuleArgs',
+    'ElasticExportPolicyRuleArgsDict',
     'ElasticKeyVaultPropertiesArgs',
     'ElasticKeyVaultPropertiesArgsDict',
     'ElasticSmbPropertiesArgs',
@@ -98,12 +98,12 @@ __all__ = [
     'RemotePathArgsDict',
     'ReplicationObjectArgs',
     'ReplicationObjectArgsDict',
+    'SecretPasswordArgs',
+    'SecretPasswordArgsDict',
     'SecretPasswordIdentityArgs',
     'SecretPasswordIdentityArgsDict',
     'SecretPasswordKeyVaultPropertiesArgs',
     'SecretPasswordKeyVaultPropertiesArgsDict',
-    'SecretPasswordArgs',
-    'SecretPasswordArgsDict',
     'SmbSettingsArgs',
     'SmbSettingsArgsDict',
     'VolumeBackupPropertiesArgs',
@@ -128,15 +128,15 @@ class AccountEncryptionArgsDict(TypedDict):
     """
     Encryption settings
     """
-    identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['EncryptionIdentityArgsDict']]]
     """
     Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
     """
-    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    key_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]]
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
     """
-    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
     """
@@ -144,9 +144,9 @@ class AccountEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class AccountEncryptionArgs:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
-                 key_source: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]] = None,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+                 identity: pulumi.Input[Optional['EncryptionIdentityArgs']] = None,
+                 key_source: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]] = None,
+                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None):
         """
         Encryption settings
 
@@ -165,338 +165,126 @@ class AccountEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EncryptionIdentityArgs']]:
         """
         Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EncryptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]:
+    def key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]:
         """
         The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]):
+    def key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
-
-
-class ActiveDirectoryConfigPropertiesArgsDict(TypedDict):
-    """
-    Active Directory Configuration properties
-    """
-    domain: pulumi.Input[_builtins.str]
-    """
-    Name of the Active Directory domain
-    """
-    secret_password: pulumi.Input['SecretPasswordArgsDict']
-    """
-    Access password from Azure KeyVault Secrets to connect Active Directory
-    """
-    administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
-    """
-    backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-    """
-    dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    An array of DNS server IP addresses(IPv4 only) for the Active Directory
-    """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Organizational Unit (OU) within the Windows Active Directory
-    """
-    security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-    """
-    site: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Active Directory site the service will limit Domain Controller discovery to
-    """
-    smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-    """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A domain user account with permission to create machine accounts
-    """
-
-@pulumi.input_type
-class ActiveDirectoryConfigPropertiesArgs:
-    def __init__(__self__, *,
-                 domain: pulumi.Input[_builtins.str],
-                 secret_password: pulumi.Input['SecretPasswordArgs'],
-                 administrators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_operators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 site: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Active Directory Configuration properties
-
-        :param pulumi.Input[_builtins.str] domain: Name of the Active Directory domain
-        :param pulumi.Input['SecretPasswordArgs'] secret_password: Access password from Azure KeyVault Secrets to connect Active Directory
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns: An array of DNS server IP addresses(IPv4 only) for the Active Directory
-        :param pulumi.Input[_builtins.str] organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_operators: Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-        :param pulumi.Input[_builtins.str] site: The Active Directory site the service will limit Domain Controller discovery to
-        :param pulumi.Input[_builtins.str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        :param pulumi.Input[_builtins.str] user_name: A domain user account with permission to create machine accounts
-        """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "secret_password", secret_password)
-        if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
-        if backup_operators is not None:
-            pulumi.set(__self__, "backup_operators", backup_operators)
-        if dns is not None:
-            pulumi.set(__self__, "dns", dns)
-        if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
-        if security_operators is not None:
-            pulumi.set(__self__, "security_operators", security_operators)
-        if site is not None:
-            pulumi.set(__self__, "site", site)
-        if smb_server_name is not None:
-            pulumi.set(__self__, "smb_server_name", smb_server_name)
-        if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Active Directory domain
-        """
-        return pulumi.get(self, "domain")
-
-    @domain.setter
-    def domain(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "domain", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretPassword")
-    def secret_password(self) -> pulumi.Input['SecretPasswordArgs']:
-        """
-        Access password from Azure KeyVault Secrets to connect Active Directory
-        """
-        return pulumi.get(self, "secret_password")
-
-    @secret_password.setter
-    def secret_password(self, value: pulumi.Input['SecretPasswordArgs']):
-        pulumi.set(self, "secret_password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
-        """
-        return pulumi.get(self, "administrators")
-
-    @administrators.setter
-    def administrators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "administrators", value)
-
-    @_builtins.property
-    @pulumi.getter(name="backupOperators")
-    def backup_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-        """
-        return pulumi.get(self, "backup_operators")
-
-    @backup_operators.setter
-    def backup_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "backup_operators", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of DNS server IP addresses(IPv4 only) for the Active Directory
-        """
-        return pulumi.get(self, "dns")
-
-    @dns.setter
-    def dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dns", value)
-
-    @_builtins.property
-    @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Organizational Unit (OU) within the Windows Active Directory
-        """
-        return pulumi.get(self, "organizational_unit")
-
-    @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "organizational_unit", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityOperators")
-    def security_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-        """
-        return pulumi.get(self, "security_operators")
-
-    @security_operators.setter
-    def security_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "security_operators", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def site(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Active Directory site the service will limit Domain Controller discovery to
-        """
-        return pulumi.get(self, "site")
-
-    @site.setter
-    def site(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "site", value)
-
-    @_builtins.property
-    @pulumi.getter(name="smbServerName")
-    def smb_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        """
-        return pulumi.get(self, "smb_server_name")
-
-    @smb_server_name.setter
-    def smb_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "smb_server_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A domain user account with permission to create machine accounts
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "user_name", value)
 
 
 class ActiveDirectoryArgsDict(TypedDict):
     """
     Active Directory
     """
-    active_directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the Active Directory
     """
-    ad_name: NotRequired[pulumi.Input[_builtins.str]]
+    ad_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the active directory machine. This optional parameter is used only while creating kerberos volume
     """
-    administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    administrators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
     """
-    aes_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    aes_encryption: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, AES encryption will be enabled for SMB communication.
     """
-    allow_local_nfs_users_with_ldap: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_local_nfs_users_with_ldap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
      If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
     """
-    backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backup_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
     """
-    dns: NotRequired[pulumi.Input[_builtins.str]]
+    dns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
     """
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Active Directory domain
     """
-    encrypt_dc_connections: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt_dc_connections: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
     """
-    kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
+    kdc_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
     """
-    ldap_over_tls: NotRequired[pulumi.Input[_builtins.bool]]
+    ldap_over_tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether or not the LDAP traffic needs to be secured via TLS.
     """
-    ldap_search_scope: NotRequired[pulumi.Input['LdapSearchScopeOptArgsDict']]
+    ldap_search_scope: NotRequired[pulumi.Input[Optional['LdapSearchScopeOptArgsDict']]]
     """
     LDAP Search scope options
     """
-    ldap_signing: NotRequired[pulumi.Input[_builtins.bool]]
+    ldap_signing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether or not the LDAP traffic needs to be signed.
     """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Organizational Unit (OU) within the Windows Active Directory
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plain text password of Active Directory domain administrator, value is masked in the response
     """
-    preferred_servers_for_ldap_client: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_servers_for_ldap_client: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
     """
-    security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
     """
-    server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    server_root_ca_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
     """
-    site: NotRequired[pulumi.Input[_builtins.str]]
+    site: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Active Directory site the service will limit Domain Controller discovery to
     """
-    smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
+    smb_server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A domain user account with permission to create machine accounts
     """
@@ -504,27 +292,27 @@ class ActiveDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class ActiveDirectoryArgs:
     def __init__(__self__, *,
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ad_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 aes_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_local_nfs_users_with_ldap: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_dc_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kdc_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_over_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_search_scope: Optional[pulumi.Input['LdapSearchScopeOptArgs']] = None,
-                 ldap_signing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_servers_for_ldap_client: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_operators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_root_ca_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 site: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ad_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aes_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_local_nfs_users_with_ldap: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_operators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_dc_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kdc_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_over_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_search_scope: pulumi.Input[Optional['LdapSearchScopeOptArgs']] = None,
+                 ldap_signing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_servers_for_ldap_client: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_operators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_root_ca_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 site: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Active Directory
 
@@ -597,266 +385,478 @@ class ActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Active Directory
         """
         return pulumi.get(self, "active_directory_id")
 
     @active_directory_id.setter
-    def active_directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="adName")
-    def ad_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ad_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the active directory machine. This optional parameter is used only while creating kerberos volume
         """
         return pulumi.get(self, "ad_name")
 
     @ad_name.setter
-    def ad_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ad_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ad_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def administrators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
         """
         return pulumi.get(self, "administrators")
 
     @administrators.setter
-    def administrators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def administrators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "administrators", value)
 
     @_builtins.property
     @pulumi.getter(name="aesEncryption")
-    def aes_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aes_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, AES encryption will be enabled for SMB communication.
         """
         return pulumi.get(self, "aes_encryption")
 
     @aes_encryption.setter
-    def aes_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aes_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aes_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="allowLocalNfsUsersWithLdap")
-    def allow_local_nfs_users_with_ldap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_local_nfs_users_with_ldap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
          If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         """
         return pulumi.get(self, "allow_local_nfs_users_with_ldap")
 
     @allow_local_nfs_users_with_ldap.setter
-    def allow_local_nfs_users_with_ldap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_local_nfs_users_with_ldap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_local_nfs_users_with_ldap", value)
 
     @_builtins.property
     @pulumi.getter(name="backupOperators")
-    def backup_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         """
         return pulumi.get(self, "backup_operators")
 
     @backup_operators.setter
-    def backup_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_operators", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Active Directory domain
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptDCConnections")
-    def encrypt_dc_connections(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_dc_connections(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
         """
         return pulumi.get(self, "encrypt_dc_connections")
 
     @encrypt_dc_connections.setter
-    def encrypt_dc_connections(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_dc_connections(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_dc_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="kdcIP")
-    def kdc_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kdc_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         """
         return pulumi.get(self, "kdc_ip")
 
     @kdc_ip.setter
-    def kdc_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kdc_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kdc_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapOverTLS")
-    def ldap_over_tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_over_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not the LDAP traffic needs to be secured via TLS.
         """
         return pulumi.get(self, "ldap_over_tls")
 
     @ldap_over_tls.setter
-    def ldap_over_tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_over_tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_over_tls", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapSearchScope")
-    def ldap_search_scope(self) -> Optional[pulumi.Input['LdapSearchScopeOptArgs']]:
+    def ldap_search_scope(self) -> pulumi.Input[Optional['LdapSearchScopeOptArgs']]:
         """
         LDAP Search scope options
         """
         return pulumi.get(self, "ldap_search_scope")
 
     @ldap_search_scope.setter
-    def ldap_search_scope(self, value: Optional[pulumi.Input['LdapSearchScopeOptArgs']]):
+    def ldap_search_scope(self, value: pulumi.Input[Optional['LdapSearchScopeOptArgs']]):
         pulumi.set(self, "ldap_search_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapSigning")
-    def ldap_signing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_signing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not the LDAP traffic needs to be signed.
         """
         return pulumi.get(self, "ldap_signing")
 
     @ldap_signing.setter
-    def ldap_signing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_signing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_signing", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Organizational Unit (OU) within the Windows Active Directory
         """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plain text password of Active Directory domain administrator, value is masked in the response
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredServersForLdapClient")
-    def preferred_servers_for_ldap_client(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_servers_for_ldap_client(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
         """
         return pulumi.get(self, "preferred_servers_for_ldap_client")
 
     @preferred_servers_for_ldap_client.setter
-    def preferred_servers_for_ldap_client(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_servers_for_ldap_client(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_servers_for_ldap_client", value)
 
     @_builtins.property
     @pulumi.getter(name="securityOperators")
-    def security_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
         """
         return pulumi.get(self, "security_operators")
 
     @security_operators.setter
-    def security_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_operators", value)
 
     @_builtins.property
     @pulumi.getter(name="serverRootCACertificate")
-    def server_root_ca_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_root_ca_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         """
         return pulumi.get(self, "server_root_ca_certificate")
 
     @server_root_ca_certificate.setter
-    def server_root_ca_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_root_ca_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_root_ca_certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def site(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Active Directory site the service will limit Domain Controller discovery to
         """
         return pulumi.get(self, "site")
 
     @site.setter
-    def site(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site", value)
 
     @_builtins.property
     @pulumi.getter(name="smbServerName")
-    def smb_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smb_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
         """
         return pulumi.get(self, "smb_server_name")
 
     @smb_server_name.setter
-    def smb_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smb_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smb_server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A domain user account with permission to create machine accounts
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
+
+
+class ActiveDirectoryConfigPropertiesArgsDict(TypedDict):
+    """
+    Active Directory Configuration properties
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    Name of the Active Directory domain
+    """
+    secret_password: pulumi.Input['SecretPasswordArgsDict']
+    """
+    Access password from Azure KeyVault Secrets to connect Active Directory
+    """
+    administrators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+    """
+    backup_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+    """
+    dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    An array of DNS server IP addresses(IPv4 only) for the Active Directory
+    """
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Organizational Unit (OU) within the Windows Active Directory
+    """
+    security_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+    """
+    site: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Active Directory site the service will limit Domain Controller discovery to
+    """
+    smb_server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+    """
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A domain user account with permission to create machine accounts
+    """
+
+@pulumi.input_type
+class ActiveDirectoryConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[_builtins.str],
+                 secret_password: pulumi.Input['SecretPasswordArgs'],
+                 administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_operators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_operators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 site: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Active Directory Configuration properties
+
+        :param pulumi.Input[_builtins.str] domain: Name of the Active Directory domain
+        :param pulumi.Input['SecretPasswordArgs'] secret_password: Access password from Azure KeyVault Secrets to connect Active Directory
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns: An array of DNS server IP addresses(IPv4 only) for the Active Directory
+        :param pulumi.Input[_builtins.str] organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_operators: Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        :param pulumi.Input[_builtins.str] site: The Active Directory site the service will limit Domain Controller discovery to
+        :param pulumi.Input[_builtins.str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        :param pulumi.Input[_builtins.str] user_name: A domain user account with permission to create machine accounts
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "secret_password", secret_password)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
+        if backup_operators is not None:
+            pulumi.set(__self__, "backup_operators", backup_operators)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if organizational_unit is not None:
+            pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if security_operators is not None:
+            pulumi.set(__self__, "security_operators", security_operators)
+        if site is not None:
+            pulumi.set(__self__, "site", site)
+        if smb_server_name is not None:
+            pulumi.set(__self__, "smb_server_name", smb_server_name)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Active Directory domain
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretPassword")
+    def secret_password(self) -> pulumi.Input['SecretPasswordArgs']:
+        """
+        Access password from Azure KeyVault Secrets to connect Active Directory
+        """
+        return pulumi.get(self, "secret_password")
+
+    @secret_password.setter
+    def secret_password(self, value: pulumi.Input['SecretPasswordArgs']):
+        pulumi.set(self, "secret_password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def administrators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @administrators.setter
+    def administrators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "administrators", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupOperators")
+    def backup_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "backup_operators")
+
+    @backup_operators.setter
+    def backup_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "backup_operators", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of DNS server IP addresses(IPv4 only) for the Active Directory
+        """
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnit")
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Organizational Unit (OU) within the Windows Active Directory
+        """
+        return pulumi.get(self, "organizational_unit")
+
+    @organizational_unit.setter
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organizational_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityOperators")
+    def security_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "security_operators")
+
+    @security_operators.setter
+    def security_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_operators", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def site(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Active Directory site the service will limit Domain Controller discovery to
+        """
+        return pulumi.get(self, "site")
+
+    @site.setter
+    def site(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "site", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerName")
+    def smb_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        """
+        return pulumi.get(self, "smb_server_name")
+
+    @smb_server_name.setter
+    def smb_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "smb_server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A domain user account with permission to create machine accounts
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
 
 
 class BucketServerPropertiesArgsDict(TypedDict):
     """
     Properties of the server managing the lifecycle of volume buckets
     """
-    certificate_object: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_object: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
     """
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
     """
@@ -864,8 +864,8 @@ class BucketServerPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BucketServerPropertiesArgs:
     def __init__(__self__, *,
-                 certificate_object: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_object: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the server managing the lifecycle of volume buckets
 
@@ -879,61 +879,27 @@ class BucketServerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateObject")
-    def certificate_object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
         """
         return pulumi.get(self, "certificate_object")
 
     @certificate_object.setter
-    def certificate_object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_object", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
-
-
-class CachePropertiesExportPolicyArgsDict(TypedDict):
-    """
-    Set of export policy rules
-    """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
-    """
-    Export policy rule
-    """
-
-@pulumi.input_type
-class CachePropertiesExportPolicyArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
-        """
-        Set of export policy rules
-
-        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @_builtins.property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
-        """
-        Export policy rule
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
 
 
 class CachePropertiesArgsDict(TypedDict):
@@ -964,47 +930,47 @@ class CachePropertiesArgsDict(TypedDict):
     """
     Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
     """
-    cifs_change_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]]
+    cifs_change_notifications: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CifsChangeNotifyState']]]]
     """
     Flag indicating whether a CIFS change notification is enabled for the cache.
     """
-    export_policy: NotRequired[pulumi.Input['CachePropertiesExportPolicyArgsDict']]
+    export_policy: NotRequired[pulumi.Input[Optional['CachePropertiesExportPolicyArgsDict']]]
     """
     Set of export policy rules
     """
-    global_file_locking: NotRequired[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]]
+    global_file_locking: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GlobalFileLockingState']]]]
     """
     Flag indicating whether the global file lock is enabled for the cache.
     """
-    kerberos: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosState']]]
+    kerberos: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KerberosState']]]]
     """
     Describe if a cache is Kerberos enabled.
     """
-    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
     """
-    ldap: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapState']]]
+    ldap: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LdapState']]]]
     """
     Specifies whether LDAP is enabled or not for flexcache volume.
     """
-    ldap_server_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapServerType']]]
+    ldap_server_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LdapServerType']]]]
     """
     Specifies the type of LDAP server for flexcache volume.
     """
-    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]
+    protocol_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]]
     """
     Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
     """
-    smb_settings: NotRequired[pulumi.Input['SmbSettingsArgsDict']]
+    smb_settings: NotRequired[pulumi.Input[Optional['SmbSettingsArgsDict']]]
     """
     SMB information for the cache
     """
-    throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
+    throughput_mibps: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
     """
-    write_back: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]]
+    write_back: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableWriteBackState']]]]
     """
     Flag indicating whether writeback is enabled for the cache.
     """
@@ -1018,17 +984,17 @@ class CachePropertiesArgs:
                  origin_cluster_information: pulumi.Input['OriginClusterInformationArgs'],
                  peering_subnet_resource_id: pulumi.Input[_builtins.str],
                  size: pulumi.Input[_builtins.float],
-                 cifs_change_notifications: Optional[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]] = None,
-                 export_policy: Optional[pulumi.Input['CachePropertiesExportPolicyArgs']] = None,
-                 global_file_locking: Optional[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]] = None,
-                 kerberos: Optional[pulumi.Input[Union[_builtins.str, 'KerberosState']]] = None,
-                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap: Optional[pulumi.Input[Union[_builtins.str, 'LdapState']]] = None,
-                 ldap_server_type: Optional[pulumi.Input[Union[_builtins.str, 'LdapServerType']]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]] = None,
-                 smb_settings: Optional[pulumi.Input['SmbSettingsArgs']] = None,
-                 throughput_mibps: Optional[pulumi.Input[_builtins.float]] = None,
-                 write_back: Optional[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]] = None):
+                 cifs_change_notifications: pulumi.Input[Optional[Union[_builtins.str, 'CifsChangeNotifyState']]] = None,
+                 export_policy: pulumi.Input[Optional['CachePropertiesExportPolicyArgs']] = None,
+                 global_file_locking: pulumi.Input[Optional[Union[_builtins.str, 'GlobalFileLockingState']]] = None,
+                 kerberos: pulumi.Input[Optional[Union[_builtins.str, 'KerberosState']]] = None,
+                 key_vault_private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap: pulumi.Input[Optional[Union[_builtins.str, 'LdapState']]] = None,
+                 ldap_server_type: pulumi.Input[Optional[Union[_builtins.str, 'LdapServerType']]] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]] = None,
+                 smb_settings: pulumi.Input[Optional['SmbSettingsArgs']] = None,
+                 throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 write_back: pulumi.Input[Optional[Union[_builtins.str, 'EnableWriteBackState']]] = None):
         """
         Cache resource properties
 
@@ -1153,142 +1119,176 @@ class CachePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="cifsChangeNotifications")
-    def cifs_change_notifications(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]]:
+    def cifs_change_notifications(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CifsChangeNotifyState']]]:
         """
         Flag indicating whether a CIFS change notification is enabled for the cache.
         """
         return pulumi.get(self, "cifs_change_notifications")
 
     @cifs_change_notifications.setter
-    def cifs_change_notifications(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]]):
+    def cifs_change_notifications(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CifsChangeNotifyState']]]):
         pulumi.set(self, "cifs_change_notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input['CachePropertiesExportPolicyArgs']]:
+    def export_policy(self) -> pulumi.Input[Optional['CachePropertiesExportPolicyArgs']]:
         """
         Set of export policy rules
         """
         return pulumi.get(self, "export_policy")
 
     @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input['CachePropertiesExportPolicyArgs']]):
+    def export_policy(self, value: pulumi.Input[Optional['CachePropertiesExportPolicyArgs']]):
         pulumi.set(self, "export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="globalFileLocking")
-    def global_file_locking(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]]:
+    def global_file_locking(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GlobalFileLockingState']]]:
         """
         Flag indicating whether the global file lock is enabled for the cache.
         """
         return pulumi.get(self, "global_file_locking")
 
     @global_file_locking.setter
-    def global_file_locking(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]]):
+    def global_file_locking(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GlobalFileLockingState']]]):
         pulumi.set(self, "global_file_locking", value)
 
     @_builtins.property
     @pulumi.getter
-    def kerberos(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KerberosState']]]:
+    def kerberos(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KerberosState']]]:
         """
         Describe if a cache is Kerberos enabled.
         """
         return pulumi.get(self, "kerberos")
 
     @kerberos.setter
-    def kerberos(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KerberosState']]]):
+    def kerberos(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KerberosState']]]):
         pulumi.set(self, "kerberos", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
-    def key_vault_private_endpoint_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_private_endpoint_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_private_endpoint_resource_id")
 
     @key_vault_private_endpoint_resource_id.setter
-    def key_vault_private_endpoint_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_private_endpoint_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def ldap(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LdapState']]]:
+    def ldap(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LdapState']]]:
         """
         Specifies whether LDAP is enabled or not for flexcache volume.
         """
         return pulumi.get(self, "ldap")
 
     @ldap.setter
-    def ldap(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LdapState']]]):
+    def ldap(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LdapState']]]):
         pulumi.set(self, "ldap", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapServerType")
-    def ldap_server_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LdapServerType']]]:
+    def ldap_server_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LdapServerType']]]:
         """
         Specifies the type of LDAP server for flexcache volume.
         """
         return pulumi.get(self, "ldap_server_type")
 
     @ldap_server_type.setter
-    def ldap_server_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LdapServerType']]]):
+    def ldap_server_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LdapServerType']]]):
         pulumi.set(self, "ldap_server_type", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]:
+    def protocol_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]:
         """
         Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
     @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]):
+    def protocol_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]):
         pulumi.set(self, "protocol_types", value)
 
     @_builtins.property
     @pulumi.getter(name="smbSettings")
-    def smb_settings(self) -> Optional[pulumi.Input['SmbSettingsArgs']]:
+    def smb_settings(self) -> pulumi.Input[Optional['SmbSettingsArgs']]:
         """
         SMB information for the cache
         """
         return pulumi.get(self, "smb_settings")
 
     @smb_settings.setter
-    def smb_settings(self, value: Optional[pulumi.Input['SmbSettingsArgs']]):
+    def smb_settings(self, value: pulumi.Input[Optional['SmbSettingsArgs']]):
         pulumi.set(self, "smb_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputMibps")
-    def throughput_mibps(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throughput_mibps(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
         """
         return pulumi.get(self, "throughput_mibps")
 
     @throughput_mibps.setter
-    def throughput_mibps(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throughput_mibps(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="writeBack")
-    def write_back(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]]:
+    def write_back(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableWriteBackState']]]:
         """
         Flag indicating whether writeback is enabled for the cache.
         """
         return pulumi.get(self, "write_back")
 
     @write_back.setter
-    def write_back(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]]):
+    def write_back(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableWriteBackState']]]):
         pulumi.set(self, "write_back", value)
+
+
+class CachePropertiesExportPolicyArgsDict(TypedDict):
+    """
+    Set of export policy rules
+    """
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]]
+    """
+    Export policy rule
+    """
+
+@pulumi.input_type
+class CachePropertiesExportPolicyArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+        """
+        Set of export policy rules
+
+        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
 
 
 class CifsUserArgsDict(TypedDict):
     """
     The effective CIFS username when accessing the volume data.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIFS user's username
     """
@@ -1296,7 +1296,7 @@ class CifsUserArgsDict(TypedDict):
 @pulumi.input_type
 class CifsUserArgs:
     def __init__(__self__, *,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The effective CIFS username when accessing the volume data.
 
@@ -1307,14 +1307,14 @@ class CifsUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIFS user's username
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -1322,19 +1322,19 @@ class DailyScheduleArgsDict(TypedDict):
     """
     Daily Schedule properties
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Daily snapshot count to keep
     """
-    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    used_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Resource size in bytes, current storage usage for the volume in bytes
     """
@@ -1342,10 +1342,10 @@ class DailyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class DailyScheduleArgs:
     def __init__(__self__, *,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 used_bytes: Optional[pulumi.Input[_builtins.float]] = None):
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 used_bytes: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Daily Schedule properties
 
@@ -1365,50 +1365,50 @@ class DailyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Daily snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def used_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def used_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -1416,7 +1416,7 @@ class ElasticAccountPropertiesArgsDict(TypedDict):
     """
     NetApp elastic account properties
     """
-    encryption: NotRequired[pulumi.Input['ElasticEncryptionArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['ElasticEncryptionArgsDict']]]
     """
     Encryption settings
     """
@@ -1424,7 +1424,7 @@ class ElasticAccountPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticAccountPropertiesArgs:
     def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['ElasticEncryptionArgs']] = None):
+                 encryption: pulumi.Input[Optional['ElasticEncryptionArgs']] = None):
         """
         NetApp elastic account properties
 
@@ -1435,14 +1435,14 @@ class ElasticAccountPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['ElasticEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['ElasticEncryptionArgs']]:
         """
         Encryption settings
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['ElasticEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['ElasticEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
 
@@ -1450,19 +1450,19 @@ class ElasticBackupPolicyPropertiesArgsDict(TypedDict):
     """
     Elastic Backup Policy properties
     """
-    daily_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    daily_backups_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Daily backups count to keep
     """
-    monthly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    monthly_backups_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Monthly backups count to keep
     """
-    policy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]]
+    policy_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticBackupPolicyState']]]]
     """
     The property to identify whether Backup Policy is enabled or not
     """
-    weekly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    weekly_backups_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Weekly backups count to keep
     """
@@ -1470,10 +1470,10 @@ class ElasticBackupPolicyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticBackupPolicyPropertiesArgs:
     def __init__(__self__, *,
-                 daily_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_state: Optional[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 monthly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_state: pulumi.Input[Optional[Union[_builtins.str, 'ElasticBackupPolicyState']]] = None,
+                 weekly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Elastic Backup Policy properties
 
@@ -1493,50 +1493,50 @@ class ElasticBackupPolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Daily backups count to keep
         """
         return pulumi.get(self, "daily_backups_to_keep")
 
     @daily_backups_to_keep.setter
-    def daily_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_backups_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monthly_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Monthly backups count to keep
         """
         return pulumi.get(self, "monthly_backups_to_keep")
 
     @monthly_backups_to_keep.setter
-    def monthly_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monthly_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monthly_backups_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="policyState")
-    def policy_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]]:
+    def policy_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticBackupPolicyState']]]:
         """
         The property to identify whether Backup Policy is enabled or not
         """
         return pulumi.get(self, "policy_state")
 
     @policy_state.setter
-    def policy_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]]):
+    def policy_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticBackupPolicyState']]]):
         pulumi.set(self, "policy_state", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weekly_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Weekly backups count to keep
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 
     @weekly_backups_to_keep.setter
-    def weekly_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weekly_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weekly_backups_to_keep", value)
 
 
@@ -1548,15 +1548,15 @@ class ElasticBackupPropertiesArgsDict(TypedDict):
     """
     ResourceId used to identify the Elastic Volume
     """
-    elastic_snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_snapshot_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Label for backup
     """
-    snapshot_usage: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]]
+    snapshot_usage: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SnapshotUsage']]]]
     """
     Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
     """
@@ -1565,9 +1565,9 @@ class ElasticBackupPropertiesArgsDict(TypedDict):
 class ElasticBackupPropertiesArgs:
     def __init__(__self__, *,
                  elastic_volume_resource_id: pulumi.Input[_builtins.str],
-                 elastic_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_usage: Optional[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]] = None):
+                 elastic_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_usage: pulumi.Input[Optional[Union[_builtins.str, 'SnapshotUsage']]] = None):
         """
         Elastic Backup properties
 
@@ -1600,38 +1600,38 @@ class ElasticBackupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="elasticSnapshotResourceId")
-    def elastic_snapshot_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_snapshot_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
         """
         return pulumi.get(self, "elastic_snapshot_resource_id")
 
     @elastic_snapshot_resource_id.setter
-    def elastic_snapshot_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_snapshot_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_snapshot_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for backup
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotUsage")
-    def snapshot_usage(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]]:
+    def snapshot_usage(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SnapshotUsage']]]:
         """
         Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
         """
         return pulumi.get(self, "snapshot_usage")
 
     @snapshot_usage.setter
-    def snapshot_usage(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]]):
+    def snapshot_usage(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SnapshotUsage']]]):
         pulumi.set(self, "snapshot_usage", value)
 
 
@@ -1651,11 +1651,11 @@ class ElasticCapacityPoolPropertiesArgsDict(TypedDict):
     """
     The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
     """
-    active_directory_config_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_config_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
     """
-    encryption: NotRequired[pulumi.Input['ElasticEncryptionConfigurationArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['ElasticEncryptionConfigurationArgsDict']]]
     """
     Encryption settings
     """
@@ -1666,8 +1666,8 @@ class ElasticCapacityPoolPropertiesArgs:
                  service_level: pulumi.Input[Union[_builtins.str, 'ElasticServiceLevel']],
                  size: pulumi.Input[_builtins.float],
                  subnet_resource_id: pulumi.Input[_builtins.str],
-                 active_directory_config_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input['ElasticEncryptionConfigurationArgs']] = None):
+                 active_directory_config_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional['ElasticEncryptionConfigurationArgs']] = None):
         """
         Elastic capacity pool properties
 
@@ -1723,27 +1723,101 @@ class ElasticCapacityPoolPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfigResourceId")
-    def active_directory_config_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_config_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
         """
         return pulumi.get(self, "active_directory_config_resource_id")
 
     @active_directory_config_resource_id.setter
-    def active_directory_config_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_config_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_config_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['ElasticEncryptionConfigurationArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['ElasticEncryptionConfigurationArgs']]:
         """
         Encryption settings
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['ElasticEncryptionConfigurationArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['ElasticEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption", value)
+
+
+class ElasticEncryptionArgsDict(TypedDict):
+    """
+    Encryption settings
+    """
+    identity: NotRequired[pulumi.Input[Optional['ElasticEncryptionIdentityArgsDict']]]
+    """
+    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+    key_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]]
+    """
+    The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+    """
+    key_vault_properties: NotRequired[pulumi.Input[Optional['ElasticKeyVaultPropertiesArgsDict']]]
+    """
+    Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+
+@pulumi.input_type
+class ElasticEncryptionArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[Optional['ElasticEncryptionIdentityArgs']] = None,
+                 key_source: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]] = None,
+                 key_vault_properties: pulumi.Input[Optional['ElasticKeyVaultPropertiesArgs']] = None):
+        """
+        Encryption settings
+
+        :param pulumi.Input['ElasticEncryptionIdentityArgs'] identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param pulumi.Input[Union[_builtins.str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+        :param pulumi.Input['ElasticKeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['ElasticEncryptionIdentityArgs']]:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['ElasticEncryptionIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]):
+        pulumi.set(self, "key_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Input[Optional['ElasticKeyVaultPropertiesArgs']]:
+        """
+        Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: pulumi.Input[Optional['ElasticKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 class ElasticEncryptionConfigurationArgsDict(TypedDict):
@@ -1802,7 +1876,7 @@ class ElasticEncryptionIdentityArgsDict(TypedDict):
     """
     Identity used to authenticate with key vault.
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
     """
@@ -1810,7 +1884,7 @@ class ElasticEncryptionIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticEncryptionIdentityArgs:
     def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Identity used to authenticate with key vault.
 
@@ -1821,116 +1895,76 @@ class ElasticEncryptionIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
-class ElasticEncryptionArgsDict(TypedDict):
+class ElasticExportPolicyArgsDict(TypedDict):
     """
-    Encryption settings
+    Set of export policy rules
     """
-    identity: NotRequired[pulumi.Input['ElasticEncryptionIdentityArgsDict']]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ElasticExportPolicyRuleArgsDict']]]]]
     """
-    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-    """
-    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-    """
-    The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
-    """
-    key_vault_properties: NotRequired[pulumi.Input['ElasticKeyVaultPropertiesArgsDict']]
-    """
-    Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    Export policy rule
     """
 
 @pulumi.input_type
-class ElasticEncryptionArgs:
+class ElasticExportPolicyArgs:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['ElasticEncryptionIdentityArgs']] = None,
-                 key_source: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]] = None,
-                 key_vault_properties: Optional[pulumi.Input['ElasticKeyVaultPropertiesArgs']] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]] = None):
         """
-        Encryption settings
+        Set of export policy rules
 
-        :param pulumi.Input['ElasticEncryptionIdentityArgs'] identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        :param pulumi.Input[Union[_builtins.str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
-        :param pulumi.Input['ElasticKeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]] rules: Export policy rule
         """
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ElasticEncryptionIdentityArgs']]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]]:
         """
-        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        Export policy rule
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "rules")
 
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ElasticEncryptionIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]:
-        """
-        The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
-        """
-        return pulumi.get(self, "key_source")
-
-    @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]):
-        pulumi.set(self, "key_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['ElasticKeyVaultPropertiesArgs']]:
-        """
-        Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['ElasticKeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
+    @rules.setter
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
 
 
 class ElasticExportPolicyRuleArgsDict(TypedDict):
     """
     Elastic Volume Export Policy Rule
     """
-    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
     """
-    nfsv3: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]]
+    nfsv3: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv3Access']]]]
     """
     Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
     """
-    nfsv4: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]]
+    nfsv4: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv4Access']]]]
     """
     Allows clients to access the volume with at least NFSv4.1 protocol.
     """
-    root_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]]
+    root_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticRootAccess']]]]
     """
     Indicates whether root access to the volume is granted to clients affected by this rule
     """
-    rule_index: NotRequired[pulumi.Input[_builtins.int]]
+    rule_index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
     """
-    unix_access_rule: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]]
+    unix_access_rule: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticUnixAccessRule']]]]
     """
     Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
     """
@@ -1938,12 +1972,12 @@ class ElasticExportPolicyRuleArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticExportPolicyRuleArgs:
     def __init__(__self__, *,
-                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nfsv3: Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]] = None,
-                 nfsv4: Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]] = None,
-                 root_access: Optional[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]] = None,
-                 rule_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 unix_access_rule: Optional[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]] = None):
+                 allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 nfsv3: pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv3Access']]] = None,
+                 nfsv4: pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv4Access']]] = None,
+                 root_access: pulumi.Input[Optional[Union[_builtins.str, 'ElasticRootAccess']]] = None,
+                 rule_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 unix_access_rule: pulumi.Input[Optional[Union[_builtins.str, 'ElasticUnixAccessRule']]] = None):
         """
         Elastic Volume Export Policy Rule
 
@@ -1977,124 +2011,90 @@ class ElasticExportPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
         """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
-    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
 
     @_builtins.property
     @pulumi.getter
-    def nfsv3(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]]:
+    def nfsv3(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv3Access']]]:
         """
         Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
         """
         return pulumi.get(self, "nfsv3")
 
     @nfsv3.setter
-    def nfsv3(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]]):
+    def nfsv3(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv3Access']]]):
         pulumi.set(self, "nfsv3", value)
 
     @_builtins.property
     @pulumi.getter
-    def nfsv4(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]]:
+    def nfsv4(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv4Access']]]:
         """
         Allows clients to access the volume with at least NFSv4.1 protocol.
         """
         return pulumi.get(self, "nfsv4")
 
     @nfsv4.setter
-    def nfsv4(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]]):
+    def nfsv4(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticNfsv4Access']]]):
         pulumi.set(self, "nfsv4", value)
 
     @_builtins.property
     @pulumi.getter(name="rootAccess")
-    def root_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]]:
+    def root_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticRootAccess']]]:
         """
         Indicates whether root access to the volume is granted to clients affected by this rule
         """
         return pulumi.get(self, "root_access")
 
     @root_access.setter
-    def root_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]]):
+    def root_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticRootAccess']]]):
         pulumi.set(self, "root_access", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rule_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rule_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rule_index", value)
 
     @_builtins.property
     @pulumi.getter(name="unixAccessRule")
-    def unix_access_rule(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]]:
+    def unix_access_rule(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticUnixAccessRule']]]:
         """
         Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
         """
         return pulumi.get(self, "unix_access_rule")
 
     @unix_access_rule.setter
-    def unix_access_rule(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]]):
+    def unix_access_rule(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticUnixAccessRule']]]):
         pulumi.set(self, "unix_access_rule", value)
-
-
-class ElasticExportPolicyArgsDict(TypedDict):
-    """
-    Set of export policy rules
-    """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgsDict']]]]
-    """
-    Export policy rule
-    """
-
-@pulumi.input_type
-class ElasticExportPolicyArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]] = None):
-        """
-        Set of export policy rules
-
-        :param pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]] rules: Export policy rule
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @_builtins.property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]]:
-        """
-        Export policy rule
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
 
 
 class ElasticKeyVaultPropertiesArgsDict(TypedDict):
     """
     Properties of key vault.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of KeyVault key.
     """
-    key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of KeyVault.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Uri of KeyVault.
     """
@@ -2102,9 +2102,9 @@ class ElasticKeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticKeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of key vault.
 
@@ -2121,38 +2121,38 @@ class ElasticKeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of KeyVault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultResourceId")
-    def key_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of KeyVault.
         """
         return pulumi.get(self, "key_vault_resource_id")
 
     @key_vault_resource_id.setter
-    def key_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Uri of KeyVault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
 
@@ -2160,7 +2160,7 @@ class ElasticSmbPropertiesArgsDict(TypedDict):
     """
     SMB Properties
     """
-    smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]]
+    smb_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticSmbEncryption']]]]
     """
     Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
     """
@@ -2168,7 +2168,7 @@ class ElasticSmbPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSmbPropertiesArgs:
     def __init__(__self__, *,
-                 smb_encryption: Optional[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]] = None):
+                 smb_encryption: pulumi.Input[Optional[Union[_builtins.str, 'ElasticSmbEncryption']]] = None):
         """
         SMB Properties
 
@@ -2181,14 +2181,14 @@ class ElasticSmbPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="smbEncryption")
-    def smb_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]]:
+    def smb_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticSmbEncryption']]]:
         """
         Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
         """
         return pulumi.get(self, "smb_encryption")
 
     @smb_encryption.setter
-    def smb_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]]):
+    def smb_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticSmbEncryption']]]):
         pulumi.set(self, "smb_encryption", value)
 
 
@@ -2196,15 +2196,15 @@ class ElasticSnapshotPolicyDailyScheduleArgsDict(TypedDict):
     """
     Daily Schedule properties used to create NetApp snapshot policy
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Daily snapshot count to keep
     """
@@ -2212,9 +2212,9 @@ class ElasticSnapshotPolicyDailyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSnapshotPolicyDailyScheduleArgs:
     def __init__(__self__, *,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Daily Schedule properties used to create NetApp snapshot policy
 
@@ -2231,38 +2231,38 @@ class ElasticSnapshotPolicyDailyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Daily snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
 
@@ -2270,11 +2270,11 @@ class ElasticSnapshotPolicyHourlyScheduleArgsDict(TypedDict):
     """
     Hourly Schedule properties used to create NetApp snapshot policy
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Hourly snapshot count to keep
     """
@@ -2282,8 +2282,8 @@ class ElasticSnapshotPolicyHourlyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSnapshotPolicyHourlyScheduleArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Hourly Schedule properties used to create NetApp snapshot policy
 
@@ -2297,26 +2297,26 @@ class ElasticSnapshotPolicyHourlyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Hourly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
 
@@ -2324,19 +2324,19 @@ class ElasticSnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
     """
     Monthly Schedule properties used to create NetApp snapshot policy
     """
-    days_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    days_of_month: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Monthly snapshot count to keep
     """
@@ -2344,10 +2344,10 @@ class ElasticSnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSnapshotPolicyMonthlyScheduleArgs:
     def __init__(__self__, *,
-                 days_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 days_of_month: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Monthly Schedule properties used to create NetApp snapshot policy
 
@@ -2367,50 +2367,50 @@ class ElasticSnapshotPolicyMonthlyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfMonth")
-    def days_of_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def days_of_month(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
         """
         return pulumi.get(self, "days_of_month")
 
     @days_of_month.setter
-    def days_of_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def days_of_month(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "days_of_month", value)
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Monthly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
 
@@ -2418,23 +2418,23 @@ class ElasticSnapshotPolicyPropertiesArgsDict(TypedDict):
     """
     Elastic Snapshot policy properties
     """
-    daily_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgsDict']]
+    daily_schedule: NotRequired[pulumi.Input[Optional['ElasticSnapshotPolicyDailyScheduleArgsDict']]]
     """
     Schedule for daily snapshots
     """
-    hourly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgsDict']]
+    hourly_schedule: NotRequired[pulumi.Input[Optional['ElasticSnapshotPolicyHourlyScheduleArgsDict']]]
     """
     Schedule for hourly snapshots
     """
-    monthly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgsDict']]
+    monthly_schedule: NotRequired[pulumi.Input[Optional['ElasticSnapshotPolicyMonthlyScheduleArgsDict']]]
     """
     Schedule for monthly snapshots
     """
-    policy_status: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]
+    policy_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]]]
     """
     Configures if the snapshot policy is enabled on the volumes connected to the policy.
     """
-    weekly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgsDict']]
+    weekly_schedule: NotRequired[pulumi.Input[Optional['ElasticSnapshotPolicyWeeklyScheduleArgsDict']]]
     """
     Schedule for weekly snapshots
     """
@@ -2442,11 +2442,11 @@ class ElasticSnapshotPolicyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSnapshotPolicyPropertiesArgs:
     def __init__(__self__, *,
-                 daily_schedule: Optional[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgs']] = None,
-                 hourly_schedule: Optional[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgs']] = None,
-                 monthly_schedule: Optional[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgs']] = None,
-                 policy_status: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]] = None,
-                 weekly_schedule: Optional[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgs']] = None):
+                 daily_schedule: pulumi.Input[Optional['ElasticSnapshotPolicyDailyScheduleArgs']] = None,
+                 hourly_schedule: pulumi.Input[Optional['ElasticSnapshotPolicyHourlyScheduleArgs']] = None,
+                 monthly_schedule: pulumi.Input[Optional['ElasticSnapshotPolicyMonthlyScheduleArgs']] = None,
+                 policy_status: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]] = None,
+                 weekly_schedule: pulumi.Input[Optional['ElasticSnapshotPolicyWeeklyScheduleArgs']] = None):
         """
         Elastic Snapshot policy properties
 
@@ -2469,62 +2469,62 @@ class ElasticSnapshotPolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgs']]:
+    def daily_schedule(self) -> pulumi.Input[Optional['ElasticSnapshotPolicyDailyScheduleArgs']]:
         """
         Schedule for daily snapshots
         """
         return pulumi.get(self, "daily_schedule")
 
     @daily_schedule.setter
-    def daily_schedule(self, value: Optional[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgs']]):
+    def daily_schedule(self, value: pulumi.Input[Optional['ElasticSnapshotPolicyDailyScheduleArgs']]):
         pulumi.set(self, "daily_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> Optional[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgs']]:
+    def hourly_schedule(self) -> pulumi.Input[Optional['ElasticSnapshotPolicyHourlyScheduleArgs']]:
         """
         Schedule for hourly snapshots
         """
         return pulumi.get(self, "hourly_schedule")
 
     @hourly_schedule.setter
-    def hourly_schedule(self, value: Optional[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgs']]):
+    def hourly_schedule(self, value: pulumi.Input[Optional['ElasticSnapshotPolicyHourlyScheduleArgs']]):
         pulumi.set(self, "hourly_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> Optional[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgs']]:
+    def monthly_schedule(self) -> pulumi.Input[Optional['ElasticSnapshotPolicyMonthlyScheduleArgs']]:
         """
         Schedule for monthly snapshots
         """
         return pulumi.get(self, "monthly_schedule")
 
     @monthly_schedule.setter
-    def monthly_schedule(self, value: Optional[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgs']]):
+    def monthly_schedule(self, value: pulumi.Input[Optional['ElasticSnapshotPolicyMonthlyScheduleArgs']]):
         pulumi.set(self, "monthly_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]:
+    def policy_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]]:
         """
         Configures if the snapshot policy is enabled on the volumes connected to the policy.
         """
         return pulumi.get(self, "policy_status")
 
     @policy_status.setter
-    def policy_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]):
+    def policy_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]]):
         pulumi.set(self, "policy_status", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgs']]:
+    def weekly_schedule(self) -> pulumi.Input[Optional['ElasticSnapshotPolicyWeeklyScheduleArgs']]:
         """
         Schedule for weekly snapshots
         """
         return pulumi.get(self, "weekly_schedule")
 
     @weekly_schedule.setter
-    def weekly_schedule(self, value: Optional[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgs']]):
+    def weekly_schedule(self, value: pulumi.Input[Optional['ElasticSnapshotPolicyWeeklyScheduleArgs']]):
         pulumi.set(self, "weekly_schedule", value)
 
 
@@ -2532,19 +2532,19 @@ class ElasticSnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
     """
     Weekly Schedule properties used to create NetApp snapshot policy
     """
-    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]
+    days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]]
     """
     Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Weekly snapshot count to keep
     """
@@ -2552,10 +2552,10 @@ class ElasticSnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSnapshotPolicyWeeklyScheduleArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 days: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Weekly Schedule properties used to create NetApp snapshot policy
 
@@ -2575,50 +2575,50 @@ class ElasticSnapshotPolicyWeeklyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
+    def days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
         """
         Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
+    def days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
         pulumi.set(self, "days", value)
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Weekly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
 
@@ -2626,15 +2626,15 @@ class ElasticVolumeBackupPropertiesArgsDict(TypedDict):
     """
     Elastic Volume Backup Properties
     """
-    elastic_backup_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_backup_policy_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ResourceId used to identify Elastic Backup Policy
     """
-    elastic_backup_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_backup_vault_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ResourceId used to identify Elastic Backup Vault
     """
-    policy_enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]
+    policy_enforcement: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]]
     """
     The property to decide policy is enforced or not on the volume
     """
@@ -2642,9 +2642,9 @@ class ElasticVolumeBackupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticVolumeBackupPropertiesArgs:
     def __init__(__self__, *,
-                 elastic_backup_policy_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_backup_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enforcement: Optional[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]] = None):
+                 elastic_backup_policy_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_backup_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enforcement: pulumi.Input[Optional[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]] = None):
         """
         Elastic Volume Backup Properties
 
@@ -2661,38 +2661,38 @@ class ElasticVolumeBackupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="elasticBackupPolicyResourceId")
-    def elastic_backup_policy_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_backup_policy_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId used to identify Elastic Backup Policy
         """
         return pulumi.get(self, "elastic_backup_policy_resource_id")
 
     @elastic_backup_policy_resource_id.setter
-    def elastic_backup_policy_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_backup_policy_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_backup_policy_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticBackupVaultResourceId")
-    def elastic_backup_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_backup_vault_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId used to identify Elastic Backup Vault
         """
         return pulumi.get(self, "elastic_backup_vault_resource_id")
 
     @elastic_backup_vault_resource_id.setter
-    def elastic_backup_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_backup_vault_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_backup_vault_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyEnforcement")
-    def policy_enforcement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]:
+    def policy_enforcement(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]:
         """
         The property to decide policy is enforced or not on the volume
         """
         return pulumi.get(self, "policy_enforcement")
 
     @policy_enforcement.setter
-    def policy_enforcement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]):
+    def policy_enforcement(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]):
         pulumi.set(self, "policy_enforcement", value)
 
 
@@ -2700,11 +2700,11 @@ class ElasticVolumeDataProtectionPropertiesArgsDict(TypedDict):
     """
     Data protection configuration option for the volume, including snapshot policies and backup.
     """
-    backup: NotRequired[pulumi.Input['ElasticVolumeBackupPropertiesArgsDict']]
+    backup: NotRequired[pulumi.Input[Optional['ElasticVolumeBackupPropertiesArgsDict']]]
     """
     Used to configure backups on an elastic volume.
     """
-    snapshot: NotRequired[pulumi.Input['ElasticVolumeSnapshotPropertiesArgsDict']]
+    snapshot: NotRequired[pulumi.Input[Optional['ElasticVolumeSnapshotPropertiesArgsDict']]]
     """
     Used to apply a snapshot policy to a volume.
     """
@@ -2712,8 +2712,8 @@ class ElasticVolumeDataProtectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticVolumeDataProtectionPropertiesArgs:
     def __init__(__self__, *,
-                 backup: Optional[pulumi.Input['ElasticVolumeBackupPropertiesArgs']] = None,
-                 snapshot: Optional[pulumi.Input['ElasticVolumeSnapshotPropertiesArgs']] = None):
+                 backup: pulumi.Input[Optional['ElasticVolumeBackupPropertiesArgs']] = None,
+                 snapshot: pulumi.Input[Optional['ElasticVolumeSnapshotPropertiesArgs']] = None):
         """
         Data protection configuration option for the volume, including snapshot policies and backup.
 
@@ -2727,26 +2727,26 @@ class ElasticVolumeDataProtectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['ElasticVolumeBackupPropertiesArgs']]:
+    def backup(self) -> pulumi.Input[Optional['ElasticVolumeBackupPropertiesArgs']]:
         """
         Used to configure backups on an elastic volume.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['ElasticVolumeBackupPropertiesArgs']]):
+    def backup(self, value: pulumi.Input[Optional['ElasticVolumeBackupPropertiesArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['ElasticVolumeSnapshotPropertiesArgs']]:
+    def snapshot(self) -> pulumi.Input[Optional['ElasticVolumeSnapshotPropertiesArgs']]:
         """
         Used to apply a snapshot policy to a volume.
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['ElasticVolumeSnapshotPropertiesArgs']]):
+    def snapshot(self, value: pulumi.Input[Optional['ElasticVolumeSnapshotPropertiesArgs']]):
         pulumi.set(self, "snapshot", value)
 
 
@@ -2766,27 +2766,27 @@ class ElasticVolumePropertiesArgsDict(TypedDict):
     """
     Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
     """
-    backup_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource identifier used to identify the Elastic Backup.
     """
-    data_protection: NotRequired[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgsDict']]
+    data_protection: NotRequired[pulumi.Input[Optional['ElasticVolumeDataProtectionPropertiesArgsDict']]]
     """
     Data protection configuration option for the volume, including snapshot policies and backup.
     """
-    export_policy: NotRequired[pulumi.Input['ElasticExportPolicyArgsDict']]
+    export_policy: NotRequired[pulumi.Input[Optional['ElasticExportPolicyArgsDict']]]
     """
     Set of export policy rules
     """
-    smb_properties: NotRequired[pulumi.Input['ElasticSmbPropertiesArgsDict']]
+    smb_properties: NotRequired[pulumi.Input[Optional['ElasticSmbPropertiesArgsDict']]]
     """
     SMB Properties
     """
-    snapshot_directory_visibility: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]
+    snapshot_directory_visibility: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]]
     """
     Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
     """
-    snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource identifier used to identify the Elastic Snapshot.
     """
@@ -2797,12 +2797,12 @@ class ElasticVolumePropertiesArgs:
                  file_path: pulumi.Input[_builtins.str],
                  protocol_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ElasticProtocolType']]]],
                  size: pulumi.Input[_builtins.float],
-                 backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_protection: Optional[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgs']] = None,
-                 export_policy: Optional[pulumi.Input['ElasticExportPolicyArgs']] = None,
-                 smb_properties: Optional[pulumi.Input['ElasticSmbPropertiesArgs']] = None,
-                 snapshot_directory_visibility: Optional[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]] = None,
-                 snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_protection: pulumi.Input[Optional['ElasticVolumeDataProtectionPropertiesArgs']] = None,
+                 export_policy: pulumi.Input[Optional['ElasticExportPolicyArgs']] = None,
+                 smb_properties: pulumi.Input[Optional['ElasticSmbPropertiesArgs']] = None,
+                 snapshot_directory_visibility: pulumi.Input[Optional[Union[_builtins.str, 'SnapshotDirectoryVisibility']]] = None,
+                 snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Elastic Volume properties
 
@@ -2870,74 +2870,74 @@ class ElasticVolumePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupResourceId")
-    def backup_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Elastic Backup.
         """
         return pulumi.get(self, "backup_resource_id")
 
     @backup_resource_id.setter
-    def backup_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> Optional[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgs']]:
+    def data_protection(self) -> pulumi.Input[Optional['ElasticVolumeDataProtectionPropertiesArgs']]:
         """
         Data protection configuration option for the volume, including snapshot policies and backup.
         """
         return pulumi.get(self, "data_protection")
 
     @data_protection.setter
-    def data_protection(self, value: Optional[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgs']]):
+    def data_protection(self, value: pulumi.Input[Optional['ElasticVolumeDataProtectionPropertiesArgs']]):
         pulumi.set(self, "data_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input['ElasticExportPolicyArgs']]:
+    def export_policy(self) -> pulumi.Input[Optional['ElasticExportPolicyArgs']]:
         """
         Set of export policy rules
         """
         return pulumi.get(self, "export_policy")
 
     @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input['ElasticExportPolicyArgs']]):
+    def export_policy(self, value: pulumi.Input[Optional['ElasticExportPolicyArgs']]):
         pulumi.set(self, "export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="smbProperties")
-    def smb_properties(self) -> Optional[pulumi.Input['ElasticSmbPropertiesArgs']]:
+    def smb_properties(self) -> pulumi.Input[Optional['ElasticSmbPropertiesArgs']]:
         """
         SMB Properties
         """
         return pulumi.get(self, "smb_properties")
 
     @smb_properties.setter
-    def smb_properties(self, value: Optional[pulumi.Input['ElasticSmbPropertiesArgs']]):
+    def smb_properties(self, value: pulumi.Input[Optional['ElasticSmbPropertiesArgs']]):
         pulumi.set(self, "smb_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotDirectoryVisibility")
-    def snapshot_directory_visibility(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]:
+    def snapshot_directory_visibility(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]:
         """
         Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
         """
         return pulumi.get(self, "snapshot_directory_visibility")
 
     @snapshot_directory_visibility.setter
-    def snapshot_directory_visibility(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]):
+    def snapshot_directory_visibility(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]):
         pulumi.set(self, "snapshot_directory_visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotResourceId")
-    def snapshot_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Elastic Snapshot.
         """
         return pulumi.get(self, "snapshot_resource_id")
 
     @snapshot_resource_id.setter
-    def snapshot_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_resource_id", value)
 
 
@@ -2945,7 +2945,7 @@ class ElasticVolumeSnapshotPropertiesArgsDict(TypedDict):
     """
     Elastic Volume Snapshot Properties
     """
-    snapshot_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_policy_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Snapshot Policy ResourceId
     """
@@ -2953,7 +2953,7 @@ class ElasticVolumeSnapshotPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticVolumeSnapshotPropertiesArgs:
     def __init__(__self__, *,
-                 snapshot_policy_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 snapshot_policy_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Elastic Volume Snapshot Properties
 
@@ -2964,14 +2964,14 @@ class ElasticVolumeSnapshotPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotPolicyResourceId")
-    def snapshot_policy_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_policy_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snapshot Policy ResourceId
         """
         return pulumi.get(self, "snapshot_policy_resource_id")
 
     @snapshot_policy_resource_id.setter
-    def snapshot_policy_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_policy_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_policy_resource_id", value)
 
 
@@ -2979,7 +2979,7 @@ class EncryptionIdentityArgsDict(TypedDict):
     """
     Identity used to authenticate with key vault.
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
     """
@@ -2987,7 +2987,7 @@ class EncryptionIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionIdentityArgs:
     def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Identity used to authenticate with key vault.
 
@@ -2998,14 +2998,14 @@ class EncryptionIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -3013,79 +3013,79 @@ class ExportPolicyRuleArgsDict(TypedDict):
     """
     Volume Export Policy Rule
     """
-    allowed_clients: NotRequired[pulumi.Input[_builtins.str]]
+    allowed_clients: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
     """
-    chown_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ChownMode']]]
+    chown_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ChownMode']]]]
     """
     This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
     """
-    cifs: NotRequired[pulumi.Input[_builtins.bool]]
+    cifs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows CIFS protocol
     """
-    has_root_access: NotRequired[pulumi.Input[_builtins.bool]]
+    has_root_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Has root access to volume
     """
-    kerberos5_i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_i_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5_i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_i_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5_p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_p_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5_p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_p_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5i_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5i_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5p_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
     """
-    kerberos5p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5p_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
     """
-    nfsv3: NotRequired[pulumi.Input[_builtins.bool]]
+    nfsv3: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows NFSv3 protocol. Enable only for NFSv3 type volumes
     """
-    nfsv41: NotRequired[pulumi.Input[_builtins.bool]]
+    nfsv41: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
     """
-    rule_index: NotRequired[pulumi.Input[_builtins.int]]
+    rule_index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order index
     """
-    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Read only access
     """
-    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Read and write access
     """
@@ -3093,25 +3093,25 @@ class ExportPolicyRuleArgsDict(TypedDict):
 @pulumi.input_type
 class ExportPolicyRuleArgs:
     def __init__(__self__, *,
-                 allowed_clients: Optional[pulumi.Input[_builtins.str]] = None,
-                 chown_mode: Optional[pulumi.Input[Union[_builtins.str, 'ChownMode']]] = None,
-                 cifs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_root_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_i_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_i_read_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_p_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_p_read_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_read_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5i_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5i_read_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5p_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5p_read_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nfsv3: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nfsv41: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 unix_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_clients: pulumi.Input[Optional[_builtins.str]] = None,
+                 chown_mode: pulumi.Input[Optional[Union[_builtins.str, 'ChownMode']]] = None,
+                 cifs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_root_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_i_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_i_read_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_p_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_p_read_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_read_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5i_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5i_read_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5p_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5p_read_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nfsv3: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nfsv41: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 unix_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Volume Export Policy Rule
 
@@ -3200,230 +3200,230 @@ class ExportPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_clients(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
         """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
-    def allowed_clients(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_clients(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_clients", value)
 
     @_builtins.property
     @pulumi.getter(name="chownMode")
-    def chown_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ChownMode']]]:
+    def chown_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ChownMode']]]:
         """
         This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
         """
         return pulumi.get(self, "chown_mode")
 
     @chown_mode.setter
-    def chown_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ChownMode']]]):
+    def chown_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ChownMode']]]):
         pulumi.set(self, "chown_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def cifs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cifs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows CIFS protocol
         """
         return pulumi.get(self, "cifs")
 
     @cifs.setter
-    def cifs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cifs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cifs", value)
 
     @_builtins.property
     @pulumi.getter(name="hasRootAccess")
-    def has_root_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_root_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Has root access to volume
         """
         return pulumi.get(self, "has_root_access")
 
     @has_root_access.setter
-    def has_root_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_root_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_root_access", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5IReadOnly")
-    def kerberos5_i_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_i_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_i_read_only")
 
     @kerberos5_i_read_only.setter
-    def kerberos5_i_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_i_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_i_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5IReadWrite")
-    def kerberos5_i_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_i_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_i_read_write")
 
     @kerberos5_i_read_write.setter
-    def kerberos5_i_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_i_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_i_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5PReadOnly")
-    def kerberos5_p_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_p_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_p_read_only")
 
     @kerberos5_p_read_only.setter
-    def kerberos5_p_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_p_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_p_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5PReadWrite")
-    def kerberos5_p_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_p_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_p_read_write")
 
     @kerberos5_p_read_write.setter
-    def kerberos5_p_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_p_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_p_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5ReadOnly")
-    def kerberos5_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_read_only")
 
     @kerberos5_read_only.setter
-    def kerberos5_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5ReadWrite")
-    def kerberos5_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5_read_write")
 
     @kerberos5_read_write.setter
-    def kerberos5_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5iReadOnly")
-    def kerberos5i_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5i_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5i_read_only")
 
     @kerberos5i_read_only.setter
-    def kerberos5i_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5i_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5i_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5iReadWrite")
-    def kerberos5i_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5i_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5i_read_write")
 
     @kerberos5i_read_write.setter
-    def kerberos5i_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5i_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5i_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5pReadOnly")
-    def kerberos5p_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5p_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5p_read_only")
 
     @kerberos5p_read_only.setter
-    def kerberos5p_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5p_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5p_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5pReadWrite")
-    def kerberos5p_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5p_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos5p_read_write")
 
     @kerberos5p_read_write.setter
-    def kerberos5p_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5p_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5p_read_write", value)
 
     @_builtins.property
     @pulumi.getter
-    def nfsv3(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def nfsv3(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows NFSv3 protocol. Enable only for NFSv3 type volumes
         """
         return pulumi.get(self, "nfsv3")
 
     @nfsv3.setter
-    def nfsv3(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def nfsv3(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "nfsv3", value)
 
     @_builtins.property
     @pulumi.getter
-    def nfsv41(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def nfsv41(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
         """
         return pulumi.get(self, "nfsv41")
 
     @nfsv41.setter
-    def nfsv41(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def nfsv41(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "nfsv41", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rule_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order index
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rule_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rule_index", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadOnly")
-    def unix_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Read only access
         """
         return pulumi.get(self, "unix_read_only")
 
     @unix_read_only.setter
-    def unix_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadWrite")
-    def unix_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Read and write access
         """
         return pulumi.get(self, "unix_read_write")
 
     @unix_read_write.setter
-    def unix_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_write", value)
 
 
@@ -3431,11 +3431,11 @@ class FileSystemUserArgsDict(TypedDict):
     """
     File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
     """
-    cifs_user: NotRequired[pulumi.Input['CifsUserArgsDict']]
+    cifs_user: NotRequired[pulumi.Input[Optional['CifsUserArgsDict']]]
     """
     The effective CIFS username when accessing the volume data.
     """
-    nfs_user: NotRequired[pulumi.Input['NfsUserArgsDict']]
+    nfs_user: NotRequired[pulumi.Input[Optional['NfsUserArgsDict']]]
     """
     The effective NFS User ID and Group ID when accessing the volume data.
     """
@@ -3443,8 +3443,8 @@ class FileSystemUserArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemUserArgs:
     def __init__(__self__, *,
-                 cifs_user: Optional[pulumi.Input['CifsUserArgs']] = None,
-                 nfs_user: Optional[pulumi.Input['NfsUserArgs']] = None):
+                 cifs_user: pulumi.Input[Optional['CifsUserArgs']] = None,
+                 nfs_user: pulumi.Input[Optional['NfsUserArgs']] = None):
         """
         File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
 
@@ -3458,26 +3458,26 @@ class FileSystemUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="cifsUser")
-    def cifs_user(self) -> Optional[pulumi.Input['CifsUserArgs']]:
+    def cifs_user(self) -> pulumi.Input[Optional['CifsUserArgs']]:
         """
         The effective CIFS username when accessing the volume data.
         """
         return pulumi.get(self, "cifs_user")
 
     @cifs_user.setter
-    def cifs_user(self, value: Optional[pulumi.Input['CifsUserArgs']]):
+    def cifs_user(self, value: pulumi.Input[Optional['CifsUserArgs']]):
         pulumi.set(self, "cifs_user", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsUser")
-    def nfs_user(self) -> Optional[pulumi.Input['NfsUserArgs']]:
+    def nfs_user(self) -> pulumi.Input[Optional['NfsUserArgs']]:
         """
         The effective NFS User ID and Group ID when accessing the volume data.
         """
         return pulumi.get(self, "nfs_user")
 
     @nfs_user.setter
-    def nfs_user(self, value: Optional[pulumi.Input['NfsUserArgs']]):
+    def nfs_user(self, value: pulumi.Input[Optional['NfsUserArgs']]):
         pulumi.set(self, "nfs_user", value)
 
 
@@ -3485,15 +3485,15 @@ class HourlyScheduleArgsDict(TypedDict):
     """
     Hourly Schedule properties
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Hourly snapshot count to keep
     """
-    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    used_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Resource size in bytes, current storage usage for the volume in bytes
     """
@@ -3501,9 +3501,9 @@ class HourlyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class HourlyScheduleArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 used_bytes: Optional[pulumi.Input[_builtins.float]] = None):
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 used_bytes: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Hourly Schedule properties
 
@@ -3520,38 +3520,38 @@ class HourlyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Hourly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def used_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def used_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -3567,7 +3567,7 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     The Uri of KeyVault.
     """
-    key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of KeyVault.
     """
@@ -3577,7 +3577,7 @@ class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_uri: pulumi.Input[_builtins.str],
-                 key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of key vault.
 
@@ -3616,30 +3616,30 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultResourceId")
-    def key_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of KeyVault.
         """
         return pulumi.get(self, "key_vault_resource_id")
 
     @key_vault_resource_id.setter
-    def key_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_resource_id", value)
 
 
 class LdapSearchScopeOptArgsDict(TypedDict):
     """
-    LDAP search scope 
+    LDAP search scope
     """
-    group_dn: NotRequired[pulumi.Input[_builtins.str]]
+    group_dn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This specifies the group DN, which overrides the base DN for group lookups.
     """
-    group_membership_filter: NotRequired[pulumi.Input[_builtins.str]]
+    group_membership_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
     """
-    user_dn: NotRequired[pulumi.Input[_builtins.str]]
+    user_dn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This specifies the user DN, which overrides the base DN for user lookups.
     """
@@ -3647,11 +3647,11 @@ class LdapSearchScopeOptArgsDict(TypedDict):
 @pulumi.input_type
 class LdapSearchScopeOptArgs:
     def __init__(__self__, *,
-                 group_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_membership_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_dn: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_membership_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_dn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        LDAP search scope 
+        LDAP search scope
 
         :param pulumi.Input[_builtins.str] group_dn: This specifies the group DN, which overrides the base DN for group lookups.
         :param pulumi.Input[_builtins.str] group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
@@ -3666,38 +3666,38 @@ class LdapSearchScopeOptArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupDN")
-    def group_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the group DN, which overrides the base DN for group lookups.
         """
         return pulumi.get(self, "group_dn")
 
     @group_dn.setter
-    def group_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="groupMembershipFilter")
-    def group_membership_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_membership_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
         """
         return pulumi.get(self, "group_membership_filter")
 
     @group_membership_filter.setter
-    def group_membership_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_membership_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_membership_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="userDN")
-    def user_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the user DN, which overrides the base DN for user lookups.
         """
         return pulumi.get(self, "user_dn")
 
     @user_dn.setter
-    def user_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_dn", value)
 
 
@@ -3709,7 +3709,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -3718,7 +3718,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -3743,14 +3743,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3758,23 +3758,23 @@ class MonthlyScheduleArgsDict(TypedDict):
     """
     Monthly Schedule properties
     """
-    days_of_month: NotRequired[pulumi.Input[_builtins.str]]
+    days_of_month: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates which days of the month snapshot should be taken. A comma delimited string.
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Monthly snapshot count to keep
     """
-    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    used_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Resource size in bytes, current storage usage for the volume in bytes
     """
@@ -3782,11 +3782,11 @@ class MonthlyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class MonthlyScheduleArgs:
     def __init__(__self__, *,
-                 days_of_month: Optional[pulumi.Input[_builtins.str]] = None,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 used_bytes: Optional[pulumi.Input[_builtins.float]] = None):
+                 days_of_month: pulumi.Input[Optional[_builtins.str]] = None,
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 used_bytes: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Monthly Schedule properties
 
@@ -3809,62 +3809,62 @@ class MonthlyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfMonth")
-    def days_of_month(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def days_of_month(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates which days of the month snapshot should be taken. A comma delimited string.
         """
         return pulumi.get(self, "days_of_month")
 
     @days_of_month.setter
-    def days_of_month(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def days_of_month(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "days_of_month", value)
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Monthly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def used_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def used_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -3872,11 +3872,11 @@ class NfsUserArgsDict(TypedDict):
     """
     The effective NFS User ID and Group ID when accessing the volume data.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.float]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The NFS user's GID
     """
-    user_id: NotRequired[pulumi.Input[_builtins.float]]
+    user_id: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The NFS user's UID
     """
@@ -3884,8 +3884,8 @@ class NfsUserArgsDict(TypedDict):
 @pulumi.input_type
 class NfsUserArgs:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.float]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.float]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.float]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The effective NFS User ID and Group ID when accessing the volume data.
 
@@ -3899,26 +3899,26 @@ class NfsUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The NFS user's GID
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The NFS user's UID
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -4139,23 +4139,23 @@ class ReplicationObjectArgsDict(TypedDict):
     """
     Replication properties
     """
-    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]]
     """
     Indicates whether the local volume is the source or destination for the Volume Replication
     """
-    remote_path: NotRequired[pulumi.Input['RemotePathArgsDict']]
+    remote_path: NotRequired[pulumi.Input[Optional['RemotePathArgsDict']]]
     """
     The full path to a volume that is to be migrated into ANF. Required for Migration volumes
     """
-    remote_volume_region: NotRequired[pulumi.Input[_builtins.str]]
+    remote_volume_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The remote region for the other end of the Volume Replication.
     """
-    remote_volume_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    remote_volume_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the remote volume. Required for cross region and cross zone replication
     """
-    replication_schedule: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]]
+    replication_schedule: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReplicationSchedule']]]]
     """
     Schedule
     """
@@ -4163,11 +4163,11 @@ class ReplicationObjectArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationObjectArgs:
     def __init__(__self__, *,
-                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]] = None,
-                 remote_path: Optional[pulumi.Input['RemotePathArgs']] = None,
-                 remote_volume_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_volume_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_schedule: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]] = None):
+                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]] = None,
+                 remote_path: pulumi.Input[Optional['RemotePathArgs']] = None,
+                 remote_volume_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_volume_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_schedule: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationSchedule']]] = None):
         """
         Replication properties
 
@@ -4190,70 +4190,124 @@ class ReplicationObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]:
         """
         Indicates whether the local volume is the source or destination for the Volume Replication
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="remotePath")
-    def remote_path(self) -> Optional[pulumi.Input['RemotePathArgs']]:
+    def remote_path(self) -> pulumi.Input[Optional['RemotePathArgs']]:
         """
         The full path to a volume that is to be migrated into ANF. Required for Migration volumes
         """
         return pulumi.get(self, "remote_path")
 
     @remote_path.setter
-    def remote_path(self, value: Optional[pulumi.Input['RemotePathArgs']]):
+    def remote_path(self, value: pulumi.Input[Optional['RemotePathArgs']]):
         pulumi.set(self, "remote_path", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteVolumeRegion")
-    def remote_volume_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_volume_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The remote region for the other end of the Volume Replication.
         """
         return pulumi.get(self, "remote_volume_region")
 
     @remote_volume_region.setter
-    def remote_volume_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_volume_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_volume_region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteVolumeResourceId")
-    def remote_volume_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_volume_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the remote volume. Required for cross region and cross zone replication
         """
         return pulumi.get(self, "remote_volume_resource_id")
 
     @remote_volume_resource_id.setter
-    def remote_volume_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_volume_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_volume_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSchedule")
-    def replication_schedule(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]]:
+    def replication_schedule(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationSchedule']]]:
         """
         Schedule
         """
         return pulumi.get(self, "replication_schedule")
 
     @replication_schedule.setter
-    def replication_schedule(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]]):
+    def replication_schedule(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationSchedule']]]):
         pulumi.set(self, "replication_schedule", value)
+
+
+class SecretPasswordArgsDict(TypedDict):
+    """
+    Access password from Azure KeyVault Secrets to connect Active Directory
+    """
+    identity: NotRequired[pulumi.Input[Optional['SecretPasswordIdentityArgsDict']]]
+    """
+    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+    key_vault_properties: NotRequired[pulumi.Input[Optional['SecretPasswordKeyVaultPropertiesArgsDict']]]
+    """
+    Properties provided by KeyVault.
+    """
+
+@pulumi.input_type
+class SecretPasswordArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[Optional['SecretPasswordIdentityArgs']] = None,
+                 key_vault_properties: pulumi.Input[Optional['SecretPasswordKeyVaultPropertiesArgs']] = None):
+        """
+        Access password from Azure KeyVault Secrets to connect Active Directory
+
+        :param pulumi.Input['SecretPasswordIdentityArgs'] identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param pulumi.Input['SecretPasswordKeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeyVault.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['SecretPasswordIdentityArgs']]:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['SecretPasswordIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Input[Optional['SecretPasswordKeyVaultPropertiesArgs']]:
+        """
+        Properties provided by KeyVault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: pulumi.Input[Optional['SecretPasswordKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 class SecretPasswordIdentityArgsDict(TypedDict):
     """
     Identity used to authenticate with key vault.
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
     """
@@ -4261,7 +4315,7 @@ class SecretPasswordIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class SecretPasswordIdentityArgs:
     def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Identity used to authenticate with key vault.
 
@@ -4272,14 +4326,14 @@ class SecretPasswordIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -4335,73 +4389,19 @@ class SecretPasswordKeyVaultPropertiesArgs:
         pulumi.set(self, "secret_name", value)
 
 
-class SecretPasswordArgsDict(TypedDict):
-    """
-    Access password from Azure KeyVault Secrets to connect Active Directory
-    """
-    identity: NotRequired[pulumi.Input['SecretPasswordIdentityArgsDict']]
-    """
-    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-    """
-    key_vault_properties: NotRequired[pulumi.Input['SecretPasswordKeyVaultPropertiesArgsDict']]
-    """
-    Properties provided by KeyVault.
-    """
-
-@pulumi.input_type
-class SecretPasswordArgs:
-    def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['SecretPasswordIdentityArgs']] = None,
-                 key_vault_properties: Optional[pulumi.Input['SecretPasswordKeyVaultPropertiesArgs']] = None):
-        """
-        Access password from Azure KeyVault Secrets to connect Active Directory
-
-        :param pulumi.Input['SecretPasswordIdentityArgs'] identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        :param pulumi.Input['SecretPasswordKeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeyVault.
-        """
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SecretPasswordIdentityArgs']]:
-        """
-        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SecretPasswordIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['SecretPasswordKeyVaultPropertiesArgs']]:
-        """
-        Properties provided by KeyVault.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['SecretPasswordKeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
-
-
 class SmbSettingsArgsDict(TypedDict):
     """
     SMB settings for the cache
     """
-    smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
+    smb_access_based_enumeration: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]]
     """
     Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
-    smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]]
+    smb_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SmbEncryptionState']]]]
     """
     Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
     """
-    smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
+    smb_non_browsable: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]]
     """
     Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
@@ -4409,9 +4409,9 @@ class SmbSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SmbSettingsArgs:
     def __init__(__self__, *,
-                 smb_access_based_enumeration: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
-                 smb_encryption: Optional[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]] = None,
-                 smb_non_browsable: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]] = None):
+                 smb_access_based_enumeration: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
+                 smb_encryption: pulumi.Input[Optional[Union[_builtins.str, 'SmbEncryptionState']]] = None,
+                 smb_non_browsable: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]] = None):
         """
         SMB settings for the cache
 
@@ -4428,38 +4428,38 @@ class SmbSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="smbAccessBasedEnumeration")
-    def smb_access_based_enumeration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
+    def smb_access_based_enumeration(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
         """
         Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_access_based_enumeration")
 
     @smb_access_based_enumeration.setter
-    def smb_access_based_enumeration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
+    def smb_access_based_enumeration(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
         pulumi.set(self, "smb_access_based_enumeration", value)
 
     @_builtins.property
     @pulumi.getter(name="smbEncryption")
-    def smb_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]]:
+    def smb_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbEncryptionState']]]:
         """
         Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
         """
         return pulumi.get(self, "smb_encryption")
 
     @smb_encryption.setter
-    def smb_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]]):
+    def smb_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbEncryptionState']]]):
         pulumi.set(self, "smb_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="smbNonBrowsable")
-    def smb_non_browsable(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]:
+    def smb_non_browsable(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]:
         """
         Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_non_browsable")
 
     @smb_non_browsable.setter
-    def smb_non_browsable(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]):
+    def smb_non_browsable(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]):
         pulumi.set(self, "smb_non_browsable", value)
 
 
@@ -4467,15 +4467,15 @@ class VolumeBackupPropertiesArgsDict(TypedDict):
     """
     Volume Backup Properties
     """
-    backup_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Backup Policy Resource ID
     """
-    backup_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Backup Vault Resource ID
     """
-    policy_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    policy_enforced: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Policy Enforced
     """
@@ -4483,9 +4483,9 @@ class VolumeBackupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeBackupPropertiesArgs:
     def __init__(__self__, *,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enforced: Optional[pulumi.Input[_builtins.bool]] = None):
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enforced: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Volume Backup Properties
 
@@ -4502,38 +4502,38 @@ class VolumeBackupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup Policy Resource ID
         """
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
-    def backup_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultId")
-    def backup_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup Vault Resource ID
         """
         return pulumi.get(self, "backup_vault_id")
 
     @backup_vault_id.setter
-    def backup_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyEnforced")
-    def policy_enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Policy Enforced
         """
         return pulumi.get(self, "policy_enforced")
 
     @policy_enforced.setter
-    def policy_enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_enforced", value)
 
 
@@ -4541,19 +4541,19 @@ class VolumeGroupMetaDataArgsDict(TypedDict):
     """
     Volume group properties
     """
-    application_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    application_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application specific identifier
     """
-    application_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationType']]]
+    application_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]]]
     """
     Application Type
     """
-    global_placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+    global_placement_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]]
     """
     Application specific placement rules for the volume group
     """
-    group_description: NotRequired[pulumi.Input[_builtins.str]]
+    group_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Group Description
     """
@@ -4561,10 +4561,10 @@ class VolumeGroupMetaDataArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeGroupMetaDataArgs:
     def __init__(__self__, *,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]] = None,
-                 global_placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]] = None,
+                 global_placement_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Volume group properties
 
@@ -4584,50 +4584,50 @@ class VolumeGroupMetaDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationIdentifier")
-    def application_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application specific identifier
         """
         return pulumi.get(self, "application_identifier")
 
     @application_identifier.setter
-    def application_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]]:
+    def application_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]]:
         """
         Application Type
         """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
-    def application_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationType']]]):
+    def application_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApplicationType']]]):
         pulumi.set(self, "application_type", value)
 
     @_builtins.property
     @pulumi.getter(name="globalPlacementRules")
-    def global_placement_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
+    def global_placement_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
         """
         Application specific placement rules for the volume group
         """
         return pulumi.get(self, "global_placement_rules")
 
     @global_placement_rules.setter
-    def global_placement_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
+    def global_placement_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
         pulumi.set(self, "global_placement_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="groupDescription")
-    def group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Group Description
         """
         return pulumi.get(self, "group_description")
 
     @group_description.setter
-    def group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_description", value)
 
 
@@ -4647,159 +4647,159 @@ class VolumeGroupVolumePropertiesArgsDict(TypedDict):
     """
     Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
     """
-    avs_data_store: NotRequired[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]
+    avs_data_store: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]]]
     """
     Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
     """
-    backup_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource identifier used to identify the Backup.
     """
-    capacity_pool_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    capacity_pool_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Pool Resource Id used in case of creating a volume through volume group
     """
-    cool_access: NotRequired[pulumi.Input[_builtins.bool]]
+    cool_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Cool Access(tiering) is enabled for the volume.
     """
-    cool_access_retrieval_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]
+    cool_access_retrieval_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]]
     """
-    coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+    coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
      Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
      OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
      Never - No client-driven data is pulled from cool tier to standard storage.
     """
-    cool_access_tiering_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]
+    cool_access_tiering_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]]]
     """
     coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
     """
-    coolness_period: NotRequired[pulumi.Input[_builtins.int]]
+    coolness_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days after which data that is not accessed by clients will be tiered.
     """
-    data_protection: NotRequired[pulumi.Input['VolumePropertiesDataProtectionArgsDict']]
+    data_protection: NotRequired[pulumi.Input[Optional['VolumePropertiesDataProtectionArgsDict']]]
     """
     DataProtection type volumes include an object containing details of the replication
     """
-    default_group_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
+    default_group_quota_in_ki_bs: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
     """
-    default_user_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
+    default_user_quota_in_ki_bs: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
     """
-    delete_base_snapshot: NotRequired[pulumi.Input[_builtins.bool]]
+    delete_base_snapshot: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
     """
-    enable_subvolumes: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]
+    enable_subvolumes: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]]]
     """
     Flag indicating whether subvolume operations are enabled on the volume
     """
-    encryption_key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]
+    encryption_key_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]]]
     """
     Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
     """
-    export_policy: NotRequired[pulumi.Input['VolumePropertiesExportPolicyArgsDict']]
+    export_policy: NotRequired[pulumi.Input[Optional['VolumePropertiesExportPolicyArgsDict']]]
     """
     Set of export policy rules
     """
-    is_default_quota_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_default_quota_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if default quota is enabled for the volume.
     """
-    is_large_volume: NotRequired[pulumi.Input[_builtins.bool]]
+    is_large_volume: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether volume is a Large Volume or Regular Volume.
     """
-    is_restoring: NotRequired[pulumi.Input[_builtins.bool]]
+    is_restoring: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Restoring
     """
-    kerberos_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
     """
-    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
     """
-    ldap_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ldap_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether LDAP is enabled or not for a given NFS volume.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource name
     """
-    network_features: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]
+    network_features: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]]]
     """
     The original value of the network features type available to the volume at the time it was created.
     """
-    placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+    placement_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]]
     """
     Application specific placement rules for the particular volume
     """
-    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    protocol_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of protocol types, default NFSv3, CIFS for SMB protocol
     """
-    proximity_placement_group: NotRequired[pulumi.Input[_builtins.str]]
+    proximity_placement_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Proximity placement group associated with the volume
     """
-    security_style: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]
+    security_style: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]]]
     """
     The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
     """
-    service_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]
+    service_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]]]
     """
     The service level of the file system
     """
-    smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
+    smb_access_based_enumeration: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]]
     """
     Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
-    smb_continuously_available: NotRequired[pulumi.Input[_builtins.bool]]
+    smb_continuously_available: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables continuously available share property for smb volume. Only applicable for SMB volume
     """
-    smb_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    smb_encryption: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
     """
-    smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
+    smb_non_browsable: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]]
     """
     Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
-    snapshot_directory_visible: NotRequired[pulumi.Input[_builtins.bool]]
+    snapshot_directory_visible: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
     """
-    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource identifier used to identify the Snapshot.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Resource tags
     """
-    throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
-    unix_permissions: NotRequired[pulumi.Input[_builtins.str]]
+    throughput_mibps: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    unix_permissions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
     """
-    volume_spec_name: NotRequired[pulumi.Input[_builtins.str]]
+    volume_spec_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
     """
-    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    volume_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Availability Zone
     """
@@ -4809,46 +4809,46 @@ class VolumeGroupVolumePropertiesArgs:
     def __init__(__self__, *,
                  creation_token: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 usage_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 avs_data_store: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cool_access_retrieval_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
-                 cool_access_tiering_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
-                 coolness_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
-                 default_group_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 default_user_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 delete_base_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_subvolumes: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]] = None,
-                 export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
-                 is_default_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_large_volume: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_restoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_features: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 smb_access_based_enumeration: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
-                 smb_continuously_available: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_non_browsable: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
-                 snapshot_directory_visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_mibps: Optional[pulumi.Input[_builtins.float]] = None,
-                 unix_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 usage_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 avs_data_store: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cool_access_retrieval_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
+                 coolness_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_protection: pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']] = None,
+                 default_group_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 default_user_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 delete_base_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_subvolumes: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]] = None,
+                 export_policy: pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']] = None,
+                 is_default_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_large_volume: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_restoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_features: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]] = None,
+                 placement_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 smb_access_based_enumeration: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
+                 smb_continuously_available: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_non_browsable: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
+                 snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Volume resource
 
@@ -4859,7 +4859,7 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[_builtins.str] backup_id: Resource identifier used to identify the Backup.
         :param pulumi.Input[_builtins.str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param pulumi.Input[_builtins.bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
-        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
@@ -5047,57 +5047,57 @@ class VolumeGroupVolumePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="avsDataStore")
-    def avs_data_store(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]:
+    def avs_data_store(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]]:
         """
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
 
     @avs_data_store.setter
-    def avs_data_store(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]):
+    def avs_data_store(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]]):
         pulumi.set(self, "avs_data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Backup.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityPoolResourceId")
-    def capacity_pool_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_pool_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pool Resource Id used in case of creating a volume through volume group
         """
         return pulumi.get(self, "capacity_pool_resource_id")
 
     @capacity_pool_resource_id.setter
-    def capacity_pool_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_pool_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_pool_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
-    def cool_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cool_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Cool Access(tiering) is enabled for the volume.
         """
         return pulumi.get(self, "cool_access")
 
     @cool_access.setter
-    def cool_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cool_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cool_access", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccessRetrievalPolicy")
-    def cool_access_retrieval_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]:
+    def cool_access_retrieval_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]:
         """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.
@@ -5105,412 +5105,412 @@ class VolumeGroupVolumePropertiesArgs:
         return pulumi.get(self, "cool_access_retrieval_policy")
 
     @cool_access_retrieval_policy.setter
-    def cool_access_retrieval_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]):
+    def cool_access_retrieval_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]):
         pulumi.set(self, "cool_access_retrieval_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccessTieringPolicy")
-    def cool_access_tiering_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]:
+    def cool_access_tiering_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]]:
         """
         coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         """
         return pulumi.get(self, "cool_access_tiering_policy")
 
     @cool_access_tiering_policy.setter
-    def cool_access_tiering_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]):
+    def cool_access_tiering_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]]):
         pulumi.set(self, "cool_access_tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="coolnessPeriod")
-    def coolness_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def coolness_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days after which data that is not accessed by clients will be tiered.
         """
         return pulumi.get(self, "coolness_period")
 
     @coolness_period.setter
-    def coolness_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def coolness_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "coolness_period", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]:
+    def data_protection(self) -> pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']]:
         """
         DataProtection type volumes include an object containing details of the replication
         """
         return pulumi.get(self, "data_protection")
 
     @data_protection.setter
-    def data_protection(self, value: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]):
+    def data_protection(self, value: pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']]):
         pulumi.set(self, "data_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultGroupQuotaInKiBs")
-    def default_group_quota_in_ki_bs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def default_group_quota_in_ki_bs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         """
         return pulumi.get(self, "default_group_quota_in_ki_bs")
 
     @default_group_quota_in_ki_bs.setter
-    def default_group_quota_in_ki_bs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def default_group_quota_in_ki_bs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "default_group_quota_in_ki_bs", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultUserQuotaInKiBs")
-    def default_user_quota_in_ki_bs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def default_user_quota_in_ki_bs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         """
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 
     @default_user_quota_in_ki_bs.setter
-    def default_user_quota_in_ki_bs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def default_user_quota_in_ki_bs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "default_user_quota_in_ki_bs", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteBaseSnapshot")
-    def delete_base_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_base_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         """
         return pulumi.get(self, "delete_base_snapshot")
 
     @delete_base_snapshot.setter
-    def delete_base_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_base_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_base_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSubvolumes")
-    def enable_subvolumes(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]:
+    def enable_subvolumes(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]]:
         """
         Flag indicating whether subvolume operations are enabled on the volume
         """
         return pulumi.get(self, "enable_subvolumes")
 
     @enable_subvolumes.setter
-    def enable_subvolumes(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]):
+    def enable_subvolumes(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]]):
         pulumi.set(self, "enable_subvolumes", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]:
+    def encryption_key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]]:
         """
         Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]):
+    def encryption_key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]:
+    def export_policy(self) -> pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']]:
         """
         Set of export policy rules
         """
         return pulumi.get(self, "export_policy")
 
     @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]):
+    def export_policy(self, value: pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']]):
         pulumi.set(self, "export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefaultQuotaEnabled")
-    def is_default_quota_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default_quota_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if default quota is enabled for the volume.
         """
         return pulumi.get(self, "is_default_quota_enabled")
 
     @is_default_quota_enabled.setter
-    def is_default_quota_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default_quota_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default_quota_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isLargeVolume")
-    def is_large_volume(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_large_volume(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether volume is a Large Volume or Regular Volume.
         """
         return pulumi.get(self, "is_large_volume")
 
     @is_large_volume.setter
-    def is_large_volume(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_large_volume(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_large_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="isRestoring")
-    def is_restoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_restoring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Restoring
         """
         return pulumi.get(self, "is_restoring")
 
     @is_restoring.setter
-    def is_restoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_restoring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_restoring", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosEnabled")
-    def kerberos_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos_enabled")
 
     @kerberos_enabled.setter
-    def kerberos_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
-    def key_vault_private_endpoint_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_private_endpoint_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_private_endpoint_resource_id")
 
     @key_vault_private_endpoint_resource_id.setter
-    def key_vault_private_endpoint_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_private_endpoint_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapEnabled")
-    def ldap_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether LDAP is enabled or not for a given NFS volume.
         """
         return pulumi.get(self, "ldap_enabled")
 
     @ldap_enabled.setter
-    def ldap_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFeatures")
-    def network_features(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]:
+    def network_features(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]]:
         """
         The original value of the network features type available to the volume at the time it was created.
         """
         return pulumi.get(self, "network_features")
 
     @network_features.setter
-    def network_features(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]):
+    def network_features(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]]):
         pulumi.set(self, "network_features", value)
 
     @_builtins.property
     @pulumi.getter(name="placementRules")
-    def placement_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
+    def placement_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
         """
         Application specific placement rules for the particular volume
         """
         return pulumi.get(self, "placement_rules")
 
     @placement_rules.setter
-    def placement_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
+    def placement_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
         pulumi.set(self, "placement_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protocol_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
     @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protocol_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protocol_types", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proximity placement group associated with the volume
         """
         return pulumi.get(self, "proximity_placement_group")
 
     @proximity_placement_group.setter
-    def proximity_placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]:
+    def security_style(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]]:
         """
         The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
-    def security_style(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]):
+    def security_style(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]]):
         pulumi.set(self, "security_style", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]:
+    def service_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]]:
         """
         The service level of the file system
         """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
-    def service_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]):
+    def service_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]]):
         pulumi.set(self, "service_level", value)
 
     @_builtins.property
     @pulumi.getter(name="smbAccessBasedEnumeration")
-    def smb_access_based_enumeration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
+    def smb_access_based_enumeration(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
         """
         Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_access_based_enumeration")
 
     @smb_access_based_enumeration.setter
-    def smb_access_based_enumeration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
+    def smb_access_based_enumeration(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
         pulumi.set(self, "smb_access_based_enumeration", value)
 
     @_builtins.property
     @pulumi.getter(name="smbContinuouslyAvailable")
-    def smb_continuously_available(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_continuously_available(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables continuously available share property for smb volume. Only applicable for SMB volume
         """
         return pulumi.get(self, "smb_continuously_available")
 
     @smb_continuously_available.setter
-    def smb_continuously_available(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_continuously_available(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_continuously_available", value)
 
     @_builtins.property
     @pulumi.getter(name="smbEncryption")
-    def smb_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         """
         return pulumi.get(self, "smb_encryption")
 
     @smb_encryption.setter
-    def smb_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="smbNonBrowsable")
-    def smb_non_browsable(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]:
+    def smb_non_browsable(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]:
         """
         Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_non_browsable")
 
     @smb_non_browsable.setter
-    def smb_non_browsable(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]):
+    def smb_non_browsable(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]):
         pulumi.set(self, "smb_non_browsable", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotDirectoryVisible")
-    def snapshot_directory_visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def snapshot_directory_visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
     @snapshot_directory_visible.setter
-    def snapshot_directory_visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def snapshot_directory_visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "snapshot_directory_visible", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Snapshot.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputMibps")
-    def throughput_mibps(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throughput_mibps(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "throughput_mibps")
 
     @throughput_mibps.setter
-    def throughput_mibps(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throughput_mibps(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="unixPermissions")
-    def unix_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unix_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         """
         return pulumi.get(self, "unix_permissions")
 
     @unix_permissions.setter
-    def unix_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unix_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unix_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSpecName")
-    def volume_spec_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_spec_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         """
         return pulumi.get(self, "volume_spec_name")
 
     @volume_spec_name.setter
-    def volume_spec_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_spec_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_spec_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Availability Zone
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -5518,19 +5518,19 @@ class VolumePropertiesDataProtectionArgsDict(TypedDict):
     """
     DataProtection type volumes include an object containing details of the replication
     """
-    backup: NotRequired[pulumi.Input['VolumeBackupPropertiesArgsDict']]
+    backup: NotRequired[pulumi.Input[Optional['VolumeBackupPropertiesArgsDict']]]
     """
     Backup Properties
     """
-    replication: NotRequired[pulumi.Input['ReplicationObjectArgsDict']]
+    replication: NotRequired[pulumi.Input[Optional['ReplicationObjectArgsDict']]]
     """
     Replication properties
     """
-    snapshot: NotRequired[pulumi.Input['VolumeSnapshotPropertiesArgsDict']]
+    snapshot: NotRequired[pulumi.Input[Optional['VolumeSnapshotPropertiesArgsDict']]]
     """
     Snapshot properties.
     """
-    volume_relocation: NotRequired[pulumi.Input['VolumeRelocationPropertiesArgsDict']]
+    volume_relocation: NotRequired[pulumi.Input[Optional['VolumeRelocationPropertiesArgsDict']]]
     """
     VolumeRelocation properties
     """
@@ -5538,10 +5538,10 @@ class VolumePropertiesDataProtectionArgsDict(TypedDict):
 @pulumi.input_type
 class VolumePropertiesDataProtectionArgs:
     def __init__(__self__, *,
-                 backup: Optional[pulumi.Input['VolumeBackupPropertiesArgs']] = None,
-                 replication: Optional[pulumi.Input['ReplicationObjectArgs']] = None,
-                 snapshot: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']] = None,
-                 volume_relocation: Optional[pulumi.Input['VolumeRelocationPropertiesArgs']] = None):
+                 backup: pulumi.Input[Optional['VolumeBackupPropertiesArgs']] = None,
+                 replication: pulumi.Input[Optional['ReplicationObjectArgs']] = None,
+                 snapshot: pulumi.Input[Optional['VolumeSnapshotPropertiesArgs']] = None,
+                 volume_relocation: pulumi.Input[Optional['VolumeRelocationPropertiesArgs']] = None):
         """
         DataProtection type volumes include an object containing details of the replication
 
@@ -5561,50 +5561,50 @@ class VolumePropertiesDataProtectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['VolumeBackupPropertiesArgs']]:
+    def backup(self) -> pulumi.Input[Optional['VolumeBackupPropertiesArgs']]:
         """
         Backup Properties
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['VolumeBackupPropertiesArgs']]):
+    def backup(self, value: pulumi.Input[Optional['VolumeBackupPropertiesArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter
-    def replication(self) -> Optional[pulumi.Input['ReplicationObjectArgs']]:
+    def replication(self) -> pulumi.Input[Optional['ReplicationObjectArgs']]:
         """
         Replication properties
         """
         return pulumi.get(self, "replication")
 
     @replication.setter
-    def replication(self, value: Optional[pulumi.Input['ReplicationObjectArgs']]):
+    def replication(self, value: pulumi.Input[Optional['ReplicationObjectArgs']]):
         pulumi.set(self, "replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]:
+    def snapshot(self) -> pulumi.Input[Optional['VolumeSnapshotPropertiesArgs']]:
         """
         Snapshot properties.
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]):
+    def snapshot(self, value: pulumi.Input[Optional['VolumeSnapshotPropertiesArgs']]):
         pulumi.set(self, "snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeRelocation")
-    def volume_relocation(self) -> Optional[pulumi.Input['VolumeRelocationPropertiesArgs']]:
+    def volume_relocation(self) -> pulumi.Input[Optional['VolumeRelocationPropertiesArgs']]:
         """
         VolumeRelocation properties
         """
         return pulumi.get(self, "volume_relocation")
 
     @volume_relocation.setter
-    def volume_relocation(self, value: Optional[pulumi.Input['VolumeRelocationPropertiesArgs']]):
+    def volume_relocation(self, value: pulumi.Input[Optional['VolumeRelocationPropertiesArgs']]):
         pulumi.set(self, "volume_relocation", value)
 
 
@@ -5612,7 +5612,7 @@ class VolumePropertiesExportPolicyArgsDict(TypedDict):
     """
     Set of export policy rules
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]]
     """
     Export policy rule
     """
@@ -5620,7 +5620,7 @@ class VolumePropertiesExportPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
         """
         Set of export policy rules
 
@@ -5631,14 +5631,14 @@ class VolumePropertiesExportPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
         """
         Export policy rule
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -5646,7 +5646,7 @@ class VolumeRelocationPropertiesArgsDict(TypedDict):
     """
     Volume relocation properties
     """
-    relocation_requested: NotRequired[pulumi.Input[_builtins.bool]]
+    relocation_requested: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Has relocation been requested for this volume
     """
@@ -5654,7 +5654,7 @@ class VolumeRelocationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeRelocationPropertiesArgs:
     def __init__(__self__, *,
-                 relocation_requested: Optional[pulumi.Input[_builtins.bool]] = None):
+                 relocation_requested: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Volume relocation properties
 
@@ -5665,14 +5665,14 @@ class VolumeRelocationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="relocationRequested")
-    def relocation_requested(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def relocation_requested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Has relocation been requested for this volume
         """
         return pulumi.get(self, "relocation_requested")
 
     @relocation_requested.setter
-    def relocation_requested(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def relocation_requested(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "relocation_requested", value)
 
 
@@ -5680,7 +5680,7 @@ class VolumeSnapshotPropertiesArgsDict(TypedDict):
     """
     Volume Snapshot Properties
     """
-    snapshot_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Snapshot Policy ResourceId
     """
@@ -5688,7 +5688,7 @@ class VolumeSnapshotPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeSnapshotPropertiesArgs:
     def __init__(__self__, *,
-                 snapshot_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 snapshot_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Volume Snapshot Properties
 
@@ -5699,14 +5699,14 @@ class VolumeSnapshotPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotPolicyId")
-    def snapshot_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snapshot Policy ResourceId
         """
         return pulumi.get(self, "snapshot_policy_id")
 
     @snapshot_policy_id.setter
-    def snapshot_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_policy_id", value)
 
 
@@ -5714,23 +5714,23 @@ class WeeklyScheduleArgsDict(TypedDict):
     """
     Weekly Schedule properties, make a snapshot every week at a specific day or days
     """
-    day: NotRequired[pulumi.Input[_builtins.str]]
+    day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which hour in UTC timezone a snapshot should be taken
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates which minute snapshot should be taken
     """
-    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Weekly snapshot count to keep
     """
-    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    used_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Resource size in bytes, current storage usage for the volume in bytes
     """
@@ -5738,11 +5738,11 @@ class WeeklyScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class WeeklyScheduleArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input[_builtins.str]] = None,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 used_bytes: Optional[pulumi.Input[_builtins.float]] = None):
+                 day: pulumi.Input[Optional[_builtins.str]] = None,
+                 hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 used_bytes: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Weekly Schedule properties, make a snapshot every week at a specific day or days
 
@@ -5765,62 +5765,62 @@ class WeeklyScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
         """
         return pulumi.get(self, "day")
 
     @day.setter
-    def day(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def day(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "day", value)
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Weekly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @_builtins.property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def used_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def used_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "used_bytes", value)
 
 

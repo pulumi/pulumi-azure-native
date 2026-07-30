@@ -90,7 +90,7 @@ export interface GetPolicyOutputArgs {
     /**
      * Policy Export Format.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Policy.
      */

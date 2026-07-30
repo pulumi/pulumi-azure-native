@@ -181,7 +181,6 @@ def get_certificate(automation_account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str certificate_name: The name of certificate.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,9 +204,9 @@ def get_certificate(automation_account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_certificate_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Retrieve the certificate identified by certificate name.
@@ -215,7 +214,6 @@ def get_certificate_output(automation_account_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str certificate_name: The name of certificate.

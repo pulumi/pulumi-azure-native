@@ -22,7 +22,7 @@ class ServerCommunicationLinkArgs:
                  partner_server: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 communication_link_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 communication_link_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerCommunicationLink resource.
 
@@ -75,14 +75,14 @@ class ServerCommunicationLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="communicationLinkName")
-    def communication_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def communication_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the server communication link.
         """
         return pulumi.get(self, "communication_link_name")
 
     @communication_link_name.setter
-    def communication_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def communication_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "communication_link_name", value)
 
 
@@ -92,16 +92,15 @@ class ServerCommunicationLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Server communication link.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +120,6 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
-
         :param str resource_name: The name of the resource.
         :param ServerCommunicationLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,10 +135,10 @@ class ServerCommunicationLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -166,7 +166,7 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Details of provisioning error
      */
-    error?: pulumi.Input<inputs.automation.AutomationErrorResponseArgs>;
+    error?: pulumi.Input<inputs.automation.AutomationErrorResponseArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -178,11 +178,11 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * The name of the software update configuration to be created.
      */
-    softwareUpdateConfigurationName?: pulumi.Input<string>;
+    softwareUpdateConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Tasks information for the Software update configuration.
      */
-    tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs>;
+    tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs | undefined>;
     /**
      * update specific properties for the Software update configuration
      */

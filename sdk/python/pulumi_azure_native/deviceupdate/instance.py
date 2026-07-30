@@ -24,12 +24,12 @@ class InstanceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 diagnostic_storage_properties: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']] = None,
-                 enable_diagnostics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 diagnostic_storage_properties: pulumi.Input[Optional['DiagnosticStoragePropertiesArgs']] = None,
+                 enable_diagnostics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_hubs: pulumi.Input[Optional[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
@@ -83,74 +83,74 @@ class InstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="diagnosticStorageProperties")
-    def diagnostic_storage_properties(self) -> Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]:
+    def diagnostic_storage_properties(self) -> pulumi.Input[Optional['DiagnosticStoragePropertiesArgs']]:
         """
         Customer-initiated diagnostic log collection storage properties
         """
         return pulumi.get(self, "diagnostic_storage_properties")
 
     @diagnostic_storage_properties.setter
-    def diagnostic_storage_properties(self, value: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]):
+    def diagnostic_storage_properties(self, value: pulumi.Input[Optional['DiagnosticStoragePropertiesArgs']]):
         pulumi.set(self, "diagnostic_storage_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDiagnostics")
-    def enable_diagnostics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_diagnostics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or Disables the diagnostic logs collection
         """
         return pulumi.get(self, "enable_diagnostics")
 
     @enable_diagnostics.setter
-    def enable_diagnostics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_diagnostics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance name.
         """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
-    def instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]]:
+    def iot_hubs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IotHubSettingsArgs']]]]:
         """
         List of IoT Hubs associated with the account.
         """
         return pulumi.get(self, "iot_hubs")
 
     @iot_hubs.setter
-    def iot_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]]):
+    def iot_hubs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IotHubSettingsArgs']]]]):
         pulumi.set(self, "iot_hubs", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,20 +160,19 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostic_storage_properties: Optional[pulumi.Input[Union['DiagnosticStoragePropertiesArgs', 'DiagnosticStoragePropertiesArgsDict']]] = None,
-                 enable_diagnostics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IotHubSettingsArgs', 'IotHubSettingsArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostic_storage_properties: pulumi.Input[Optional[Union['DiagnosticStoragePropertiesArgs', 'DiagnosticStoragePropertiesArgsDict']]] = None,
+                 enable_diagnostics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubSettingsArgs', 'IotHubSettingsArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Device Update instance details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class Instance(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,14 +211,14 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostic_storage_properties: Optional[pulumi.Input[Union['DiagnosticStoragePropertiesArgs', 'DiagnosticStoragePropertiesArgsDict']]] = None,
-                 enable_diagnostics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IotHubSettingsArgs', 'IotHubSettingsArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostic_storage_properties: pulumi.Input[Optional[Union['DiagnosticStoragePropertiesArgs', 'DiagnosticStoragePropertiesArgsDict']]] = None,
+                 enable_diagnostics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubSettingsArgs', 'IotHubSettingsArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

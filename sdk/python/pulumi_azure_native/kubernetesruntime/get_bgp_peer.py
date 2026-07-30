@@ -154,7 +154,6 @@ def get_bgp_peer(bgp_peer_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-03-01.
 
-
     :param _builtins.str bgp_peer_name: The name of the BgpPeer
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -174,14 +173,13 @@ def get_bgp_peer(bgp_peer_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_bgp_peer_output(bgp_peer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bgp_peer_output(bgp_peer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBgpPeerResult]:
     """
     Get a BgpPeer
 
     Uses Azure REST API version 2024-03-01.
-
 
     :param _builtins.str bgp_peer_name: The name of the BgpPeer
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

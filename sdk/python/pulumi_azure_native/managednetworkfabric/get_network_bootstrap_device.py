@@ -310,7 +310,6 @@ def get_network_bootstrap_device(network_bootstrap_device_name: Optional[_builti
 
     Uses Azure REST API version 2025-07-15.
 
-
     :param _builtins.str network_bootstrap_device_name: Name of the Network Bootstrap Device.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -343,14 +342,13 @@ def get_network_bootstrap_device(network_bootstrap_device_name: Optional[_builti
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_network_bootstrap_device_output(network_bootstrap_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_bootstrap_device_output(network_bootstrap_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkBootstrapDeviceResult]:
     """
     Gets a Network Bootstrap Device resource details.
 
     Uses Azure REST API version 2025-07-15.
-
 
     :param _builtins.str network_bootstrap_device_name: Name of the Network Bootstrap Device.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

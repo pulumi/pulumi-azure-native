@@ -62,7 +62,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly name: string;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules.
      */
     readonly publicNetworkAccess?: string;
     /**

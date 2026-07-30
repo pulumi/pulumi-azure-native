@@ -25,7 +25,7 @@ class TopicAuthorizationRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
                  topic_name: pulumi.Input[_builtins.str],
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TopicAuthorizationRule resource.
 
@@ -92,14 +92,14 @@ class TopicAuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization rule name.
         """
         return pulumi.get(self, "authorization_rule_name")
 
     @authorization_rule_name.setter
-    def authorization_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_rule_name", value)
 
 
@@ -109,11 +109,11 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of a namespace authorization rule.
@@ -121,7 +121,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TopicAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rights: pulumi.Input[Optional[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

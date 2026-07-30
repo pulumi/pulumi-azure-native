@@ -123,11 +123,11 @@ export interface GraphQLApiResolverPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat>;
+    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat | undefined>;
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */

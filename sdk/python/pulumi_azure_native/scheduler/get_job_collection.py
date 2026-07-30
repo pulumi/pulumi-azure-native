@@ -127,7 +127,6 @@ def get_job_collection(job_collection_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-03-01.
 
-
     :param _builtins.str job_collection_name: The job collection name.
     :param _builtins.str resource_group_name: The resource group name.
     """
@@ -145,14 +144,13 @@ def get_job_collection(job_collection_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_collection_output(job_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_collection_output(job_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobCollectionResult]:
     """
     Gets a job collection.
 
     Uses Azure REST API version 2016-03-01.
-
 
     :param _builtins.str job_collection_name: The job collection name.
     :param _builtins.str resource_group_name: The resource group name.

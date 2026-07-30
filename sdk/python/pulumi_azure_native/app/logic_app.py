@@ -22,7 +22,7 @@ class LogicAppArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 logic_app_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 logic_app_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogicApp resource.
 
@@ -61,14 +61,14 @@ class LogicAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="logicAppName")
-    def logic_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Logic App, the extension resource.
         """
         return pulumi.get(self, "logic_app_name")
 
     @logic_app_name.setter
-    def logic_app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_name", value)
 
 
@@ -78,9 +78,9 @@ class LogicApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A logic app extension resource
@@ -88,7 +88,6 @@ class LogicApp(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +108,6 @@ class LogicApp(pulumi.CustomResource):
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LogicAppArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +123,9 @@ class LogicApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

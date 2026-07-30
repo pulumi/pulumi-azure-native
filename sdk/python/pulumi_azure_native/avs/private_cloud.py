@@ -26,19 +26,19 @@ class PrivateCloudArgs:
                  network_block: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 availability: Optional[pulumi.Input['AvailabilityPropertiesArgs']] = None,
-                 dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
-                 internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability: pulumi.Input[Optional['AvailabilityPropertiesArgs']] = None,
+                 dns_zone_type: pulumi.Input[Optional[Union[_builtins.str, 'DnsZoneType']]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 extended_network_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
+                 internet: pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateCloud resource.
 
@@ -150,43 +150,43 @@ class PrivateCloudArgs:
 
     @_builtins.property
     @pulumi.getter
-    def availability(self) -> Optional[pulumi.Input['AvailabilityPropertiesArgs']]:
+    def availability(self) -> pulumi.Input[Optional['AvailabilityPropertiesArgs']]:
         """
         Properties describing how the cloud is distributed across availability zones
         """
         return pulumi.get(self, "availability")
 
     @availability.setter
-    def availability(self, value: Optional[pulumi.Input['AvailabilityPropertiesArgs']]):
+    def availability(self, value: pulumi.Input[Optional['AvailabilityPropertiesArgs']]):
         pulumi.set(self, "availability", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZoneType")
-    def dns_zone_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]]:
+    def dns_zone_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DnsZoneType']]]:
         """
         The type of DNS zone to use.
         """
         return pulumi.get(self, "dns_zone_type")
 
     @dns_zone_type.setter
-    def dns_zone_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]]):
+    def dns_zone_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DnsZoneType']]]):
         pulumi.set(self, "dns_zone_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
         """
         Customer managed key encryption, can be enabled or disabled
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedNetworkBlocks")
-    def extended_network_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extended_network_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of additional networks noncontiguous with networkBlock. Networks must be
         unique and non-overlapping across VNet in your subscription, on-premise, and
@@ -196,115 +196,115 @@ class PrivateCloudArgs:
         return pulumi.get(self, "extended_network_blocks")
 
     @extended_network_blocks.setter
-    def extended_network_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extended_network_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_network_blocks", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]:
+    def identity_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceArgs']]]]:
         """
         vCenter Single Sign On Identity Sources
         """
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
-    def identity_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]):
+    def identity_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceArgs']]]]):
         pulumi.set(self, "identity_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def internet(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]]:
+    def internet(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]]:
         """
         Connectivity to internet is enabled or disabled
         """
         return pulumi.get(self, "internet")
 
     @internet.setter
-    def internet(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]]):
+    def internet(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]]):
         pulumi.set(self, "internet", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="nsxtPassword")
-    def nsxt_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsxt_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optionally, set the NSX-T Manager password when the private cloud is created
         """
         return pulumi.get(self, "nsxt_password")
 
     @nsxt_password.setter
-    def nsxt_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsxt_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_password", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
-    def private_cloud_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_cloud_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the private cloud
         """
         return pulumi.get(self, "private_cloud_name")
 
     @private_cloud_name.setter
-    def private_cloud_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_cloud_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_cloud_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vcenterPassword")
-    def vcenter_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcenter_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optionally, set the vCenter admin password when the private cloud is created
         """
         return pulumi.get(self, "vcenter_password")
 
     @vcenter_password.setter
-    def vcenter_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcenter_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcenter_password", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure resource ID of the virtual network
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -314,23 +314,23 @@ class PrivateCloud(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability: Optional[pulumi.Input[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
-                 dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
-                 internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_cluster: Optional[pulumi.Input[Union['ManagementClusterArgs', 'ManagementClusterArgsDict']]] = None,
-                 network_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability: pulumi.Input[Optional[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
+                 dns_zone_type: pulumi.Input[Optional[Union[_builtins.str, 'DnsZoneType']]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 extended_network_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
+                 internet: pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['ManagementClusterArgs', 'ManagementClusterArgsDict']]] = None,
+                 network_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A private cloud resource
@@ -338,7 +338,6 @@ class PrivateCloud(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,7 +377,6 @@ class PrivateCloud(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -394,23 +392,23 @@ class PrivateCloud(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability: Optional[pulumi.Input[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
-                 dns_zone_type: Optional[pulumi.Input[Union[_builtins.str, 'DnsZoneType']]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
-                 internet: Optional[pulumi.Input[Union[_builtins.str, 'InternetEnum']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_cluster: Optional[pulumi.Input[Union['ManagementClusterArgs', 'ManagementClusterArgsDict']]] = None,
-                 network_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability: pulumi.Input[Optional[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
+                 dns_zone_type: pulumi.Input[Optional[Union[_builtins.str, 'DnsZoneType']]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 extended_network_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
+                 internet: pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['ManagementClusterArgs', 'ManagementClusterArgsDict']]] = None,
+                 network_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

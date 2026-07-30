@@ -262,7 +262,6 @@ def get_webhook(report_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-27.
 
-
     :param _builtins.str report_name: Report Name.
     :param _builtins.str webhook_name: Webhook Name.
     """
@@ -291,14 +290,13 @@ def get_webhook(report_name: Optional[_builtins.str] = None,
         webhook_id=pulumi.get(__ret__, 'webhook_id'),
         webhook_key=pulumi.get(__ret__, 'webhook_key'),
         webhook_key_enabled=pulumi.get(__ret__, 'webhook_key_enabled'))
-def get_webhook_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_webhook_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Get the AppComplianceAutomation webhook and its properties.
 
     Uses Azure REST API version 2024-06-27.
-
 
     :param _builtins.str report_name: Report Name.
     :param _builtins.str webhook_name: Webhook Name.

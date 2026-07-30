@@ -25,8 +25,8 @@ class OrderArgs:
                  contact_information: pulumi.Input['ContactDetailsArgs'],
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 shipment_type: Optional[pulumi.Input[Union[_builtins.str, 'ShipmentType']]] = None,
-                 shipping_address: Optional[pulumi.Input['AddressArgs']] = None):
+                 shipment_type: pulumi.Input[Optional[Union[_builtins.str, 'ShipmentType']]] = None,
+                 shipping_address: pulumi.Input[Optional['AddressArgs']] = None):
         """
         The set of arguments for constructing a Order resource.
 
@@ -82,26 +82,26 @@ class OrderArgs:
 
     @_builtins.property
     @pulumi.getter(name="shipmentType")
-    def shipment_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ShipmentType']]]:
+    def shipment_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ShipmentType']]]:
         """
         ShipmentType of the order
         """
         return pulumi.get(self, "shipment_type")
 
     @shipment_type.setter
-    def shipment_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ShipmentType']]]):
+    def shipment_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ShipmentType']]]):
         pulumi.set(self, "shipment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['AddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['AddressArgs']]:
         """
         The shipping address.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['AddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['AddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -111,11 +111,11 @@ class Order(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_information: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipment_type: Optional[pulumi.Input[Union[_builtins.str, 'ShipmentType']]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['AddressArgs', 'AddressArgsDict']]] = None,
+                 contact_information: pulumi.Input[Optional[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipment_type: pulumi.Input[Optional[Union[_builtins.str, 'ShipmentType']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['AddressArgs', 'AddressArgsDict']]] = None,
                  __props__=None):
         """
         The order details.
@@ -123,7 +123,6 @@ class Order(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class Order(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class Order(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_information: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipment_type: Optional[pulumi.Input[Union[_builtins.str, 'ShipmentType']]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['AddressArgs', 'AddressArgsDict']]] = None,
+                 contact_information: pulumi.Input[Optional[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipment_type: pulumi.Input[Optional[Union[_builtins.str, 'ShipmentType']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['AddressArgs', 'AddressArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

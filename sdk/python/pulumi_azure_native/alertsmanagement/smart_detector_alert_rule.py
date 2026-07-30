@@ -29,11 +29,11 @@ class SmartDetectorAlertRuleArgs:
                  scope: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  severity: pulumi.Input[Union[_builtins.str, 'Severity']],
                  state: pulumi.Input[Union[_builtins.str, 'AlertRuleState']],
-                 alert_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling: Optional[pulumi.Input['ThrottlingInformationArgs']] = None):
+                 alert_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling: pulumi.Input[Optional['ThrottlingInformationArgs']] = None):
         """
         The set of arguments for constructing a SmartDetectorAlertRule resource.
 
@@ -156,62 +156,62 @@ class SmartDetectorAlertRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertRuleName")
-    def alert_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the alert rule.
         """
         return pulumi.get(self, "alert_rule_name")
 
     @alert_rule_name.setter
-    def alert_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def throttling(self) -> Optional[pulumi.Input['ThrottlingInformationArgs']]:
+    def throttling(self) -> pulumi.Input[Optional['ThrottlingInformationArgs']]:
         """
         The alert rule throttling information.
         """
         return pulumi.get(self, "throttling")
 
     @throttling.setter
-    def throttling(self, value: Optional[pulumi.Input['ThrottlingInformationArgs']]):
+    def throttling(self, value: pulumi.Input[Optional['ThrottlingInformationArgs']]):
         pulumi.set(self, "throttling", value)
 
 
@@ -221,18 +221,18 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
-                 alert_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector: Optional[pulumi.Input[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'Severity']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AlertRuleState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling: Optional[pulumi.Input[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
+                 action_groups: pulumi.Input[Optional[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
+                 alert_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector: pulumi.Input[Optional[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'Severity']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AlertRuleState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling: pulumi.Input[Optional[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
                  __props__=None):
         """
         The alert rule information
@@ -240,7 +240,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         Uses Azure REST API version 2021-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +269,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,18 +284,18 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
-                 alert_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector: Optional[pulumi.Input[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'Severity']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AlertRuleState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling: Optional[pulumi.Input[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
+                 action_groups: pulumi.Input[Optional[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
+                 alert_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector: pulumi.Input[Optional[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'Severity']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AlertRuleState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling: pulumi.Input[Optional[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

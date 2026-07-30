@@ -24,30 +24,30 @@ class MaccArgs:
     def __init__(__self__, *,
                  entity_type: pulumi.Input[Union[_builtins.str, 'MaccEntityType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_contributors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_shortfall: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]] = None,
-                 automatic_shortfall_suppress_reason: Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']] = None,
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 commitment: Optional[pulumi.Input['CommitmentArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 macc_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 milestones: Optional[pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortfall: Optional[pulumi.Input['ShortfallArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
-                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_contributors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_shortfall: pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]] = None,
+                 automatic_shortfall_suppress_reason: pulumi.Input[Optional['AutomaticShortfallSuppressReasonArgs']] = None,
+                 billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 commitment: pulumi.Input[Optional['CommitmentArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 macc_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 milestones: pulumi.Input[Optional[Sequence[pulumi.Input['MaccMilestoneArgs']]]] = None,
+                 plan: pulumi.Input[Optional['PlanArgs']] = None,
+                 primary_billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortfall: pulumi.Input[Optional['ShortfallArgs']] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'MaccStatus']]] = None,
+                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Macc resource.
 
@@ -157,290 +157,290 @@ class MaccArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowContributors")
-    def allow_contributors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_contributors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to true means multi-entity.
         """
         return pulumi.get(self, "allow_contributors")
 
     @allow_contributors.setter
-    def allow_contributors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_contributors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_contributors", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticShortfall")
-    def automatic_shortfall(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]:
+    def automatic_shortfall(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]]:
         """
         Setting this to 'Enable' enables automatic shortfall charging when commitment is not met.
         """
         return pulumi.get(self, "automatic_shortfall")
 
     @automatic_shortfall.setter
-    def automatic_shortfall(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]):
+    def automatic_shortfall(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]]):
         pulumi.set(self, "automatic_shortfall", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticShortfallSuppressReason")
-    def automatic_shortfall_suppress_reason(self) -> Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']]:
+    def automatic_shortfall_suppress_reason(self) -> pulumi.Input[Optional['AutomaticShortfallSuppressReasonArgs']]:
         """
         Optional field to record suppression reason for automatic shortfall.
         """
         return pulumi.get(self, "automatic_shortfall_suppress_reason")
 
     @automatic_shortfall_suppress_reason.setter
-    def automatic_shortfall_suppress_reason(self, value: Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']]):
+    def automatic_shortfall_suppress_reason(self, value: pulumi.Input[Optional['AutomaticShortfallSuppressReasonArgs']]):
         pulumi.set(self, "automatic_shortfall_suppress_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAccountResourceId")
-    def billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully-qualified identifier of the billing account where the MACC is applied. Present only for Enterprise Agreement customers. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}
         """
         return pulumi.get(self, "billing_account_resource_id")
 
     @billing_account_resource_id.setter
-    def billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_account_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def commitment(self) -> Optional[pulumi.Input['CommitmentArgs']]:
+    def commitment(self) -> pulumi.Input[Optional['CommitmentArgs']]:
         """
         Commitment towards the benefit.
         """
         return pulumi.get(self, "commitment")
 
     @commitment.setter
-    def commitment(self, value: Optional[pulumi.Input['CommitmentArgs']]):
+    def commitment(self, value: pulumi.Input[Optional['CommitmentArgs']]):
         pulumi.set(self, "commitment", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endAt")
-    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be end of month. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
         """
         return pulumi.get(self, "end_at")
 
     @end_at.setter
-    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maccName")
-    def macc_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macc_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of primary MACC.
         """
         return pulumi.get(self, "macc_name")
 
     @macc_name.setter
-    def macc_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macc_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macc_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def milestones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]]]:
+    def milestones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaccMilestoneArgs']]]]:
         """
         List of milestones associated with this MACC.
         """
         return pulumi.get(self, "milestones")
 
     @milestones.setter
-    def milestones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaccMilestoneArgs']]]]):
+    def milestones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaccMilestoneArgs']]]]):
         pulumi.set(self, "milestones", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBillingAccountResourceId")
-    def primary_billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_billing_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
         """
         return pulumi.get(self, "primary_billing_account_resource_id")
 
     @primary_billing_account_resource_id.setter
-    def primary_billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_billing_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_billing_account_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryResourceId")
-    def primary_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully-qualified resource identifier of the primary MACC. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         """
         return pulumi.get(self, "primary_resource_id")
 
     @primary_resource_id.setter
-    def primary_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productCode")
-    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents catalog UPN.
         """
         return pulumi.get(self, "product_code")
 
     @product_code.setter
-    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_code", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource identifier of either the primary MACC or the contributor. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def shortfall(self) -> Optional[pulumi.Input['ShortfallArgs']]:
+    def shortfall(self) -> pulumi.Input[Optional['ShortfallArgs']]:
         """
         MACC shortfall
         """
         return pulumi.get(self, "shortfall")
 
     @shortfall.setter
-    def shortfall(self, value: Optional[pulumi.Input['ShortfallArgs']]):
+    def shortfall(self, value: pulumi.Input[Optional['ShortfallArgs']]):
         pulumi.set(self, "shortfall", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="startAt")
-    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
         """
         return pulumi.get(self, "start_at")
 
     @start_at.setter
-    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MaccStatus']]]:
         """
         Represents the current status of the MACC.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MaccStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="systemId")
-    def system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
         """
         return pulumi.get(self, "system_id")
 
     @system_id.setter
-    def system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -450,32 +450,32 @@ class Macc(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_contributors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_shortfall: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]] = None,
-                 automatic_shortfall_suppress_reason: Optional[pulumi.Input[Union['AutomaticShortfallSuppressReasonArgs', 'AutomaticShortfallSuppressReasonArgsDict']]] = None,
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 commitment: Optional[pulumi.Input[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[Union[_builtins.str, 'MaccEntityType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 macc_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 milestones: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortfall: Optional[pulumi.Input[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
-                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_contributors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_shortfall: pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]] = None,
+                 automatic_shortfall_suppress_reason: pulumi.Input[Optional[Union['AutomaticShortfallSuppressReasonArgs', 'AutomaticShortfallSuppressReasonArgsDict']]] = None,
+                 billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 commitment: pulumi.Input[Optional[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[Union[_builtins.str, 'MaccEntityType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 macc_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 milestones: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 primary_billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortfall: pulumi.Input[Optional[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'MaccStatus']]] = None,
+                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Microsoft Azure Consumption Commitment.
@@ -483,7 +483,6 @@ class Macc(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -527,7 +526,6 @@ class Macc(pulumi.CustomResource):
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MaccArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -543,32 +541,32 @@ class Macc(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_contributors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_shortfall: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]] = None,
-                 automatic_shortfall_suppress_reason: Optional[pulumi.Input[Union['AutomaticShortfallSuppressReasonArgs', 'AutomaticShortfallSuppressReasonArgsDict']]] = None,
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 commitment: Optional[pulumi.Input[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[Union[_builtins.str, 'MaccEntityType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 macc_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 milestones: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortfall: Optional[pulumi.Input[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'MaccStatus']]] = None,
-                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_contributors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_shortfall: pulumi.Input[Optional[Union[_builtins.str, 'EnablementMode']]] = None,
+                 automatic_shortfall_suppress_reason: pulumi.Input[Optional[Union['AutomaticShortfallSuppressReasonArgs', 'AutomaticShortfallSuppressReasonArgsDict']]] = None,
+                 billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 commitment: pulumi.Input[Optional[Union['CommitmentArgs', 'CommitmentArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[Union[_builtins.str, 'MaccEntityType']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 macc_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 milestones: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaccMilestoneArgs', 'MaccMilestoneArgsDict']]]]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 primary_billing_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortfall: pulumi.Input[Optional[Union['ShortfallArgs', 'ShortfallArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'MaccStatus']]] = None,
+                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetAgentPoolResult:
     """
-    The agentpool that has the ARM resource and properties. 
+    The agentpool that has the ARM resource and properties.
     The agentpool will have all information to create an agent pool.
     """
     def __init__(__self__, azure_api_version=None, count=None, id=None, location=None, name=None, os=None, provisioning_state=None, system_data=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
@@ -194,7 +194,6 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str agent_pool_name: The name of the agent pool.
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -219,9 +218,9 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
         tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_resource_id=pulumi.get(__ret__, 'virtual_network_subnet_resource_id'))
-def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_pool_output(agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Gets the detailed information for a given agent pool.
@@ -229,7 +228,6 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2019-06-01-preview.
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str agent_pool_name: The name of the agent pool.
     :param _builtins.str registry_name: The name of the container registry.

@@ -202,7 +202,6 @@ def get_adc_catalog(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-03-30.
 
-
     :param _builtins.str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
@@ -226,14 +225,13 @@ def get_adc_catalog(catalog_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         units=pulumi.get(__ret__, 'units'),
         users=pulumi.get(__ret__, 'users'))
-def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_adc_catalog_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADCCatalogResult]:
     """
     The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
 
     Uses Azure REST API version 2016-03-30.
-
 
     :param _builtins.str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

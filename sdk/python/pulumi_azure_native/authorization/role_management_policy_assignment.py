@@ -21,9 +21,9 @@ __all__ = ['RoleManagementPolicyAssignmentArgs', 'RoleManagementPolicyAssignment
 class RoleManagementPolicyAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_management_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleManagementPolicyAssignment resource.
 
@@ -54,38 +54,38 @@ class RoleManagementPolicyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy id role management policy assignment.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role definition of management policy assignment.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleManagementPolicyAssignmentName")
-    def role_management_policy_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_management_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of format {guid_guid} the role management policy assignment to get.
         """
         return pulumi.get(self, "role_management_policy_assignment_name")
 
     @role_management_policy_assignment_name.setter
-    def role_management_policy_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_management_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_management_policy_assignment_name", value)
 
 
@@ -95,10 +95,10 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_management_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Role management policy
@@ -106,7 +106,6 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RoleManagementPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_management_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,27 +23,27 @@ __all__ = ['ManagedEnvironmentArgs', 'ManagedEnvironment']
 class ManagedEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 app_insights_configuration: Optional[pulumi.Input['AppInsightsConfigurationArgs']] = None,
-                 app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input['CustomDomainConfigurationArgs']] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_configuration: Optional[pulumi.Input['DiskEncryptionConfigurationArgs']] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_configuration: Optional[pulumi.Input['IngressConfigurationArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_telemetry_configuration: Optional[pulumi.Input['OpenTelemetryConfigurationArgs']] = None,
-                 peer_authentication: Optional[pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs']] = None,
-                 peer_traffic_configuration: Optional[pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vnet_configuration: Optional[pulumi.Input['VnetConfigurationArgs']] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_insights_configuration: pulumi.Input[Optional['AppInsightsConfigurationArgs']] = None,
+                 app_logs_configuration: pulumi.Input[Optional['AppLogsConfigurationArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional['CustomDomainConfigurationArgs']] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr_ai_instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_configuration: pulumi.Input[Optional['DiskEncryptionConfigurationArgs']] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 infrastructure_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_configuration: pulumi.Input[Optional['IngressConfigurationArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_telemetry_configuration: pulumi.Input[Optional['OpenTelemetryConfigurationArgs']] = None,
+                 peer_authentication: pulumi.Input[Optional['ManagedEnvironmentPeerAuthenticationArgs']] = None,
+                 peer_traffic_configuration: pulumi.Input[Optional['ManagedEnvironmentPeerTrafficConfigurationArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vnet_configuration: pulumi.Input[Optional['VnetConfigurationArgs']] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadProfileArgs']]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedEnvironment resource.
 
@@ -128,254 +128,254 @@ class ManagedEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="appInsightsConfiguration")
-    def app_insights_configuration(self) -> Optional[pulumi.Input['AppInsightsConfigurationArgs']]:
+    def app_insights_configuration(self) -> pulumi.Input[Optional['AppInsightsConfigurationArgs']]:
         """
         Environment level Application Insights configuration
         """
         return pulumi.get(self, "app_insights_configuration")
 
     @app_insights_configuration.setter
-    def app_insights_configuration(self, value: Optional[pulumi.Input['AppInsightsConfigurationArgs']]):
+    def app_insights_configuration(self, value: pulumi.Input[Optional['AppInsightsConfigurationArgs']]):
         pulumi.set(self, "app_insights_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="appLogsConfiguration")
-    def app_logs_configuration(self) -> Optional[pulumi.Input['AppLogsConfigurationArgs']]:
+    def app_logs_configuration(self) -> pulumi.Input[Optional['AppLogsConfigurationArgs']]:
         """
         Cluster configuration which enables the log daemon to export app logs to configured destination
         """
         return pulumi.get(self, "app_logs_configuration")
 
     @app_logs_configuration.setter
-    def app_logs_configuration(self, value: Optional[pulumi.Input['AppLogsConfigurationArgs']]):
+    def app_logs_configuration(self, value: pulumi.Input[Optional['AppLogsConfigurationArgs']]):
         pulumi.set(self, "app_logs_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of availability zones to use for managed environment
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainConfiguration")
-    def custom_domain_configuration(self) -> Optional[pulumi.Input['CustomDomainConfigurationArgs']]:
+    def custom_domain_configuration(self) -> pulumi.Input[Optional['CustomDomainConfigurationArgs']]:
         """
         Custom domain configuration for the environment
         """
         return pulumi.get(self, "custom_domain_configuration")
 
     @custom_domain_configuration.setter
-    def custom_domain_configuration(self, value: Optional[pulumi.Input['CustomDomainConfigurationArgs']]):
+    def custom_domain_configuration(self, value: pulumi.Input[Optional['CustomDomainConfigurationArgs']]):
         pulumi.set(self, "custom_domain_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="daprAIConnectionString")
-    def dapr_ai_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_ai_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights connection string used by Dapr to export Service to Service communication telemetry
         """
         return pulumi.get(self, "dapr_ai_connection_string")
 
     @dapr_ai_connection_string.setter
-    def dapr_ai_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_ai_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_ai_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="daprAIInstrumentationKey")
-    def dapr_ai_instrumentation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_ai_instrumentation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         """
         return pulumi.get(self, "dapr_ai_instrumentation_key")
 
     @dapr_ai_instrumentation_key.setter
-    def dapr_ai_instrumentation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_ai_instrumentation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_ai_instrumentation_key", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionConfiguration")
-    def disk_encryption_configuration(self) -> Optional[pulumi.Input['DiskEncryptionConfigurationArgs']]:
+    def disk_encryption_configuration(self) -> pulumi.Input[Optional['DiskEncryptionConfigurationArgs']]:
         """
         Disk encryption configuration for the Managed Environment.
         """
         return pulumi.get(self, "disk_encryption_configuration")
 
     @disk_encryption_configuration.setter
-    def disk_encryption_configuration(self, value: Optional[pulumi.Input['DiskEncryptionConfigurationArgs']]):
+    def disk_encryption_configuration(self, value: pulumi.Input[Optional['DiskEncryptionConfigurationArgs']]):
         pulumi.set(self, "disk_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Environment.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroup")
-    def infrastructure_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         """
         return pulumi.get(self, "infrastructure_resource_group")
 
     @infrastructure_resource_group.setter
-    def infrastructure_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressConfiguration")
-    def ingress_configuration(self) -> Optional[pulumi.Input['IngressConfigurationArgs']]:
+    def ingress_configuration(self) -> pulumi.Input[Optional['IngressConfigurationArgs']]:
         """
         Ingress configuration for the Managed Environment.
         """
         return pulumi.get(self, "ingress_configuration")
 
     @ingress_configuration.setter
-    def ingress_configuration(self, value: Optional[pulumi.Input['IngressConfigurationArgs']]):
+    def ingress_configuration(self, value: pulumi.Input[Optional['IngressConfigurationArgs']]):
         pulumi.set(self, "ingress_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the Environment.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="openTelemetryConfiguration")
-    def open_telemetry_configuration(self) -> Optional[pulumi.Input['OpenTelemetryConfigurationArgs']]:
+    def open_telemetry_configuration(self) -> pulumi.Input[Optional['OpenTelemetryConfigurationArgs']]:
         """
         Environment Open Telemetry configuration
         """
         return pulumi.get(self, "open_telemetry_configuration")
 
     @open_telemetry_configuration.setter
-    def open_telemetry_configuration(self, value: Optional[pulumi.Input['OpenTelemetryConfigurationArgs']]):
+    def open_telemetry_configuration(self, value: pulumi.Input[Optional['OpenTelemetryConfigurationArgs']]):
         pulumi.set(self, "open_telemetry_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAuthentication")
-    def peer_authentication(self) -> Optional[pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs']]:
+    def peer_authentication(self) -> pulumi.Input[Optional['ManagedEnvironmentPeerAuthenticationArgs']]:
         """
         Peer authentication settings for the Managed Environment
         """
         return pulumi.get(self, "peer_authentication")
 
     @peer_authentication.setter
-    def peer_authentication(self, value: Optional[pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs']]):
+    def peer_authentication(self, value: pulumi.Input[Optional['ManagedEnvironmentPeerAuthenticationArgs']]):
         pulumi.set(self, "peer_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="peerTrafficConfiguration")
-    def peer_traffic_configuration(self) -> Optional[pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs']]:
+    def peer_traffic_configuration(self) -> pulumi.Input[Optional['ManagedEnvironmentPeerTrafficConfigurationArgs']]:
         """
         Peer traffic settings for the Managed Environment
         """
         return pulumi.get(self, "peer_traffic_configuration")
 
     @peer_traffic_configuration.setter
-    def peer_traffic_configuration(self, value: Optional[pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs']]):
+    def peer_traffic_configuration(self, value: pulumi.Input[Optional['ManagedEnvironmentPeerTrafficConfigurationArgs']]):
         pulumi.set(self, "peer_traffic_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetConfiguration")
-    def vnet_configuration(self) -> Optional[pulumi.Input['VnetConfigurationArgs']]:
+    def vnet_configuration(self) -> pulumi.Input[Optional['VnetConfigurationArgs']]:
         """
         Vnet configuration for the environment
         """
         return pulumi.get(self, "vnet_configuration")
 
     @vnet_configuration.setter
-    def vnet_configuration(self, value: Optional[pulumi.Input['VnetConfigurationArgs']]):
+    def vnet_configuration(self, value: pulumi.Input[Optional['VnetConfigurationArgs']]):
         pulumi.set(self, "vnet_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfiles")
-    def workload_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]]]:
+    def workload_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadProfileArgs']]]]:
         """
         Workload profiles configured for the Managed Environment.
         """
         return pulumi.get(self, "workload_profiles")
 
     @workload_profiles.setter
-    def workload_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]]]):
+    def workload_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadProfileArgs']]]]):
         pulumi.set(self, "workload_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this Managed Environment is zone-redundant.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -385,28 +385,28 @@ class ManagedEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_insights_configuration: Optional[pulumi.Input[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_telemetry_configuration: Optional[pulumi.Input[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
-                 peer_authentication: Optional[pulumi.Input[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
-                 peer_traffic_configuration: Optional[pulumi.Input[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_insights_configuration: pulumi.Input[Optional[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
+                 app_logs_configuration: pulumi.Input[Optional[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr_ai_instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_configuration: pulumi.Input[Optional[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 infrastructure_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_configuration: pulumi.Input[Optional[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_telemetry_configuration: pulumi.Input[Optional[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
+                 peer_authentication: pulumi.Input[Optional[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
+                 peer_traffic_configuration: pulumi.Input[Optional[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vnet_configuration: pulumi.Input[Optional[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         An environment for hosting container apps
@@ -414,7 +414,6 @@ class ManagedEnvironment(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -454,7 +453,6 @@ class ManagedEnvironment(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -470,28 +468,28 @@ class ManagedEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_insights_configuration: Optional[pulumi.Input[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr_ai_instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 infrastructure_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_telemetry_configuration: Optional[pulumi.Input[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
-                 peer_authentication: Optional[pulumi.Input[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
-                 peer_traffic_configuration: Optional[pulumi.Input[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_insights_configuration: pulumi.Input[Optional[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
+                 app_logs_configuration: pulumi.Input[Optional[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr_ai_instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_configuration: pulumi.Input[Optional[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 infrastructure_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_configuration: pulumi.Input[Optional[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_telemetry_configuration: pulumi.Input[Optional[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
+                 peer_authentication: pulumi.Input[Optional[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
+                 peer_traffic_configuration: pulumi.Input[Optional[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vnet_configuration: pulumi.Input[Optional[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -101,7 +101,6 @@ def get_v_mware_collector(project_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-
     :param _builtins.str project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param _builtins.str vm_ware_collector_name: Unique name of a VMware collector within a project.
@@ -120,15 +119,14 @@ def get_v_mware_collector(project_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_v_mware_collector_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 vm_ware_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_v_mware_collector_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 vm_ware_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMwareCollectorResult]:
     """
     Get a VMware collector.
 
     Uses Azure REST API version 2019-10-01.
-
 
     :param _builtins.str project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.

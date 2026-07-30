@@ -22,10 +22,10 @@ class AccessPolicyArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
 
@@ -73,50 +73,50 @@ class AccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the access policy.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An description of the access policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="principalObjectId")
-    def principal_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The objectId of the principal in Azure Active Directory.
         """
         return pulumi.get(self, "principal_object_id")
 
     @principal_object_id.setter
-    def principal_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_object_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]]:
         """
         The list of roles the principal is assigned on the environment.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -126,12 +126,12 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None,
                  __props__=None):
         """
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
@@ -139,7 +139,6 @@ class AccessPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class AccessPolicy(pulumi.CustomResource):
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

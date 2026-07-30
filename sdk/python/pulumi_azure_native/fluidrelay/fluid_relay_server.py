@@ -23,13 +23,13 @@ __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 class FluidRelayServerArgs:
     def __init__(__self__, *,
                  resource_group: pulumi.Input[_builtins.str],
-                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
-                 fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 storagesku: Optional[pulumi.Input[Union[_builtins.str, 'StorageSKU']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 encryption: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 storagesku: pulumi.Input[Optional[Union[_builtins.str, 'StorageSKU']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FluidRelayServer resource.
 
@@ -72,86 +72,86 @@ class FluidRelayServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionPropertiesArgs']]:
         """
         All encryption configuration for a resource.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionPropertiesArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fluidRelayServerName")
-    def fluid_relay_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fluid_relay_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Fluid Relay server resource name.
         """
         return pulumi.get(self, "fluid_relay_server_name")
 
     @fluid_relay_server_name.setter
-    def fluid_relay_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fluid_relay_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fluid_relay_server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         The type of identity used for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Provision states for FluidRelay RP
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def storagesku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageSKU']]]:
+    def storagesku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageSKU']]]:
         """
         Sku of the storage associated with the resource
         """
         return pulumi.get(self, "storagesku")
 
     @storagesku.setter
-    def storagesku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageSKU']]]):
+    def storagesku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageSKU']]]):
         pulumi.set(self, "storagesku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class FluidRelayServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storagesku: Optional[pulumi.Input[Union[_builtins.str, 'StorageSKU']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storagesku: pulumi.Input[Optional[Union[_builtins.str, 'StorageSKU']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A FluidRelay Server.
@@ -176,7 +176,6 @@ class FluidRelayServer(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class FluidRelayServer(pulumi.CustomResource):
 
         Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class FluidRelayServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storagesku: Optional[pulumi.Input[Union[_builtins.str, 'StorageSKU']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storagesku: pulumi.Input[Optional[Union[_builtins.str, 'StorageSKU']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

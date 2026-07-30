@@ -323,7 +323,6 @@ def get_sap_application_server_instance(application_instance_name: Optional[_bui
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str application_instance_name: The name of SAP Application Server instance resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
@@ -359,15 +358,14 @@ def get_sap_application_server_instance(application_instance_name: Optional[_bui
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-def get_sap_application_server_instance_output(application_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               sap_virtual_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sap_application_server_instance_output(application_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               sap_virtual_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapApplicationServerInstanceResult]:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str application_instance_name: The name of SAP Application Server instance resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

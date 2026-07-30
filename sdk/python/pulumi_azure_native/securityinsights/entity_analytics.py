@@ -24,8 +24,8 @@ class EntityAnalyticsArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 entity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EntityAnalytics resource.
 
@@ -83,26 +83,26 @@ class EntityAnalyticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="entityProviders")
-    def entity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]]:
+    def entity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]]:
         """
         The relevant entity providers that are synced
         """
         return pulumi.get(self, "entity_providers")
 
     @entity_providers.setter
-    def entity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]]):
+    def entity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]]):
         pulumi.set(self, "entity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="settingsName")
-    def settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         return pulumi.get(self, "settings_name")
 
     @settings_name.setter
-    def settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_name", value)
 
 
@@ -112,17 +112,16 @@ class EntityAnalytics(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Settings with single toggle.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class EntityAnalytics(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param EntityAnalyticsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class EntityAnalytics(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

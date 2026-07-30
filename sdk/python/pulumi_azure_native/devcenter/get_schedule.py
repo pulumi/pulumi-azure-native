@@ -195,7 +195,6 @@ def get_schedule(pool_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str pool_name: Name of the pool.
     :param _builtins.str project_name: The name of the project.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -224,11 +223,11 @@ def get_schedule(pool_name: Optional[_builtins.str] = None,
         time=pulumi.get(__ret__, 'time'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-def get_schedule_output(pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_schedule_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Gets a schedule resource.
@@ -236,7 +235,6 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str pool_name: Name of the pool.
     :param _builtins.str project_name: The name of the project.

@@ -153,19 +153,19 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Premier add on Marketplace offer.
      */
-    marketplaceOffer?: pulumi.Input<string>;
+    marketplaceOffer?: pulumi.Input<string | undefined>;
     /**
      * Premier add on Marketplace publisher.
      */
-    marketplacePublisher?: pulumi.Input<string>;
+    marketplacePublisher?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -173,11 +173,11 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Add-on name.
      */
-    premierAddOnName?: pulumi.Input<string>;
+    premierAddOnName?: pulumi.Input<string | undefined>;
     /**
      * Premier add on Product.
      */
-    product?: pulumi.Input<string>;
+    product?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -185,7 +185,7 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Premier add on SKU.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
      */
@@ -193,9 +193,9 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Premier add on Vendor.
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }

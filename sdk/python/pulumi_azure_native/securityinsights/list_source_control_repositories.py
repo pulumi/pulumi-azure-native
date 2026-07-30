@@ -79,7 +79,6 @@ def list_source_control_repositories(client_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str client_id: OAuth ClientId. Required when `kind` is `OAuth`
     :param _builtins.str code: OAuth Code. Required when `kind` is `OAuth`
     :param _builtins.str installation_id: Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
@@ -104,14 +103,14 @@ def list_source_control_repositories(client_id: Optional[_builtins.str] = None,
     return AwaitableListSourceControlRepositoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            code: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            installation_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            kind: Optional[pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_source_control_repositories_output(client_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            installation_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            kind: pulumi.Input[Optional[Union[_builtins.str, 'RepositoryAccessKind']]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
@@ -119,7 +118,6 @@ def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Opt
     Uses Azure REST API version 2025-09-01.
 
     Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str client_id: OAuth ClientId. Required when `kind` is `OAuth`
     :param _builtins.str code: OAuth Code. Required when `kind` is `OAuth`

@@ -170,7 +170,6 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[_builtins
 
     Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str fhir_destination_name: The name of IoT Connector FHIR destination resource.
     :param _builtins.str iot_connector_name: The name of IoT Connector resource.
     :param _builtins.str resource_group_name: The name of the resource group that contains the service instance.
@@ -195,10 +194,10 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[_builtins
         resource_identity_resolution_type=pulumi.get(__ret__, 'resource_identity_resolution_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              iot_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_iot_connector_fhir_destination_output(fhir_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              iot_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
@@ -206,7 +205,6 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     Uses Azure REST API version 2024-03-31.
 
     Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str fhir_destination_name: The name of IoT Connector FHIR destination resource.
     :param _builtins.str iot_connector_name: The name of IoT Connector resource.

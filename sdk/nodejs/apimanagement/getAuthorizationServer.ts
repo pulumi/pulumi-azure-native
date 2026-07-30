@@ -55,7 +55,7 @@ export interface GetAuthorizationServerResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Specifies the mechanism by which access token is passed to the API. 
+     * Specifies the mechanism by which access token is passed to the API.
      */
     readonly bearerTokenSendingMethods?: string[];
     /**

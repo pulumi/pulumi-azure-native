@@ -120,7 +120,6 @@ def get_sites_by_service_group(servicegroup_name: Optional[_builtins.str] = None
 
     Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str servicegroup_name: The name of the service group
     :param _builtins.str site_name: The name of the Site
     """
@@ -137,8 +136,8 @@ def get_sites_by_service_group(servicegroup_name: Optional[_builtins.str] = None
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_sites_by_service_group_output(servicegroup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sites_by_service_group_output(servicegroup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesByServiceGroupResult]:
     """
     Get a Site
@@ -146,7 +145,6 @@ def get_sites_by_service_group_output(servicegroup_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str servicegroup_name: The name of the service group
     :param _builtins.str site_name: The name of the Site

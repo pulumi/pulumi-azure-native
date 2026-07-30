@@ -292,7 +292,7 @@ class GetCapacityPoolVolumeResult:
     @pulumi.getter(name="coolAccessRetrievalPolicy")
     def cool_access_retrieval_policy(self) -> Optional[_builtins.str]:
         """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.
@@ -830,7 +830,6 @@ def get_capacity_pool_volume(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str pool_name: The name of the capacity pool
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -910,10 +909,10 @@ def get_capacity_pool_volume(account_name: Optional[_builtins.str] = None,
         volume_spec_name=pulumi.get(__ret__, 'volume_spec_name'),
         volume_type=pulumi.get(__ret__, 'volume_type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_capacity_pool_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_pool_volume_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolVolumeResult]:
     """
     Get the details of the specified volume
@@ -921,7 +920,6 @@ def get_capacity_pool_volume_output(account_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str pool_name: The name of the capacity pool

@@ -23,13 +23,13 @@ __all__ = ['GalleryArgs', 'Gallery']
 class GalleryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['GalleryIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_profile: Optional[pulumi.Input['SharingProfileArgs']] = None,
-                 soft_delete_policy: Optional[pulumi.Input['SoftDeletePolicyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['GalleryIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_profile: pulumi.Input[Optional['SharingProfileArgs']] = None,
+                 soft_delete_policy: pulumi.Input[Optional['SoftDeletePolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gallery resource.
 
@@ -72,86 +72,86 @@ class GalleryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Shared Image Gallery resource. This property is updatable.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
     @gallery_name.setter
-    def gallery_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['GalleryIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['GalleryIdentityArgs']]:
         """
         The identity of the gallery, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['GalleryIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['GalleryIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="sharingProfile")
-    def sharing_profile(self) -> Optional[pulumi.Input['SharingProfileArgs']]:
+    def sharing_profile(self) -> pulumi.Input[Optional['SharingProfileArgs']]:
         """
         Profile for gallery sharing to subscription or tenant
         """
         return pulumi.get(self, "sharing_profile")
 
     @sharing_profile.setter
-    def sharing_profile(self, value: Optional[pulumi.Input['SharingProfileArgs']]):
+    def sharing_profile(self, value: pulumi.Input[Optional['SharingProfileArgs']]):
         pulumi.set(self, "sharing_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeletePolicy")
-    def soft_delete_policy(self) -> Optional[pulumi.Input['SoftDeletePolicyArgs']]:
+    def soft_delete_policy(self) -> pulumi.Input[Optional['SoftDeletePolicyArgs']]:
         """
         Contains information about the soft deletion policy of the gallery.
         """
         return pulumi.get(self, "soft_delete_policy")
 
     @soft_delete_policy.setter
-    def soft_delete_policy(self, value: Optional[pulumi.Input['SoftDeletePolicyArgs']]):
+    def soft_delete_policy(self, value: pulumi.Input[Optional['SoftDeletePolicyArgs']]):
         pulumi.set(self, "soft_delete_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class Gallery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
-                 soft_delete_policy: Optional[pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_profile: pulumi.Input[Optional[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
+                 soft_delete_policy: pulumi.Input[Optional[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
@@ -176,7 +176,6 @@ class Gallery(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class Gallery(pulumi.CustomResource):
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class Gallery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
-                 soft_delete_policy: Optional[pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_profile: pulumi.Input[Optional[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
+                 soft_delete_policy: pulumi.Input[Optional[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

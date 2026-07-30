@@ -39,7 +39,7 @@ export interface ListTaskDetailsArgs {
 }
 
 /**
- * The task that has the ARM resource and task properties. 
+ * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
  */
 export interface ListTaskDetailsResult {

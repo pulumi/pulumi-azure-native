@@ -22,10 +22,10 @@ class NetworkBootstrapInterfaceArgs:
     def __init__(__self__, *,
                  network_bootstrap_device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_bootstrap_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_bootstrap_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkBootstrapInterface resource.
 
@@ -73,50 +73,50 @@ class NetworkBootstrapInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalDescription")
-    def additional_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional description of the interface.
         """
         return pulumi.get(self, "additional_description")
 
     @additional_description.setter
-    def additional_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="networkBootstrapInterfaceName")
-    def network_bootstrap_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_bootstrap_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Bootstrap Interface.
         """
         return pulumi.get(self, "network_bootstrap_interface_name")
 
     @network_bootstrap_interface_name.setter
-    def network_bootstrap_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_bootstrap_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_bootstrap_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Serial number of the interface. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
 
@@ -126,18 +126,17 @@ class NetworkBootstrapInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_bootstrap_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_bootstrap_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_bootstrap_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_bootstrap_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the NetworkBootstrapInterface resource.
 
         Uses Azure REST API version 2025-07-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class NetworkBootstrapInterface(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-15.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkBootstrapInterfaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class NetworkBootstrapInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_bootstrap_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_bootstrap_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_bootstrap_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_bootstrap_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

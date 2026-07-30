@@ -36,10 +36,10 @@ __all__ = [
     'BlobInventoryPolicySchemaArgsDict',
     'ChangeFeedArgs',
     'ChangeFeedArgsDict',
-    'CorsRulesArgs',
-    'CorsRulesArgsDict',
     'CorsRuleArgs',
     'CorsRuleArgsDict',
+    'CorsRulesArgs',
+    'CorsRulesArgsDict',
     'CustomDomainArgs',
     'CustomDomainArgsDict',
     'DataShareConnectionArgs',
@@ -52,16 +52,16 @@ __all__ = [
     'DateAfterModificationArgsDict',
     'DeleteRetentionPolicyArgs',
     'DeleteRetentionPolicyArgsDict',
+    'EncryptionArgs',
+    'EncryptionArgsDict',
     'EncryptionIdentityArgs',
     'EncryptionIdentityArgsDict',
     'EncryptionScopeKeyVaultPropertiesArgs',
     'EncryptionScopeKeyVaultPropertiesArgsDict',
-    'EncryptionServicesArgs',
-    'EncryptionServicesArgsDict',
     'EncryptionServiceArgs',
     'EncryptionServiceArgsDict',
-    'EncryptionArgs',
-    'EncryptionArgsDict',
+    'EncryptionServicesArgs',
+    'EncryptionServicesArgsDict',
     'ExecutionTargetArgs',
     'ExecutionTargetArgsDict',
     'ExecutionTriggerArgs',
@@ -161,15 +161,15 @@ __all__ = [
 ]
 
 class AccessPolicyArgsDict(TypedDict):
-    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expiry time of the access policy
     """
-    permission: NotRequired[pulumi.Input[_builtins.str]]
+    permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     List of abbreviated permissions.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start time of the access policy
     """
@@ -177,9 +177,9 @@ class AccessPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyArgs:
     def __init__(__self__, *,
-                 expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expiry_time: Expiry time of the access policy
         :param pulumi.Input[_builtins.str] permission: List of abbreviated permissions.
@@ -194,38 +194,38 @@ class AccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiry time of the access policy
         """
         return pulumi.get(self, "expiry_time")
 
     @expiry_time.setter
-    def expiry_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of abbreviated permissions.
         """
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start time of the access policy
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -233,15 +233,15 @@ class AccountImmutabilityPolicyPropertiesArgsDict(TypedDict):
     """
     This defines account-level immutability policy properties.
     """
-    allow_protected_append_writes: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_protected_append_writes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
     """
-    immutability_period_since_creation_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    immutability_period_since_creation_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The immutability period for the blobs in the container since the policy creation, in days.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]]
     """
     The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
     """
@@ -249,9 +249,9 @@ class AccountImmutabilityPolicyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AccountImmutabilityPolicyPropertiesArgs:
     def __init__(__self__, *,
-                 allow_protected_append_writes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]] = None):
+                 allow_protected_append_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'AccountImmutabilityPolicyState']]] = None):
         """
         This defines account-level immutability policy properties.
 
@@ -268,38 +268,38 @@ class AccountImmutabilityPolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowProtectedAppendWrites")
-    def allow_protected_append_writes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_protected_append_writes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
         """
         return pulumi.get(self, "allow_protected_append_writes")
 
     @allow_protected_append_writes.setter
-    def allow_protected_append_writes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_protected_append_writes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_protected_append_writes", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def immutability_period_since_creation_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """
         return pulumi.get(self, "immutability_period_since_creation_in_days")
 
     @immutability_period_since_creation_in_days.setter
-    def immutability_period_since_creation_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def immutability_period_since_creation_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "immutability_period_since_creation_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]:
         """
         The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -315,27 +315,27 @@ class ActiveDirectoryPropertiesArgsDict(TypedDict):
     """
     Specifies the primary domain that the AD DNS server is authoritative for.
     """
-    account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountType']]]
+    account_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]]]
     """
     Specifies the Active Directory account type for Azure Storage.
     """
-    azure_storage_sid: NotRequired[pulumi.Input[_builtins.str]]
+    azure_storage_sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the security identifier (SID) for Azure Storage.
     """
-    domain_sid: NotRequired[pulumi.Input[_builtins.str]]
+    domain_sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the security identifier (SID).
     """
-    forest_name: NotRequired[pulumi.Input[_builtins.str]]
+    forest_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Active Directory forest to get.
     """
-    net_bios_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    net_bios_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the NetBIOS domain name.
     """
-    sam_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    sam_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Active Directory SAMAccountName for Azure Storage.
     """
@@ -345,12 +345,12 @@ class ActiveDirectoryPropertiesArgs:
     def __init__(__self__, *,
                  domain_guid: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
-                 account_type: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]] = None,
-                 azure_storage_sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 forest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 net_bios_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sam_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_type: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]] = None,
+                 azure_storage_sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 forest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 net_bios_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sam_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings properties for Active Directory (AD).
 
@@ -404,74 +404,74 @@ class ActiveDirectoryPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountType")
-    def account_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]]:
+    def account_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]]:
         """
         Specifies the Active Directory account type for Azure Storage.
         """
         return pulumi.get(self, "account_type")
 
     @account_type.setter
-    def account_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]]):
+    def account_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]]):
         pulumi.set(self, "account_type", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStorageSid")
-    def azure_storage_sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_storage_sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the security identifier (SID) for Azure Storage.
         """
         return pulumi.get(self, "azure_storage_sid")
 
     @azure_storage_sid.setter
-    def azure_storage_sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_storage_sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_storage_sid", value)
 
     @_builtins.property
     @pulumi.getter(name="domainSid")
-    def domain_sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the security identifier (SID).
         """
         return pulumi.get(self, "domain_sid")
 
     @domain_sid.setter
-    def domain_sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_sid", value)
 
     @_builtins.property
     @pulumi.getter(name="forestName")
-    def forest_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Active Directory forest to get.
         """
         return pulumi.get(self, "forest_name")
 
     @forest_name.setter
-    def forest_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="netBiosDomainName")
-    def net_bios_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def net_bios_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the NetBIOS domain name.
         """
         return pulumi.get(self, "net_bios_domain_name")
 
     @net_bios_domain_name.setter
-    def net_bios_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def net_bios_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "net_bios_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samAccountName")
-    def sam_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sam_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Active Directory SAMAccountName for Azure Storage.
         """
         return pulumi.get(self, "sam_account_name")
 
     @sam_account_name.setter
-    def sam_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sam_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sam_account_name", value)
 
 
@@ -483,11 +483,11 @@ class AzureFilesIdentityBasedAuthenticationArgsDict(TypedDict):
     """
     Indicates the directory service used. Note that this enum may be extended in the future.
     """
-    active_directory_properties: NotRequired[pulumi.Input['ActiveDirectoryPropertiesArgsDict']]
+    active_directory_properties: NotRequired[pulumi.Input[Optional['ActiveDirectoryPropertiesArgsDict']]]
     """
     Required if directoryServiceOptions are AD, optional if they are AADKERB.
     """
-    default_share_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]]
+    default_share_permission: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DefaultSharePermission']]]]
     """
     Default share permission for users using Kerberos authentication if RBAC role is not assigned.
     """
@@ -496,8 +496,8 @@ class AzureFilesIdentityBasedAuthenticationArgsDict(TypedDict):
 class AzureFilesIdentityBasedAuthenticationArgs:
     def __init__(__self__, *,
                  directory_service_options: pulumi.Input[Union[_builtins.str, 'DirectoryServiceOptions']],
-                 active_directory_properties: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']] = None,
-                 default_share_permission: Optional[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]] = None):
+                 active_directory_properties: pulumi.Input[Optional['ActiveDirectoryPropertiesArgs']] = None,
+                 default_share_permission: pulumi.Input[Optional[Union[_builtins.str, 'DefaultSharePermission']]] = None):
         """
         Settings for Azure Files identity based authentication.
 
@@ -525,26 +525,26 @@ class AzureFilesIdentityBasedAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryProperties")
-    def active_directory_properties(self) -> Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']]:
+    def active_directory_properties(self) -> pulumi.Input[Optional['ActiveDirectoryPropertiesArgs']]:
         """
         Required if directoryServiceOptions are AD, optional if they are AADKERB.
         """
         return pulumi.get(self, "active_directory_properties")
 
     @active_directory_properties.setter
-    def active_directory_properties(self, value: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']]):
+    def active_directory_properties(self, value: pulumi.Input[Optional['ActiveDirectoryPropertiesArgs']]):
         pulumi.set(self, "active_directory_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSharePermission")
-    def default_share_permission(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]]:
+    def default_share_permission(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultSharePermission']]]:
         """
         Default share permission for users using Kerberos authentication if RBAC role is not assigned.
         """
         return pulumi.get(self, "default_share_permission")
 
     @default_share_permission.setter
-    def default_share_permission(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]]):
+    def default_share_permission(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultSharePermission']]]):
         pulumi.set(self, "default_share_permission", value)
 
 
@@ -552,7 +552,7 @@ class BlobInventoryCreationTimeArgsDict(TypedDict):
     """
     This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
     """
-    last_n_days: NotRequired[pulumi.Input[_builtins.int]]
+    last_n_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
     """
@@ -560,7 +560,7 @@ class BlobInventoryCreationTimeArgsDict(TypedDict):
 @pulumi.input_type
 class BlobInventoryCreationTimeArgs:
     def __init__(__self__, *,
-                 last_n_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 last_n_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
 
@@ -571,14 +571,14 @@ class BlobInventoryCreationTimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastNDays")
-    def last_n_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def last_n_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
         """
         return pulumi.get(self, "last_n_days")
 
     @last_n_days.setter
-    def last_n_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def last_n_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "last_n_days", value)
 
 
@@ -602,7 +602,7 @@ class BlobInventoryPolicyDefinitionArgsDict(TypedDict):
     """
     This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
     """
-    filters: NotRequired[pulumi.Input['BlobInventoryPolicyFilterArgsDict']]
+    filters: NotRequired[pulumi.Input[Optional['BlobInventoryPolicyFilterArgsDict']]]
     """
     An object that defines the filter set.
     """
@@ -614,7 +614,7 @@ class BlobInventoryPolicyDefinitionArgs:
                  object_type: pulumi.Input[Union[_builtins.str, 'ObjectType']],
                  schedule: pulumi.Input[Union[_builtins.str, 'Schedule']],
                  schema_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 filters: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']] = None):
+                 filters: pulumi.Input[Optional['BlobInventoryPolicyFilterArgs']] = None):
         """
         An object that defines the blob inventory rule.
 
@@ -681,14 +681,14 @@ class BlobInventoryPolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']]:
+    def filters(self) -> pulumi.Input[Optional['BlobInventoryPolicyFilterArgs']]:
         """
         An object that defines the filter set.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']]):
+    def filters(self, value: pulumi.Input[Optional['BlobInventoryPolicyFilterArgs']]):
         pulumi.set(self, "filters", value)
 
 
@@ -696,31 +696,31 @@ class BlobInventoryPolicyFilterArgsDict(TypedDict):
     """
     An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
     """
-    blob_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blob_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
     """
-    creation_time: NotRequired[pulumi.Input['BlobInventoryCreationTimeArgsDict']]
+    creation_time: NotRequired[pulumi.Input[Optional['BlobInventoryCreationTimeArgsDict']]]
     """
     This property is used to filter objects based on the object creation time
     """
-    exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_prefix: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
     """
-    include_blob_versions: NotRequired[pulumi.Input[_builtins.bool]]
+    include_blob_versions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
     """
-    include_deleted: NotRequired[pulumi.Input[_builtins.bool]]
+    include_deleted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
     """
-    include_snapshots: NotRequired[pulumi.Input[_builtins.bool]]
+    include_snapshots: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
     """
-    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_match: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings with maximum 10 blob prefixes to be included in the inventory.
     """
@@ -728,13 +728,13 @@ class BlobInventoryPolicyFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BlobInventoryPolicyFilterArgs:
     def __init__(__self__, *,
-                 blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 creation_time: Optional[pulumi.Input['BlobInventoryCreationTimeArgs']] = None,
-                 exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_blob_versions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blob_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 creation_time: pulumi.Input[Optional['BlobInventoryCreationTimeArgs']] = None,
+                 exclude_prefix: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_blob_versions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 
@@ -763,86 +763,86 @@ class BlobInventoryPolicyFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         """
         return pulumi.get(self, "blob_types")
 
     @blob_types.setter
-    def blob_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_types", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input['BlobInventoryCreationTimeArgs']]:
+    def creation_time(self) -> pulumi.Input[Optional['BlobInventoryCreationTimeArgs']]:
         """
         This property is used to filter objects based on the object creation time
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input['BlobInventoryCreationTimeArgs']]):
+    def creation_time(self, value: pulumi.Input[Optional['BlobInventoryCreationTimeArgs']]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="excludePrefix")
-    def exclude_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_prefix(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
         """
         return pulumi.get(self, "exclude_prefix")
 
     @exclude_prefix.setter
-    def exclude_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_prefix(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="includeBlobVersions")
-    def include_blob_versions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_blob_versions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         """
         return pulumi.get(self, "include_blob_versions")
 
     @include_blob_versions.setter
-    def include_blob_versions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_blob_versions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_blob_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDeleted")
-    def include_deleted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_deleted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
         """
         return pulumi.get(self, "include_deleted")
 
     @include_deleted.setter
-    def include_deleted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_deleted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_deleted", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSnapshots")
-    def include_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
         """
         return pulumi.get(self, "include_snapshots")
 
     @include_snapshots.setter
-    def include_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_match(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings with maximum 10 blob prefixes to be included in the inventory.
         """
         return pulumi.get(self, "prefix_match")
 
     @prefix_match.setter
-    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_match", value)
 
 
@@ -1011,11 +1011,11 @@ class ChangeFeedArgsDict(TypedDict):
     """
     The blob service properties for change feed events.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether change feed event logging is enabled for the Blob service.
     """
-    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
     """
@@ -1023,8 +1023,8 @@ class ChangeFeedArgsDict(TypedDict):
 @pulumi.input_type
 class ChangeFeedArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The blob service properties for change feed events.
 
@@ -1038,61 +1038,27 @@ class ChangeFeedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether change feed event logging is enabled for the Blob service.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
-
-
-class CorsRulesArgsDict(TypedDict):
-    """
-    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-    """
-    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
-    """
-    The List of CORS rules. You can include up to five CorsRule elements in the request. 
-    """
-
-@pulumi.input_type
-class CorsRulesArgs:
-    def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
-        """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-
-        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
-
-    @_builtins.property
-    @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
-        """
-        The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        return pulumi.get(self, "cors_rules")
-
-    @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
-        pulumi.set(self, "cors_rules", value)
 
 
 class CorsRuleArgsDict(TypedDict):
@@ -1204,6 +1170,40 @@ class CorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+class CorsRulesArgsDict(TypedDict):
+    """
+    Sets the CORS rules. You can include up to five CorsRule elements in the request.
+    """
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgsDict']]]]]
+    """
+    The List of CORS rules. You can include up to five CorsRule elements in the request.
+    """
+
+@pulumi.input_type
+class CorsRulesArgs:
+    def __init__(__self__, *,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request.
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]]:
+        """
+        The List of CORS rules. You can include up to five CorsRule elements in the request.
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
+
 class CustomDomainArgsDict(TypedDict):
     """
     The custom domain assigned to this storage account. This can be set via Update.
@@ -1212,7 +1212,7 @@ class CustomDomainArgsDict(TypedDict):
     """
     Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
     """
-    use_sub_domain_name: NotRequired[pulumi.Input[_builtins.bool]]
+    use_sub_domain_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
     """
@@ -1221,7 +1221,7 @@ class CustomDomainArgsDict(TypedDict):
 class CustomDomainArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 use_sub_domain_name: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_sub_domain_name: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The custom domain assigned to this storage account. This can be set via Update.
 
@@ -1246,14 +1246,14 @@ class CustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="useSubDomainName")
-    def use_sub_domain_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_sub_domain_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
         """
         return pulumi.get(self, "use_sub_domain_name")
 
     @use_sub_domain_name.setter
-    def use_sub_domain_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_sub_domain_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_sub_domain_name", value)
 
 
@@ -1394,7 +1394,7 @@ class DateAfterCreationArgsDict(TypedDict):
     """
     Value indicating the age in days after creation
     """
-    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
     """
@@ -1403,7 +1403,7 @@ class DateAfterCreationArgsDict(TypedDict):
 class DateAfterCreationArgs:
     def __init__(__self__, *,
                  days_after_creation_greater_than: pulumi.Input[_builtins.float],
-                 days_after_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.float]] = None):
+                 days_after_last_tier_change_greater_than: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Object to define snapshot and version action conditions.
 
@@ -1428,14 +1428,14 @@ class DateAfterCreationArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysAfterLastTierChangeGreaterThan")
-    def days_after_last_tier_change_greater_than(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def days_after_last_tier_change_greater_than(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
         """
         return pulumi.get(self, "days_after_last_tier_change_greater_than")
 
     @days_after_last_tier_change_greater_than.setter
-    def days_after_last_tier_change_greater_than(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def days_after_last_tier_change_greater_than(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "days_after_last_tier_change_greater_than", value)
 
 
@@ -1443,19 +1443,19 @@ class DateAfterModificationArgsDict(TypedDict):
     """
     Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
     """
-    days_after_creation_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    days_after_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Value indicating the age in days after blob creation.
     """
-    days_after_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    days_after_last_access_time_greater_than: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
     """
-    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
     """
-    days_after_modification_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    days_after_modification_greater_than: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Value indicating the age in days after last modification
     """
@@ -1463,10 +1463,10 @@ class DateAfterModificationArgsDict(TypedDict):
 @pulumi.input_type
 class DateAfterModificationArgs:
     def __init__(__self__, *,
-                 days_after_creation_greater_than: Optional[pulumi.Input[_builtins.float]] = None,
-                 days_after_last_access_time_greater_than: Optional[pulumi.Input[_builtins.float]] = None,
-                 days_after_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.float]] = None,
-                 days_after_modification_greater_than: Optional[pulumi.Input[_builtins.float]] = None):
+                 days_after_creation_greater_than: pulumi.Input[Optional[_builtins.float]] = None,
+                 days_after_last_access_time_greater_than: pulumi.Input[Optional[_builtins.float]] = None,
+                 days_after_last_tier_change_greater_than: pulumi.Input[Optional[_builtins.float]] = None,
+                 days_after_modification_greater_than: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 
@@ -1486,50 +1486,50 @@ class DateAfterModificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysAfterCreationGreaterThan")
-    def days_after_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def days_after_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Value indicating the age in days after blob creation.
         """
         return pulumi.get(self, "days_after_creation_greater_than")
 
     @days_after_creation_greater_than.setter
-    def days_after_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def days_after_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "days_after_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="daysAfterLastAccessTimeGreaterThan")
-    def days_after_last_access_time_greater_than(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def days_after_last_access_time_greater_than(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         """
         return pulumi.get(self, "days_after_last_access_time_greater_than")
 
     @days_after_last_access_time_greater_than.setter
-    def days_after_last_access_time_greater_than(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def days_after_last_access_time_greater_than(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "days_after_last_access_time_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="daysAfterLastTierChangeGreaterThan")
-    def days_after_last_tier_change_greater_than(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def days_after_last_tier_change_greater_than(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
         """
         return pulumi.get(self, "days_after_last_tier_change_greater_than")
 
     @days_after_last_tier_change_greater_than.setter
-    def days_after_last_tier_change_greater_than(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def days_after_last_tier_change_greater_than(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "days_after_last_tier_change_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="daysAfterModificationGreaterThan")
-    def days_after_modification_greater_than(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def days_after_modification_greater_than(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Value indicating the age in days after last modification
         """
         return pulumi.get(self, "days_after_modification_greater_than")
 
     @days_after_modification_greater_than.setter
-    def days_after_modification_greater_than(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def days_after_modification_greater_than(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "days_after_modification_greater_than", value)
 
 
@@ -1537,15 +1537,15 @@ class DeleteRetentionPolicyArgsDict(TypedDict):
     """
     The service properties for soft delete.
     """
-    allow_permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_permanent_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
     """
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether DeleteRetentionPolicy is enabled.
     """
@@ -1553,9 +1553,9 @@ class DeleteRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DeleteRetentionPolicyArgs:
     def __init__(__self__, *,
-                 allow_permanent_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 days: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_permanent_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 days: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The service properties for soft delete.
 
@@ -1572,298 +1572,62 @@ class DeleteRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowPermanentDelete")
-    def allow_permanent_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_permanent_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
         """
         return pulumi.get(self, "allow_permanent_delete")
 
     @allow_permanent_delete.setter
-    def allow_permanent_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_permanent_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_permanent_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether DeleteRetentionPolicy is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-
-class EncryptionIdentityArgsDict(TypedDict):
-    """
-    Encryption identity for the storage account.
-    """
-    encryption_federated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-    """
-    encryption_user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
-    """
-
-@pulumi.input_type
-class EncryptionIdentityArgs:
-    def __init__(__self__, *,
-                 encryption_federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Encryption identity for the storage account.
-
-        :param pulumi.Input[_builtins.str] encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[_builtins.str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
-        """
-        if encryption_federated_identity_client_id is not None:
-            pulumi.set(__self__, "encryption_federated_identity_client_id", encryption_federated_identity_client_id)
-        if encryption_user_assigned_identity is not None:
-            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionFederatedIdentityClientId")
-    def encryption_federated_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        """
-        return pulumi.get(self, "encryption_federated_identity_client_id")
-
-    @encryption_federated_identity_client_id.setter
-    def encryption_federated_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "encryption_federated_identity_client_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionUserAssignedIdentity")
-    def encryption_user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
-        """
-        return pulumi.get(self, "encryption_user_assigned_identity")
-
-    @encryption_user_assigned_identity.setter
-    def encryption_user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "encryption_user_assigned_identity", value)
-
-
-class EncryptionScopeKeyVaultPropertiesArgsDict(TypedDict):
-    """
-    The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-    """
-    key_uri: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-    """
-
-@pulumi.input_type
-class EncryptionScopeKeyVaultPropertiesArgs:
-    def __init__(__self__, *,
-                 key_uri: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-
-        :param pulumi.Input[_builtins.str] key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-        """
-        if key_uri is not None:
-            pulumi.set(__self__, "key_uri", key_uri)
-
-    @_builtins.property
-    @pulumi.getter(name="keyUri")
-    def key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-        """
-        return pulumi.get(self, "key_uri")
-
-    @key_uri.setter
-    def key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key_uri", value)
-
-
-class EncryptionServicesArgsDict(TypedDict):
-    """
-    A list of services that support encryption.
-    """
-    blob: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-    """
-    The encryption function of the blob storage service.
-    """
-    file: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-    """
-    The encryption function of the file storage service.
-    """
-    queue: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-    """
-    The encryption function of the queue storage service.
-    """
-    table: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-    """
-    The encryption function of the table storage service.
-    """
-
-@pulumi.input_type
-class EncryptionServicesArgs:
-    def __init__(__self__, *,
-                 blob: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
-                 file: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
-                 queue: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
-                 table: Optional[pulumi.Input['EncryptionServiceArgs']] = None):
-        """
-        A list of services that support encryption.
-
-        :param pulumi.Input['EncryptionServiceArgs'] blob: The encryption function of the blob storage service.
-        :param pulumi.Input['EncryptionServiceArgs'] file: The encryption function of the file storage service.
-        :param pulumi.Input['EncryptionServiceArgs'] queue: The encryption function of the queue storage service.
-        :param pulumi.Input['EncryptionServiceArgs'] table: The encryption function of the table storage service.
-        """
-        if blob is not None:
-            pulumi.set(__self__, "blob", blob)
-        if file is not None:
-            pulumi.set(__self__, "file", file)
-        if queue is not None:
-            pulumi.set(__self__, "queue", queue)
-        if table is not None:
-            pulumi.set(__self__, "table", table)
-
-    @_builtins.property
-    @pulumi.getter
-    def blob(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the blob storage service.
-        """
-        return pulumi.get(self, "blob")
-
-    @blob.setter
-    def blob(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "blob", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def file(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the file storage service.
-        """
-        return pulumi.get(self, "file")
-
-    @file.setter
-    def file(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "file", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def queue(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the queue storage service.
-        """
-        return pulumi.get(self, "queue")
-
-    @queue.setter
-    def queue(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "queue", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def table(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the table storage service.
-        """
-        return pulumi.get(self, "table")
-
-    @table.setter
-    def table(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "table", value)
-
-
-class EncryptionServiceArgsDict(TypedDict):
-    """
-    A service that allows server-side encryption to be used.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
-    """
-    key_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyType']]]
-    """
-    Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-    """
-
-@pulumi.input_type
-class EncryptionServiceArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_type: Optional[pulumi.Input[Union[_builtins.str, 'KeyType']]] = None):
-        """
-        A service that allows server-side encryption to be used.
-
-        :param pulumi.Input[_builtins.bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
-        :param pulumi.Input[Union[_builtins.str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeyType']]]:
-        """
-        Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-        """
-        return pulumi.get(self, "key_type")
-
-    @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeyType']]]):
-        pulumi.set(self, "key_type", value)
 
 
 class EncryptionArgsDict(TypedDict):
     """
     The encryption settings on the storage account.
     """
-    encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+    encryption_identity: NotRequired[pulumi.Input[Optional['EncryptionIdentityArgsDict']]]
     """
     The identity to be used with service-side encryption at rest.
     """
-    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    key_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]]
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
     """
-    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault_properties: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     Properties provided by key vault.
     """
-    require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    require_infrastructure_encryption: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
     """
-    services: NotRequired[pulumi.Input['EncryptionServicesArgsDict']]
+    services: NotRequired[pulumi.Input[Optional['EncryptionServicesArgsDict']]]
     """
     List of services which support encryption.
     """
@@ -1871,11 +1635,11 @@ class EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 encryption_identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
-                 key_source: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]] = None,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
+                 encryption_identity: pulumi.Input[Optional['EncryptionIdentityArgs']] = None,
+                 key_source: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]] = None,
+                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None,
+                 require_infrastructure_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 services: pulumi.Input[Optional['EncryptionServicesArgs']] = None):
         """
         The encryption settings on the storage account.
 
@@ -1900,74 +1664,310 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionIdentity")
-    def encryption_identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+    def encryption_identity(self) -> pulumi.Input[Optional['EncryptionIdentityArgs']]:
         """
         The identity to be used with service-side encryption at rest.
         """
         return pulumi.get(self, "encryption_identity")
 
     @encryption_identity.setter
-    def encryption_identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+    def encryption_identity(self, value: pulumi.Input[Optional['EncryptionIdentityArgs']]):
         pulumi.set(self, "encryption_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]:
+    def key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]:
         """
         The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]):
+    def key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         Properties provided by key vault.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="requireInfrastructureEncryption")
-    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_infrastructure_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
     @require_infrastructure_encryption.setter
-    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_infrastructure_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input['EncryptionServicesArgs']]:
+    def services(self) -> pulumi.Input[Optional['EncryptionServicesArgs']]:
         """
         List of services which support encryption.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
+    def services(self, value: pulumi.Input[Optional['EncryptionServicesArgs']]):
         pulumi.set(self, "services", value)
+
+
+class EncryptionIdentityArgsDict(TypedDict):
+    """
+    Encryption identity for the storage account.
+    """
+    encryption_federated_identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+    """
+    encryption_user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+    """
+
+@pulumi.input_type
+class EncryptionIdentityArgs:
+    def __init__(__self__, *,
+                 encryption_federated_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Encryption identity for the storage account.
+
+        :param pulumi.Input[_builtins.str] encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        :param pulumi.Input[_builtins.str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        if encryption_federated_identity_client_id is not None:
+            pulumi.set(__self__, "encryption_federated_identity_client_id", encryption_federated_identity_client_id)
+        if encryption_user_assigned_identity is not None:
+            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionFederatedIdentityClientId")
+    def encryption_federated_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "encryption_federated_identity_client_id")
+
+    @encryption_federated_identity_client_id.setter
+    def encryption_federated_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_federated_identity_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionUserAssignedIdentity")
+    def encryption_user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "encryption_user_assigned_identity")
+
+    @encryption_user_assigned_identity.setter
+    def encryption_user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_user_assigned_identity", value)
+
+
+class EncryptionScopeKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+    """
+    key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+    """
+
+@pulumi.input_type
+class EncryptionScopeKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+
+        :param pulumi.Input[_builtins.str] key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        if key_uri is not None:
+            pulumi.set(__self__, "key_uri", key_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        return pulumi.get(self, "key_uri")
+
+    @key_uri.setter
+    def key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_uri", value)
+
+
+class EncryptionServiceArgsDict(TypedDict):
+    """
+    A service that allows server-side encryption to be used.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
+    """
+    key_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]]
+    """
+    Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+    """
+
+@pulumi.input_type
+class EncryptionServiceArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_type: pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]] = None):
+        """
+        A service that allows server-side encryption to be used.
+
+        :param pulumi.Input[_builtins.bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
+        :param pulumi.Input[Union[_builtins.str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]:
+        """
+        Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]):
+        pulumi.set(self, "key_type", value)
+
+
+class EncryptionServicesArgsDict(TypedDict):
+    """
+    A list of services that support encryption.
+    """
+    blob: NotRequired[pulumi.Input[Optional['EncryptionServiceArgsDict']]]
+    """
+    The encryption function of the blob storage service.
+    """
+    file: NotRequired[pulumi.Input[Optional['EncryptionServiceArgsDict']]]
+    """
+    The encryption function of the file storage service.
+    """
+    queue: NotRequired[pulumi.Input[Optional['EncryptionServiceArgsDict']]]
+    """
+    The encryption function of the queue storage service.
+    """
+    table: NotRequired[pulumi.Input[Optional['EncryptionServiceArgsDict']]]
+    """
+    The encryption function of the table storage service.
+    """
+
+@pulumi.input_type
+class EncryptionServicesArgs:
+    def __init__(__self__, *,
+                 blob: pulumi.Input[Optional['EncryptionServiceArgs']] = None,
+                 file: pulumi.Input[Optional['EncryptionServiceArgs']] = None,
+                 queue: pulumi.Input[Optional['EncryptionServiceArgs']] = None,
+                 table: pulumi.Input[Optional['EncryptionServiceArgs']] = None):
+        """
+        A list of services that support encryption.
+
+        :param pulumi.Input['EncryptionServiceArgs'] blob: The encryption function of the blob storage service.
+        :param pulumi.Input['EncryptionServiceArgs'] file: The encryption function of the file storage service.
+        :param pulumi.Input['EncryptionServiceArgs'] queue: The encryption function of the queue storage service.
+        :param pulumi.Input['EncryptionServiceArgs'] table: The encryption function of the table storage service.
+        """
+        if blob is not None:
+            pulumi.set(__self__, "blob", blob)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if queue is not None:
+            pulumi.set(__self__, "queue", queue)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @_builtins.property
+    @pulumi.getter
+    def blob(self) -> pulumi.Input[Optional['EncryptionServiceArgs']]:
+        """
+        The encryption function of the blob storage service.
+        """
+        return pulumi.get(self, "blob")
+
+    @blob.setter
+    def blob(self, value: pulumi.Input[Optional['EncryptionServiceArgs']]):
+        pulumi.set(self, "blob", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[Optional['EncryptionServiceArgs']]:
+        """
+        The encryption function of the file storage service.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[Optional['EncryptionServiceArgs']]):
+        pulumi.set(self, "file", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def queue(self) -> pulumi.Input[Optional['EncryptionServiceArgs']]:
+        """
+        The encryption function of the queue storage service.
+        """
+        return pulumi.get(self, "queue")
+
+    @queue.setter
+    def queue(self, value: pulumi.Input[Optional['EncryptionServiceArgs']]):
+        pulumi.set(self, "queue", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> pulumi.Input[Optional['EncryptionServiceArgs']]:
+        """
+        The encryption function of the table storage service.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: pulumi.Input[Optional['EncryptionServiceArgs']]):
+        pulumi.set(self, "table", value)
 
 
 class ExecutionTargetArgsDict(TypedDict):
     """
     Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
     """
-    exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_prefix: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
     """
-    prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Required list of object prefixes to be included for task execution
     """
@@ -1975,8 +1975,8 @@ class ExecutionTargetArgsDict(TypedDict):
 @pulumi.input_type
 class ExecutionTargetArgs:
     def __init__(__self__, *,
-                 exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prefix: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude_prefix: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prefix: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
 
@@ -1990,26 +1990,26 @@ class ExecutionTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludePrefix")
-    def exclude_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_prefix(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
         """
         return pulumi.get(self, "exclude_prefix")
 
     @exclude_prefix.setter
-    def exclude_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_prefix(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required list of object prefixes to be included for task execution
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -2069,11 +2069,11 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     The complex type of the extended location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the extended location.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]]
     """
     The type of the extended location.
     """
@@ -2081,8 +2081,8 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
         """
         The complex type of the extended location.
 
@@ -2096,26 +2096,26 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the extended location.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]:
         """
         The type of the extended location.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
 
@@ -2123,15 +2123,15 @@ class FileSharePropertiesFileSharePaidBurstingArgsDict(TypedDict):
     """
     File Share Paid Bursting properties.
     """
-    paid_bursting_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    paid_bursting_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
     """
-    paid_bursting_max_bandwidth_mibps: NotRequired[pulumi.Input[_builtins.int]]
+    paid_bursting_max_bandwidth_mibps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
     """
-    paid_bursting_max_iops: NotRequired[pulumi.Input[_builtins.int]]
+    paid_bursting_max_iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
     """
@@ -2139,9 +2139,9 @@ class FileSharePropertiesFileSharePaidBurstingArgsDict(TypedDict):
 @pulumi.input_type
 class FileSharePropertiesFileSharePaidBurstingArgs:
     def __init__(__self__, *,
-                 paid_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 paid_bursting_max_bandwidth_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 paid_bursting_max_iops: Optional[pulumi.Input[_builtins.int]] = None):
+                 paid_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 paid_bursting_max_bandwidth_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 paid_bursting_max_iops: pulumi.Input[Optional[_builtins.int]] = None):
         """
         File Share Paid Bursting properties.
 
@@ -2158,38 +2158,38 @@ class FileSharePropertiesFileSharePaidBurstingArgs:
 
     @_builtins.property
     @pulumi.getter(name="paidBurstingEnabled")
-    def paid_bursting_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def paid_bursting_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
         """
         return pulumi.get(self, "paid_bursting_enabled")
 
     @paid_bursting_enabled.setter
-    def paid_bursting_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def paid_bursting_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "paid_bursting_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="paidBurstingMaxBandwidthMibps")
-    def paid_bursting_max_bandwidth_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def paid_bursting_max_bandwidth_mibps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
         """
         return pulumi.get(self, "paid_bursting_max_bandwidth_mibps")
 
     @paid_bursting_max_bandwidth_mibps.setter
-    def paid_bursting_max_bandwidth_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def paid_bursting_max_bandwidth_mibps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "paid_bursting_max_bandwidth_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="paidBurstingMaxIops")
-    def paid_bursting_max_iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def paid_bursting_max_iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
         """
         return pulumi.get(self, "paid_bursting_max_iops")
 
     @paid_bursting_max_iops.setter
-    def paid_bursting_max_iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def paid_bursting_max_iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "paid_bursting_max_iops", value)
 
 
@@ -2201,7 +2201,7 @@ class IPRuleArgsDict(TypedDict):
     """
     Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
     """
-    action: NotRequired[pulumi.Input['Action']]
+    action: NotRequired[pulumi.Input[Optional['Action']]]
     """
     The action of IP ACL rule.
     """
@@ -2210,7 +2210,7 @@ class IPRuleArgsDict(TypedDict):
 class IPRuleArgs:
     def __init__(__self__, *,
                  i_p_address_or_range: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input['Action']] = None):
+                 action: pulumi.Input[Optional['Action']] = None):
         """
         IP rule with specific IP or IP range in CIDR format.
 
@@ -2237,14 +2237,14 @@ class IPRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['Action']]:
+    def action(self) -> pulumi.Input[Optional['Action']]:
         """
         The action of IP ACL rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['Action']]):
+    def action(self, value: pulumi.Input[Optional['Action']]):
         pulumi.set(self, "action", value)
 
 
@@ -2256,7 +2256,7 @@ class IdentityArgsDict(TypedDict):
     """
     The identity type.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
     """
@@ -2265,7 +2265,7 @@ class IdentityArgsDict(TypedDict):
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -2290,14 +2290,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2305,11 +2305,11 @@ class ImmutableStorageAccountArgsDict(TypedDict):
     """
     This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
     """
-    immutability_policy: NotRequired[pulumi.Input['AccountImmutabilityPolicyPropertiesArgsDict']]
+    immutability_policy: NotRequired[pulumi.Input[Optional['AccountImmutabilityPolicyPropertiesArgsDict']]]
     """
     Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
     """
@@ -2317,8 +2317,8 @@ class ImmutableStorageAccountArgsDict(TypedDict):
 @pulumi.input_type
 class ImmutableStorageAccountArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyPropertiesArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutability_policy: pulumi.Input[Optional['AccountImmutabilityPolicyPropertiesArgs']] = None):
         """
         This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
 
@@ -2332,26 +2332,26 @@ class ImmutableStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPolicy")
-    def immutability_policy(self) -> Optional[pulumi.Input['AccountImmutabilityPolicyPropertiesArgs']]:
+    def immutability_policy(self) -> pulumi.Input[Optional['AccountImmutabilityPolicyPropertiesArgs']]:
         """
         Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
         """
         return pulumi.get(self, "immutability_policy")
 
     @immutability_policy.setter
-    def immutability_policy(self, value: Optional[pulumi.Input['AccountImmutabilityPolicyPropertiesArgs']]):
+    def immutability_policy(self, value: pulumi.Input[Optional['AccountImmutabilityPolicyPropertiesArgs']]):
         pulumi.set(self, "immutability_policy", value)
 
 
@@ -2359,7 +2359,7 @@ class ImmutableStorageWithVersioningArgsDict(TypedDict):
     """
     Object level immutability properties of the container.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is an immutable property, when set to true it enables object level immutability at the container level.
     """
@@ -2367,7 +2367,7 @@ class ImmutableStorageWithVersioningArgsDict(TypedDict):
 @pulumi.input_type
 class ImmutableStorageWithVersioningArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Object level immutability properties of the container.
 
@@ -2378,14 +2378,14 @@ class ImmutableStorageWithVersioningArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is an immutable property, when set to true it enables object level immutability at the container level.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -2426,15 +2426,15 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     Properties of key vault.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of KeyVault key.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Uri of KeyVault.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of KeyVault key.
     """
@@ -2442,9 +2442,9 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of key vault.
 
@@ -2461,38 +2461,38 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of KeyVault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Uri of KeyVault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of KeyVault key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -2504,15 +2504,15 @@ class LastAccessTimeTrackingPolicyArgsDict(TypedDict):
     """
     When set to true last access time based tracking is enabled.
     """
-    blob_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blob_type: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'Name']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Name']]]]
     """
     Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
     """
-    tracking_granularity_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    tracking_granularity_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
     """
@@ -2521,9 +2521,9 @@ class LastAccessTimeTrackingPolicyArgsDict(TypedDict):
 class LastAccessTimeTrackingPolicyArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[_builtins.bool],
-                 blob_type: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'Name']]] = None,
-                 tracking_granularity_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 blob_type: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'Name']]] = None,
+                 tracking_granularity_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The blob service properties for Last access time based tracking policy.
 
@@ -2554,38 +2554,38 @@ class LastAccessTimeTrackingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobType")
-    def blob_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_type(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
         """
         return pulumi.get(self, "blob_type")
 
     @blob_type.setter
-    def blob_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_type(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Name']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Name']]]:
         """
         Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Name']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Name']]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingGranularityInDays")
-    def tracking_granularity_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tracking_granularity_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
         """
         return pulumi.get(self, "tracking_granularity_in_days")
 
     @tracking_granularity_in_days.setter
-    def tracking_granularity_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tracking_granularity_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tracking_granularity_in_days", value)
 
 
@@ -2598,7 +2598,7 @@ class ManagedIdentityAuthPropertiesArgsDict(TypedDict):
     The auth type supported for bucket connection in storage connector.
     Expected value is 'ManagedIdentity'.
     """
-    identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
     """
@@ -2607,7 +2607,7 @@ class ManagedIdentityAuthPropertiesArgsDict(TypedDict):
 class ManagedIdentityAuthPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The managed identity auth properties for dataShare connection.
 
@@ -2634,14 +2634,14 @@ class ManagedIdentityAuthPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityResourceId")
-    def identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
         """
         return pulumi.get(self, "identity_resource_id")
 
     @identity_resource_id.setter
-    def identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_resource_id", value)
 
 
@@ -2649,15 +2649,15 @@ class ManagementPolicyActionArgsDict(TypedDict):
     """
     Actions are applied to the filtered blobs when the execution condition is met.
     """
-    base_blob: NotRequired[pulumi.Input['ManagementPolicyBaseBlobArgsDict']]
+    base_blob: NotRequired[pulumi.Input[Optional['ManagementPolicyBaseBlobArgsDict']]]
     """
     The management policy action for base blob
     """
-    snapshot: NotRequired[pulumi.Input['ManagementPolicySnapShotArgsDict']]
+    snapshot: NotRequired[pulumi.Input[Optional['ManagementPolicySnapShotArgsDict']]]
     """
     The management policy action for snapshot
     """
-    version: NotRequired[pulumi.Input['ManagementPolicyVersionArgsDict']]
+    version: NotRequired[pulumi.Input[Optional['ManagementPolicyVersionArgsDict']]]
     """
     The management policy action for version
     """
@@ -2665,9 +2665,9 @@ class ManagementPolicyActionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyActionArgs:
     def __init__(__self__, *,
-                 base_blob: Optional[pulumi.Input['ManagementPolicyBaseBlobArgs']] = None,
-                 snapshot: Optional[pulumi.Input['ManagementPolicySnapShotArgs']] = None,
-                 version: Optional[pulumi.Input['ManagementPolicyVersionArgs']] = None):
+                 base_blob: pulumi.Input[Optional['ManagementPolicyBaseBlobArgs']] = None,
+                 snapshot: pulumi.Input[Optional['ManagementPolicySnapShotArgs']] = None,
+                 version: pulumi.Input[Optional['ManagementPolicyVersionArgs']] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
 
@@ -2684,38 +2684,38 @@ class ManagementPolicyActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseBlob")
-    def base_blob(self) -> Optional[pulumi.Input['ManagementPolicyBaseBlobArgs']]:
+    def base_blob(self) -> pulumi.Input[Optional['ManagementPolicyBaseBlobArgs']]:
         """
         The management policy action for base blob
         """
         return pulumi.get(self, "base_blob")
 
     @base_blob.setter
-    def base_blob(self, value: Optional[pulumi.Input['ManagementPolicyBaseBlobArgs']]):
+    def base_blob(self, value: pulumi.Input[Optional['ManagementPolicyBaseBlobArgs']]):
         pulumi.set(self, "base_blob", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['ManagementPolicySnapShotArgs']]:
+    def snapshot(self) -> pulumi.Input[Optional['ManagementPolicySnapShotArgs']]:
         """
         The management policy action for snapshot
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['ManagementPolicySnapShotArgs']]):
+    def snapshot(self, value: pulumi.Input[Optional['ManagementPolicySnapShotArgs']]):
         pulumi.set(self, "snapshot", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['ManagementPolicyVersionArgs']]:
+    def version(self) -> pulumi.Input[Optional['ManagementPolicyVersionArgs']]:
         """
         The management policy action for version
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['ManagementPolicyVersionArgs']]):
+    def version(self, value: pulumi.Input[Optional['ManagementPolicyVersionArgs']]):
         pulumi.set(self, "version", value)
 
 
@@ -2723,27 +2723,27 @@ class ManagementPolicyBaseBlobArgsDict(TypedDict):
     """
     Management policy action for base blob.
     """
-    delete: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    delete: NotRequired[pulumi.Input[Optional['DateAfterModificationArgsDict']]]
     """
     The function to delete the blob
     """
-    enable_auto_tier_to_hot_from_cool: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_tier_to_hot_from_cool: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
     """
-    tier_to_archive: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    tier_to_archive: NotRequired[pulumi.Input[Optional['DateAfterModificationArgsDict']]]
     """
     The function to tier blobs to archive storage.
     """
-    tier_to_cold: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    tier_to_cold: NotRequired[pulumi.Input[Optional['DateAfterModificationArgsDict']]]
     """
     The function to tier blobs to cold storage.
     """
-    tier_to_cool: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    tier_to_cool: NotRequired[pulumi.Input[Optional['DateAfterModificationArgsDict']]]
     """
     The function to tier blobs to cool storage.
     """
-    tier_to_hot: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    tier_to_hot: NotRequired[pulumi.Input[Optional['DateAfterModificationArgsDict']]]
     """
     The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
     """
@@ -2751,12 +2751,12 @@ class ManagementPolicyBaseBlobArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyBaseBlobArgs:
     def __init__(__self__, *,
-                 delete: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
-                 enable_auto_tier_to_hot_from_cool: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tier_to_archive: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
-                 tier_to_cold: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
-                 tier_to_cool: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
-                 tier_to_hot: Optional[pulumi.Input['DateAfterModificationArgs']] = None):
+                 delete: pulumi.Input[Optional['DateAfterModificationArgs']] = None,
+                 enable_auto_tier_to_hot_from_cool: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tier_to_archive: pulumi.Input[Optional['DateAfterModificationArgs']] = None,
+                 tier_to_cold: pulumi.Input[Optional['DateAfterModificationArgs']] = None,
+                 tier_to_cool: pulumi.Input[Optional['DateAfterModificationArgs']] = None,
+                 tier_to_hot: pulumi.Input[Optional['DateAfterModificationArgs']] = None):
         """
         Management policy action for base blob.
 
@@ -2782,74 +2782,74 @@ class ManagementPolicyBaseBlobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input['DateAfterModificationArgs']]:
+    def delete(self) -> pulumi.Input[Optional['DateAfterModificationArgs']]:
         """
         The function to delete the blob
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
+    def delete(self, value: pulumi.Input[Optional['DateAfterModificationArgs']]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoTierToHotFromCool")
-    def enable_auto_tier_to_hot_from_cool(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_tier_to_hot_from_cool(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         """
         return pulumi.get(self, "enable_auto_tier_to_hot_from_cool")
 
     @enable_auto_tier_to_hot_from_cool.setter
-    def enable_auto_tier_to_hot_from_cool(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_tier_to_hot_from_cool(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_tier_to_hot_from_cool", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchive")
-    def tier_to_archive(self) -> Optional[pulumi.Input['DateAfterModificationArgs']]:
+    def tier_to_archive(self) -> pulumi.Input[Optional['DateAfterModificationArgs']]:
         """
         The function to tier blobs to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
 
     @tier_to_archive.setter
-    def tier_to_archive(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
+    def tier_to_archive(self, value: pulumi.Input[Optional['DateAfterModificationArgs']]):
         pulumi.set(self, "tier_to_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCold")
-    def tier_to_cold(self) -> Optional[pulumi.Input['DateAfterModificationArgs']]:
+    def tier_to_cold(self) -> pulumi.Input[Optional['DateAfterModificationArgs']]:
         """
         The function to tier blobs to cold storage.
         """
         return pulumi.get(self, "tier_to_cold")
 
     @tier_to_cold.setter
-    def tier_to_cold(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
+    def tier_to_cold(self, value: pulumi.Input[Optional['DateAfterModificationArgs']]):
         pulumi.set(self, "tier_to_cold", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCool")
-    def tier_to_cool(self) -> Optional[pulumi.Input['DateAfterModificationArgs']]:
+    def tier_to_cool(self) -> pulumi.Input[Optional['DateAfterModificationArgs']]:
         """
         The function to tier blobs to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
 
     @tier_to_cool.setter
-    def tier_to_cool(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
+    def tier_to_cool(self, value: pulumi.Input[Optional['DateAfterModificationArgs']]):
         pulumi.set(self, "tier_to_cool", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToHot")
-    def tier_to_hot(self) -> Optional[pulumi.Input['DateAfterModificationArgs']]:
+    def tier_to_hot(self) -> pulumi.Input[Optional['DateAfterModificationArgs']]:
         """
         The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         return pulumi.get(self, "tier_to_hot")
 
     @tier_to_hot.setter
-    def tier_to_hot(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
+    def tier_to_hot(self, value: pulumi.Input[Optional['DateAfterModificationArgs']]):
         pulumi.set(self, "tier_to_hot", value)
 
 
@@ -2861,7 +2861,7 @@ class ManagementPolicyDefinitionArgsDict(TypedDict):
     """
     An object that defines the action set.
     """
-    filters: NotRequired[pulumi.Input['ManagementPolicyFilterArgsDict']]
+    filters: NotRequired[pulumi.Input[Optional['ManagementPolicyFilterArgsDict']]]
     """
     An object that defines the filter set.
     """
@@ -2870,7 +2870,7 @@ class ManagementPolicyDefinitionArgsDict(TypedDict):
 class ManagementPolicyDefinitionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['ManagementPolicyActionArgs'],
-                 filters: Optional[pulumi.Input['ManagementPolicyFilterArgs']] = None):
+                 filters: pulumi.Input[Optional['ManagementPolicyFilterArgs']] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
 
@@ -2895,30 +2895,30 @@ class ManagementPolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['ManagementPolicyFilterArgs']]:
+    def filters(self) -> pulumi.Input[Optional['ManagementPolicyFilterArgs']]:
         """
         An object that defines the filter set.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['ManagementPolicyFilterArgs']]):
+    def filters(self, value: pulumi.Input[Optional['ManagementPolicyFilterArgs']]):
         pulumi.set(self, "filters", value)
 
 
 class ManagementPolicyFilterArgsDict(TypedDict):
     """
-    Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+    Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters.
     """
     blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
     """
-    blob_index_match: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagFilterArgsDict']]]]
+    blob_index_match: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagFilterArgsDict']]]]]
     """
     An array of blob index tag based filters, there can be at most 10 tag filters
     """
-    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_match: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings for prefixes to be match.
     """
@@ -2927,10 +2927,10 @@ class ManagementPolicyFilterArgsDict(TypedDict):
 class ManagementPolicyFilterArgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 blob_index_match: Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]] = None,
-                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blob_index_match: pulumi.Input[Optional[Sequence[pulumi.Input['TagFilterArgs']]]] = None,
+                 prefix_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+        Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
@@ -2956,26 +2956,26 @@ class ManagementPolicyFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobIndexMatch")
-    def blob_index_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]]:
+    def blob_index_match(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagFilterArgs']]]]:
         """
         An array of blob index tag based filters, there can be at most 10 tag filters
         """
         return pulumi.get(self, "blob_index_match")
 
     @blob_index_match.setter
-    def blob_index_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]]):
+    def blob_index_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagFilterArgs']]]]):
         pulumi.set(self, "blob_index_match", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_match(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings for prefixes to be match.
         """
         return pulumi.get(self, "prefix_match")
 
     @prefix_match.setter
-    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_match", value)
 
 
@@ -2995,7 +2995,7 @@ class ManagementPolicyRuleArgsDict(TypedDict):
     """
     The valid value is Lifecycle
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Rule is enabled if set to true.
     """
@@ -3006,7 +3006,7 @@ class ManagementPolicyRuleArgs:
                  definition: pulumi.Input['ManagementPolicyDefinitionArgs'],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'RuleType']],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
 
@@ -3059,14 +3059,14 @@ class ManagementPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Rule is enabled if set to true.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -3107,23 +3107,23 @@ class ManagementPolicySnapShotArgsDict(TypedDict):
     """
     Management policy action for snapshot.
     """
-    delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    delete: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to delete the blob snapshot
     """
-    tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_archive: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blob snapshot to archive storage.
     """
-    tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_cold: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blobs to cold storage.
     """
-    tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_cool: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blob snapshot to cool storage.
     """
-    tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_hot: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
     """
@@ -3131,11 +3131,11 @@ class ManagementPolicySnapShotArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicySnapShotArgs:
     def __init__(__self__, *,
-                 delete: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_archive: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_cold: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_cool: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None):
+                 delete: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_archive: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_cold: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_cool: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_hot: pulumi.Input[Optional['DateAfterCreationArgs']] = None):
         """
         Management policy action for snapshot.
 
@@ -3158,62 +3158,62 @@ class ManagementPolicySnapShotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def delete(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to delete the blob snapshot
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def delete(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchive")
-    def tier_to_archive(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_archive(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blob snapshot to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
 
     @tier_to_archive.setter
-    def tier_to_archive(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_archive(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCold")
-    def tier_to_cold(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_cold(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blobs to cold storage.
         """
         return pulumi.get(self, "tier_to_cold")
 
     @tier_to_cold.setter
-    def tier_to_cold(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_cold(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_cold", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCool")
-    def tier_to_cool(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_cool(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blob snapshot to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
 
     @tier_to_cool.setter
-    def tier_to_cool(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_cool(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_cool", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToHot")
-    def tier_to_hot(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_hot(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         return pulumi.get(self, "tier_to_hot")
 
     @tier_to_hot.setter
-    def tier_to_hot(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_hot(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_hot", value)
 
 
@@ -3221,23 +3221,23 @@ class ManagementPolicyVersionArgsDict(TypedDict):
     """
     Management policy action for blob version.
     """
-    delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    delete: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to delete the blob version
     """
-    tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_archive: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blob version to archive storage.
     """
-    tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_cold: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blobs to cold storage.
     """
-    tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_cool: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blob version to cool storage.
     """
-    tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    tier_to_hot: NotRequired[pulumi.Input[Optional['DateAfterCreationArgsDict']]]
     """
     The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
     """
@@ -3245,11 +3245,11 @@ class ManagementPolicyVersionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyVersionArgs:
     def __init__(__self__, *,
-                 delete: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_archive: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_cold: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_cool: Optional[pulumi.Input['DateAfterCreationArgs']] = None,
-                 tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None):
+                 delete: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_archive: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_cold: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_cool: pulumi.Input[Optional['DateAfterCreationArgs']] = None,
+                 tier_to_hot: pulumi.Input[Optional['DateAfterCreationArgs']] = None):
         """
         Management policy action for blob version.
 
@@ -3272,62 +3272,62 @@ class ManagementPolicyVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def delete(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to delete the blob version
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def delete(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchive")
-    def tier_to_archive(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_archive(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blob version to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
 
     @tier_to_archive.setter
-    def tier_to_archive(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_archive(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCold")
-    def tier_to_cold(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_cold(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blobs to cold storage.
         """
         return pulumi.get(self, "tier_to_cold")
 
     @tier_to_cold.setter
-    def tier_to_cold(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_cold(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_cold", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCool")
-    def tier_to_cool(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_cool(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blob version to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
 
     @tier_to_cool.setter
-    def tier_to_cool(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_cool(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_cool", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToHot")
-    def tier_to_hot(self) -> Optional[pulumi.Input['DateAfterCreationArgs']]:
+    def tier_to_hot(self) -> pulumi.Input[Optional['DateAfterCreationArgs']]:
         """
         The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         return pulumi.get(self, "tier_to_hot")
 
     @tier_to_hot.setter
-    def tier_to_hot(self, value: Optional[pulumi.Input['DateAfterCreationArgs']]):
+    def tier_to_hot(self, value: pulumi.Input[Optional['DateAfterCreationArgs']]):
         pulumi.set(self, "tier_to_hot", value)
 
 
@@ -3335,7 +3335,7 @@ class MultichannelArgsDict(TypedDict):
     """
     Multichannel setting. Applies to Premium FileStorage only.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether multichannel is enabled
     """
@@ -3343,7 +3343,7 @@ class MultichannelArgsDict(TypedDict):
 @pulumi.input_type
 class MultichannelArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Multichannel setting. Applies to Premium FileStorage only.
 
@@ -3354,14 +3354,14 @@ class MultichannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether multichannel is enabled
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -3373,19 +3373,19 @@ class NetworkRuleSetArgsDict(TypedDict):
     """
     Specifies the default action of allow or deny when no other rules match.
     """
-    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'Bypass']]]
+    bypass: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Bypass']]]]
     """
     Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgsDict']]]]]
     """
     Sets the IP ACL rules
     """
-    resource_access_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgsDict']]]]
+    resource_access_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRuleArgsDict']]]]]
     """
     Sets the resource access rules
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]]
     """
     Sets the virtual network rules
     """
@@ -3393,11 +3393,11 @@ class NetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input['DefaultAction']] = None,
-                 bypass: Optional[pulumi.Input[Union[_builtins.str, 'Bypass']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
-                 resource_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 default_action: pulumi.Input[Optional['DefaultAction']] = None,
+                 bypass: pulumi.Input[Optional[Union[_builtins.str, 'Bypass']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 resource_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
 
@@ -3435,50 +3435,50 @@ class NetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Bypass']]]:
+    def bypass(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Bypass']]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Bypass']]]):
+    def bypass(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Bypass']]]):
         pulumi.set(self, "bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         Sets the IP ACL rules
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessRules")
-    def resource_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]:
+    def resource_access_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]:
         """
         Sets the resource access rules
         """
         return pulumi.get(self, "resource_access_rules")
 
     @resource_access_rules.setter
-    def resource_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]):
+    def resource_access_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]):
         pulumi.set(self, "resource_access_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         Sets the virtual network rules
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -3486,11 +3486,11 @@ class ObjectReplicationPolicyFilterArgsDict(TypedDict):
     """
     Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
     """
-    min_creation_time: NotRequired[pulumi.Input[_builtins.str]]
+    min_creation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
     """
-    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_match: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
     """
@@ -3498,8 +3498,8 @@ class ObjectReplicationPolicyFilterArgsDict(TypedDict):
 @pulumi.input_type
 class ObjectReplicationPolicyFilterArgs:
     def __init__(__self__, *,
-                 min_creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 min_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
 
@@ -3513,26 +3513,26 @@ class ObjectReplicationPolicyFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="minCreationTime")
-    def min_creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
         """
         return pulumi.get(self, "min_creation_time")
 
     @min_creation_time.setter
-    def min_creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_match(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
         return pulumi.get(self, "prefix_match")
 
     @prefix_match.setter
-    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_match", value)
 
 
@@ -3540,7 +3540,7 @@ class ObjectReplicationPolicyPropertiesMetricsArgsDict(TypedDict):
     """
     Optional. The object replication policy metrics feature options.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether object replication metrics feature is enabled for the policy.
     """
@@ -3548,7 +3548,7 @@ class ObjectReplicationPolicyPropertiesMetricsArgsDict(TypedDict):
 @pulumi.input_type
 class ObjectReplicationPolicyPropertiesMetricsArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Optional. The object replication policy metrics feature options.
 
@@ -3559,14 +3559,14 @@ class ObjectReplicationPolicyPropertiesMetricsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether object replication metrics feature is enabled for the policy.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -3582,11 +3582,11 @@ class ObjectReplicationPolicyRuleArgsDict(TypedDict):
     """
     Required. Source container name.
     """
-    filters: NotRequired[pulumi.Input['ObjectReplicationPolicyFilterArgsDict']]
+    filters: NotRequired[pulumi.Input[Optional['ObjectReplicationPolicyFilterArgsDict']]]
     """
     Optional. An object that defines the filter set.
     """
-    rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    rule_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
     """
@@ -3596,8 +3596,8 @@ class ObjectReplicationPolicyRuleArgs:
     def __init__(__self__, *,
                  destination_container: pulumi.Input[_builtins.str],
                  source_container: pulumi.Input[_builtins.str],
-                 filters: Optional[pulumi.Input['ObjectReplicationPolicyFilterArgs']] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 filters: pulumi.Input[Optional['ObjectReplicationPolicyFilterArgs']] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The replication policy rule between two containers.
 
@@ -3639,26 +3639,26 @@ class ObjectReplicationPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['ObjectReplicationPolicyFilterArgs']]:
+    def filters(self) -> pulumi.Input[Optional['ObjectReplicationPolicyFilterArgs']]:
         """
         Optional. An object that defines the filter set.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['ObjectReplicationPolicyFilterArgs']]):
+    def filters(self, value: pulumi.Input[Optional['ObjectReplicationPolicyFilterArgs']]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
 
@@ -3732,15 +3732,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    action_required: NotRequired[pulumi.Input[_builtins.str]]
+    action_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -3748,9 +3748,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 action_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -3767,38 +3767,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "action_required")
 
     @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -3806,7 +3806,7 @@ class ProtocolSettingsArgsDict(TypedDict):
     """
     Protocol settings for file service
     """
-    smb: NotRequired[pulumi.Input['SmbSettingArgsDict']]
+    smb: NotRequired[pulumi.Input[Optional['SmbSettingArgsDict']]]
     """
     Setting for SMB protocol
     """
@@ -3814,7 +3814,7 @@ class ProtocolSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ProtocolSettingsArgs:
     def __init__(__self__, *,
-                 smb: Optional[pulumi.Input['SmbSettingArgs']] = None):
+                 smb: pulumi.Input[Optional['SmbSettingArgs']] = None):
         """
         Protocol settings for file service
 
@@ -3825,14 +3825,14 @@ class ProtocolSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def smb(self) -> Optional[pulumi.Input['SmbSettingArgs']]:
+    def smb(self) -> pulumi.Input[Optional['SmbSettingArgs']]:
         """
         Setting for SMB protocol
         """
         return pulumi.get(self, "smb")
 
     @smb.setter
-    def smb(self, value: Optional[pulumi.Input['SmbSettingArgs']]):
+    def smb(self, value: pulumi.Input[Optional['SmbSettingArgs']]):
         pulumi.set(self, "smb", value)
 
 
@@ -3840,11 +3840,11 @@ class ResourceAccessRuleArgsDict(TypedDict):
     """
     Resource Access Rule.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant Id
     """
@@ -3852,8 +3852,8 @@ class ResourceAccessRuleArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceAccessRuleArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource Access Rule.
 
@@ -3867,26 +3867,26 @@ class ResourceAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant Id
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -3898,7 +3898,7 @@ class RestorePolicyPropertiesArgsDict(TypedDict):
     """
     Blob restore is enabled if set to true.
     """
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
     """
@@ -3907,7 +3907,7 @@ class RestorePolicyPropertiesArgsDict(TypedDict):
 class RestorePolicyPropertiesArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 days: Optional[pulumi.Input[_builtins.int]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The blob service properties for blob restore policy
 
@@ -3932,14 +3932,14 @@ class RestorePolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
 
@@ -3947,15 +3947,15 @@ class RoutingPreferenceArgsDict(TypedDict):
     """
     Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
     """
-    publish_internet_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    publish_internet_endpoints: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean flag which indicates whether internet routing storage endpoints are to be published
     """
-    publish_microsoft_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    publish_microsoft_endpoints: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean flag which indicates whether microsoft routing storage endpoints are to be published
     """
-    routing_choice: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]]
+    routing_choice: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RoutingChoice']]]]
     """
     Routing Choice defines the kind of network routing opted by the user.
     """
@@ -3963,9 +3963,9 @@ class RoutingPreferenceArgsDict(TypedDict):
 @pulumi.input_type
 class RoutingPreferenceArgs:
     def __init__(__self__, *,
-                 publish_internet_endpoints: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publish_microsoft_endpoints: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routing_choice: Optional[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]] = None):
+                 publish_internet_endpoints: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publish_microsoft_endpoints: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routing_choice: pulumi.Input[Optional[Union[_builtins.str, 'RoutingChoice']]] = None):
         """
         Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
 
@@ -3982,38 +3982,38 @@ class RoutingPreferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="publishInternetEndpoints")
-    def publish_internet_endpoints(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_internet_endpoints(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag which indicates whether internet routing storage endpoints are to be published
         """
         return pulumi.get(self, "publish_internet_endpoints")
 
     @publish_internet_endpoints.setter
-    def publish_internet_endpoints(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_internet_endpoints(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_internet_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="publishMicrosoftEndpoints")
-    def publish_microsoft_endpoints(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_microsoft_endpoints(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag which indicates whether microsoft routing storage endpoints are to be published
         """
         return pulumi.get(self, "publish_microsoft_endpoints")
 
     @publish_microsoft_endpoints.setter
-    def publish_microsoft_endpoints(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_microsoft_endpoints(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_microsoft_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="routingChoice")
-    def routing_choice(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]]:
+    def routing_choice(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RoutingChoice']]]:
         """
         Routing Choice defines the kind of network routing opted by the user.
         """
         return pulumi.get(self, "routing_choice")
 
     @routing_choice.setter
-    def routing_choice(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]]):
+    def routing_choice(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RoutingChoice']]]):
         pulumi.set(self, "routing_choice", value)
 
 
@@ -4033,7 +4033,7 @@ class SasPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class SasPolicyArgs:
     def __init__(__self__, *,
-                 expiration_action: Optional[pulumi.Input[Union[_builtins.str, 'ExpirationAction']]] = None,
+                 expiration_action: pulumi.Input[Optional[Union[_builtins.str, 'ExpirationAction']]] = None,
                  sas_expiration_period: pulumi.Input[_builtins.str]):
         """
         SasPolicy assigned to the storage account.
@@ -4072,11 +4072,11 @@ class SasPolicyArgs:
 
 
 class SignedIdentifierArgsDict(TypedDict):
-    access_policy: NotRequired[pulumi.Input['AccessPolicyArgsDict']]
+    access_policy: NotRequired[pulumi.Input[Optional['AccessPolicyArgsDict']]]
     """
     Access policy
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An unique identifier of the stored access policy.
     """
@@ -4084,8 +4084,8 @@ class SignedIdentifierArgsDict(TypedDict):
 @pulumi.input_type
 class SignedIdentifierArgs:
     def __init__(__self__, *,
-                 access_policy: Optional[pulumi.Input['AccessPolicyArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy: pulumi.Input[Optional['AccessPolicyArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AccessPolicyArgs'] access_policy: Access policy
         :param pulumi.Input[_builtins.str] id: An unique identifier of the stored access policy.
@@ -4097,26 +4097,26 @@ class SignedIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> Optional[pulumi.Input['AccessPolicyArgs']]:
+    def access_policy(self) -> pulumi.Input[Optional['AccessPolicyArgs']]:
         """
         Access policy
         """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
-    def access_policy(self, value: Optional[pulumi.Input['AccessPolicyArgs']]):
+    def access_policy(self, value: pulumi.Input[Optional['AccessPolicyArgs']]):
         pulumi.set(self, "access_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An unique identifier of the stored access policy.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -4157,23 +4157,23 @@ class SmbSettingArgsDict(TypedDict):
     """
     Setting for SMB protocol
     """
-    authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_methods: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
     """
-    channel_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    channel_encryption: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
     """
-    kerberos_ticket_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    kerberos_ticket_encryption: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
     """
-    multichannel: NotRequired[pulumi.Input['MultichannelArgsDict']]
+    multichannel: NotRequired[pulumi.Input[Optional['MultichannelArgsDict']]]
     """
     Multichannel setting. Applies to Premium FileStorage only.
     """
-    versions: NotRequired[pulumi.Input[_builtins.str]]
+    versions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
     """
@@ -4181,11 +4181,11 @@ class SmbSettingArgsDict(TypedDict):
 @pulumi.input_type
 class SmbSettingArgs:
     def __init__(__self__, *,
-                 authentication_methods: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_ticket_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 multichannel: Optional[pulumi.Input['MultichannelArgs']] = None,
-                 versions: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_methods: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_ticket_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 multichannel: pulumi.Input[Optional['MultichannelArgs']] = None,
+                 versions: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Setting for SMB protocol
 
@@ -4208,71 +4208,71 @@ class SmbSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
-    def authentication_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_methods(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
         """
         return pulumi.get(self, "authentication_methods")
 
     @authentication_methods.setter
-    def authentication_methods(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_methods(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="channelEncryption")
-    def channel_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
         """
         return pulumi.get(self, "channel_encryption")
 
     @channel_encryption.setter
-    def channel_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosTicketEncryption")
-    def kerberos_ticket_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_ticket_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
         """
         return pulumi.get(self, "kerberos_ticket_encryption")
 
     @kerberos_ticket_encryption.setter
-    def kerberos_ticket_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_ticket_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_ticket_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def multichannel(self) -> Optional[pulumi.Input['MultichannelArgs']]:
+    def multichannel(self) -> pulumi.Input[Optional['MultichannelArgs']]:
         """
         Multichannel setting. Applies to Premium FileStorage only.
         """
         return pulumi.get(self, "multichannel")
 
     @multichannel.setter
-    def multichannel(self, value: Optional[pulumi.Input['MultichannelArgs']]):
+    def multichannel(self, value: pulumi.Input[Optional['MultichannelArgs']]):
         pulumi.set(self, "multichannel", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versions", value)
 
 
 class SshPublicKeyArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. It is used to store the function/usage of the key
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
     """
@@ -4280,8 +4280,8 @@ class SshPublicKeyArgsDict(TypedDict):
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: Optional. It is used to store the function/usage of the key
         :param pulumi.Input[_builtins.str] key: Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
@@ -4293,26 +4293,26 @@ class SshPublicKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. It is used to store the function/usage of the key
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -4328,16 +4328,16 @@ class StorageConnectorPropertiesArgsDict(TypedDict):
     """
     Information about how to communicate with and authenticate to the backing data store.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arbitrary description of this Storage Connector. Max 250 characters.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageConnectorState']]]]
     """
     State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
     (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
     """
-    test_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    test_connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Test connection to backing data source before creating the storage connector.
     """
@@ -4347,9 +4347,9 @@ class StorageConnectorPropertiesArgs:
     def __init__(__self__, *,
                  data_source_type: pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']],
                  source: pulumi.Input['DataShareSourceArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]] = None,
-                 test_connection: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'StorageConnectorState']]] = None,
+                 test_connection: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The storage connector properties
 
@@ -4399,19 +4399,19 @@ class StorageConnectorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arbitrary description of this Storage Connector. Max 250 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageConnectorState']]]:
         """
         State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
         (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
@@ -4419,19 +4419,19 @@ class StorageConnectorPropertiesArgs:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageConnectorState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="testConnection")
-    def test_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def test_connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Test connection to backing data source before creating the storage connector.
         """
         return pulumi.get(self, "test_connection")
 
     @test_connection.setter
-    def test_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def test_connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "test_connection", value)
 
 
@@ -4579,7 +4579,7 @@ class StorageDataSharePropertiesArgsDict(TypedDict):
     For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
     If provided with a non-null value, the existing assets are replaced with the specified list.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arbitrary description of this Data Share. Max 250 characters.
     """
@@ -4589,7 +4589,7 @@ class StorageDataSharePropertiesArgs:
     def __init__(__self__, *,
                  access_policies: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgs']]],
                  assets: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The storage datashare properties
 
@@ -4640,14 +4640,14 @@ class StorageDataSharePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arbitrary description of this Data Share. Max 250 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -4659,7 +4659,7 @@ class StorageTaskAssignmentExecutionContextArgsDict(TypedDict):
     """
     Execution trigger of the storage task assignment
     """
-    target: NotRequired[pulumi.Input['ExecutionTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['ExecutionTargetArgsDict']]]
     """
     Execution target of the storage task assignment
     """
@@ -4668,7 +4668,7 @@ class StorageTaskAssignmentExecutionContextArgsDict(TypedDict):
 class StorageTaskAssignmentExecutionContextArgs:
     def __init__(__self__, *,
                  trigger: pulumi.Input['ExecutionTriggerArgs'],
-                 target: Optional[pulumi.Input['ExecutionTargetArgs']] = None):
+                 target: pulumi.Input[Optional['ExecutionTargetArgs']] = None):
         """
         Execution context of the storage task assignment.
 
@@ -4693,14 +4693,14 @@ class StorageTaskAssignmentExecutionContextArgs:
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['ExecutionTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['ExecutionTargetArgs']]:
         """
         Execution target of the storage task assignment
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['ExecutionTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['ExecutionTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -4854,11 +4854,11 @@ class TableAccessPolicyArgsDict(TypedDict):
     """
     Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
     """
-    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expiry time of the access policy
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start time of the access policy
     """
@@ -4867,8 +4867,8 @@ class TableAccessPolicyArgsDict(TypedDict):
 class TableAccessPolicyArgs:
     def __init__(__self__, *,
                  permission: pulumi.Input[_builtins.str],
-                 expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Table Access Policy Properties Object.
 
@@ -4896,26 +4896,26 @@ class TableAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiry time of the access policy
         """
         return pulumi.get(self, "expiry_time")
 
     @expiry_time.setter
-    def expiry_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start time of the access policy
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -4927,7 +4927,7 @@ class TableSignedIdentifierArgsDict(TypedDict):
     """
     unique-64-character-value of the stored access policy.
     """
-    access_policy: NotRequired[pulumi.Input['TableAccessPolicyArgsDict']]
+    access_policy: NotRequired[pulumi.Input[Optional['TableAccessPolicyArgsDict']]]
     """
     Access policy
     """
@@ -4936,7 +4936,7 @@ class TableSignedIdentifierArgsDict(TypedDict):
 class TableSignedIdentifierArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 access_policy: Optional[pulumi.Input['TableAccessPolicyArgs']] = None):
+                 access_policy: pulumi.Input[Optional['TableAccessPolicyArgs']] = None):
         """
         Object to set Table Access Policy.
 
@@ -4961,14 +4961,14 @@ class TableSignedIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> Optional[pulumi.Input['TableAccessPolicyArgs']]:
+    def access_policy(self) -> pulumi.Input[Optional['TableAccessPolicyArgs']]:
         """
         Access policy
         """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
-    def access_policy(self, value: Optional[pulumi.Input['TableAccessPolicyArgs']]):
+    def access_policy(self, value: pulumi.Input[Optional['TableAccessPolicyArgs']]):
         pulumi.set(self, "access_policy", value)
 
 
@@ -5047,23 +5047,23 @@ class TriggerParametersArgsDict(TypedDict):
     """
     The trigger parameters update for the storage task assignment execution
     """
-    end_by: NotRequired[pulumi.Input[_builtins.str]]
+    end_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
     """
-    interval_unit: NotRequired[pulumi.Input['IntervalUnit']]
+    interval_unit: NotRequired[pulumi.Input[Optional['IntervalUnit']]]
     """
     Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
     """
-    start_from: NotRequired[pulumi.Input[_builtins.str]]
+    start_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
     """
-    start_on: NotRequired[pulumi.Input[_builtins.str]]
+    start_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
     """
@@ -5071,11 +5071,11 @@ class TriggerParametersArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerParametersArgs:
     def __init__(__self__, *,
-                 end_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval_unit: Optional[pulumi.Input['IntervalUnit']] = None,
-                 start_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_unit: pulumi.Input[Optional['IntervalUnit']] = None,
+                 start_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The trigger parameters update for the storage task assignment execution
 
@@ -5098,62 +5098,62 @@ class TriggerParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="endBy")
-    def end_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         """
         return pulumi.get(self, "end_by")
 
     @end_by.setter
-    def end_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalUnit")
-    def interval_unit(self) -> Optional[pulumi.Input['IntervalUnit']]:
+    def interval_unit(self) -> pulumi.Input[Optional['IntervalUnit']]:
         """
         Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         """
         return pulumi.get(self, "interval_unit")
 
     @interval_unit.setter
-    def interval_unit(self, value: Optional[pulumi.Input['IntervalUnit']]):
+    def interval_unit(self, value: pulumi.Input[Optional['IntervalUnit']]):
         pulumi.set(self, "interval_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="startFrom")
-    def start_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         """
         return pulumi.get(self, "start_from")
 
     @start_from.setter
-    def start_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_from", value)
 
     @_builtins.property
     @pulumi.getter(name="startOn")
-    def start_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
         """
         return pulumi.get(self, "start_on")
 
     @start_on.setter
-    def start_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_on", value)
 
 
@@ -5165,11 +5165,11 @@ class VirtualNetworkRuleArgsDict(TypedDict):
     """
     Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
     """
-    action: NotRequired[pulumi.Input['Action']]
+    action: NotRequired[pulumi.Input[Optional['Action']]]
     """
     The action of virtual network rule.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'State']]]]
     """
     Gets the state of virtual network rule.
     """
@@ -5178,8 +5178,8 @@ class VirtualNetworkRuleArgsDict(TypedDict):
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  virtual_network_resource_id: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input['Action']] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
+                 action: pulumi.Input[Optional['Action']] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None):
         """
         Virtual Network rule.
 
@@ -5209,26 +5209,26 @@ class VirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['Action']]:
+    def action(self) -> pulumi.Input[Optional['Action']]:
         """
         The action of virtual network rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['Action']]):
+    def action(self, value: pulumi.Input[Optional['Action']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         Gets the state of virtual network rule.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "state", value)
 
 

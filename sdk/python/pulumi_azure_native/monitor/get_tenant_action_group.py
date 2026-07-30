@@ -202,7 +202,6 @@ def get_tenant_action_group(management_group_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-05-01-preview.
 
-
     :param _builtins.str management_group_id: The management group id.
     :param _builtins.str tenant_action_group_name: The name of the action group.
     """
@@ -226,14 +225,13 @@ def get_tenant_action_group(management_group_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   tenant_action_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tenant_action_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantActionGroupResult]:
     """
     Get a tenant action group.
 
     Uses Azure REST API version 2023-05-01-preview.
-
 
     :param _builtins.str management_group_id: The management group id.
     :param _builtins.str tenant_action_group_name: The name of the action group.

@@ -74,7 +74,6 @@ def get_test_result_file(continuation_token: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-02-10-preview.
 
-
     :param _builtins.str continuation_token: The continuation token.
     :param _builtins.str download_as: The format to use when returning the webtest result.
     :param _builtins.str geo_location_id: The location ID where the webtest was physically run.
@@ -97,19 +96,18 @@ def get_test_result_file(continuation_token: Optional[_builtins.str] = None,
     return AwaitableGetTestResultFileResult(
         data=pulumi.get(__ret__, 'data'),
         next_link=pulumi.get(__ret__, 'next_link'))
-def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                download_as: Optional[pulumi.Input[_builtins.str]] = None,
-                                geo_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                test_successful_criteria: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                time_stamp: Optional[pulumi.Input[_builtins.int]] = None,
-                                web_test_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_result_file_output(continuation_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                download_as: pulumi.Input[Optional[_builtins.str]] = None,
+                                geo_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                test_successful_criteria: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                time_stamp: pulumi.Input[Optional[_builtins.int]] = None,
+                                web_test_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultFileResult]:
     """
     Returns a file test result for the matching test
 
     Uses Azure REST API version 2020-02-10-preview.
-
 
     :param _builtins.str continuation_token: The continuation token.
     :param _builtins.str download_as: The format to use when returning the webtest result.

@@ -22,8 +22,8 @@ __all__ = ['RegistrationAssignmentArgs', 'RegistrationAssignment']
 class RegistrationAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']] = None,
-                 registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']] = None,
+                 registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
 
@@ -51,26 +51,26 @@ class RegistrationAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']]:
         """
         The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationAssignmentId")
-    def registration_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the registration assignment.
         """
         return pulumi.get(self, "registration_assignment_id")
 
     @registration_assignment_id.setter
-    def registration_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_assignment_id", value)
 
 
@@ -80,15 +80,14 @@ class RegistrationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
-                 registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
+                 registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The registration assignment.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,7 +106,6 @@ class RegistrationAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-
         :param str resource_name: The name of the resource.
         :param RegistrationAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +121,9 @@ class RegistrationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
-                 registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
+                 registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

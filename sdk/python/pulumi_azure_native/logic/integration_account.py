@@ -23,12 +23,12 @@ __all__ = ['IntegrationAccountArgs', 'IntegrationAccount']
 class IntegrationAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['IntegrationAccountSkuArgs']] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'WorkflowState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_service_environment: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['IntegrationAccountSkuArgs']] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
 
@@ -68,74 +68,74 @@ class IntegrationAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account name.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def integration_service_environment(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         The integration service environment.
         """
         return pulumi.get(self, "integration_service_environment")
 
     @integration_service_environment.setter
-    def integration_service_environment(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def integration_service_environment(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "integration_service_environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['IntegrationAccountSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['IntegrationAccountSkuArgs']]:
         """
         The sku.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['IntegrationAccountSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['IntegrationAccountSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WorkflowState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]]:
         """
         The workflow state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WorkflowState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,13 +145,13 @@ class IntegrationAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'WorkflowState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_service_environment: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The integration account.
@@ -159,7 +159,6 @@ class IntegrationAccount(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +183,6 @@ class IntegrationAccount(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,13 +198,13 @@ class IntegrationAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'WorkflowState']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_service_environment: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'WorkflowState']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

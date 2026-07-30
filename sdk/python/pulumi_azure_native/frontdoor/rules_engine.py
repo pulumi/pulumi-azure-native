@@ -24,8 +24,8 @@ class RulesEngineArgs:
     def __init__(__self__, *,
                  front_door_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
-                 rules_engine_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
+                 rules_engine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RulesEngine resource.
 
@@ -67,26 +67,26 @@ class RulesEngineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesEngineName")
-    def rules_engine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rules_engine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Rules Engine which is unique within the Front Door.
         """
         return pulumi.get(self, "rules_engine_name")
 
     @rules_engine_name.setter
-    def rules_engine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rules_engine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rules_engine_name", value)
 
 
@@ -96,10 +96,10 @@ class RulesEngine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 front_door_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
-                 rules_engine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 front_door_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
+                 rules_engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
@@ -107,7 +107,6 @@ class RulesEngine(pulumi.CustomResource):
         Uses Azure REST API version 2025-11-01.
 
         Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class RulesEngine(pulumi.CustomResource):
 
         Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RulesEngineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class RulesEngine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 front_door_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
-                 rules_engine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 front_door_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
+                 rules_engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

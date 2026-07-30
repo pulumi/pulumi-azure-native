@@ -578,7 +578,7 @@ class CreateOrUpdateDryrunParametersResponse(dict):
 
         :param _builtins.str action_name: The name of action for you dryrun job.
                Expected value is 'createOrUpdate'.
-        :param _builtins.str provisioning_state: The provisioning state. 
+        :param _builtins.str provisioning_state: The provisioning state.
         :param Union['AccessKeyInfoBaseResponse', 'EasyAuthMicrosoftEntraIDAuthInfoResponse', 'SecretAuthInfoResponse', 'ServicePrincipalCertificateAuthInfoResponse', 'ServicePrincipalSecretAuthInfoResponse', 'SystemAssignedIdentityAuthInfoResponse', 'UserAccountAuthInfoResponse', 'UserAssignedIdentityAuthInfoResponse'] auth_info: The authentication type.
         :param _builtins.str client_type: The application client type
         :param 'ConfigurationInfoResponse' configuration_info: The connection information consumed by applications, including secrets, connection strings.
@@ -620,7 +620,7 @@ class CreateOrUpdateDryrunParametersResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        The provisioning state. 
+        The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1636,7 +1636,7 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
         :param _builtins.str principal_id: Principal Id for servicePrincipal auth.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param _builtins.str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
-        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
+        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically
         """
         pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
         pulumi.set(__self__, "certificate", certificate)
@@ -1702,7 +1702,7 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
     @pulumi.getter
     def roles(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        Optional, this value specifies the Azure roles to be assigned. Automatically
         """
         return pulumi.get(self, "roles")
 
@@ -1758,7 +1758,7 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
         :param _builtins.str secret: Secret for servicePrincipal auth.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param _builtins.str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
-        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
+        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically
         :param _builtins.str user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
@@ -1827,7 +1827,7 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
     @pulumi.getter
     def roles(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        Optional, this value specifies the Azure roles to be assigned. Automatically
         """
         return pulumi.get(self, "roles")
 
@@ -2163,7 +2163,7 @@ class UserAccountAuthInfoResponse(dict):
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param _builtins.str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param _builtins.str principal_id: Principal Id for user account.
-        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
+        :param Sequence[_builtins.str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically
         :param _builtins.str user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'userAccount')
@@ -2215,7 +2215,7 @@ class UserAccountAuthInfoResponse(dict):
     @pulumi.getter
     def roles(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        Optional, this value specifies the Azure roles to be assigned. Automatically
         """
         return pulumi.get(self, "roles")
 

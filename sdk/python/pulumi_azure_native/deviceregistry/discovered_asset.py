@@ -27,22 +27,22 @@ class DiscoveredAssetArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.float],
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]] = None,
-                 default_datasets_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_events_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_topic: Optional[pulumi.Input['TopicArgs']] = None,
-                 discovered_asset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredEventArgs']]]] = None,
-                 hardware_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 datasets: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]] = None,
+                 default_datasets_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_events_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_topic: pulumi.Input[Optional['TopicArgs']] = None,
+                 discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredEventArgs']]]] = None,
+                 hardware_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAsset resource.
 
@@ -168,194 +168,194 @@ class DiscoveredAssetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]]:
+    def datasets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]]:
         """
         Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
         """
         return pulumi.get(self, "datasets")
 
     @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]]):
+    def datasets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredDatasetArgs']]]]):
         pulumi.set(self, "datasets", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDatasetsConfiguration")
-    def default_datasets_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_datasets_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_datasets_configuration")
 
     @default_datasets_configuration.setter
-    def default_datasets_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_datasets_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_datasets_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEventsConfiguration")
-    def default_events_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_events_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_events_configuration")
 
     @default_events_configuration.setter
-    def default_events_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_events_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_events_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTopic")
-    def default_topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+    def default_topic(self) -> pulumi.Input[Optional['TopicArgs']]:
         """
         Object that describes the default topic information for the asset.
         """
         return pulumi.get(self, "default_topic")
 
     @default_topic.setter
-    def default_topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+    def default_topic(self, value: pulumi.Input[Optional['TopicArgs']]):
         pulumi.set(self, "default_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveredAssetName")
-    def discovered_asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovered_asset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Discovered Asset name parameter.
         """
         return pulumi.get(self, "discovered_asset_name")
 
     @discovered_asset_name.setter
-    def discovered_asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovered_asset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovered_asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationUri")
-    def documentation_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference to the documentation.
         """
         return pulumi.get(self, "documentation_uri")
 
     @documentation_uri.setter
-    def documentation_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredEventArgs']]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredEventArgs']]]]:
         """
         Array of events that are part of the asset. Each event can have per-event configuration.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiscoveredEventArgs']]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredEventArgs']]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareRevision")
-    def hardware_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hardware_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Revision number of the hardware.
         """
         return pulumi.get(self, "hardware_revision")
 
     @hardware_revision.setter
-    def hardware_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hardware_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hardware_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def manufacturer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manufacturer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset manufacturer name.
         """
         return pulumi.get(self, "manufacturer")
 
     @manufacturer.setter
-    def manufacturer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manufacturer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manufacturer", value)
 
     @_builtins.property
     @pulumi.getter(name="manufacturerUri")
-    def manufacturer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manufacturer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset manufacturer URI.
         """
         return pulumi.get(self, "manufacturer_uri")
 
     @manufacturer_uri.setter
-    def manufacturer_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manufacturer_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manufacturer_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset model name.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter(name="productCode")
-    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset product code.
         """
         return pulumi.get(self, "product_code")
 
     @product_code.setter
-    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_code", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asset serial number.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareRevision")
-    def software_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def software_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Revision number of the software.
         """
         return pulumi.get(self, "software_revision")
 
     @software_revision.setter
-    def software_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def software_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "software_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -365,33 +365,32 @@ class DiscoveredAsset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_endpoint_profile_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiscoveredDatasetArgs', 'DiscoveredDatasetArgsDict']]]]] = None,
-                 default_datasets_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_events_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_topic: Optional[pulumi.Input[Union['TopicArgs', 'TopicArgsDict']]] = None,
-                 discovered_asset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiscoveredEventArgs', 'DiscoveredEventArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 asset_endpoint_profile_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 datasets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiscoveredDatasetArgs', 'DiscoveredDatasetArgsDict']]]]] = None,
+                 default_datasets_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_events_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_topic: pulumi.Input[Optional[Union['TopicArgs', 'TopicArgsDict']]] = None,
+                 discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiscoveredEventArgs', 'DiscoveredEventArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Discovered Asset definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,7 +427,6 @@ class DiscoveredAsset(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -444,27 +442,27 @@ class DiscoveredAsset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_endpoint_profile_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiscoveredDatasetArgs', 'DiscoveredDatasetArgsDict']]]]] = None,
-                 default_datasets_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_events_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_topic: Optional[pulumi.Input[Union['TopicArgs', 'TopicArgsDict']]] = None,
-                 discovered_asset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiscoveredEventArgs', 'DiscoveredEventArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hardware_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 asset_endpoint_profile_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 datasets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiscoveredDatasetArgs', 'DiscoveredDatasetArgsDict']]]]] = None,
+                 default_datasets_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_events_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_topic: pulumi.Input[Optional[Union['TopicArgs', 'TopicArgsDict']]] = None,
+                 discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiscoveredEventArgs', 'DiscoveredEventArgsDict']]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

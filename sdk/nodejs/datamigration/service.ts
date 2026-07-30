@@ -149,11 +149,11 @@ export interface ServiceArgs {
     /**
      * The time delay before the service is auto-stopped when idle.
      */
-    autoStopDelay?: pulumi.Input<string>;
+    autoStopDelay?: pulumi.Input<string | undefined>;
     /**
      * Whether service resources should be deleted when stopped. (Turned on by default)
      */
-    deleteResourcesOnStop?: pulumi.Input<boolean>;
+    deleteResourcesOnStop?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the resource group
      */
@@ -161,27 +161,27 @@ export interface ServiceArgs {
     /**
      * The resource kind. Only 'vm' (the default) is supported.
      */
-    kind?: pulumi.Input<string>;
-    location?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The public key of the service, used to encrypt secrets sent to the service
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Name of the service
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Service SKU
      */
-    sku?: pulumi.Input<inputs.datamigration.ServiceSkuArgs>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sku?: pulumi.Input<inputs.datamigration.ServiceSkuArgs | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Microsoft.Network/networkInterfaces resource which the service have
      */
-    virtualNicId?: pulumi.Input<string>;
+    virtualNicId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
-    virtualSubnetId?: pulumi.Input<string>;
+    virtualSubnetId?: pulumi.Input<string | undefined>;
 }

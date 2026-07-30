@@ -103,7 +103,6 @@ def get_subscription_feature_registration(feature_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2021-07-01.
 
-
     :param _builtins.str feature_name: The feature name.
     :param _builtins.str provider_namespace: The provider namespace.
     """
@@ -119,14 +118,13 @@ def get_subscription_feature_registration(feature_name: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_subscription_feature_registration_output(feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_feature_registration_output(feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
     """
     Returns a feature registration
 
     Uses Azure REST API version 2021-07-01.
-
 
     :param _builtins.str feature_name: The feature name.
     :param _builtins.str provider_namespace: The provider namespace.

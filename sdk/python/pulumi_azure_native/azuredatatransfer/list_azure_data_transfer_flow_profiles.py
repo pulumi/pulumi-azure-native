@@ -59,7 +59,6 @@ def list_azure_data_transfer_flow_profiles(pipeline: Optional[_builtins.str] = N
 
     Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str pipeline: The name of the pipeline for which to retrieve associated FlowProfiles.
     """
     __args__ = dict()
@@ -69,7 +68,7 @@ def list_azure_data_transfer_flow_profiles(pipeline: Optional[_builtins.str] = N
 
     return AwaitableListAzureDataTransferFlowProfilesResult(
         value=pulumi.get(__ret__, 'value'))
-def list_azure_data_transfer_flow_profiles_output(pipeline: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_azure_data_transfer_flow_profiles_output(pipeline: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAzureDataTransferFlowProfilesResult]:
     """
     Retrieves a list of FlowProfile resources associated with a specified pipeline.
@@ -77,7 +76,6 @@ def list_azure_data_transfer_flow_profiles_output(pipeline: Optional[pulumi.Inpu
     Uses Azure REST API version 2025-05-30-preview.
 
     Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str pipeline: The name of the pipeline for which to retrieve associated FlowProfiles.
     """

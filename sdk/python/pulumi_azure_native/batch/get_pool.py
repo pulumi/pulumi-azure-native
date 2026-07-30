@@ -495,7 +495,6 @@ def get_pool(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str pool_name: The pool name. This must be unique within the account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -545,9 +544,9 @@ def get_pool(account_name: Optional[_builtins.str] = None,
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets information about the specified pool.
@@ -555,7 +554,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-07-01.
 
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str pool_name: The pool name. This must be unique within the account.

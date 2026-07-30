@@ -21,7 +21,7 @@ __all__ = ['GuestSubscriptionArgs', 'GuestSubscription']
 class GuestSubscriptionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GuestSubscription resource.
 
@@ -46,14 +46,14 @@ class GuestSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="guestSubscriptionId")
-    def guest_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guest_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the GuestSubscription
         """
         return pulumi.get(self, "guest_subscription_id")
 
     @guest_subscription_id.setter
-    def guest_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guest_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guest_subscription_id", value)
 
 
@@ -63,8 +63,8 @@ class GuestSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Guest subscription that consumes shared compute limits.
@@ -72,7 +72,6 @@ class GuestSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-15.
 
         Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,7 +91,6 @@ class GuestSubscription(pulumi.CustomResource):
 
         Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GuestSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,8 +106,8 @@ class GuestSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

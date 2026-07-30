@@ -23,18 +23,18 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 default_data_collection_rule_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input['WorkspaceFeaturesArgs']] = None,
-                 force_cmk_for_query: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input['WorkspaceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_capping: Optional[pulumi.Input['WorkspaceCappingArgs']] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_data_collection_rule_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional['WorkspaceFeaturesArgs']] = None,
+                 force_cmk_for_query: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional['WorkspaceSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_capping: pulumi.Input[Optional['WorkspaceCappingArgs']] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -92,146 +92,146 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultDataCollectionRuleResourceId")
-    def default_data_collection_rule_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_data_collection_rule_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         """
         return pulumi.get(self, "default_data_collection_rule_resource_id")
 
     @default_data_collection_rule_resource_id.setter
-    def default_data_collection_rule_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_data_collection_rule_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_data_collection_rule_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input['WorkspaceFeaturesArgs']]:
+    def features(self) -> pulumi.Input[Optional['WorkspaceFeaturesArgs']]:
         """
         Workspace features.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input['WorkspaceFeaturesArgs']]):
+    def features(self, value: pulumi.Input[Optional['WorkspaceFeaturesArgs']]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCmkForQuery")
-    def force_cmk_for_query(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_cmk_for_query(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether customer managed storage is mandatory for query management.
         """
         return pulumi.get(self, "force_cmk_for_query")
 
     @force_cmk_for_query.setter
-    def force_cmk_for_query(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_cmk_for_query(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_cmk_for_query", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessForIngestion")
-    def public_network_access_for_ingestion(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access_for_ingestion(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         The network access type for accessing Log Analytics ingestion.
         """
         return pulumi.get(self, "public_network_access_for_ingestion")
 
     @public_network_access_for_ingestion.setter
-    def public_network_access_for_ingestion(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access_for_ingestion(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access_for_ingestion", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessForQuery")
-    def public_network_access_for_query(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access_for_query(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         The network access type for accessing Log Analytics query.
         """
         return pulumi.get(self, "public_network_access_for_query")
 
     @public_network_access_for_query.setter
-    def public_network_access_for_query(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access_for_query(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access_for_query", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['WorkspaceSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['WorkspaceSkuArgs']]:
         """
         The SKU of the workspace.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['WorkspaceSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['WorkspaceSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceCapping")
-    def workspace_capping(self) -> Optional[pulumi.Input['WorkspaceCappingArgs']]:
+    def workspace_capping(self) -> pulumi.Input[Optional['WorkspaceCappingArgs']]:
         """
         The daily volume cap for ingestion.
         """
         return pulumi.get(self, "workspace_capping")
 
     @workspace_capping.setter
-    def workspace_capping(self, value: Optional[pulumi.Input['WorkspaceCappingArgs']]):
+    def workspace_capping(self, value: pulumi.Input[Optional['WorkspaceCappingArgs']]):
         pulumi.set(self, "workspace_capping", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
-    def workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_name", value)
 
 
@@ -241,19 +241,19 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_data_collection_rule_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
-                 force_cmk_for_query: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_capping: Optional[pulumi.Input[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_data_collection_rule_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
+                 force_cmk_for_query: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_capping: pulumi.Input[Optional[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The top level Workspace resource container.
@@ -261,7 +261,6 @@ class Workspace(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,7 +291,6 @@ class Workspace(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,19 +306,19 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_data_collection_rule_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
-                 force_cmk_for_query: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_capping: Optional[pulumi.Input[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_data_collection_rule_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
+                 force_cmk_for_query: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_for_ingestion: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_capping: pulumi.Input[Optional[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

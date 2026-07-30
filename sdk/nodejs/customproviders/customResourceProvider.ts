@@ -126,11 +126,11 @@ export interface CustomResourceProviderArgs {
     /**
      * A list of actions that the custom resource provider implements.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPActionRouteDefinitionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPActionRouteDefinitionArgs>[] | undefined>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -138,17 +138,17 @@ export interface CustomResourceProviderArgs {
     /**
      * The name of the resource provider.
      */
-    resourceProviderName?: pulumi.Input<string>;
+    resourceProviderName?: pulumi.Input<string | undefined>;
     /**
      * A list of resource types that the custom resource provider implements.
      */
-    resourceTypes?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPResourceTypeRouteDefinitionArgs>[]>;
+    resourceTypes?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPResourceTypeRouteDefinitionArgs>[] | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of validations to run on the custom resource provider's requests.
      */
-    validations?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPValidationsArgs>[]>;
+    validations?: pulumi.Input<pulumi.Input<inputs.customproviders.CustomRPValidationsArgs>[] | undefined>;
 }

@@ -104,7 +104,7 @@ export interface AdvancedThreatProtectionArgs {
     /**
      * Indicates whether Advanced Threat Protection is enabled.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -112,5 +112,5 @@ export interface AdvancedThreatProtectionArgs {
     /**
      * Advanced Threat Protection setting name.
      */
-    settingName?: pulumi.Input<string>;
+    settingName?: pulumi.Input<string | undefined>;
 }

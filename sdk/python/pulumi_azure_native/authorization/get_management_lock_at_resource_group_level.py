@@ -142,7 +142,6 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[_builtins.st
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str lock_name: The name of the lock to get.
     :param _builtins.str resource_group_name: The name of the locked resource group.
     """
@@ -161,14 +160,13 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[_builtins.st
         owners=pulumi.get(__ret__, 'owners'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_lock_at_resource_group_level_output(lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_lock_at_resource_group_level_output(lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockAtResourceGroupLevelResult]:
     """
     Gets a management lock at the resource group level.
 
     Uses Azure REST API version 2020-05-01.
-
 
     :param _builtins.str lock_name: The name of the lock to get.
     :param _builtins.str resource_group_name: The name of the locked resource group.

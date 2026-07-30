@@ -44,11 +44,11 @@ class InstancePropertiesArgsDict(TypedDict):
     """
     Details of the user.
     """
-    partner_properties: NotRequired[pulumi.Input['PartnerPropertiesArgsDict']]
+    partner_properties: NotRequired[pulumi.Input[Optional['PartnerPropertiesArgsDict']]]
     """
     partner properties
     """
-    single_sign_on_properties: NotRequired[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2ArgsDict']]
+    single_sign_on_properties: NotRequired[pulumi.Input[Optional['LiftrBaseSingleSignOnPropertiesV2ArgsDict']]]
     """
     Single sign-on properties
     """
@@ -58,8 +58,8 @@ class InstancePropertiesArgs:
     def __init__(__self__, *,
                  marketplace: pulumi.Input['LiftrBaseMarketplaceDetailsArgs'],
                  user: pulumi.Input['LiftrBaseUserDetailsArgs'],
-                 partner_properties: Optional[pulumi.Input['PartnerPropertiesArgs']] = None,
-                 single_sign_on_properties: Optional[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2Args']] = None):
+                 partner_properties: pulumi.Input[Optional['PartnerPropertiesArgs']] = None,
+                 single_sign_on_properties: pulumi.Input[Optional['LiftrBaseSingleSignOnPropertiesV2Args']] = None):
         """
         Properties specific to Instance
 
@@ -101,26 +101,26 @@ class InstancePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="partnerProperties")
-    def partner_properties(self) -> Optional[pulumi.Input['PartnerPropertiesArgs']]:
+    def partner_properties(self) -> pulumi.Input[Optional['PartnerPropertiesArgs']]:
         """
         partner properties
         """
         return pulumi.get(self, "partner_properties")
 
     @partner_properties.setter
-    def partner_properties(self, value: Optional[pulumi.Input['PartnerPropertiesArgs']]):
+    def partner_properties(self, value: pulumi.Input[Optional['PartnerPropertiesArgs']]):
         pulumi.set(self, "partner_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnProperties")
-    def single_sign_on_properties(self) -> Optional[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2Args']]:
+    def single_sign_on_properties(self) -> pulumi.Input[Optional['LiftrBaseSingleSignOnPropertiesV2Args']]:
         """
         Single sign-on properties
         """
         return pulumi.get(self, "single_sign_on_properties")
 
     @single_sign_on_properties.setter
-    def single_sign_on_properties(self, value: Optional[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2Args']]):
+    def single_sign_on_properties(self, value: pulumi.Input[Optional['LiftrBaseSingleSignOnPropertiesV2Args']]):
         pulumi.set(self, "single_sign_on_properties", value)
 
 
@@ -132,7 +132,7 @@ class LiftrBaseMarketplaceDetailsArgsDict(TypedDict):
     """
     Offer details for the marketplace that is selected by the user
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure subscription id for the the marketplace offer is purchased from
     """
@@ -141,7 +141,7 @@ class LiftrBaseMarketplaceDetailsArgsDict(TypedDict):
 class LiftrBaseMarketplaceDetailsArgs:
     def __init__(__self__, *,
                  offer_details: pulumi.Input['LiftrBaseOfferDetailsArgs'],
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Marketplace details for an organization
 
@@ -166,14 +166,14 @@ class LiftrBaseMarketplaceDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure subscription id for the the marketplace offer is purchased from
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -193,15 +193,15 @@ class LiftrBaseOfferDetailsArgsDict(TypedDict):
     """
     Publisher Id for the marketplace offer
     """
-    plan_name: NotRequired[pulumi.Input[_builtins.str]]
+    plan_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan Name for the marketplace offer
     """
-    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    term_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan Display Name for the marketplace offer
     """
-    term_unit: NotRequired[pulumi.Input[_builtins.str]]
+    term_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan Display Name for the marketplace offer
     """
@@ -212,9 +212,9 @@ class LiftrBaseOfferDetailsArgs:
                  offer_id: pulumi.Input[_builtins.str],
                  plan_id: pulumi.Input[_builtins.str],
                  publisher_id: pulumi.Input[_builtins.str],
-                 plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Offer details for the marketplace that is selected by the user
 
@@ -273,38 +273,38 @@ class LiftrBaseOfferDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="planName")
-    def plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan Name for the marketplace offer
         """
         return pulumi.get(self, "plan_name")
 
     @plan_name.setter
-    def plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="termId")
-    def term_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def term_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan Display Name for the marketplace offer
         """
         return pulumi.get(self, "term_id")
 
     @term_id.setter
-    def term_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def term_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "term_id", value)
 
     @_builtins.property
     @pulumi.getter(name="termUnit")
-    def term_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def term_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan Display Name for the marketplace offer
         """
         return pulumi.get(self, "term_unit")
 
     @term_unit.setter
-    def term_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def term_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "term_unit", value)
 
 
@@ -316,19 +316,19 @@ class LiftrBaseSingleSignOnPropertiesV2ArgsDict(TypedDict):
     """
     Type of Single Sign-On mechanism being used
     """
-    aad_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aad_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of AAD domains fetched from Microsoft Graph for user.
     """
-    enterprise_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    enterprise_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AAD enterprise application Id used to setup SSO
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStates']]]]
     """
     State of the Single Sign On for the resource
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL for SSO to be used by the partner to redirect the user to their system
     """
@@ -337,10 +337,10 @@ class LiftrBaseSingleSignOnPropertiesV2ArgsDict(TypedDict):
 class LiftrBaseSingleSignOnPropertiesV2Args:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'SingleSignOnType']],
-                 aad_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enterprise_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 aad_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enterprise_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStates']]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties specific to Single Sign On Resource
 
@@ -374,50 +374,50 @@ class LiftrBaseSingleSignOnPropertiesV2Args:
 
     @_builtins.property
     @pulumi.getter(name="aadDomains")
-    def aad_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aad_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AAD domains fetched from Microsoft Graph for user.
         """
         return pulumi.get(self, "aad_domains")
 
     @aad_domains.setter
-    def aad_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aad_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aad_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseAppId")
-    def enterprise_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AAD enterprise application Id used to setup SSO
         """
         return pulumi.get(self, "enterprise_app_id")
 
     @enterprise_app_id.setter
-    def enterprise_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStates']]]:
         """
         State of the Single Sign On for the resource
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStates']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL for SSO to be used by the partner to redirect the user to their system
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -425,23 +425,23 @@ class LiftrBaseUserDetailsArgsDict(TypedDict):
     """
     User details for an organization
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email address of the user
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name of the user
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last name of the user
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User's phone number
     """
-    upn: NotRequired[pulumi.Input[_builtins.str]]
+    upn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User's principal name
     """
@@ -449,11 +449,11 @@ class LiftrBaseUserDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class LiftrBaseUserDetailsArgs:
     def __init__(__self__, *,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 upn: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 upn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User details for an organization
 
@@ -476,62 +476,62 @@ class LiftrBaseUserDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the user
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name of the user
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name of the user
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User's phone number
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def upn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User's principal name
         """
         return pulumi.get(self, "upn")
 
     @upn.setter
-    def upn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upn", value)
 
 
@@ -543,7 +543,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -552,7 +552,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -577,14 +577,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

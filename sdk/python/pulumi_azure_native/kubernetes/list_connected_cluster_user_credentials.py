@@ -73,7 +73,6 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
 
     Uses Azure REST API version 2021-04-01-preview.
 
-
     :param Union[_builtins.str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param _builtins.bool client_proxy: Boolean value to indicate whether the request is for client side proxy or not
     :param _builtins.str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -90,16 +89,15 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
     return AwaitableListConnectedClusterUserCredentialsResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_connected_cluster_user_credentials_output(authentication_method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
-                                                   client_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                                                   cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_connected_cluster_user_credentials_output(authentication_method: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationMethod']]] = None,
+                                                   client_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                                                   cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
 
     Uses Azure REST API version 2021-04-01-preview.
-
 
     :param Union[_builtins.str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param _builtins.bool client_proxy: Boolean value to indicate whether the request is for client side proxy or not

@@ -134,15 +134,15 @@ export interface VaultArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.recoveryservices.IdentityDataArgs>;
+    identity?: pulumi.Input<inputs.recoveryservices.IdentityDataArgs | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of the vault.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.VaultPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.VaultPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,13 +150,13 @@ export interface VaultArgs {
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
-    sku?: pulumi.Input<inputs.recoveryservices.SkuArgs>;
+    sku?: pulumi.Input<inputs.recoveryservices.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the recovery services vault.
      */
-    vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }

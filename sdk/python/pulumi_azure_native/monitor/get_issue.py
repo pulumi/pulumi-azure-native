@@ -121,7 +121,6 @@ def get_issue(azure_monitor_workspace_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str issue_name: The name of the IssueResource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,9 +139,9 @@ def get_issue(azure_monitor_workspace_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_issue_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_issue_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIssueResult]:
     """
     Get issue properties
@@ -150,7 +149,6 @@ def get_issue_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2025-05-03-preview.
 
     Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str issue_name: The name of the IssueResource

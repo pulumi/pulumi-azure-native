@@ -409,7 +409,6 @@ def get_streaming_job(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
     :param _builtins.str job_name: The name of the streaming job.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -452,9 +451,9 @@ def get_streaming_job(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transformation=pulumi.get(__ret__, 'transformation'),
         type=pulumi.get(__ret__, 'type'))
-def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_streaming_job_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
     Gets details about the specified streaming job.
@@ -462,7 +461,6 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[_builtins.st
     Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
     :param _builtins.str job_name: The name of the streaming job.

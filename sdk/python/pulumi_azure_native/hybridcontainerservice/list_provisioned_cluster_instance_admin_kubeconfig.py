@@ -113,7 +113,6 @@ def list_provisioned_cluster_instance_admin_kubeconfig(connected_cluster_resourc
 
     Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
     """
     __args__ = dict()
@@ -128,7 +127,7 @@ def list_provisioned_cluster_instance_admin_kubeconfig(connected_cluster_resourc
         properties=pulumi.get(__ret__, 'properties'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
-def list_provisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_provisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProvisionedClusterInstanceAdminKubeconfigResult]:
     """
     Lists the admin credentials of the provisioned cluster (can only be used within private network)
@@ -136,7 +135,6 @@ def list_provisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
     """

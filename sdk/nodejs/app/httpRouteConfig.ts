@@ -112,11 +112,11 @@ export interface HttpRouteConfigArgs {
     /**
      * Name of the Http Route Config Resource.
      */
-    httpRouteName?: pulumi.Input<string>;
+    httpRouteName?: pulumi.Input<string | undefined>;
     /**
      * Http Route Config properties
      */
-    properties?: pulumi.Input<inputs.app.HttpRouteConfigPropertiesArgs>;
+    properties?: pulumi.Input<inputs.app.HttpRouteConfigPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

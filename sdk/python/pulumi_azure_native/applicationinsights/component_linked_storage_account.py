@@ -22,8 +22,8 @@ class ComponentLinkedStorageAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 linked_storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 linked_storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComponentLinkedStorageAccount resource.
 
@@ -65,26 +65,26 @@ class ComponentLinkedStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedStorageAccount")
-    def linked_storage_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_storage_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Linked storage account resource ID
         """
         return pulumi.get(self, "linked_storage_account")
 
     @linked_storage_account.setter
-    def linked_storage_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_storage_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_storage_account", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Application Insights component data source for the linked storage account.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
 
@@ -94,16 +94,15 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Application Insights component linked storage accounts
 
         Uses Azure REST API version 2020-03-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ComponentLinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,10 +137,10 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

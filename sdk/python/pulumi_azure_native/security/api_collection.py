@@ -21,7 +21,7 @@ class APICollectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 api_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_collection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a APICollection resource.
 
@@ -60,14 +60,14 @@ class APICollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiCollectionId")
-    def api_collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
         """
         return pulumi.get(self, "api_collection_id")
 
     @api_collection_id.setter
-    def api_collection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_collection_id", value)
 
 
@@ -77,15 +77,14 @@ class APICollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An API collection as represented by Defender for APIs.
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class APICollection(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
 
-
         :param str resource_name: The name of the resource.
         :param APICollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class APICollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

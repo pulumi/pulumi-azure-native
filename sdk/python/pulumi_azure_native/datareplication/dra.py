@@ -24,7 +24,7 @@ class DraArgs:
                  fabric_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DraModelPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dra resource.
 
@@ -77,14 +77,14 @@ class DraArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricAgentName")
-    def fabric_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric agent (Dra) name.
         """
         return pulumi.get(self, "fabric_agent_name")
 
     @fabric_agent_name.setter
-    def fabric_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_agent_name", value)
 
 
@@ -94,16 +94,15 @@ class Dra(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DraModelPropertiesArgs', 'DraModelPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DraModelPropertiesArgs', 'DraModelPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Dra model.
 
         Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class Dra(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DraArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,10 +137,10 @@ class Dra(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DraModelPropertiesArgs', 'DraModelPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DraModelPropertiesArgs', 'DraModelPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

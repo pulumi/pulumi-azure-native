@@ -23,14 +23,14 @@ class AssessmentsMetadataSubscriptionArgs:
                  assessment_type: pulumi.Input[Union[_builtins.str, 'AssessmentType']],
                  display_name: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[Union[_builtins.str, 'Severity']],
-                 assessment_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[Union[_builtins.str, 'ImplementationEffort']]] = None,
-                 preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
-                 user_impact: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]] = None):
+                 assessment_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]] = None,
+                 preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
+                 user_impact: pulumi.Input[Optional[Union[_builtins.str, 'UserImpact']]] = None):
         """
         The set of arguments for constructing a AssessmentsMetadataSubscription resource.
 
@@ -102,92 +102,92 @@ class AssessmentsMetadataSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentMetadataName")
-    def assessment_metadata_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Assessment Key - Unique key for the assessment type
         """
         return pulumi.get(self, "assessment_metadata_name")
 
     @assessment_metadata_name.setter
-    def assessment_metadata_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_metadata_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]]:
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human readable description of the assessment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="implementationEffort")
-    def implementation_effort(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ImplementationEffort']]]:
+    def implementation_effort(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]]:
         """
         The implementation effort required to remediate this assessment
         """
         return pulumi.get(self, "implementation_effort")
 
     @implementation_effort.setter
-    def implementation_effort(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ImplementationEffort']]]):
+    def implementation_effort(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]]):
         pulumi.set(self, "implementation_effort", value)
 
     @_builtins.property
     @pulumi.getter
-    def preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if this assessment is in preview release status
         """
         return pulumi.get(self, "preview")
 
     @preview.setter
-    def preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preview", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationDescription")
-    def remediation_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human readable description of what you should do to mitigate this security issue
         """
         return pulumi.get(self, "remediation_description")
 
     @remediation_description.setter
-    def remediation_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]]:
+    def threats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]]:
         return pulumi.get(self, "threats")
 
     @threats.setter
-    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]]):
+    def threats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]]):
         pulumi.set(self, "threats", value)
 
     @_builtins.property
     @pulumi.getter(name="userImpact")
-    def user_impact(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]]:
+    def user_impact(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UserImpact']]]:
         """
         The user impact of the assessment
         """
         return pulumi.get(self, "user_impact")
 
     @user_impact.setter
-    def user_impact(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]]):
+    def user_impact(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UserImpact']]]):
         pulumi.set(self, "user_impact", value)
 
 
@@ -197,23 +197,22 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[Union[_builtins.str, 'ImplementationEffort']]] = None,
-                 preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'Severity']]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
-                 user_impact: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]] = None,
+                 assessment_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]] = None,
+                 preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'Severity']]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
+                 user_impact: pulumi.Input[Optional[Union[_builtins.str, 'UserImpact']]] = None,
                  __props__=None):
         """
         Security assessment metadata
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +237,6 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AssessmentsMetadataSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,17 +252,17 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[Union[_builtins.str, 'ImplementationEffort']]] = None,
-                 preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'Severity']]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
-                 user_impact: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]] = None,
+                 assessment_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]] = None,
+                 preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'Severity']]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Threats']]]]] = None,
+                 user_impact: pulumi.Input[Optional[Union[_builtins.str, 'UserImpact']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

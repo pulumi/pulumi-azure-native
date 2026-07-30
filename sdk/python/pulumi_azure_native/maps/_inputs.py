@@ -16,65 +16,31 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CorsRulesArgs',
-    'CorsRulesArgsDict',
     'CorsRuleArgs',
     'CorsRuleArgsDict',
+    'CorsRulesArgs',
+    'CorsRulesArgsDict',
     'CreatorPropertiesArgs',
     'CreatorPropertiesArgsDict',
+    'EncryptionArgs',
+    'EncryptionArgsDict',
     'EncryptionCustomerManagedKeyEncryptionArgs',
     'EncryptionCustomerManagedKeyEncryptionArgsDict',
     'EncryptionKeyEncryptionKeyIdentityArgs',
     'EncryptionKeyEncryptionKeyIdentityArgsDict',
-    'EncryptionArgs',
-    'EncryptionArgsDict',
     'LinkedResourceArgs',
     'LinkedResourceArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'MapsAccountPropertiesLocationsArgs',
-    'MapsAccountPropertiesLocationsArgsDict',
     'MapsAccountPropertiesArgs',
     'MapsAccountPropertiesArgsDict',
+    'MapsAccountPropertiesLocationsArgs',
+    'MapsAccountPropertiesLocationsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
     'SkuArgsDict',
 ]
-
-class CorsRulesArgsDict(TypedDict):
-    """
-    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-    """
-    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
-    """
-    The list of CORS rules. You can include up to five CorsRule elements in the request. 
-    """
-
-@pulumi.input_type
-class CorsRulesArgs:
-    def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
-        """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-
-        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
-
-    @_builtins.property
-    @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
-        """
-        The list of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        return pulumi.get(self, "cors_rules")
-
-    @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
-        pulumi.set(self, "cors_rules", value)
-
 
 class CorsRuleArgsDict(TypedDict):
     """
@@ -109,6 +75,40 @@ class CorsRuleArgs:
         pulumi.set(self, "allowed_origins", value)
 
 
+class CorsRulesArgsDict(TypedDict):
+    """
+    Sets the CORS rules. You can include up to five CorsRule elements in the request.
+    """
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgsDict']]]]]
+    """
+    The list of CORS rules. You can include up to five CorsRule elements in the request.
+    """
+
+@pulumi.input_type
+class CorsRulesArgs:
+    def __init__(__self__, *,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request.
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]]:
+        """
+        The list of CORS rules. You can include up to five CorsRule elements in the request.
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
+
 class CreatorPropertiesArgsDict(TypedDict):
     """
     Creator resource properties
@@ -117,11 +117,11 @@ class CreatorPropertiesArgsDict(TypedDict):
     """
     The storage units to be allocated. Integer values from 1 to 100, inclusive.
     """
-    consumed_storage_unit_size_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    consumed_storage_unit_size_in_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The consumed storage unit size in bytes for the creator resource.
     """
-    total_storage_unit_size_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    total_storage_unit_size_in_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The total allocated storage unit size in bytes for the creator resource.
     """
@@ -130,8 +130,8 @@ class CreatorPropertiesArgsDict(TypedDict):
 class CreatorPropertiesArgs:
     def __init__(__self__, *,
                  storage_units: pulumi.Input[_builtins.int],
-                 consumed_storage_unit_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_storage_unit_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 consumed_storage_unit_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_storage_unit_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Creator resource properties
 
@@ -159,38 +159,92 @@ class CreatorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumedStorageUnitSizeInBytes")
-    def consumed_storage_unit_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def consumed_storage_unit_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The consumed storage unit size in bytes for the creator resource.
         """
         return pulumi.get(self, "consumed_storage_unit_size_in_bytes")
 
     @consumed_storage_unit_size_in_bytes.setter
-    def consumed_storage_unit_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def consumed_storage_unit_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "consumed_storage_unit_size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="totalStorageUnitSizeInBytes")
-    def total_storage_unit_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_storage_unit_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total allocated storage unit size in bytes for the creator resource.
         """
         return pulumi.get(self, "total_storage_unit_size_in_bytes")
 
     @total_storage_unit_size_in_bytes.setter
-    def total_storage_unit_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_storage_unit_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_storage_unit_size_in_bytes", value)
+
+
+class EncryptionArgsDict(TypedDict):
+    """
+    All encryption configuration for a resource.
+    """
+    customer_managed_key_encryption: NotRequired[pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgsDict']]]
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]]
+    """
+    (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+    """
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']] = None,
+                 infrastructure_encryption: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]] = None):
+        """
+        All encryption configuration for a resource.
+
+        :param pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
+        :param pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']] infrastructure_encryption: (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+        if infrastructure_encryption is not None:
+            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']]:
+        """
+        All Customer-managed key encryption properties for the resource.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+    @customer_managed_key_encryption.setter
+    def customer_managed_key_encryption(self, value: pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']]):
+        pulumi.set(self, "customer_managed_key_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="infrastructureEncryption")
+    def infrastructure_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]:
+        """
+        (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+        """
+        return pulumi.get(self, "infrastructure_encryption")
+
+    @infrastructure_encryption.setter
+    def infrastructure_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InfrastructureEncryption']]]):
+        pulumi.set(self, "infrastructure_encryption", value)
 
 
 class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
     """
     All Customer-managed key encryption properties for the resource.
     """
-    key_encryption_key_identity: NotRequired[pulumi.Input['EncryptionKeyEncryptionKeyIdentityArgsDict']]
+    key_encryption_key_identity: NotRequired[pulumi.Input[Optional['EncryptionKeyEncryptionKeyIdentityArgsDict']]]
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_encryption_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
     """
@@ -198,8 +252,8 @@ class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionCustomerManagedKeyEncryptionArgs:
     def __init__(__self__, *,
-                 key_encryption_key_identity: Optional[pulumi.Input['EncryptionKeyEncryptionKeyIdentityArgs']] = None,
-                 key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_encryption_key_identity: pulumi.Input[Optional['EncryptionKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All Customer-managed key encryption properties for the resource.
 
@@ -213,26 +267,26 @@ class EncryptionCustomerManagedKeyEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
-    def key_encryption_key_identity(self) -> Optional[pulumi.Input['EncryptionKeyEncryptionKeyIdentityArgs']]:
+    def key_encryption_key_identity(self) -> pulumi.Input[Optional['EncryptionKeyEncryptionKeyIdentityArgs']]:
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         """
         return pulumi.get(self, "key_encryption_key_identity")
 
     @key_encryption_key_identity.setter
-    def key_encryption_key_identity(self, value: Optional[pulumi.Input['EncryptionKeyEncryptionKeyIdentityArgs']]):
+    def key_encryption_key_identity(self, value: pulumi.Input[Optional['EncryptionKeyEncryptionKeyIdentityArgs']]):
         pulumi.set(self, "key_encryption_key_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyUrl")
-    def key_encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
         return pulumi.get(self, "key_encryption_key_url")
 
     @key_encryption_key_url.setter
-    def key_encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_encryption_key_url", value)
 
 
@@ -240,19 +294,19 @@ class EncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    delegated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    delegated_identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
     """
-    federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    federated_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
     """
-    identity_type: NotRequired[pulumi.Input[_builtins.str]]
+    identity_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
     """
@@ -260,10 +314,10 @@ class EncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionKeyEncryptionKeyIdentityArgs:
     def __init__(__self__, *,
-                 delegated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 delegated_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
 
@@ -283,105 +337,51 @@ class EncryptionKeyEncryptionKeyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedIdentityClientId")
-    def delegated_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
         """
         return pulumi.get(self, "delegated_identity_client_id")
 
     @delegated_identity_client_id.setter
-    def delegated_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="federatedClientId")
-    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federated_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
         """
         return pulumi.get(self, "federated_client_id")
 
     @federated_client_id.setter
-    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federated_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
-
-
-class EncryptionArgsDict(TypedDict):
-    """
-    All encryption configuration for a resource.
-    """
-    customer_managed_key_encryption: NotRequired[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgsDict']]
-    """
-    All Customer-managed key encryption properties for the resource.
-    """
-    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
-    """
-    (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-    """
-
-@pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']] = None,
-                 infrastructure_encryption: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]] = None):
-        """
-        All encryption configuration for a resource.
-
-        :param pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
-        :param pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']] infrastructure_encryption: (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-        """
-        if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
-        if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
-
-    @_builtins.property
-    @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]:
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-        return pulumi.get(self, "customer_managed_key_encryption")
-
-    @customer_managed_key_encryption.setter
-    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]):
-        pulumi.set(self, "customer_managed_key_encryption", value)
-
-    @_builtins.property
-    @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]:
-        """
-        (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
-        """
-        return pulumi.get(self, "infrastructure_encryption")
-
-    @infrastructure_encryption.setter
-    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]):
-        pulumi.set(self, "infrastructure_encryption", value)
 
 
 class LinkedResourceArgsDict(TypedDict):
@@ -444,7 +444,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -453,7 +453,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -478,15 +478,131 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+class MapsAccountPropertiesArgsDict(TypedDict):
+    """
+    Additional Maps account properties
+    """
+    cors: NotRequired[pulumi.Input[Optional['CorsRulesArgsDict']]]
+    """
+    Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+    """
+    disable_local_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
+    """
+    encryption: NotRequired[pulumi.Input[Optional['EncryptionArgsDict']]]
+    """
+    All encryption configuration for a resource.
+    """
+    linked_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkedResourceArgsDict']]]]]
+    """
+    The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
+    """
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgsDict']]]]]
+    """
+    List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
+    """
+
+@pulumi.input_type
+class MapsAccountPropertiesArgs:
+    def __init__(__self__, *,
+                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 linked_resources: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedResourceArgs']]]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]] = None):
+        """
+        Additional Maps account properties
+
+        :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        :param pulumi.Input[_builtins.bool] disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
+        :param pulumi.Input['EncryptionArgs'] encryption: All encryption configuration for a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]] linked_resources: The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
+        :param pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]] locations: List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
+        """
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if linked_resources is not None:
+            pulumi.set(__self__, "linked_resources", linked_resources)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
+        """
+        Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
+        """
+        All encryption configuration for a resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedResources")
+    def linked_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedResourceArgs']]]]:
+        """
+        The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
+        """
+        return pulumi.get(self, "linked_resources")
+
+    @linked_resources.setter
+    def linked_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedResourceArgs']]]]):
+        pulumi.set(self, "linked_resources", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]]:
+        """
+        List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]]):
+        pulumi.set(self, "locations", value)
 
 
 class MapsAccountPropertiesLocationsArgsDict(TypedDict):
@@ -522,135 +638,19 @@ class MapsAccountPropertiesLocationsArgs:
         pulumi.set(self, "location_name", value)
 
 
-class MapsAccountPropertiesArgsDict(TypedDict):
-    """
-    Additional Maps account properties
-    """
-    cors: NotRequired[pulumi.Input['CorsRulesArgsDict']]
-    """
-    Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-    """
-    disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
-    """
-    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
-    """
-    All encryption configuration for a resource.
-    """
-    linked_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgsDict']]]]
-    """
-    The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
-    """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgsDict']]]]
-    """
-    List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
-    """
-
-@pulumi.input_type
-class MapsAccountPropertiesArgs:
-    def __init__(__self__, *,
-                 cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 linked_resources: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]] = None):
-        """
-        Additional Maps account properties
-
-        :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-        :param pulumi.Input[_builtins.bool] disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
-        :param pulumi.Input['EncryptionArgs'] encryption: All encryption configuration for a resource.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]] linked_resources: The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
-        :param pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]] locations: List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
-        """
-        if cors is not None:
-            pulumi.set(__self__, "cors", cors)
-        if disable_local_auth is None:
-            disable_local_auth = False
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if linked_resources is not None:
-            pulumi.set(__self__, "linked_resources", linked_resources)
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-
-    @_builtins.property
-    @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['CorsRulesArgs']]:
-        """
-        Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-        """
-        return pulumi.get(self, "cors")
-
-    @cors.setter
-    def cors(self, value: Optional[pulumi.Input['CorsRulesArgs']]):
-        pulumi.set(self, "cors", value)
-
-    @_builtins.property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
-        """
-        All encryption configuration for a resource.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedResources")
-    def linked_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]]:
-        """
-        The array of associated resources to the Maps account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Maps Account Managed Identity(s) permissions to those resource(s).
-        """
-        return pulumi.get(self, "linked_resources")
-
-    @linked_resources.setter
-    def linked_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]]):
-        pulumi.set(self, "linked_resources", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]]:
-        """
-        List of additional data processing regions for the Maps Account, which may result in requests being processed in another geography. Some features or results may be restricted to specific regions. By default, Maps REST APIs process requests according to the account location or the [geographic scope](https://learn.microsoft.com/azure/azure-maps/geographic-scope).
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MapsAccountPropertiesLocationsArgs']]]]):
-        pulumi.set(self, "locations", value)
-
-
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -658,9 +658,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -677,38 +677,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 

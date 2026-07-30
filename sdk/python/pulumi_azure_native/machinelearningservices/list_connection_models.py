@@ -65,7 +65,6 @@ def list_connection_models(resource_group_name: Optional[_builtins.str] = None,
     """
     Uses Azure REST API version 2024-07-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
@@ -78,12 +77,11 @@ def list_connection_models(resource_group_name: Optional[_builtins.str] = None,
     return AwaitableListConnectionModelsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_connection_models_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_connection_models_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionModelsResult]:
     """
     Uses Azure REST API version 2024-07-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: Azure Machine Learning Workspace Name

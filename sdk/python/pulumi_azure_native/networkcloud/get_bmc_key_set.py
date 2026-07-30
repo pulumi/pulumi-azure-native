@@ -262,7 +262,6 @@ def get_bmc_key_set(bmc_key_set_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str bmc_key_set_name: The name of the baseboard management controller key set.
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -293,9 +292,9 @@ def get_bmc_key_set(bmc_key_set_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_list=pulumi.get(__ret__, 'user_list'),
         user_list_status=pulumi.get(__ret__, 'user_list_status'))
-def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bmc_key_set_output(bmc_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBmcKeySetResult]:
     """
     Get baseboard management controller key set of the provided cluster.
@@ -303,7 +302,6 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str bmc_key_set_name: The name of the baseboard management controller key set.
     :param _builtins.str cluster_name: The name of the cluster.

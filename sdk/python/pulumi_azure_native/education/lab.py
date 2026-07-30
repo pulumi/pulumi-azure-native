@@ -28,8 +28,8 @@ class LabArgs:
                  display_name: pulumi.Input[_builtins.str],
                  expiration_date: pulumi.Input[_builtins.str],
                  invoice_section_name: pulumi.Input[_builtins.str],
-                 currency: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None):
+                 currency: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a Lab resource.
 
@@ -141,26 +141,26 @@ class LabArgs:
 
     @_builtins.property
     @pulumi.getter
-    def currency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def currency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of currency being used for the value.
         """
         return pulumi.get(self, "currency")
 
     @currency.setter
-    def currency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def currency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "currency", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Amount value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
 
 
@@ -170,21 +170,20 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_per_student: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
-                 currency: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None,
+                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_per_student: pulumi.Input[Optional[Union['AmountArgs', 'AmountArgsDict']]] = None,
+                 currency: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Lab details.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +208,6 @@ class Lab(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,15 +223,15 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_per_student: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
-                 currency: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None,
+                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_per_student: pulumi.Input[Optional[Union['AmountArgs', 'AmountArgsDict']]] = None,
+                 currency: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

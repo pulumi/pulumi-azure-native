@@ -190,7 +190,6 @@ def get_security_standard(scope: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-08-01.
 
-
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type
     """
@@ -213,14 +212,13 @@ def get_security_standard(scope: Optional[_builtins.str] = None,
         standard_type=pulumi.get(__ret__, 'standard_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_security_standard_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_standard_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityStandardResult]:
     """
     Get a specific security standard for the requested scope by standardId
 
     Uses Azure REST API version 2024-08-01.
-
 
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type

@@ -48,10 +48,10 @@ __all__ = [
     'EndpointRangeDescriptionArgsDict',
     'FrontendConfigurationArgs',
     'FrontendConfigurationArgsDict',
-    'IpConfigurationPublicIPAddressConfigurationArgs',
-    'IpConfigurationPublicIPAddressConfigurationArgsDict',
     'IpConfigurationArgs',
     'IpConfigurationArgsDict',
+    'IpConfigurationPublicIPAddressConfigurationArgs',
+    'IpConfigurationPublicIPAddressConfigurationArgsDict',
     'IpTagArgs',
     'IpTagArgsDict',
     'LoadBalancingRuleArgs',
@@ -227,11 +227,11 @@ class AdditionalNetworkInterfaceConfigurationArgsDict(TypedDict):
     """
     Name of the network interface.
     """
-    dscp_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    dscp_configuration: NotRequired[pulumi.Input[Optional['SubResourceArgsDict']]]
     """
     Specifies the DSCP configuration to apply to the network interface.
     """
-    enable_accelerated_networking: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_accelerated_networking: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the network interface is accelerated networking-enabled.
     """
@@ -241,8 +241,8 @@ class AdditionalNetworkInterfaceConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]],
                  name: pulumi.Input[_builtins.str],
-                 dscp_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dscp_configuration: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies the settings for a network interface to attach to the node type.
 
@@ -284,26 +284,26 @@ class AdditionalNetworkInterfaceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dscpConfiguration")
-    def dscp_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def dscp_configuration(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies the DSCP configuration to apply to the network interface.
         """
         return pulumi.get(self, "dscp_configuration")
 
     @dscp_configuration.setter
-    def dscp_configuration(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def dscp_configuration(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "dscp_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the network interface is accelerated networking-enabled.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_networking", value)
 
 
@@ -322,11 +322,11 @@ class ApplicationHealthPolicyArgsDict(TypedDict):
     This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
     The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
     """
-    default_service_type_health_policy: NotRequired[pulumi.Input['ServiceTypeHealthPolicyArgsDict']]
+    default_service_type_health_policy: NotRequired[pulumi.Input[Optional['ServiceTypeHealthPolicyArgsDict']]]
     """
     The health policy used by default to evaluate the health of a service type.
     """
-    service_type_health_policy_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgsDict']]]]
+    service_type_health_policy_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgsDict']]]]]
     """
     The map with service type health policy per service type name. The map is empty by default.
     """
@@ -336,8 +336,8 @@ class ApplicationHealthPolicyArgs:
     def __init__(__self__, *,
                  consider_warning_as_error: pulumi.Input[_builtins.bool],
                  max_percent_unhealthy_deployed_applications: pulumi.Input[_builtins.int],
-                 default_service_type_health_policy: Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']] = None,
-                 service_type_health_policy_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]] = None):
+                 default_service_type_health_policy: pulumi.Input[Optional['ServiceTypeHealthPolicyArgs']] = None,
+                 service_type_health_policy_map: pulumi.Input[Optional[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]] = None):
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
 
@@ -386,26 +386,26 @@ class ApplicationHealthPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultServiceTypeHealthPolicy")
-    def default_service_type_health_policy(self) -> Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']]:
+    def default_service_type_health_policy(self) -> pulumi.Input[Optional['ServiceTypeHealthPolicyArgs']]:
         """
         The health policy used by default to evaluate the health of a service type.
         """
         return pulumi.get(self, "default_service_type_health_policy")
 
     @default_service_type_health_policy.setter
-    def default_service_type_health_policy(self, value: Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']]):
+    def default_service_type_health_policy(self, value: pulumi.Input[Optional['ServiceTypeHealthPolicyArgs']]):
         pulumi.set(self, "default_service_type_health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTypeHealthPolicyMap")
-    def service_type_health_policy_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]:
+    def service_type_health_policy_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]:
         """
         The map with service type health policy per service type name. The map is empty by default.
         """
         return pulumi.get(self, "service_type_health_policy_map")
 
     @service_type_health_policy_map.setter
-    def service_type_health_policy_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]):
+    def service_type_health_policy_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]):
         pulumi.set(self, "service_type_health_policy_map", value)
 
 
@@ -446,31 +446,31 @@ class ApplicationUpgradePolicyArgsDict(TypedDict):
     """
     Describes the policy for a monitored application upgrade.
     """
-    application_health_policy: NotRequired[pulumi.Input['ApplicationHealthPolicyArgsDict']]
+    application_health_policy: NotRequired[pulumi.Input[Optional['ApplicationHealthPolicyArgsDict']]]
     """
     Defines a health policy used to evaluate the health of an application or one of its children entities.
     """
-    force_restart: NotRequired[pulumi.Input[_builtins.bool]]
+    force_restart: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
     """
-    instance_close_delay_duration: NotRequired[pulumi.Input[_builtins.float]]
+    instance_close_delay_duration: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
     """
-    recreate_application: NotRequired[pulumi.Input[_builtins.bool]]
+    recreate_application: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
     """
-    rolling_upgrade_monitoring_policy: NotRequired[pulumi.Input['RollingUpgradeMonitoringPolicyArgsDict']]
+    rolling_upgrade_monitoring_policy: NotRequired[pulumi.Input[Optional['RollingUpgradeMonitoringPolicyArgsDict']]]
     """
     The policy used for monitoring the application upgrade
     """
-    upgrade_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]]
+    upgrade_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RollingUpgradeMode']]]]
     """
     The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
     """
-    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.float]]
+    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
     """
@@ -478,13 +478,13 @@ class ApplicationUpgradePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationUpgradePolicyArgs:
     def __init__(__self__, *,
-                 application_health_policy: Optional[pulumi.Input['ApplicationHealthPolicyArgs']] = None,
-                 force_restart: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_close_delay_duration: Optional[pulumi.Input[_builtins.float]] = None,
-                 recreate_application: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rolling_upgrade_monitoring_policy: Optional[pulumi.Input['RollingUpgradeMonitoringPolicyArgs']] = None,
-                 upgrade_mode: Optional[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]] = None,
-                 upgrade_replica_set_check_timeout: Optional[pulumi.Input[_builtins.float]] = None):
+                 application_health_policy: pulumi.Input[Optional['ApplicationHealthPolicyArgs']] = None,
+                 force_restart: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_close_delay_duration: pulumi.Input[Optional[_builtins.float]] = None,
+                 recreate_application: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rolling_upgrade_monitoring_policy: pulumi.Input[Optional['RollingUpgradeMonitoringPolicyArgs']] = None,
+                 upgrade_mode: pulumi.Input[Optional[Union[_builtins.str, 'RollingUpgradeMode']]] = None,
+                 upgrade_replica_set_check_timeout: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Describes the policy for a monitored application upgrade.
 
@@ -513,86 +513,86 @@ class ApplicationUpgradePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationHealthPolicy")
-    def application_health_policy(self) -> Optional[pulumi.Input['ApplicationHealthPolicyArgs']]:
+    def application_health_policy(self) -> pulumi.Input[Optional['ApplicationHealthPolicyArgs']]:
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
         """
         return pulumi.get(self, "application_health_policy")
 
     @application_health_policy.setter
-    def application_health_policy(self, value: Optional[pulumi.Input['ApplicationHealthPolicyArgs']]):
+    def application_health_policy(self, value: pulumi.Input[Optional['ApplicationHealthPolicyArgs']]):
         pulumi.set(self, "application_health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="forceRestart")
-    def force_restart(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_restart(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         """
         return pulumi.get(self, "force_restart")
 
     @force_restart.setter
-    def force_restart(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_restart(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_restart", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCloseDelayDuration")
-    def instance_close_delay_duration(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def instance_close_delay_duration(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
         """
         return pulumi.get(self, "instance_close_delay_duration")
 
     @instance_close_delay_duration.setter
-    def instance_close_delay_duration(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def instance_close_delay_duration(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "instance_close_delay_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="recreateApplication")
-    def recreate_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recreate_application(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
         """
         return pulumi.get(self, "recreate_application")
 
     @recreate_application.setter
-    def recreate_application(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recreate_application(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recreate_application", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingUpgradeMonitoringPolicy")
-    def rolling_upgrade_monitoring_policy(self) -> Optional[pulumi.Input['RollingUpgradeMonitoringPolicyArgs']]:
+    def rolling_upgrade_monitoring_policy(self) -> pulumi.Input[Optional['RollingUpgradeMonitoringPolicyArgs']]:
         """
         The policy used for monitoring the application upgrade
         """
         return pulumi.get(self, "rolling_upgrade_monitoring_policy")
 
     @rolling_upgrade_monitoring_policy.setter
-    def rolling_upgrade_monitoring_policy(self, value: Optional[pulumi.Input['RollingUpgradeMonitoringPolicyArgs']]):
+    def rolling_upgrade_monitoring_policy(self, value: pulumi.Input[Optional['RollingUpgradeMonitoringPolicyArgs']]):
         pulumi.set(self, "rolling_upgrade_monitoring_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]]:
+    def upgrade_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RollingUpgradeMode']]]:
         """
         The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
         """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]]):
+    def upgrade_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RollingUpgradeMode']]]):
         pulumi.set(self, "upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
-    def upgrade_replica_set_check_timeout(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def upgrade_replica_set_check_timeout(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
         """
         return pulumi.get(self, "upgrade_replica_set_check_timeout")
 
     @upgrade_replica_set_check_timeout.setter
-    def upgrade_replica_set_check_timeout(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def upgrade_replica_set_check_timeout(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "upgrade_replica_set_check_timeout", value)
 
 
@@ -890,15 +890,15 @@ class AzureActiveDirectoryArgsDict(TypedDict):
     """
     The settings to enable AAD authentication on the cluster.
     """
-    client_application: NotRequired[pulumi.Input[_builtins.str]]
+    client_application: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure active directory client application id.
     """
-    cluster_application: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_application: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure active directory cluster application id.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure active directory tenant id.
     """
@@ -906,9 +906,9 @@ class AzureActiveDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
     def __init__(__self__, *,
-                 client_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings to enable AAD authentication on the cluster.
 
@@ -925,38 +925,38 @@ class AzureActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientApplication")
-    def client_application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure active directory client application id.
         """
         return pulumi.get(self, "client_application")
 
     @client_application.setter
-    def client_application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_application", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterApplication")
-    def cluster_application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure active directory cluster application id.
         """
         return pulumi.get(self, "cluster_application")
 
     @cluster_application.setter
-    def cluster_application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_application", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure active directory tenant id.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -968,15 +968,15 @@ class ClientCertificateArgsDict(TypedDict):
     """
     Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
     """
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Certificate common name.
     """
-    issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Issuer thumbprint for the certificate. Only used together with CommonName.
     """
-    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Certificate thumbprint.
     """
@@ -985,9 +985,9 @@ class ClientCertificateArgsDict(TypedDict):
 class ClientCertificateArgs:
     def __init__(__self__, *,
                  is_admin: pulumi.Input[_builtins.bool],
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Client certificate definition.
 
@@ -1018,38 +1018,38 @@ class ClientCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate common name.
         """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerThumbprint")
-    def issuer_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Issuer thumbprint for the certificate. Only used together with CommonName.
         """
         return pulumi.get(self, "issuer_thumbprint")
 
     @issuer_thumbprint.setter
-    def issuer_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate thumbprint.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -1081,8 +1081,8 @@ class ClusterHealthPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_unhealthy_applications: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_percent_unhealthy_nodes: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_percent_unhealthy_applications: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_percent_unhealthy_nodes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 
@@ -1265,14 +1265,14 @@ class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
     The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
     The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
     """
-    max_percent_delta_unhealthy_applications: NotRequired[pulumi.Input[_builtins.int]]
+    max_percent_delta_unhealthy_applications: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
     The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
     The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
     NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
     """
-    max_percent_upgrade_domain_delta_unhealthy_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    max_percent_upgrade_domain_delta_unhealthy_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
     The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
@@ -1283,8 +1283,8 @@ class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
 class ClusterUpgradeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
                  max_percent_delta_unhealthy_nodes: pulumi.Input[_builtins.int],
-                 max_percent_delta_unhealthy_applications: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_percent_delta_unhealthy_applications: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes the delta health policies for the cluster upgrade.
 
@@ -1321,7 +1321,7 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
         The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
@@ -1331,12 +1331,12 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_delta_unhealthy_applications")
 
     @max_percent_delta_unhealthy_applications.setter
-    def max_percent_delta_unhealthy_applications(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_percent_delta_unhealthy_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
@@ -1345,7 +1345,7 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
 
     @max_percent_upgrade_domain_delta_unhealthy_nodes.setter
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
 
 
@@ -1353,23 +1353,23 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
     """
     Describes the policy used when upgrading the cluster.
     """
-    delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgsDict']]
+    delta_health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradeDeltaHealthPolicyArgsDict']]]
     """
     The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
     """
-    force_restart: NotRequired[pulumi.Input[_builtins.bool]]
+    force_restart: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
     """
-    health_policy: NotRequired[pulumi.Input['ClusterHealthPolicyArgsDict']]
+    health_policy: NotRequired[pulumi.Input[Optional['ClusterHealthPolicyArgsDict']]]
     """
     The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
     """
-    monitoring_policy: NotRequired[pulumi.Input['ClusterMonitoringPolicyArgsDict']]
+    monitoring_policy: NotRequired[pulumi.Input[Optional['ClusterMonitoringPolicyArgsDict']]]
     """
     The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
     """
-    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
     When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
@@ -1380,11 +1380,11 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
     def __init__(__self__, *,
-                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']] = None,
-                 force_restart: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_policy: Optional[pulumi.Input['ClusterHealthPolicyArgs']] = None,
-                 monitoring_policy: Optional[pulumi.Input['ClusterMonitoringPolicyArgs']] = None,
-                 upgrade_replica_set_check_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 delta_health_policy: pulumi.Input[Optional['ClusterUpgradeDeltaHealthPolicyArgs']] = None,
+                 force_restart: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_policy: pulumi.Input[Optional['ClusterHealthPolicyArgs']] = None,
+                 monitoring_policy: pulumi.Input[Optional['ClusterMonitoringPolicyArgs']] = None,
+                 upgrade_replica_set_check_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the policy used when upgrading the cluster.
 
@@ -1410,55 +1410,55 @@ class ClusterUpgradePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deltaHealthPolicy")
-    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]:
+    def delta_health_policy(self) -> pulumi.Input[Optional['ClusterUpgradeDeltaHealthPolicyArgs']]:
         """
         The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
         """
         return pulumi.get(self, "delta_health_policy")
 
     @delta_health_policy.setter
-    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]):
+    def delta_health_policy(self, value: pulumi.Input[Optional['ClusterUpgradeDeltaHealthPolicyArgs']]):
         pulumi.set(self, "delta_health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="forceRestart")
-    def force_restart(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_restart(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         """
         return pulumi.get(self, "force_restart")
 
     @force_restart.setter
-    def force_restart(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_restart(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_restart", value)
 
     @_builtins.property
     @pulumi.getter(name="healthPolicy")
-    def health_policy(self) -> Optional[pulumi.Input['ClusterHealthPolicyArgs']]:
+    def health_policy(self) -> pulumi.Input[Optional['ClusterHealthPolicyArgs']]:
         """
         The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
         """
         return pulumi.get(self, "health_policy")
 
     @health_policy.setter
-    def health_policy(self, value: Optional[pulumi.Input['ClusterHealthPolicyArgs']]):
+    def health_policy(self, value: pulumi.Input[Optional['ClusterHealthPolicyArgs']]):
         pulumi.set(self, "health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringPolicy")
-    def monitoring_policy(self) -> Optional[pulumi.Input['ClusterMonitoringPolicyArgs']]:
+    def monitoring_policy(self) -> pulumi.Input[Optional['ClusterMonitoringPolicyArgs']]:
         """
         The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
         """
         return pulumi.get(self, "monitoring_policy")
 
     @monitoring_policy.setter
-    def monitoring_policy(self, value: Optional[pulumi.Input['ClusterMonitoringPolicyArgs']]):
+    def monitoring_policy(self, value: pulumi.Input[Optional['ClusterMonitoringPolicyArgs']]):
         pulumi.set(self, "monitoring_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
-    def upgrade_replica_set_check_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_replica_set_check_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
         When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
@@ -1468,7 +1468,7 @@ class ClusterUpgradePolicyArgs:
         return pulumi.get(self, "upgrade_replica_set_check_timeout")
 
     @upgrade_replica_set_check_timeout.setter
-    def upgrade_replica_set_check_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_replica_set_check_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_replica_set_check_timeout", value)
 
 
@@ -1528,19 +1528,19 @@ class FrontendConfigurationArgsDict(TypedDict):
     """
     Describes the frontend configurations for the node type.
     """
-    application_gateway_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_gateway_backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
     """
-    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]]
     """
     The IP address type of this frontend configuration. If omitted the default value is IPv4.
     """
-    load_balancer_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    load_balancer_backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
     """
-    load_balancer_inbound_nat_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    load_balancer_inbound_nat_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
     """
@@ -1548,10 +1548,10 @@ class FrontendConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FrontendConfigurationArgs:
     def __init__(__self__, *,
-                 application_gateway_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address_type: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]] = None,
-                 load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_inbound_nat_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_gateway_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]] = None,
+                 load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_inbound_nat_pool_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the frontend configurations for the node type.
 
@@ -1571,126 +1571,51 @@ class FrontendConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolId")
-    def application_gateway_backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_gateway_backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
         """
         return pulumi.get(self, "application_gateway_backend_address_pool_id")
 
     @application_gateway_backend_address_pool_id.setter
-    def application_gateway_backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_gateway_backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_gateway_backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]:
         """
         The IP address type of this frontend configuration. If omitted the default value is IPv4.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
-    def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
     @load_balancer_backend_address_pool_id.setter
-    def load_balancer_backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerInboundNatPoolId")
-    def load_balancer_inbound_nat_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_inbound_nat_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pool_id")
 
     @load_balancer_inbound_nat_pool_id.setter
-    def load_balancer_inbound_nat_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_inbound_nat_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_inbound_nat_pool_id", value)
-
-
-class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
-    """
-    The public IP address configuration of the network interface.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of the network interface.
-    """
-    ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
-    """
-    Specifies the list of IP tags associated with the public IP address.
-    """
-    public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]]
-    """
-    Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-    """
-
-@pulumi.input_type
-class IpConfigurationPublicIPAddressConfigurationArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
-                 public_ip_address_version: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]] = None):
-        """
-        The public IP address configuration of the network interface.
-
-        :param pulumi.Input[_builtins.str] name: Name of the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
-        :param pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        pulumi.set(__self__, "name", name)
-        if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
-        if public_ip_address_version is None:
-            public_ip_address_version = 'IPv4'
-        if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the network interface.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
-        """
-        Specifies the list of IP tags associated with the public IP address.
-        """
-        return pulumi.get(self, "ip_tags")
-
-    @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
-        pulumi.set(self, "ip_tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPAddressVersion")
-    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]]:
-        """
-        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        return pulumi.get(self, "public_ip_address_version")
-
-    @public_ip_address_version.setter
-    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]]):
-        pulumi.set(self, "public_ip_address_version", value)
 
 
 class IpConfigurationArgsDict(TypedDict):
@@ -1701,27 +1626,27 @@ class IpConfigurationArgsDict(TypedDict):
     """
     Name of the network interface.
     """
-    application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    application_gateway_backend_address_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgsDict']]]]]
     """
     Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
     """
-    load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    load_balancer_backend_address_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgsDict']]]]]
     """
-    Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+    Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
     """
-    load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgsDict']]]]]
     """
     Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
     """
-    private_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]]
+    private_ip_address_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAddressVersion']]]]
     """
     Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
     """
-    public_ip_address_configuration: NotRequired[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgsDict']]
+    public_ip_address_configuration: NotRequired[pulumi.Input[Optional['IpConfigurationPublicIPAddressConfigurationArgsDict']]]
     """
     The public IP address configuration of the network interface.
     """
-    subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['SubResourceArgsDict']]]
     """
     Specifies the subnet of the network interface.
     """
@@ -1730,18 +1655,18 @@ class IpConfigurationArgsDict(TypedDict):
 class IpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 application_gateway_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 private_ip_address_version: Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]] = None,
-                 public_ip_address_configuration: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']] = None,
-                 subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
+                 application_gateway_backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_inbound_nat_pools: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 private_ip_address_version: pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAddressVersion']]] = None,
+                 public_ip_address_configuration: pulumi.Input[Optional['IpConfigurationPublicIPAddressConfigurationArgs']] = None,
+                 subnet: pulumi.Input[Optional['SubResourceArgs']] = None):
         """
         Specifies an IP configuration of the network interface.
 
         :param pulumi.Input[_builtins.str] name: Name of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']] private_ip_address_version: Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
         :param pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP address configuration of the network interface.
@@ -1777,75 +1702,150 @@ class IpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationGatewayBackendAddressPools")
-    def application_gateway_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def application_gateway_backend_address_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
         """
         return pulumi.get(self, "application_gateway_backend_address_pools")
 
     @application_gateway_backend_address_pools.setter
-    def application_gateway_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def application_gateway_backend_address_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "application_gateway_backend_address_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def load_balancer_backend_address_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
     @load_balancer_backend_address_pools.setter
-    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def load_balancer_backend_address_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "load_balancer_backend_address_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerInboundNatPools")
-    def load_balancer_inbound_nat_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def load_balancer_inbound_nat_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pools")
 
     @load_balancer_inbound_nat_pools.setter
-    def load_balancer_inbound_nat_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def load_balancer_inbound_nat_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "load_balancer_inbound_nat_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAddressVersion")
-    def private_ip_address_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]]:
+    def private_ip_address_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAddressVersion']]]:
         """
         Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
         """
         return pulumi.get(self, "private_ip_address_version")
 
     @private_ip_address_version.setter
-    def private_ip_address_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]]):
+    def private_ip_address_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateIPAddressVersion']]]):
         pulumi.set(self, "private_ip_address_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIPAddressConfiguration")
-    def public_ip_address_configuration(self) -> Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]:
+    def public_ip_address_configuration(self) -> pulumi.Input[Optional['IpConfigurationPublicIPAddressConfigurationArgs']]:
         """
         The public IP address configuration of the network interface.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
     @public_ip_address_configuration.setter
-    def public_ip_address_configuration(self, value: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]):
+    def public_ip_address_configuration(self, value: pulumi.Input[Optional['IpConfigurationPublicIPAddressConfigurationArgs']]):
         pulumi.set(self, "public_ip_address_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies the subnet of the network interface.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
+    """
+    The public IP address configuration of the network interface.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the network interface.
+    """
+    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgsDict']]]]]
+    """
+    Specifies the list of IP tags associated with the public IP address.
+    """
+    public_ip_address_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicIPAddressVersion']]]]
+    """
+    Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+    """
+
+@pulumi.input_type
+class IpConfigurationPublicIPAddressConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 ip_tags: pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 public_ip_address_version: pulumi.Input[Optional[Union[_builtins.str, 'PublicIPAddressVersion']]] = None):
+        """
+        The public IP address configuration of the network interface.
+
+        :param pulumi.Input[_builtins.str] name: Name of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
+        :param pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        pulumi.set(__self__, "name", name)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_address_version is None:
+            public_ip_address_version = 'IPv4'
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]]:
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpTagArgs']]]]):
+        pulumi.set(self, "ip_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicIPAddressVersion']]]:
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicIPAddressVersion']]]):
+        pulumi.set(self, "public_ip_address_version", value)
 
 
 class IpTagArgsDict(TypedDict):
@@ -1920,15 +1920,15 @@ class LoadBalancingRuleArgsDict(TypedDict):
     """
     The reference to the transport protocol used by the load balancing rule.
     """
-    load_distribution: NotRequired[pulumi.Input[_builtins.str]]
+    load_distribution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The load distribution policy for this rule.
     """
-    probe_port: NotRequired[pulumi.Input[_builtins.int]]
+    probe_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
     """
-    probe_request_path: NotRequired[pulumi.Input[_builtins.str]]
+    probe_request_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The probe request path. Only supported for HTTP/HTTPS probes.
     """
@@ -1940,9 +1940,9 @@ class LoadBalancingRuleArgs:
                  frontend_port: pulumi.Input[_builtins.int],
                  probe_protocol: pulumi.Input[Union[_builtins.str, 'ProbeProtocol']],
                  protocol: pulumi.Input[Union[_builtins.str, 'Protocol']],
-                 load_distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_request_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 load_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_request_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a load balancing rule.
 
@@ -2015,38 +2015,38 @@ class LoadBalancingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="loadDistribution")
-    def load_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The load distribution policy for this rule.
         """
         return pulumi.get(self, "load_distribution")
 
     @load_distribution.setter
-    def load_distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="probePort")
-    def probe_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
         """
         return pulumi.get(self, "probe_port")
 
     @probe_port.setter
-    def probe_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_port", value)
 
     @_builtins.property
     @pulumi.getter(name="probeRequestPath")
-    def probe_request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The probe request path. Only supported for HTTP/HTTPS probes.
         """
         return pulumi.get(self, "probe_request_path")
 
     @probe_request_path.setter
-    def probe_request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_request_path", value)
 
 
@@ -2054,11 +2054,11 @@ class ManagedIdentityArgsDict(TypedDict):
     """
     Describes the managed identities for an Azure resource.
     """
-    type: NotRequired[pulumi.Input['ManagedIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ManagedIdentityType']]]
     """
     The type of managed identity for the resource.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
     '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -2067,8 +2067,8 @@ class ManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ManagedIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ManagedIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes the managed identities for an Azure resource.
 
@@ -2083,19 +2083,19 @@ class ManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ManagedIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ManagedIdentityType']]:
         """
         The type of managed identity for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ManagedIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ManagedIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
         '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -2103,7 +2103,7 @@ class ManagedIdentityArgs:
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2186,39 +2186,39 @@ class NetworkSecurityRuleArgsDict(TypedDict):
     """
     Network protocol this rule applies to.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network security rule description.
     """
-    destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    destination_address_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
     """
-    destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The destination address prefixes. CIDR or destination IP ranges.
     """
-    destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    destination_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
     """
-    destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The destination port ranges.
     """
-    source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    source_address_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
     """
-    source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The CIDR or source IP ranges.
     """
-    source_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    source_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
     """
-    source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The source port ranges.
     """
@@ -2231,15 +2231,15 @@ class NetworkSecurityRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[Union[_builtins.str, 'NsgProtocol']],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes a network security rule.
 
@@ -2344,110 +2344,110 @@ class NetworkSecurityRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network security rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         """
         return pulumi.get(self, "destination_address_prefix")
 
     @destination_address_prefix.setter
-    def destination_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The destination address prefixes. CIDR or destination IP ranges.
         """
         return pulumi.get(self, "destination_address_prefixes")
 
     @destination_address_prefixes.setter
-    def destination_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The destination port ranges.
         """
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         """
         return pulumi.get(self, "source_address_prefix")
 
     @source_address_prefix.setter
-    def source_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The CIDR or source IP ranges.
         """
         return pulumi.get(self, "source_address_prefixes")
 
     @source_address_prefixes.setter
-    def source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The source port ranges.
         """
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
@@ -2455,15 +2455,15 @@ class NodeTypeNatConfigArgsDict(TypedDict):
     """
     Provides information about NAT configuration on the default public Load Balancer for the node type.
     """
-    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    backend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The internal port for the NAT configuration.
     """
-    frontend_port_range_end: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port_range_end: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port range end for the external endpoint.
     """
-    frontend_port_range_start: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port_range_start: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port range start for the external endpoint.
     """
@@ -2471,9 +2471,9 @@ class NodeTypeNatConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NodeTypeNatConfigArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port_range_end: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port_range_start: Optional[pulumi.Input[_builtins.int]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port_range_end: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port_range_start: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Provides information about NAT configuration on the default public Load Balancer for the node type.
 
@@ -2490,38 +2490,38 @@ class NodeTypeNatConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The internal port for the NAT configuration.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortRangeEnd")
-    def frontend_port_range_end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port_range_end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port range end for the external endpoint.
         """
         return pulumi.get(self, "frontend_port_range_end")
 
     @frontend_port_range_end.setter
-    def frontend_port_range_end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port_range_end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port_range_end", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortRangeStart")
-    def frontend_port_range_start(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port_range_start(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port range start for the external endpoint.
         """
         return pulumi.get(self, "frontend_port_range_start")
 
     @frontend_port_range_start.setter
-    def frontend_port_range_start(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port_range_start(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port_range_start", value)
 
 
@@ -2533,11 +2533,11 @@ class NodeTypeSkuArgsDict(TypedDict):
     """
     The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
     """
@@ -2546,8 +2546,8 @@ class NodeTypeSkuArgsDict(TypedDict):
 class NodeTypeSkuArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a node type sku.
 
@@ -2575,26 +2575,26 @@ class NodeTypeSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -2931,7 +2931,7 @@ class ServiceEndpointArgsDict(TypedDict):
     """
     The type of the endpoint service.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of locations.
     """
@@ -2940,7 +2940,7 @@ class ServiceEndpointArgsDict(TypedDict):
 class ServiceEndpointArgs:
     def __init__(__self__, *,
                  service: pulumi.Input[_builtins.str],
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The service endpoint properties.
 
@@ -2965,14 +2965,14 @@ class ServiceEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of locations.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
 
@@ -2984,19 +2984,19 @@ class ServiceLoadMetricArgsDict(TypedDict):
     """
     The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
     """
-    default_load: NotRequired[pulumi.Input[_builtins.int]]
+    default_load: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
     """
-    primary_default_load: NotRequired[pulumi.Input[_builtins.int]]
+    primary_default_load: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
     """
-    secondary_default_load: NotRequired[pulumi.Input[_builtins.int]]
+    secondary_default_load: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
     """
-    weight: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]]
+    weight: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServiceLoadMetricWeight']]]]
     """
     The service load metric relative weight, compared to other metrics configured for this service, as a number.
     """
@@ -3005,10 +3005,10 @@ class ServiceLoadMetricArgsDict(TypedDict):
 class ServiceLoadMetricArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 default_load: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_default_load: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_default_load: Optional[pulumi.Input[_builtins.int]] = None,
-                 weight: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]] = None):
+                 default_load: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_default_load: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_default_load: pulumi.Input[Optional[_builtins.int]] = None,
+                 weight: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLoadMetricWeight']]] = None):
         """
         Specifies a metric to load balance a service during runtime.
 
@@ -3042,50 +3042,50 @@ class ServiceLoadMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultLoad")
-    def default_load(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_load(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
         """
         return pulumi.get(self, "default_load")
 
     @default_load.setter
-    def default_load(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_load(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_load", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDefaultLoad")
-    def primary_default_load(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_default_load(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
         """
         return pulumi.get(self, "primary_default_load")
 
     @primary_default_load.setter
-    def primary_default_load(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_default_load(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_default_load", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDefaultLoad")
-    def secondary_default_load(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def secondary_default_load(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
         """
         return pulumi.get(self, "secondary_default_load")
 
     @secondary_default_load.setter
-    def secondary_default_load(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def secondary_default_load(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "secondary_default_load", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]]:
+    def weight(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceLoadMetricWeight']]]:
         """
         The service load metric relative weight, compared to other metrics configured for this service, as a number.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]]):
+    def weight(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLoadMetricWeight']]]):
         pulumi.set(self, "weight", value)
 
 
@@ -3182,7 +3182,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
 
 class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's 
+    Describes the policy to be used for placement of a Service Fabric service where the service's
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3207,7 +3207,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3684,65 +3684,65 @@ class StatefulServicePropertiesArgsDict(TypedDict):
     """
     The name of the service type
     """
-    correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
+    correlation_scheme: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]]
     """
     A list that describes the correlation of the service with other services.
     """
-    default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
+    default_move_cost: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]]
     """
     Specifies the move cost for the service.
     """
-    has_persisted_state: NotRequired[pulumi.Input[_builtins.bool]]
+    has_persisted_state: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
     """
-    min_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
+    min_replica_set_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum replica set size as a number.
     """
-    placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
     """
-    quorum_loss_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    quorum_loss_wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
     """
-    replica_restart_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    replica_restart_wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
     """
-    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
+    scaling_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]]
     """
     Scaling policies for this service.
     """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
     When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
     When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
     """
-    service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
+    service_load_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]]
     """
     The service load metrics is given as an array of ServiceLoadMetric objects.
     """
-    service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
+    service_package_activation_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]]
     """
     The activation Mode of the service package
     """
-    service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
+    service_placement_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]]
     """
     A list that describes the correlation of the service with other services.
     """
-    service_placement_time_limit: NotRequired[pulumi.Input[_builtins.str]]
+    service_placement_time_limit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
     """
-    stand_by_replica_keep_duration: NotRequired[pulumi.Input[_builtins.str]]
+    stand_by_replica_keep_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
     """
-    target_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
+    target_replica_set_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The target replica set size as a number.
     """
@@ -3753,21 +3753,21 @@ class StatefulServicePropertiesArgs:
                  partition_description: pulumi.Input[Union['NamedPartitionSchemeArgs', 'SingletonPartitionSchemeArgs', 'UniformInt64RangePartitionSchemeArgs']],
                  service_kind: pulumi.Input[_builtins.str],
                  service_type_name: pulumi.Input[_builtins.str],
-                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]] = None,
-                 default_move_cost: Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]] = None,
-                 has_persisted_state: Optional[pulumi.Input[_builtins.bool]] = None,
-                 min_replica_set_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 placement_constraints: Optional[pulumi.Input[_builtins.str]] = None,
-                 quorum_loss_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_restart_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]] = None,
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]] = None,
-                 service_package_activation_mode: Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]] = None,
-                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]] = None,
-                 service_placement_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 stand_by_replica_keep_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_replica_set_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 correlation_scheme: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]] = None,
+                 default_move_cost: pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]] = None,
+                 has_persisted_state: pulumi.Input[Optional[_builtins.bool]] = None,
+                 min_replica_set_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 placement_constraints: pulumi.Input[Optional[_builtins.str]] = None,
+                 quorum_loss_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_restart_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]] = None,
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_load_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]] = None,
+                 service_package_activation_mode: pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]] = None,
+                 service_placement_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]] = None,
+                 service_placement_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 stand_by_replica_keep_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_replica_set_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The properties of a stateful service resource.
 
@@ -3866,103 +3866,103 @@ class StatefulServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]:
+    def correlation_scheme(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]:
         """
         A list that describes the correlation of the service with other services.
         """
         return pulumi.get(self, "correlation_scheme")
 
     @correlation_scheme.setter
-    def correlation_scheme(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]):
+    def correlation_scheme(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]):
         pulumi.set(self, "correlation_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMoveCost")
-    def default_move_cost(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]]:
+    def default_move_cost(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]:
         """
         Specifies the move cost for the service.
         """
         return pulumi.get(self, "default_move_cost")
 
     @default_move_cost.setter
-    def default_move_cost(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]]):
+    def default_move_cost(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]):
         pulumi.set(self, "default_move_cost", value)
 
     @_builtins.property
     @pulumi.getter(name="hasPersistedState")
-    def has_persisted_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_persisted_state(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
         """
         return pulumi.get(self, "has_persisted_state")
 
     @has_persisted_state.setter
-    def has_persisted_state(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_persisted_state(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_persisted_state", value)
 
     @_builtins.property
     @pulumi.getter(name="minReplicaSetSize")
-    def min_replica_set_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_replica_set_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum replica set size as a number.
         """
         return pulumi.get(self, "min_replica_set_size")
 
     @min_replica_set_size.setter
-    def min_replica_set_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_replica_set_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_replica_set_size", value)
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_constraints(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_constraints(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="quorumLossWaitDuration")
-    def quorum_loss_wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quorum_loss_wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
         """
         return pulumi.get(self, "quorum_loss_wait_duration")
 
     @quorum_loss_wait_duration.setter
-    def quorum_loss_wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quorum_loss_wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quorum_loss_wait_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaRestartWaitDuration")
-    def replica_restart_wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replica_restart_wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
         """
         return pulumi.get(self, "replica_restart_wait_duration")
 
     @replica_restart_wait_duration.setter
-    def replica_restart_wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replica_restart_wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replica_restart_wait_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
-    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]]:
+    def scaling_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]]:
         """
         Scaling policies for this service.
         """
         return pulumi.get(self, "scaling_policies")
 
     @scaling_policies.setter
-    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]]):
+    def scaling_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]]):
         pulumi.set(self, "scaling_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
         When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
@@ -3971,79 +3971,79 @@ class StatefulServicePropertiesArgs:
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]:
+    def service_load_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]:
         """
         The service load metrics is given as an array of ServiceLoadMetric objects.
         """
         return pulumi.get(self, "service_load_metrics")
 
     @service_load_metrics.setter
-    def service_load_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]):
+    def service_load_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]):
         pulumi.set(self, "service_load_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePackageActivationMode")
-    def service_package_activation_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]:
+    def service_package_activation_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]:
         """
         The activation Mode of the service package
         """
         return pulumi.get(self, "service_package_activation_mode")
 
     @service_package_activation_mode.setter
-    def service_package_activation_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]):
+    def service_package_activation_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]):
         pulumi.set(self, "service_package_activation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]:
+    def service_placement_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]:
         """
         A list that describes the correlation of the service with other services.
         """
         return pulumi.get(self, "service_placement_policies")
 
     @service_placement_policies.setter
-    def service_placement_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]):
+    def service_placement_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]):
         pulumi.set(self, "service_placement_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePlacementTimeLimit")
-    def service_placement_time_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_placement_time_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
         """
         return pulumi.get(self, "service_placement_time_limit")
 
     @service_placement_time_limit.setter
-    def service_placement_time_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_placement_time_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_placement_time_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="standByReplicaKeepDuration")
-    def stand_by_replica_keep_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stand_by_replica_keep_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
         """
         return pulumi.get(self, "stand_by_replica_keep_duration")
 
     @stand_by_replica_keep_duration.setter
-    def stand_by_replica_keep_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stand_by_replica_keep_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stand_by_replica_keep_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="targetReplicaSetSize")
-    def target_replica_set_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_replica_set_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target replica set size as a number.
         """
         return pulumi.get(self, "target_replica_set_size")
 
     @target_replica_set_size.setter
-    def target_replica_set_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_replica_set_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_replica_set_size", value)
 
 
@@ -4068,45 +4068,45 @@ class StatelessServicePropertiesArgsDict(TypedDict):
     """
     The name of the service type
     """
-    correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
+    correlation_scheme: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]]
     """
     A list that describes the correlation of the service with other services.
     """
-    default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
+    default_move_cost: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]]
     """
     Specifies the move cost for the service.
     """
-    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
     """
-    min_instance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    min_instance_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
     """
-    placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
     """
-    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
+    scaling_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]]
     """
     Scaling policies for this service.
     """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
     When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
     When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
     """
-    service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
+    service_load_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]]
     """
     The service load metrics is given as an array of ServiceLoadMetric objects.
     """
-    service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
+    service_package_activation_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]]
     """
     The activation Mode of the service package
     """
-    service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
+    service_placement_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]]
     """
     A list that describes the correlation of the service with other services.
     """
@@ -4118,16 +4118,16 @@ class StatelessServicePropertiesArgs:
                  partition_description: pulumi.Input[Union['NamedPartitionSchemeArgs', 'SingletonPartitionSchemeArgs', 'UniformInt64RangePartitionSchemeArgs']],
                  service_kind: pulumi.Input[_builtins.str],
                  service_type_name: pulumi.Input[_builtins.str],
-                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]] = None,
-                 default_move_cost: Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]] = None,
-                 min_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instance_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 placement_constraints: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]] = None,
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]] = None,
-                 service_package_activation_mode: Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]] = None,
-                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]] = None):
+                 correlation_scheme: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]] = None,
+                 default_move_cost: pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]] = None,
+                 min_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instance_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 placement_constraints: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]] = None,
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_load_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]] = None,
+                 service_package_activation_mode: pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]] = None,
+                 service_placement_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]] = None):
         """
         The properties of a stateless service resource.
 
@@ -4225,79 +4225,79 @@ class StatelessServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]:
+    def correlation_scheme(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]:
         """
         A list that describes the correlation of the service with other services.
         """
         return pulumi.get(self, "correlation_scheme")
 
     @correlation_scheme.setter
-    def correlation_scheme(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]):
+    def correlation_scheme(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorrelationArgs']]]]):
         pulumi.set(self, "correlation_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMoveCost")
-    def default_move_cost(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]]:
+    def default_move_cost(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]:
         """
         Specifies the move cost for the service.
         """
         return pulumi.get(self, "default_move_cost")
 
     @default_move_cost.setter
-    def default_move_cost(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MoveCost']]]):
+    def default_move_cost(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MoveCost']]]):
         pulumi.set(self, "default_move_cost", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstancePercentage")
-    def min_instance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instance_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
         """
         return pulumi.get(self, "min_instance_percentage")
 
     @min_instance_percentage.setter
-    def min_instance_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instance_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instance_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_constraints(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_constraints(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
-    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]]:
+    def scaling_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]]:
         """
         Scaling policies for this service.
         """
         return pulumi.get(self, "scaling_policies")
 
     @scaling_policies.setter
-    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgs']]]]):
+    def scaling_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyArgs']]]]):
         pulumi.set(self, "scaling_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
         When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
@@ -4306,43 +4306,43 @@ class StatelessServicePropertiesArgs:
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]:
+    def service_load_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]:
         """
         The service load metrics is given as an array of ServiceLoadMetric objects.
         """
         return pulumi.get(self, "service_load_metrics")
 
     @service_load_metrics.setter
-    def service_load_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]):
+    def service_load_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadMetricArgs']]]]):
         pulumi.set(self, "service_load_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePackageActivationMode")
-    def service_package_activation_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]:
+    def service_package_activation_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]:
         """
         The activation Mode of the service package
         """
         return pulumi.get(self, "service_package_activation_mode")
 
     @service_package_activation_mode.setter
-    def service_package_activation_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]):
+    def service_package_activation_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServicePackageActivationMode']]]):
         pulumi.set(self, "service_package_activation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]:
+    def service_placement_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]:
         """
         A list that describes the correlation of the service with other services.
         """
         return pulumi.get(self, "service_placement_policies")
 
     @service_placement_policies.setter
-    def service_placement_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]):
+    def service_placement_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]]):
         pulumi.set(self, "service_placement_policies", value)
 
 
@@ -4350,7 +4350,7 @@ class SubResourceArgsDict(TypedDict):
     """
     Azure resource identifier.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
     An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -4361,7 +4361,7 @@ class SubResourceArgsDict(TypedDict):
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure resource identifier.
 
@@ -4375,7 +4375,7 @@ class SubResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
         An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
@@ -4385,7 +4385,7 @@ class SubResourceArgs:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -4397,19 +4397,19 @@ class SubnetArgsDict(TypedDict):
     """
     Subnet name.
     """
-    enable_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_ipv6: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
     """
-    network_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    network_security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Full resource id for the network security group.
     """
-    private_endpoint_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]
+    private_endpoint_network_policies: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]]
     """
     Enable or Disable apply network policies on private end point in the subnet.
     """
-    private_link_service_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]
+    private_link_service_network_policies: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]]
     """
     Enable or Disable apply network policies on private link service in the subnet.
     """
@@ -4418,10 +4418,10 @@ class SubnetArgsDict(TypedDict):
 class SubnetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 enable_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]] = None,
-                 private_link_service_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]] = None):
+                 enable_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_network_policies: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]] = None,
+                 private_link_service_network_policies: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]] = None):
         """
         Describes a Subnet.
 
@@ -4455,50 +4455,50 @@ class SubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableIpv6")
-    def enable_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ipv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
         """
         return pulumi.get(self, "enable_ipv6")
 
     @enable_ipv6.setter
-    def enable_ipv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ipv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupId")
-    def network_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full resource id for the network security group.
         """
         return pulumi.get(self, "network_security_group_id")
 
     @network_security_group_id.setter
-    def network_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
-    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]:
+    def private_endpoint_network_policies(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]:
         """
         Enable or Disable apply network policies on private end point in the subnet.
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
     @private_endpoint_network_policies.setter
-    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]):
+    def private_endpoint_network_policies(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]):
         pulumi.set(self, "private_endpoint_network_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceNetworkPolicies")
-    def private_link_service_network_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]:
+    def private_link_service_network_policies(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]:
         """
         Enable or Disable apply network policies on private link service in the subnet.
         """
         return pulumi.get(self, "private_link_service_network_policies")
 
     @private_link_service_network_policies.setter
-    def private_link_service_network_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]):
+    def private_link_service_network_policies(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]):
         pulumi.set(self, "private_link_service_network_policies", value)
 
 
@@ -4621,15 +4621,15 @@ class VMSSExtensionArgsDict(TypedDict):
     """
     Specifies the version of the script handler.
     """
-    auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_upgrade_minor_version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
     """
-    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_automatic_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
     """
-    force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
+    force_update_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
     """
@@ -4637,7 +4637,7 @@ class VMSSExtensionArgsDict(TypedDict):
     """
     The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
     """
-    provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    provision_after_extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Collection of extension names after which this extension needs to be provisioned.
     """
@@ -4645,7 +4645,7 @@ class VMSSExtensionArgsDict(TypedDict):
     """
     Json formatted public settings for the extension.
     """
-    setup_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]
+    setup_order: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]]
     """
     Indicates the setup order for the extension.
     """
@@ -4657,13 +4657,13 @@ class VMSSExtensionArgs:
                  publisher: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  type_handler_version: pulumi.Input[_builtins.str],
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_settings: Optional[Any] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  settings: Optional[Any] = None,
-                 setup_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]] = None):
+                 setup_order: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
 
@@ -4748,38 +4748,38 @@ class VMSSExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         """
         return pulumi.get(self, "enable_automatic_upgrade")
 
     @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
@@ -4796,14 +4796,14 @@ class VMSSExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def provision_after_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Collection of extension names after which this extension needs to be provisioned.
         """
         return pulumi.get(self, "provision_after_extensions")
 
     @provision_after_extensions.setter
-    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def provision_after_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provision_after_extensions", value)
 
     @_builtins.property
@@ -4820,14 +4820,14 @@ class VMSSExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="setupOrder")
-    def setup_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]:
+    def setup_order(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]:
         """
         Indicates the setup order for the extension.
         """
         return pulumi.get(self, "setup_order")
 
     @setup_order.setter
-    def setup_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]):
+    def setup_order(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]):
         pulumi.set(self, "setup_order", value)
 
 
@@ -4939,19 +4939,19 @@ class VmImagePlanArgsDict(TypedDict):
     """
     Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plan ID.
     """
-    product: NotRequired[pulumi.Input[_builtins.str]]
+    product: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The promotion code.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher ID.
     """
@@ -4959,10 +4959,10 @@ class VmImagePlanArgsDict(TypedDict):
 @pulumi.input_type
 class VmImagePlanArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
 
@@ -4982,50 +4982,50 @@ class VmImagePlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plan ID.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product", value)
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The promotion code.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher ID.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
 
@@ -5033,7 +5033,7 @@ class VmManagedIdentityArgsDict(TypedDict):
     """
     Identities for the virtual machine scale set under the node type.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -5041,7 +5041,7 @@ class VmManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class VmManagedIdentityArgs:
     def __init__(__self__, *,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identities for the virtual machine scale set under the node type.
 
@@ -5052,14 +5052,14 @@ class VmManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

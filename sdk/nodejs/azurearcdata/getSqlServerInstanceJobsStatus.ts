@@ -73,11 +73,11 @@ export interface GetSqlServerInstanceJobsStatusOutputArgs {
     /**
      * The name of the feature to retrieve the job status for.
      */
-    featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * The type of the job to retrieve the status for.
      */
-    jobType?: pulumi.Input<string>;
+    jobType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure resource group
      */

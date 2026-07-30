@@ -26,20 +26,20 @@ class AzurePowerShellScriptArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  retention_interval: pulumi.Input[_builtins.str],
-                 arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_preference: Optional[pulumi.Input[Union[_builtins.str, 'CleanupOptions']]] = None,
-                 container_settings: Optional[pulumi.Input['ContainerConfigurationArgs']] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_script_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_settings: Optional[pulumi.Input['StorageAccountConfigurationArgs']] = None,
-                 supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_preference: pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]] = None,
+                 container_settings: pulumi.Input[Optional['ContainerConfigurationArgs']] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_script_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_settings: pulumi.Input[Optional['StorageAccountConfigurationArgs']] = None,
+                 supporting_script_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzurePowerShellScript resource.
 
@@ -151,170 +151,170 @@ class AzurePowerShellScriptArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arguments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arguments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanupPreference")
-    def cleanup_preference(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CleanupOptions']]]:
+    def cleanup_preference(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]]:
         """
         The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         """
         return pulumi.get(self, "cleanup_preference")
 
     @cleanup_preference.setter
-    def cleanup_preference(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CleanupOptions']]]):
+    def cleanup_preference(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]]):
         pulumi.set(self, "cleanup_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> Optional[pulumi.Input['ContainerConfigurationArgs']]:
+    def container_settings(self) -> pulumi.Input[Optional['ContainerConfigurationArgs']]:
         """
         Container settings.
         """
         return pulumi.get(self, "container_settings")
 
     @container_settings.setter
-    def container_settings(self, value: Optional[pulumi.Input['ContainerConfigurationArgs']]):
+    def container_settings(self, value: pulumi.Input[Optional['ContainerConfigurationArgs']]):
         pulumi.set(self, "container_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to pass over to the script.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryScriptUri")
-    def primary_script_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_script_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri for the script. This is the entry point for the external script.
         """
         return pulumi.get(self, "primary_script_uri")
 
     @primary_script_uri.setter
-    def primary_script_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_script_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_script_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptContent")
-    def script_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Script body.
         """
         return pulumi.get(self, "script_content")
 
     @script_content.setter
-    def script_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_content", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptName")
-    def script_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the deployment script.
         """
         return pulumi.get(self, "script_name")
 
     @script_name.setter
-    def script_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSettings")
-    def storage_account_settings(self) -> Optional[pulumi.Input['StorageAccountConfigurationArgs']]:
+    def storage_account_settings(self) -> pulumi.Input[Optional['StorageAccountConfigurationArgs']]:
         """
         Storage Account settings.
         """
         return pulumi.get(self, "storage_account_settings")
 
     @storage_account_settings.setter
-    def storage_account_settings(self, value: Optional[pulumi.Input['StorageAccountConfigurationArgs']]):
+    def storage_account_settings(self, value: pulumi.Input[Optional['StorageAccountConfigurationArgs']]):
         pulumi.set(self, "storage_account_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="supportingScriptUris")
-    def supporting_script_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supporting_script_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Supporting files for the external script.
         """
         return pulumi.get(self, "supporting_script_uris")
 
     @supporting_script_uris.setter
-    def supporting_script_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supporting_script_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supporting_script_uris", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout", value)
 
 
@@ -324,30 +324,29 @@ class AzurePowerShellScript(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_power_shell_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_preference: Optional[pulumi.Input[Union[_builtins.str, 'CleanupOptions']]] = None,
-                 container_settings: Optional[pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_script_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_settings: Optional[pulumi.Input[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
-                 supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_power_shell_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_preference: pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]] = None,
+                 container_settings: pulumi.Input[Optional[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_script_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_settings: pulumi.Input[Optional[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
+                 supporting_script_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Object model for the Azure PowerShell script.
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,7 +381,6 @@ class AzurePowerShellScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
-
         :param str resource_name: The name of the resource.
         :param AzurePowerShellScriptArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -398,24 +396,24 @@ class AzurePowerShellScript(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_power_shell_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_preference: Optional[pulumi.Input[Union[_builtins.str, 'CleanupOptions']]] = None,
-                 container_settings: Optional[pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_script_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_settings: Optional[pulumi.Input[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
-                 supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_power_shell_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_preference: pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]] = None,
+                 container_settings: pulumi.Input[Optional[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_script_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_settings: pulumi.Input[Optional[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
+                 supporting_script_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

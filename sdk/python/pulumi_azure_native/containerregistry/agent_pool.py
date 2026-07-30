@@ -23,13 +23,13 @@ class AgentPoolArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os: Optional[pulumi.Input[Union[_builtins.str, 'OS']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os: pulumi.Input[Optional[Union[_builtins.str, 'OS']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentPool resource.
 
@@ -86,86 +86,86 @@ class AgentPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent pool.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The count of agent machine
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def os(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OS']]]:
+    def os(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OS']]]:
         """
         The OS of agent machine
         """
         return pulumi.get(self, "os")
 
     @os.setter
-    def os(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OS']]]):
+    def os(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OS']]]):
         pulumi.set(self, "os", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tier of agent machine
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetResourceId")
-    def virtual_network_subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network Subnet Resource Id of the agent machine
         """
         return pulumi.get(self, "virtual_network_subnet_resource_id")
 
     @virtual_network_subnet_resource_id.setter
-    def virtual_network_subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_resource_id", value)
 
 
@@ -175,15 +175,15 @@ class AgentPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os: Optional[pulumi.Input[Union[_builtins.str, 'OS']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os: pulumi.Input[Optional[Union[_builtins.str, 'OS']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The agentpool that has the ARM resource and properties.
@@ -192,7 +192,6 @@ class AgentPool(pulumi.CustomResource):
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +219,6 @@ class AgentPool(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,15 +234,15 @@ class AgentPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os: Optional[pulumi.Input[Union[_builtins.str, 'OS']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os: pulumi.Input[Optional[Union[_builtins.str, 'OS']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

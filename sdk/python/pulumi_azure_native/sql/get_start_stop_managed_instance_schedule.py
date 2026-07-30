@@ -169,7 +169,6 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[_bu
 
     Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str managed_instance_name: The name of the managed instance.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
@@ -192,9 +191,9 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[_bu
         system_data=pulumi.get(__ret__, 'system_data'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    start_stop_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_start_stop_managed_instance_schedule_output(managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    start_stop_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
     """
     Gets the managed instance's Start/Stop schedule.
@@ -202,7 +201,6 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str managed_instance_name: The name of the managed instance.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

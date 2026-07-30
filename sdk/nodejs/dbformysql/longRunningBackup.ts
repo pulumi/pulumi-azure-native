@@ -129,16 +129,16 @@ export interface LongRunningBackupArgs {
     /**
      * The name of the backup.
      */
-    backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * Backup name
      */
-    backupNameV2?: pulumi.Input<string>;
-    backupType?: pulumi.Input<string | enums.dbformysql.BackupType>;
+    backupNameV2?: pulumi.Input<string | undefined>;
+    backupType?: pulumi.Input<string | enums.dbformysql.BackupType | undefined>;
     /**
      * Backup completed time (ISO8601 format).
      */
-    completedTime?: pulumi.Input<string>;
+    completedTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,5 +150,5 @@ export interface LongRunningBackupArgs {
     /**
      * Backup source
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }

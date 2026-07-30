@@ -699,7 +699,7 @@ class CopyProgressResponse(dict):
         :param _builtins.float invalid_directories_processed: To indicate directories renamed
         :param _builtins.float invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.float invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
-        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress. 
+        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress.
                Until this is true, the TotalBytesToProcess may not be valid.
         :param _builtins.float renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.str storage_account_name: Name of the storage account. This will be empty for data account types other than storage account.
@@ -817,7 +817,7 @@ class CopyProgressResponse(dict):
     @pulumi.getter(name="isEnumerationInProgress")
     def is_enumeration_in_progress(self) -> _builtins.bool:
         """
-        To indicate if enumeration of data is in progress. 
+        To indicate if enumeration of data is in progress.
         Until this is true, the TotalBytesToProcess may not be valid.
         """
         return pulumi.get(self, "is_enumeration_in_progress")
@@ -1183,7 +1183,7 @@ class DataBoxCustomerDiskCopyProgressResponse(dict):
         :param _builtins.float invalid_directories_processed: To indicate directories renamed
         :param _builtins.float invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.float invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
-        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress. 
+        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress.
                Until this is true, the TotalBytesToProcess may not be valid.
         :param _builtins.float renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.str serial_number: Disk Serial Number.
@@ -1312,7 +1312,7 @@ class DataBoxCustomerDiskCopyProgressResponse(dict):
     @pulumi.getter(name="isEnumerationInProgress")
     def is_enumeration_in_progress(self) -> _builtins.bool:
         """
-        To indicate if enumeration of data is in progress. 
+        To indicate if enumeration of data is in progress.
         Until this is true, the TotalBytesToProcess may not be valid.
         """
         return pulumi.get(self, "is_enumeration_in_progress")
@@ -2103,7 +2103,7 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         :param _builtins.float invalid_directories_processed: To indicate directories renamed
         :param _builtins.float invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.float invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
-        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress. 
+        :param _builtins.bool is_enumeration_in_progress: To indicate if enumeration of data is in progress.
                Until this is true, the TotalBytesToProcess may not be valid.
         :param _builtins.float renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         :param _builtins.str serial_number: Disk Serial Number.
@@ -2232,7 +2232,7 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
     @pulumi.getter(name="isEnumerationInProgress")
     def is_enumeration_in_progress(self) -> _builtins.bool:
         """
-        To indicate if enumeration of data is in progress. 
+        To indicate if enumeration of data is in progress.
         Until this is true, the TotalBytesToProcess may not be valid.
         """
         return pulumi.get(self, "is_enumeration_in_progress")

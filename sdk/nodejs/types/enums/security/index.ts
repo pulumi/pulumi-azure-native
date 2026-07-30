@@ -223,7 +223,7 @@ export const DevOpsProvisioningState = {
 
 /**
  * The provisioning state of the resource.
- * 
+ *
  * Pending - Provisioning pending.
  * Failed - Provisioning failed.
  * Succeeded - Successful provisioning.
@@ -711,7 +711,7 @@ export const Protocol = {
      */
     UDP: "UDP",
     /**
-     * *
+     * * 
      */
     All: "*",
 } as const;

@@ -61,7 +61,6 @@ def list_azure_data_transfer_approved_schemas(direction: Optional[Union[_builtin
 
     Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union[_builtins.str, 'ListApprovedSchemasDirection'] direction: The direction pipeline to filter approved schemas.
     :param _builtins.str pipeline: The name of the pipeline to filter approved schemas.
     """
@@ -73,8 +72,8 @@ def list_azure_data_transfer_approved_schemas(direction: Optional[Union[_builtin
 
     return AwaitableListAzureDataTransferApprovedSchemasResult(
         value=pulumi.get(__ret__, 'value'))
-def list_azure_data_transfer_approved_schemas_output(direction: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ListApprovedSchemasDirection']]]] = None,
-                                                     pipeline: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_azure_data_transfer_approved_schemas_output(direction: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ListApprovedSchemasDirection']]]] = None,
+                                                     pipeline: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAzureDataTransferApprovedSchemasResult]:
     """
     Lists approved schemas for Azure Data Transfer.
@@ -82,7 +81,6 @@ def list_azure_data_transfer_approved_schemas_output(direction: Optional[pulumi.
     Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union[_builtins.str, 'ListApprovedSchemasDirection'] direction: The direction pipeline to filter approved schemas.
     :param _builtins.str pipeline: The name of the pipeline to filter approved schemas.

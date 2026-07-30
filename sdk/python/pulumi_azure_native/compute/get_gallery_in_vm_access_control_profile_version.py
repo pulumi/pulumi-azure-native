@@ -230,7 +230,6 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[_bui
 
     Other available API versions: 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.
     :param _builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
     :param _builtins.str in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
@@ -260,10 +259,10 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[_bui
         tags=pulumi.get(__ret__, 'tags'),
         target_locations=pulumi.get(__ret__, 'target_locations'),
         type=pulumi.get(__ret__, 'type'))
-def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            in_vm_access_control_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            in_vm_access_control_profile_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gallery_in_vm_access_control_profile_version_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            in_vm_access_control_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            in_vm_access_control_profile_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryInVMAccessControlProfileVersionResult]:
     """
     Retrieves information about a gallery inVMAccessControlProfile version.
@@ -271,7 +270,6 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
     Uses Azure REST API version 2024-03-03.
 
     Other available API versions: 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.
     :param _builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.

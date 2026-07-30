@@ -202,7 +202,6 @@ def get_custom_recommendation(custom_recommendation_name: Optional[_builtins.str
 
     Uses Azure REST API version 2024-08-01.
 
-
     :param _builtins.str custom_recommendation_name: Name of the Custom Recommendation.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -226,14 +225,13 @@ def get_custom_recommendation(custom_recommendation_name: Optional[_builtins.str
         severity=pulumi.get(__ret__, 'severity'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_recommendation_output(custom_recommendation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     scope: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRecommendationResult]:
     """
     Get a specific custom recommendation for the requested scope by customRecommendationName
 
     Uses Azure REST API version 2024-08-01.
-
 
     :param _builtins.str custom_recommendation_name: Name of the Custom Recommendation.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

@@ -122,19 +122,19 @@ export interface CertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * KeyVault location details of the certificate.
      */
-    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs>;
+    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs | undefined>;
     /**
      * Password for the Certificate
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

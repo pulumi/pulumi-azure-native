@@ -101,8 +101,8 @@ export interface NotificationRegistrationArgs {
     /**
      * The notification registration.
      */
-    notificationRegistrationName?: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.providerhub.NotificationRegistrationPropertiesArgs>;
+    notificationRegistrationName?: pulumi.Input<string | undefined>;
+    properties?: pulumi.Input<inputs.providerhub.NotificationRegistrationPropertiesArgs | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

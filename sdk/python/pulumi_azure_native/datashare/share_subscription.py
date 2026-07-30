@@ -24,8 +24,8 @@ class ShareSubscriptionArgs:
                  invitation_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_share_location: pulumi.Input[_builtins.str],
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareSubscription resource.
 
@@ -95,26 +95,26 @@ class ShareSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date of the share subscription.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="shareSubscriptionName")
-    def share_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the shareSubscription.
         """
         return pulumi.get(self, "share_subscription_name")
 
     @share_subscription_name.setter
-    def share_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_subscription_name", value)
 
 
@@ -124,18 +124,17 @@ class ShareSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_share_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_share_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A share subscription data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class ShareSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param ShareSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class ShareSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_share_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_share_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

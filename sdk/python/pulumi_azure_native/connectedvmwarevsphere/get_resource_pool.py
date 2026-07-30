@@ -402,7 +402,6 @@ def get_resource_pool(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str resource_pool_name: Name of the resourcePool.
     """
@@ -442,8 +441,8 @@ def get_resource_pool(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
-def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_pool_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePoolResult]:
     """
     Implements resourcePool GET method.
@@ -451,7 +450,6 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str resource_pool_name: Name of the resourcePool.

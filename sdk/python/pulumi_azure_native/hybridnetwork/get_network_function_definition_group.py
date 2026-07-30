@@ -145,7 +145,6 @@ def get_network_function_definition_group(network_function_definition_group_name
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_function_definition_group_name: The name of the network function definition group.
     :param _builtins.str publisher_name: The name of the publisher.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_network_function_definition_group(network_function_definition_group_name
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_function_definition_group_output(network_function_definition_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_function_definition_group_output(network_function_definition_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFunctionDefinitionGroupResult]:
     """
     Gets information about the specified networkFunctionDefinition group.
@@ -176,7 +175,6 @@ def get_network_function_definition_group_output(network_function_definition_gro
     Uses Azure REST API version 2024-04-15.
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_function_definition_group_name: The name of the network function definition group.
     :param _builtins.str publisher_name: The name of the publisher.

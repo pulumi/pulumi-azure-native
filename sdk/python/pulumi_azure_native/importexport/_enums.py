@@ -15,7 +15,7 @@ __all__ = [
 @pulumi.type_token("azure-native:importexport:DriveState")
 class DriveState(_builtins.str, Enum):
     """
-    The drive's current state. 
+    The drive's current state.
     """
     SPECIFIED = "Specified"
     RECEIVED = "Received"

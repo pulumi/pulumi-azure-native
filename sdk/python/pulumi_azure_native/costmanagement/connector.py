@@ -22,15 +22,15 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -79,110 +79,110 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector Name.
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsKey")
-    def credentials_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Credentials authentication key (eg AWS ARN)
         """
         return pulumi.get(self, "credentials_key")
 
     @credentials_key.setter
-    def credentials_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_key", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecret")
-    def credentials_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Credentials secret (eg AWS ExternalId)
         """
         return pulumi.get(self, "credentials_secret")
 
     @credentials_secret.setter
-    def credentials_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector DisplayName (defaults to Name)
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector kind (eg aws)
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="reportId")
-    def report_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def report_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
         """
         return pulumi.get(self, "report_id")
 
     @report_id.setter
-    def report_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def report_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "report_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConnectorStatus']]]:
         """
         Connector status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,22 +192,21 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Connector model definition
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +232,6 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,16 +247,16 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

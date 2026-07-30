@@ -25,28 +25,28 @@ class WebAppAssessmentV2OperationArgs:
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 app_svc_container_settings: Optional[pulumi.Input['AppSvcContainerSettingsArgs']] = None,
-                 app_svc_native_settings: Optional[pulumi.Input['AppSvcNativeSettingsArgs']] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]] = None,
-                 azure_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[_builtins.str, 'AzureOfferCode']]] = None,
-                 azure_security_offering_type: Optional[pulumi.Input[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
-                 confidence_rating_in_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 currency: Optional[pulumi.Input[Union[_builtins.str, 'AzureCurrency']]] = None,
-                 discount_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 discovered_entity_light_summary: Optional[pulumi.Input['DiscoveredEntityLightSummaryArgs']] = None,
-                 ea_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_uptime: Optional[pulumi.Input['EntityUptimeArgs']] = None,
-                 environment_type: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentType']]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 percentile: Optional[pulumi.Input[Union[_builtins.str, 'Percentile']]] = None,
-                 perf_data_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 perf_data_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_instance: Optional[pulumi.Input[Union[_builtins.str, 'AzureReservedInstance']]] = None,
-                 scaling_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 sizing_criterion: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
-                 time_range: Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]] = None):
+                 app_svc_container_settings: pulumi.Input[Optional['AppSvcContainerSettingsArgs']] = None,
+                 app_svc_native_settings: pulumi.Input[Optional['AppSvcNativeSettingsArgs']] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
+                 azure_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_offer_code: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]] = None,
+                 azure_security_offering_type: pulumi.Input[Optional[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
+                 confidence_rating_in_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 currency: pulumi.Input[Optional[Union[_builtins.str, 'AzureCurrency']]] = None,
+                 discount_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 discovered_entity_light_summary: pulumi.Input[Optional['DiscoveredEntityLightSummaryArgs']] = None,
+                 ea_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_uptime: pulumi.Input[Optional['EntityUptimeArgs']] = None,
+                 environment_type: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentType']]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 percentile: pulumi.Input[Optional[Union[_builtins.str, 'Percentile']]] = None,
+                 perf_data_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 perf_data_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_instance: pulumi.Input[Optional[Union[_builtins.str, 'AzureReservedInstance']]] = None,
+                 scaling_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 sizing_criterion: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
+                 time_range: pulumi.Input[Optional[Union[_builtins.str, 'TimeRange']]] = None):
         """
         The set of arguments for constructing a WebAppAssessmentV2Operation resource.
 
@@ -166,151 +166,151 @@ class WebAppAssessmentV2OperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSvcContainerSettings")
-    def app_svc_container_settings(self) -> Optional[pulumi.Input['AppSvcContainerSettingsArgs']]:
+    def app_svc_container_settings(self) -> pulumi.Input[Optional['AppSvcContainerSettingsArgs']]:
         """
         Gets or sets user configurable app service container database settings.
         """
         return pulumi.get(self, "app_svc_container_settings")
 
     @app_svc_container_settings.setter
-    def app_svc_container_settings(self, value: Optional[pulumi.Input['AppSvcContainerSettingsArgs']]):
+    def app_svc_container_settings(self, value: pulumi.Input[Optional['AppSvcContainerSettingsArgs']]):
         pulumi.set(self, "app_svc_container_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="appSvcNativeSettings")
-    def app_svc_native_settings(self) -> Optional[pulumi.Input['AppSvcNativeSettingsArgs']]:
+    def app_svc_native_settings(self) -> pulumi.Input[Optional['AppSvcNativeSettingsArgs']]:
         """
         Gets or sets user configurable app service native settings.
         """
         return pulumi.get(self, "app_svc_native_settings")
 
     @app_svc_native_settings.setter
-    def app_svc_native_settings(self, value: Optional[pulumi.Input['AppSvcNativeSettingsArgs']]):
+    def app_svc_native_settings(self, value: pulumi.Input[Optional['AppSvcNativeSettingsArgs']]):
         pulumi.set(self, "app_svc_native_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Web app Assessment arm name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentType")
-    def assessment_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]:
+    def assessment_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]]:
         """
         Assessment type of the assessment.
         """
         return pulumi.get(self, "assessment_type")
 
     @assessment_type.setter
-    def assessment_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]):
+    def assessment_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]]):
         pulumi.set(self, "assessment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="azureLocation")
-    def azure_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Location or Azure region where to which the machines will be migrated.
         """
         return pulumi.get(self, "azure_location")
 
     @azure_location.setter
-    def azure_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_location", value)
 
     @_builtins.property
     @pulumi.getter(name="azureOfferCode")
-    def azure_offer_code(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureOfferCode']]]:
+    def azure_offer_code(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]]:
         """
         Azure Offer Code.
         """
         return pulumi.get(self, "azure_offer_code")
 
     @azure_offer_code.setter
-    def azure_offer_code(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureOfferCode']]]):
+    def azure_offer_code(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]]):
         pulumi.set(self, "azure_offer_code", value)
 
     @_builtins.property
     @pulumi.getter(name="azureSecurityOfferingType")
-    def azure_security_offering_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureSecurityOfferingType']]]:
+    def azure_security_offering_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureSecurityOfferingType']]]:
         """
         Gets or sets a value indicating azure security offering type.
         """
         return pulumi.get(self, "azure_security_offering_type")
 
     @azure_security_offering_type.setter
-    def azure_security_offering_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureSecurityOfferingType']]]):
+    def azure_security_offering_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureSecurityOfferingType']]]):
         pulumi.set(self, "azure_security_offering_type", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceRatingInPercentage")
-    def confidence_rating_in_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def confidence_rating_in_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Confidence Rating in Percentage.
         """
         return pulumi.get(self, "confidence_rating_in_percentage")
 
     @confidence_rating_in_percentage.setter
-    def confidence_rating_in_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def confidence_rating_in_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "confidence_rating_in_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def currency(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureCurrency']]]:
+    def currency(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureCurrency']]]:
         """
         Currency in which prices should be reported.
         """
         return pulumi.get(self, "currency")
 
     @currency.setter
-    def currency(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureCurrency']]]):
+    def currency(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureCurrency']]]):
         pulumi.set(self, "currency", value)
 
     @_builtins.property
     @pulumi.getter(name="discountPercentage")
-    def discount_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def discount_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Custom discount percentage.
         """
         return pulumi.get(self, "discount_percentage")
 
     @discount_percentage.setter
-    def discount_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def discount_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "discount_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveredEntityLightSummary")
-    def discovered_entity_light_summary(self) -> Optional[pulumi.Input['DiscoveredEntityLightSummaryArgs']]:
+    def discovered_entity_light_summary(self) -> pulumi.Input[Optional['DiscoveredEntityLightSummaryArgs']]:
         """
         Gets or sets user configurable discovered entity settings.
         """
         return pulumi.get(self, "discovered_entity_light_summary")
 
     @discovered_entity_light_summary.setter
-    def discovered_entity_light_summary(self, value: Optional[pulumi.Input['DiscoveredEntityLightSummaryArgs']]):
+    def discovered_entity_light_summary(self, value: pulumi.Input[Optional['DiscoveredEntityLightSummaryArgs']]):
         pulumi.set(self, "discovered_entity_light_summary", value)
 
     @_builtins.property
     @pulumi.getter(name="eaSubscriptionId")
-    def ea_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ea_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Enterprise agreement subscription id.
         """
         return pulumi.get(self, "ea_subscription_id")
 
     @ea_subscription_id.setter
-    def ea_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ea_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ea_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="entityUptime")
-    def entity_uptime(self) -> Optional[pulumi.Input['EntityUptimeArgs']]:
+    def entity_uptime(self) -> pulumi.Input[Optional['EntityUptimeArgs']]:
         """
         Gets or sets the duration for which the entity (Web app, VMs) are up in the
         on-premises environment.
@@ -318,36 +318,36 @@ class WebAppAssessmentV2OperationArgs:
         return pulumi.get(self, "entity_uptime")
 
     @entity_uptime.setter
-    def entity_uptime(self, value: Optional[pulumi.Input['EntityUptimeArgs']]):
+    def entity_uptime(self, value: pulumi.Input[Optional['EntityUptimeArgs']]):
         pulumi.set(self, "entity_uptime", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentType']]]:
+    def environment_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentType']]]:
         """
         Gets or sets user configurable setting to display the environment type.
         """
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
-    def environment_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentType']]]):
+    def environment_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentType']]]):
         pulumi.set(self, "environment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]]:
+    def group_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]]:
         """
         Gets the group type for the assessment.
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]]):
+    def group_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]]):
         pulumi.set(self, "group_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def percentile(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Percentile']]]:
+    def percentile(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Percentile']]]:
         """
         Percentile of the utilization data values to be considered while assessing
         machines.
@@ -355,48 +355,48 @@ class WebAppAssessmentV2OperationArgs:
         return pulumi.get(self, "percentile")
 
     @percentile.setter
-    def percentile(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Percentile']]]):
+    def percentile(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Percentile']]]):
         pulumi.set(self, "percentile", value)
 
     @_builtins.property
     @pulumi.getter(name="perfDataEndTime")
-    def perf_data_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def perf_data_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the end time to consider performance data for assessment.
         """
         return pulumi.get(self, "perf_data_end_time")
 
     @perf_data_end_time.setter
-    def perf_data_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def perf_data_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "perf_data_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="perfDataStartTime")
-    def perf_data_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def perf_data_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the start time to consider performance data for assessment.
         """
         return pulumi.get(self, "perf_data_start_time")
 
     @perf_data_start_time.setter
-    def perf_data_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def perf_data_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "perf_data_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="reservedInstance")
-    def reserved_instance(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureReservedInstance']]]:
+    def reserved_instance(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureReservedInstance']]]:
         """
         Reserved instance.
         """
         return pulumi.get(self, "reserved_instance")
 
     @reserved_instance.setter
-    def reserved_instance(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureReservedInstance']]]):
+    def reserved_instance(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureReservedInstance']]]):
         pulumi.set(self, "reserved_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingFactor")
-    def scaling_factor(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def scaling_factor(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Percentage of buffer that user wants on performance metrics when recommending
         Azure sizes.
@@ -404,24 +404,24 @@ class WebAppAssessmentV2OperationArgs:
         return pulumi.get(self, "scaling_factor")
 
     @scaling_factor.setter
-    def scaling_factor(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def scaling_factor(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "scaling_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="sizingCriterion")
-    def sizing_criterion(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssessmentSizingCriterion']]]:
+    def sizing_criterion(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssessmentSizingCriterion']]]:
         """
         Assessment sizing criterion.
         """
         return pulumi.get(self, "sizing_criterion")
 
     @sizing_criterion.setter
-    def sizing_criterion(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentSizingCriterion']]]):
+    def sizing_criterion(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentSizingCriterion']]]):
         pulumi.set(self, "sizing_criterion", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRange")
-    def time_range(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]]:
+    def time_range(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TimeRange']]]:
         """
         Time Range for which the historic utilization data should be considered for
         assessment.
@@ -429,7 +429,7 @@ class WebAppAssessmentV2OperationArgs:
         return pulumi.get(self, "time_range")
 
     @time_range.setter
-    def time_range(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]]):
+    def time_range(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TimeRange']]]):
         pulumi.set(self, "time_range", value)
 
 
@@ -439,31 +439,31 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_svc_container_settings: Optional[pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
-                 app_svc_native_settings: Optional[pulumi.Input[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]] = None,
-                 azure_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[_builtins.str, 'AzureOfferCode']]] = None,
-                 azure_security_offering_type: Optional[pulumi.Input[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
-                 confidence_rating_in_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 currency: Optional[pulumi.Input[Union[_builtins.str, 'AzureCurrency']]] = None,
-                 discount_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 discovered_entity_light_summary: Optional[pulumi.Input[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
-                 ea_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
-                 environment_type: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentType']]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 percentile: Optional[pulumi.Input[Union[_builtins.str, 'Percentile']]] = None,
-                 perf_data_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 perf_data_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_instance: Optional[pulumi.Input[Union[_builtins.str, 'AzureReservedInstance']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 sizing_criterion: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
-                 time_range: Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]] = None,
+                 app_svc_container_settings: pulumi.Input[Optional[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
+                 app_svc_native_settings: pulumi.Input[Optional[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
+                 azure_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_offer_code: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]] = None,
+                 azure_security_offering_type: pulumi.Input[Optional[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
+                 confidence_rating_in_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 currency: pulumi.Input[Optional[Union[_builtins.str, 'AzureCurrency']]] = None,
+                 discount_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 discovered_entity_light_summary: pulumi.Input[Optional[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
+                 ea_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_uptime: pulumi.Input[Optional[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
+                 environment_type: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentType']]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 percentile: pulumi.Input[Optional[Union[_builtins.str, 'Percentile']]] = None,
+                 perf_data_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 perf_data_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_instance: pulumi.Input[Optional[Union[_builtins.str, 'AzureReservedInstance']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 sizing_criterion: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
+                 time_range: pulumi.Input[Optional[Union[_builtins.str, 'TimeRange']]] = None,
                  __props__=None):
         """
         Web app Assessment REST resource.
@@ -471,7 +471,6 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -518,7 +517,6 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppAssessmentV2OperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -534,31 +532,31 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_svc_container_settings: Optional[pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
-                 app_svc_native_settings: Optional[pulumi.Input[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_type: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentType']]] = None,
-                 azure_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[_builtins.str, 'AzureOfferCode']]] = None,
-                 azure_security_offering_type: Optional[pulumi.Input[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
-                 confidence_rating_in_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 currency: Optional[pulumi.Input[Union[_builtins.str, 'AzureCurrency']]] = None,
-                 discount_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 discovered_entity_light_summary: Optional[pulumi.Input[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
-                 ea_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
-                 environment_type: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentType']]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupType']]] = None,
-                 percentile: Optional[pulumi.Input[Union[_builtins.str, 'Percentile']]] = None,
-                 perf_data_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 perf_data_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_instance: Optional[pulumi.Input[Union[_builtins.str, 'AzureReservedInstance']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 sizing_criterion: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
-                 time_range: Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]] = None,
+                 app_svc_container_settings: pulumi.Input[Optional[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
+                 app_svc_native_settings: pulumi.Input[Optional[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
+                 azure_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_offer_code: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]] = None,
+                 azure_security_offering_type: pulumi.Input[Optional[Union[_builtins.str, 'AzureSecurityOfferingType']]] = None,
+                 confidence_rating_in_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 currency: pulumi.Input[Optional[Union[_builtins.str, 'AzureCurrency']]] = None,
+                 discount_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 discovered_entity_light_summary: pulumi.Input[Optional[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
+                 ea_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_uptime: pulumi.Input[Optional[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
+                 environment_type: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentType']]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
+                 percentile: pulumi.Input[Optional[Union[_builtins.str, 'Percentile']]] = None,
+                 perf_data_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 perf_data_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_instance: pulumi.Input[Optional[Union[_builtins.str, 'AzureReservedInstance']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 sizing_criterion: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentSizingCriterion']]] = None,
+                 time_range: pulumi.Input[Optional[Union[_builtins.str, 'TimeRange']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

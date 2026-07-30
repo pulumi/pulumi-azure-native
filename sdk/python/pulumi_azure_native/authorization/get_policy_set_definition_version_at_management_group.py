@@ -206,7 +206,6 @@ def get_policy_set_definition_version_at_management_group(expand: Optional[_buil
 
     Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param _builtins.str management_group_name: The name of the management group. The name is case insensitive.
     :param _builtins.str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
@@ -234,10 +233,10 @@ def get_policy_set_definition_version_at_management_group(expand: Optional[_buil
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_policy_set_definition_version_at_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                                 management_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 policy_definition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 policy_set_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_set_definition_version_at_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                 management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 policy_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 policy_set_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionVersionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition version in the given management group with the given name and version.
@@ -245,7 +244,6 @@ def get_policy_set_definition_version_at_management_group_output(expand: Optiona
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param _builtins.str management_group_name: The name of the management group. The name is case insensitive.

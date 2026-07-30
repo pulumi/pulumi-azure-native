@@ -23,8 +23,8 @@ class AddonArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]] = None):
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Addon resource.
 
@@ -66,26 +66,26 @@ class AddonArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonName")
-    def addon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the addon.
         """
         return pulumi.get(self, "addon_name")
 
     @addon_name.setter
-    def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class Addon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An addon resource
@@ -106,7 +106,6 @@ class Addon(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class Addon(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class Addon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -89,7 +89,7 @@ export class UpdateRun extends pulumi.CustomResource {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
      * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */
@@ -168,11 +168,11 @@ export interface UpdateRunArgs {
      * If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
      * The strategy of the UpdateRun can be modified until the run is started.
      */
-    strategy?: pulumi.Input<inputs.containerservice.UpdateRunStrategyArgs>;
+    strategy?: pulumi.Input<inputs.containerservice.UpdateRunStrategyArgs | undefined>;
     /**
      * The name of the UpdateRun resource.
      */
-    updateRunName?: pulumi.Input<string>;
+    updateRunName?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the FleetUpdateStrategy resource to reference.
      *
@@ -183,9 +183,9 @@ export interface UpdateRunArgs {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
      * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */
-    updateStrategyId?: pulumi.Input<string>;
+    updateStrategyId?: pulumi.Input<string | undefined>;
 }

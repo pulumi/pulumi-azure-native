@@ -25,17 +25,17 @@ class NetworkSecurityPerimeterAccessRuleArgs:
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAccessRule resource.
 
@@ -118,134 +118,134 @@ class NetworkSecurityPerimeterAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessRuleName")
-    def access_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NSP access rule.
         """
         return pulumi.get(self, "access_rule_name")
 
     @access_rule_name.setter
-    def access_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inbound address prefixes (IPv4/IPv6)
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']]]:
+    def direction(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]]:
         """
         Direction that specifies whether the access rules is inbound/outbound.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']]]):
+    def direction(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Outbound rules email address format.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedDomainNames")
-    def fully_qualified_domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fully_qualified_domain_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Outbound rules fully qualified domain name format.
         """
         return pulumi.get(self, "fully_qualified_domain_names")
 
     @fully_qualified_domain_names.setter
-    def fully_qualified_domain_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fully_qualified_domain_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fully_qualified_domain_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def phone_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Outbound rules phone number format.
         """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
-    def phone_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def phone_numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "phone_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTags")
-    def service_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inbound rules service tag names.
         """
         return pulumi.get(self, "service_tags")
 
     @service_tags.setter
-    def service_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]:
+    def subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionIdArgs']]]]:
         """
         List of subscription ids
         """
         return pulumi.get(self, "subscriptions")
 
     @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]):
+    def subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionIdArgs']]]]):
         pulumi.set(self, "subscriptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -255,20 +255,20 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The NSP access rule resource
@@ -276,7 +276,6 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,7 +307,6 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAccessRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,20 +322,20 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

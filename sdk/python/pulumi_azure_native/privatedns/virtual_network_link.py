@@ -24,12 +24,12 @@ class VirtualNetworkLinkArgs:
     def __init__(__self__, *,
                  private_zone_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolution_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolution_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkLink resource.
 
@@ -83,74 +83,74 @@ class VirtualNetworkLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationEnabled")
-    def registration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def registration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         """
         return pulumi.get(self, "registration_enabled")
 
     @registration_enabled.setter
-    def registration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def registration_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "registration_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resolutionPolicy")
-    def resolution_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']]]:
+    def resolution_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]]:
         """
         The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
         """
         return pulumi.get(self, "resolution_policy")
 
     @resolution_policy.setter
-    def resolution_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']]]):
+    def resolution_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]]):
         pulumi.set(self, "resolution_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def virtual_network(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The reference of the virtual network.
         """
         return pulumi.get(self, "virtual_network")
 
     @virtual_network.setter
-    def virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def virtual_network(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_network", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkLinkName")
-    def virtual_network_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network link.
         """
         return pulumi.get(self, "virtual_network_link_name")
 
     @virtual_network_link_name.setter
-    def virtual_network_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_link_name", value)
 
 
@@ -160,14 +160,14 @@ class VirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolution_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolution_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a link to virtual network for a Private DNS zone.
@@ -175,7 +175,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01.
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class VirtualNetworkLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolution_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolution_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

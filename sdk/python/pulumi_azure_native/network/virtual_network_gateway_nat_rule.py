@@ -24,14 +24,14 @@ class VirtualNetworkGatewayNatRuleInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_gateway_name: pulumi.Input[_builtins.str],
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]] = None):
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
 
@@ -91,98 +91,98 @@ class VirtualNetworkGatewayNatRuleInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+    def external_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
         """
         The private IP address external mapping for NAT.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+    def external_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+    def internal_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
         """
         The private IP address internal mapping for NAT.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+    def internal_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Configuration ID this NAT rule applies to.
         """
         return pulumi.get(self, "ip_configuration_id")
 
     @ip_configuration_id.setter
-    def ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]]:
         """
         The Source NAT direction of a VPN NAT.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="natRuleName")
-    def nat_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the nat rule.
         """
         return pulumi.get(self, "nat_rule_name")
 
     @nat_rule_name.setter
-    def nat_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]]:
         """
         The type of NAT rule for VPN NAT.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -192,16 +192,16 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]] = None,
-                 virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]] = None,
+                 virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         VirtualNetworkGatewayNatRule Resource.
@@ -209,7 +209,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]] = None,
-                 virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleMode']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'VpnNatRuleType']]] = None,
+                 virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

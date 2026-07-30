@@ -22,19 +22,19 @@ __all__ = ['VpnSiteArgs', 'VpnSite']
 class VpnSiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
-                 bgp_properties: Optional[pulumi.Input['BgpSettingsArgs']] = None,
-                 device_properties: Optional[pulumi.Input['DevicePropertiesArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_security_site: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input['O365PolicyPropertiesArgs']] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
-                 vpn_site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_space: pulumi.Input[Optional['AddressSpaceArgs']] = None,
+                 bgp_properties: pulumi.Input[Optional['BgpSettingsArgs']] = None,
+                 device_properties: pulumi.Input[Optional['DevicePropertiesArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_security_site: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional['O365PolicyPropertiesArgs']] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_wan: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 vpn_site_links: pulumi.Input[Optional[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+                 vpn_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnSite resource.
 
@@ -95,158 +95,158 @@ class VpnSiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+    def address_space(self) -> pulumi.Input[Optional['AddressSpaceArgs']]:
         """
         The AddressSpace that contains an array of IP address ranges.
         """
         return pulumi.get(self, "address_space")
 
     @address_space.setter
-    def address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+    def address_space(self, value: pulumi.Input[Optional['AddressSpaceArgs']]):
         pulumi.set(self, "address_space", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpProperties")
-    def bgp_properties(self) -> Optional[pulumi.Input['BgpSettingsArgs']]:
+    def bgp_properties(self) -> pulumi.Input[Optional['BgpSettingsArgs']]:
         """
         The set of bgp properties.
         """
         return pulumi.get(self, "bgp_properties")
 
     @bgp_properties.setter
-    def bgp_properties(self, value: Optional[pulumi.Input['BgpSettingsArgs']]):
+    def bgp_properties(self, value: pulumi.Input[Optional['BgpSettingsArgs']]):
         pulumi.set(self, "bgp_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceProperties")
-    def device_properties(self) -> Optional[pulumi.Input['DevicePropertiesArgs']]:
+    def device_properties(self) -> pulumi.Input[Optional['DevicePropertiesArgs']]:
         """
         The device properties.
         """
         return pulumi.get(self, "device_properties")
 
     @device_properties.setter
-    def device_properties(self, value: Optional[pulumi.Input['DevicePropertiesArgs']]):
+    def device_properties(self, value: pulumi.Input[Optional['DevicePropertiesArgs']]):
         pulumi.set(self, "device_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ip-address for the vpn-site.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecuritySite")
-    def is_security_site(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_security_site(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         IsSecuritySite flag.
         """
         return pulumi.get(self, "is_security_site")
 
     @is_security_site.setter
-    def is_security_site(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_security_site(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_security_site", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional[pulumi.Input['O365PolicyPropertiesArgs']]:
+    def o365_policy(self) -> pulumi.Input[Optional['O365PolicyPropertiesArgs']]:
         """
         Office365 Policy.
         """
         return pulumi.get(self, "o365_policy")
 
     @o365_policy.setter
-    def o365_policy(self, value: Optional[pulumi.Input['O365PolicyPropertiesArgs']]):
+    def o365_policy(self, value: pulumi.Input[Optional['O365PolicyPropertiesArgs']]):
         pulumi.set(self, "o365_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="siteKey")
-    def site_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key for vpn-site that can be used for connections.
         """
         return pulumi.get(self, "site_key")
 
     @site_key.setter
-    def site_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def virtual_wan(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The VirtualWAN to which the vpnSite belongs.
         """
         return pulumi.get(self, "virtual_wan")
 
     @virtual_wan.setter
-    def virtual_wan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def virtual_wan(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_wan", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnSiteLinks")
-    def vpn_site_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]:
+    def vpn_site_links(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]:
         """
         List of all vpn site links.
         """
         return pulumi.get(self, "vpn_site_links")
 
     @vpn_site_links.setter
-    def vpn_site_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]):
+    def vpn_site_links(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]):
         pulumi.set(self, "vpn_site_links", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnSiteName")
-    def vpn_site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VpnSite being created or updated.
         """
         return pulumi.get(self, "vpn_site_name")
 
     @vpn_site_name.setter
-    def vpn_site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_site_name", value)
 
 
@@ -256,20 +256,20 @@ class VpnSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
-                 bgp_properties: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
-                 device_properties: Optional[pulumi.Input[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_security_site: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input[Union['O365PolicyPropertiesArgs', 'O365PolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]]] = None,
-                 vpn_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_space: pulumi.Input[Optional[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 bgp_properties: pulumi.Input[Optional[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 device_properties: pulumi.Input[Optional[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_security_site: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional[Union['O365PolicyPropertiesArgs', 'O365PolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_wan: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_site_links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]]] = None,
+                 vpn_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         VpnSite Resource.
@@ -277,7 +277,6 @@ class VpnSite(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,7 +308,6 @@ class VpnSite(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VpnSiteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,20 +323,20 @@ class VpnSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
-                 bgp_properties: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
-                 device_properties: Optional[pulumi.Input[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_security_site: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 o365_policy: Optional[pulumi.Input[Union['O365PolicyPropertiesArgs', 'O365PolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]]] = None,
-                 vpn_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_space: pulumi.Input[Optional[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 bgp_properties: pulumi.Input[Optional[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 device_properties: pulumi.Input[Optional[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_security_site: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 o365_policy: pulumi.Input[Optional[Union['O365PolicyPropertiesArgs', 'O365PolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_wan: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_site_links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]]] = None,
+                 vpn_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

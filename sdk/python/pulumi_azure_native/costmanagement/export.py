@@ -25,13 +25,13 @@ class ExportArgs:
                  definition: pulumi.Input['ExportDefinitionArgs'],
                  delivery_info: pulumi.Input['ExportDeliveryInfoArgs'],
                  scope: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedule: Optional[pulumi.Input['ExportScheduleArgs']] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
+                 identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedule: pulumi.Input[Optional['ExportScheduleArgs']] = None):
         """
         The set of arguments for constructing a Export resource.
 
@@ -102,86 +102,86 @@ class ExportArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="exportName")
-    def export_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Export Name.
         """
         return pulumi.get(self, "export_name")
 
     @export_name.setter
-    def export_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]]:
+    def format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]:
         """
         The format of the export being delivered. Currently only 'Csv' is supported.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]]):
+    def format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']]:
         """
         The managed identity associated with Export
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Export's managed identity. Only required when utilizing managed identity.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionData")
-    def partition_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def partition_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         """
         return pulumi.get(self, "partition_data")
 
     @partition_data.setter
-    def partition_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def partition_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "partition_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ExportScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['ExportScheduleArgs']]:
         """
         Has schedule information for the export.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ExportScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['ExportScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -191,16 +191,16 @@ class Export(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
-                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
+                 delivery_info: pulumi.Input[Optional[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedule: pulumi.Input[Optional[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An export resource.
@@ -208,7 +208,6 @@ class Export(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +235,6 @@ class Export(pulumi.CustomResource):
 
         Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,16 +250,16 @@ class Export(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
-                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
+                 delivery_info: pulumi.Input[Optional[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedule: pulumi.Input[Optional[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

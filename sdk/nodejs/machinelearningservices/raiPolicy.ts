@@ -124,11 +124,11 @@ export interface RaiPolicyArgs {
     /**
      * Api version used by proxy call
      */
-    proxyApiVersion?: pulumi.Input<string>;
+    proxyApiVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the Rai Policy.
      */
-    raiPolicyName?: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

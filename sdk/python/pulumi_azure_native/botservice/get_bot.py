@@ -192,7 +192,6 @@ def get_bot(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Bot resource.
     """
@@ -215,8 +214,8 @@ def get_bot(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_bot_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bot_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Returns a BotService specified by the parameters.
@@ -224,7 +223,6 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2023-09-15-preview.
 
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Bot resource.

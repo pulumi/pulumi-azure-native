@@ -139,15 +139,15 @@ export interface TaskRunArgs {
     /**
      * How the run should be forced to rerun even if the run request configuration has not changed
      */
-    forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string | undefined>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
     /**
      * The location of the resource
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */
@@ -159,9 +159,9 @@ export interface TaskRunArgs {
     /**
      * The request (parameters) for the run
      */
-    runRequest?: pulumi.Input<inputs.containerregistry.DockerBuildRequestArgs | inputs.containerregistry.EncodedTaskRunRequestArgs | inputs.containerregistry.FileTaskRunRequestArgs | inputs.containerregistry.TaskRunRequestArgs>;
+    runRequest?: pulumi.Input<inputs.containerregistry.DockerBuildRequestArgs | inputs.containerregistry.EncodedTaskRunRequestArgs | inputs.containerregistry.FileTaskRunRequestArgs | inputs.containerregistry.TaskRunRequestArgs | undefined>;
     /**
      * The name of the task run.
      */
-    taskRunName?: pulumi.Input<string>;
+    taskRunName?: pulumi.Input<string | undefined>;
 }

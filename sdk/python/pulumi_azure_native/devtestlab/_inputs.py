@@ -70,12 +70,12 @@ __all__ = [
     'ScheduleCreationParameterArgsDict',
     'SharedPublicIpAddressConfigurationArgs',
     'SharedPublicIpAddressConfigurationArgsDict',
+    'SubnetArgs',
+    'SubnetArgsDict',
     'SubnetOverrideArgs',
     'SubnetOverrideArgsDict',
     'SubnetSharedPublicIpAddressConfigurationArgs',
     'SubnetSharedPublicIpAddressConfigurationArgsDict',
-    'SubnetArgs',
-    'SubnetArgsDict',
     'UserIdentityArgs',
     'UserIdentityArgsDict',
     'UserSecretStoreArgs',
@@ -90,11 +90,11 @@ class ArmTemplateParameterPropertiesArgsDict(TypedDict):
     """
     Properties of an Azure Resource Manager template parameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the template parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the template parameter.
     """
@@ -102,8 +102,8 @@ class ArmTemplateParameterPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ArmTemplateParameterPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of an Azure Resource Manager template parameter.
 
@@ -117,26 +117,26 @@ class ArmTemplateParameterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the template parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the template parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -144,31 +144,31 @@ class ArtifactInstallPropertiesArgsDict(TypedDict):
     """
     Properties of an artifact.
     """
-    artifact_id: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact's identifier.
     """
-    artifact_title: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact's title.
     """
-    deployment_status_message: NotRequired[pulumi.Input[_builtins.str]]
+    deployment_status_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status message from the deployment.
     """
-    install_time: NotRequired[pulumi.Input[_builtins.str]]
+    install_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time that the artifact starts to install on the virtual machine.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactParameterPropertiesArgsDict']]]]]
     """
     The parameters of the artifact.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the artifact.
     """
-    vm_extension_status_message: NotRequired[pulumi.Input[_builtins.str]]
+    vm_extension_status_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status message from the virtual machine extension.
     """
@@ -176,13 +176,13 @@ class ArtifactInstallPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ArtifactInstallPropertiesArgs:
     def __init__(__self__, *,
-                 artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_status_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 install_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_extension_status_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_status_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 install_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_extension_status_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of an artifact.
 
@@ -211,86 +211,86 @@ class ArtifactInstallPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactId")
-    def artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact's identifier.
         """
         return pulumi.get(self, "artifact_id")
 
     @artifact_id.setter
-    def artifact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactTitle")
-    def artifact_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact's title.
         """
         return pulumi.get(self, "artifact_title")
 
     @artifact_title.setter
-    def artifact_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_title", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentStatusMessage")
-    def deployment_status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_status_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status message from the deployment.
         """
         return pulumi.get(self, "deployment_status_message")
 
     @deployment_status_message.setter
-    def deployment_status_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_status_message", value)
 
     @_builtins.property
     @pulumi.getter(name="installTime")
-    def install_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def install_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time that the artifact starts to install on the virtual machine.
         """
         return pulumi.get(self, "install_time")
 
     @install_time.setter
-    def install_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def install_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "install_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
         """
         The parameters of the artifact.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the artifact.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="vmExtensionStatusMessage")
-    def vm_extension_status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_extension_status_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status message from the virtual machine extension.
         """
         return pulumi.get(self, "vm_extension_status_message")
 
     @vm_extension_status_message.setter
-    def vm_extension_status_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_extension_status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_extension_status_message", value)
 
 
@@ -298,11 +298,11 @@ class ArtifactParameterPropertiesArgsDict(TypedDict):
     """
     Properties of an artifact parameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the artifact parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the artifact parameter.
     """
@@ -310,8 +310,8 @@ class ArtifactParameterPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ArtifactParameterPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of an artifact parameter.
 
@@ -325,26 +325,26 @@ class ArtifactParameterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the artifact parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the artifact parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -352,15 +352,15 @@ class AttachNewDataDiskOptionsArgsDict(TypedDict):
     """
     Properties to attach new disk to the Virtual Machine.
     """
-    disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    disk_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the disk to be attached.
     """
-    disk_size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of the disk to be attached in Gibibytes.
     """
-    disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    disk_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]]
     """
     The storage type for the disk (i.e. Standard, Premium).
     """
@@ -368,9 +368,9 @@ class AttachNewDataDiskOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class AttachNewDataDiskOptionsArgs:
     def __init__(__self__, *,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gi_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None):
         """
         Properties to attach new disk to the Virtual Machine.
 
@@ -387,38 +387,38 @@ class AttachNewDataDiskOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskName")
-    def disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the disk to be attached.
         """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
-    def disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the disk to be attached in Gibibytes.
         """
         return pulumi.get(self, "disk_size_gi_b")
 
     @disk_size_gi_b.setter
-    def disk_size_gi_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gi_b", value)
 
     @_builtins.property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
+    def disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]:
         """
         The storage type for the disk (i.e. Standard, Premium).
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]):
+    def disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]):
         pulumi.set(self, "disk_type", value)
 
 
@@ -426,7 +426,7 @@ class BulkCreationParametersArgsDict(TypedDict):
     """
     Parameters for creating multiple virtual machines as a single action.
     """
-    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of virtual machine instances to create.
     """
@@ -434,7 +434,7 @@ class BulkCreationParametersArgsDict(TypedDict):
 @pulumi.input_type
 class BulkCreationParametersArgs:
     def __init__(__self__, *,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Parameters for creating multiple virtual machines as a single action.
 
@@ -445,14 +445,14 @@ class BulkCreationParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of virtual machine instances to create.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
 
@@ -464,11 +464,11 @@ class CustomImagePropertiesCustomArgsDict(TypedDict):
     """
     The OS type of the custom image (i.e. Windows, Linux)
     """
-    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image name.
     """
-    sys_prep: NotRequired[pulumi.Input[_builtins.bool]]
+    sys_prep: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether sysprep has been run on the VHD.
     """
@@ -477,8 +477,8 @@ class CustomImagePropertiesCustomArgsDict(TypedDict):
 class CustomImagePropertiesCustomArgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[Union[_builtins.str, 'CustomImageOsType']],
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sys_prep: Optional[pulumi.Input[_builtins.bool]] = None):
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sys_prep: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties for creating a custom image from a VHD.
 
@@ -506,26 +506,26 @@ class CustomImagePropertiesCustomArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image name.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sysPrep")
-    def sys_prep(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sys_prep(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether sysprep has been run on the VHD.
         """
         return pulumi.get(self, "sys_prep")
 
     @sys_prep.setter
-    def sys_prep(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sys_prep(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sys_prep", value)
 
 
@@ -533,15 +533,15 @@ class CustomImagePropertiesFromPlanArgsDict(TypedDict):
     """
     Properties for plan on a custom image.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the plan, equivalent to name of the plan
     """
-    offer: NotRequired[pulumi.Input[_builtins.str]]
+    offer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offer for the plan from the marketplace image the custom image is derived from
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher for the plan from the marketplace image the custom image is derived from
     """
@@ -549,9 +549,9 @@ class CustomImagePropertiesFromPlanArgsDict(TypedDict):
 @pulumi.input_type
 class CustomImagePropertiesFromPlanArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for plan on a custom image.
 
@@ -568,38 +568,38 @@ class CustomImagePropertiesFromPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the plan, equivalent to name of the plan
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer for the plan from the marketplace image the custom image is derived from
         """
         return pulumi.get(self, "offer")
 
     @offer.setter
-    def offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher for the plan from the marketplace image the custom image is derived from
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
 
@@ -607,15 +607,15 @@ class CustomImagePropertiesFromVmArgsDict(TypedDict):
     """
     Properties for creating a custom image from a virtual machine.
     """
-    linux_os_info: NotRequired[pulumi.Input['LinuxOsInfoArgsDict']]
+    linux_os_info: NotRequired[pulumi.Input[Optional['LinuxOsInfoArgsDict']]]
     """
     The Linux OS information of the VM.
     """
-    source_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    source_vm_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source vm identifier.
     """
-    windows_os_info: NotRequired[pulumi.Input['WindowsOsInfoArgsDict']]
+    windows_os_info: NotRequired[pulumi.Input[Optional['WindowsOsInfoArgsDict']]]
     """
     The Windows OS information of the VM.
     """
@@ -623,9 +623,9 @@ class CustomImagePropertiesFromVmArgsDict(TypedDict):
 @pulumi.input_type
 class CustomImagePropertiesFromVmArgs:
     def __init__(__self__, *,
-                 linux_os_info: Optional[pulumi.Input['LinuxOsInfoArgs']] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_os_info: Optional[pulumi.Input['WindowsOsInfoArgs']] = None):
+                 linux_os_info: pulumi.Input[Optional['LinuxOsInfoArgs']] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_os_info: pulumi.Input[Optional['WindowsOsInfoArgs']] = None):
         """
         Properties for creating a custom image from a virtual machine.
 
@@ -642,38 +642,38 @@ class CustomImagePropertiesFromVmArgs:
 
     @_builtins.property
     @pulumi.getter(name="linuxOsInfo")
-    def linux_os_info(self) -> Optional[pulumi.Input['LinuxOsInfoArgs']]:
+    def linux_os_info(self) -> pulumi.Input[Optional['LinuxOsInfoArgs']]:
         """
         The Linux OS information of the VM.
         """
         return pulumi.get(self, "linux_os_info")
 
     @linux_os_info.setter
-    def linux_os_info(self, value: Optional[pulumi.Input['LinuxOsInfoArgs']]):
+    def linux_os_info(self, value: pulumi.Input[Optional['LinuxOsInfoArgs']]):
         pulumi.set(self, "linux_os_info", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source vm identifier.
         """
         return pulumi.get(self, "source_vm_id")
 
     @source_vm_id.setter
-    def source_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_vm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsOsInfo")
-    def windows_os_info(self) -> Optional[pulumi.Input['WindowsOsInfoArgs']]:
+    def windows_os_info(self) -> pulumi.Input[Optional['WindowsOsInfoArgs']]:
         """
         The Windows OS information of the VM.
         """
         return pulumi.get(self, "windows_os_info")
 
     @windows_os_info.setter
-    def windows_os_info(self, value: Optional[pulumi.Input['WindowsOsInfoArgs']]):
+    def windows_os_info(self, value: pulumi.Input[Optional['WindowsOsInfoArgs']]):
         pulumi.set(self, "windows_os_info", value)
 
 
@@ -681,15 +681,15 @@ class DataDiskPropertiesArgsDict(TypedDict):
     """
     Request body for adding a new or existing data disk to a virtual machine.
     """
-    attach_new_data_disk_options: NotRequired[pulumi.Input['AttachNewDataDiskOptionsArgsDict']]
+    attach_new_data_disk_options: NotRequired[pulumi.Input[Optional['AttachNewDataDiskOptionsArgsDict']]]
     """
     Specifies options to attach a new disk to the virtual machine.
     """
-    existing_lab_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    existing_lab_disk_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the existing lab disk id to attach to virtual machine.
     """
-    host_caching: NotRequired[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]]
+    host_caching: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'HostCachingOptions']]]]
     """
     Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
     """
@@ -697,9 +697,9 @@ class DataDiskPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DataDiskPropertiesArgs:
     def __init__(__self__, *,
-                 attach_new_data_disk_options: Optional[pulumi.Input['AttachNewDataDiskOptionsArgs']] = None,
-                 existing_lab_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_caching: Optional[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]] = None):
+                 attach_new_data_disk_options: pulumi.Input[Optional['AttachNewDataDiskOptionsArgs']] = None,
+                 existing_lab_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_caching: pulumi.Input[Optional[Union[_builtins.str, 'HostCachingOptions']]] = None):
         """
         Request body for adding a new or existing data disk to a virtual machine.
 
@@ -716,38 +716,38 @@ class DataDiskPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachNewDataDiskOptions")
-    def attach_new_data_disk_options(self) -> Optional[pulumi.Input['AttachNewDataDiskOptionsArgs']]:
+    def attach_new_data_disk_options(self) -> pulumi.Input[Optional['AttachNewDataDiskOptionsArgs']]:
         """
         Specifies options to attach a new disk to the virtual machine.
         """
         return pulumi.get(self, "attach_new_data_disk_options")
 
     @attach_new_data_disk_options.setter
-    def attach_new_data_disk_options(self, value: Optional[pulumi.Input['AttachNewDataDiskOptionsArgs']]):
+    def attach_new_data_disk_options(self, value: pulumi.Input[Optional['AttachNewDataDiskOptionsArgs']]):
         pulumi.set(self, "attach_new_data_disk_options", value)
 
     @_builtins.property
     @pulumi.getter(name="existingLabDiskId")
-    def existing_lab_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_lab_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the existing lab disk id to attach to virtual machine.
         """
         return pulumi.get(self, "existing_lab_disk_id")
 
     @existing_lab_disk_id.setter
-    def existing_lab_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_lab_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_lab_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]]:
+    def host_caching(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HostCachingOptions']]]:
         """
         Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         """
         return pulumi.get(self, "host_caching")
 
     @host_caching.setter
-    def host_caching(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]]):
+    def host_caching(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HostCachingOptions']]]):
         pulumi.set(self, "host_caching", value)
 
 
@@ -755,11 +755,11 @@ class DataDiskStorageTypeInfoArgsDict(TypedDict):
     """
     Storage information about the data disks present in the custom image
     """
-    lun: NotRequired[pulumi.Input[_builtins.str]]
+    lun: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Disk Lun
     """
-    storage_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    storage_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]]
     """
     Disk Storage Type
     """
@@ -767,8 +767,8 @@ class DataDiskStorageTypeInfoArgsDict(TypedDict):
 @pulumi.input_type
 class DataDiskStorageTypeInfoArgs:
     def __init__(__self__, *,
-                 lun: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
+                 lun: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None):
         """
         Storage information about the data disks present in the custom image
 
@@ -782,26 +782,26 @@ class DataDiskStorageTypeInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def lun(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lun(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Disk Lun
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lun(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lun", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
+    def storage_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]:
         """
         Disk Storage Type
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]):
+    def storage_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]):
         pulumi.set(self, "storage_type", value)
 
 
@@ -809,7 +809,7 @@ class DayDetailsArgsDict(TypedDict):
     """
     Properties of a daily schedule.
     """
-    time: NotRequired[pulumi.Input[_builtins.str]]
+    time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time of day the schedule will occur.
     """
@@ -817,7 +817,7 @@ class DayDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class DayDetailsArgs:
     def __init__(__self__, *,
-                 time: Optional[pulumi.Input[_builtins.str]] = None):
+                 time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a daily schedule.
 
@@ -828,14 +828,14 @@ class DayDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time of day the schedule will occur.
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
 
 
@@ -843,11 +843,11 @@ class EnvironmentDeploymentPropertiesArgsDict(TypedDict):
     """
     Properties of an environment deployment.
     """
-    arm_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    arm_template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Resource Manager template's identifier.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgsDict']]]]]
     """
     The parameters of the Azure Resource Manager template.
     """
@@ -855,8 +855,8 @@ class EnvironmentDeploymentPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentDeploymentPropertiesArgs:
     def __init__(__self__, *,
-                 arm_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None):
+                 arm_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None):
         """
         Properties of an environment deployment.
 
@@ -870,26 +870,26 @@ class EnvironmentDeploymentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="armTemplateId")
-    def arm_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arm_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Resource Manager template's identifier.
         """
         return pulumi.get(self, "arm_template_id")
 
     @arm_template_id.setter
-    def arm_template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arm_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arm_template_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]:
         """
         The parameters of the Azure Resource Manager template.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -897,7 +897,7 @@ class EventArgsDict(TypedDict):
     """
     An event to be notified for.
     """
-    event_name: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]]
+    event_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationChannelEventType']]]]
     """
     The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
     """
@@ -905,7 +905,7 @@ class EventArgsDict(TypedDict):
 @pulumi.input_type
 class EventArgs:
     def __init__(__self__, *,
-                 event_name: Optional[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]] = None):
+                 event_name: pulumi.Input[Optional[Union[_builtins.str, 'NotificationChannelEventType']]] = None):
         """
         An event to be notified for.
 
@@ -916,14 +916,14 @@ class EventArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventName")
-    def event_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]]:
+    def event_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationChannelEventType']]]:
         """
         The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         return pulumi.get(self, "event_name")
 
     @event_name.setter
-    def event_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]]):
+    def event_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationChannelEventType']]]):
         pulumi.set(self, "event_name", value)
 
 
@@ -931,7 +931,7 @@ class FormulaPropertiesFromVmArgsDict(TypedDict):
     """
     Information about a VM from which a formula is to be created.
     """
-    lab_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    lab_vm_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the VM from which a formula is to be created.
     """
@@ -939,7 +939,7 @@ class FormulaPropertiesFromVmArgsDict(TypedDict):
 @pulumi.input_type
 class FormulaPropertiesFromVmArgs:
     def __init__(__self__, *,
-                 lab_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 lab_vm_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a VM from which a formula is to be created.
 
@@ -950,14 +950,14 @@ class FormulaPropertiesFromVmArgs:
 
     @_builtins.property
     @pulumi.getter(name="labVmId")
-    def lab_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the VM from which a formula is to be created.
         """
         return pulumi.get(self, "lab_vm_id")
 
     @lab_vm_id.setter
-    def lab_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_vm_id", value)
 
 
@@ -965,23 +965,23 @@ class GalleryImageReferenceArgsDict(TypedDict):
     """
     The reference information for an Azure Marketplace image.
     """
-    offer: NotRequired[pulumi.Input[_builtins.str]]
+    offer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offer of the gallery image.
     """
-    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    os_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OS type of the gallery image.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher of the gallery image.
     """
-    sku: NotRequired[pulumi.Input[_builtins.str]]
+    sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU of the gallery image.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the gallery image.
     """
@@ -989,11 +989,11 @@ class GalleryImageReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class GalleryImageReferenceArgs:
     def __init__(__self__, *,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The reference information for an Azure Marketplace image.
 
@@ -1016,62 +1016,62 @@ class GalleryImageReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer of the gallery image.
         """
         return pulumi.get(self, "offer")
 
     @offer.setter
-    def offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OS type of the gallery image.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher of the gallery image.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the gallery image.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the gallery image.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1079,7 +1079,7 @@ class HourDetailsArgsDict(TypedDict):
     """
     Properties of an hourly schedule.
     """
-    minute: NotRequired[pulumi.Input[_builtins.int]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minutes of the hour the schedule will run.
     """
@@ -1087,7 +1087,7 @@ class HourDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class HourDetailsArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Properties of an hourly schedule.
 
@@ -1098,14 +1098,14 @@ class HourDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minutes of the hour the schedule will run.
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute", value)
 
 
@@ -1113,19 +1113,19 @@ class IdentityPropertiesArgsDict(TypedDict):
     """
     Properties of a managed identity
     """
-    client_secret_url: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client secret URL of the identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The principal id of resource identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant identifier of resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]]
     """
     Managed identity.
     """
@@ -1133,10 +1133,10 @@ class IdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 client_secret_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]] = None):
+                 client_secret_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]] = None):
         """
         Properties of a managed identity
 
@@ -1156,50 +1156,50 @@ class IdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecretUrl")
-    def client_secret_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret URL of the identity.
         """
         return pulumi.get(self, "client_secret_url")
 
     @client_secret_url.setter
-    def client_secret_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_url", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal id of resource identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant identifier of resource.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]:
         """
         Managed identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1207,15 +1207,15 @@ class InboundNatRuleArgsDict(TypedDict):
     """
     A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
     """
-    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    backend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port to which the external traffic will be redirected.
     """
-    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
     """
-    transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
+    transport_protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]]
     """
     The transport protocol for the endpoint.
     """
@@ -1223,9 +1223,9 @@ class InboundNatRuleArgsDict(TypedDict):
 @pulumi.input_type
 class InboundNatRuleArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 transport_protocol: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 transport_protocol: pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]] = None):
         """
         A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 
@@ -1242,38 +1242,38 @@ class InboundNatRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port to which the external traffic will be redirected.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]:
+    def transport_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]:
         """
         The transport protocol for the endpoint.
         """
         return pulumi.get(self, "transport_protocol")
 
     @transport_protocol.setter
-    def transport_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]):
+    def transport_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]):
         pulumi.set(self, "transport_protocol", value)
 
 
@@ -1281,23 +1281,23 @@ class LabAnnouncementPropertiesArgsDict(TypedDict):
     """
     Properties of a lab's announcement banner
     """
-    enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    enabled: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]]
     """
     Is the lab announcement active/enabled at this time?
     """
-    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    expiration_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time at which the announcement expires (null for never)
     """
-    expired: NotRequired[pulumi.Input[_builtins.bool]]
+    expired: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Has this announcement expired?
     """
-    markdown: NotRequired[pulumi.Input[_builtins.str]]
+    markdown: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plain text title for the lab announcement
     """
@@ -1305,11 +1305,11 @@ class LabAnnouncementPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class LabAnnouncementPropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 expired: Optional[pulumi.Input[_builtins.bool]] = None,
-                 markdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 expired: pulumi.Input[Optional[_builtins.bool]] = None,
+                 markdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a lab's announcement banner
 
@@ -1332,62 +1332,62 @@ class LabAnnouncementPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]:
+    def enabled(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]:
         """
         Is the lab announcement active/enabled at this time?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]):
+    def enabled(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time at which the announcement expires (null for never)
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def expired(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expired(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Has this announcement expired?
         """
         return pulumi.get(self, "expired")
 
     @expired.setter
-    def expired(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expired(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expired", value)
 
     @_builtins.property
     @pulumi.getter
-    def markdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def markdown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
         return pulumi.get(self, "markdown")
 
     @markdown.setter
-    def markdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def markdown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "markdown", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plain text title for the lab announcement
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -1395,11 +1395,11 @@ class LabSupportPropertiesArgsDict(TypedDict):
     """
     Properties of a lab's support banner
     """
-    enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    enabled: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]]
     """
     Is the lab support banner active/enabled at this time?
     """
-    markdown: NotRequired[pulumi.Input[_builtins.str]]
+    markdown: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
     """
@@ -1407,8 +1407,8 @@ class LabSupportPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class LabSupportPropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 markdown: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 markdown: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a lab's support banner
 
@@ -1422,26 +1422,26 @@ class LabSupportPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]:
+    def enabled(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]:
         """
         Is the lab support banner active/enabled at this time?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]):
+    def enabled(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def markdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def markdown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
         return pulumi.get(self, "markdown")
 
     @markdown.setter
-    def markdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def markdown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "markdown", value)
 
 
@@ -1449,111 +1449,111 @@ class LabVirtualMachineCreationParameterArgsDict(TypedDict):
     """
     Properties for creating a virtual machine.
     """
-    allow_claim: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_claim: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether another user can take ownership of the virtual machine
     """
-    artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgsDict']]]]
+    artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgsDict']]]]]
     """
     The artifacts to be installed on the virtual machine.
     """
-    bulk_creation_parameters: NotRequired[pulumi.Input['BulkCreationParametersArgsDict']]
+    bulk_creation_parameters: NotRequired[pulumi.Input[Optional['BulkCreationParametersArgsDict']]]
     """
     The number of virtual machine instances to create.
     """
-    created_date: NotRequired[pulumi.Input[_builtins.str]]
+    created_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The creation date of the virtual machine.
     """
-    custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
+    custom_image_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom image identifier of the virtual machine.
     """
-    data_disk_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgsDict']]]]
+    data_disk_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgsDict']]]]]
     """
     New or existing data disks to attach to the virtual machine after creation
     """
-    disallow_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    disallow_public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the virtual machine is to be created without a public IP address.
     """
-    environment_id: NotRequired[pulumi.Input[_builtins.str]]
+    environment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the environment that contains this virtual machine, if any.
     """
-    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    expiration_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The expiration date for VM.
     """
-    gallery_image_reference: NotRequired[pulumi.Input['GalleryImageReferenceArgsDict']]
+    gallery_image_reference: NotRequired[pulumi.Input[Optional['GalleryImageReferenceArgsDict']]]
     """
     The Microsoft Azure Marketplace image reference of the virtual machine.
     """
-    is_authentication_with_ssh_key: NotRequired[pulumi.Input[_builtins.bool]]
+    is_authentication_with_ssh_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this virtual machine uses an SSH key for authentication.
     """
-    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    lab_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The lab subnet name of the virtual machine.
     """
-    lab_virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    lab_virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The lab virtual network identifier of the virtual machine.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the new virtual machine or environment
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the virtual machine or environment
     """
-    network_interface: NotRequired[pulumi.Input['NetworkInterfacePropertiesArgsDict']]
+    network_interface: NotRequired[pulumi.Input[Optional['NetworkInterfacePropertiesArgsDict']]]
     """
     The network interface properties.
     """
-    notes: NotRequired[pulumi.Input[_builtins.str]]
+    notes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The notes of the virtual machine.
     """
-    owner_object_id: NotRequired[pulumi.Input[_builtins.str]]
+    owner_object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object identifier of the owner of the virtual machine.
     """
-    owner_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    owner_user_principal_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user principal name of the virtual machine owner.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password of the virtual machine administrator.
     """
-    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    plan_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the plan associated with the virtual machine image
     """
-    schedule_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgsDict']]]]
+    schedule_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgsDict']]]]]
     """
     Virtual Machine schedules to be created
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the virtual machine.
     """
-    ssh_key: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SSH key of the virtual machine administrator.
     """
-    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    storage_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Storage type to use for virtual machine (i.e. Standard, Premium).
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The tags of the resource.
     """
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user name of the virtual machine.
     """
@@ -1561,33 +1561,33 @@ class LabVirtualMachineCreationParameterArgsDict(TypedDict):
 @pulumi.input_type
 class LabVirtualMachineCreationParameterArgs:
     def __init__(__self__, *,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
-                 bulk_creation_parameters: Optional[pulumi.Input['BulkCreationParametersArgs']] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input['GalleryImageReferenceArgs']] = None,
-                 is_authentication_with_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+                 bulk_creation_parameters: pulumi.Input[Optional['BulkCreationParametersArgs']] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_image_reference: pulumi.Input[Optional['GalleryImageReferenceArgs']] = None,
+                 is_authentication_with_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional['NetworkInterfacePropertiesArgs']] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_user_principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for creating a virtual machine.
 
@@ -1684,326 +1684,326 @@ class LabVirtualMachineCreationParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowClaim")
-    def allow_claim(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_claim(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether another user can take ownership of the virtual machine
         """
         return pulumi.get(self, "allow_claim")
 
     @allow_claim.setter
-    def allow_claim(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_claim(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_claim", value)
 
     @_builtins.property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
+    def artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
         """
         The artifacts to be installed on the virtual machine.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
+    def artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
         pulumi.set(self, "artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="bulkCreationParameters")
-    def bulk_creation_parameters(self) -> Optional[pulumi.Input['BulkCreationParametersArgs']]:
+    def bulk_creation_parameters(self) -> pulumi.Input[Optional['BulkCreationParametersArgs']]:
         """
         The number of virtual machine instances to create.
         """
         return pulumi.get(self, "bulk_creation_parameters")
 
     @bulk_creation_parameters.setter
-    def bulk_creation_parameters(self, value: Optional[pulumi.Input['BulkCreationParametersArgs']]):
+    def bulk_creation_parameters(self, value: pulumi.Input[Optional['BulkCreationParametersArgs']]):
         pulumi.set(self, "bulk_creation_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation date of the virtual machine.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="customImageId")
-    def custom_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom image identifier of the virtual machine.
         """
         return pulumi.get(self, "custom_image_id")
 
     @custom_image_id.setter
-    def custom_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskParameters")
-    def data_disk_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]:
+    def data_disk_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]:
         """
         New or existing data disks to attach to the virtual machine after creation
         """
         return pulumi.get(self, "data_disk_parameters")
 
     @data_disk_parameters.setter
-    def data_disk_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]):
+    def data_disk_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]]):
         pulumi.set(self, "data_disk_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowPublicIpAddress")
-    def disallow_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disallow_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the virtual machine is to be created without a public IP address.
         """
         return pulumi.get(self, "disallow_public_ip_address")
 
     @disallow_public_ip_address.setter
-    def disallow_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disallow_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disallow_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the environment that contains this virtual machine, if any.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date for VM.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional[pulumi.Input['GalleryImageReferenceArgs']]:
+    def gallery_image_reference(self) -> pulumi.Input[Optional['GalleryImageReferenceArgs']]:
         """
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
         return pulumi.get(self, "gallery_image_reference")
 
     @gallery_image_reference.setter
-    def gallery_image_reference(self, value: Optional[pulumi.Input['GalleryImageReferenceArgs']]):
+    def gallery_image_reference(self, value: pulumi.Input[Optional['GalleryImageReferenceArgs']]):
         pulumi.set(self, "gallery_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="isAuthenticationWithSshKey")
-    def is_authentication_with_ssh_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_authentication_with_ssh_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this virtual machine uses an SSH key for authentication.
         """
         return pulumi.get(self, "is_authentication_with_ssh_key")
 
     @is_authentication_with_ssh_key.setter
-    def is_authentication_with_ssh_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_authentication_with_ssh_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_authentication_with_ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lab subnet name of the virtual machine.
         """
         return pulumi.get(self, "lab_subnet_name")
 
     @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labVirtualNetworkId")
-    def lab_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lab virtual network identifier of the virtual machine.
         """
         return pulumi.get(self, "lab_virtual_network_id")
 
     @lab_virtual_network_id.setter
-    def lab_virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the new virtual machine or environment
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine or environment
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional[pulumi.Input['NetworkInterfacePropertiesArgs']]:
+    def network_interface(self) -> pulumi.Input[Optional['NetworkInterfacePropertiesArgs']]:
         """
         The network interface properties.
         """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
-    def network_interface(self, value: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']]):
+    def network_interface(self, value: pulumi.Input[Optional['NetworkInterfacePropertiesArgs']]):
         pulumi.set(self, "network_interface", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notes of the virtual machine.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerObjectId")
-    def owner_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object identifier of the owner of the virtual machine.
         """
         return pulumi.get(self, "owner_object_id")
 
     @owner_object_id.setter
-    def owner_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerUserPrincipalName")
-    def owner_user_principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_user_principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user principal name of the virtual machine owner.
         """
         return pulumi.get(self, "owner_user_principal_name")
 
     @owner_user_principal_name.setter
-    def owner_user_principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_user_principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_user_principal_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the virtual machine administrator.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the plan associated with the virtual machine image
         """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleParameters")
-    def schedule_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]:
+    def schedule_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]:
         """
         Virtual Machine schedules to be created
         """
         return pulumi.get(self, "schedule_parameters")
 
     @schedule_parameters.setter
-    def schedule_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]):
+    def schedule_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]]):
         pulumi.set(self, "schedule_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the virtual machine.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH key of the virtual machine administrator.
         """
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
-    def ssh_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type to use for virtual machine (i.e. Standard, Premium).
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name of the virtual machine.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -2011,7 +2011,7 @@ class LinuxOsInfoArgsDict(TypedDict):
     """
     Information about a Linux OS.
     """
-    linux_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]]
+    linux_os_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LinuxOsState']]]]
     """
     The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
     """
@@ -2019,7 +2019,7 @@ class LinuxOsInfoArgsDict(TypedDict):
 @pulumi.input_type
 class LinuxOsInfoArgs:
     def __init__(__self__, *,
-                 linux_os_state: Optional[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]] = None):
+                 linux_os_state: pulumi.Input[Optional[Union[_builtins.str, 'LinuxOsState']]] = None):
         """
         Information about a Linux OS.
 
@@ -2030,14 +2030,14 @@ class LinuxOsInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="linuxOsState")
-    def linux_os_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]]:
+    def linux_os_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LinuxOsState']]]:
         """
         The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         """
         return pulumi.get(self, "linux_os_state")
 
     @linux_os_state.setter
-    def linux_os_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]]):
+    def linux_os_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LinuxOsState']]]):
         pulumi.set(self, "linux_os_state", value)
 
 
@@ -2045,39 +2045,39 @@ class NetworkInterfacePropertiesArgsDict(TypedDict):
     """
     Properties of a network interface.
     """
-    dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS name.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address.
     """
-    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public IP address.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the public IP address.
     """
-    rdp_authority: NotRequired[pulumi.Input[_builtins.str]]
+    rdp_authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
     """
-    shared_public_ip_address_configuration: NotRequired[pulumi.Input['SharedPublicIpAddressConfigurationArgsDict']]
+    shared_public_ip_address_configuration: NotRequired[pulumi.Input[Optional['SharedPublicIpAddressConfigurationArgsDict']]]
     """
     The configuration for sharing a public IP address across multiple virtual machines.
     """
-    ssh_authority: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the sub net.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the virtual network.
     """
@@ -2085,15 +2085,15 @@ class NetworkInterfacePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkInterfacePropertiesArgs:
     def __init__(__self__, *,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rdp_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_public_ip_address_configuration: Optional[pulumi.Input['SharedPublicIpAddressConfigurationArgs']] = None,
-                 ssh_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rdp_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_public_ip_address_configuration: pulumi.Input[Optional['SharedPublicIpAddressConfigurationArgs']] = None,
+                 ssh_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a network interface.
 
@@ -2128,110 +2128,110 @@ class NetworkInterfacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public IP address.
         """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the public IP address.
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rdpAuthority")
-    def rdp_authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rdp_authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
         """
         return pulumi.get(self, "rdp_authority")
 
     @rdp_authority.setter
-    def rdp_authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rdp_authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rdp_authority", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPublicIpAddressConfiguration")
-    def shared_public_ip_address_configuration(self) -> Optional[pulumi.Input['SharedPublicIpAddressConfigurationArgs']]:
+    def shared_public_ip_address_configuration(self) -> pulumi.Input[Optional['SharedPublicIpAddressConfigurationArgs']]:
         """
         The configuration for sharing a public IP address across multiple virtual machines.
         """
         return pulumi.get(self, "shared_public_ip_address_configuration")
 
     @shared_public_ip_address_configuration.setter
-    def shared_public_ip_address_configuration(self, value: Optional[pulumi.Input['SharedPublicIpAddressConfigurationArgs']]):
+    def shared_public_ip_address_configuration(self, value: pulumi.Input[Optional['SharedPublicIpAddressConfigurationArgs']]):
         pulumi.set(self, "shared_public_ip_address_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuthority")
-    def ssh_authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
         """
         return pulumi.get(self, "ssh_authority")
 
     @ssh_authority.setter
-    def ssh_authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_authority", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the sub net.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the virtual network.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -2239,23 +2239,23 @@ class NotificationSettingsArgsDict(TypedDict):
     """
     Notification settings for a schedule.
     """
-    email_recipient: NotRequired[pulumi.Input[_builtins.str]]
+    email_recipient: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
     """
-    notification_locale: NotRequired[pulumi.Input[_builtins.str]]
+    notification_locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The locale to use when sending a notification (fallback for unsupported languages is EN).
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]]
     """
     If notifications are enabled for this schedule (i.e. Enabled, Disabled).
     """
-    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in minutes before event at which notification will be sent.
     """
-    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    webhook_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The webhook URL to which the notification will be sent.
     """
@@ -2263,11 +2263,11 @@ class NotificationSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationSettingsArgs:
     def __init__(__self__, *,
-                 email_recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_recipient: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Notification settings for a schedule.
 
@@ -2292,62 +2292,62 @@ class NotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailRecipient")
-    def email_recipient(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_recipient(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         """
         return pulumi.get(self, "email_recipient")
 
     @email_recipient.setter
-    def email_recipient(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_recipient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_recipient", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationLocale")
-    def notification_locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The locale to use when sending a notification (fallback for unsupported languages is EN).
         """
         return pulumi.get(self, "notification_locale")
 
     @notification_locale.setter
-    def notification_locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]:
         """
         If notifications are enabled for this schedule (i.e. Enabled, Disabled).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes before event at which notification will be sent.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webhook URL to which the notification will be sent.
         """
         return pulumi.get(self, "webhook_url")
 
     @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_url", value)
 
 
@@ -2355,11 +2355,11 @@ class PortArgsDict(TypedDict):
     """
     Properties of a network port.
     """
-    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    backend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Backend port of the target virtual machine.
     """
-    transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
+    transport_protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]]
     """
     Protocol type of the port.
     """
@@ -2367,8 +2367,8 @@ class PortArgsDict(TypedDict):
 @pulumi.input_type
 class PortArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 transport_protocol: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 transport_protocol: pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]] = None):
         """
         Properties of a network port.
 
@@ -2382,26 +2382,26 @@ class PortArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Backend port of the target virtual machine.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]:
+    def transport_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]:
         """
         Protocol type of the port.
         """
         return pulumi.get(self, "transport_protocol")
 
     @transport_protocol.setter
-    def transport_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]):
+    def transport_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransportProtocol']]]):
         pulumi.set(self, "transport_protocol", value)
 
 
@@ -2409,43 +2409,43 @@ class ScheduleCreationParameterArgsDict(TypedDict):
     """
     Properties for creating a schedule.
     """
-    daily_recurrence: NotRequired[pulumi.Input['DayDetailsArgsDict']]
+    daily_recurrence: NotRequired[pulumi.Input[Optional['DayDetailsArgsDict']]]
     """
     If the schedule will occur once each day of the week, specify the daily recurrence.
     """
-    hourly_recurrence: NotRequired[pulumi.Input['HourDetailsArgsDict']]
+    hourly_recurrence: NotRequired[pulumi.Input[Optional['HourDetailsArgsDict']]]
     """
     If the schedule will occur multiple times a day, specify the hourly recurrence.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the virtual machine or environment
     """
-    notification_settings: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+    notification_settings: NotRequired[pulumi.Input[Optional['NotificationSettingsArgsDict']]]
     """
     Notification settings.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]]
     """
     The status of the schedule (i.e. Enabled, Disabled)
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The tags of the resource.
     """
-    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID to which the schedule belongs
     """
-    task_type: NotRequired[pulumi.Input[_builtins.str]]
+    task_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
     """
-    time_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
     """
-    weekly_recurrence: NotRequired[pulumi.Input['WeekDetailsArgsDict']]
+    weekly_recurrence: NotRequired[pulumi.Input[Optional['WeekDetailsArgsDict']]]
     """
     If the schedule will occur only some days of the week, specify the weekly recurrence.
     """
@@ -2453,16 +2453,16 @@ class ScheduleCreationParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleCreationParameterArgs:
     def __init__(__self__, *,
-                 daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
-                 hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
+                 daily_recurrence: pulumi.Input[Optional['DayDetailsArgs']] = None,
+                 hourly_recurrence: pulumi.Input[Optional['HourDetailsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional['NotificationSettingsArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_recurrence: pulumi.Input[Optional['WeekDetailsArgs']] = None):
         """
         Properties for creating a schedule.
 
@@ -2502,122 +2502,122 @@ class ScheduleCreationParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional[pulumi.Input['DayDetailsArgs']]:
+    def daily_recurrence(self) -> pulumi.Input[Optional['DayDetailsArgs']]:
         """
         If the schedule will occur once each day of the week, specify the daily recurrence.
         """
         return pulumi.get(self, "daily_recurrence")
 
     @daily_recurrence.setter
-    def daily_recurrence(self, value: Optional[pulumi.Input['DayDetailsArgs']]):
+    def daily_recurrence(self, value: pulumi.Input[Optional['DayDetailsArgs']]):
         pulumi.set(self, "daily_recurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional[pulumi.Input['HourDetailsArgs']]:
+    def hourly_recurrence(self) -> pulumi.Input[Optional['HourDetailsArgs']]:
         """
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
         return pulumi.get(self, "hourly_recurrence")
 
     @hourly_recurrence.setter
-    def hourly_recurrence(self, value: Optional[pulumi.Input['HourDetailsArgs']]):
+    def hourly_recurrence(self, value: pulumi.Input[Optional['HourDetailsArgs']]):
         pulumi.set(self, "hourly_recurrence", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine or environment
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input['NotificationSettingsArgs']]:
+    def notification_settings(self) -> pulumi.Input[Optional['NotificationSettingsArgs']]:
         """
         Notification settings.
         """
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input['NotificationSettingsArgs']]):
+    def notification_settings(self, value: pulumi.Input[Optional['NotificationSettingsArgs']]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]:
         """
         The status of the schedule (i.e. Enabled, Disabled)
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID to which the schedule belongs
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_type", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZoneId")
-    def time_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 
     @time_zone_id.setter
-    def time_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional[pulumi.Input['WeekDetailsArgs']]:
+    def weekly_recurrence(self) -> pulumi.Input[Optional['WeekDetailsArgs']]:
         """
         If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         return pulumi.get(self, "weekly_recurrence")
 
     @weekly_recurrence.setter
-    def weekly_recurrence(self, value: Optional[pulumi.Input['WeekDetailsArgs']]):
+    def weekly_recurrence(self, value: pulumi.Input[Optional['WeekDetailsArgs']]):
         pulumi.set(self, "weekly_recurrence", value)
 
 
@@ -2625,7 +2625,7 @@ class SharedPublicIpAddressConfigurationArgsDict(TypedDict):
     """
     Properties of a virtual machine that determine how it is connected to a load balancer.
     """
-    inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgsDict']]]]
+    inbound_nat_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgsDict']]]]]
     """
     The incoming NAT rules
     """
@@ -2633,7 +2633,7 @@ class SharedPublicIpAddressConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SharedPublicIpAddressConfigurationArgs:
     def __init__(__self__, *,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None):
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
 
@@ -2644,42 +2644,116 @@ class SharedPublicIpAddressConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgs']]]]:
         """
         The incoming NAT rules
         """
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InboundNatRuleArgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
+
+
+class SubnetArgsDict(TypedDict):
+    """
+    Subnet information.
+    """
+    allow_public_ip: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]]
+    """
+    The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+    """
+    lab_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the subnet as seen in the lab.
+    """
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The resource ID of the subnet.
+    """
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 allow_public_ip: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Subnet information.
+
+        :param pulumi.Input[Union[_builtins.str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        :param pulumi.Input[_builtins.str] lab_subnet_name: The name of the subnet as seen in the lab.
+        :param pulumi.Input[_builtins.str] resource_id: The resource ID of the subnet.
+        """
+        if allow_public_ip is not None:
+            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
+        if lab_subnet_name is not None:
+            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="allowPublicIp")
+    def allow_public_ip(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]:
+        """
+        The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        """
+        return pulumi.get(self, "allow_public_ip")
+
+    @allow_public_ip.setter
+    def allow_public_ip(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]):
+        pulumi.set(self, "allow_public_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the subnet as seen in the lab.
+        """
+        return pulumi.get(self, "lab_subnet_name")
+
+    @lab_subnet_name.setter
+    def lab_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lab_subnet_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource ID of the subnet.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 class SubnetOverrideArgsDict(TypedDict):
     """
     Property overrides on a subnet of a virtual network.
     """
-    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    lab_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name given to the subnet within the lab.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the subnet.
     """
-    shared_public_ip_address_configuration: NotRequired[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgsDict']]
+    shared_public_ip_address_configuration: NotRequired[pulumi.Input[Optional['SubnetSharedPublicIpAddressConfigurationArgsDict']]]
     """
     Properties that virtual machines on this subnet will share.
     """
-    use_in_vm_creation_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
+    use_in_vm_creation_permission: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]]
     """
     Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
     """
-    use_public_ip_address_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
+    use_public_ip_address_permission: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]]
     """
     Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
     """
-    virtual_network_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The virtual network pool associated with this subnet.
     """
@@ -2687,12 +2761,12 @@ class SubnetOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class SubnetOverrideArgs:
     def __init__(__self__, *,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_public_ip_address_configuration: Optional[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs']] = None,
-                 use_in_vm_creation_permission: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]] = None,
-                 use_public_ip_address_permission: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]] = None,
-                 virtual_network_pool_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_public_ip_address_configuration: pulumi.Input[Optional['SubnetSharedPublicIpAddressConfigurationArgs']] = None,
+                 use_in_vm_creation_permission: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]] = None,
+                 use_public_ip_address_permission: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]] = None,
+                 virtual_network_pool_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Property overrides on a subnet of a virtual network.
 
@@ -2718,74 +2792,74 @@ class SubnetOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name given to the subnet within the lab.
         """
         return pulumi.get(self, "lab_subnet_name")
 
     @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the subnet.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPublicIpAddressConfiguration")
-    def shared_public_ip_address_configuration(self) -> Optional[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs']]:
+    def shared_public_ip_address_configuration(self) -> pulumi.Input[Optional['SubnetSharedPublicIpAddressConfigurationArgs']]:
         """
         Properties that virtual machines on this subnet will share.
         """
         return pulumi.get(self, "shared_public_ip_address_configuration")
 
     @shared_public_ip_address_configuration.setter
-    def shared_public_ip_address_configuration(self, value: Optional[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs']]):
+    def shared_public_ip_address_configuration(self, value: pulumi.Input[Optional['SubnetSharedPublicIpAddressConfigurationArgs']]):
         pulumi.set(self, "shared_public_ip_address_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="useInVmCreationPermission")
-    def use_in_vm_creation_permission(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]:
+    def use_in_vm_creation_permission(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]:
         """
         Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         """
         return pulumi.get(self, "use_in_vm_creation_permission")
 
     @use_in_vm_creation_permission.setter
-    def use_in_vm_creation_permission(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]):
+    def use_in_vm_creation_permission(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_in_vm_creation_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="usePublicIpAddressPermission")
-    def use_public_ip_address_permission(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]:
+    def use_public_ip_address_permission(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]:
         """
         Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         """
         return pulumi.get(self, "use_public_ip_address_permission")
 
     @use_public_ip_address_permission.setter
-    def use_public_ip_address_permission(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]):
+    def use_public_ip_address_permission(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_public_ip_address_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkPoolName")
-    def virtual_network_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The virtual network pool associated with this subnet.
         """
         return pulumi.get(self, "virtual_network_pool_name")
 
     @virtual_network_pool_name.setter
-    def virtual_network_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_pool_name", value)
 
 
@@ -2793,7 +2867,7 @@ class SubnetSharedPublicIpAddressConfigurationArgsDict(TypedDict):
     """
     Configuration for public IP address sharing.
     """
-    allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]]
+    allowed_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PortArgsDict']]]]]
     """
     Backend ports that virtual machines on this subnet are allowed to expose
     """
@@ -2801,7 +2875,7 @@ class SubnetSharedPublicIpAddressConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SubnetSharedPublicIpAddressConfigurationArgs:
     def __init__(__self__, *,
-                 allowed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]] = None):
+                 allowed_ports: pulumi.Input[Optional[Sequence[pulumi.Input['PortArgs']]]] = None):
         """
         Configuration for public IP address sharing.
 
@@ -2812,112 +2886,38 @@ class SubnetSharedPublicIpAddressConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedPorts")
-    def allowed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]]:
+    def allowed_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PortArgs']]]]:
         """
         Backend ports that virtual machines on this subnet are allowed to expose
         """
         return pulumi.get(self, "allowed_ports")
 
     @allowed_ports.setter
-    def allowed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]]):
+    def allowed_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PortArgs']]]]):
         pulumi.set(self, "allowed_ports", value)
-
-
-class SubnetArgsDict(TypedDict):
-    """
-    Subnet information.
-    """
-    allow_public_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
-    """
-    The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-    """
-    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the subnet as seen in the lab.
-    """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The resource ID of the subnet.
-    """
-
-@pulumi.input_type
-class SubnetArgs:
-    def __init__(__self__, *,
-                 allow_public_ip: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Subnet information.
-
-        :param pulumi.Input[Union[_builtins.str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        :param pulumi.Input[_builtins.str] lab_subnet_name: The name of the subnet as seen in the lab.
-        :param pulumi.Input[_builtins.str] resource_id: The resource ID of the subnet.
-        """
-        if allow_public_ip is not None:
-            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
-        if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="allowPublicIp")
-    def allow_public_ip(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]:
-        """
-        The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        """
-        return pulumi.get(self, "allow_public_ip")
-
-    @allow_public_ip.setter
-    def allow_public_ip(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]):
-        pulumi.set(self, "allow_public_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the subnet as seen in the lab.
-        """
-        return pulumi.get(self, "lab_subnet_name")
-
-    @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "lab_subnet_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The resource ID of the subnet.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 class UserIdentityArgsDict(TypedDict):
     """
     Identity attributes of a lab user.
     """
-    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to the app Id of the client JWT making the request.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
     """
-    principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    principal_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to the principal name / UPN of the client JWT making the request.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to the tenant ID of the client JWT making the request.
     """
@@ -2925,11 +2925,11 @@ class UserIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class UserIdentityArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Identity attributes of a lab user.
 
@@ -2952,62 +2952,62 @@ class UserIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to the app Id of the client JWT making the request.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to the principal name / UPN of the client JWT making the request.
         """
         return pulumi.get(self, "principal_name")
 
     @principal_name.setter
-    def principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to the tenant ID of the client JWT making the request.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -3015,11 +3015,11 @@ class UserSecretStoreArgsDict(TypedDict):
     """
     Properties of a user's secret store.
     """
-    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the user's Key vault.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the user's Key vault.
     """
@@ -3027,8 +3027,8 @@ class UserSecretStoreArgsDict(TypedDict):
 @pulumi.input_type
 class UserSecretStoreArgs:
     def __init__(__self__, *,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a user's secret store.
 
@@ -3042,26 +3042,26 @@ class UserSecretStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user's Key vault.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the user's Key vault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
 
@@ -3069,11 +3069,11 @@ class WeekDetailsArgsDict(TypedDict):
     """
     Properties of a weekly schedule.
     """
-    time: NotRequired[pulumi.Input[_builtins.str]]
+    time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time of the day the schedule will occur.
     """
-    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    weekdays: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
     """
@@ -3081,8 +3081,8 @@ class WeekDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class WeekDetailsArgs:
     def __init__(__self__, *,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekdays: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of a weekly schedule.
 
@@ -3096,26 +3096,26 @@ class WeekDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time of the day the schedule will occur.
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
 
     @_builtins.property
     @pulumi.getter
-    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def weekdays(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def weekdays(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "weekdays", value)
 
 
@@ -3123,7 +3123,7 @@ class WindowsOsInfoArgsDict(TypedDict):
     """
     Information about a Windows OS.
     """
-    windows_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]]
+    windows_os_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'WindowsOsState']]]]
     """
     The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
     """
@@ -3131,7 +3131,7 @@ class WindowsOsInfoArgsDict(TypedDict):
 @pulumi.input_type
 class WindowsOsInfoArgs:
     def __init__(__self__, *,
-                 windows_os_state: Optional[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]] = None):
+                 windows_os_state: pulumi.Input[Optional[Union[_builtins.str, 'WindowsOsState']]] = None):
         """
         Information about a Windows OS.
 
@@ -3142,14 +3142,14 @@ class WindowsOsInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="windowsOsState")
-    def windows_os_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]]:
+    def windows_os_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WindowsOsState']]]:
         """
         The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         return pulumi.get(self, "windows_os_state")
 
     @windows_os_state.setter
-    def windows_os_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]]):
+    def windows_os_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WindowsOsState']]]):
         pulumi.set(self, "windows_os_state", value)
 
 

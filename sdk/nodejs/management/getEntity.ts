@@ -113,11 +113,11 @@ export interface GetEntityOutputArgs {
     /**
      * The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * A filter which allows the get entities call to focus on a particular group (i.e. "$filter=name eq 'groupName'")
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
      * With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
@@ -126,26 +126,26 @@ export interface GetEntityOutputArgs {
      * With $search=ParentOnly the API will return only the group if the user has access to at least one of the descendants of the group.
      * With $search=ChildrenOnly the API will return only the first level of children of the group entity info specified in $filter.  The user must have direct access to the children entities or one of it's descendants for it to show up in the results.
      */
-    search?: pulumi.Input<string>;
+    search?: pulumi.Input<string | undefined>;
     /**
      * This parameter specifies the fields to include in the response. Can include any combination of Name,DisplayName,Type,ParentDisplayNameChain,ParentChain, e.g. '$select=Name,DisplayName,Type,ParentDisplayNameChain,ParentNameChain'. When specified the $select parameter can override select in $skipToken.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
     /**
      * Number of entities to skip over when retrieving results. Passing this in will override $skipToken.
      */
-    skip?: pulumi.Input<number>;
+    skip?: pulumi.Input<number | undefined>;
     /**
      * Page continuation token is only used if a previous operation returned a partial result.
      * If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
      */
-    skiptoken?: pulumi.Input<string>;
+    skiptoken?: pulumi.Input<string | undefined>;
     /**
      * Number of elements to return when retrieving results. Passing this in will override $skipToken.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
     /**
      * The view parameter allows clients to filter the type of data that is returned by the getEntities call.
      */
-    view?: pulumi.Input<string>;
+    view?: pulumi.Input<string | undefined>;
 }

@@ -253,7 +253,6 @@ def get_role_assignment(role_assignment_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str role_assignment_name: The name of the role assignment. It can be any valid GUID.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str tenant_id: Tenant ID for cross-tenant request
@@ -283,9 +282,9 @@ def get_role_assignment(role_assignment_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
-def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               scope: Optional[pulumi.Input[_builtins.str]] = None,
-                               tenant_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_role_assignment_output(role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               scope: pulumi.Input[Optional[_builtins.str]] = None,
+                               tenant_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Get a role assignment by scope and name.
@@ -293,7 +292,6 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str role_assignment_name: The name of the role assignment. It can be any valid GUID.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

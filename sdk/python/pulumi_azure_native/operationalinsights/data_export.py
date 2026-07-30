@@ -23,12 +23,12 @@ class DataExportArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  workspace_name: pulumi.Input[_builtins.str],
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataExport resource.
 
@@ -110,74 +110,74 @@ class DataExportArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The latest data export rule modification time.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="dataExportId")
-    def data_export_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_export_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data export rule ID.
         """
         return pulumi.get(self, "data_export_id")
 
     @data_export_id.setter
-    def data_export_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_export_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_export_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataExportName")
-    def data_export_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_export_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data export rule name.
         """
         return pulumi.get(self, "data_export_name")
 
     @data_export_name.setter
-    def data_export_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_export_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_export_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Active when enabled.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         """
         return pulumi.get(self, "event_hub_name")
 
     @event_hub_name.setter
-    def event_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the export was last modified.
         """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
-    def last_modified_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_date", value)
 
 
@@ -187,16 +187,16 @@ class DataExport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The top level data export resource container.
@@ -204,7 +204,6 @@ class DataExport(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,7 +231,6 @@ class DataExport(pulumi.CustomResource):
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DataExportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,16 +246,16 @@ class DataExport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

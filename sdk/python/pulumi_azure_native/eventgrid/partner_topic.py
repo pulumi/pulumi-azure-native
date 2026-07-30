@@ -23,17 +23,17 @@ __all__ = ['PartnerTopicArgs', 'PartnerTopic']
 class PartnerTopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
-                 event_type_info: Optional[pulumi.Input['EventTypeInfoArgs']] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_friendly_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
+                 event_type_info: pulumi.Input[Optional['EventTypeInfoArgs']] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['IdentityInfoArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_friendly_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerTopic resource.
 
@@ -90,31 +90,31 @@ class PartnerTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationState")
-    def activation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']]]:
+    def activation_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]]:
         """
         Activation state of the partner topic.
         """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
-    def activation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']]]):
+    def activation_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]]):
         pulumi.set(self, "activation_state", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypeInfo")
-    def event_type_info(self) -> Optional[pulumi.Input['EventTypeInfoArgs']]:
+    def event_type_info(self) -> pulumi.Input[Optional['EventTypeInfoArgs']]:
         """
         Event Type information from the corresponding event channel.
         """
         return pulumi.get(self, "event_type_info")
 
     @event_type_info.setter
-    def event_type_info(self, value: Optional[pulumi.Input['EventTypeInfoArgs']]):
+    def event_type_info(self, value: pulumi.Input[Optional['EventTypeInfoArgs']]):
         pulumi.set(self, "event_type_info", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeIfNotActivatedUtc")
-    def expiration_time_if_not_activated_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_time_if_not_activated_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time of the partner topic. If this timer expires while the partner topic is still never activated,
         the partner topic and corresponding event channel are deleted.
@@ -122,60 +122,60 @@ class PartnerTopicArgs:
         return pulumi.get(self, "expiration_time_if_not_activated_utc")
 
     @expiration_time_if_not_activated_utc.setter
-    def expiration_time_if_not_activated_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_time_if_not_activated_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_time_if_not_activated_utc", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityInfoArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityInfoArgs']]:
         """
         Identity information for the Partner Topic resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityInfoArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityInfoArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="messageForActivation")
-    def message_for_activation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_for_activation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context or helpful message that can be used during the approval process by the subscriber.
         """
         return pulumi.get(self, "message_for_activation")
 
     @message_for_activation.setter
-    def message_for_activation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_for_activation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_for_activation", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationImmutableId")
-    def partner_registration_immutable_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_immutable_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The immutableId of the corresponding partner registration.
         """
         return pulumi.get(self, "partner_registration_immutable_id")
 
     @partner_registration_immutable_id.setter
-    def partner_registration_immutable_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_immutable_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_immutable_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicFriendlyDescription")
-    def partner_topic_friendly_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_topic_friendly_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
         This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
@@ -183,43 +183,43 @@ class PartnerTopicArgs:
         return pulumi.get(self, "partner_topic_friendly_description")
 
     @partner_topic_friendly_description.setter
-    def partner_topic_friendly_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_topic_friendly_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_topic_friendly_description", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicName")
-    def partner_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the partner topic.
         """
         return pulumi.get(self, "partner_topic_name")
 
     @partner_topic_name.setter
-    def partner_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source associated with this partner topic. This represents a unique partner resource.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -229,18 +229,18 @@ class PartnerTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
-                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_friendly_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
+                 event_type_info: pulumi.Input[Optional[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_friendly_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Event Grid Partner Topic.
@@ -248,7 +248,6 @@ class PartnerTopic(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,7 +279,6 @@ class PartnerTopic(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PartnerTopicArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,18 +294,18 @@ class PartnerTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
-                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_friendly_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
+                 event_type_info: pulumi.Input[Optional[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_friendly_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

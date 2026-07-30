@@ -23,11 +23,11 @@ class L2IsolationDomainArgs:
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan_id: pulumi.Input[_builtins.int],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 l2_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 l2_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a L2IsolationDomain resource.
 
@@ -94,62 +94,62 @@ class L2IsolationDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="l2IsolationDomainName")
-    def l2_isolation_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def l2_isolation_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the L2 Isolation Domain.
         """
         return pulumi.get(self, "l2_isolation_domain_name")
 
     @l2_isolation_domain_name.setter
-    def l2_isolation_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def l2_isolation_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "l2_isolation_domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum transmission unit. Default value is 1500.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,14 +159,14 @@ class L2IsolationDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 l2_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vlan_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 l2_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vlan_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The L2 Isolation Domain resource definition.
@@ -174,7 +174,6 @@ class L2IsolationDomain(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class L2IsolationDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param L2IsolationDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class L2IsolationDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 l2_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vlan_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 l2_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vlan_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

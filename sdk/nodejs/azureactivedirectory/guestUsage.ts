@@ -116,7 +116,7 @@ export interface GuestUsageArgs {
     /**
      * Location of the Guest Usages resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -124,13 +124,13 @@ export interface GuestUsageArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An identifier for the tenant for which the resource is being created
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

@@ -251,7 +251,6 @@ def get_diagnostic_service(diagnostic_service_name: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2023-10-04-preview.
 
-
     :param _builtins.str diagnostic_service_name: Name of MQ diagnostic resource
     :param _builtins.str mq_name: Name of MQ resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -281,15 +280,14 @@ def get_diagnostic_service(diagnostic_service_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_diagnostic_service_output(diagnostic_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_diagnostic_service_output(diagnostic_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticServiceResult]:
     """
     Get a DiagnosticServiceResource
 
     Uses Azure REST API version 2023-10-04-preview.
-
 
     :param _builtins.str diagnostic_service_name: Name of MQ diagnostic resource
     :param _builtins.str mq_name: Name of MQ resource

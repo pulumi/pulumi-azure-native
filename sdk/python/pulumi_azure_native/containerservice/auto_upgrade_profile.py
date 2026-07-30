@@ -25,10 +25,10 @@ class AutoUpgradeProfileArgs:
                  channel: pulumi.Input[Union[_builtins.str, 'UpgradeChannel']],
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_upgrade_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_image_selection: Optional[pulumi.Input['AutoUpgradeNodeImageSelectionArgs']] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_upgrade_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_image_selection: pulumi.Input[Optional['AutoUpgradeNodeImageSelectionArgs']] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoUpgradeProfile resource.
 
@@ -93,19 +93,19 @@ class AutoUpgradeProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeProfileName")
-    def auto_upgrade_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_upgrade_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AutoUpgradeProfile resource.
         """
         return pulumi.get(self, "auto_upgrade_profile_name")
 
     @auto_upgrade_profile_name.setter
-    def auto_upgrade_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_upgrade_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_upgrade_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to False: the auto upgrade has effect - target managed clusters will be upgraded on schedule.
         If set to True: the auto upgrade has no effect - no upgrade will be run on the target managed clusters.
@@ -115,31 +115,31 @@ class AutoUpgradeProfileArgs:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeImageSelection")
-    def node_image_selection(self) -> Optional[pulumi.Input['AutoUpgradeNodeImageSelectionArgs']]:
+    def node_image_selection(self) -> pulumi.Input[Optional['AutoUpgradeNodeImageSelectionArgs']]:
         """
         The node image upgrade to be applied to the target clusters in auto upgrade.
         """
         return pulumi.get(self, "node_image_selection")
 
     @node_image_selection.setter
-    def node_image_selection(self, value: Optional[pulumi.Input['AutoUpgradeNodeImageSelectionArgs']]):
+    def node_image_selection(self, value: pulumi.Input[Optional['AutoUpgradeNodeImageSelectionArgs']]):
         pulumi.set(self, "node_image_selection", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyId")
-    def update_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the UpdateStrategy resource to reference. If not specified, the auto upgrade will run on all clusters which are members of the fleet.
         """
         return pulumi.get(self, "update_strategy_id")
 
     @update_strategy_id.setter
-    def update_strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_strategy_id", value)
 
 
@@ -149,13 +149,13 @@ class AutoUpgradeProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_upgrade_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_image_selection: Optional[pulumi.Input[Union['AutoUpgradeNodeImageSelectionArgs', 'AutoUpgradeNodeImageSelectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_image_selection: pulumi.Input[Optional[Union['AutoUpgradeNodeImageSelectionArgs', 'AutoUpgradeNodeImageSelectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AutoUpgradeProfile resource.
@@ -163,7 +163,6 @@ class AutoUpgradeProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-02-preview.
 
         Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +190,6 @@ class AutoUpgradeProfile(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AutoUpgradeProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,13 +205,13 @@ class AutoUpgradeProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_upgrade_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_image_selection: Optional[pulumi.Input[Union['AutoUpgradeNodeImageSelectionArgs', 'AutoUpgradeNodeImageSelectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_image_selection: pulumi.Input[Optional[Union['AutoUpgradeNodeImageSelectionArgs', 'AutoUpgradeNodeImageSelectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -44,12 +44,12 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
     'RepositoryRefDefinitionArgs',
     'RepositoryRefDefinitionArgsDict',
+    'ScopeArgs',
+    'ScopeArgsDict',
     'ScopeClusterArgs',
     'ScopeClusterArgsDict',
     'ScopeNamespaceArgs',
     'ScopeNamespaceArgsDict',
-    'ScopeArgs',
-    'ScopeArgsDict',
     'ServicePrincipalDefinitionArgs',
     'ServicePrincipalDefinitionArgsDict',
     'SubstituteFromDefinitionArgs',
@@ -60,39 +60,39 @@ class AzureBlobDefinitionArgsDict(TypedDict):
     """
     Parameters to reconcile to the AzureBlob source kind type.
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account key (shared key) to access the storage account
     """
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Blob container name to sync from the url endpoint for the flux configuration.
     """
-    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    managed_identity: NotRequired[pulumi.Input['ManagedIdentityDefinitionArgsDict']]
+    managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentityDefinitionArgsDict']]]
     """
     Parameters to authenticate using a Managed Identity.
     """
-    sas_token: NotRequired[pulumi.Input[_builtins.str]]
+    sas_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Shared Access token to access the storage container
     """
-    service_principal: NotRequired[pulumi.Input['ServicePrincipalDefinitionArgsDict']]
+    service_principal: NotRequired[pulumi.Input[Optional['ServicePrincipalDefinitionArgsDict']]]
     """
     Parameters to authenticate using Service Principal.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The interval at which to re-reconcile the cluster Azure Blob source with the remote.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to sync for the flux configuration Azure Blob storage account.
     """
@@ -100,15 +100,15 @@ class AzureBlobDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class AzureBlobDefinitionArgs:
     def __init__(__self__, *,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity: Optional[pulumi.Input['ManagedIdentityDefinitionArgs']] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input['ServicePrincipalDefinitionArgs']] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity: pulumi.Input[Optional['ManagedIdentityDefinitionArgs']] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional['ServicePrincipalDefinitionArgs']] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to reconcile to the AzureBlob source kind type.
 
@@ -147,110 +147,110 @@ class AzureBlobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account key (shared key) to access the storage account
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Blob container name to sync from the url endpoint for the flux configuration.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthRef")
-    def local_auth_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         """
         return pulumi.get(self, "local_auth_ref")
 
     @local_auth_ref.setter
-    def local_auth_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityDefinitionArgs']]:
+    def managed_identity(self) -> pulumi.Input[Optional['ManagedIdentityDefinitionArgs']]:
         """
         Parameters to authenticate using a Managed Identity.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityDefinitionArgs']]):
+    def managed_identity(self, value: pulumi.Input[Optional['ManagedIdentityDefinitionArgs']]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Shared Access token to access the storage container
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['ServicePrincipalDefinitionArgs']]:
+    def service_principal(self) -> pulumi.Input[Optional['ServicePrincipalDefinitionArgs']]:
         """
         Parameters to authenticate using Service Principal.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalDefinitionArgs']]):
+    def service_principal(self, value: pulumi.Input[Optional['ServicePrincipalDefinitionArgs']]):
         pulumi.set(self, "service_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The interval at which to re-reconcile the cluster Azure Blob source with the remote.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to sync for the flux configuration Azure Blob storage account.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -258,31 +258,31 @@ class BucketDefinitionArgsDict(TypedDict):
     """
     Parameters to reconcile to the Bucket source kind type.
     """
-    access_key: NotRequired[pulumi.Input[_builtins.str]]
+    access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plaintext access key used to securely access the S3 bucket
     """
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bucket name to sync from the url endpoint for the flux configuration.
     """
-    insecure: NotRequired[pulumi.Input[_builtins.bool]]
+    insecure: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify whether to use insecure communication when puling data from the S3 bucket.
     """
-    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The interval at which to re-reconcile the cluster bucket source with the remote.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum time to attempt to reconcile the cluster bucket source with the remote.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to sync for the flux configuration S3 bucket.
     """
@@ -290,13 +290,13 @@ class BucketDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class BucketDefinitionArgs:
     def __init__(__self__, *,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_auth_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_auth_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to reconcile to the Bucket source kind type.
 
@@ -331,86 +331,86 @@ class BucketDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plaintext access key used to securely access the S3 bucket
         """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket name to sync from the url endpoint for the flux configuration.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether to use insecure communication when puling data from the S3 bucket.
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthRef")
-    def local_auth_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         """
         return pulumi.get(self, "local_auth_ref")
 
     @local_auth_ref.setter
-    def local_auth_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The interval at which to re-reconcile the cluster bucket source with the remote.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum time to attempt to reconcile the cluster bucket source with the remote.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to sync for the flux configuration S3 bucket.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -418,7 +418,7 @@ class ExtensionAksAssignedIdentityArgsDict(TypedDict):
     """
     Identity of the Extension resource in an AKS cluster
     """
-    type: NotRequired[pulumi.Input['AKSIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['AKSIdentityType']]]
     """
     The identity type.
     """
@@ -426,7 +426,7 @@ class ExtensionAksAssignedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ExtensionAksAssignedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['AKSIdentityType']] = None):
+                 type: pulumi.Input[Optional['AKSIdentityType']] = None):
         """
         Identity of the Extension resource in an AKS cluster
 
@@ -437,14 +437,14 @@ class ExtensionAksAssignedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AKSIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['AKSIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AKSIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['AKSIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -452,23 +452,23 @@ class ExtensionStatusArgsDict(TypedDict):
     """
     Status from the extension.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status code provided by the Extension
     """
-    display_status: NotRequired[pulumi.Input[_builtins.str]]
+    display_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Short description of status of the extension.
     """
-    level: NotRequired[pulumi.Input[Union[_builtins.str, 'LevelType']]]
+    level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LevelType']]]]
     """
     Level of the status.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Detailed message of the status from the Extension.
     """
-    time: NotRequired[pulumi.Input[_builtins.str]]
+    time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DateLiteral (per ISO8601) noting the time of installation status.
     """
@@ -476,11 +476,11 @@ class ExtensionStatusArgsDict(TypedDict):
 @pulumi.input_type
 class ExtensionStatusArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'LevelType']]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'LevelType']]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Status from the extension.
 
@@ -505,62 +505,62 @@ class ExtensionStatusArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status code provided by the Extension
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="displayStatus")
-    def display_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of status of the extension.
         """
         return pulumi.get(self, "display_status")
 
     @display_status.setter
-    def display_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LevelType']]]:
+    def level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LevelType']]]:
         """
         Level of the status.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LevelType']]]):
+    def level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LevelType']]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Detailed message of the status from the Extension.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DateLiteral (per ISO8601) noting the time of installation status.
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
 
 
@@ -568,35 +568,35 @@ class GitRepositoryDefinitionArgsDict(TypedDict):
     """
     Parameters to reconcile to the GitRepository source kind type.
     """
-    https_ca_cert: NotRequired[pulumi.Input[_builtins.str]]
+    https_ca_cert: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
     """
-    https_user: NotRequired[pulumi.Input[_builtins.str]]
+    https_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plaintext HTTPS username used to access private git repositories over HTTPS
     """
-    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    repository_ref: NotRequired[pulumi.Input['RepositoryRefDefinitionArgsDict']]
+    repository_ref: NotRequired[pulumi.Input[Optional['RepositoryRefDefinitionArgsDict']]]
     """
     The source reference for the GitRepository object.
     """
-    ssh_known_hosts: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_known_hosts: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The interval at which to re-reconcile the cluster git repository source with the remote.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum time to attempt to reconcile the cluster git repository source with the remote.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to sync for the flux configuration git repository.
     """
@@ -604,14 +604,14 @@ class GitRepositoryDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class GitRepositoryDefinitionArgs:
     def __init__(__self__, *,
-                 https_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input['RepositoryRefDefinitionArgs']] = None,
-                 ssh_known_hosts: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 https_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional['RepositoryRefDefinitionArgs']] = None,
+                 ssh_known_hosts: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to reconcile to the GitRepository source kind type.
 
@@ -647,98 +647,98 @@ class GitRepositoryDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpsCACert")
-    def https_ca_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_ca_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         """
         return pulumi.get(self, "https_ca_cert")
 
     @https_ca_cert.setter
-    def https_ca_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_ca_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_ca_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsUser")
-    def https_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plaintext HTTPS username used to access private git repositories over HTTPS
         """
         return pulumi.get(self, "https_user")
 
     @https_user.setter
-    def https_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_user", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthRef")
-    def local_auth_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         """
         return pulumi.get(self, "local_auth_ref")
 
     @local_auth_ref.setter
-    def local_auth_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input['RepositoryRefDefinitionArgs']]:
+    def repository_ref(self) -> pulumi.Input[Optional['RepositoryRefDefinitionArgs']]:
         """
         The source reference for the GitRepository object.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input['RepositoryRefDefinitionArgs']]):
+    def repository_ref(self, value: pulumi.Input[Optional['RepositoryRefDefinitionArgs']]):
         pulumi.set(self, "repository_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKnownHosts")
-    def ssh_known_hosts(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_known_hosts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
         """
         return pulumi.get(self, "ssh_known_hosts")
 
     @ssh_known_hosts.setter
-    def ssh_known_hosts(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_known_hosts(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_known_hosts", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The interval at which to re-reconcile the cluster git repository source with the remote.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum time to attempt to reconcile the cluster git repository source with the remote.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to sync for the flux configuration git repository.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -746,11 +746,11 @@ class HelmOperatorPropertiesArgsDict(TypedDict):
     """
     Properties for Helm operator.
     """
-    chart_values: NotRequired[pulumi.Input[_builtins.str]]
+    chart_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Values override for the operator Helm chart.
     """
-    chart_version: NotRequired[pulumi.Input[_builtins.str]]
+    chart_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the operator Helm chart.
     """
@@ -758,8 +758,8 @@ class HelmOperatorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HelmOperatorPropertiesArgs:
     def __init__(__self__, *,
-                 chart_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 chart_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 chart_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 chart_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for Helm operator.
 
@@ -773,26 +773,26 @@ class HelmOperatorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="chartValues")
-    def chart_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chart_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Values override for the operator Helm chart.
         """
         return pulumi.get(self, "chart_values")
 
     @chart_values.setter
-    def chart_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chart_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chart_values", value)
 
     @_builtins.property
     @pulumi.getter(name="chartVersion")
-    def chart_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chart_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the operator Helm chart.
         """
         return pulumi.get(self, "chart_version")
 
     @chart_version.setter
-    def chart_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chart_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chart_version", value)
 
 
@@ -800,7 +800,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
@@ -808,7 +808,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         Identity for the resource.
 
@@ -819,14 +819,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -838,7 +838,7 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
     """
     Managed Cluster ARM ID for the private link scope  (Required)
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]]
     """
     Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
     """
@@ -847,7 +847,7 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
 class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
     def __init__(__self__, *,
                  cluster_resource_id: pulumi.Input[_builtins.str],
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None):
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None):
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
 
@@ -872,14 +872,14 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -887,39 +887,39 @@ class KustomizationDefinitionArgsDict(TypedDict):
     """
     The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
     """
-    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
     """
-    force: NotRequired[pulumi.Input[_builtins.bool]]
+    force: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path in the source reference to reconcile on the cluster.
     """
-    post_build: NotRequired[pulumi.Input['PostBuildDefinitionArgsDict']]
+    post_build: NotRequired[pulumi.Input[Optional['PostBuildDefinitionArgsDict']]]
     """
     Used for variable substitution for this Kustomization after kustomize build.
     """
-    prune: NotRequired[pulumi.Input[_builtins.bool]]
+    prune: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
     """
-    retry_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    retry_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The interval at which to re-reconcile the Kustomization on the cluster.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum time to attempt to reconcile the Kustomization on the cluster.
     """
-    wait: NotRequired[pulumi.Input[_builtins.bool]]
+    wait: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable/disable health check for all Kubernetes objects created by this Kustomization.
     """
@@ -927,15 +927,15 @@ class KustomizationDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class KustomizationDefinitionArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_build: Optional[pulumi.Input['PostBuildDefinitionArgs']] = None,
-                 prune: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retry_interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 wait: Optional[pulumi.Input[_builtins.bool]] = None):
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_build: pulumi.Input[Optional['PostBuildDefinitionArgs']] = None,
+                 prune: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retry_interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 wait: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
 
@@ -982,110 +982,110 @@ class KustomizationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def force(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
         """
         return pulumi.get(self, "force")
 
     @force.setter
-    def force(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path in the source reference to reconcile on the cluster.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="postBuild")
-    def post_build(self) -> Optional[pulumi.Input['PostBuildDefinitionArgs']]:
+    def post_build(self) -> pulumi.Input[Optional['PostBuildDefinitionArgs']]:
         """
         Used for variable substitution for this Kustomization after kustomize build.
         """
         return pulumi.get(self, "post_build")
 
     @post_build.setter
-    def post_build(self, value: Optional[pulumi.Input['PostBuildDefinitionArgs']]):
+    def post_build(self, value: pulumi.Input[Optional['PostBuildDefinitionArgs']]):
         pulumi.set(self, "post_build", value)
 
     @_builtins.property
     @pulumi.getter
-    def prune(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prune(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         """
         return pulumi.get(self, "prune")
 
     @prune.setter
-    def prune(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prune(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prune", value)
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalInSeconds")
-    def retry_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
         """
         return pulumi.get(self, "retry_interval_in_seconds")
 
     @retry_interval_in_seconds.setter
-    def retry_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The interval at which to re-reconcile the Kustomization on the cluster.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum time to attempt to reconcile the Kustomization on the cluster.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def wait(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/disable health check for all Kubernetes objects created by this Kustomization.
         """
         return pulumi.get(self, "wait")
 
     @wait.setter
-    def wait(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait", value)
 
 
@@ -1093,7 +1093,7 @@ class ManagedIdentityDefinitionArgsDict(TypedDict):
     """
     Parameters to authenticate using a Managed Identity.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client Id for authenticating a Managed Identity.
     """
@@ -1101,7 +1101,7 @@ class ManagedIdentityDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedIdentityDefinitionArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to authenticate using a Managed Identity.
 
@@ -1112,14 +1112,14 @@ class ManagedIdentityDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client Id for authenticating a Managed Identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
 
@@ -1133,17 +1133,17 @@ class PlanArgsDict(TypedDict):
     """
     product: pulumi.Input[_builtins.str]
     """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
     """
     publisher: pulumi.Input[_builtins.str]
     """
     The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the desired product/artifact.
     """
@@ -1154,13 +1154,13 @@ class PlanArgs:
                  name: pulumi.Input[_builtins.str],
                  product: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan for the resource.
 
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -1189,7 +1189,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -1211,26 +1211,26 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the desired product/artifact.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1238,11 +1238,11 @@ class PostBuildDefinitionArgsDict(TypedDict):
     """
     The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
     """
-    substitute: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    substitute: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key/value pairs holding the variables to be substituted in this Kustomization.
     """
-    substitute_from: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgsDict']]]]
+    substitute_from: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubstituteFromDefinitionArgsDict']]]]]
     """
     Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
     """
@@ -1250,8 +1250,8 @@ class PostBuildDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class PostBuildDefinitionArgs:
     def __init__(__self__, *,
-                 substitute: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 substitute_from: Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]] = None):
+                 substitute: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 substitute_from: pulumi.Input[Optional[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]] = None):
         """
         The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
 
@@ -1265,26 +1265,26 @@ class PostBuildDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def substitute(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def substitute(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key/value pairs holding the variables to be substituted in this Kustomization.
         """
         return pulumi.get(self, "substitute")
 
     @substitute.setter
-    def substitute(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def substitute(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "substitute", value)
 
     @_builtins.property
     @pulumi.getter(name="substituteFrom")
-    def substitute_from(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]:
+    def substitute_from(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]:
         """
         Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
         """
         return pulumi.get(self, "substitute_from")
 
     @substitute_from.setter
-    def substitute_from(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]):
+    def substitute_from(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]):
         pulumi.set(self, "substitute_from", value)
 
 
@@ -1292,15 +1292,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -1308,9 +1308,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -1327,38 +1327,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1366,19 +1366,19 @@ class RepositoryRefDefinitionArgsDict(TypedDict):
     """
     The source reference for the GitRepository object.
     """
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The git repository branch name to checkout.
     """
-    commit: NotRequired[pulumi.Input[_builtins.str]]
+    commit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
     """
-    semver: NotRequired[pulumi.Input[_builtins.str]]
+    semver: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The semver range used to match against git repository tags. This takes precedence over tag.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The git repository tag name to checkout. This takes precedence over branch.
     """
@@ -1386,10 +1386,10 @@ class RepositoryRefDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryRefDefinitionArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit: Optional[pulumi.Input[_builtins.str]] = None,
-                 semver: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit: pulumi.Input[Optional[_builtins.str]] = None,
+                 semver: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The source reference for the GitRepository object.
 
@@ -1409,130 +1409,62 @@ class RepositoryRefDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The git repository branch name to checkout.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def commit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
         """
         return pulumi.get(self, "commit")
 
     @commit.setter
-    def commit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit", value)
 
     @_builtins.property
     @pulumi.getter
-    def semver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def semver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The semver range used to match against git repository tags. This takes precedence over tag.
         """
         return pulumi.get(self, "semver")
 
     @semver.setter
-    def semver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def semver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "semver", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The git repository tag name to checkout. This takes precedence over branch.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
-
-
-class ScopeClusterArgsDict(TypedDict):
-    """
-    Specifies that the scope of the extension is Cluster
-    """
-    release_namespace: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
-    """
-
-@pulumi.input_type
-class ScopeClusterArgs:
-    def __init__(__self__, *,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specifies that the scope of the extension is Cluster
-
-        :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
-        """
-        if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
-
-    @_builtins.property
-    @pulumi.getter(name="releaseNamespace")
-    def release_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
-        """
-        return pulumi.get(self, "release_namespace")
-
-    @release_namespace.setter
-    def release_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "release_namespace", value)
-
-
-class ScopeNamespaceArgsDict(TypedDict):
-    """
-    Specifies that the scope of the extension is Namespace
-    """
-    target_namespace: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
-    """
-
-@pulumi.input_type
-class ScopeNamespaceArgs:
-    def __init__(__self__, *,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specifies that the scope of the extension is Namespace
-
-        :param pulumi.Input[_builtins.str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
-        """
-        if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
-
-    @_builtins.property
-    @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
-        """
-        return pulumi.get(self, "target_namespace")
-
-    @target_namespace.setter
-    def target_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_namespace", value)
 
 
 class ScopeArgsDict(TypedDict):
     """
     Scope of the extension. It can be either Cluster or Namespace; but not both.
     """
-    cluster: NotRequired[pulumi.Input['ScopeClusterArgsDict']]
+    cluster: NotRequired[pulumi.Input[Optional['ScopeClusterArgsDict']]]
     """
     Specifies that the scope of the extension is Cluster
     """
-    namespace: NotRequired[pulumi.Input['ScopeNamespaceArgsDict']]
+    namespace: NotRequired[pulumi.Input[Optional['ScopeNamespaceArgsDict']]]
     """
     Specifies that the scope of the extension is Namespace
     """
@@ -1540,8 +1472,8 @@ class ScopeArgsDict(TypedDict):
 @pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
-                 cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
-                 namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None):
+                 cluster: pulumi.Input[Optional['ScopeClusterArgs']] = None,
+                 namespace: pulumi.Input[Optional['ScopeNamespaceArgs']] = None):
         """
         Scope of the extension. It can be either Cluster or Namespace; but not both.
 
@@ -1555,54 +1487,122 @@ class ScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cluster(self) -> Optional[pulumi.Input['ScopeClusterArgs']]:
+    def cluster(self) -> pulumi.Input[Optional['ScopeClusterArgs']]:
         """
         Specifies that the scope of the extension is Cluster
         """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
-    def cluster(self, value: Optional[pulumi.Input['ScopeClusterArgs']]):
+    def cluster(self, value: pulumi.Input[Optional['ScopeClusterArgs']]):
         pulumi.set(self, "cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input['ScopeNamespaceArgs']]:
+    def namespace(self) -> pulumi.Input[Optional['ScopeNamespaceArgs']]:
         """
         Specifies that the scope of the extension is Namespace
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input['ScopeNamespaceArgs']]):
+    def namespace(self, value: pulumi.Input[Optional['ScopeNamespaceArgs']]):
         pulumi.set(self, "namespace", value)
+
+
+class ScopeClusterArgsDict(TypedDict):
+    """
+    Specifies that the scope of the extension is Cluster
+    """
+    release_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+    """
+
+@pulumi.input_type
+class ScopeClusterArgs:
+    def __init__(__self__, *,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies that the scope of the extension is Cluster
+
+        :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        """
+        if release_namespace is not None:
+            pulumi.set(__self__, "release_namespace", release_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="releaseNamespace")
+    def release_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        """
+        return pulumi.get(self, "release_namespace")
+
+    @release_namespace.setter
+    def release_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "release_namespace", value)
+
+
+class ScopeNamespaceArgsDict(TypedDict):
+    """
+    Specifies that the scope of the extension is Namespace
+    """
+    target_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+    """
+
+@pulumi.input_type
+class ScopeNamespaceArgs:
+    def __init__(__self__, *,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies that the scope of the extension is Namespace
+
+        :param pulumi.Input[_builtins.str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        """
+        if target_namespace is not None:
+            pulumi.set(__self__, "target_namespace", target_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        """
+        return pulumi.get(self, "target_namespace")
+
+    @target_namespace.setter
+    def target_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_namespace", value)
 
 
 class ServicePrincipalDefinitionArgsDict(TypedDict):
     """
     Parameters to authenticate using Service Principal.
     """
-    client_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Base64-encoded certificate used to authenticate a Service Principal 
+    Base64-encoded certificate used to authenticate a Service Principal
     """
-    client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The password for the certificate used to authenticate a Service Principal 
+    The password for the certificate used to authenticate a Service Principal
     """
-    client_certificate_send_chain: NotRequired[pulumi.Input[_builtins.bool]]
+    client_certificate_send_chain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client Id for authenticating a Service Principal.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client secret for authenticating a Service Principal
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant Id for authenticating a Service Principal
     """
@@ -1610,17 +1610,17 @@ class ServicePrincipalDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ServicePrincipalDefinitionArgs:
     def __init__(__self__, *,
-                 client_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_send_chain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_send_chain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to authenticate using Service Principal.
 
-        :param pulumi.Input[_builtins.str] client_certificate: Base64-encoded certificate used to authenticate a Service Principal 
-        :param pulumi.Input[_builtins.str] client_certificate_password: The password for the certificate used to authenticate a Service Principal 
+        :param pulumi.Input[_builtins.str] client_certificate: Base64-encoded certificate used to authenticate a Service Principal
+        :param pulumi.Input[_builtins.str] client_certificate_password: The password for the certificate used to authenticate a Service Principal
         :param pulumi.Input[_builtins.bool] client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
         :param pulumi.Input[_builtins.str] client_id: The client Id for authenticating a Service Principal.
         :param pulumi.Input[_builtins.str] client_secret: The client secret for authenticating a Service Principal
@@ -1643,74 +1643,74 @@ class ServicePrincipalDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertificate")
-    def client_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Base64-encoded certificate used to authenticate a Service Principal 
+        Base64-encoded certificate used to authenticate a Service Principal
         """
         return pulumi.get(self, "client_certificate")
 
     @client_certificate.setter
-    def client_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePassword")
-    def client_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The password for the certificate used to authenticate a Service Principal 
+        The password for the certificate used to authenticate a Service Principal
         """
         return pulumi.get(self, "client_certificate_password")
 
     @client_certificate_password.setter
-    def client_certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateSendChain")
-    def client_certificate_send_chain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_send_chain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
         """
         return pulumi.get(self, "client_certificate_send_chain")
 
     @client_certificate_send_chain.setter
-    def client_certificate_send_chain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_send_chain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_send_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client Id for authenticating a Service Principal.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret for authenticating a Service Principal
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant Id for authenticating a Service Principal
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1718,15 +1718,15 @@ class SubstituteFromDefinitionArgsDict(TypedDict):
     """
     Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the ConfigMap/Secret that holds the variables to be used in substitution.
     """
-    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    optional: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to True to proceed without ConfigMap/Secret, if it is not present.
     """
@@ -1734,9 +1734,9 @@ class SubstituteFromDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class SubstituteFromDefinitionArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None):
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
 
@@ -1755,38 +1755,38 @@ class SubstituteFromDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ConfigMap/Secret that holds the variables to be used in substitution.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to True to proceed without ConfigMap/Secret, if it is not present.
         """
         return pulumi.get(self, "optional")
 
     @optional.setter
-    def optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optional", value)
 
 

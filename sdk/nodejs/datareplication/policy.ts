@@ -108,7 +108,7 @@ export interface PolicyArgs {
     /**
      * The policy name.
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * Policy model properties.
      */

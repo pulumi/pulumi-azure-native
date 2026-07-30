@@ -40,6 +40,8 @@ __all__ = [
     'MetricsToTrackArgsDict',
     'MonitoringPropertiesOfDrillArgs',
     'MonitoringPropertiesOfDrillArgsDict',
+    'RecoveryGroupArgs',
+    'RecoveryGroupArgsDict',
     'RecoveryGroupCustomRunbookActionArgs',
     'RecoveryGroupCustomRunbookActionArgsDict',
     'RecoveryGroupManualActionArgs',
@@ -48,12 +50,10 @@ __all__ = [
     'RecoveryGroupPropertiesArgsDict',
     'RecoveryGroupsSettingArgs',
     'RecoveryGroupsSettingArgsDict',
-    'RecoveryGroupArgs',
-    'RecoveryGroupArgsDict',
-    'RecoveryPlanPropertiesOfDrillArgs',
-    'RecoveryPlanPropertiesOfDrillArgsDict',
     'RecoveryPlanPropertiesArgs',
     'RecoveryPlanPropertiesArgsDict',
+    'RecoveryPlanPropertiesOfDrillArgs',
+    'RecoveryPlanPropertiesOfDrillArgsDict',
     'RegionalDrillPropertiesArgs',
     'RegionalDrillPropertiesArgsDict',
     'ServiceLevelResourceArgs',
@@ -76,7 +76,7 @@ class AssetPropertiesOfDrillArgsDict(TypedDict):
     """
     Subscription where Drill's internal resources will be created.
     """
-    resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource group where Drill's internal resources will be created. If not specified, defaults to 'AzureResilienceManagementDrills'. This value is immutable after drill creation.
     """
@@ -86,7 +86,7 @@ class AssetPropertiesOfDrillArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  subscription: pulumi.Input[_builtins.str],
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Drill asset properties.
 
@@ -125,14 +125,14 @@ class AssetPropertiesOfDrillArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource group where Drill's internal resources will be created. If not specified, defaults to 'AzureResilienceManagementDrills'. This value is immutable after drill creation.
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
 
@@ -144,7 +144,7 @@ class AssociatedIdentityArgsDict(TypedDict):
     """
     Identity type linked with the resource
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity id linked with the resource
     """
@@ -153,7 +153,7 @@ class AssociatedIdentityArgsDict(TypedDict):
 class AssociatedIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Definition of associated identity linked with the various resources.
 
@@ -178,14 +178,14 @@ class AssociatedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity id linked with the resource
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -193,19 +193,19 @@ class ChaosExperimentPropertiesOfDrillArgsDict(TypedDict):
     """
     Chaos Experiment properties.
     """
-    chaos_experiment_identity_for_faults: NotRequired[pulumi.Input['AssociatedIdentityArgsDict']]
+    chaos_experiment_identity_for_faults: NotRequired[pulumi.Input[Optional['AssociatedIdentityArgsDict']]]
     """
     Identity to be used by the Chaos Experiment for invoking faults on resources.
     """
-    identity: NotRequired[pulumi.Input['AssociatedIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['AssociatedIdentityArgsDict']]]
     """
     Identity to use for Chaos Experiment operations.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Region for chaosExperiment resource.
     """
-    subscription: NotRequired[pulumi.Input[_builtins.str]]
+    subscription: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription for chaosExperiment resource.
     """
@@ -213,10 +213,10 @@ class ChaosExperimentPropertiesOfDrillArgsDict(TypedDict):
 @pulumi.input_type
 class ChaosExperimentPropertiesOfDrillArgs:
     def __init__(__self__, *,
-                 chaos_experiment_identity_for_faults: Optional[pulumi.Input['AssociatedIdentityArgs']] = None,
-                 identity: Optional[pulumi.Input['AssociatedIdentityArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription: Optional[pulumi.Input[_builtins.str]] = None):
+                 chaos_experiment_identity_for_faults: pulumi.Input[Optional['AssociatedIdentityArgs']] = None,
+                 identity: pulumi.Input[Optional['AssociatedIdentityArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Chaos Experiment properties.
 
@@ -236,50 +236,50 @@ class ChaosExperimentPropertiesOfDrillArgs:
 
     @_builtins.property
     @pulumi.getter(name="chaosExperimentIdentityForFaults")
-    def chaos_experiment_identity_for_faults(self) -> Optional[pulumi.Input['AssociatedIdentityArgs']]:
+    def chaos_experiment_identity_for_faults(self) -> pulumi.Input[Optional['AssociatedIdentityArgs']]:
         """
         Identity to be used by the Chaos Experiment for invoking faults on resources.
         """
         return pulumi.get(self, "chaos_experiment_identity_for_faults")
 
     @chaos_experiment_identity_for_faults.setter
-    def chaos_experiment_identity_for_faults(self, value: Optional[pulumi.Input['AssociatedIdentityArgs']]):
+    def chaos_experiment_identity_for_faults(self, value: pulumi.Input[Optional['AssociatedIdentityArgs']]):
         pulumi.set(self, "chaos_experiment_identity_for_faults", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AssociatedIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AssociatedIdentityArgs']]:
         """
         Identity to use for Chaos Experiment operations.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AssociatedIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AssociatedIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region for chaosExperiment resource.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription for chaosExperiment resource.
         """
         return pulumi.get(self, "subscription")
 
     @subscription.setter
-    def subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription", value)
 
 
@@ -380,7 +380,7 @@ class GoalAssignmentPropertiesArgsDict(TypedDict):
     """
     Arm id of the goal template.
     """
-    service_level_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelResourceArgsDict']]]]
+    service_level_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelResourceArgsDict']]]]]
     """
     List of service level resources.
     """
@@ -390,7 +390,7 @@ class GoalAssignmentPropertiesArgs:
     def __init__(__self__, *,
                  goal_assignment_type: pulumi.Input[Union[_builtins.str, 'GoalAssignmentType']],
                  goal_template_id: pulumi.Input[_builtins.str],
-                 service_level_resources: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]] = None):
+                 service_level_resources: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]] = None):
         """
         Definition of goal assignment property.
 
@@ -429,14 +429,14 @@ class GoalAssignmentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceLevelResources")
-    def service_level_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]]:
+    def service_level_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]]:
         """
         List of service level resources.
         """
         return pulumi.get(self, "service_level_resources")
 
     @service_level_resources.setter
-    def service_level_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]]):
+    def service_level_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelResourceArgs']]]]):
         pulumi.set(self, "service_level_resources", value)
 
 
@@ -448,19 +448,19 @@ class GoalTemplatePropertiesArgsDict(TypedDict):
     """
     Type of Goal Template created by customer
     """
-    regional_recovery_point_objective: NotRequired[pulumi.Input[_builtins.str]]
+    regional_recovery_point_objective: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Regional recovery point objective specified by customer. eg, PT15M for 15 minutes
     """
-    regional_recovery_time_objective: NotRequired[pulumi.Input[_builtins.str]]
+    regional_recovery_time_objective: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Regional recovery time objective specified by customer. eg, PT15M for 15 minutes
     """
-    require_disaster_recovery: NotRequired[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]
+    require_disaster_recovery: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]]
     """
     Option specified by customer under disaster recovery section of goal template
     """
-    require_high_availability: NotRequired[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]
+    require_high_availability: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]]
     """
     Option specified by customer under high availability section of goal template
     """
@@ -469,10 +469,10 @@ class GoalTemplatePropertiesArgsDict(TypedDict):
 class GoalTemplatePropertiesArgs:
     def __init__(__self__, *,
                  goal_type: pulumi.Input[Union[_builtins.str, 'GoalType']],
-                 regional_recovery_point_objective: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_recovery_time_objective: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_disaster_recovery: Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]] = None,
-                 require_high_availability: Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]] = None):
+                 regional_recovery_point_objective: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_recovery_time_objective: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_disaster_recovery: pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]] = None,
+                 require_high_availability: pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]] = None):
         """
         Definition of goal template property.
 
@@ -506,50 +506,50 @@ class GoalTemplatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="regionalRecoveryPointObjective")
-    def regional_recovery_point_objective(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regional_recovery_point_objective(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regional recovery point objective specified by customer. eg, PT15M for 15 minutes
         """
         return pulumi.get(self, "regional_recovery_point_objective")
 
     @regional_recovery_point_objective.setter
-    def regional_recovery_point_objective(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regional_recovery_point_objective(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regional_recovery_point_objective", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalRecoveryTimeObjective")
-    def regional_recovery_time_objective(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regional_recovery_time_objective(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regional recovery time objective specified by customer. eg, PT15M for 15 minutes
         """
         return pulumi.get(self, "regional_recovery_time_objective")
 
     @regional_recovery_time_objective.setter
-    def regional_recovery_time_objective(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regional_recovery_time_objective(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regional_recovery_time_objective", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDisasterRecovery")
-    def require_disaster_recovery(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]:
+    def require_disaster_recovery(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]:
         """
         Option specified by customer under disaster recovery section of goal template
         """
         return pulumi.get(self, "require_disaster_recovery")
 
     @require_disaster_recovery.setter
-    def require_disaster_recovery(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]):
+    def require_disaster_recovery(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]):
         pulumi.set(self, "require_disaster_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="requireHighAvailability")
-    def require_high_availability(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]:
+    def require_high_availability(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]:
         """
         Option specified by customer under high availability section of goal template
         """
         return pulumi.get(self, "require_high_availability")
 
     @require_high_availability.setter
-    def require_high_availability(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RequirementSelected']]]):
+    def require_high_availability(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RequirementSelected']]]):
         pulumi.set(self, "require_high_availability", value)
 
 
@@ -613,7 +613,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -622,7 +622,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -647,14 +647,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -785,7 +785,7 @@ class MonitoringPropertiesOfDrillArgsDict(TypedDict):
     """
     Drill monitoring properties.
     """
-    identity: NotRequired[pulumi.Input['AssociatedIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['AssociatedIdentityArgsDict']]]
     """
     Identity to use for Drill monitoring operations.
     """
@@ -793,7 +793,7 @@ class MonitoringPropertiesOfDrillArgsDict(TypedDict):
 @pulumi.input_type
 class MonitoringPropertiesOfDrillArgs:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['AssociatedIdentityArgs']] = None):
+                 identity: pulumi.Input[Optional['AssociatedIdentityArgs']] = None):
         """
         Drill monitoring properties.
 
@@ -804,15 +804,49 @@ class MonitoringPropertiesOfDrillArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AssociatedIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AssociatedIdentityArgs']]:
         """
         Identity to use for Drill monitoring operations.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AssociatedIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AssociatedIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+
+class RecoveryGroupArgsDict(TypedDict):
+    """
+    Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.
+    """
+    properties: NotRequired[pulumi.Input[Optional['RecoveryGroupPropertiesArgsDict']]]
+    """
+    The resource-specific properties for this resource.
+    """
+
+@pulumi.input_type
+class RecoveryGroupArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input[Optional['RecoveryGroupPropertiesArgs']] = None):
+        """
+        Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.
+
+        :param pulumi.Input['RecoveryGroupPropertiesArgs'] properties: The resource-specific properties for this resource.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Optional['RecoveryGroupPropertiesArgs']]:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Optional['RecoveryGroupPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class RecoveryGroupCustomRunbookActionArgsDict(TypedDict):
@@ -832,19 +866,19 @@ class RecoveryGroupCustomRunbookActionArgsDict(TypedDict):
     Specifies the type of recovery orchestration group actions.
     Expected value is 'CustomRunbook'.
     """
-    action_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    action_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM Resource ID of the resource that includes the actionable script, such as a Runbook in an Automation Account.
     """
-    associated_identity: NotRequired[pulumi.Input['AssociatedIdentityArgsDict']]
+    associated_identity: NotRequired[pulumi.Input[Optional['AssociatedIdentityArgsDict']]]
     """
     The identity associated with actionResourceId for RBAC.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the recovery orchestration group action, containing the instructions to be performed during this action.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key-value parameters for the operation.
     """
@@ -855,10 +889,10 @@ class RecoveryGroupCustomRunbookActionArgs:
                  name: pulumi.Input[_builtins.str],
                  timeout_in_minutes: pulumi.Input[_builtins.int],
                  type: pulumi.Input[_builtins.str],
-                 action_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_identity: Optional[pulumi.Input['AssociatedIdentityArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 action_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_identity: pulumi.Input[Optional['AssociatedIdentityArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Defines a custom runbook action for the recovery orchestration group.
 
@@ -922,50 +956,50 @@ class RecoveryGroupCustomRunbookActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionResourceId")
-    def action_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM Resource ID of the resource that includes the actionable script, such as a Runbook in an Automation Account.
         """
         return pulumi.get(self, "action_resource_id")
 
     @action_resource_id.setter
-    def action_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedIdentity")
-    def associated_identity(self) -> Optional[pulumi.Input['AssociatedIdentityArgs']]:
+    def associated_identity(self) -> pulumi.Input[Optional['AssociatedIdentityArgs']]:
         """
         The identity associated with actionResourceId for RBAC.
         """
         return pulumi.get(self, "associated_identity")
 
     @associated_identity.setter
-    def associated_identity(self, value: Optional[pulumi.Input['AssociatedIdentityArgs']]):
+    def associated_identity(self, value: pulumi.Input[Optional['AssociatedIdentityArgs']]):
         pulumi.set(self, "associated_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the recovery orchestration group action, containing the instructions to be performed during this action.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value parameters for the operation.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -986,7 +1020,7 @@ class RecoveryGroupManualActionArgsDict(TypedDict):
     Specifies the type of recovery orchestration group actions.
     Expected value is 'ManualAction'.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the recovery orchestration group action, containing the instructions to be performed during this action.
     """
@@ -997,7 +1031,7 @@ class RecoveryGroupManualActionArgs:
                  name: pulumi.Input[_builtins.str],
                  timeout_in_minutes: pulumi.Input[_builtins.int],
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines a manual action for the recovery orchestration group.
 
@@ -1052,14 +1086,14 @@ class RecoveryGroupManualActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the recovery orchestration group action, containing the instructions to be performed during this action.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -1079,11 +1113,11 @@ class RecoveryGroupPropertiesArgsDict(TypedDict):
     """
     The order ID of the recovery orchestration group.
     """
-    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgsDict', 'RecoveryGroupManualActionArgsDict']]]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgsDict', 'RecoveryGroupManualActionArgsDict']]]]]]
     """
     Post-actions for the recovery orchestration group.
     """
-    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgsDict', 'RecoveryGroupManualActionArgsDict']]]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgsDict', 'RecoveryGroupManualActionArgsDict']]]]]]
     """
     Pre-actions for the recovery orchestration group.
     """
@@ -1094,8 +1128,8 @@ class RecoveryGroupPropertiesArgs:
                  description: pulumi.Input[_builtins.str],
                  group_unique_id: pulumi.Input[_builtins.str],
                  order_id: pulumi.Input[_builtins.int],
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]] = None):
+                 post_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]] = None,
+                 pre_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]] = None):
         """
         Properties of the recovery orchestration group.
 
@@ -1151,26 +1185,26 @@ class RecoveryGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]:
+    def post_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]:
         """
         Post-actions for the recovery orchestration group.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]):
+    def post_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]):
         pulumi.set(self, "post_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]:
+    def pre_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]:
         """
         Pre-actions for the recovery orchestration group.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]):
+    def pre_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecoveryGroupCustomRunbookActionArgs', 'RecoveryGroupManualActionArgs']]]]]):
         pulumi.set(self, "pre_actions", value)
 
 
@@ -1182,7 +1216,7 @@ class RecoveryGroupsSettingArgsDict(TypedDict):
     """
     The default recovery orchestration group setting. Every recovery orchestration plan has a default recovery orchestration group.
     """
-    additional_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupArgsDict']]]]
+    additional_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecoveryGroupArgsDict']]]]]
     """
     Additional recovery orchestration group settings.
     """
@@ -1191,7 +1225,7 @@ class RecoveryGroupsSettingArgsDict(TypedDict):
 class RecoveryGroupsSettingArgs:
     def __init__(__self__, *,
                  default_group: pulumi.Input['RecoveryGroupArgs'],
-                 additional_groups: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupArgs']]]] = None):
+                 additional_groups: pulumi.Input[Optional[Sequence[pulumi.Input['RecoveryGroupArgs']]]] = None):
         """
         Settings for the recovery orchestration groups.
 
@@ -1216,82 +1250,15 @@ class RecoveryGroupsSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalGroups")
-    def additional_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupArgs']]]]:
+    def additional_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecoveryGroupArgs']]]]:
         """
         Additional recovery orchestration group settings.
         """
         return pulumi.get(self, "additional_groups")
 
     @additional_groups.setter
-    def additional_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupArgs']]]]):
+    def additional_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecoveryGroupArgs']]]]):
         pulumi.set(self, "additional_groups", value)
-
-
-class RecoveryGroupArgsDict(TypedDict):
-    """
-    Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.
-    """
-    properties: NotRequired[pulumi.Input['RecoveryGroupPropertiesArgsDict']]
-    """
-    The resource-specific properties for this resource.
-    """
-
-@pulumi.input_type
-class RecoveryGroupArgs:
-    def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['RecoveryGroupPropertiesArgs']] = None):
-        """
-        Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.
-
-        :param pulumi.Input['RecoveryGroupPropertiesArgs'] properties: The resource-specific properties for this resource.
-        """
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RecoveryGroupPropertiesArgs']]:
-        """
-        The resource-specific properties for this resource.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RecoveryGroupPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-class RecoveryPlanPropertiesOfDrillArgsDict(TypedDict):
-    """
-    RecoveryPlan properties.
-    """
-    identity: pulumi.Input['AssociatedIdentityArgsDict']
-    """
-    Identity to use for RecoveryPlan operations.
-    """
-
-@pulumi.input_type
-class RecoveryPlanPropertiesOfDrillArgs:
-    def __init__(__self__, *,
-                 identity: pulumi.Input['AssociatedIdentityArgs']):
-        """
-        RecoveryPlan properties.
-
-        :param pulumi.Input['AssociatedIdentityArgs'] identity: Identity to use for RecoveryPlan operations.
-        """
-        pulumi.set(__self__, "identity", identity)
-
-    @_builtins.property
-    @pulumi.getter
-    def identity(self) -> pulumi.Input['AssociatedIdentityArgs']:
-        """
-        Identity to use for RecoveryPlan operations.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: pulumi.Input['AssociatedIdentityArgs']):
-        pulumi.set(self, "identity", value)
 
 
 class RecoveryPlanPropertiesArgsDict(TypedDict):
@@ -1365,6 +1332,39 @@ class RecoveryPlanPropertiesArgs:
         pulumi.set(self, "recovery_groups_setting", value)
 
 
+class RecoveryPlanPropertiesOfDrillArgsDict(TypedDict):
+    """
+    RecoveryPlan properties.
+    """
+    identity: pulumi.Input['AssociatedIdentityArgsDict']
+    """
+    Identity to use for RecoveryPlan operations.
+    """
+
+@pulumi.input_type
+class RecoveryPlanPropertiesOfDrillArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input['AssociatedIdentityArgs']):
+        """
+        RecoveryPlan properties.
+
+        :param pulumi.Input['AssociatedIdentityArgs'] identity: Identity to use for RecoveryPlan operations.
+        """
+        pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['AssociatedIdentityArgs']:
+        """
+        Identity to use for RecoveryPlan operations.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['AssociatedIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+
 class RegionalDrillPropertiesArgsDict(TypedDict):
     """
     Definition of Regional Drill properties.
@@ -1374,35 +1374,35 @@ class RegionalDrillPropertiesArgsDict(TypedDict):
     Enum for Drill type object hierarchy.
     Expected value is 'Regional'.
     """
-    chaos_experiment_properties: NotRequired[pulumi.Input['ChaosExperimentPropertiesOfDrillArgsDict']]
+    chaos_experiment_properties: NotRequired[pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgsDict']]]
     """
     Chaos Experiment properties.
     """
-    chaos_resource_properties: NotRequired[pulumi.Input['ChaosResourcePropertiesOfDrillArgsDict']]
+    chaos_resource_properties: NotRequired[pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgsDict']]]
     """
     Chaos Resource properties.
     """
-    drill_asset_properties: NotRequired[pulumi.Input['AssetPropertiesOfDrillArgsDict']]
+    drill_asset_properties: NotRequired[pulumi.Input[Optional['AssetPropertiesOfDrillArgsDict']]]
     """
     Properties for internal resources that are created for the Drill.
     """
-    health_model_properties: NotRequired[pulumi.Input['HealthModelPropertiesOfDrillArgsDict']]
+    health_model_properties: NotRequired[pulumi.Input[Optional['HealthModelPropertiesOfDrillArgsDict']]]
     """
     HealthModel properties.
     """
-    metrics_properties: NotRequired[pulumi.Input['MetricsPropertiesOfDrillArgsDict']]
+    metrics_properties: NotRequired[pulumi.Input[Optional['MetricsPropertiesOfDrillArgsDict']]]
     """
     Metric properties.
     """
-    monitoring_properties: NotRequired[pulumi.Input['MonitoringPropertiesOfDrillArgsDict']]
+    monitoring_properties: NotRequired[pulumi.Input[Optional['MonitoringPropertiesOfDrillArgsDict']]]
     """
     Monitoring properties of the Drill.
     """
-    rbac_setup_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]
+    rbac_setup_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]]
     """
     RBAC setup mode.
     """
-    recovery_plan_properties: NotRequired[pulumi.Input['RecoveryPlanPropertiesOfDrillArgsDict']]
+    recovery_plan_properties: NotRequired[pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgsDict']]]
     """
     ROPlan properties.
     """
@@ -1411,14 +1411,14 @@ class RegionalDrillPropertiesArgsDict(TypedDict):
 class RegionalDrillPropertiesArgs:
     def __init__(__self__, *,
                  drill_type: pulumi.Input[_builtins.str],
-                 chaos_experiment_properties: Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']] = None,
-                 chaos_resource_properties: Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']] = None,
-                 drill_asset_properties: Optional[pulumi.Input['AssetPropertiesOfDrillArgs']] = None,
-                 health_model_properties: Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']] = None,
-                 metrics_properties: Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']] = None,
-                 monitoring_properties: Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']] = None,
-                 rbac_setup_mode: Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]] = None,
-                 recovery_plan_properties: Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']] = None):
+                 chaos_experiment_properties: pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']] = None,
+                 chaos_resource_properties: pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']] = None,
+                 drill_asset_properties: pulumi.Input[Optional['AssetPropertiesOfDrillArgs']] = None,
+                 health_model_properties: pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']] = None,
+                 metrics_properties: pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']] = None,
+                 monitoring_properties: pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']] = None,
+                 rbac_setup_mode: pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]] = None,
+                 recovery_plan_properties: pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']] = None):
         """
         Definition of Regional Drill properties.
 
@@ -1466,98 +1466,98 @@ class RegionalDrillPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="chaosExperimentProperties")
-    def chaos_experiment_properties(self) -> Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']]:
+    def chaos_experiment_properties(self) -> pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']]:
         """
         Chaos Experiment properties.
         """
         return pulumi.get(self, "chaos_experiment_properties")
 
     @chaos_experiment_properties.setter
-    def chaos_experiment_properties(self, value: Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']]):
+    def chaos_experiment_properties(self, value: pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']]):
         pulumi.set(self, "chaos_experiment_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="chaosResourceProperties")
-    def chaos_resource_properties(self) -> Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']]:
+    def chaos_resource_properties(self) -> pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']]:
         """
         Chaos Resource properties.
         """
         return pulumi.get(self, "chaos_resource_properties")
 
     @chaos_resource_properties.setter
-    def chaos_resource_properties(self, value: Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']]):
+    def chaos_resource_properties(self, value: pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']]):
         pulumi.set(self, "chaos_resource_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="drillAssetProperties")
-    def drill_asset_properties(self) -> Optional[pulumi.Input['AssetPropertiesOfDrillArgs']]:
+    def drill_asset_properties(self) -> pulumi.Input[Optional['AssetPropertiesOfDrillArgs']]:
         """
         Properties for internal resources that are created for the Drill.
         """
         return pulumi.get(self, "drill_asset_properties")
 
     @drill_asset_properties.setter
-    def drill_asset_properties(self, value: Optional[pulumi.Input['AssetPropertiesOfDrillArgs']]):
+    def drill_asset_properties(self, value: pulumi.Input[Optional['AssetPropertiesOfDrillArgs']]):
         pulumi.set(self, "drill_asset_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="healthModelProperties")
-    def health_model_properties(self) -> Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']]:
+    def health_model_properties(self) -> pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']]:
         """
         HealthModel properties.
         """
         return pulumi.get(self, "health_model_properties")
 
     @health_model_properties.setter
-    def health_model_properties(self, value: Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']]):
+    def health_model_properties(self, value: pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']]):
         pulumi.set(self, "health_model_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsProperties")
-    def metrics_properties(self) -> Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']]:
+    def metrics_properties(self) -> pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']]:
         """
         Metric properties.
         """
         return pulumi.get(self, "metrics_properties")
 
     @metrics_properties.setter
-    def metrics_properties(self, value: Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']]):
+    def metrics_properties(self, value: pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']]):
         pulumi.set(self, "metrics_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringProperties")
-    def monitoring_properties(self) -> Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']]:
+    def monitoring_properties(self) -> pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']]:
         """
         Monitoring properties of the Drill.
         """
         return pulumi.get(self, "monitoring_properties")
 
     @monitoring_properties.setter
-    def monitoring_properties(self, value: Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']]):
+    def monitoring_properties(self, value: pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']]):
         pulumi.set(self, "monitoring_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacSetupMode")
-    def rbac_setup_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]:
+    def rbac_setup_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]:
         """
         RBAC setup mode.
         """
         return pulumi.get(self, "rbac_setup_mode")
 
     @rbac_setup_mode.setter
-    def rbac_setup_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]):
+    def rbac_setup_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]):
         pulumi.set(self, "rbac_setup_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPlanProperties")
-    def recovery_plan_properties(self) -> Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']]:
+    def recovery_plan_properties(self) -> pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']]:
         """
         ROPlan properties.
         """
         return pulumi.get(self, "recovery_plan_properties")
 
     @recovery_plan_properties.setter
-    def recovery_plan_properties(self, value: Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']]):
+    def recovery_plan_properties(self, value: pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']]):
         pulumi.set(self, "recovery_plan_properties", value)
 
 
@@ -1617,7 +1617,7 @@ class UsagePlanPropertiesArgsDict(TypedDict):
     """
     Definition of usage plan properties.
     """
-    plan_type: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePlanType']]]
+    plan_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UsagePlanType']]]]
     """
     The type of the usage plan.
     """
@@ -1625,7 +1625,7 @@ class UsagePlanPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class UsagePlanPropertiesArgs:
     def __init__(__self__, *,
-                 plan_type: Optional[pulumi.Input[Union[_builtins.str, 'UsagePlanType']]] = None):
+                 plan_type: pulumi.Input[Optional[Union[_builtins.str, 'UsagePlanType']]] = None):
         """
         Definition of usage plan properties.
 
@@ -1636,14 +1636,14 @@ class UsagePlanPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="planType")
-    def plan_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsagePlanType']]]:
+    def plan_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UsagePlanType']]]:
         """
         The type of the usage plan.
         """
         return pulumi.get(self, "plan_type")
 
     @plan_type.setter
-    def plan_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsagePlanType']]]):
+    def plan_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UsagePlanType']]]):
         pulumi.set(self, "plan_type", value)
 
 
@@ -1656,35 +1656,35 @@ class ZonalDrillPropertiesArgsDict(TypedDict):
     Enum for Drill type object hierarchy.
     Expected value is 'Zonal'.
     """
-    chaos_experiment_properties: NotRequired[pulumi.Input['ChaosExperimentPropertiesOfDrillArgsDict']]
+    chaos_experiment_properties: NotRequired[pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgsDict']]]
     """
     Chaos Experiment properties.
     """
-    chaos_resource_properties: NotRequired[pulumi.Input['ChaosResourcePropertiesOfDrillArgsDict']]
+    chaos_resource_properties: NotRequired[pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgsDict']]]
     """
     Chaos Resource properties.
     """
-    drill_asset_properties: NotRequired[pulumi.Input['AssetPropertiesOfDrillArgsDict']]
+    drill_asset_properties: NotRequired[pulumi.Input[Optional['AssetPropertiesOfDrillArgsDict']]]
     """
     Properties for internal resources that are created for the Drill.
     """
-    health_model_properties: NotRequired[pulumi.Input['HealthModelPropertiesOfDrillArgsDict']]
+    health_model_properties: NotRequired[pulumi.Input[Optional['HealthModelPropertiesOfDrillArgsDict']]]
     """
     HealthModel properties.
     """
-    metrics_properties: NotRequired[pulumi.Input['MetricsPropertiesOfDrillArgsDict']]
+    metrics_properties: NotRequired[pulumi.Input[Optional['MetricsPropertiesOfDrillArgsDict']]]
     """
     Metric properties.
     """
-    monitoring_properties: NotRequired[pulumi.Input['MonitoringPropertiesOfDrillArgsDict']]
+    monitoring_properties: NotRequired[pulumi.Input[Optional['MonitoringPropertiesOfDrillArgsDict']]]
     """
     Monitoring properties of the Drill.
     """
-    rbac_setup_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]
+    rbac_setup_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]]
     """
     RBAC setup mode.
     """
-    recovery_plan_properties: NotRequired[pulumi.Input['RecoveryPlanPropertiesOfDrillArgsDict']]
+    recovery_plan_properties: NotRequired[pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgsDict']]]
     """
     ROPlan properties.
     """
@@ -1693,14 +1693,14 @@ class ZonalDrillPropertiesArgsDict(TypedDict):
 class ZonalDrillPropertiesArgs:
     def __init__(__self__, *,
                  drill_type: pulumi.Input[_builtins.str],
-                 chaos_experiment_properties: Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']] = None,
-                 chaos_resource_properties: Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']] = None,
-                 drill_asset_properties: Optional[pulumi.Input['AssetPropertiesOfDrillArgs']] = None,
-                 health_model_properties: Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']] = None,
-                 metrics_properties: Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']] = None,
-                 monitoring_properties: Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']] = None,
-                 rbac_setup_mode: Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]] = None,
-                 recovery_plan_properties: Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']] = None):
+                 chaos_experiment_properties: pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']] = None,
+                 chaos_resource_properties: pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']] = None,
+                 drill_asset_properties: pulumi.Input[Optional['AssetPropertiesOfDrillArgs']] = None,
+                 health_model_properties: pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']] = None,
+                 metrics_properties: pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']] = None,
+                 monitoring_properties: pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']] = None,
+                 rbac_setup_mode: pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]] = None,
+                 recovery_plan_properties: pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']] = None):
         """
         Definition of Zonal Drill properties.
 
@@ -1748,98 +1748,98 @@ class ZonalDrillPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="chaosExperimentProperties")
-    def chaos_experiment_properties(self) -> Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']]:
+    def chaos_experiment_properties(self) -> pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']]:
         """
         Chaos Experiment properties.
         """
         return pulumi.get(self, "chaos_experiment_properties")
 
     @chaos_experiment_properties.setter
-    def chaos_experiment_properties(self, value: Optional[pulumi.Input['ChaosExperimentPropertiesOfDrillArgs']]):
+    def chaos_experiment_properties(self, value: pulumi.Input[Optional['ChaosExperimentPropertiesOfDrillArgs']]):
         pulumi.set(self, "chaos_experiment_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="chaosResourceProperties")
-    def chaos_resource_properties(self) -> Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']]:
+    def chaos_resource_properties(self) -> pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']]:
         """
         Chaos Resource properties.
         """
         return pulumi.get(self, "chaos_resource_properties")
 
     @chaos_resource_properties.setter
-    def chaos_resource_properties(self, value: Optional[pulumi.Input['ChaosResourcePropertiesOfDrillArgs']]):
+    def chaos_resource_properties(self, value: pulumi.Input[Optional['ChaosResourcePropertiesOfDrillArgs']]):
         pulumi.set(self, "chaos_resource_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="drillAssetProperties")
-    def drill_asset_properties(self) -> Optional[pulumi.Input['AssetPropertiesOfDrillArgs']]:
+    def drill_asset_properties(self) -> pulumi.Input[Optional['AssetPropertiesOfDrillArgs']]:
         """
         Properties for internal resources that are created for the Drill.
         """
         return pulumi.get(self, "drill_asset_properties")
 
     @drill_asset_properties.setter
-    def drill_asset_properties(self, value: Optional[pulumi.Input['AssetPropertiesOfDrillArgs']]):
+    def drill_asset_properties(self, value: pulumi.Input[Optional['AssetPropertiesOfDrillArgs']]):
         pulumi.set(self, "drill_asset_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="healthModelProperties")
-    def health_model_properties(self) -> Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']]:
+    def health_model_properties(self) -> pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']]:
         """
         HealthModel properties.
         """
         return pulumi.get(self, "health_model_properties")
 
     @health_model_properties.setter
-    def health_model_properties(self, value: Optional[pulumi.Input['HealthModelPropertiesOfDrillArgs']]):
+    def health_model_properties(self, value: pulumi.Input[Optional['HealthModelPropertiesOfDrillArgs']]):
         pulumi.set(self, "health_model_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsProperties")
-    def metrics_properties(self) -> Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']]:
+    def metrics_properties(self) -> pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']]:
         """
         Metric properties.
         """
         return pulumi.get(self, "metrics_properties")
 
     @metrics_properties.setter
-    def metrics_properties(self, value: Optional[pulumi.Input['MetricsPropertiesOfDrillArgs']]):
+    def metrics_properties(self, value: pulumi.Input[Optional['MetricsPropertiesOfDrillArgs']]):
         pulumi.set(self, "metrics_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringProperties")
-    def monitoring_properties(self) -> Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']]:
+    def monitoring_properties(self) -> pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']]:
         """
         Monitoring properties of the Drill.
         """
         return pulumi.get(self, "monitoring_properties")
 
     @monitoring_properties.setter
-    def monitoring_properties(self, value: Optional[pulumi.Input['MonitoringPropertiesOfDrillArgs']]):
+    def monitoring_properties(self, value: pulumi.Input[Optional['MonitoringPropertiesOfDrillArgs']]):
         pulumi.set(self, "monitoring_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacSetupMode")
-    def rbac_setup_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]:
+    def rbac_setup_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]:
         """
         RBAC setup mode.
         """
         return pulumi.get(self, "rbac_setup_mode")
 
     @rbac_setup_mode.setter
-    def rbac_setup_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RBACSetupMode']]]):
+    def rbac_setup_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RBACSetupMode']]]):
         pulumi.set(self, "rbac_setup_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPlanProperties")
-    def recovery_plan_properties(self) -> Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']]:
+    def recovery_plan_properties(self) -> pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']]:
         """
         ROPlan properties.
         """
         return pulumi.get(self, "recovery_plan_properties")
 
     @recovery_plan_properties.setter
-    def recovery_plan_properties(self, value: Optional[pulumi.Input['RecoveryPlanPropertiesOfDrillArgs']]):
+    def recovery_plan_properties(self, value: pulumi.Input[Optional['RecoveryPlanPropertiesOfDrillArgs']]):
         pulumi.set(self, "recovery_plan_properties", value)
 
 

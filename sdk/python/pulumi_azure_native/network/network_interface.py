@@ -23,23 +23,23 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auxiliary_mode: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
-                 disable_tcp_state_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_settings: Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_phase: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
-                 nic_type: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
-                 private_link_service: Optional[pulumi.Input['PrivateLinkServiceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 auxiliary_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
+                 disable_tcp_state_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_settings: pulumi.Input[Optional['NetworkInterfaceDnsSettingsArgs']] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_phase: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group: pulumi.Input[Optional['NetworkSecurityGroupArgs']] = None,
+                 nic_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: pulumi.Input[Optional['PrivateLinkServiceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
@@ -112,206 +112,206 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
-    def auxiliary_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]]:
+    def auxiliary_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]]:
         """
         Auxiliary mode of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_mode")
 
     @auxiliary_mode.setter
-    def auxiliary_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]]):
+    def auxiliary_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]]):
         pulumi.set(self, "auxiliary_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliarySku")
-    def auxiliary_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]]:
+    def auxiliary_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]]:
         """
         Auxiliary sku of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_sku")
 
     @auxiliary_sku.setter
-    def auxiliary_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]]):
+    def auxiliary_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]]):
         pulumi.set(self, "auxiliary_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="disableTcpStateTracking")
-    def disable_tcp_state_tracking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_tcp_state_tracking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to disable tcp state tracking.
         """
         return pulumi.get(self, "disable_tcp_state_tracking")
 
     @disable_tcp_state_tracking.setter
-    def disable_tcp_state_tracking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_tcp_state_tracking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_tcp_state_tracking", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']]:
+    def dns_settings(self) -> pulumi.Input[Optional['NetworkInterfaceDnsSettingsArgs']]:
         """
         The DNS settings in network interface.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']]):
+    def dns_settings(self, value: pulumi.Input[Optional['NetworkInterfaceDnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_networking", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIPForwarding")
-    def enable_ip_forwarding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ip_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether IP forwarding is enabled on this network interface.
         """
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ip_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ip_forwarding", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location of the network interface.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
         """
         A list of IPConfigurations of the network interface.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationPhase")
-    def migration_phase(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]]:
+    def migration_phase(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]]:
         """
         Migration phase of Network Interface resource.
         """
         return pulumi.get(self, "migration_phase")
 
     @migration_phase.setter
-    def migration_phase(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]]):
+    def migration_phase(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]]):
         pulumi.set(self, "migration_phase", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network interface.
         """
         return pulumi.get(self, "network_interface_name")
 
     @network_interface_name.setter
-    def network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArgs']]:
+    def network_security_group(self) -> pulumi.Input[Optional['NetworkSecurityGroupArgs']]:
         """
         The reference to the NetworkSecurityGroup resource.
         """
         return pulumi.get(self, "network_security_group")
 
     @network_security_group.setter
-    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArgs']]):
+    def network_security_group(self, value: pulumi.Input[Optional['NetworkSecurityGroupArgs']]):
         pulumi.set(self, "network_security_group", value)
 
     @_builtins.property
     @pulumi.getter(name="nicType")
-    def nic_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']]]:
+    def nic_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]]:
         """
         Type of Network Interface resource.
         """
         return pulumi.get(self, "nic_type")
 
     @nic_type.setter
-    def nic_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']]]):
+    def nic_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]]):
         pulumi.set(self, "nic_type", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkService")
-    def private_link_service(self) -> Optional[pulumi.Input['PrivateLinkServiceArgs']]:
+    def private_link_service(self) -> pulumi.Input[Optional['PrivateLinkServiceArgs']]:
         """
         Privatelinkservice of the network interface resource.
         """
         return pulumi.get(self, "private_link_service")
 
     @private_link_service.setter
-    def private_link_service(self, value: Optional[pulumi.Input['PrivateLinkServiceArgs']]):
+    def private_link_service(self, value: pulumi.Input[Optional['PrivateLinkServiceArgs']]):
         pulumi.set(self, "private_link_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         WorkloadType of the NetworkInterface for BareMetal resources
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -321,24 +321,24 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auxiliary_mode: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
-                 disable_tcp_state_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_phase: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
-                 nic_type: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
-                 private_link_service: Optional[pulumi.Input[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
+                 disable_tcp_state_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_phase: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group: pulumi.Input[Optional[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
+                 nic_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: pulumi.Input[Optional[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A network interface in a resource group.
@@ -346,7 +346,6 @@ class NetworkInterface(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,7 +381,6 @@ class NetworkInterface(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -398,24 +396,24 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auxiliary_mode: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
-                 disable_tcp_state_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_phase: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
-                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
-                 nic_type: Optional[pulumi.Input[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
-                 private_link_service: Optional[pulumi.Input[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceAuxiliarySku']]] = None,
+                 disable_tcp_state_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_phase: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceMigrationPhase']]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group: pulumi.Input[Optional[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
+                 nic_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: pulumi.Input[Optional[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

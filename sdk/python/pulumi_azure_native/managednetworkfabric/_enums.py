@@ -427,7 +427,6 @@ class TapRuleActionType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:managednetworkfabric:WellKnownCommunities")
 class WellKnownCommunities(_builtins.str, Enum):
     """
-
     `Internet` - Advertise routes to internet community.
      `LocalAS` - Advertise routes to only localAS peers.
      `NoAdvertise` - Don't advertise routes to any peer.

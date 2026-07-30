@@ -23,8 +23,8 @@ class SapLandscapeMonitorArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 grouping: Optional[pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs']] = None,
-                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]] = None):
+                 grouping: pulumi.Input[Optional['SapLandscapeMonitorPropertiesGroupingArgs']] = None,
+                 top_metrics_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]] = None):
         """
         The set of arguments for constructing a SapLandscapeMonitor resource.
 
@@ -66,26 +66,26 @@ class SapLandscapeMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def grouping(self) -> Optional[pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs']]:
+    def grouping(self) -> pulumi.Input[Optional['SapLandscapeMonitorPropertiesGroupingArgs']]:
         """
         Gets or sets the SID groupings by landscape and Environment.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: Optional[pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs']]):
+    def grouping(self, value: pulumi.Input[Optional['SapLandscapeMonitorPropertiesGroupingArgs']]):
         pulumi.set(self, "grouping", value)
 
     @_builtins.property
     @pulumi.getter(name="topMetricsThresholds")
-    def top_metrics_thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]]:
+    def top_metrics_thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]]:
         """
         Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard
         """
         return pulumi.get(self, "top_metrics_thresholds")
 
     @top_metrics_thresholds.setter
-    def top_metrics_thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]]):
+    def top_metrics_thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]]):
         pulumi.set(self, "top_metrics_thresholds", value)
 
 
@@ -95,10 +95,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping: Optional[pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
+                 grouping: pulumi.Input[Optional[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 top_metrics_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
                  __props__=None):
         """
         configuration associated with SAP Landscape Monitor Dashboard.
@@ -106,7 +106,6 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class SapLandscapeMonitor(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SapLandscapeMonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping: Optional[pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
+                 grouping: pulumi.Input[Optional[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 top_metrics_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

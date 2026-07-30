@@ -130,7 +130,6 @@ def get_service(resource_uri: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-03-01.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str service_name: The name of the the service
     """
@@ -148,14 +147,13 @@ def get_service(resource_uri: Optional[_builtins.str] = None,
         rp_object_id=pulumi.get(__ret__, 'rp_object_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_service_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get a ServiceResource
 
     Uses Azure REST API version 2024-03-01.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str service_name: The name of the the service

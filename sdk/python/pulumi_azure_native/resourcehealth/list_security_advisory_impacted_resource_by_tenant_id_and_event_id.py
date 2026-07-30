@@ -72,7 +72,6 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
 
     Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
     :param _builtins.str filter: The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN
     """
@@ -85,8 +84,8 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
     return AwaitableListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(event_tracking_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                              filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(event_tracking_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                              filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult]:
     """
     Lists impacted resources in the tenant by an event (Security Advisory).
@@ -94,7 +93,6 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(ev
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
     :param _builtins.str filter: The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN

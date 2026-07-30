@@ -83,7 +83,6 @@ def list_web_app_host_keys(name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: Name of the app.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -97,8 +96,8 @@ def list_web_app_host_keys(name: Optional[_builtins.str] = None,
         function_keys=pulumi.get(__ret__, 'function_keys'),
         master_key=pulumi.get(__ret__, 'master_key'),
         system_keys=pulumi.get(__ret__, 'system_keys'))
-def list_web_app_host_keys_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_host_keys_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
     """
     Description for Get host secrets for a function app.
@@ -106,7 +105,6 @@ def list_web_app_host_keys_output(name: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: Name of the app.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

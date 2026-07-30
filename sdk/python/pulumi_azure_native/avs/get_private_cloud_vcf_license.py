@@ -69,7 +69,6 @@ def get_private_cloud_vcf_license(private_cloud_name: Optional[_builtins.str] = 
 
     Uses Azure REST API version 2025-09-01.
 
-
     :param _builtins.str private_cloud_name: Name of the private cloud
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -82,14 +81,13 @@ def get_private_cloud_vcf_license(private_cloud_name: Optional[_builtins.str] = 
     return AwaitableGetPrivateCloudVcfLicenseResult(
         kind=pulumi.get(__ret__, 'kind'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'))
-def get_private_cloud_vcf_license_output(private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_cloud_vcf_license_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateCloudVcfLicenseResult]:
     """
     Get the license for the private cloud
 
     Uses Azure REST API version 2025-09-01.
-
 
     :param _builtins.str private_cloud_name: Name of the private cloud
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

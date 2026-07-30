@@ -78,7 +78,6 @@ def get_entities_get_timeline(end_time: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str end_time: The end timeline date, so the results returned are before this date.
     :param _builtins.str entity_id: entity ID
     :param Sequence[Union[_builtins.str, 'EntityTimelineKind']] kinds: Array of timeline Item kinds.
@@ -101,13 +100,13 @@ def get_entities_get_timeline(end_time: Optional[_builtins.str] = None,
     return AwaitableGetEntitiesGetTimelineResult(
         meta_data=pulumi.get(__ret__, 'meta_data'),
         value=pulumi.get(__ret__, 'value'))
-def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                     entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     kinds: Optional[pulumi.Input[Optional[Sequence[Union[_builtins.str, 'EntityTimelineKind']]]]] = None,
-                                     number_of_bucket: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                     workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_entities_get_timeline_output(end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                     entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     kinds: pulumi.Input[Optional[Optional[Sequence[Union[_builtins.str, 'EntityTimelineKind']]]]] = None,
+                                     number_of_bucket: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitiesGetTimelineResult]:
     """
     Timeline for an entity.
@@ -115,7 +114,6 @@ def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2025-01-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str end_time: The end timeline date, so the results returned are before this date.
     :param _builtins.str entity_id: entity ID

@@ -22,10 +22,10 @@ __all__ = ['PeerAsnArgs', 'PeerAsn']
 @pulumi.input_type
 class PeerAsnArgs:
     def __init__(__self__, *,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
-                 peer_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_contact_detail: pulumi.Input[Optional[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
+                 peer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PeerAsn resource.
 
@@ -45,50 +45,50 @@ class PeerAsnArgs:
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Autonomous System Number (ASN) of the peer.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAsnName")
-    def peer_asn_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_asn_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The peer ASN name.
         """
         return pulumi.get(self, "peer_asn_name")
 
     @peer_asn_name.setter
-    def peer_asn_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_asn_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_asn_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerContactDetail")
-    def peer_contact_detail(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]]:
+    def peer_contact_detail(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContactDetailArgs']]]]:
         """
         The contact details of the peer.
         """
         return pulumi.get(self, "peer_contact_detail")
 
     @peer_contact_detail.setter
-    def peer_contact_detail(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]]):
+    def peer_contact_detail(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContactDetailArgs']]]]):
         pulumi.set(self, "peer_contact_detail", value)
 
     @_builtins.property
     @pulumi.getter(name="peerName")
-    def peer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the peer.
         """
         return pulumi.get(self, "peer_name")
 
     @peer_name.setter
-    def peer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_name", value)
 
 
@@ -98,10 +98,10 @@ class PeerAsn(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
-                 peer_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_contact_detail: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
+                 peer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The essential information related to the peer's ASN.
@@ -109,7 +109,6 @@ class PeerAsn(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,6 @@ class PeerAsn(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,10 +145,10 @@ class PeerAsn(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
-                 peer_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_contact_detail: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
+                 peer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

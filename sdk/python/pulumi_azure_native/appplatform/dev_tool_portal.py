@@ -24,8 +24,8 @@ class DevToolPortalArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DevToolPortalPropertiesArgs']] = None):
+                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DevToolPortalPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevToolPortal resource.
 
@@ -67,26 +67,26 @@ class DevToolPortalArgs:
 
     @_builtins.property
     @pulumi.getter(name="devToolPortalName")
-    def dev_tool_portal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_tool_portal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Dev Tool Portal.
         """
         return pulumi.get(self, "dev_tool_portal_name")
 
     @dev_tool_portal_name.setter
-    def dev_tool_portal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_tool_portal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_tool_portal_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DevToolPortalPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DevToolPortalPropertiesArgs']]:
         """
         Dev Tool Portal properties payload
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DevToolPortalPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DevToolPortalPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class DevToolPortal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Dev Tool Portal resource
@@ -107,7 +107,6 @@ class DevToolPortal(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class DevToolPortal(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DevToolPortalArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class DevToolPortal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

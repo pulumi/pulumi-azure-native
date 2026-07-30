@@ -193,7 +193,6 @@ def get_template_spec_version(resource_group_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str template_spec_name: Name of the Template Spec.
     :param _builtins.str template_spec_version: The version of the Template Spec.
@@ -218,9 +217,9 @@ def get_template_spec_version(resource_group_name: Optional[_builtins.str] = Non
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         ui_form_definition=pulumi.get(__ret__, 'ui_form_definition'))
-def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     template_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     template_spec_version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_spec_version_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     template_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Gets a Template Spec version from a specific Template Spec.
@@ -228,7 +227,6 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str template_spec_name: Name of the Template Spec.

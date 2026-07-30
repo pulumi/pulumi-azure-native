@@ -130,7 +130,6 @@ def get_azure_servers_setting(setting_kind: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-05-01.
 
-
     :param _builtins.str setting_kind: The kind of the server vulnerability assessments setting
     """
     __args__ = dict()
@@ -146,13 +145,12 @@ def get_azure_servers_setting(setting_kind: Optional[_builtins.str] = None,
         selected_provider=pulumi.get(__ret__, 'selected_provider'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_servers_setting_output(setting_kind: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureServersSettingResult]:
     """
     Get a server vulnerability assessments setting of the requested kind, that is set on the subscription
 
     Uses Azure REST API version 2023-05-01.
-
 
     :param _builtins.str setting_kind: The kind of the server vulnerability assessments setting
     """

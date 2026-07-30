@@ -73,7 +73,6 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[_builtin
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str remediation_name: The name of the remediation.
     :param _builtins.str resource_id: Resource ID.
     :param _builtins.int top: Maximum number of records to return.
@@ -88,9 +87,9 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[_builtin
     return AwaitableListRemediationDeploymentsAtResourceResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_remediation_deployments_at_resource_output(remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_remediation_deployments_at_resource_output(remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
     """
     Gets all deployments for a remediation at resource scope.
@@ -98,7 +97,6 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str remediation_name: The name of the remediation.
     :param _builtins.str resource_id: Resource ID.

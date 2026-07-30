@@ -141,16 +141,16 @@ export interface SignalRReplicaArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the regional endpoint. Default to "Enabled".
      * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
      */
-    regionEndpointEnabled?: pulumi.Input<string>;
+    regionEndpointEnabled?: pulumi.Input<string | undefined>;
     /**
      * The name of the replica.
      */
-    replicaName?: pulumi.Input<string>;
+    replicaName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,13 +164,13 @@ export interface SignalRReplicaArgs {
      * When it's true, the data plane of the resource is shutdown.
      * When it's false, the data plane of the resource is started.
      */
-    resourceStopped?: pulumi.Input<string>;
+    resourceStopped?: pulumi.Input<string | undefined>;
     /**
      * The billing information of the resource.
      */
-    sku?: pulumi.Input<inputs.signalrservice.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.signalrservice.ResourceSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

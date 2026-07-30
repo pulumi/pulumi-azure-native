@@ -21,8 +21,8 @@ __all__ = ['HierarchySettingArgs', 'HierarchySetting']
 class HierarchySettingArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
-                 default_management_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_authorization_for_group_creation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_management_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_authorization_for_group_creation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a HierarchySetting resource.
 
@@ -50,26 +50,26 @@ class HierarchySettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultManagementGroup")
-    def default_management_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_management_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         """
         return pulumi.get(self, "default_management_group")
 
     @default_management_group.setter
-    def default_management_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_management_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_management_group", value)
 
     @_builtins.property
     @pulumi.getter(name="requireAuthorizationForGroupCreation")
-    def require_authorization_for_group_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_authorization_for_group_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
         return pulumi.get(self, "require_authorization_for_group_creation")
 
     @require_authorization_for_group_creation.setter
-    def require_authorization_for_group_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_authorization_for_group_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_authorization_for_group_creation", value)
 
 
@@ -79,9 +79,9 @@ class HierarchySetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_management_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_authorization_for_group_creation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 default_management_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_authorization_for_group_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Settings defined at the Management Group scope.
@@ -89,7 +89,6 @@ class HierarchySetting(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +109,6 @@ class HierarchySetting(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HierarchySettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,9 +124,9 @@ class HierarchySetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_management_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_authorization_for_group_creation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 default_management_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_authorization_for_group_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

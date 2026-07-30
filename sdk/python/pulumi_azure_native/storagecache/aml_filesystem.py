@@ -26,15 +26,15 @@ class AmlFilesystemArgs:
                  maintenance_window: pulumi.Input['AmlFilesystemMaintenanceWindowArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_capacity_ti_b: pulumi.Input[_builtins.float],
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input['AmlFilesystemEncryptionSettingsArgs']] = None,
-                 hsm: Optional[pulumi.Input['AmlFilesystemHsmArgs']] = None,
-                 identity: Optional[pulumi.Input['AmlFilesystemIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_settings: Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuNameArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional['AmlFilesystemEncryptionSettingsArgs']] = None,
+                 hsm: pulumi.Input[Optional['AmlFilesystemHsmArgs']] = None,
+                 identity: pulumi.Input[Optional['AmlFilesystemIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_settings: pulumi.Input[Optional['AmlFilesystemRootSquashSettingsArgs']] = None,
+                 sku: pulumi.Input[Optional['SkuNameArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AmlFilesystem resource.
 
@@ -125,110 +125,110 @@ class AmlFilesystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="amlFilesystemName")
-    def aml_filesystem_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aml_filesystem_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         """
         return pulumi.get(self, "aml_filesystem_name")
 
     @aml_filesystem_name.setter
-    def aml_filesystem_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aml_filesystem_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aml_filesystem_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['AmlFilesystemEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> pulumi.Input[Optional['AmlFilesystemEncryptionSettingsArgs']]:
         """
         Specifies encryption settings of the AML file system.
         """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['AmlFilesystemEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: pulumi.Input[Optional['AmlFilesystemEncryptionSettingsArgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def hsm(self) -> Optional[pulumi.Input['AmlFilesystemHsmArgs']]:
+    def hsm(self) -> pulumi.Input[Optional['AmlFilesystemHsmArgs']]:
         """
         Hydration and archive settings and status
         """
         return pulumi.get(self, "hsm")
 
     @hsm.setter
-    def hsm(self, value: Optional[pulumi.Input['AmlFilesystemHsmArgs']]):
+    def hsm(self, value: pulumi.Input[Optional['AmlFilesystemHsmArgs']]):
         pulumi.set(self, "hsm", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AmlFilesystemIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AmlFilesystemIdentityArgs']]:
         """
         The managed identity used by the AML file system, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AmlFilesystemIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AmlFilesystemIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquashSettings")
-    def root_squash_settings(self) -> Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']]:
+    def root_squash_settings(self) -> pulumi.Input[Optional['AmlFilesystemRootSquashSettingsArgs']]:
         """
         Specifies root squash settings of the AML file system.
         """
         return pulumi.get(self, "root_squash_settings")
 
     @root_squash_settings.setter
-    def root_squash_settings(self, value: Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']]):
+    def root_squash_settings(self, value: pulumi.Input[Optional['AmlFilesystemRootSquashSettingsArgs']]):
         pulumi.set(self, "root_squash_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuNameArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuNameArgs']]:
         """
         SKU for the resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuNameArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuNameArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Availability zones for resources. This field should only contain a single element in the array.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -238,19 +238,19 @@ class AmlFilesystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
-                 filesystem_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm: Optional[pulumi.Input[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_settings: Optional[pulumi.Input[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
-                 storage_capacity_ti_b: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
+                 filesystem_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm: pulumi.Input[Optional[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_settings: pulumi.Input[Optional[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
+                 storage_capacity_ti_b: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -258,7 +258,6 @@ class AmlFilesystem(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +288,6 @@ class AmlFilesystem(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AmlFilesystemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,19 +303,19 @@ class AmlFilesystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
-                 filesystem_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm: Optional[pulumi.Input[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_settings: Optional[pulumi.Input[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
-                 storage_capacity_ti_b: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
+                 filesystem_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm: pulumi.Input[Optional[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_settings: pulumi.Input[Optional[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
+                 storage_capacity_ti_b: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

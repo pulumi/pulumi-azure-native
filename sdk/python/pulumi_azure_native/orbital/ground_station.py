@@ -25,14 +25,14 @@ class GroundStationArgs:
                  capabilities: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]],
                  global_communications_site: pulumi.Input['GroundStationsPropertiesGlobalCommunicationsSiteArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 altitude_meters: Optional[pulumi.Input[_builtins.float]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 longitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 altitude_meters: pulumi.Input[Optional[_builtins.float]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 latitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 longitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GroundStation resource.
 
@@ -106,98 +106,98 @@ class GroundStationArgs:
 
     @_builtins.property
     @pulumi.getter(name="altitudeMeters")
-    def altitude_meters(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def altitude_meters(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Altitude of the ground station.
         """
         return pulumi.get(self, "altitude_meters")
 
     @altitude_meters.setter
-    def altitude_meters(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def altitude_meters(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "altitude_meters", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         City of ground station.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="groundStationName")
-    def ground_station_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ground_station_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ground Station name.
         """
         return pulumi.get(self, "ground_station_name")
 
     @ground_station_name.setter
-    def ground_station_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ground_station_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ground_station_name", value)
 
     @_builtins.property
     @pulumi.getter(name="latitudeDegrees")
-    def latitude_degrees(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def latitude_degrees(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Latitude of the ground station in decimal degrees.
         """
         return pulumi.get(self, "latitude_degrees")
 
     @latitude_degrees.setter
-    def latitude_degrees(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def latitude_degrees(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "latitude_degrees", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="longitudeDegrees")
-    def longitude_degrees(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def longitude_degrees(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Longitude of the ground station in decimal degrees.
         """
         return pulumi.get(self, "longitude_degrees")
 
     @longitude_degrees.setter
-    def longitude_degrees(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def longitude_degrees(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "longitude_degrees", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ground station provider name.
         """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -207,17 +207,17 @@ class GroundStation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 altitude_meters: Optional[pulumi.Input[_builtins.float]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_communications_site: Optional[pulumi.Input[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 longitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 altitude_meters: pulumi.Input[Optional[_builtins.float]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_communications_site: pulumi.Input[Optional[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 latitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 longitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Ground Station contains one or more antennas.
@@ -225,7 +225,6 @@ class GroundStation(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,7 +253,6 @@ class GroundStation(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GroundStationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,17 +268,17 @@ class GroundStation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 altitude_meters: Optional[pulumi.Input[_builtins.float]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_communications_site: Optional[pulumi.Input[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 longitude_degrees: Optional[pulumi.Input[_builtins.float]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 altitude_meters: pulumi.Input[Optional[_builtins.float]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_communications_site: pulumi.Input[Optional[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 latitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 longitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

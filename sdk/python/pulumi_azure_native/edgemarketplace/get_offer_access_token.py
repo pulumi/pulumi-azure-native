@@ -84,7 +84,6 @@ def get_offer_access_token(offer_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-08-01-preview, 2024-10-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str offer_id: Id of the offer
     :param _builtins.str request_id: The name of the publisher.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -100,9 +99,9 @@ def get_offer_access_token(offer_id: Optional[_builtins.str] = None,
         access_token=pulumi.get(__ret__, 'access_token'),
         disk_id=pulumi.get(__ret__, 'disk_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_offer_access_token_output(offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  request_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_offer_access_token_output(offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  request_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOfferAccessTokenResult]:
     """
     get access token.
@@ -110,7 +109,6 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[_builtins.str]
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2023-08-01-preview, 2024-10-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str offer_id: Id of the offer
     :param _builtins.str request_id: The name of the publisher.

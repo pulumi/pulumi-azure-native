@@ -120,7 +120,6 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[_builtins.
 
     Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the managed cluster resource.
     :param _builtins.str role_name: The name of the role for managed cluster accessProfile resource.
@@ -139,9 +138,9 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[_builtins.
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def list_managed_cluster_access_profile_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_managed_cluster_access_profile_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               role_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
     """
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
@@ -149,7 +148,6 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
     Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the managed cluster resource.

@@ -137,19 +137,19 @@ export interface B2CTenantArgs {
     /**
      * Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Azure AD B2C tenant.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
      */
-    isGoLocalTenant?: pulumi.Input<boolean>;
+    isGoLocalTenant?: pulumi.Input<boolean | undefined>;
     /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -157,7 +157,7 @@ export interface B2CTenantArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
      */
@@ -165,5 +165,5 @@ export interface B2CTenantArgs {
     /**
      * Resource Tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

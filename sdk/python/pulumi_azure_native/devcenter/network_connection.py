@@ -24,14 +24,14 @@ class NetworkConnectionArgs:
                  domain_join_type: pulumi.Input[Union[_builtins.str, 'DomainJoinType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnection resource.
 
@@ -105,98 +105,98 @@ class NetworkConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Active Directory domain name
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainPassword")
-    def domain_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the account used to join domain
         """
         return pulumi.get(self, "domain_password")
 
     @domain_password.setter
-    def domain_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_password", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUsername")
-    def domain_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com.
         """
         return pulumi.get(self, "domain_username")
 
     @domain_username.setter
-    def domain_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_username", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnectionName")
-    def network_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Connection that can be applied to a Pool.
         """
         return pulumi.get(self, "network_connection_name")
 
     @network_connection_name.setter
-    def network_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkingResourceGroupName")
-    def networking_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def networking_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for resource group where NICs will be placed.
         """
         return pulumi.get(self, "networking_resource_group_name")
 
     @networking_resource_group_name.setter
-    def networking_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def networking_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "networking_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationUnit")
-    def organization_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Active Directory domain Organization Unit (OU)
         """
         return pulumi.get(self, "organization_unit")
 
     @organization_unit.setter
-    def organization_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -206,17 +206,17 @@ class NetworkConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_join_type: Optional[pulumi.Input[Union[_builtins.str, 'DomainJoinType']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_join_type: pulumi.Input[Optional[Union[_builtins.str, 'DomainJoinType']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Network related settings
@@ -224,7 +224,6 @@ class NetworkConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +252,6 @@ class NetworkConnection(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,17 +267,17 @@ class NetworkConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_join_type: Optional[pulumi.Input[Union[_builtins.str, 'DomainJoinType']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_join_type: pulumi.Input[Optional[Union[_builtins.str, 'DomainJoinType']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

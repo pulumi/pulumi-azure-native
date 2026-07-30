@@ -120,19 +120,19 @@ export interface LandingZoneAccountOperationArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.sovereign.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.sovereign.ManagedServiceIdentityArgs | undefined>;
     /**
      * The landing zone account.
      */
-    landingZoneAccountName?: pulumi.Input<string>;
+    landingZoneAccountName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.sovereign.LandingZoneAccountResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.sovereign.LandingZoneAccountResourcePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface LandingZoneAccountOperationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

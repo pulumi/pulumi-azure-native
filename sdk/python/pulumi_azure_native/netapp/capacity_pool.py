@@ -24,13 +24,13 @@ class CapacityPoolArgs:
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_level: pulumi.Input[Union[_builtins.str, 'ServiceLevel']],
-                 size: Optional[pulumi.Input[_builtins.float]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_type: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[Union[_builtins.str, 'QosType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 size: pulumi.Input[Optional[_builtins.float]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_type: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[Union[_builtins.str, 'QosType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityPool resource.
 
@@ -120,74 +120,74 @@ class CapacityPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
-    def cool_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cool_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled (true) the pool can contain cool Access enabled volumes.
         """
         return pulumi.get(self, "cool_access")
 
     @cool_access.setter
-    def cool_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cool_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cool_access", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionType']]]:
+    def encryption_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]]:
         """
         Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionType']]]):
+    def encryption_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]]):
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the capacity pool
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="qosType")
-    def qos_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'QosType']]]:
+    def qos_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'QosType']]]:
         """
         The qos type of the pool
         """
         return pulumi.get(self, "qos_type")
 
     @qos_type.setter
-    def qos_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'QosType']]]):
+    def qos_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'QosType']]]):
         pulumi.set(self, "qos_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -197,16 +197,16 @@ class CapacityPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_type: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[Union[_builtins.str, 'QosType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 size: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_type: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[Union[_builtins.str, 'QosType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 size: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Capacity pool resource
@@ -214,7 +214,6 @@ class CapacityPool(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01.
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,7 +241,6 @@ class CapacityPool(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CapacityPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,16 +256,16 @@ class CapacityPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_type: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[Union[_builtins.str, 'QosType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 size: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_type: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[Union[_builtins.str, 'QosType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 size: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

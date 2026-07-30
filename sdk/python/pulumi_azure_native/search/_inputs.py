@@ -28,12 +28,12 @@ __all__ = [
     'IpRuleArgsDict',
     'NetworkRuleSetArgs',
     'NetworkRuleSetArgsDict',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgs',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict',
-    'PrivateEndpointConnectionPropertiesArgs',
-    'PrivateEndpointConnectionPropertiesArgsDict',
     'SharedPrivateLinkResourcePropertiesArgs',
     'SharedPrivateLinkResourcePropertiesArgsDict',
     'SkuArgs',
@@ -44,7 +44,7 @@ class DataPlaneAadOrApiKeyAuthOptionArgsDict(TypedDict):
     """
     Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
     """
-    aad_auth_failure_mode: NotRequired[pulumi.Input['AadAuthFailureMode']]
+    aad_auth_failure_mode: NotRequired[pulumi.Input[Optional['AadAuthFailureMode']]]
     """
     Describes what response the data plane API of a search service would send for requests that failed authentication.
     """
@@ -52,7 +52,7 @@ class DataPlaneAadOrApiKeyAuthOptionArgsDict(TypedDict):
 @pulumi.input_type
 class DataPlaneAadOrApiKeyAuthOptionArgs:
     def __init__(__self__, *,
-                 aad_auth_failure_mode: Optional[pulumi.Input['AadAuthFailureMode']] = None):
+                 aad_auth_failure_mode: pulumi.Input[Optional['AadAuthFailureMode']] = None):
         """
         Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
 
@@ -63,14 +63,14 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadAuthFailureMode")
-    def aad_auth_failure_mode(self) -> Optional[pulumi.Input['AadAuthFailureMode']]:
+    def aad_auth_failure_mode(self) -> pulumi.Input[Optional['AadAuthFailureMode']]:
         """
         Describes what response the data plane API of a search service would send for requests that failed authentication.
         """
         return pulumi.get(self, "aad_auth_failure_mode")
 
     @aad_auth_failure_mode.setter
-    def aad_auth_failure_mode(self, value: Optional[pulumi.Input['AadAuthFailureMode']]):
+    def aad_auth_failure_mode(self, value: pulumi.Input[Optional['AadAuthFailureMode']]):
         pulumi.set(self, "aad_auth_failure_mode", value)
 
 
@@ -78,7 +78,7 @@ class DataPlaneAuthOptionsArgsDict(TypedDict):
     """
     Defines the options for how the search service authenticates a data plane request. This cannot be set if 'disableLocalAuth' is set to true.
     """
-    aad_or_api_key: NotRequired[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgsDict']]
+    aad_or_api_key: NotRequired[pulumi.Input[Optional['DataPlaneAadOrApiKeyAuthOptionArgsDict']]]
     """
     Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
     """
@@ -90,7 +90,7 @@ class DataPlaneAuthOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DataPlaneAuthOptionsArgs:
     def __init__(__self__, *,
-                 aad_or_api_key: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']] = None,
+                 aad_or_api_key: pulumi.Input[Optional['DataPlaneAadOrApiKeyAuthOptionArgs']] = None,
                  api_key_only: Optional[Any] = None):
         """
         Defines the options for how the search service authenticates a data plane request. This cannot be set if 'disableLocalAuth' is set to true.
@@ -105,14 +105,14 @@ class DataPlaneAuthOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadOrApiKey")
-    def aad_or_api_key(self) -> Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]:
+    def aad_or_api_key(self) -> pulumi.Input[Optional['DataPlaneAadOrApiKeyAuthOptionArgs']]:
         """
         Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
         """
         return pulumi.get(self, "aad_or_api_key")
 
     @aad_or_api_key.setter
-    def aad_or_api_key(self, value: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]):
+    def aad_or_api_key(self, value: pulumi.Input[Optional['DataPlaneAadOrApiKeyAuthOptionArgs']]):
         pulumi.set(self, "aad_or_api_key", value)
 
     @_builtins.property
@@ -132,7 +132,7 @@ class EncryptionWithCmkArgsDict(TypedDict):
     """
     Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
     """
-    enforcement: NotRequired[pulumi.Input['SearchEncryptionWithCmk']]
+    enforcement: NotRequired[pulumi.Input[Optional['SearchEncryptionWithCmk']]]
     """
     Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
     """
@@ -140,7 +140,7 @@ class EncryptionWithCmkArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionWithCmkArgs:
     def __init__(__self__, *,
-                 enforcement: Optional[pulumi.Input['SearchEncryptionWithCmk']] = None):
+                 enforcement: pulumi.Input[Optional['SearchEncryptionWithCmk']] = None):
         """
         Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
 
@@ -151,14 +151,14 @@ class EncryptionWithCmkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enforcement(self) -> Optional[pulumi.Input['SearchEncryptionWithCmk']]:
+    def enforcement(self) -> pulumi.Input[Optional['SearchEncryptionWithCmk']]:
         """
         Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
         """
         return pulumi.get(self, "enforcement")
 
     @enforcement.setter
-    def enforcement(self, value: Optional[pulumi.Input['SearchEncryptionWithCmk']]):
+    def enforcement(self, value: pulumi.Input[Optional['SearchEncryptionWithCmk']]):
         pulumi.set(self, "enforcement", value)
 
 
@@ -170,7 +170,7 @@ class IdentityArgsDict(TypedDict):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -179,7 +179,7 @@ class IdentityArgsDict(TypedDict):
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Details about the search service identity. A null value indicates that the search service has no identity assigned.
 
@@ -204,14 +204,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -219,7 +219,7 @@ class IpRuleArgsDict(TypedDict):
     """
     The IP restriction rule of the Azure AI Search service.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
     """
@@ -227,7 +227,7 @@ class IpRuleArgsDict(TypedDict):
 @pulumi.input_type
 class IpRuleArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The IP restriction rule of the Azure AI Search service.
 
@@ -238,14 +238,14 @@ class IpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -253,11 +253,11 @@ class NetworkRuleSetArgsDict(TypedDict):
     """
     Network specific rules that determine how the Azure AI Search service may be reached.
     """
-    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'SearchBypass']]]
+    bypass: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SearchBypass']]]]
     """
     Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpRuleArgsDict']]]]]
     """
     A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
     """
@@ -265,8 +265,8 @@ class NetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 bypass: Optional[pulumi.Input[Union[_builtins.str, 'SearchBypass']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None):
+                 bypass: pulumi.Input[Optional[Union[_builtins.str, 'SearchBypass']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IpRuleArgs']]]] = None):
         """
         Network specific rules that determine how the Azure AI Search service may be reached.
 
@@ -280,156 +280,46 @@ class NetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SearchBypass']]]:
+    def bypass(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SearchBypass']]]:
         """
         Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SearchBypass']]]):
+    def bypass(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SearchBypass']]]):
         pulumi.set(self, "bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpRuleArgs']]]]:
         """
         A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
-
-
-class PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict(TypedDict):
-    """
-    The private endpoint resource from Microsoft.Network provider.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The resource ID of the private endpoint resource from Microsoft.Network provider.
-    """
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The private endpoint resource from Microsoft.Network provider.
-
-        :param pulumi.Input[_builtins.str] id: The resource ID of the private endpoint resource from Microsoft.Network provider.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The resource ID of the private endpoint resource from Microsoft.Network provider.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-
-class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
-    """
-    Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-    """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A description of any extra actions that may be required.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The description for the private link service connection state.
-    """
-    status: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatus']]
-    """
-    Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
-    """
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']] = None):
-        """
-        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-
-        :param pulumi.Input[_builtins.str] actions_required: A description of any extra actions that may be required.
-        :param pulumi.Input[_builtins.str] description: The description for the private link service connection state.
-        :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
-        """
-        if actions_required is None:
-            actions_required = 'None'
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of any extra actions that may be required.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for the private link service connection state.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]:
-        """
-        Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]):
-        pulumi.set(self, "status", value)
 
 
 class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
     """
     Describes the properties of an existing private endpoint connection to the search service.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group ID of the Azure resource for which the private link service is for.
     """
-    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict']]
+    private_endpoint: NotRequired[pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict']]]
     """
     The private endpoint resource from Microsoft.Network provider.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]]
     """
     Describes the current state of an existing Azure Private Link service connection to the private endpoint.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]]
     """
     The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
     """
@@ -437,10 +327,10 @@ class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]] = None):
         """
         Describes the properties of an existing private endpoint connection to the search service.
 
@@ -460,78 +350,188 @@ class PrivateEndpointConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group ID of the Azure resource for which the private link service is for.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]:
         """
         The private endpoint resource from Microsoft.Network provider.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
         """
         Describes the current state of an existing Azure Private Link service connection to the private endpoint.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]:
         """
         The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+class PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict(TypedDict):
+    """
+    The private endpoint resource from Microsoft.Network provider.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The resource ID of the private endpoint resource from Microsoft.Network provider.
+    """
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The private endpoint resource from Microsoft.Network provider.
+
+        :param pulumi.Input[_builtins.str] id: The resource ID of the private endpoint resource from Microsoft.Network provider.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource ID of the private endpoint resource from Microsoft.Network provider.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+    """
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description of any extra actions that may be required.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description for the private link service connection state.
+    """
+    status: NotRequired[pulumi.Input[Optional['PrivateLinkServiceConnectionStatus']]]
+    """
+    Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
+    """
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['PrivateLinkServiceConnectionStatus']] = None):
+        """
+        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+
+        :param pulumi.Input[_builtins.str] actions_required: A description of any extra actions that may be required.
+        :param pulumi.Input[_builtins.str] description: The description for the private link service connection state.
+        :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
+        """
+        if actions_required is None:
+            actions_required = 'None'
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of any extra actions that may be required.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description for the private link service connection state.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['PrivateLinkServiceConnectionStatus']]:
+        """
+        Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['PrivateLinkServiceConnectionStatus']]):
+        pulumi.set(self, "status", value)
 
 
 class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
     """
     Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group ID from the provider of resource the shared private link resource is for.
     """
-    private_link_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the resource the shared private link resource is for.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]]
     """
     The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
     """
-    request_message: NotRequired[pulumi.Input[_builtins.str]]
+    request_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message for requesting approval of the shared private link resource.
     """
-    resource_region: NotRequired[pulumi.Input[_builtins.str]]
+    resource_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]]
     """
     Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
     """
@@ -539,12 +539,12 @@ class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SharedPrivateLinkResourcePropertiesArgs:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]] = None):
         """
         Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
 
@@ -570,74 +570,74 @@ class SharedPrivateLinkResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group ID from the provider of resource the shared private link resource is for.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 
     @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]:
         """
         The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message for requesting approval of the shared private link resource.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRegion")
-    def resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
         """
         return pulumi.get(self, "resource_region")
 
     @resource_region.setter
-    def resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]:
         """
         Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -645,7 +645,7 @@ class SkuArgsDict(TypedDict):
     """
     Defines the SKU of a search service, which determines billing rate and capacity limits.
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]]
     """
     The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions. 'serverless': Serverless tier with auto-scaling capabilities.
     """
@@ -653,7 +653,7 @@ class SkuArgsDict(TypedDict):
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]] = None):
         """
         Defines the SKU of a search service, which determines billing rate and capacity limits.
 
@@ -664,14 +664,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]:
         """
         The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions. 'serverless': Serverless tier with auto-scaling capabilities.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
 

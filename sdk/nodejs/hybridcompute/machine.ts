@@ -315,63 +315,63 @@ export interface MachineArgs {
     /**
      * The info of the machine w.r.t Agent Upgrade
      */
-    agentUpgrade?: pulumi.Input<inputs.hybridcompute.AgentUpgradeArgs>;
+    agentUpgrade?: pulumi.Input<inputs.hybridcompute.AgentUpgradeArgs | undefined>;
     /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
-    clientPublicKey?: pulumi.Input<string>;
+    clientPublicKey?: pulumi.Input<string | undefined>;
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Machine Extensions information (deprecated field)
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.MachineExtensionInstanceViewArgs>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.MachineExtensionInstanceViewArgs>[] | undefined>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs | undefined>;
     /**
      * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
      */
-    kind?: pulumi.Input<string | enums.hybridcompute.ArcKindEnum>;
+    kind?: pulumi.Input<string | enums.hybridcompute.ArcKindEnum | undefined>;
     /**
      * Specifies the License related properties for a machine.
      */
-    licenseProfile?: pulumi.Input<inputs.hybridcompute.LicenseProfileMachineInstanceViewArgs>;
+    licenseProfile?: pulumi.Input<inputs.hybridcompute.LicenseProfileMachineInstanceViewArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    locationData?: pulumi.Input<inputs.hybridcompute.LocationDataArgs>;
+    locationData?: pulumi.Input<inputs.hybridcompute.LocationDataArgs | undefined>;
     /**
      * The name of the hybrid machine.
      */
-    machineName?: pulumi.Input<string>;
+    machineName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether any MS SQL instance is discovered on the machine.
      */
-    mssqlDiscovered?: pulumi.Input<string>;
+    mssqlDiscovered?: pulumi.Input<string | undefined>;
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    osProfile?: pulumi.Input<inputs.hybridcompute.OSProfileArgs>;
+    osProfile?: pulumi.Input<inputs.hybridcompute.OSProfileArgs | undefined>;
     /**
      * The type of Operating System (windows/linux).
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
      */
-    parentClusterResourceId?: pulumi.Input<string>;
+    parentClusterResourceId?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the private link scope this machine is assigned to, if any.
      */
-    privateLinkScopeResourceId?: pulumi.Input<string>;
+    privateLinkScopeResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -379,13 +379,13 @@ export interface MachineArgs {
     /**
      * Statuses of dependent services that are reported back to ARM.
      */
-    serviceStatuses?: pulumi.Input<inputs.hybridcompute.ServiceStatusesArgs>;
+    serviceStatuses?: pulumi.Input<inputs.hybridcompute.ServiceStatusesArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the hybrid machine unique ID.
      */
-    vmId?: pulumi.Input<string>;
+    vmId?: pulumi.Input<string | undefined>;
 }

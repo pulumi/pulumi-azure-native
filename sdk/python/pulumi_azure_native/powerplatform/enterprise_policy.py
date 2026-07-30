@@ -24,14 +24,14 @@ class EnterprisePolicyArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 encryption: Optional[pulumi.Input['PropertiesEncryptionArgs']] = None,
-                 enterprise_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_status: Optional[pulumi.Input[Union[_builtins.str, 'HealthStatus']]] = None,
-                 identity: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lockbox: Optional[pulumi.Input['PropertiesLockboxArgs']] = None,
-                 network_injection: Optional[pulumi.Input['PropertiesNetworkInjectionArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 encryption: pulumi.Input[Optional['PropertiesEncryptionArgs']] = None,
+                 enterprise_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_status: pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]] = None,
+                 identity: pulumi.Input[Optional['EnterprisePolicyIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lockbox: pulumi.Input[Optional['PropertiesLockboxArgs']] = None,
+                 network_injection: pulumi.Input[Optional['PropertiesNetworkInjectionArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterprisePolicy resource.
 
@@ -91,98 +91,98 @@ class EnterprisePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['PropertiesEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['PropertiesEncryptionArgs']]:
         """
         The encryption settings for a configuration store.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['PropertiesEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['PropertiesEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enterprisePolicyName")
-    def enterprise_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EnterprisePolicy name.
         """
         return pulumi.get(self, "enterprise_policy_name")
 
     @enterprise_policy_name.setter
-    def enterprise_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthStatus")
-    def health_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HealthStatus']]]:
+    def health_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]]:
         """
         The health status of the resource.
         """
         return pulumi.get(self, "health_status")
 
     @health_status.setter
-    def health_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HealthStatus']]]):
+    def health_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]]):
         pulumi.set(self, "health_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EnterprisePolicyIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EnterprisePolicyIdentityArgs']]:
         """
         The identity of the EnterprisePolicy.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EnterprisePolicyIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def lockbox(self) -> Optional[pulumi.Input['PropertiesLockboxArgs']]:
+    def lockbox(self) -> pulumi.Input[Optional['PropertiesLockboxArgs']]:
         """
         Settings concerning lockbox.
         """
         return pulumi.get(self, "lockbox")
 
     @lockbox.setter
-    def lockbox(self, value: Optional[pulumi.Input['PropertiesLockboxArgs']]):
+    def lockbox(self, value: pulumi.Input[Optional['PropertiesLockboxArgs']]):
         pulumi.set(self, "lockbox", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInjection")
-    def network_injection(self) -> Optional[pulumi.Input['PropertiesNetworkInjectionArgs']]:
+    def network_injection(self) -> pulumi.Input[Optional['PropertiesNetworkInjectionArgs']]:
         """
         Settings concerning network injection.
         """
         return pulumi.get(self, "network_injection")
 
     @network_injection.setter
-    def network_injection(self, value: Optional[pulumi.Input['PropertiesNetworkInjectionArgs']]):
+    def network_injection(self, value: pulumi.Input[Optional['PropertiesNetworkInjectionArgs']]):
         pulumi.set(self, "network_injection", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,22 +192,21 @@ class EnterprisePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['PropertiesEncryptionArgs', 'PropertiesEncryptionArgsDict']]] = None,
-                 enterprise_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_status: Optional[pulumi.Input[Union[_builtins.str, 'HealthStatus']]] = None,
-                 identity: Optional[pulumi.Input[Union['EnterprisePolicyIdentityArgs', 'EnterprisePolicyIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lockbox: Optional[pulumi.Input[Union['PropertiesLockboxArgs', 'PropertiesLockboxArgsDict']]] = None,
-                 network_injection: Optional[pulumi.Input[Union['PropertiesNetworkInjectionArgs', 'PropertiesNetworkInjectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['PropertiesEncryptionArgs', 'PropertiesEncryptionArgsDict']]] = None,
+                 enterprise_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_status: pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]] = None,
+                 identity: pulumi.Input[Optional[Union['EnterprisePolicyIdentityArgs', 'EnterprisePolicyIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'EnterprisePolicyKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lockbox: pulumi.Input[Optional[Union['PropertiesLockboxArgs', 'PropertiesLockboxArgsDict']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['PropertiesNetworkInjectionArgs', 'PropertiesNetworkInjectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of the EnterprisePolicy.
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +232,6 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
-
         :param str resource_name: The name of the resource.
         :param EnterprisePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,16 +247,16 @@ class EnterprisePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['PropertiesEncryptionArgs', 'PropertiesEncryptionArgsDict']]] = None,
-                 enterprise_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_status: Optional[pulumi.Input[Union[_builtins.str, 'HealthStatus']]] = None,
-                 identity: Optional[pulumi.Input[Union['EnterprisePolicyIdentityArgs', 'EnterprisePolicyIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lockbox: Optional[pulumi.Input[Union['PropertiesLockboxArgs', 'PropertiesLockboxArgsDict']]] = None,
-                 network_injection: Optional[pulumi.Input[Union['PropertiesNetworkInjectionArgs', 'PropertiesNetworkInjectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['PropertiesEncryptionArgs', 'PropertiesEncryptionArgsDict']]] = None,
+                 enterprise_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_status: pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]] = None,
+                 identity: pulumi.Input[Optional[Union['EnterprisePolicyIdentityArgs', 'EnterprisePolicyIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'EnterprisePolicyKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lockbox: pulumi.Input[Optional[Union['PropertiesLockboxArgs', 'PropertiesLockboxArgsDict']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['PropertiesNetworkInjectionArgs', 'PropertiesNetworkInjectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

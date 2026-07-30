@@ -208,7 +208,7 @@ class GetContainerGroupProfileResult:
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[_builtins.str]:
         """
-        Restart policy for all containers within the container group. 
+        Restart policy for all containers within the container group.
         - `Always` Always restart
         - `OnFailure` Restart on failure
         - `Never` Never restart
@@ -301,7 +301,6 @@ def get_container_group_profile(container_group_profile_name: Optional[_builtins
 
     Uses Azure REST API version 2024-05-01-preview.
 
-
     :param _builtins.str container_group_profile_name: The name of the container group profile.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -333,14 +332,13 @@ def get_container_group_profile(container_group_profile_name: Optional[_builtins
         type=pulumi.get(__ret__, 'type'),
         volumes=pulumi.get(__ret__, 'volumes'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_container_group_profile_output(container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_group_profile_output(container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupProfileResult]:
     """
     Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
 
     Uses Azure REST API version 2024-05-01-preview.
-
 
     :param _builtins.str container_group_profile_name: The name of the container group profile.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

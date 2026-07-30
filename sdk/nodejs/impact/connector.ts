@@ -100,9 +100,9 @@ export interface ConnectorArgs {
     /**
      * The name of the connector
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.impact.ConnectorPropertiesArgs>;
+    properties?: pulumi.Input<inputs.impact.ConnectorPropertiesArgs | undefined>;
 }

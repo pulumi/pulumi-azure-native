@@ -102,7 +102,7 @@ export interface OpenAIArgs {
     /**
      * OpenAI Integration name
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * Monitor resource name
      */
@@ -110,7 +110,7 @@ export interface OpenAIArgs {
     /**
      * Open AI Integration details.
      */
-    properties?: pulumi.Input<inputs.elastic.OpenAIIntegrationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.elastic.OpenAIIntegrationPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

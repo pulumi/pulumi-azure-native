@@ -23,35 +23,35 @@ class ProfessionalServiceCreationPropertiesArgsDict(TypedDict):
     """
     properties for creation professionalService
     """
-    auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_renew: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the ProfessionalService subscription will auto renew upon term end.
     """
-    billing_period: NotRequired[pulumi.Input[_builtins.str]]
+    billing_period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The billing period eg P1M,P1Y for monthly,yearly respectively
     """
-    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    offer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offer id.
     """
-    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publisher id.
     """
-    quote_id: NotRequired[pulumi.Input[_builtins.str]]
+    quote_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The quote id which the ProfessionalService will be purchase with.
     """
-    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    sku_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plan id.
     """
-    store_front: NotRequired[pulumi.Input[_builtins.str]]
+    store_front: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The store front which initiates the purchase.
     """
-    term_unit: NotRequired[pulumi.Input[_builtins.str]]
+    term_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
     """
@@ -59,14 +59,14 @@ class ProfessionalServiceCreationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ProfessionalServiceCreationPropertiesArgs:
     def __init__(__self__, *,
-                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
-                 billing_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 quote_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 store_front: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 billing_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 store_front: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         properties for creation professionalService
 
@@ -98,98 +98,98 @@ class ProfessionalServiceCreationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_renew(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the ProfessionalService subscription will auto renew upon term end.
         """
         return pulumi.get(self, "auto_renew")
 
     @auto_renew.setter
-    def auto_renew(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_renew(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_renew", value)
 
     @_builtins.property
     @pulumi.getter(name="billingPeriod")
-    def billing_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing period eg P1M,P1Y for monthly,yearly respectively
         """
         return pulumi.get(self, "billing_period")
 
     @billing_period.setter
-    def billing_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_period", value)
 
     @_builtins.property
     @pulumi.getter(name="offerId")
-    def offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer id.
         """
         return pulumi.get(self, "offer_id")
 
     @offer_id.setter
-    def offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher id.
         """
         return pulumi.get(self, "publisher_id")
 
     @publisher_id.setter
-    def publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteId")
-    def quote_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The quote id which the ProfessionalService will be purchase with.
         """
         return pulumi.get(self, "quote_id")
 
     @quote_id.setter
-    def quote_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skuId")
-    def sku_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plan id.
         """
         return pulumi.get(self, "sku_id")
 
     @sku_id.setter
-    def sku_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storeFront")
-    def store_front(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def store_front(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The store front which initiates the purchase.
         """
         return pulumi.get(self, "store_front")
 
     @store_front.setter
-    def store_front(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def store_front(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "store_front", value)
 
     @_builtins.property
     @pulumi.getter(name="termUnit")
-    def term_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def term_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
         """
         return pulumi.get(self, "term_unit")
 
     @term_unit.setter
-    def term_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def term_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "term_unit", value)
 
 

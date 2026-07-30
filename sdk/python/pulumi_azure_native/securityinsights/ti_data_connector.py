@@ -27,8 +27,8 @@ class TIDataConnectorArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tip_lookback_period: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tip_lookback_period: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TIDataConnector resource.
 
@@ -114,26 +114,26 @@ class TIDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector ID
         """
         return pulumi.get(self, "data_connector_id")
 
     @data_connector_id.setter
-    def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tipLookbackPeriod")
-    def tip_lookback_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tip_lookback_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lookback period for the feed to be imported.
         """
         return pulumi.get(self, "tip_lookback_period")
 
     @tip_lookback_period.setter
-    def tip_lookback_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tip_lookback_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tip_lookback_period", value)
 
 
@@ -143,19 +143,18 @@ class TIDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['TIDataConnectorDataTypesArgs', 'TIDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tip_lookback_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['TIDataConnectorDataTypesArgs', 'TIDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tip_lookback_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents threat intelligence data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class TIDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param TIDataConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class TIDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['TIDataConnectorDataTypesArgs', 'TIDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tip_lookback_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['TIDataConnectorDataTypesArgs', 'TIDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tip_lookback_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

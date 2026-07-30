@@ -178,7 +178,6 @@ def get_my_sql_site(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-30-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_name: The name of Site
     """
@@ -200,14 +199,13 @@ def get_my_sql_site(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_my_sql_site_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_my_sql_site_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           site_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMySQLSiteResult]:
     """
     Gets the MySQLSites resource.
 
     Uses Azure REST API version 2024-09-30-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_name: The name of Site

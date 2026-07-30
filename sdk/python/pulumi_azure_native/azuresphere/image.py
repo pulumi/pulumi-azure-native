@@ -23,10 +23,10 @@ class ImageInitArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None):
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None):
         """
         The set of arguments for constructing a Image resource.
 
@@ -74,50 +74,50 @@ class ImageInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image ID
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image name. Use an image GUID for GA versions of the API.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalDataBoundary")
-    def regional_data_boundary(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]:
+    def regional_data_boundary(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]]:
         """
         Regional data boundary for an image
         """
         return pulumi.get(self, "regional_data_boundary")
 
     @regional_data_boundary.setter
-    def regional_data_boundary(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]):
+    def regional_data_boundary(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]]):
         pulumi.set(self, "regional_data_boundary", value)
 
 
@@ -127,18 +127,17 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An image resource belonging to a catalog resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class Image(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ImageInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class Image(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -208,11 +208,11 @@ export interface SingleServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    identity?: pulumi.Input<inputs.dbforpostgresql.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.dbforpostgresql.ResourceIdentityArgs | undefined>;
     /**
      * The location the resource resides in.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of the server.
      */
@@ -224,13 +224,13 @@ export interface SingleServerArgs {
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    sku?: pulumi.Input<inputs.dbforpostgresql.SingleServerSkuArgs>;
+    sku?: pulumi.Input<inputs.dbforpostgresql.SingleServerSkuArgs | undefined>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

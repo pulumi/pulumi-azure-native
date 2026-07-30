@@ -24,10 +24,10 @@ class PrivateEndpointConnectionInitArgs:
     def __init__(__self__, *,
                  azure_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]] = None):
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointArgs']] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['ConnectionStateArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
@@ -75,50 +75,50 @@ class PrivateEndpointConnectionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointArgs']]:
         """
         Specifies the private endpoint.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private endpoint.
         """
         return pulumi.get(self, "private_endpoint_name")
 
     @private_endpoint_name.setter
-    def private_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['ConnectionStateArgs']]:
         """
         Specifies the connection state.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['ConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]]:
         """
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
@@ -128,16 +128,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

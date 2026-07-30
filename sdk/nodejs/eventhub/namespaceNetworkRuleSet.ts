@@ -62,7 +62,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules.
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
@@ -137,19 +137,19 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Default Action for Network Rule Set
      */
-    defaultAction?: pulumi.Input<string | enums.eventhub.DefaultAction>;
+    defaultAction?: pulumi.Input<string | enums.eventhub.DefaultAction | undefined>;
     /**
      * List of IpRules
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetIpRulesArgs>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetIpRulesArgs>[] | undefined>;
     /**
      * The Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccessFlag>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccessFlag | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -157,9 +157,9 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Value that indicates whether Trusted Service Access is Enabled or not.
      */
-    trustedServiceAccessEnabled?: pulumi.Input<boolean>;
+    trustedServiceAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List VirtualNetwork Rules
      */
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetVirtualNetworkRulesArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetVirtualNetworkRulesArgs>[] | undefined>;
 }

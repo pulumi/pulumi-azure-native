@@ -106,7 +106,7 @@ export interface LogicAppArgs {
     /**
      * Name of the Logic App, the extension resource.
      */
-    logicAppName?: pulumi.Input<string>;
+    logicAppName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

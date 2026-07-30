@@ -22,15 +22,15 @@ __all__ = ['PartnerDestinationArgs', 'PartnerDestination']
 class PartnerDestinationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
-                 endpoint_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_service_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
+                 endpoint_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_service_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerDestination resource.
 
@@ -80,43 +80,43 @@ class PartnerDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationState")
-    def activation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']]]:
+    def activation_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]]:
         """
         Activation state of the partner destination.
         """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
-    def activation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']]]):
+    def activation_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]]):
         pulumi.set(self, "activation_state", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointBaseUrl")
-    def endpoint_base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint Base URL of the partner destination
         """
         return pulumi.get(self, "endpoint_base_url")
 
     @endpoint_base_url.setter
-    def endpoint_base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointServiceContext")
-    def endpoint_service_context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_service_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint context associated with this partner destination.
         """
         return pulumi.get(self, "endpoint_service_context")
 
     @endpoint_service_context.setter
-    def endpoint_service_context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_service_context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_service_context", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeIfNotActivatedUtc")
-    def expiration_time_if_not_activated_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_time_if_not_activated_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time of the partner destination. If this timer expires and the partner destination was never activated,
         the partner destination and corresponding channel are deleted.
@@ -124,67 +124,67 @@ class PartnerDestinationArgs:
         return pulumi.get(self, "expiration_time_if_not_activated_utc")
 
     @expiration_time_if_not_activated_utc.setter
-    def expiration_time_if_not_activated_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_time_if_not_activated_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_time_if_not_activated_utc", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="messageForActivation")
-    def message_for_activation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_for_activation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context or helpful message that can be used during the approval process.
         """
         return pulumi.get(self, "message_for_activation")
 
     @message_for_activation.setter
-    def message_for_activation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_for_activation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_for_activation", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerDestinationName")
-    def partner_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the partner destination.
         """
         return pulumi.get(self, "partner_destination_name")
 
     @partner_destination_name.setter
-    def partner_destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationImmutableId")
-    def partner_registration_immutable_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_immutable_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The immutable Id of the corresponding partner registration.
         """
         return pulumi.get(self, "partner_registration_immutable_id")
 
     @partner_registration_immutable_id.setter
-    def partner_registration_immutable_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_immutable_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_immutable_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -194,16 +194,16 @@ class PartnerDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
-                 endpoint_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_service_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
+                 endpoint_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_service_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Event Grid Partner Destination.
@@ -211,7 +211,6 @@ class PartnerDestination(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +239,6 @@ class PartnerDestination(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,16 +254,16 @@ class PartnerDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
-                 endpoint_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_service_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerDestinationActivationState']]] = None,
+                 endpoint_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_service_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

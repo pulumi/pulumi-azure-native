@@ -99,7 +99,7 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountUrl'");
             }
             resourceInputs["backupName"] = args?.backupName;
-            resourceInputs["backupSchedule"] = args ? (args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.backupScheduleArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["backupSchedule"] = args ? pulumi.output(args.backupSchedule).apply(v => v === undefined ? undefined : inputs.web.backupScheduleArgsProvideDefaults(v)) : undefined;
             resourceInputs["databases"] = args?.databases;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["kind"] = args?.kind;
@@ -133,23 +133,23 @@ export interface WebAppBackupConfigurationArgs {
     /**
      * Name of the backup.
      */
-    backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    backupSchedule?: pulumi.Input<inputs.web.BackupScheduleArgs>;
+    backupSchedule?: pulumi.Input<inputs.web.BackupScheduleArgs | undefined>;
     /**
      * Databases included in the backup.
      */
-    databases?: pulumi.Input<pulumi.Input<inputs.web.DatabaseBackupSettingArgs>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.web.DatabaseBackupSettingArgs>[] | undefined>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */

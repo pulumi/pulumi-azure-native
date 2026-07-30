@@ -21,8 +21,8 @@ class RegisteredPrefixArgs:
     def __init__(__self__, *,
                  peering_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_prefix_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_prefix_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegisteredPrefix resource.
 
@@ -64,26 +64,26 @@ class RegisteredPrefixArgs:
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's prefix from which traffic originates.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="registeredPrefixName")
-    def registered_prefix_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registered_prefix_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the registered prefix.
         """
         return pulumi.get(self, "registered_prefix_name")
 
     @registered_prefix_name.setter
-    def registered_prefix_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registered_prefix_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registered_prefix_name", value)
 
 
@@ -93,10 +93,10 @@ class RegisteredPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The customer's prefix that is registered by the peering service provider.
@@ -104,7 +104,6 @@ class RegisteredPrefix(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class RegisteredPrefix(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RegisteredPrefixArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class RegisteredPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

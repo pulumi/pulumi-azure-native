@@ -108,7 +108,6 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-01-01-preview, 2025-08-11-preview, 2025-11-01-preview, 2025-12-15-preview, 2026-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the quantum workspace resource.
     """
@@ -124,8 +123,8 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
     Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
@@ -133,7 +132,6 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2023-11-13-preview.
 
     Other available API versions: 2025-01-01-preview, 2025-08-11-preview, 2025-11-01-preview, 2025-12-15-preview, 2026-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the quantum workspace resource.

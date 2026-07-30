@@ -180,7 +180,6 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[_builtins
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connection_monitor_test_name: The name of the connection monitor test
     :param _builtins.str peering_service_name: The name of the peering service.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -204,9 +203,9 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[_builtins
         source_agent=pulumi.get(__ret__, 'source_agent'),
         test_frequency_in_sec=pulumi.get(__ret__, 'test_frequency_in_sec'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_monitor_test_output(connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
     """
     Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
@@ -214,7 +213,6 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     Uses Azure REST API version 2022-10-01.
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connection_monitor_test_name: The name of the connection monitor test
     :param _builtins.str peering_service_name: The name of the peering service.

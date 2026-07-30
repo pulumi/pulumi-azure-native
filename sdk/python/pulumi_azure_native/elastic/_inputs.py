@@ -46,23 +46,23 @@ class CompanyInfoArgsDict(TypedDict):
     """
     Company information of the user to be passed to partners.
     """
-    business: NotRequired[pulumi.Input[_builtins.str]]
+    business: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Business of the company
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Country of the company location.
     """
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Domain of the company
     """
-    employees_number: NotRequired[pulumi.Input[_builtins.str]]
+    employees_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Number of employees in the company
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State of the company location.
     """
@@ -70,11 +70,11 @@ class CompanyInfoArgsDict(TypedDict):
 @pulumi.input_type
 class CompanyInfoArgs:
     def __init__(__self__, *,
-                 business: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 employees_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 business: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 employees_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Company information of the user to be passed to partners.
 
@@ -97,62 +97,62 @@ class CompanyInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def business(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Business of the company
         """
         return pulumi.get(self, "business")
 
     @business.setter
-    def business(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of the company location.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain of the company
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="employeesNumber")
-    def employees_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def employees_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Number of employees in the company
         """
         return pulumi.get(self, "employees_number")
 
     @employees_number.setter
-    def employees_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def employees_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "employees_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the company location.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -160,15 +160,15 @@ class FilteringTagArgsDict(TypedDict):
     """
     The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
     """
-    action: NotRequired[pulumi.Input[Union[_builtins.str, 'TagAction']]]
+    action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]]
     """
     Valid actions for a filtering tag.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name (also known as the key) of the tag.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the tag.
     """
@@ -176,9 +176,9 @@ class FilteringTagArgsDict(TypedDict):
 @pulumi.input_type
 class FilteringTagArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 
@@ -195,38 +195,38 @@ class FilteringTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]:
         """
         Valid actions for a filtering tag.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name (also known as the key) of the tag.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the tag.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -234,7 +234,7 @@ class IdentityPropertiesArgsDict(TypedDict):
     """
     Identity properties.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]]
     """
     Managed identity type.
     """
@@ -242,7 +242,7 @@ class IdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
         """
         Identity properties.
 
@@ -253,14 +253,14 @@ class IdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]:
         """
         Managed identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
 
@@ -268,19 +268,19 @@ class LogRulesArgsDict(TypedDict):
     """
     Set of rules for sending logs for the Monitor resource.
     """
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgsDict']]]]]
     """
     List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
     """
-    send_aad_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_aad_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if AAD logs should be sent for the Monitor resource.
     """
-    send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_activity_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
     """
-    send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_subscription_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if subscription logs should be sent for the Monitor resource.
     """
@@ -288,10 +288,10 @@ class LogRulesArgsDict(TypedDict):
 @pulumi.input_type
 class LogRulesArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
-                 send_aad_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_activity_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_subscription_logs: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+                 send_aad_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_activity_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_subscription_logs: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Set of rules for sending logs for the Monitor resource.
 
@@ -311,50 +311,50 @@ class LogRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]:
         """
         List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAadLogs")
-    def send_aad_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_aad_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if AAD logs should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_aad_logs")
 
     @send_aad_logs.setter
-    def send_aad_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_aad_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_aad_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendActivityLogs")
-    def send_activity_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_activity_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_activity_logs")
 
     @send_activity_logs.setter
-    def send_activity_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_activity_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_activity_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendSubscriptionLogs")
-    def send_subscription_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_subscription_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if subscription logs should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_subscription_logs")
 
     @send_subscription_logs.setter
-    def send_subscription_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_subscription_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_subscription_logs", value)
 
 
@@ -362,43 +362,43 @@ class MonitorPropertiesArgsDict(TypedDict):
     """
     Properties specific to the monitor resource.
     """
-    generate_api_key: NotRequired[pulumi.Input[_builtins.bool]]
+    generate_api_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to determine if User API Key has to be generated and shared.
     """
-    monitoring_status: NotRequired[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]
+    monitoring_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]]
     """
     Flag specifying if the resource monitoring is enabled or disabled.
     """
-    plan_details: NotRequired[pulumi.Input['PlanDetailsArgsDict']]
+    plan_details: NotRequired[pulumi.Input[Optional['PlanDetailsArgsDict']]]
     """
     Plan details of the monitor resource.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]]
     """
     Provisioning state of the monitor resource.
     """
-    saa_s_azure_subscription_status: NotRequired[pulumi.Input[_builtins.str]]
+    saa_s_azure_subscription_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of Azure Subscription where Marketplace SaaS is located.
     """
-    source_campaign_id: NotRequired[pulumi.Input[_builtins.str]]
+    source_campaign_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier associated with the campaign.
     """
-    source_campaign_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_campaign_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the marketing campaign.
     """
-    subscription_state: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State of the Azure Subscription containing the monitor resource
     """
-    user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+    user_info: NotRequired[pulumi.Input[Optional['UserInfoArgsDict']]]
     """
     User information.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of elastic of the monitor resource
     """
@@ -406,16 +406,16 @@ class MonitorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
-                 generate_api_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_status: Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]] = None,
-                 plan_details: Optional[pulumi.Input['PlanDetailsArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 saa_s_azure_subscription_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_campaign_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_campaign_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 generate_api_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_status: pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]] = None,
+                 plan_details: pulumi.Input[Optional['PlanDetailsArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 saa_s_azure_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_campaign_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info: pulumi.Input[Optional['UserInfoArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties specific to the monitor resource.
 
@@ -453,122 +453,122 @@ class MonitorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="generateApiKey")
-    def generate_api_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate_api_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to determine if User API Key has to be generated and shared.
         """
         return pulumi.get(self, "generate_api_key")
 
     @generate_api_key.setter
-    def generate_api_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate_api_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]:
+    def monitoring_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]:
         """
         Flag specifying if the resource monitoring is enabled or disabled.
         """
         return pulumi.get(self, "monitoring_status")
 
     @monitoring_status.setter
-    def monitoring_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]):
+    def monitoring_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]):
         pulumi.set(self, "monitoring_status", value)
 
     @_builtins.property
     @pulumi.getter(name="planDetails")
-    def plan_details(self) -> Optional[pulumi.Input['PlanDetailsArgs']]:
+    def plan_details(self) -> pulumi.Input[Optional['PlanDetailsArgs']]:
         """
         Plan details of the monitor resource.
         """
         return pulumi.get(self, "plan_details")
 
     @plan_details.setter
-    def plan_details(self, value: Optional[pulumi.Input['PlanDetailsArgs']]):
+    def plan_details(self, value: pulumi.Input[Optional['PlanDetailsArgs']]):
         pulumi.set(self, "plan_details", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Provisioning state of the monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="saaSAzureSubscriptionStatus")
-    def saa_s_azure_subscription_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saa_s_azure_subscription_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of Azure Subscription where Marketplace SaaS is located.
         """
         return pulumi.get(self, "saa_s_azure_subscription_status")
 
     @saa_s_azure_subscription_status.setter
-    def saa_s_azure_subscription_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saa_s_azure_subscription_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saa_s_azure_subscription_status", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCampaignId")
-    def source_campaign_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_campaign_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier associated with the campaign.
         """
         return pulumi.get(self, "source_campaign_id")
 
     @source_campaign_id.setter
-    def source_campaign_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_campaign_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_campaign_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCampaignName")
-    def source_campaign_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_campaign_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the marketing campaign.
         """
         return pulumi.get(self, "source_campaign_name")
 
     @source_campaign_name.setter
-    def source_campaign_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_campaign_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_campaign_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionState")
-    def subscription_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the Azure Subscription containing the monitor resource
         """
         return pulumi.get(self, "subscription_state")
 
     @subscription_state.setter
-    def subscription_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_state", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfo")
-    def user_info(self) -> Optional[pulumi.Input['UserInfoArgs']]:
+    def user_info(self) -> pulumi.Input[Optional['UserInfoArgs']]:
         """
         User information.
         """
         return pulumi.get(self, "user_info")
 
     @user_info.setter
-    def user_info(self, value: Optional[pulumi.Input['UserInfoArgs']]):
+    def user_info(self, value: pulumi.Input[Optional['UserInfoArgs']]):
         pulumi.set(self, "user_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of elastic of the monitor resource
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -576,19 +576,19 @@ class MonitoredSubscriptionArgsDict(TypedDict):
     """
     The list of subscriptions and it's monitoring status by current Elastic monitor.
     """
-    error: NotRequired[pulumi.Input[_builtins.str]]
+    error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason of not monitoring the subscription.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Status']]]]
     """
     The state of monitoring.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscriptionId to be monitored.
     """
-    tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
+    tag_rules: NotRequired[pulumi.Input[Optional['MonitoringTagRulesPropertiesArgsDict']]]
     """
     Definition of the properties for a TagRules resource.
     """
@@ -596,10 +596,10 @@ class MonitoredSubscriptionArgsDict(TypedDict):
 @pulumi.input_type
 class MonitoredSubscriptionArgs:
     def __init__(__self__, *,
-                 error: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None):
+                 error: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_rules: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None):
         """
         The list of subscriptions and it's monitoring status by current Elastic monitor.
 
@@ -619,50 +619,50 @@ class MonitoredSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason of not monitoring the subscription.
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Status']]]:
         """
         The state of monitoring.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriptionId to be monitored.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagRules")
-    def tag_rules(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+    def tag_rules(self) -> pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]:
         """
         Definition of the properties for a TagRules resource.
         """
         return pulumi.get(self, "tag_rules")
 
     @tag_rules.setter
-    def tag_rules(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+    def tag_rules(self, value: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]):
         pulumi.set(self, "tag_rules", value)
 
 
@@ -670,11 +670,11 @@ class MonitoringTagRulesPropertiesArgsDict(TypedDict):
     """
     Definition of the properties for a TagRules resource.
     """
-    log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
+    log_rules: NotRequired[pulumi.Input[Optional['LogRulesArgsDict']]]
     """
     Rules for sending logs.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]]
     """
     Provisioning state of the monitoring tag rules.
     """
@@ -682,8 +682,8 @@ class MonitoringTagRulesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
-                 log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None):
+                 log_rules: pulumi.Input[Optional['LogRulesArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         Definition of the properties for a TagRules resource.
 
@@ -697,26 +697,26 @@ class MonitoringTagRulesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="logRules")
-    def log_rules(self) -> Optional[pulumi.Input['LogRulesArgs']]:
+    def log_rules(self) -> pulumi.Input[Optional['LogRulesArgs']]:
         """
         Rules for sending logs.
         """
         return pulumi.get(self, "log_rules")
 
     @log_rules.setter
-    def log_rules(self, value: Optional[pulumi.Input['LogRulesArgs']]):
+    def log_rules(self, value: pulumi.Input[Optional['LogRulesArgs']]):
         pulumi.set(self, "log_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Provisioning state of the monitoring tag rules.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
@@ -724,15 +724,15 @@ class OpenAIIntegrationPropertiesArgsDict(TypedDict):
     """
     Open AI Integration details.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of API key for Open AI resource
     """
-    open_ai_resource_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    open_ai_resource_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API endpoint for Open AI resource
     """
-    open_ai_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    open_ai_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource name of Open AI resource
     """
@@ -740,9 +740,9 @@ class OpenAIIntegrationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class OpenAIIntegrationPropertiesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_ai_resource_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_ai_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_ai_resource_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_ai_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Open AI Integration details.
 
@@ -759,38 +759,38 @@ class OpenAIIntegrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of API key for Open AI resource
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="openAIResourceEndpoint")
-    def open_ai_resource_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_ai_resource_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API endpoint for Open AI resource
         """
         return pulumi.get(self, "open_ai_resource_endpoint")
 
     @open_ai_resource_endpoint.setter
-    def open_ai_resource_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_ai_resource_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_ai_resource_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="openAIResourceId")
-    def open_ai_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_ai_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name of Open AI resource
         """
         return pulumi.get(self, "open_ai_resource_id")
 
     @open_ai_resource_id.setter
-    def open_ai_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_ai_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_ai_resource_id", value)
 
 
@@ -798,23 +798,23 @@ class PlanDetailsArgsDict(TypedDict):
     """
     Plan details of the monitor resource.
     """
-    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    offer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Offer ID of the plan
     """
-    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    plan_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan ID
     """
-    plan_name: NotRequired[pulumi.Input[_builtins.str]]
+    plan_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Plan Name
     """
-    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Publisher ID of the plan
     """
-    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    term_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Term ID of the plan
     """
@@ -822,11 +822,11 @@ class PlanDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class PlanDetailsArgs:
     def __init__(__self__, *,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plan details of the monitor resource.
 
@@ -849,62 +849,62 @@ class PlanDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="offerID")
-    def offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Offer ID of the plan
         """
         return pulumi.get(self, "offer_id")
 
     @offer_id.setter
-    def offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="planID")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan ID
         """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="planName")
-    def plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plan Name
         """
         return pulumi.get(self, "plan_name")
 
     @plan_name.setter
-    def plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherID")
-    def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publisher ID of the plan
         """
         return pulumi.get(self, "publisher_id")
 
     @publisher_id.setter
-    def publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="termID")
-    def term_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def term_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Term ID of the plan
         """
         return pulumi.get(self, "term_id")
 
     @term_id.setter
-    def term_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def term_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "term_id", value)
 
 
@@ -945,11 +945,11 @@ class SubscriptionListArgsDict(TypedDict):
     """
     The request to update subscriptions needed to be monitored by the Elastic monitor resource.
     """
-    monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
+    monitored_subscription_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]]
     """
     List of subscriptions and the state of the monitoring.
     """
-    operation: NotRequired[pulumi.Input[Union[_builtins.str, 'Operation']]]
+    operation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]]
     """
     The operation for the patch on the resource.
     """
@@ -957,8 +957,8 @@ class SubscriptionListArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionListArgs:
     def __init__(__self__, *,
-                 monitored_subscription_list: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
-                 operation: Optional[pulumi.Input[Union[_builtins.str, 'Operation']]] = None):
+                 monitored_subscription_list: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
+                 operation: pulumi.Input[Optional[Union[_builtins.str, 'Operation']]] = None):
         """
         The request to update subscriptions needed to be monitored by the Elastic monitor resource.
 
@@ -972,26 +972,26 @@ class SubscriptionListArgs:
 
     @_builtins.property
     @pulumi.getter(name="monitoredSubscriptionList")
-    def monitored_subscription_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
+    def monitored_subscription_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
         """
         List of subscriptions and the state of the monitoring.
         """
         return pulumi.get(self, "monitored_subscription_list")
 
     @monitored_subscription_list.setter
-    def monitored_subscription_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
+    def monitored_subscription_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
         pulumi.set(self, "monitored_subscription_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Operation']]]:
+    def operation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]:
         """
         The operation for the patch on the resource.
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Operation']]]):
+    def operation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]):
         pulumi.set(self, "operation", value)
 
 
@@ -999,23 +999,23 @@ class UserInfoArgsDict(TypedDict):
     """
     User Information to be passed to partners.
     """
-    company_info: NotRequired[pulumi.Input['CompanyInfoArgsDict']]
+    company_info: NotRequired[pulumi.Input[Optional['CompanyInfoArgsDict']]]
     """
     Company information of the user to be passed to partners.
     """
-    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    company_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Company name of the user
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email of the user used by Elastic for contacting them if needed
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name of the user
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last name of the user
     """
@@ -1023,11 +1023,11 @@ class UserInfoArgsDict(TypedDict):
 @pulumi.input_type
 class UserInfoArgs:
     def __init__(__self__, *,
-                 company_info: Optional[pulumi.Input['CompanyInfoArgs']] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 company_info: pulumi.Input[Optional['CompanyInfoArgs']] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User Information to be passed to partners.
 
@@ -1050,62 +1050,62 @@ class UserInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="companyInfo")
-    def company_info(self) -> Optional[pulumi.Input['CompanyInfoArgs']]:
+    def company_info(self) -> pulumi.Input[Optional['CompanyInfoArgs']]:
         """
         Company information of the user to be passed to partners.
         """
         return pulumi.get(self, "company_info")
 
     @company_info.setter
-    def company_info(self, value: Optional[pulumi.Input['CompanyInfoArgs']]):
+    def company_info(self, value: pulumi.Input[Optional['CompanyInfoArgs']]):
         pulumi.set(self, "company_info", value)
 
     @_builtins.property
     @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Company name of the user
         """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email of the user used by Elastic for contacting them if needed
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name of the user
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name of the user
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
 

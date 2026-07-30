@@ -170,7 +170,6 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[_builtins.str
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_pool_name: SQL pool name
     :param _builtins.str workload_classifier_name: The name of the workload classifier.
@@ -197,11 +196,11 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workload_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_pool_workload_classifier_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workload_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:
     """
     Get a workload classifier of Sql pool's workload group.
@@ -209,7 +208,6 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
     Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_pool_name: SQL pool name

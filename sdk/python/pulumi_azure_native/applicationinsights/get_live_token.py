@@ -58,7 +58,6 @@ def get_live_token(resource_uri: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
@@ -68,7 +67,7 @@ def get_live_token(resource_uri: Optional[_builtins.str] = None,
 
     return AwaitableGetLiveTokenResult(
         live_token=pulumi.get(__ret__, 'live_token'))
-def get_live_token_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_live_token_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
     **Gets an access token for live metrics stream data.**
@@ -76,7 +75,6 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2021-10-14.
 
     Other available API versions: 2020-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """

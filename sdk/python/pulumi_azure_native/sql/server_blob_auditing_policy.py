@@ -23,17 +23,17 @@ class ServerBlobAuditingPolicyArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['BlobAuditingPolicyState'],
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_auditing_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_azure_monitor_target_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_devops_audit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_managed_identity_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_storage_secondary_key_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_azure_monitor_target_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_devops_audit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_managed_identity_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_storage_secondary_key_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerBlobAuditingPolicy resource.
 
@@ -102,7 +102,7 @@ class ServerBlobAuditingPolicyArgs:
                
                For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         :param pulumi.Input[_builtins.str] blob_auditing_policy_name: The name of the blob auditing policy.
-        :param pulumi.Input[_builtins.bool] is_azure_monitor_target_enabled: Specifies whether audit events are sent to Azure Monitor. 
+        :param pulumi.Input[_builtins.bool] is_azure_monitor_target_enabled: Specifies whether audit events are sent to Azure Monitor.
                In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
                
                When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
@@ -128,12 +128,12 @@ class ServerBlobAuditingPolicyArgs:
         :param pulumi.Input[_builtins.int] queue_delay_ms: Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
                The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the audit logs in the storage account.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the auditing storage account. 
+        :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the auditing storage account.
                If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
                Prerequisites for using managed identity authentication:
                1. Assign SQL Server a system-assigned managed identity in Azure Active Directory (AAD).
                2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
-               For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
+                  For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: Specifies the blob storage subscription Id.
         :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
         """
@@ -201,20 +201,20 @@ class ServerBlobAuditingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditActionsAndGroups")
-    def audit_actions_and_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audit_actions_and_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the Actions-Groups and Actions to audit.
-        
+
         The recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
-        
+
         BATCH_COMPLETED_GROUP,
         SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,
         FAILED_DATABASE_AUTHENTICATION_GROUP.
-        
+
         This above combination is also the set that is configured by default when enabling auditing from the Azure portal.
-        
+
         The supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):
-        
+
         APPLICATION_ROLE_CHANGE_PASSWORD_GROUP
         BACKUP_RESTORE_GROUP
         DATABASE_LOGOUT_GROUP
@@ -239,11 +239,11 @@ class ServerBlobAuditingPolicyArgs:
         DATABASE_OWNERSHIP_CHANGE_GROUP
         DATABASE_CHANGE_GROUP
         LEDGER_OPERATION_GROUP
-        
+
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
-        
+
         For more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).
-        
+
         For Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:
         SELECT
         UPDATE
@@ -252,107 +252,107 @@ class ServerBlobAuditingPolicyArgs:
         EXECUTE
         RECEIVE
         REFERENCES
-        
+
         The general form for defining an action to be audited is:
         {action} ON {object} BY {principal}
-        
+
         Note that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.
-        
+
         For example:
         SELECT on dbo.myTable by public
         SELECT on DATABASE::myDatabase by public
         SELECT on SCHEMA::mySchema by public
-        
+
         For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         """
         return pulumi.get(self, "audit_actions_and_groups")
 
     @audit_actions_and_groups.setter
-    def audit_actions_and_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audit_actions_and_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audit_actions_and_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="blobAuditingPolicyName")
-    def blob_auditing_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_auditing_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the blob auditing policy.
         """
         return pulumi.get(self, "blob_auditing_policy_name")
 
     @blob_auditing_policy_name.setter
-    def blob_auditing_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_auditing_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_auditing_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isAzureMonitorTargetEnabled")
-    def is_azure_monitor_target_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_azure_monitor_target_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether audit events are sent to Azure Monitor. 
+        Specifies whether audit events are sent to Azure Monitor.
         In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
-        
+
         When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
         Note that for server level audit you should use the 'master' database as {databaseName}.
-        
+
         Diagnostic Settings URI format:
         PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-        
+
         For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """
         return pulumi.get(self, "is_azure_monitor_target_enabled")
 
     @is_azure_monitor_target_enabled.setter
-    def is_azure_monitor_target_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_azure_monitor_target_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_azure_monitor_target_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isDevopsAuditEnabled")
-    def is_devops_audit_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_devops_audit_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.
         In order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true
-        
+
         When using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.
-        
+
         Diagnostic Settings URI format:
         PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-        
+
         For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """
         return pulumi.get(self, "is_devops_audit_enabled")
 
     @is_devops_audit_enabled.setter
-    def is_devops_audit_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_devops_audit_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_devops_audit_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isManagedIdentityInUse")
-    def is_managed_identity_in_use(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_managed_identity_in_use(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Managed Identity is used to access blob storage
         """
         return pulumi.get(self, "is_managed_identity_in_use")
 
     @is_managed_identity_in_use.setter
-    def is_managed_identity_in_use(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_managed_identity_in_use(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_managed_identity_in_use", value)
 
     @_builtins.property
     @pulumi.getter(name="isStorageSecondaryKeyInUse")
-    def is_storage_secondary_key_in_use(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_storage_secondary_key_in_use(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether storageAccountAccessKey value is the storage's secondary key.
         """
         return pulumi.get(self, "is_storage_secondary_key_in_use")
 
     @is_storage_secondary_key_in_use.setter
-    def is_storage_secondary_key_in_use(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_storage_secondary_key_in_use(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_storage_secondary_key_in_use", value)
 
     @_builtins.property
     @pulumi.getter(name="queueDelayMs")
-    def queue_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def queue_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
         The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
@@ -360,60 +360,60 @@ class ServerBlobAuditingPolicyArgs:
         return pulumi.get(self, "queue_delay_ms")
 
     @queue_delay_ms.setter
-    def queue_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def queue_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "queue_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the audit logs in the storage account.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier key of the auditing storage account. 
+        Specifies the identifier key of the auditing storage account.
         If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
         Prerequisites for using managed identity authentication:
         1. Assign SQL Server a system-assigned managed identity in Azure Active Directory (AAD).
         2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
-        For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
+           For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage subscription Id.
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
@@ -423,20 +423,20 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_auditing_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_azure_monitor_target_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_devops_audit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_managed_identity_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_storage_secondary_key_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['BlobAuditingPolicyState']] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_azure_monitor_target_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_devops_audit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_managed_identity_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_storage_secondary_key_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['BlobAuditingPolicyState']] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A server blob auditing policy.
@@ -444,7 +444,6 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -510,7 +509,7 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
                
                For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         :param pulumi.Input[_builtins.str] blob_auditing_policy_name: The name of the blob auditing policy.
-        :param pulumi.Input[_builtins.bool] is_azure_monitor_target_enabled: Specifies whether audit events are sent to Azure Monitor. 
+        :param pulumi.Input[_builtins.bool] is_azure_monitor_target_enabled: Specifies whether audit events are sent to Azure Monitor.
                In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
                
                When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
@@ -539,12 +538,12 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the audit logs in the storage account.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['BlobAuditingPolicyState'] state: Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the auditing storage account. 
+        :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the auditing storage account.
                If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
                Prerequisites for using managed identity authentication:
                1. Assign SQL Server a system-assigned managed identity in Azure Active Directory (AAD).
                2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
-               For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
+                  For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: Specifies the blob storage subscription Id.
         :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
         """
@@ -561,7 +560,6 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServerBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -577,20 +575,20 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_auditing_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_azure_monitor_target_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_devops_audit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_managed_identity_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_storage_secondary_key_in_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['BlobAuditingPolicyState']] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_azure_monitor_target_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_devops_audit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_managed_identity_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_storage_secondary_key_in_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['BlobAuditingPolicyState']] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -667,17 +665,17 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
     def audit_actions_and_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Specifies the Actions-Groups and Actions to audit.
-        
+
         The recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
-        
+
         BATCH_COMPLETED_GROUP,
         SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,
         FAILED_DATABASE_AUTHENTICATION_GROUP.
-        
+
         This above combination is also the set that is configured by default when enabling auditing from the Azure portal.
-        
+
         The supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):
-        
+
         APPLICATION_ROLE_CHANGE_PASSWORD_GROUP
         BACKUP_RESTORE_GROUP
         DATABASE_LOGOUT_GROUP
@@ -702,11 +700,11 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         DATABASE_OWNERSHIP_CHANGE_GROUP
         DATABASE_CHANGE_GROUP
         LEDGER_OPERATION_GROUP
-        
+
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
-        
+
         For more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).
-        
+
         For Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:
         SELECT
         UPDATE
@@ -715,17 +713,17 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         EXECUTE
         RECEIVE
         REFERENCES
-        
+
         The general form for defining an action to be audited is:
         {action} ON {object} BY {principal}
-        
+
         Note that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.
-        
+
         For example:
         SELECT on dbo.myTable by public
         SELECT on DATABASE::myDatabase by public
         SELECT on SCHEMA::mySchema by public
-        
+
         For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         """
         return pulumi.get(self, "audit_actions_and_groups")
@@ -742,15 +740,15 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="isAzureMonitorTargetEnabled")
     def is_azure_monitor_target_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether audit events are sent to Azure Monitor. 
+        Specifies whether audit events are sent to Azure Monitor.
         In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
-        
+
         When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
         Note that for server level audit you should use the 'master' database as {databaseName}.
-        
+
         Diagnostic Settings URI format:
         PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-        
+
         For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """
@@ -762,12 +760,12 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         """
         Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.
         In order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true
-        
+
         When using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.
-        
+
         Diagnostic Settings URI format:
         PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-        
+
         For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """

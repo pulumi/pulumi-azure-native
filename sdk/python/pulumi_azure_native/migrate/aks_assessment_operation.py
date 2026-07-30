@@ -25,8 +25,8 @@ class AksAssessmentOperationArgs:
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  settings: pulumi.Input['AKSAssessmentSettingsArgs'],
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['AssessmentScopeParametersArgs']] = None):
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['AssessmentScopeParametersArgs']] = None):
         """
         The set of arguments for constructing a AksAssessmentOperation resource.
 
@@ -82,26 +82,26 @@ class AksAssessmentOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AKS Assessment Name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AssessmentScopeParametersArgs']]:
+    def scope(self) -> pulumi.Input[Optional['AssessmentScopeParametersArgs']]:
         """
         Gets or sets scope parameters to identify inventory items for assessment.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AssessmentScopeParametersArgs']]):
+    def scope(self, value: pulumi.Input[Optional['AssessmentScopeParametersArgs']]):
         pulumi.set(self, "scope", value)
 
 
@@ -111,11 +111,11 @@ class AksAssessmentOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
-                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         """
         ARM model of AKS Assessment.
@@ -123,7 +123,6 @@ class AksAssessmentOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class AksAssessmentOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AksAssessmentOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class AksAssessmentOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
-                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -95,7 +95,7 @@ class ApiPropertiesArgsDict(TypedDict):
     """
     Api properties.
     """
-    api_freshness_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    api_freshness_time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Interval in minutes for which the weather data for the api needs to be refreshed.
     """
@@ -103,7 +103,7 @@ class ApiPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
-                 api_freshness_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 api_freshness_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Api properties.
 
@@ -114,14 +114,14 @@ class ApiPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiFreshnessTimeInMinutes")
-    def api_freshness_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_freshness_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Interval in minutes for which the weather data for the api needs to be refreshed.
         """
         return pulumi.get(self, "api_freshness_time_in_minutes")
 
     @api_freshness_time_in_minutes.setter
-    def api_freshness_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_freshness_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_freshness_time_in_minutes", value)
 
 
@@ -162,7 +162,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
@@ -170,7 +170,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         Identity for the resource.
 
@@ -181,14 +181,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -341,15 +341,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -357,9 +357,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -376,38 +376,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -415,7 +415,7 @@ class SensorIntegrationArgsDict(TypedDict):
     """
     Sensor integration request model.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sensor integration enable state.
     """
@@ -423,7 +423,7 @@ class SensorIntegrationArgsDict(TypedDict):
 @pulumi.input_type
 class SensorIntegrationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Sensor integration request model.
 
@@ -434,14 +434,14 @@ class SensorIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sensor integration enable state.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -473,7 +473,7 @@ class SolutionPropertiesArgsDict(TypedDict):
     """
     SaaS application Term Id.
     """
-    role_assignment_id: NotRequired[pulumi.Input[_builtins.str]]
+    role_assignment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Role Assignment Id.
     """
@@ -487,7 +487,7 @@ class SolutionPropertiesArgs:
                  saas_subscription_id: pulumi.Input[_builtins.str],
                  saas_subscription_name: pulumi.Input[_builtins.str],
                  term_id: pulumi.Input[_builtins.str],
-                 role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Solution resource properties.
 
@@ -582,14 +582,14 @@ class SolutionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleAssignmentId")
-    def role_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role Assignment Id.
         """
         return pulumi.get(self, "role_assignment_id")
 
     @role_assignment_id.setter
-    def role_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_assignment_id", value)
 
 

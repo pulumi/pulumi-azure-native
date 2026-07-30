@@ -134,7 +134,7 @@ export interface ServerGroupFirewallRuleArgs {
     /**
      * The name of the cluster firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

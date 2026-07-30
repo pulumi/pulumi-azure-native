@@ -60,7 +60,6 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str event_subscription_name: Name of the event subscription.
     :param _builtins.str partner_topic_name: Name of the partner topic.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.
@@ -74,9 +73,9 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
 
     return AwaitableGetPartnerTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
-def get_partner_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         partner_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_partner_topic_event_subscription_full_url_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         partner_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
@@ -84,7 +83,6 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
     Uses Azure REST API version 2025-02-15.
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str event_subscription_name: Name of the event subscription.
     :param _builtins.str partner_topic_name: Name of the partner topic.

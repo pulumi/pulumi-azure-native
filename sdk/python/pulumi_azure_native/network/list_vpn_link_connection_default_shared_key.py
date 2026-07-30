@@ -98,7 +98,6 @@ def list_vpn_link_connection_default_shared_key(connection_name: Optional[_built
 
     Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connection_name: The name of the vpn connection.
     :param _builtins.str gateway_name: The name of the gateway.
     :param _builtins.str link_connection_name: The name of the vpn link connection.
@@ -117,10 +116,10 @@ def list_vpn_link_connection_default_shared_key(connection_name: Optional[_built
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_vpn_link_connection_default_shared_key_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       link_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_vpn_link_connection_default_shared_key_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       link_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpnLinkConnectionDefaultSharedKeyResult]:
     """
     Gets the value of the shared key of VpnLink connection specified.
@@ -128,7 +127,6 @@ def list_vpn_link_connection_default_shared_key_output(connection_name: Optional
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connection_name: The name of the vpn connection.
     :param _builtins.str gateway_name: The name of the gateway.

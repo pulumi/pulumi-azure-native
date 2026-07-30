@@ -22,9 +22,9 @@ class CaCertificateArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 ca_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None):
+                 ca_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
 
@@ -69,38 +69,38 @@ class CaCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificateName")
-    def ca_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CA certificate name.
         """
         return pulumi.get(self, "ca_certificate_name")
 
     @ca_certificate_name.setter
-    def ca_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the CA Certificate resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encodedCertificate")
-    def encoded_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoded_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded PEM (Privacy Enhanced Mail) format certificate data.
         """
         return pulumi.get(self, "encoded_certificate")
 
     @encoded_certificate.setter
-    def encoded_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoded_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoded_certificate", value)
 
 
@@ -110,11 +110,11 @@ class CaCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ca_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The CA Certificate resource.
@@ -122,7 +122,6 @@ class CaCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class CaCertificate(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class CaCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ca_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoded_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

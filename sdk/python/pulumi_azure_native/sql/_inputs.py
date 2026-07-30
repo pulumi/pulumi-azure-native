@@ -72,12 +72,12 @@ __all__ = [
     'ServicePrincipalArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'SyncGroupSchemaTableColumnArgs',
-    'SyncGroupSchemaTableColumnArgsDict',
-    'SyncGroupSchemaTableArgs',
-    'SyncGroupSchemaTableArgsDict',
     'SyncGroupSchemaArgs',
     'SyncGroupSchemaArgsDict',
+    'SyncGroupSchemaTableArgs',
+    'SyncGroupSchemaTableArgsDict',
+    'SyncGroupSchemaTableColumnArgs',
+    'SyncGroupSchemaTableColumnArgsDict',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgsDict',
 ]
@@ -86,11 +86,11 @@ class DatabaseIdentityArgsDict(TypedDict):
     """
     Azure Active Directory identity configuration for a resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DatabaseIdentityType']]]]
     """
     The identity type
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resource ids of the user assigned identities to use
     """
@@ -98,8 +98,8 @@ class DatabaseIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseIdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
 
@@ -113,26 +113,26 @@ class DatabaseIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DatabaseIdentityType']]]:
         """
         The identity type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -173,7 +173,7 @@ class DistributedAvailabilityGroupDatabaseArgsDict(TypedDict):
     """
     Database specific information
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the database in link
     """
@@ -181,7 +181,7 @@ class DistributedAvailabilityGroupDatabaseArgsDict(TypedDict):
 @pulumi.input_type
 class DistributedAvailabilityGroupDatabaseArgs:
     def __init__(__self__, *,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database specific information
 
@@ -192,14 +192,14 @@ class DistributedAvailabilityGroupDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database in link
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
 
@@ -207,15 +207,15 @@ class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
     """
     Per database settings of an elastic pool.
     """
-    auto_pause_delay: NotRequired[pulumi.Input[_builtins.int]]
+    auto_pause_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Auto Pause Delay for per database within pool
     """
-    max_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    max_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum capacity any one database can consume.
     """
-    min_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    min_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum capacity all databases are guaranteed.
     """
@@ -223,9 +223,9 @@ class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticPoolPerDatabaseSettingsArgs:
     def __init__(__self__, *,
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Per database settings of an elastic pool.
 
@@ -242,38 +242,38 @@ class ElasticPoolPerDatabaseSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoPauseDelay")
-    def auto_pause_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_pause_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Auto Pause Delay for per database within pool
         """
         return pulumi.get(self, "auto_pause_delay")
 
     @auto_pause_delay.setter
-    def auto_pause_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_pause_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_pause_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum capacity any one database can consume.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum capacity all databases are guaranteed.
         """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_capacity", value)
 
 
@@ -281,11 +281,11 @@ class FailoverGroupReadOnlyEndpointArgsDict(TypedDict):
     """
     Read-only endpoint of the failover group instance.
     """
-    failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
+    failover_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]]
     """
     Failover policy of the read-only endpoint for the failover group.
     """
-    target_server: NotRequired[pulumi.Input[_builtins.str]]
+    target_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target partner server where the read-only endpoint points to.
     """
@@ -293,8 +293,8 @@ class FailoverGroupReadOnlyEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]] = None,
-                 target_server: Optional[pulumi.Input[_builtins.str]] = None):
+                 failover_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]] = None,
+                 target_server: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Read-only endpoint of the failover group instance.
 
@@ -308,26 +308,26 @@ class FailoverGroupReadOnlyEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]:
+    def failover_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]):
+    def failover_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="targetServer")
-    def target_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target partner server where the read-only endpoint points to.
         """
         return pulumi.get(self, "target_server")
 
     @target_server.setter
-    def target_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_server", value)
 
 
@@ -339,7 +339,7 @@ class FailoverGroupReadWriteEndpointArgsDict(TypedDict):
     """
     Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
     """
-    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
     """
@@ -348,7 +348,7 @@ class FailoverGroupReadWriteEndpointArgsDict(TypedDict):
 class FailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
                  failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']],
-                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 failover_with_data_loss_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Read-write endpoint of the failover group instance.
 
@@ -373,14 +373,14 @@ class FailoverGroupReadWriteEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverWithDataLossGracePeriodMinutes")
-    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failover_with_data_loss_grace_period_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
     @failover_with_data_loss_grace_period_minutes.setter
-    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failover_with_data_loss_grace_period_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
@@ -388,7 +388,7 @@ class InstanceFailoverGroupReadOnlyEndpointArgsDict(TypedDict):
     """
     Read-only endpoint of the failover group instance.
     """
-    failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
+    failover_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]]
     """
     Failover policy of the read-only endpoint for the failover group.
     """
@@ -396,7 +396,7 @@ class InstanceFailoverGroupReadOnlyEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceFailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
+                 failover_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
         """
         Read-only endpoint of the failover group instance.
 
@@ -407,14 +407,14 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]:
+    def failover_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]):
+    def failover_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
 
@@ -426,7 +426,7 @@ class InstanceFailoverGroupReadWriteEndpointArgsDict(TypedDict):
     """
     Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
     """
-    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
     """
@@ -435,7 +435,7 @@ class InstanceFailoverGroupReadWriteEndpointArgsDict(TypedDict):
 class InstanceFailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
                  failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']],
-                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 failover_with_data_loss_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Read-write endpoint of the failover group instance.
 
@@ -460,14 +460,14 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverWithDataLossGracePeriodMinutes")
-    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failover_with_data_loss_grace_period_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
     @failover_with_data_loss_grace_period_minutes.setter
-    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failover_with_data_loss_grace_period_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
@@ -479,11 +479,11 @@ class JobAgentIdentityArgsDict(TypedDict):
     """
     The job agent identity type
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The job agent identity tenant id
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resource ids of the user assigned identities to use
     """
@@ -492,8 +492,8 @@ class JobAgentIdentityArgsDict(TypedDict):
 class JobAgentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'JobAgentIdentityType']],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
 
@@ -521,26 +521,26 @@ class JobAgentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job agent identity tenant id
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -548,23 +548,23 @@ class JobScheduleArgsDict(TypedDict):
     """
     Scheduling properties of a job.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the schedule is enabled.
     """
-    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schedule end time.
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schedule start time.
     """
-    type: NotRequired[pulumi.Input['JobScheduleType']]
+    type: NotRequired[pulumi.Input[Optional['JobScheduleType']]]
     """
     Schedule interval type
     """
@@ -572,11 +572,11 @@ class JobScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class JobScheduleArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['JobScheduleType']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['JobScheduleType']] = None):
         """
         Scheduling properties of a job.
 
@@ -605,62 +605,62 @@ class JobScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the schedule is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schedule end time.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schedule start time.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['JobScheduleType']]:
+    def type(self) -> pulumi.Input[Optional['JobScheduleType']]:
         """
         Schedule interval type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['JobScheduleType']]):
+    def type(self, value: pulumi.Input[Optional['JobScheduleType']]):
         pulumi.set(self, "type", value)
 
 
@@ -672,11 +672,11 @@ class JobStepActionArgsDict(TypedDict):
     """
     The action value, for example the text of the T-SQL script to execute.
     """
-    source: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]]
+    source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionSource']]]]
     """
     The source of the action to execute.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionType']]]]
     """
     Type of action being executed by the job step.
     """
@@ -685,8 +685,8 @@ class JobStepActionArgsDict(TypedDict):
 class JobStepActionArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 source: Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]] = None):
+                 source: pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionSource']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionType']]] = None):
         """
         The action to be executed by a job step.
 
@@ -718,26 +718,26 @@ class JobStepActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]]:
+    def source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionSource']]]:
         """
         The source of the action to execute.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]]):
+    def source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionSource']]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionType']]]:
         """
         Type of action being executed by the job step.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JobStepActionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -745,23 +745,23 @@ class JobStepExecutionOptionsArgsDict(TypedDict):
     """
     The execution options of a job step.
     """
-    initial_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    initial_retry_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Initial delay between retries for job step execution.
     """
-    maximum_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_retry_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum amount of time to wait between retries for job step execution.
     """
-    retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    retry_attempts: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of times the job step will be reattempted if the first attempt fails.
     """
-    retry_interval_backoff_multiplier: NotRequired[pulumi.Input[_builtins.float]]
+    retry_interval_backoff_multiplier: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The backoff multiplier for the time between retries.
     """
-    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Execution timeout for the job step.
     """
@@ -769,11 +769,11 @@ class JobStepExecutionOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class JobStepExecutionOptionsArgs:
     def __init__(__self__, *,
-                 initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The execution options of a job step.
 
@@ -806,62 +806,62 @@ class JobStepExecutionOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialRetryIntervalSeconds")
-    def initial_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def initial_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Initial delay between retries for job step execution.
         """
         return pulumi.get(self, "initial_retry_interval_seconds")
 
     @initial_retry_interval_seconds.setter
-    def initial_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def initial_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "initial_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryIntervalSeconds")
-    def maximum_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount of time to wait between retries for job step execution.
         """
         return pulumi.get(self, "maximum_retry_interval_seconds")
 
     @maximum_retry_interval_seconds.setter
-    def maximum_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="retryAttempts")
-    def retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of times the job step will be reattempted if the first attempt fails.
         """
         return pulumi.get(self, "retry_attempts")
 
     @retry_attempts.setter
-    def retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
-    def retry_interval_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_interval_backoff_multiplier(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The backoff multiplier for the time between retries.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 
     @retry_interval_backoff_multiplier.setter
-    def retry_interval_backoff_multiplier(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_interval_backoff_multiplier(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_interval_backoff_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Execution timeout for the job step.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -881,23 +881,23 @@ class JobStepOutputArgsDict(TypedDict):
     """
     The output destination table.
     """
-    credential: NotRequired[pulumi.Input[_builtins.str]]
+    credential: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the credential to use to connect to the output destination.
     """
-    resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The output destination resource group.
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The output destination schema.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The output destination subscription id.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'JobStepOutputType']]]]
     """
     The output destination type.
     """
@@ -908,11 +908,11 @@ class JobStepOutputArgs:
                  database_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]] = None):
+                 credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'JobStepOutputType']]] = None):
         """
         The output configuration of a job step.
 
@@ -981,62 +981,62 @@ class JobStepOutputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the credential to use to connect to the output destination.
         """
         return pulumi.get(self, "credential")
 
     @credential.setter
-    def credential(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output destination resource group.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output destination schema.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output destination subscription id.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'JobStepOutputType']]]:
         """
         The output destination type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'JobStepOutputType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1048,27 +1048,27 @@ class JobTargetArgsDict(TypedDict):
     """
     The target type.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target database name.
     """
-    elastic_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target elastic pool name.
     """
-    membership_type: NotRequired[pulumi.Input['JobTargetGroupMembershipType']]
+    membership_type: NotRequired[pulumi.Input[Optional['JobTargetGroupMembershipType']]]
     """
     Whether the target is included or excluded from the group.
     """
-    refresh_credential: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_credential: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
     """
-    server_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target server name.
     """
-    shard_map_name: NotRequired[pulumi.Input[_builtins.str]]
+    shard_map_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target shard map.
     """
@@ -1077,12 +1077,12 @@ class JobTargetArgsDict(TypedDict):
 class JobTargetArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'JobTargetType']],
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 membership_type: Optional[pulumi.Input['JobTargetGroupMembershipType']] = None,
-                 refresh_credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_map_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 membership_type: pulumi.Input[Optional['JobTargetGroupMembershipType']] = None,
+                 refresh_credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_map_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A job target, for example a specific database or a container of databases that is evaluated during job execution.
 
@@ -1124,74 +1124,74 @@ class JobTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target database name.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target elastic pool name.
         """
         return pulumi.get(self, "elastic_pool_name")
 
     @elastic_pool_name.setter
-    def elastic_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="membershipType")
-    def membership_type(self) -> Optional[pulumi.Input['JobTargetGroupMembershipType']]:
+    def membership_type(self) -> pulumi.Input[Optional['JobTargetGroupMembershipType']]:
         """
         Whether the target is included or excluded from the group.
         """
         return pulumi.get(self, "membership_type")
 
     @membership_type.setter
-    def membership_type(self, value: Optional[pulumi.Input['JobTargetGroupMembershipType']]):
+    def membership_type(self, value: pulumi.Input[Optional['JobTargetGroupMembershipType']]):
         pulumi.set(self, "membership_type", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshCredential")
-    def refresh_credential(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_credential(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
         """
         return pulumi.get(self, "refresh_credential")
 
     @refresh_credential.setter
-    def refresh_credential(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_credential(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_credential", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target server name.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shardMapName")
-    def shard_map_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shard_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target shard map.
         """
         return pulumi.get(self, "shard_map_name")
 
     @shard_map_name.setter
-    def shard_map_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shard_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shard_map_name", value)
 
 
@@ -1199,27 +1199,27 @@ class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
     """
     Properties of a active directory administrator.
     """
-    administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
+    administrator_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]]
     """
     Type of the sever administrator.
     """
-    azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    azure_ad_only_authentication: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Azure Active Directory only Authentication enabled.
     """
-    login: NotRequired[pulumi.Input[_builtins.str]]
+    login: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Login name of the server administrator.
     """
-    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    principal_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]]
     """
     Principal Type of the sever administrator.
     """
-    sid: NotRequired[pulumi.Input[_builtins.str]]
+    sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SID (object ID) of the server administrator.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant ID of the administrator.
     """
@@ -1227,12 +1227,12 @@ class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedInstanceExternalAdministratorArgs:
     def __init__(__self__, *,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a active directory administrator.
 
@@ -1258,74 +1258,74 @@ class ManagedInstanceExternalAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]:
+    def administrator_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]:
         """
         Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
 
     @administrator_type.setter
-    def administrator_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]):
+    def administrator_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]):
         pulumi.set(self, "administrator_type", value)
 
     @_builtins.property
     @pulumi.getter(name="azureADOnlyAuthentication")
-    def azure_ad_only_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azure_ad_only_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
 
     @azure_ad_only_authentication.setter
-    def azure_ad_only_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azure_ad_only_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_ad_only_authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login name of the server administrator.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]:
+    def principal_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]:
         """
         Principal Type of the sever administrator.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]):
+    def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SID (object ID) of the server administrator.
         """
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant ID of the administrator.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1333,11 +1333,11 @@ class ManagedInstancePairInfoArgsDict(TypedDict):
     """
     Pairs of Managed Instances in the failover group.
     """
-    partner_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    partner_managed_instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of Partner Managed Instance in pair.
     """
-    primary_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    primary_managed_instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of Primary Managed Instance in pair.
     """
@@ -1345,8 +1345,8 @@ class ManagedInstancePairInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedInstancePairInfoArgs:
     def __init__(__self__, *,
-                 partner_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 partner_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Pairs of Managed Instances in the failover group.
 
@@ -1360,31 +1360,31 @@ class ManagedInstancePairInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="partnerManagedInstanceId")
-    def partner_managed_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of Partner Managed Instance in pair.
         """
         return pulumi.get(self, "partner_managed_instance_id")
 
     @partner_managed_instance_id.setter
-    def partner_managed_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_managed_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryManagedInstanceId")
-    def primary_managed_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of Primary Managed Instance in pair.
         """
         return pulumi.get(self, "primary_managed_instance_id")
 
     @primary_managed_instance_id.setter
-    def primary_managed_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_managed_instance_id", value)
 
 
 class ManagedInstancePrivateEndpointPropertyArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource id of the private endpoint.
     """
@@ -1392,7 +1392,7 @@ class ManagedInstancePrivateEndpointPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedInstancePrivateEndpointPropertyArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: Resource id of the private endpoint.
         """
@@ -1401,14 +1401,14 @@ class ManagedInstancePrivateEndpointPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource id of the private endpoint.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1496,7 +1496,7 @@ class PartnerRegionInfoArgsDict(TypedDict):
     """
     Partner region information for the failover group.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Geo location of the partner managed instances.
     """
@@ -1504,7 +1504,7 @@ class PartnerRegionInfoArgsDict(TypedDict):
 @pulumi.input_type
 class PartnerRegionInfoArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Partner region information for the failover group.
 
@@ -1515,19 +1515,19 @@ class PartnerRegionInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Geo location of the partner managed instances.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 class PrivateEndpointPropertyArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource id of the private endpoint.
     """
@@ -1535,7 +1535,7 @@ class PrivateEndpointPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: Resource id of the private endpoint.
         """
@@ -1544,14 +1544,14 @@ class PrivateEndpointPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource id of the private endpoint.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1606,11 +1606,11 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     Azure Active Directory identity configuration for a resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]]
     """
     The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resource ids of the user assigned identities to use
     """
@@ -1618,8 +1618,8 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
 
@@ -1633,26 +1633,26 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1750,27 +1750,27 @@ class ServerExternalAdministratorArgsDict(TypedDict):
     """
     Properties of a active directory administrator.
     """
-    administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
+    administrator_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]]
     """
     Type of the sever administrator.
     """
-    azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    azure_ad_only_authentication: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Azure Active Directory only Authentication enabled.
     """
-    login: NotRequired[pulumi.Input[_builtins.str]]
+    login: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Login name of the server administrator.
     """
-    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    principal_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]]
     """
     Principal Type of the sever administrator.
     """
-    sid: NotRequired[pulumi.Input[_builtins.str]]
+    sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SID (object ID) of the server administrator.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant ID of the administrator.
     """
@@ -1778,12 +1778,12 @@ class ServerExternalAdministratorArgsDict(TypedDict):
 @pulumi.input_type
 class ServerExternalAdministratorArgs:
     def __init__(__self__, *,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a active directory administrator.
 
@@ -1809,74 +1809,74 @@ class ServerExternalAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]:
+    def administrator_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]:
         """
         Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
 
     @administrator_type.setter
-    def administrator_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]):
+    def administrator_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdministratorType']]]):
         pulumi.set(self, "administrator_type", value)
 
     @_builtins.property
     @pulumi.getter(name="azureADOnlyAuthentication")
-    def azure_ad_only_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azure_ad_only_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
 
     @azure_ad_only_authentication.setter
-    def azure_ad_only_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azure_ad_only_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_ad_only_authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login name of the server administrator.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]:
+    def principal_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]:
         """
         Principal Type of the sever administrator.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]):
+    def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SID (object ID) of the server administrator.
         """
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant ID of the administrator.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1917,7 +1917,7 @@ class ServicePrincipalArgsDict(TypedDict):
     """
     The managed instance's service principal configuration for a resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServicePrincipalType']]]]
     """
     Service principal type.
     """
@@ -1925,7 +1925,7 @@ class ServicePrincipalArgsDict(TypedDict):
 @pulumi.input_type
 class ServicePrincipalArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ServicePrincipalType']]] = None):
         """
         The managed instance's service principal configuration for a resource.
 
@@ -1936,14 +1936,14 @@ class ServicePrincipalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServicePrincipalType']]]:
         """
         Service principal type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServicePrincipalType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1955,19 +1955,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU, typically, a letter + Number code, e.g. P3.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Capacity of the particular SKU.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Size of the particular SKU
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tier or edition of the particular SKU, e.g. Basic, Premium.
     """
@@ -1976,10 +1976,10 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An ARM Resource SKU.
 
@@ -2013,66 +2013,174 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size of the particular SKU
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier or edition of the particular SKU, e.g. Basic, Premium.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
+
+
+class SyncGroupSchemaArgsDict(TypedDict):
+    """
+    Properties of sync group schema.
+    """
+    master_sync_member_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of master sync member where the schema is from.
+    """
+    tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableArgsDict']]]]]
+    """
+    List of tables in sync group schema.
+    """
+
+@pulumi.input_type
+class SyncGroupSchemaArgs:
+    def __init__(__self__, *,
+                 master_sync_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
+        """
+        Properties of sync group schema.
+
+        :param pulumi.Input[_builtins.str] master_sync_member_name: Name of master sync member where the schema is from.
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
+        """
+        if master_sync_member_name is not None:
+            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @_builtins.property
+    @pulumi.getter(name="masterSyncMemberName")
+    def master_sync_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of master sync member where the schema is from.
+        """
+        return pulumi.get(self, "master_sync_member_name")
+
+    @master_sync_member_name.setter
+    def master_sync_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "master_sync_member_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
+        """
+        List of tables in sync group schema.
+        """
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
+        pulumi.set(self, "tables", value)
+
+
+class SyncGroupSchemaTableArgsDict(TypedDict):
+    """
+    Properties of table in sync group schema.
+    """
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgsDict']]]]]
+    """
+    List of columns in sync group schema.
+    """
+    quoted_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Quoted name of sync group schema table.
+    """
+
+@pulumi.input_type
+class SyncGroupSchemaTableArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
+                 quoted_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Properties of table in sync group schema.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
+        :param pulumi.Input[_builtins.str] quoted_name: Quoted name of sync group schema table.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if quoted_name is not None:
+            pulumi.set(__self__, "quoted_name", quoted_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
+        """
+        List of columns in sync group schema.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quotedName")
+    def quoted_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Quoted name of sync group schema table.
+        """
+        return pulumi.get(self, "quoted_name")
+
+    @quoted_name.setter
+    def quoted_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "quoted_name", value)
 
 
 class SyncGroupSchemaTableColumnArgsDict(TypedDict):
     """
     Properties of column in sync group table.
     """
-    data_size: NotRequired[pulumi.Input[_builtins.str]]
+    data_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Data size of the column.
     """
-    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    data_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Data type of the column.
     """
-    quoted_name: NotRequired[pulumi.Input[_builtins.str]]
+    quoted_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Quoted name of sync group table column.
     """
@@ -2080,9 +2188,9 @@ class SyncGroupSchemaTableColumnArgsDict(TypedDict):
 @pulumi.input_type
 class SyncGroupSchemaTableColumnArgs:
     def __init__(__self__, *,
-                 data_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 quoted_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 quoted_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of column in sync group table.
 
@@ -2099,162 +2207,54 @@ class SyncGroupSchemaTableColumnArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSize")
-    def data_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data size of the column.
         """
         return pulumi.get(self, "data_size")
 
     @data_size.setter
-    def data_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_size", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data type of the column.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="quotedName")
-    def quoted_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quoted_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quoted name of sync group table column.
         """
         return pulumi.get(self, "quoted_name")
 
     @quoted_name.setter
-    def quoted_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quoted_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quoted_name", value)
-
-
-class SyncGroupSchemaTableArgsDict(TypedDict):
-    """
-    Properties of table in sync group schema.
-    """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgsDict']]]]
-    """
-    List of columns in sync group schema.
-    """
-    quoted_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Quoted name of sync group schema table.
-    """
-
-@pulumi.input_type
-class SyncGroupSchemaTableArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
-                 quoted_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Properties of table in sync group schema.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
-        :param pulumi.Input[_builtins.str] quoted_name: Quoted name of sync group schema table.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-        if quoted_name is not None:
-            pulumi.set(__self__, "quoted_name", quoted_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
-        """
-        List of columns in sync group schema.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
-        pulumi.set(self, "columns", value)
-
-    @_builtins.property
-    @pulumi.getter(name="quotedName")
-    def quoted_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Quoted name of sync group schema table.
-        """
-        return pulumi.get(self, "quoted_name")
-
-    @quoted_name.setter
-    def quoted_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "quoted_name", value)
-
-
-class SyncGroupSchemaArgsDict(TypedDict):
-    """
-    Properties of sync group schema.
-    """
-    master_sync_member_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Name of master sync member where the schema is from.
-    """
-    tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgsDict']]]]
-    """
-    List of tables in sync group schema.
-    """
-
-@pulumi.input_type
-class SyncGroupSchemaArgs:
-    def __init__(__self__, *,
-                 master_sync_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
-        """
-        Properties of sync group schema.
-
-        :param pulumi.Input[_builtins.str] master_sync_member_name: Name of master sync member where the schema is from.
-        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
-        """
-        if master_sync_member_name is not None:
-            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
-        if tables is not None:
-            pulumi.set(__self__, "tables", tables)
-
-    @_builtins.property
-    @pulumi.getter(name="masterSyncMemberName")
-    def master_sync_member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of master sync member where the schema is from.
-        """
-        return pulumi.get(self, "master_sync_member_name")
-
-    @master_sync_member_name.setter
-    def master_sync_member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "master_sync_member_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
-        """
-        List of tables in sync group schema.
-        """
-        return pulumi.get(self, "tables")
-
-    @tables.setter
-    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
-        pulumi.set(self, "tables", value)
 
 
 class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
     """
     Properties of a Vulnerability Assessment recurring scans.
     """
-    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies that the schedule scan notification will be is sent to the subscription administrators.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of e-mail addresses to which the scan notification is sent.
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Recurring scans state.
     """
@@ -2262,9 +2262,9 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
-                 email_subscription_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
 
@@ -2283,38 +2283,38 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdmins")
-    def email_subscription_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the schedule scan notification will be is sent to the subscription administrators.
         """
         return pulumi.get(self, "email_subscription_admins")
 
     @email_subscription_admins.setter
-    def email_subscription_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Recurring scans state.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
 

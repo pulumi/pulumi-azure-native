@@ -57,7 +57,6 @@ def get_provider_action_overview_status(type: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-27.
 
-
     :param _builtins.str type: The resource type.
     """
     __args__ = dict()
@@ -67,13 +66,12 @@ def get_provider_action_overview_status(type: Optional[_builtins.str] = None,
 
     return AwaitableGetProviderActionOverviewStatusResult(
         status_list=pulumi.get(__ret__, 'status_list'))
-def get_provider_action_overview_status_output(type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_provider_action_overview_status_output(type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionOverviewStatusResult]:
     """
     Get the resource overview status.
 
     Uses Azure REST API version 2024-06-27.
-
 
     :param _builtins.str type: The resource type.
     """

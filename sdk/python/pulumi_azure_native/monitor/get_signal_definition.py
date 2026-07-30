@@ -120,7 +120,6 @@ def get_signal_definition(azure_monitor_workspace_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2025-05-03-preview.
 
-
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str health_model_name: Name of health model resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -141,16 +140,15 @@ def get_signal_definition(azure_monitor_workspace_name: Optional[_builtins.str] 
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_signal_definition_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 signal_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signal_definition_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalDefinitionResult]:
     """
     Get a SignalDefinition
 
     Uses Azure REST API version 2025-05-03-preview.
-
 
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str health_model_name: Name of health model resource

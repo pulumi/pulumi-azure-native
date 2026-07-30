@@ -25,10 +25,10 @@ class FirewallPolicyRuleCollectionGroupDraftArgs:
                  firewall_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection_group_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicyRuleCollectionGroupDraft resource.
 
@@ -90,50 +90,50 @@ class FirewallPolicyRuleCollectionGroupDraftArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the Firewall Policy Rule Collection Group resource.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollections")
-    def rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]]:
+    def rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]]:
         """
         Group of Firewall Policy rule collections.
         """
         return pulumi.get(self, "rule_collections")
 
     @rule_collections.setter
-    def rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]]):
+    def rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]]):
         pulumi.set(self, "rule_collections", value)
 
 
@@ -143,13 +143,13 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
+                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
                  __props__=None):
         """
         Rule Collection Group resource.
@@ -157,7 +157,6 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupDraftArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
+                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

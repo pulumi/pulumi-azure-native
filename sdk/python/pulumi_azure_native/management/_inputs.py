@@ -29,7 +29,7 @@ class CreateManagementGroupDetailsArgsDict(TypedDict):
     """
     The details of a management group used during creation.
     """
-    parent: NotRequired[pulumi.Input['CreateParentGroupInfoArgsDict']]
+    parent: NotRequired[pulumi.Input[Optional['CreateParentGroupInfoArgsDict']]]
     """
     (Optional) The ID of the parent management group used during creation.
     """
@@ -37,7 +37,7 @@ class CreateManagementGroupDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class CreateManagementGroupDetailsArgs:
     def __init__(__self__, *,
-                 parent: Optional[pulumi.Input['CreateParentGroupInfoArgs']] = None):
+                 parent: pulumi.Input[Optional['CreateParentGroupInfoArgs']] = None):
         """
         The details of a management group used during creation.
 
@@ -48,14 +48,14 @@ class CreateManagementGroupDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input['CreateParentGroupInfoArgs']]:
+    def parent(self) -> pulumi.Input[Optional['CreateParentGroupInfoArgs']]:
         """
         (Optional) The ID of the parent management group used during creation.
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input['CreateParentGroupInfoArgs']]):
+    def parent(self, value: pulumi.Input[Optional['CreateParentGroupInfoArgs']]):
         pulumi.set(self, "parent", value)
 
 
@@ -63,7 +63,7 @@ class CreateParentGroupInfoArgsDict(TypedDict):
     """
     (Optional) The ID of the parent management group used during creation.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
     """
@@ -71,7 +71,7 @@ class CreateParentGroupInfoArgsDict(TypedDict):
 @pulumi.input_type
 class CreateParentGroupInfoArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         (Optional) The ID of the parent management group used during creation.
 
@@ -82,14 +82,14 @@ class CreateParentGroupInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -97,7 +97,7 @@ class ParentServiceGroupPropertiesArgsDict(TypedDict):
     """
     The details of the parent serviceGroup.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
     """
@@ -105,7 +105,7 @@ class ParentServiceGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ParentServiceGroupPropertiesArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The details of the parent serviceGroup.
 
@@ -116,14 +116,14 @@ class ParentServiceGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -131,11 +131,11 @@ class ServiceGroupPropertiesArgsDict(TypedDict):
     """
     ServiceGroup creation request body parameters.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of the serviceGroup. For example, ServiceGroupTest1
     """
-    parent: NotRequired[pulumi.Input['ParentServiceGroupPropertiesArgsDict']]
+    parent: NotRequired[pulumi.Input[Optional['ParentServiceGroupPropertiesArgsDict']]]
     """
     The details of the parent serviceGroup.
     """
@@ -143,8 +143,8 @@ class ServiceGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceGroupPropertiesArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional['ParentServiceGroupPropertiesArgs']] = None):
         """
         ServiceGroup creation request body parameters.
 
@@ -158,26 +158,26 @@ class ServiceGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the serviceGroup. For example, ServiceGroupTest1
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']]:
+    def parent(self) -> pulumi.Input[Optional['ParentServiceGroupPropertiesArgs']]:
         """
         The details of the parent serviceGroup.
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']]):
+    def parent(self, value: pulumi.Input[Optional['ParentServiceGroupPropertiesArgs']]):
         pulumi.set(self, "parent", value)
 
 

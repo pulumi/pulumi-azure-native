@@ -36,7 +36,7 @@ class ContainerGroupProfileArgsDict(TypedDict):
     """
     Specifies container group profile id of standby container groups.
     """
-    revision: NotRequired[pulumi.Input[_builtins.float]]
+    revision: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies revision of container group profile.
     """
@@ -45,7 +45,7 @@ class ContainerGroupProfileArgsDict(TypedDict):
 class ContainerGroupProfileArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 revision: Optional[pulumi.Input[_builtins.float]] = None):
+                 revision: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Details of the ContainerGroupProfile.
 
@@ -70,14 +70,14 @@ class ContainerGroupProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies revision of container group profile.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "revision", value)
 
 
@@ -89,7 +89,7 @@ class ContainerGroupPropertiesArgsDict(TypedDict):
     """
     Specifies container group profile of standby container groups.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgsDict']]]]]
     """
     Specifies subnet Ids for container group.
     """
@@ -98,7 +98,7 @@ class ContainerGroupPropertiesArgsDict(TypedDict):
 class ContainerGroupPropertiesArgs:
     def __init__(__self__, *,
                  container_group_profile: pulumi.Input['ContainerGroupProfileArgs'],
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None):
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None):
         """
         Details of the ContainerGroupProperties.
 
@@ -123,14 +123,14 @@ class ContainerGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]:
         """
         Specifies subnet Ids for container group.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -142,7 +142,7 @@ class StandbyContainerGroupPoolElasticityProfileArgsDict(TypedDict):
     """
     Specifies maximum number of standby container groups in the standby pool.
     """
-    refill_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]]
+    refill_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefillPolicy']]]]
     """
     Specifies refill policy of the pool.
     """
@@ -151,7 +151,7 @@ class StandbyContainerGroupPoolElasticityProfileArgsDict(TypedDict):
 class StandbyContainerGroupPoolElasticityProfileArgs:
     def __init__(__self__, *,
                  max_ready_capacity: pulumi.Input[_builtins.float],
-                 refill_policy: Optional[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]] = None):
+                 refill_policy: pulumi.Input[Optional[Union[_builtins.str, 'RefillPolicy']]] = None):
         """
         Specifies the elasticity profile of the standby container group pools.
 
@@ -176,14 +176,14 @@ class StandbyContainerGroupPoolElasticityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="refillPolicy")
-    def refill_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]]:
+    def refill_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefillPolicy']]]:
         """
         Specifies refill policy of the pool.
         """
         return pulumi.get(self, "refill_policy")
 
     @refill_policy.setter
-    def refill_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]]):
+    def refill_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefillPolicy']]]):
         pulumi.set(self, "refill_policy", value)
 
 
@@ -195,7 +195,7 @@ class StandbyVirtualMachinePoolElasticityProfileArgsDict(TypedDict):
     """
     Specifies the maximum number of virtual machines in the standby virtual machine pool.
     """
-    min_ready_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    min_ready_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
     """
@@ -204,7 +204,7 @@ class StandbyVirtualMachinePoolElasticityProfileArgsDict(TypedDict):
 class StandbyVirtualMachinePoolElasticityProfileArgs:
     def __init__(__self__, *,
                  max_ready_capacity: pulumi.Input[_builtins.float],
-                 min_ready_capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 min_ready_capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Details of the elasticity profile.
 
@@ -229,14 +229,14 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="minReadyCapacity")
-    def min_ready_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_ready_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
         """
         return pulumi.get(self, "min_ready_capacity")
 
     @min_ready_capacity.setter
-    def min_ready_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_ready_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_ready_capacity", value)
 
 
