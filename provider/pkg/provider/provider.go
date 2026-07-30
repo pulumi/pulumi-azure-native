@@ -1740,6 +1740,13 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		// Always use new schema for new outputs from Azure.
 		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
 
+		// 3c. Reconcile any known property renames between API versions (e.g. a property that was
+		// restructured into a new shape) so a mere schema change doesn't show up as a spurious diff.
+		// See custom_webapp.go for an example.
+		if isCustom && customRes.ReconcileRenamedProperties != nil {
+			customRes.ReconcileRenamedProperties(oldInputProjection, newInputProjection)
+		}
+
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
 		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)

@@ -78,6 +78,16 @@ type CustomResource struct {
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error
 
+	// ReconcileRenamedProperties resolves known cross-API-version property renames before the
+	// schema-aware old/new input projections computed during Read (see azureNativeProvider.Read)
+	// are diffed against each other. Azure sometimes restructures a property into a new shape
+	// between API versions (e.g. a flat boolean superseded by a nested object) without keeping the
+	// old name available in the newer schema. Because the old and new projections are each computed
+	// using their own API version's schema, such renames otherwise show up as a spurious
+	// "-oldProperty +newProperty" diff on every refresh/up after a default API version bump, even
+	// though nothing changed in Azure. Optional. Implementations should only mutate oldProjection.
+	ReconcileRenamedProperties func(oldProjection, newProjection map[string]interface{})
+
 	// Only used when we want to specify a `tok` that exists in the spec so we can look up the resource, but we want
 	// the custom resource's name to be different.
 	CustomResourceName string

@@ -80,6 +80,13 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 			return responseInSdkShape, true, nil
 		},
 
+		// Microsoft.Web/sites moved the top-level "vnetRouteAllEnabled" flag to
+		// "outboundVnetRouting.applicationTraffic" starting with API version 2025-03-01. Without this,
+		// any WebApp/WebAppSlot deployed with an older default API version shows a spurious
+		// "-vnetRouteAllEnabled +outboundVnetRouting" diff on the first refresh/up after the provider's
+		// default API version is bumped past that, even though nothing changed in Azure.
+		ReconcileRenamedProperties: reconcileVnetRouteAllEnabled,
+
 		// https://github.com/pulumi/pulumi-azure-native/issues/1529
 		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
 			res, ok, err := lookupResource(resourceType)
@@ -118,4 +125,44 @@ func mergeWebAppSiteConfig(webApp, siteConfig map[string]any) error {
 		return nil
 	}
 	return fmt.Errorf("'properties' not found in response, cannot update siteConfig")
+}
+
+// reconcileVnetRouteAllEnabled resolves the rename of the top-level "vnetRouteAllEnabled" property
+// (Microsoft.Web/sites API versions up to 2024-11-01) to "outboundVnetRouting.applicationTraffic"
+// (API versions 2025-03-01 and later). Azure dropped the old flat boolean from the top-level site
+// properties schema in favor of the new nested object without keeping a compatibility alias.
+//
+// Because the provider computes the "old" and "new" input projections independently, each using its
+// own API version's schema (see azureNativeProvider.Read), a WebApp/WebAppSlot that was deployed
+// before the default API version was bumped past this boundary will always show
+// "-vnetRouteAllEnabled +outboundVnetRouting" on the first refresh/up afterwards, even when the
+// effective setting hasn't changed. This only suppresses the property from the old projection when
+// the values are equivalent; if they genuinely differ, the diff (in its renamed form) still surfaces.
+func reconcileVnetRouteAllEnabled(oldProjection, newProjection map[string]interface{}) {
+	oldVal, hasOld := oldProjection["vnetRouteAllEnabled"]
+	if !hasOld {
+		return
+	}
+	oldBool, ok := oldVal.(bool)
+	if !ok {
+		return
+	}
+	if _, stillPresent := newProjection["vnetRouteAllEnabled"]; stillPresent {
+		// The new schema still has the old property (API version didn't move past the rename);
+		// nothing to reconcile.
+		return
+	}
+
+	// A missing "outboundVnetRouting.applicationTraffic" means the effective value is the schema
+	// default, false.
+	newTraffic := false
+	if outbound, ok := util.GetInnerMap(newProjection, "outboundVnetRouting"); ok {
+		if v, ok := outbound["applicationTraffic"].(bool); ok {
+			newTraffic = v
+		}
+	}
+
+	if newTraffic == oldBool {
+		delete(oldProjection, "vnetRouteAllEnabled")
+	}
 }

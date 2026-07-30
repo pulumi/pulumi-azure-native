@@ -44,3 +44,57 @@ func TestFilterRedactedPublishingUsername(t *testing.T) {
 		})
 	}
 }
+
+func TestReconcileVnetRouteAllEnabled(t *testing.T) {
+	for name, testCase := range map[string]struct {
+		oldProjection                    map[string]interface{}
+		newProjection                    map[string]interface{}
+		shouldContainVnetRouteAllEnabled bool
+	}{
+		"equivalent true, dropped from old projection": {
+			oldProjection: map[string]interface{}{
+				"vnetRouteAllEnabled": true,
+			},
+			newProjection: map[string]interface{}{
+				"outboundVnetRouting": map[string]interface{}{"applicationTraffic": true},
+			},
+			shouldContainVnetRouteAllEnabled: false,
+		},
+		"equivalent false (new property entirely absent), dropped from old projection": {
+			oldProjection: map[string]interface{}{
+				"vnetRouteAllEnabled": false,
+			},
+			newProjection:                    map[string]interface{}{},
+			shouldContainVnetRouteAllEnabled: false,
+		},
+		"genuinely different value, kept so the diff still surfaces": {
+			oldProjection: map[string]interface{}{
+				"vnetRouteAllEnabled": true,
+			},
+			newProjection: map[string]interface{}{
+				"outboundVnetRouting": map[string]interface{}{"applicationTraffic": false},
+			},
+			shouldContainVnetRouteAllEnabled: true,
+		},
+		"new schema still has the old property, nothing to reconcile": {
+			oldProjection: map[string]interface{}{
+				"vnetRouteAllEnabled": true,
+			},
+			newProjection: map[string]interface{}{
+				"vnetRouteAllEnabled": true,
+			},
+			shouldContainVnetRouteAllEnabled: true,
+		},
+		"old property absent, no-op": {
+			oldProjection:                    map[string]interface{}{},
+			newProjection:                    map[string]interface{}{},
+			shouldContainVnetRouteAllEnabled: false,
+		},
+	} {
+		t.Run(name, func(t *testing.T) {
+			reconcileVnetRouteAllEnabled(testCase.oldProjection, testCase.newProjection)
+			_, ok := testCase.oldProjection["vnetRouteAllEnabled"]
+			require.Equal(t, testCase.shouldContainVnetRouteAllEnabled, ok)
+		})
+	}
+}
