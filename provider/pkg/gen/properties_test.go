@@ -103,6 +103,17 @@ func TestForceNew(t *testing.T) {
 	})
 }
 
+func TestCaseInsensitiveDiff(t *testing.T) {
+	managedCluster := moduleGenerator{moduleName: "ContainerService", resourceName: "ManagedCluster"}
+	otherResource := moduleGenerator{moduleName: "ContainerService", resourceName: "AgentPool"}
+	otherModule := moduleGenerator{moduleName: "Storage", resourceName: "StorageAccount"}
+
+	assert.True(t, managedCluster.caseInsensitiveDiff("backendPoolType"))
+	assert.False(t, managedCluster.caseInsensitiveDiff("someOtherProperty"))
+	assert.False(t, otherResource.caseInsensitiveDiff("backendPoolType"))
+	assert.False(t, otherModule.caseInsensitiveDiff("backendPoolType"))
+}
+
 func TestIsReadableOutput(t *testing.T) {
 	webApp := moduleGenerator{moduleName: "Web", resourceName: "WebApp"}
 	webAppSlot := moduleGenerator{moduleName: "Web", resourceName: "WebAppSlot"}
