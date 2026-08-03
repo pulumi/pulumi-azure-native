@@ -129,6 +129,28 @@ var caseInsensitiveDiffMap = map[openapi.ModuleName]map[string]codegen.StringSet
 	},
 }
 
+// noDefaultMap is a map of Module Name -> Resource Name -> properties whose spec-declared `default`
+// should be dropped from the generated schema, so the SDKs leave the property out of the request
+// body unless the user assigns it explicitly. Only add an entry here after confirming that Azure
+// rejects (or misbehaves on) receiving the spec's own default value, i.e. that the spec documents a
+// default the RP won't actually accept on the wire for every flavour of the resource.
+var noDefaultMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"Web": {
+		// siteConfig.http20ProxyFlag was added to Microsoft.Web/sites in API version 2024-11-01
+		// with a spec default of 0, which the SDKs then send on every request. Azure Functions on
+		// Azure Container Apps rejects the property outright ("Http20ProxyFlag is not supported for
+		// Azure Functions on Azure Container apps"), so apps with kind
+		// `functionapp,linux,container,azurecontainerapps` started failing to create as soon as the
+		// provider's default Web API version moved past 2024-11-01. Users can't work around it
+		// because an unset (null) input is indistinguishable from an omitted one. See
+		// https://github.com/pulumi/pulumi-azure-native/issues/4782.
+		// Both resources that embed SiteConfig are listed because the type is generated once and
+		// whichever resource's pass reaches it first fixes its shape for both.
+		"WebApp":     codegen.NewStringSet("http20ProxyFlag"),
+		"WebAppSlot": codegen.NewStringSet("http20ProxyFlag"),
+	},
+}
+
 // notRequiredInputsMap is a map of Module Name -> Resource Name -> input properties that the
 // OpenAPI spec marks as required, but that we keep optional in the generated SDK. Only add an
 // entry here after directly verifying (e.g. via a raw ARM REST call or ARM template deployment)
