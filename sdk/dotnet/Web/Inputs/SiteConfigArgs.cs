@@ -510,7 +510,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public SiteConfigArgs()
         {
             Http20Enabled = true;
-            Http20ProxyFlag = 0;
             LocalMySqlEnabled = false;
             NetFrameworkVersion = "v4.6";
         }

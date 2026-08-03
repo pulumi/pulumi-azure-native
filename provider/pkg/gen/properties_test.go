@@ -114,6 +114,20 @@ func TestCaseInsensitiveDiff(t *testing.T) {
 	assert.False(t, otherModule.caseInsensitiveDiff("backendPoolType"))
 }
 
+func TestNoDefault(t *testing.T) {
+	webApp := moduleGenerator{moduleName: "Web", resourceName: "WebApp"}
+	webAppSlot := moduleGenerator{moduleName: "Web", resourceName: "WebAppSlot"}
+	otherResource := moduleGenerator{moduleName: "Web", resourceName: "AppServicePlan"}
+	otherModule := moduleGenerator{moduleName: "Storage", resourceName: "StorageAccount"}
+
+	assert.True(t, webApp.noDefault("http20ProxyFlag"))
+	assert.True(t, webAppSlot.noDefault("http20ProxyFlag"))
+	// Sibling properties of the same type keep their spec defaults.
+	assert.False(t, webApp.noDefault("http20Enabled"))
+	assert.False(t, otherResource.noDefault("http20ProxyFlag"))
+	assert.False(t, otherModule.noDefault("http20ProxyFlag"))
+}
+
 func TestIsReadableOutput(t *testing.T) {
 	webApp := moduleGenerator{moduleName: "Web", resourceName: "WebApp"}
 	webAppSlot := moduleGenerator{moduleName: "Web", resourceName: "WebAppSlot"}
