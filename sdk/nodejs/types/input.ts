@@ -183931,7 +183931,6 @@ export namespace web {
         return {
             ...val,
             http20Enabled: (val.http20Enabled) ?? true,
-            http20ProxyFlag: (val.http20ProxyFlag) ?? 0,
             localMySqlEnabled: (val.localMySqlEnabled) ?? false,
             netFrameworkVersion: (val.netFrameworkVersion) ?? "v4.6",
         };

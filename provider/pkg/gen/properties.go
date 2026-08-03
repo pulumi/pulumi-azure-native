@@ -414,6 +414,13 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		}
 	}
 
+	// Some spec-declared defaults are values Azure itself rejects, so drop them and leave the
+	// property unset unless the user assigns it explicitly (see noDefaultMap).
+	if defaultValue != nil && m.noDefault(name) {
+		logging.V(5).Infof("Dropping default value '%v' for property %q per noDefaultMap\n", defaultValue, name)
+		defaultValue = nil
+	}
+
 	// If there's no object value type, then it's just a set of strings which we'll represent as a string
 	// array in the SDK, but leave the metadata to indicate we need to convert it.
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
@@ -596,6 +603,17 @@ func (m *moduleGenerator) enumOverride(propertyName string) (EnumOverride, bool)
 // notRequiredInputsMap.
 func (m *moduleGenerator) notRequired(propertyName string) bool {
 	if resourceMap, ok := notRequiredInputsMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			return properties.Has(propertyName)
+		}
+	}
+	return false
+}
+
+// noDefault returns true if the OpenAPI spec's default value for propertyName should be dropped
+// on the resource currently being generated, per noDefaultMap.
+func (m *moduleGenerator) noDefault(propertyName string) bool {
+	if resourceMap, ok := noDefaultMap[m.moduleName]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			return properties.Has(propertyName)
 		}

@@ -10505,8 +10505,6 @@ class SiteConfigArgs:
             http20_enabled = True
         if http20_enabled is not None:
             pulumi.set(__self__, "http20_enabled", http20_enabled)
-        if http20_proxy_flag is None:
-            http20_proxy_flag = 0
         if http20_proxy_flag is not None:
             pulumi.set(__self__, "http20_proxy_flag", http20_proxy_flag)
         if http_logging_enabled is not None:
